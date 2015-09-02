@@ -9,11 +9,18 @@
 /* Begin PBXBuildFile section */
 		6E20B2281B87223600E3A8DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B2271B87223600E3A8DA /* main.m */; };
 		6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B22A1B87223600E3A8DA /* AppDelegate.m */; };
-		6E20B22E1B87223600E3A8DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B22D1B87223600E3A8DA /* ViewController.m */; };
-		6E20B2311B87223600E3A8DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6E20B22F1B87223600E3A8DA /* Main.storyboard */; };
 		6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E20B2321B87223600E3A8DA /* Images.xcassets */; };
 		6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E20B2341B87223600E3A8DA /* LaunchScreen.xib */; };
 		6E20B2421B87223600E3A8DA /* jianfanjiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B2411B87223600E3A8DA /* jianfanjiaTests.m */; };
+		6E7E4A551B95936F00503B35 /* BaseDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E4A541B95936F00503B35 /* BaseDynamicObject.m */; };
+		6E7E4A591B95957100503B35 /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E4A581B95957100503B35 /* NSString+Ex.m */; };
+		6E7E4A5D1B95ACA400503B35 /* NSObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E4A5C1B95ACA400503B35 /* NSObject+Ex.m */; };
+		6EC3A9951B8AF17600A62153 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A9941B8AF17600A62153 /* API.m */; };
+		6EC3A9991B8AF74C00A62153 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A9981B8AF74C00A62153 /* LogFormatter.m */; };
+		6EC3A99D1B8B009D00A62153 /* SendVerifyCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A99C1B8B009D00A62153 /* SendVerifyCode.m */; };
+		6EC3A9A11B8B02D700A62153 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A9A01B8B02D700A62153 /* Login.m */; };
+		6EC3A9A41B8B039000A62153 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A9A31B8B039000A62153 /* BaseRequest.m */; };
+		E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D2BD40530E2CA1D84D921D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +34,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44D2BD40530E2CA1D84D921D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E20B2221B87223600E3A8DA /* jianfanjia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jianfanjia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E20B2261B87223600E3A8DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E20B2271B87223600E3A8DA /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E20B2291B87223600E3A8DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6E20B22A1B87223600E3A8DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		6E20B22C1B87223600E3A8DA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6E20B22D1B87223600E3A8DA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		6E20B2301B87223600E3A8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6E20B2321B87223600E3A8DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6E20B2351B87223600E3A8DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6E20B23B1B87223600E3A8DA /* jianfanjiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jianfanjiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E20B2401B87223600E3A8DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E20B2411B87223600E3A8DA /* jianfanjiaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jianfanjiaTests.m; sourceTree = "<group>"; };
+		6E7E4A531B95936F00503B35 /* BaseDynamicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDynamicObject.h; sourceTree = "<group>"; };
+		6E7E4A541B95936F00503B35 /* BaseDynamicObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDynamicObject.m; sourceTree = "<group>"; };
+		6E7E4A571B95957100503B35 /* NSString+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ex.h"; sourceTree = "<group>"; };
+		6E7E4A581B95957100503B35 /* NSString+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ex.m"; sourceTree = "<group>"; };
+		6E7E4A5A1B95A69000503B35 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		6E7E4A5B1B95ACA400503B35 /* NSObject+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Ex.h"; sourceTree = "<group>"; };
+		6E7E4A5C1B95ACA400503B35 /* NSObject+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Ex.m"; sourceTree = "<group>"; };
+		6EC3A9931B8AF17600A62153 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		6EC3A9941B8AF17600A62153 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		6EC3A9961B8AF1D600A62153 /* Pods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
+		6EC3A9971B8AF74C00A62153 /* LogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogFormatter.h; sourceTree = "<group>"; };
+		6EC3A9981B8AF74C00A62153 /* LogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogFormatter.m; sourceTree = "<group>"; };
+		6EC3A99B1B8B009D00A62153 /* SendVerifyCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendVerifyCode.h; sourceTree = "<group>"; };
+		6EC3A99C1B8B009D00A62153 /* SendVerifyCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendVerifyCode.m; sourceTree = "<group>"; };
+		6EC3A99E1B8B00D500A62153 /* Request.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		6EC3A99F1B8B02D700A62153 /* Login.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Login.h; sourceTree = "<group>"; };
+		6EC3A9A01B8B02D700A62153 /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
+		6EC3A9A21B8B039000A62153 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
+		6EC3A9A31B8B039000A62153 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BFE23DDA1E815FFFBCFFB23F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +93,8 @@
 				6E20B2241B87223600E3A8DA /* jianfanjia */,
 				6E20B23E1B87223600E3A8DA /* jianfanjiaTests */,
 				6E20B2231B87223600E3A8DA /* Products */,
+				99225EC5DB938EF3A2E54410 /* Pods */,
+				94C7F59597BA43E8F719C985 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,11 +110,18 @@
 		6E20B2241B87223600E3A8DA /* jianfanjia */ = {
 			isa = PBXGroup;
 			children = (
+				6E7E4A561B9594F900503B35 /* Extend */,
+				6EC3A9921B8AF13A00A62153 /* API */,
+				6EC3A9911B8AD0BA00A62153 /* Images */,
+				6EC3A9901B8AD09700A62153 /* Model */,
+				6EC3A98F1B8AD08D00A62153 /* Manager */,
+				6EC3A98D1B8AD04E00A62153 /* Business */,
+				6EC3A98C1B8AD00400A62153 /* Util */,
+				6EC3A98B1B8ACFD300A62153 /* Screen */,
 				6E20B2291B87223600E3A8DA /* AppDelegate.h */,
 				6E20B22A1B87223600E3A8DA /* AppDelegate.m */,
-				6E20B22C1B87223600E3A8DA /* ViewController.h */,
-				6E20B22D1B87223600E3A8DA /* ViewController.m */,
-				6E20B22F1B87223600E3A8DA /* Main.storyboard */,
+				6EC3A9961B8AF1D600A62153 /* Pods.h */,
+				6E7E4A5A1B95A69000503B35 /* PrefixHeader.pch */,
 				6E20B2321B87223600E3A8DA /* Images.xcassets */,
 				6E20B2341B87223600E3A8DA /* LaunchScreen.xib */,
 				6E20B2251B87223600E3A8DA /* Supporting Files */,
@@ -119,6 +155,104 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6E7E4A561B9594F900503B35 /* Extend */ = {
+			isa = PBXGroup;
+			children = (
+				6E7E4A571B95957100503B35 /* NSString+Ex.h */,
+				6E7E4A581B95957100503B35 /* NSString+Ex.m */,
+				6E7E4A5B1B95ACA400503B35 /* NSObject+Ex.h */,
+				6E7E4A5C1B95ACA400503B35 /* NSObject+Ex.m */,
+			);
+			path = Extend;
+			sourceTree = "<group>";
+		};
+		6EC3A98B1B8ACFD300A62153 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Screen;
+			sourceTree = "<group>";
+		};
+		6EC3A98C1B8AD00400A62153 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6EC3A9971B8AF74C00A62153 /* LogFormatter.h */,
+				6EC3A9981B8AF74C00A62153 /* LogFormatter.m */,
+				6E7E4A531B95936F00503B35 /* BaseDynamicObject.h */,
+				6E7E4A541B95936F00503B35 /* BaseDynamicObject.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		6EC3A98D1B8AD04E00A62153 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Business;
+			sourceTree = "<group>";
+		};
+		6EC3A98F1B8AD08D00A62153 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Manager;
+			sourceTree = "<group>";
+		};
+		6EC3A9901B8AD09700A62153 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6EC3A9911B8AD0BA00A62153 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		6EC3A9921B8AF13A00A62153 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				6EC3A99A1B8B005600A62153 /* Request */,
+				6EC3A9931B8AF17600A62153 /* API.h */,
+				6EC3A9941B8AF17600A62153 /* API.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		6EC3A99A1B8B005600A62153 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				6EC3A9A21B8B039000A62153 /* BaseRequest.h */,
+				6EC3A9A31B8B039000A62153 /* BaseRequest.m */,
+				6EC3A99E1B8B00D500A62153 /* Request.h */,
+				6EC3A99B1B8B009D00A62153 /* SendVerifyCode.h */,
+				6EC3A99C1B8B009D00A62153 /* SendVerifyCode.m */,
+				6EC3A99F1B8B02D700A62153 /* Login.h */,
+				6EC3A9A01B8B02D700A62153 /* Login.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		94C7F59597BA43E8F719C985 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44D2BD40530E2CA1D84D921D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		99225EC5DB938EF3A2E54410 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BFE23DDA1E815FFFBCFFB23F /* Pods.debug.xcconfig */,
+				87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +260,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6E20B2451B87223600E3A8DA /* Build configuration list for PBXNativeTarget "jianfanjia" */;
 			buildPhases = (
+				DBBD693A72C9C34E5D2A2630 /* Check Pods Manifest.lock */,
 				6E20B21E1B87223600E3A8DA /* Sources */,
 				6E20B21F1B87223600E3A8DA /* Frameworks */,
 				6E20B2201B87223600E3A8DA /* Resources */,
+				9AFC9C1A571D6943DADE0B4F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -199,7 +335,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E20B2311B87223600E3A8DA /* Main.storyboard in Resources */,
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */,
 			);
@@ -214,14 +349,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9AFC9C1A571D6943DADE0B4F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBBD693A72C9C34E5D2A2630 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6E20B21E1B87223600E3A8DA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6E20B22E1B87223600E3A8DA /* ViewController.m in Sources */,
+				6E7E4A5D1B95ACA400503B35 /* NSObject+Ex.m in Sources */,
+				6EC3A9951B8AF17600A62153 /* API.m in Sources */,
+				6EC3A99D1B8B009D00A62153 /* SendVerifyCode.m in Sources */,
 				6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */,
+				6EC3A9A11B8B02D700A62153 /* Login.m in Sources */,
+				6E7E4A591B95957100503B35 /* NSString+Ex.m in Sources */,
+				6EC3A9A41B8B039000A62153 /* BaseRequest.m in Sources */,
+				6E7E4A551B95936F00503B35 /* BaseDynamicObject.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
+				6EC3A9991B8AF74C00A62153 /* LogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,14 +419,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6E20B22F1B87223600E3A8DA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6E20B2301B87223600E3A8DA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		6E20B2341B87223600E3A8DA /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -347,8 +514,10 @@
 		};
 		6E20B2461B87223600E3A8DA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BFE23DDA1E815FFFBCFFB23F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = jianfanjia/PrefixHeader.pch;
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -359,8 +528,10 @@
 		};
 		6E20B2471B87223600E3A8DA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = jianfanjia/PrefixHeader.pch;
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -422,6 +593,7 @@
 				6E20B2471B87223600E3A8DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6E20B2481B87223600E3A8DA /* Build configuration list for PBXNativeTarget "jianfanjiaTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +602,7 @@
 				6E20B24A1B87223600E3A8DA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

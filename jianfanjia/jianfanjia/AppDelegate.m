@@ -7,6 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "LogFormatter.h"
+
+#import "API.h"
 
 @interface AppDelegate ()
 
@@ -14,10 +17,37 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self initLog];
+    
+    Login *login = [[Login alloc] init];
+    [login setPhone:@"18107218595"];
+    [login setPass:@"654321"];
+    
+    DDLogDebug(@"%@", login);
+    [API login:login success:^{} failure:^{}];
+    [API getUserRequirementSuccess:nil failure:nil];
     return YES;
+}
+
+- (void)initLog {
+    LogFormatter *formatter = [[LogFormatter alloc] init];
+    
+    [[DDASLLogger sharedInstance] setLogFormatter:formatter];
+    [[DDTTYLogger sharedInstance] setLogFormatter:formatter];
+    
+    DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
+    fileLogger.rollingFrequency = 5*60;
+    fileLogger.logFileManager.maximumNumberOfLogFiles = 4;
+    [fileLogger setLogFormatter:formatter];
+    
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+    [DDLog addLogger:fileLogger];
+    
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
