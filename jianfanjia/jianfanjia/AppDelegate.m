@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LogFormatter.h"
+#import "LoginViewController.h"
 
 #import "API.h"
 
@@ -21,13 +22,16 @@
     // Override point for customization after application launch.
     [self initLog];
     
-    Login *login = [[Login alloc] init];
-    [login setPhone:@"18107218595"];
-    [login setPass:@"654321"];
-    
-    DDLogDebug(@"%@", login);
-    [API login:login success:^{} failure:^{}];
-    [API getUserRequirementSuccess:nil failure:nil];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[LoginViewController alloc] initWithNibName:nil bundle:nil];
+    [self.window makeKeyAndVisible];
+//    Login *login = [[Login alloc] init];
+//    [login setPhone:@"18107218595"];
+//    [login setPass:@"654321"];
+//    
+//    DDLogDebug(@"%@", login);
+//    [API login:login success:^{} failure:^{}];
+//    [API getUserRequirementSuccess:nil failure:nil];
     return YES;
 }
 
@@ -70,6 +74,10 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
++ (AppDelegate *)sharedInstance {
+    return [UIApplication sharedApplication].delegate;
 }
 
 @end

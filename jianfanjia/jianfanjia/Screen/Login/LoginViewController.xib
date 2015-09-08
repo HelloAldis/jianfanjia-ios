@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -13,7 +14,73 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bg_login.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="A81-TV-CcS">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_loading" translatesAutoresizingMaskIntoConstraints="NO" id="1IB-xy-iak">
+                    <rect key="frame" x="227" y="50" width="147" height="147"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFj-Kc-4IV">
+                    <rect key="frame" x="200" y="512" width="200" height="48"/>
+                    <color key="backgroundColor" red="0.99607843137254903" green="0.4392156862745098" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="hCE-6N-xba"/>
+                        <constraint firstAttribute="width" constant="200" id="iVV-A2-W2l"/>
+                    </constraints>
+                    <state key="normal" title="登录">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2M-jo-bza">
+                    <rect key="frame" x="198" y="470" width="48" height="27"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <state key="normal" title="忘记密码">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-MF-3Bz">
+                    <rect key="frame" x="354" y="471" width="48" height="26"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                    <state key="normal" title="立即注册">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="import_login" translatesAutoresizingMaskIntoConstraints="NO" id="pfv-qT-EOC">
+                    <rect key="frame" x="200" y="414" width="200" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="VRf-oP-NJU"/>
+                        <constraint firstAttribute="width" constant="200" id="lgF-8z-AUl"/>
+                    </constraints>
+                </imageView>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="IFj-Kc-4IV" firstAttribute="top" secondItem="pfv-qT-EOC" secondAttribute="bottom" constant="50" id="0Je-SR-ayJ"/>
+                <constraint firstAttribute="centerX" secondItem="IFj-Kc-4IV" secondAttribute="centerX" id="0lu-99-VVD"/>
+                <constraint firstAttribute="centerX" secondItem="1IB-xy-iak" secondAttribute="centerX" id="83n-Gy-y5F"/>
+                <constraint firstItem="A81-TV-CcS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="AMb-g9-sKt"/>
+                <constraint firstItem="1IB-xy-iak" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="CNh-Ji-Fvg"/>
+                <constraint firstAttribute="trailing" secondItem="A81-TV-CcS" secondAttribute="trailing" id="CfI-Xz-CMu"/>
+                <constraint firstItem="IFj-Kc-4IV" firstAttribute="leading" secondItem="F2M-jo-bza" secondAttribute="leading" constant="2" id="IOE-eo-UnO"/>
+                <constraint firstItem="IFj-Kc-4IV" firstAttribute="trailing" secondItem="CgD-MF-3Bz" secondAttribute="trailing" constant="-2" id="Q7W-UW-eaX"/>
+                <constraint firstItem="IFj-Kc-4IV" firstAttribute="top" secondItem="F2M-jo-bza" secondAttribute="bottom" constant="15" id="e87-7E-MND"/>
+                <constraint firstItem="A81-TV-CcS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="f0P-G5-Dh1"/>
+                <constraint firstItem="IFj-Kc-4IV" firstAttribute="top" secondItem="CgD-MF-3Bz" secondAttribute="bottom" constant="15" id="kET-Is-82V"/>
+                <constraint firstAttribute="bottom" secondItem="A81-TV-CcS" secondAttribute="bottom" id="l6J-47-3aa"/>
+                <constraint firstAttribute="bottom" secondItem="IFj-Kc-4IV" secondAttribute="bottom" constant="40" id="moy-2N-wTu"/>
+                <constraint firstAttribute="centerX" secondItem="pfv-qT-EOC" secondAttribute="centerX" id="qEj-bB-KXN"/>
+            </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="295" y="422"/>
         </view>
     </objects>
+    <resources>
+        <image name="Bg_login.jpg" width="1242" height="2208"/>
+        <image name="import_login" width="293" height="47"/>
+        <image name="logo_loading" width="147" height="147"/>
+    </resources>
 </document>
