@@ -29,6 +29,7 @@
 		6EC3A99D1B8B009D00A62153 /* SendVerifyCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A99C1B8B009D00A62153 /* SendVerifyCode.m */; };
 		6EC3A9A11B8B02D700A62153 /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A9A01B8B02D700A62153 /* Login.m */; };
 		6EC3A9A41B8B039000A62153 /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A9A31B8B039000A62153 /* BaseRequest.m */; };
+		6ED8C8B51BA020DA0034C9F8 /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED8C8B41BA020DA0034C9F8 /* UIView+Ex.m */; };
 		E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D2BD40530E2CA1D84D921D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,8 @@
 		6EC3A9A01B8B02D700A62153 /* Login.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Login.m; sourceTree = "<group>"; };
 		6EC3A9A21B8B039000A62153 /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		6EC3A9A31B8B039000A62153 /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
+		6ED8C8B31BA020DA0034C9F8 /* UIView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ex.h"; sourceTree = "<group>"; };
+		6ED8C8B41BA020DA0034C9F8 /* UIView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ex.m"; sourceTree = "<group>"; };
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BFE23DDA1E815FFFBCFFB23F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -184,6 +187,8 @@
 		6E7E4A561B9594F900503B35 /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				6ED8C8B31BA020DA0034C9F8 /* UIView+Ex.h */,
+				6ED8C8B41BA020DA0034C9F8 /* UIView+Ex.m */,
 				6E7E4A571B95957100503B35 /* NSString+Ex.h */,
 				6E7E4A581B95957100503B35 /* NSString+Ex.m */,
 				6E7E4A5B1B95ACA400503B35 /* NSObject+Ex.h */,
@@ -448,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ED8C8B51BA020DA0034C9F8 /* UIView+Ex.m in Sources */,
 				6E7E4A5D1B95ACA400503B35 /* NSObject+Ex.m in Sources */,
 				6EC3A9951B8AF17600A62153 /* API.m in Sources */,
 				6E7E4A7A1B9C280200503B35 /* CacheManager.m in Sources */,

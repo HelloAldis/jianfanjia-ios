@@ -12,5 +12,5 @@
 
 @interface ViewControllerContainer : NSObject
 
-
++ (void)showAfterLanching;
 @end

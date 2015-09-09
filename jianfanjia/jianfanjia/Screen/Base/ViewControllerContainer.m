@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
 #import "UserDefaultManager.h"
+#import "WelcomeViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -34,11 +35,14 @@ static ViewControllerContainer *container;
     return self;
 }
 
-- (void)showAfterLanching {
++ (void)showAfterLanching {
     if ([UserDefaultManager welcomeVersion] < WELCOME_VERSION) {
         //显示welcome
+        WelcomeViewController *pages =[[WelcomeViewController alloc] initWithNibName:nil bundle:nil];
+        container.window.rootViewController = pages;
     } else if ([UserDefaultManager isLogin]) {
         //显示首页
+
     } else {
         //显示登录
     }

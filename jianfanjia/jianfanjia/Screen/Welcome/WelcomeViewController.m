@@ -7,6 +7,7 @@
 //
 
 #import "WelcomeViewController.h"
+#import "UIView+Ex.h"
 
 @interface WelcomeViewController ()
 
@@ -16,22 +17,55 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self.btnSignup setCornerRadius:5];
+    [self.btnSignup setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
+    [self.btnLogin setCornerRadius:5];
+    
+    UIImageView *w1 = [[UIImageView alloc] initWithFrame:SCREEN_FULL_FRAME];
+    [w1 setContentMode:UIViewContentModeScaleAspectFill];
+    w1.image = [UIImage imageNamed:@"welcome_1"];
+     UIImageView *w2 = [[UIImageView alloc] initWithFrame:SCREEN_FULL_FRAME];
+    [w2 setContentMode:UIViewContentModeScaleAspectFill];
+    w2.image = [UIImage imageNamed:@"welcome_2"];
+    w2.frame = CGRectOffset(w2.frame, SCREEN_WIDTH, 0);
+    UIImageView *w3 = [[UIImageView alloc] initWithFrame:SCREEN_FULL_FRAME];
+    [w3 setContentMode:UIViewContentModeScaleAspectFill];
+    w3.image = [UIImage imageNamed:@"welcome_3"];
+    w3.frame = CGRectOffset(w3.frame, SCREEN_WIDTH*2, 0);
+    UIImageView *w4 = [[UIImageView alloc] initWithFrame:SCREEN_FULL_FRAME];
+    [w4 setContentMode:UIViewContentModeScaleAspectFill];
+    w4.image = [UIImage imageNamed:@"welcome_4"];
+    w4.frame = CGRectOffset(w4.frame, SCREEN_WIDTH*3, 0);
+    
+    [self.scrollView addSubview:w1];
+    [self.scrollView addSubview:w2];
+    [self.scrollView addSubview:w3];
+    [self.scrollView addSubview:w4];
+    [self.scrollView setContentSize:CGSizeMake(SCREEN_WIDTH *4, SCREEN_HEIGHT)];
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
 }
-*/
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSInteger index = self.scrollView.contentOffset.x/SCREEN_WIDTH;
+    self.pageControl.currentPage = index;
+    if (index == 3) {
+        self.pageControl.hidden = YES;
+        self.btnLogin.hidden = NO;
+        self.btnSignup.hidden = NO;
+    } else {
+        self.pageControl.hidden = NO;
+        self.btnSignup.hidden = YES;
+        self.btnLogin.hidden = YES;
+    }
+    
+}
 
 @end

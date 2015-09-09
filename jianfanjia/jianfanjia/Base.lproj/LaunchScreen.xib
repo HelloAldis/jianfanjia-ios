@@ -11,11 +11,11 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bg_loading.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="tvr-zu-5jJ">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_loading" translatesAutoresizingMaskIntoConstraints="NO" id="tvr-zu-5jJ">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_loading" translatesAutoresizingMaskIntoConstraints="NO" id="pyQ-LN-01p">
-                    <rect key="frame" x="167" y="50" width="147" height="147"/>
+                    <rect key="frame" x="178" y="50" width="125" height="132"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -27,13 +27,13 @@
                 <constraint firstAttribute="centerX" secondItem="pyQ-LN-01p" secondAttribute="centerX" id="fqj-Ph-2JS"/>
                 <constraint firstAttribute="trailing" secondItem="tvr-zu-5jJ" secondAttribute="trailing" id="lFC-cO-IcZ"/>
             </constraints>
-            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
     <resources>
-        <image name="Bg_loading.jpg" width="1242" height="2208"/>
-        <image name="logo_loading" width="147" height="147"/>
+        <image name="bg_loading" width="320" height="569"/>
+        <image name="logo_loading" width="125" height="132"/>
     </resources>
 </document>

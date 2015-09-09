@@ -10,4 +10,8 @@
 
 @implementation BaseViewController
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 @end

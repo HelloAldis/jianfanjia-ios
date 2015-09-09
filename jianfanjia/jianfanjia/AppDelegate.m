@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "LogFormatter.h"
-#import "LoginViewController.h"
+#import "ViewControllerContainer.h"
 
 #import "API.h"
 
@@ -22,8 +22,8 @@
     // Override point for customization after application launch.
     [self initLog];
     
-    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController = [[LoginViewController alloc] initWithNibName:nil bundle:nil];
+    self.window = [[UIWindow alloc] initWithFrame:SCREEN_FULL_FRAME];
+    [ViewControllerContainer showAfterLanching];
     [self.window makeKeyAndVisible];
 //    Login *login = [[Login alloc] init];
 //    [login setPhone:@"18107218595"];

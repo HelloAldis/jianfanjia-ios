@@ -10,5 +10,9 @@
 #define jianfanjia_App_h
 
 #define WELCOME_VERSION 1
+#define SCREEN_FULL_FRAME [UIScreen mainScreen].bounds
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
 
 #endif

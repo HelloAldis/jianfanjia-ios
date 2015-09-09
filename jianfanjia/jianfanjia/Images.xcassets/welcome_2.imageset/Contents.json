@@ -7,12 +7,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "logo_loading@2x.png"
+      "filename" : "bg_welcome2@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "logo_loading@3x.png"
+      "filename" : "Bg_welcome2.jpg"
     }
   ],
   "info" : {

@@ -15,11 +15,11 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bg_login.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="A81-TV-CcS">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_login" translatesAutoresizingMaskIntoConstraints="NO" id="A81-TV-CcS">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_loading" translatesAutoresizingMaskIntoConstraints="NO" id="1IB-xy-iak">
-                    <rect key="frame" x="227" y="50" width="147" height="147"/>
+                    <rect key="frame" x="238" y="50" width="125" height="132"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFj-Kc-4IV">
                     <rect key="frame" x="200" y="512" width="200" height="48"/>
@@ -79,8 +79,8 @@
         </view>
     </objects>
     <resources>
-        <image name="Bg_login.jpg" width="1242" height="2208"/>
+        <image name="bg_login" width="320" height="569"/>
         <image name="import_login" width="293" height="47"/>
-        <image name="logo_loading" width="147" height="147"/>
+        <image name="logo_loading" width="125" height="132"/>
     </resources>
 </document>
