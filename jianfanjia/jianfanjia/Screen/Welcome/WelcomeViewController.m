@@ -8,6 +8,7 @@
 
 #import "WelcomeViewController.h"
 #import "UIView+Ex.h"
+#import "ViewControllerContainer.h"
 
 @interface WelcomeViewController ()
 
@@ -42,7 +43,6 @@
     [self.scrollView addSubview:w3];
     [self.scrollView addSubview:w4];
     [self.scrollView setContentSize:CGSizeMake(SCREEN_WIDTH *4, SCREEN_HEIGHT)];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,6 +65,13 @@
         self.btnSignup.hidden = YES;
         self.btnLogin.hidden = YES;
     }
+}
+
+- (IBAction)onClickLogin:(id)sender {
+    [ViewControllerContainer showLogin];
+}
+
+- (IBAction)onClickSignup:(id)sender {
     
 }
 

@@ -11,10 +11,12 @@
 #import <UIKit/UIKit.h>
 #import "UserDefaultManager.h"
 #import "WelcomeViewController.h"
+#import "LoginViewController.h"
 
 @interface ViewControllerContainer ()
 
 @property(weak, nonatomic) UIWindow *window;
+@property(weak, nonatomic) UINavigationController *nav;
 
 @end
 
@@ -30,6 +32,7 @@ static ViewControllerContainer *container;
 - (instancetype)init {
     if (self = [super init]) {
         self.window = [AppDelegate sharedInstance].window;
+        
     }
     
     return self;
@@ -42,10 +45,15 @@ static ViewControllerContainer *container;
         container.window.rootViewController = pages;
     } else if ([UserDefaultManager isLogin]) {
         //显示首页
-
+        
     } else {
         //显示登录
     }
+}
+
++ (void) showLogin {
+    container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:
+                                           [[LoginViewController alloc] initWithNibName:nil bundle:nil]];
 }
 
 

@@ -13,4 +13,6 @@
 @interface ViewControllerContainer : NSObject
 
 + (void)showAfterLanching;
++ (void) showLogin;
+
 @end
