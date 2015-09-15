@@ -8,8 +8,6 @@
 
 #import "BaseDynamicObject.h"
 #import "objc/runtime.h"
-#import "NSString+Ex.h"
-#import "NSObject+Ex.h"
 
 @interface BaseDynamicObject ()
 

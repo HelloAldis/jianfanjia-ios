@@ -31,6 +31,7 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.0.1):
     - CocoaLumberjack/Default
+  - MBProgressHUD (0.9.1)
   - MJRefresh (2.4.7)
   - MMDrawerController (0.6.0):
     - MMDrawerController/Core (= 0.6.0)
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - AFNetworkActivityLogger (~> 2.0)
   - AFNetworking (~> 2.0)
   - CocoaLumberjack
+  - MBProgressHUD (~> 0.9.1)
   - MJRefresh (~> 2.4.7)
   - MMDrawerController (~> 0.6.0)
   - SDWebImage (~> 3.6)
@@ -60,6 +62,7 @@ SPEC CHECKSUMS:
   AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
   AFNetworking: 79f7eb1a0fcfa7beb409332b2ca49afe9ce53b05
   CocoaLumberjack: 019d1361244274a6138c788c6cb80baabc13fb8f
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
   MJRefresh: 6eb2f61338f89f64fd628fd43debcf479381ff59
   MMDrawerController: e3a54a5570388463ad3b36975251575b50c4e1a0
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

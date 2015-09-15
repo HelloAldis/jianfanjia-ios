@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseDynamicObject.h"
 
 @interface BaseRequest : BaseDynamicObject
 

@@ -7,7 +7,6 @@
 //
 
 #import "API.h"
-#import "Pods.h"
 
 
 static AFHTTPRequestOperationManager *_manager;
@@ -33,9 +32,15 @@ static AFHTTPRequestOperationManager *_manager;
     [_manager POST:url
        parameters:data
           success:^(AFHTTPRequestOperation *operation, id responseObject){
+              if (success) {
+                  success();
+              }
               
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              if (failure) {
+                  failure();
+              }
           }];
 }
 

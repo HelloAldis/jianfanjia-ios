@@ -7,7 +7,8 @@
 //
 
 #import "LoginViewController.h"
-#import "UIView+Ex.h"
+#import "API.h"
+#import "LoginBusiness.h"
 
 @interface LoginViewController ()
 
@@ -55,7 +56,7 @@
     
     // get keybord anmation duration
     NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    self.loginConstraint.constant += keyboardRect.size.height;
+    self.loginConstraint.constant += (keyboardRect.size.height - 50);
     
     [UIView animateWithDuration:animationDuration
                           delay:0 usingSpringWithDamping:1.0
@@ -63,13 +64,7 @@
                         options:UIViewAnimationOptionCurveLinear animations:^{
                             [self.view layoutIfNeeded];
                         } completion:nil];
-//
-//    [UIView transitionWithView:self.btnLogin
-//                      duration:animationDuration
-//                       options:UIViewAnimationOptionCurveLinear animations:^{
-//                         self.loginConstraint.constant += keyboardRect.size.height;
-//                           [self.view layoutIfNeeded];
-//    } completion:nil];
+
 }
 
 - (void) keyboardWillHide:(NSNotification *)notification {
@@ -81,18 +76,16 @@
     // get keybord anmation duration
     NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
-//    [UIView animateWithDuration:animationDuration animations:^{
-//        self.loginConstraint.constant -= keyboardRect.size.height;
-//    }];
-    
-    [UIView animateWithDuration:5
+    self.loginConstraint.constant -= (keyboardRect.size.height - 50);
+    [UIView animateWithDuration:animationDuration
                           delay:0 usingSpringWithDamping:1.0
           initialSpringVelocity:1.0
                         options:UIViewAnimationOptionCurveLinear animations:^{
-                            self.loginConstraint.constant -= keyboardRect.size.height;
+                            [self.view layoutIfNeeded];
                         } completion:nil];
 
 }
+
 - (IBAction)onClickForgetPass:(id)sender {
     
 }
@@ -102,7 +95,30 @@
 }
 
 - (IBAction)onClickLogin:(id)sender {
-
+    Login *login = [[Login alloc] init];
+    
+    [login setPhone:[self.fldPhone.text trim]];
+    [login setPass:[self.fldPassword.text trim]];
+    
+//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [API login:login success:^{
+        [HUDUtil showText:@"错误"];
+    } failure:^{
+        
+    }];
 }
+
+#pragma mark - textfield delegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    textField.text = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    self.btnLogin.enabled = [LoginBusiness validateLogin:self.fldPhone.text pass:self.fldPassword.text];
+    return NO;
+}
+
+
+
+
+
 
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "LogFormatter.h"
 #import "ViewControllerContainer.h"
 
 #import "API.h"

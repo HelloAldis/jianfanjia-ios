@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <CommonCrypto/CommonHMAC.h>
 
 @interface NSString (EX)
 
 - (NSString *)lowercaseFirstLetterString;
--(NSString *)substringWithoutLast:(NSUInteger)last;
+- (NSString *)substringWithoutLast:(NSUInteger)last;
+- (BOOL)isEmpty;
+- (NSString *)trim;
 
 @end

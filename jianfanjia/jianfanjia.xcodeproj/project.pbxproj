@@ -12,6 +12,8 @@
 		6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E20B2321B87223600E3A8DA /* Images.xcassets */; };
 		6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E20B2341B87223600E3A8DA /* LaunchScreen.xib */; };
 		6E20B2421B87223600E3A8DA /* jianfanjiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B2411B87223600E3A8DA /* jianfanjiaTests.m */; };
+		6E7866F71BA820BE00DE8B1B /* HUDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7866F61BA820BE00DE8B1B /* HUDUtil.m */; };
+		6E7866FA1BA822BE00DE8B1B /* LoginBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7866F91BA822BE00DE8B1B /* LoginBusiness.m */; };
 		6E7E4A551B95936F00503B35 /* BaseDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E4A541B95936F00503B35 /* BaseDynamicObject.m */; };
 		6E7E4A591B95957100503B35 /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E4A581B95957100503B35 /* NSString+Ex.m */; };
 		6E7E4A5D1B95ACA400503B35 /* NSObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E4A5C1B95ACA400503B35 /* NSObject+Ex.m */; };
@@ -55,6 +57,12 @@
 		6E20B23B1B87223600E3A8DA /* jianfanjiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jianfanjiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E20B2401B87223600E3A8DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E20B2411B87223600E3A8DA /* jianfanjiaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = jianfanjiaTests.m; sourceTree = "<group>"; };
+		6E7866F51BA820BE00DE8B1B /* HUDUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDUtil.h; sourceTree = "<group>"; };
+		6E7866F61BA820BE00DE8B1B /* HUDUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDUtil.m; sourceTree = "<group>"; };
+		6E7866F81BA822BE00DE8B1B /* LoginBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginBusiness.h; sourceTree = "<group>"; };
+		6E7866F91BA822BE00DE8B1B /* LoginBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginBusiness.m; sourceTree = "<group>"; };
+		6E7866FB1BA8270A00DE8B1B /* Ex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Ex.h; sourceTree = "<group>"; };
+		6E7866FC1BA82A4D00DE8B1B /* Util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		6E7E4A531B95936F00503B35 /* BaseDynamicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDynamicObject.h; sourceTree = "<group>"; };
 		6E7E4A541B95936F00503B35 /* BaseDynamicObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDynamicObject.m; sourceTree = "<group>"; };
 		6E7E4A571B95957100503B35 /* NSString+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ex.h"; sourceTree = "<group>"; };
@@ -193,6 +201,7 @@
 				6E7E4A581B95957100503B35 /* NSString+Ex.m */,
 				6E7E4A5B1B95ACA400503B35 /* NSObject+Ex.h */,
 				6E7E4A5C1B95ACA400503B35 /* NSObject+Ex.m */,
+				6E7866FB1BA8270A00DE8B1B /* Ex.h */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -243,8 +252,11 @@
 			children = (
 				6EC3A9971B8AF74C00A62153 /* LogFormatter.h */,
 				6EC3A9981B8AF74C00A62153 /* LogFormatter.m */,
+				6E7866F51BA820BE00DE8B1B /* HUDUtil.h */,
+				6E7866F61BA820BE00DE8B1B /* HUDUtil.m */,
 				6E7E4A531B95936F00503B35 /* BaseDynamicObject.h */,
 				6E7E4A541B95936F00503B35 /* BaseDynamicObject.m */,
+				6E7866FC1BA82A4D00DE8B1B /* Util.h */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -252,8 +264,10 @@
 		6EC3A98D1B8AD04E00A62153 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				6E7866F81BA822BE00DE8B1B /* LoginBusiness.h */,
+				6E7866F91BA822BE00DE8B1B /* LoginBusiness.m */,
 			);
-			name = Business;
+			path = Business;
 			sourceTree = "<group>";
 		};
 		6EC3A98F1B8AD08D00A62153 /* Manager */ = {
@@ -456,6 +470,7 @@
 				6ED8C8B51BA020DA0034C9F8 /* UIView+Ex.m in Sources */,
 				6E7E4A5D1B95ACA400503B35 /* NSObject+Ex.m in Sources */,
 				6EC3A9951B8AF17600A62153 /* API.m in Sources */,
+				6E7866F71BA820BE00DE8B1B /* HUDUtil.m in Sources */,
 				6E7E4A7A1B9C280200503B35 /* CacheManager.m in Sources */,
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
@@ -471,6 +486,7 @@
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
 				6E7E4A801B9E74D900503B35 /* UserDefaultManager.m in Sources */,
 				6EC3A9991B8AF74C00A62153 /* LogFormatter.m in Sources */,
+				6E7866FA1BA822BE00DE8B1B /* LoginBusiness.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

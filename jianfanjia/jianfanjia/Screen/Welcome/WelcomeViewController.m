@@ -7,7 +7,6 @@
 //
 
 #import "WelcomeViewController.h"
-#import "UIView+Ex.h"
 #import "ViewControllerContainer.h"
 
 @interface WelcomeViewController ()

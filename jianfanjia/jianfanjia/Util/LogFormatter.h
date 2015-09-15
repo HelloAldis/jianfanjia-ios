@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Pods.h"
 
 @interface LogFormatter : NSObject<DDLogFormatter>
 
