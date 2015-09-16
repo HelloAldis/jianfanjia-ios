@@ -12,6 +12,7 @@
 #import "UserDefaultManager.h"
 #import "WelcomeViewController.h"
 #import "LoginViewController.h"
+#import "ProcessViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -45,9 +46,13 @@ static ViewControllerContainer *container;
         container.window.rootViewController = pages;
     } else if ([UserDefaultManager isLogin]) {
         //显示首页
-        
+        [self showLogin];
+        UINavigationController *nav = (UINavigationController *)container.window.rootViewController;
+        ProcessViewController *process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
+        [nav pushViewController:process animated:NO];
     } else {
         //显示登录
+        [self showLogin];
     }
 }
 
@@ -55,6 +60,7 @@ static ViewControllerContainer *container;
     container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:
                                            [[LoginViewController alloc] initWithNibName:nil bundle:nil]];
 }
+
 
 
 @end

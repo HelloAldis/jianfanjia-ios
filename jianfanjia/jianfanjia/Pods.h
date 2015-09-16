@@ -18,5 +18,7 @@
 #import "UIViewController+MMDrawerController.h"
 #import "MJRefresh.h"
 #import "MBProgressHUD.h"
+#import "UIButton+WebCache.h"
+#import "UIImageView+WebCache.h"
 
 #endif

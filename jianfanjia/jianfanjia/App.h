@@ -14,5 +14,7 @@
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
+#define USER_TYPE_USER @"1"
+#define USER_TYPE_DESIGNER @"2"
 
 #endif

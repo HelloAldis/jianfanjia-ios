@@ -11,7 +11,7 @@
 @implementation BaseViewController
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleDefault;
+    return UIStatusBarStyleLightContent;
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

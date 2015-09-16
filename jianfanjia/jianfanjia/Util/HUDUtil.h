@@ -10,6 +10,9 @@
 
 @interface HUDUtil : NSObject
 
-+ (void)showText:(NSString *) text;
++ (void)showErrText:(NSString *) text;
++ (void)showSuccessText:(NSString *) text;
++ (void)showWait;
++ (void)hideWait;
 
 @end

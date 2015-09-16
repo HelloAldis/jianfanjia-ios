@@ -14,5 +14,7 @@
 + (void)setWelcomeVersion:(double)version;
 + (BOOL)isLogin;
 + (void)setLogin:(BOOL)login;
++ (NSString *)usertype;
++ (void)setUsertype:(NSString *)usertype;
 
 @end

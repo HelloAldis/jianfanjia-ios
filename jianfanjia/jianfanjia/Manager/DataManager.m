@@ -8,6 +8,22 @@
 
 #import "DataManager.h"
 
+@interface DataManager ()
+
+@end
+
+static DataManager *dataManager;
+
 @implementation DataManager
+
++ (void)initialize {
+    if(!dataManager) {
+        dataManager = [[DataManager alloc] init];
+    }
+}
+
++ (DataManager *)shared {
+    return dataManager;
+}
 
 @end

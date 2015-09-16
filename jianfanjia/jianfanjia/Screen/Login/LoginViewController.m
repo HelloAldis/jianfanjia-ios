@@ -8,7 +8,8 @@
 
 #import "LoginViewController.h"
 #import "API.h"
-#import "LoginBusiness.h"
+#import "Business.h"
+#import "ProcessViewController.h"
 
 @interface LoginViewController ()
 
@@ -102,9 +103,10 @@
     
 //    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [API login:login success:^{
-        [HUDUtil showText:@"错误"];
+        ProcessViewController * process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:process animated:YES];
     } failure:^{
-        
+        [API getUserRequirement:[GetUserRequirement alloc] success:nil failure:nil];
     }];
 }
 
@@ -112,12 +114,9 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     textField.text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-    self.btnLogin.enabled = [LoginBusiness validateLogin:self.fldPhone.text pass:self.fldPassword.text];
+    self.btnLogin.enabled = [Business validateLogin:self.fldPhone.text pass:self.fldPassword.text];
     return NO;
 }
-
-
-
 
 
 

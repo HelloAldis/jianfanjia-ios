@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LoginBusiness : NSObject
+@interface Business : NSObject
 
 + (BOOL)validateLogin:(NSString *)phone pass:(NSString *)pass;
++ (UIImage *)defaultAvatar;
 
 @end

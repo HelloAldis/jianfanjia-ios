@@ -11,10 +11,26 @@
 
 @implementation HUDUtil
 
-+ (void)showText:(NSString *)text {
++ (void)showErrText:(NSString *)text {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[AppDelegate sharedInstance].window animated:YES];
     hud.mode = MBProgressHUDModeText;
     hud.labelText = text;
+    [hud hide:YES afterDelay:2];
+}
+
++ (void)showSuccessText:(NSString *)text {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[AppDelegate sharedInstance].window animated:YES];
+    hud.mode = MBProgressHUDModeText;
+    hud.labelText = text;
+    [hud hide:YES afterDelay:2];
+}
+
++ (void)showWait {
+    [MBProgressHUD showHUDAddedTo:[AppDelegate sharedInstance].window animated:YES];
+}
+
++ (void)hideWait {
+    [MBProgressHUD hideHUDForView:[AppDelegate sharedInstance].window animated:YES];
 }
 
 @end

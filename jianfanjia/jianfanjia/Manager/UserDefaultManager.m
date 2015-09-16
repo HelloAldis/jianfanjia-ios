@@ -34,4 +34,12 @@
     SET_BOOL(login, @"login");
 }
 
++ (void)setUsertype:(NSString *)usertype {
+    SET_OBJECT(usertype, @"usertype");
+}
+
++ (NSString *)usertype {
+    return GET_OBJECT(@"usertype");
+}
+
 @end

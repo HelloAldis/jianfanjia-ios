@@ -10,4 +10,10 @@
 
 @interface DataManager : NSObject
 
+@property (nonatomic, strong) NSString *errMsg;
+@property (nonatomic, strong) NSDictionary *response;
+
+
++ (DataManager *)shared;
+
 @end

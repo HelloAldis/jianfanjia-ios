@@ -12,5 +12,8 @@
 #import "UIView+Ex.h"
 #import "NSString+Ex.h"
 #import "NSObject+Ex.h"
+#import "UIButton+Ex.h"
+#import "UIImageView+Ex.h"
+
 
 #endif

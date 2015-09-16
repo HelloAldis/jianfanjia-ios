@@ -7,6 +7,7 @@
 //
 
 #import "API.h"
+#import "DataManager.h"
 
 
 static AFHTTPRequestOperationManager *_manager;
@@ -14,46 +15,44 @@ static AFHTTPRequestOperationManager *_manager;
 @implementation API
 
 + (void)initialize {
-    _manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:@"http://127.0.0.1/api/v1/"]];
+    _manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:API_URL]];
     _manager.requestSerializer = [AFJSONRequestSerializer serializer];
 }
 
-+ (void)GET:(NSString *)url success:(void (^)(void))success failure:(void (^)(void))failure {
++ (void)GET:(NSString *)url handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [_manager GET:url
        parameters:nil
           success:^(AFHTTPRequestOperation *operation, id responseObject){
-              
+               [request handle:responseObject success:success failure:failure];
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+              [request handleHttpError:error failure:failure];
           }];
 }
 
-+ (void)POST:(NSString *)url data:(NSDictionary *)data success:(void (^)(void))success failure:(void (^)(void))failure {
++ (void)POST:(NSString *)url data:(NSDictionary *)data handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [request pre];
     [_manager POST:url
        parameters:data
-          success:^(AFHTTPRequestOperation *operation, id responseObject){
-              if (success) {
-                  success();
-              }
-              
+          success:^(AFHTTPRequestOperation *operation, id responseObject) {
+              [request handle:responseObject success:success failure:failure];
+   
           }
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              if (failure) {
-                  failure();
-              }
+              [request handleHttpError:error failure:failure];
           }];
 }
 
 + (void)sendVerifyCode:(SendVerifyCode *)request success:(void (^)(void))success failure:(void (^)(void))failure {
-    [API POST:@"/api/v1/" data:[request data] success:success failure:failure];
+    [API POST:@"/api/v1/" data:[request data] handler:request success:success failure:failure];
 }
 
 + (void)login:(Login *)request success:(void (^)(void))success failure:(void (^)(void))failure {
-    [API POST:@"login" data:[request data] success:success failure:failure];
+    [API POST:@"login" data:[request data] handler:request success:success failure:failure];
 }
 
-+ (void)getUserRequirementSuccess:(void (^)(void))success failure:(void (^)(void))failure {
-    [API GET:@"user/requirement" success:success failure:failure];
++ (void)getUserRequirement:(GetUserRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API GET:@"user/requirement" handler:request success:success failure:failure];
 }
 
 @end
