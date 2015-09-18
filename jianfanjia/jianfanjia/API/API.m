@@ -17,6 +17,7 @@ static AFHTTPRequestOperationManager *_manager;
 + (void)initialize {
     _manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:API_URL]];
     _manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    _manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
 }
 
 + (void)GET:(NSString *)url handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure {
@@ -53,6 +54,10 @@ static AFHTTPRequestOperationManager *_manager;
 
 + (void)getUserRequirement:(GetUserRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API GET:@"user/requirement" handler:request success:success failure:failure];
+}
+
++ (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API GET:@"process/list" handler:request success:success failure:success];
 }
 
 @end

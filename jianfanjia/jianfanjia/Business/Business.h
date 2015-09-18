@@ -12,5 +12,6 @@
 
 + (BOOL)validateLogin:(NSString *)phone pass:(NSString *)pass;
 + (UIImage *)defaultAvatar;
++ (NSInteger)sectionCount;
 
 @end

@@ -10,4 +10,6 @@
 
 @interface SectionCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 @end

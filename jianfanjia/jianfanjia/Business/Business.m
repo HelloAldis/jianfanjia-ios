@@ -24,4 +24,8 @@
     return [UIImage imageNamed:@"default_user_image"];
 }
 
++ (NSInteger)sectionCount {
+    return 7;
+}
+
 @end

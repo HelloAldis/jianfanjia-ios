@@ -17,4 +17,6 @@
 #define USER_TYPE_USER @"1"
 #define USER_TYPE_DESIGNER @"2"
 
+#define THEME_COLOR [UIColor colorWithRed:254/255.0f green:112/255.0f blue:3/255.0f alpha:1.0]
+
 #endif

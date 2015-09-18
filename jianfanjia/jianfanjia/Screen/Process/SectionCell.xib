@@ -14,11 +14,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oIZ-U9-WZr">
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIZ-U9-WZr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="114"/>
                     </scrollView>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="oIZ-U9-WZr" secondAttribute="trailing" id="K2J-06-bHc"/>
+                    <constraint firstAttribute="bottom" secondItem="oIZ-U9-WZr" secondAttribute="bottom" id="Nsq-tT-fyt"/>
+                    <constraint firstItem="oIZ-U9-WZr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Y8w-tR-uGS"/>
+                    <constraint firstItem="oIZ-U9-WZr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gJs-GZ-FSt"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="scrollView" destination="oIZ-U9-WZr" id="C77-9z-Ucx"/>
+            </connections>
             <point key="canvasLocation" x="438" y="379.5"/>
         </tableViewCell>
     </objects>

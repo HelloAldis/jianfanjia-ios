@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Process.h"
 
 @interface DataManager : NSObject
 
 @property (nonatomic, strong) NSString *errMsg;
-@property (nonatomic, strong) NSDictionary *response;
+@property (nonatomic, strong) NSMutableDictionary *response;
+
+@property (nonatomic, strong) NSMutableDictionary *processDict;
 
 
 + (DataManager *)shared;
