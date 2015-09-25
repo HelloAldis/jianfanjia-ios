@@ -8,7 +8,6 @@
 
 #import "SectionCell.h"
 #import "SectionView.h"
-#import "Business.h"
 
 @implementation SectionCell
 

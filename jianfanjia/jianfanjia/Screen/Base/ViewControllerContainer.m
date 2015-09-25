@@ -9,10 +9,11 @@
 #import "ViewControllerContainer.h"
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
-#import "UserDefaultManager.h"
 #import "WelcomeViewController.h"
 #import "LoginViewController.h"
 #import "ProcessViewController.h"
+#import "GVUserDefaults+Manager.h"
+#import "LeftViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -40,25 +41,36 @@ static ViewControllerContainer *container;
 }
 
 + (void)showAfterLanching {
-    if ([UserDefaultManager welcomeVersion] < WELCOME_VERSION) {
+    if ([GVUserDefaults standardUserDefaults].welcomeVersion < WELCOME_VERSION) {
         //显示welcome
         WelcomeViewController *pages =[[WelcomeViewController alloc] initWithNibName:nil bundle:nil];
         container.window.rootViewController = pages;
-    } else if ([UserDefaultManager isLogin]) {
+    } else if ([GVUserDefaults standardUserDefaults].isLogin) {
         //显示首页
-        [self showLogin];
-        UINavigationController *nav = (UINavigationController *)container.window.rootViewController;
-        ProcessViewController *process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
-        [nav pushViewController:process animated:NO];
+        [self showProcess];
     } else {
         //显示登录
         [self showLogin];
     }
 }
 
-+ (void) showLogin {
++ (void)showLogin {
     container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:
                                            [[LoginViewController alloc] initWithNibName:nil bundle:nil]];
+}
+
++ (void)showProcess {
+    LeftViewController *left = [[LeftViewController alloc] initWithNibName:nil bundle:nil];
+    ProcessViewController *process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:process];
+    
+    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:nav leftDrawerViewController:left];
+    [drawer setShowsShadow:NO];
+    [drawer setRestorationIdentifier:@"MMDrawer"];
+    [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
+    container.window.rootViewController = drawer;
 }
 
 

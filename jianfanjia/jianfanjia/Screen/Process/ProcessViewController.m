@@ -10,8 +10,8 @@
 #import "BannerCell.h"
 #import "SectionCell.h"
 #import "ItemCell.h"
-#import "Business.h"
 #import "API.h"
+#import "ProcessCDDao.h"
 
 @interface ProcessViewController ()
 
@@ -28,7 +28,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ItemCell" bundle:nil] forCellReuseIdentifier:@"ItemCell"];
     [self initNav];
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        DDLogDebug(@"it here");
         [self refresh];
     }];
 }
@@ -70,8 +69,11 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    NSArray *arry = [ProcessCDDao find];
+    for (ProcessCD *processCD in arry) {
+        DDLogDebug(@"%@", processCD.process);
+    }
 }
-
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -157,10 +159,38 @@
 }
 
 - (void)refresh {
-    ProcessList *processList = [[ProcessList alloc] init];
-    [API getProcessList:processList success:^{
-        [self.tableView.header endRefreshing];
-    } failure:^{}];
+    GetProcess *request = [[GetProcess alloc] init];
+    request.processid = [GVUserDefaults standardUserDefaults].processid;
+    
+//    [API getProcess:request success:^{
+//        [self.tableView.header endRefreshing];
+//        NSArray *arry = [ProcessCDDao find];
+//        for (ProcessCD *processCD in arry) {
+//            DDLogDebug(@"%@ what 1", processCD.process);
+//            DDLogDebug(@"%@ what 1", processCD.userid);
+//        }
+//        
+//    } failure:^{
+//        
+//    }];
+    
+    NSArray *arry = [ProcessCDDao find];
+    for (ProcessCD *processCD in arry) {
+        DDLogDebug(@"%@ what 2", processCD.process);
+        DDLogDebug(@"%@ what 2", processCD.userid);
+    }
+    
+//    [API getUserRequirement:[[GetUserRequirement alloc] init] success:^{
+//        NSArray *arry = [ProcessCDDao find];
+//        for (ProcessCD *processCD in arry) {
+//            DDLogDebug(@"%@ what 4", processCD.process);
+//        }
+//    } failure:^{
+//        NSArray *arry = [ProcessCDDao find];
+//        for (ProcessCD *processCD in arry) {
+//            DDLogDebug(@"%@ what 5", processCD.process);
+//        }
+//    }];
 }
 
 

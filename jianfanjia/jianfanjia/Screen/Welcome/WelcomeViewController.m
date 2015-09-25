@@ -8,7 +8,7 @@
 
 #import "WelcomeViewController.h"
 #import "ViewControllerContainer.h"
-#import "UserDefaultManager.h"
+#import "GVUserDefaults+Manager.h"
 
 @interface WelcomeViewController ()
 
@@ -44,7 +44,7 @@
     [self.scrollView addSubview:w4];
     [self.scrollView setContentSize:CGSizeMake(SCREEN_WIDTH *4, SCREEN_HEIGHT)];
     
-    [UserDefaultManager setWelcomeVersion:WELCOME_VERSION];
+    [GVUserDefaults standardUserDefaults].welcomeVersion  = WELCOME_VERSION;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

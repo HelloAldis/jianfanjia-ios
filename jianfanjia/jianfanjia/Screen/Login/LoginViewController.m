@@ -8,8 +8,7 @@
 
 #import "LoginViewController.h"
 #import "API.h"
-#import "Business.h"
-#import "ProcessViewController.h"
+#import "ViewControllerContainer.h"
 
 @interface LoginViewController ()
 
@@ -101,12 +100,24 @@
     [login setPhone:[self.fldPhone.text trim]];
     [login setPass:[self.fldPassword.text trim]];
     
-//    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [HUDUtil showWait];
     [API login:login success:^{
-        ProcessViewController * process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
-        [self.navigationController pushViewController:process animated:YES];
+        [API getProcessList:[[ProcessList alloc] init] success:^{
+            GetProcess *request = [[GetProcess alloc] init];
+            request.processid = [GVUserDefaults standardUserDefaults].processid;
+            [API getProcess:request success:^{
+                [HUDUtil hideWait];
+                [GVUserDefaults standardUserDefaults].isLogin = YES;
+                [ViewControllerContainer showProcess];
+            } failure:^{
+                [HUDUtil hideWait];
+            }];
+        } failure:^{
+            [HUDUtil hideWait];
+        }];
+
     } failure:^{
-        [API getUserRequirement:[GetUserRequirement alloc] success:nil failure:nil];
+
     }];
 }
 

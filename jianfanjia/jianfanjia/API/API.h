@@ -17,6 +17,6 @@
 + (void)login:(Login *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)getUserRequirement:(GetUserRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure;
-
++ (void)getProcess:(GetProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 
 @end

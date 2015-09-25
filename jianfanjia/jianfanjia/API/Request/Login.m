@@ -7,6 +7,10 @@
 //
 
 #import "Login.h"
+#import "User.h"
+#import "Designer.h"
+#import "UserCDDao.h"
+#import "DesignerCDDao.h"
 
 @implementation Login
 
@@ -15,19 +19,31 @@
 
 - (void)pre {
     [super pre];
-    [HUDUtil showWait];
-}
-
-- (void)all {
-    [HUDUtil hideWait];
 }
 
 - (void)failure {
+    [HUDUtil hideWait];
     [HUDUtil showErrText:[DataManager shared].errMsg];
 }
 
 - (void)success {
-    [UserDefaultManager setLogin:YES];
+    [GVUserDefaults standardUserDefaults].x = self.phone;
+    [GVUserDefaults standardUserDefaults].xx = self.pass;
+    
+    NSMutableDictionary *dict = [DataManager shared].data;
+    NSString *usertype = [dict objectForKey:@"usertype"];
+    [dict removeObjectForKey:@"usertype"];
+    [GVUserDefaults standardUserDefaults].usertype = usertype;
+    
+    if ([USER_TYPE_USER isEqualToString:usertype]) {
+        User *user = [[User alloc] initWith:dict];
+        [UserCDDao insertOrUpdate:user];
+        [GVUserDefaults standardUserDefaults].userid = [user _id];
+    } else if([USER_TYPE_DESIGNER isEqualToString:usertype]) {
+        Designer *designer = [[Designer alloc] initWith:dict];
+        [DesignerCDDao insertOrUpdate:designer];
+        [GVUserDefaults standardUserDefaults].userid = [designer _id];
+    }
 }
 
 @end

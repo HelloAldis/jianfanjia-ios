@@ -12,10 +12,7 @@
 @interface DataManager : NSObject
 
 @property (nonatomic, strong) NSString *errMsg;
-@property (nonatomic, strong) NSMutableDictionary *response;
-
-@property (nonatomic, strong) NSMutableDictionary *processDict;
-
+@property (nonatomic, strong) id data;
 
 + (DataManager *)shared;
 

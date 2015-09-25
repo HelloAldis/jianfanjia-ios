@@ -13,7 +13,7 @@
 
 - (void)pre {
     [DataManager shared].errMsg = nil;
-    [DataManager shared].response = nil;
+    [DataManager shared].data = nil;
 }
 
 - (void)all {
@@ -29,9 +29,9 @@
 }
 
 - (void)handle:(id)response success:(void (^)(void))success failure:(void (^)(void))failure {
-    [DataManager shared].response = response;
     [DataManager shared].errMsg = [response objectForKey:@"err_msg"];
-    
+    [DataManager shared].data = [response objectForKey:@"data"];
+
     [self all];
     if ([DataManager shared].errMsg) {
         [self failure];
@@ -47,7 +47,7 @@
 }
 
 - (void)handleHttpError:(NSError *)err failure:(void (^)(void))failure {
-    DDLogDebug(@"http error %@", err);
+    [HUDUtil showErrText:@"网络故障"];
 }
 
 @end

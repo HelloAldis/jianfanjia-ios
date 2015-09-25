@@ -24,9 +24,13 @@
     return self;
 }
 
-- (instancetype)initWith:(NSDictionary *)data {
+- (instancetype)initWith:(NSMutableDictionary *)data {
     if (self = [super init]) {
-        _data = [NSMutableDictionary dictionaryWithDictionary:data];
+        if (data) {
+            _data = data;
+        } else {
+            _data = [[NSMutableDictionary alloc] init];
+        }
     }
     
     return self;
@@ -38,6 +42,19 @@
 
 - (id)objectForKey:(NSString *)key {
     return [[self data] objectForKey:key];
+}
+
+- (BaseDynamicObject *)merge:(BaseDynamicObject *)dynamicObject {
+    if (dynamicObject && dynamicObject.data) {
+        [self.data addEntriesFromDictionary:dynamicObject.data];
+        return self;
+    } else {
+        return self;
+    }
+}
+
+- (id)copyWithZone:(NSZone *)zone {
+    return [[[self class] alloc] initWith:self.data];
 }
 
 #pragma mark - Getters and Setters for dynamic properties

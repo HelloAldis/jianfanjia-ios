@@ -60,6 +60,15 @@ static AFHTTPRequestOperationManager *_manager;
     [API GET:@"process/list" handler:request success:success failure:success];
 }
 
++ (void)getProcess:(GetProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    if (request.processid.length > 0) {
+        NSString *url = [NSString stringWithFormat:@"process/%@", request.processid];
+        [API GET:url handler:request success:success failure:success];
+    } else {
+        success();
+    }
+}
+
 @end
 
 

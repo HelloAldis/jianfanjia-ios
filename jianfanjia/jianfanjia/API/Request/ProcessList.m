@@ -7,22 +7,36 @@
 //
 
 #import "ProcessList.h"
+#import "ProcessCDDao.h"
+#import "User.h"
+#import "UserCDDao.h"
+#import "GVUserDefaults+Manager.h"
+
 
 @implementation ProcessList
 
+- (void)failure {
+    [HUDUtil hideWait];
+    [HUDUtil showErrText:[DataManager shared].errMsg];
+}
+
 - (void)success {
-    NSArray * array = [[DataManager shared].response objectForKey:@"data"];
+    NSArray * array = [DataManager shared].data;
     for (NSMutableDictionary *dict in array) {
-        NSString *processid = [dict objectForKey:@"_id"];
-        NSMutableDictionary *user = [dict objectForKey:@"user"];
+        Process *process = [[Process alloc] initWith:dict];
+        
+        NSMutableDictionary *userDict = [dict objectForKey:@"user"];
         [dict removeObjectForKey:@"user"];
-        Process *process = [[DataManager shared].processDict objectForKey:processid];
-        if (process) {
-            [process.data addEntriesFromDictionary:dict];
-        } else {
-            process = [[Process alloc] initWith:dict];
-            [[DataManager shared].processDict setObject:process forKey:processid];
+        
+        if (![GVUserDefaults standardUserDefaults].processid) {
+            [GVUserDefaults standardUserDefaults].processid = process._id;
         }
+        
+        [ProcessCDDao insertOrUpdate:process];
+
+        User *user = [[User alloc] initWith:userDict];
+        [UserCDDao insertOrUpdate:user];
+        
     }
 }
 

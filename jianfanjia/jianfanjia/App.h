@@ -9,14 +9,23 @@
 #ifndef jianfanjia_App_h
 #define jianfanjia_App_h
 
-#define WELCOME_VERSION 1
+#define SYNTHESIZE_SINGLETON_FOR_HEADER(className) \
+\
++ (className *)shared;
+
+#define SYNTHESIZE_SINGLETON_FOR_CLASS(className) \
+\
++ (className *)shared { \
+static className *shared##className = nil; \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+shared##className = [[self alloc] init]; \
+}); \
+return shared##className; \
+}
+
 #define SCREEN_FULL_FRAME [UIScreen mainScreen].bounds
 #define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
-
-#define USER_TYPE_USER @"1"
-#define USER_TYPE_DESIGNER @"2"
-
-#define THEME_COLOR [UIColor colorWithRed:254/255.0f green:112/255.0f blue:3/255.0f alpha:1.0]
 
 #endif

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "DataManager.h"
-#import "UserDefaultManager.h"
+#import "GVUserDefaults+Manager.h"
 
 @interface BaseRequest : BaseDynamicObject
 

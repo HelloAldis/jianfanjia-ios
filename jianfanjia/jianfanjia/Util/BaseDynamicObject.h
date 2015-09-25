@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BaseDynamicObject : NSObject
+@interface BaseDynamicObject : NSObject<NSCopying>
 
 @property(nonatomic, strong, readonly) NSMutableDictionary *data;
 
 - (instancetype)init;
-- (instancetype)initWith:(NSDictionary *)data;
+- (instancetype)initWith:(NSMutableDictionary *)data;
 
-
+- (BaseDynamicObject *)merge:(BaseDynamicObject *)dynamicObject;
 @end
