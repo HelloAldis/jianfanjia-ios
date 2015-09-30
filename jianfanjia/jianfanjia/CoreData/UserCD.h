@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Insert code here to declare functionality of your managed object subclass
 
 - (void)update:(User *)user;
++ (void)insertOrUpdate:(User *)user;
 
 @end
 

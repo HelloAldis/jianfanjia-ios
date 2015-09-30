@@ -14,12 +14,11 @@
 #import "AFNetworkActivityLogger.h"
 #import "UIImageView+WebCache.h"
 #import "CocoaLumberjack.h"
-#import "MMDrawerController.h"
-#import "UIViewController+MMDrawerController.h"
 #import "MJRefresh.h"
 #import "MBProgressHUD.h"
 #import "UIButton+WebCache.h"
 #import "UIImageView+WebCache.h"
 #import "GVUserDefaults.h"
+#import "RESideMenu.h"
 
 #endif

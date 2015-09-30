@@ -8,6 +8,7 @@
 
 #import "Process.h"
 
+
 @implementation Process
 
 @dynamic _id;
@@ -28,5 +29,14 @@
 @dynamic duration;
 @dynamic going_on;
 @dynamic sections;
+
+- (Section *)sectionAtIndex:(NSInteger )index {
+    if (index >= 0 && index < self.sections.count) {
+        NSMutableDictionary *dict = [self.sections objectAtIndex:index];
+        return [[Section alloc] initWith:dict];
+    } else {
+        return nil;
+    }
+}
 
 @end

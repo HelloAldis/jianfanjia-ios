@@ -10,6 +10,4 @@
 
 @interface BannerCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-
 @end

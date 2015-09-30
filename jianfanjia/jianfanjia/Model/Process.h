@@ -7,6 +7,7 @@
 //
 
 #import "BaseModel.h"
+#import "Section.h"
 
 @interface Process : BaseModel
 
@@ -28,5 +29,7 @@
 @property (nonatomic, strong) NSNumber *duration;
 @property (nonatomic, strong) NSString *going_on;
 @property (nonatomic, strong) NSMutableArray *sections;
+
+- (Section *)sectionAtIndex:(NSInteger )index;
 
 @end

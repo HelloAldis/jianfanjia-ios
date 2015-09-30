@@ -8,6 +8,12 @@
 
 #import "SectionView.h"
 
+@interface SectionView()
+
+
+
+@end
+
 @implementation SectionView
 
 + (SectionView *)sectionView {

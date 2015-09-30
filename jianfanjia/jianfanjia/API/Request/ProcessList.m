@@ -7,10 +7,10 @@
 //
 
 #import "ProcessList.h"
-#import "ProcessCDDao.h"
 #import "User.h"
-#import "UserCDDao.h"
 #import "GVUserDefaults+Manager.h"
+#import "UserCD.h"
+#import "ProcessCD.h"
 
 
 @implementation ProcessList
@@ -32,10 +32,10 @@
             [GVUserDefaults standardUserDefaults].processid = process._id;
         }
         
-        [ProcessCDDao insertOrUpdate:process];
+        [ProcessCD insertOrUpdate:process];
 
         User *user = [[User alloc] initWith:userDict];
-        [UserCDDao insertOrUpdate:user];
+        [UserCD insertOrUpdate:user];
         
     }
 }

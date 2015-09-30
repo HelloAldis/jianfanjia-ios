@@ -21,6 +21,7 @@
 - (void)update:(Designer *)designer {
     if (self.designer) {
         [self.designer merge:designer];
+        self.designer =  [self.designer copy];
     } else {
         self.designer = designer;
     }
@@ -28,5 +29,15 @@
     self.designerid = [designer _id];
 }
 
++ (void)insertOrUpdate:(Designer *)designer {
+    DesignerCD *designerCD = [DesignerCD findFirstByAttribute:@"designerid" withValue:designer._id];
+    
+    if (designerCD == nil) {
+        designerCD = [DesignerCD insertOne];
+    }
+    [designerCD update:designer];
+
+    [NSManagedObjectContext save];
+}
 
 @end

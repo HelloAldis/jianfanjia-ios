@@ -85,8 +85,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(CoreDataManager)
   if (!coordinator) {
     return nil;
   }
-//  _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-    _managedObjectContext = [[NSManagedObjectContext alloc] init];
+  _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+//    _managedObjectContext = [[NSManagedObjectContext alloc] init];
   [_managedObjectContext setPersistentStoreCoordinator:coordinator];
   return _managedObjectContext;
 }

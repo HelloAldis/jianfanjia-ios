@@ -11,15 +11,21 @@
 #import "SectionCell.h"
 #import "ItemCell.h"
 #import "API.h"
-#import "ProcessCDDao.h"
+#import "ProcessCD.h"
+#import "GVUserDefaults+Manager.h"
 
 @interface ProcessViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) Process *process;
+@property (assign, nonatomic) NSInteger sectionIndex;
+
 @end
 
 @implementation ProcessViewController
+
+#pragma mark - life cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,20 +36,23 @@
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self refresh];
     }];
+    
+    self.sectionIndex = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.process = [Business defaultProcess];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    //    ProcessCD *processCD = [ProcessCD findFirstByAttribute:@"processid" withValue:[GVUserDefaults standardUserDefaults].processid];
+//    DDLogDebug(@"%@", [Business defaultProcess]);
 }
 
-- (BOOL)prefersStatusBarHidden {
-    return NO;
-}
-
+#pragma mark - UI
 - (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
     return UIStatusBarAnimationFade;
 }
@@ -66,21 +75,18 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    NSArray *arry = [ProcessCDDao find];
-    for (ProcessCD *processCD in arry) {
-        DDLogDebug(@"%@", processCD.process);
-    }
-}
+
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
         return 1;
     } else {
-        return 20;
+        if ([Business hasYs:self.sectionIndex]) {
+            return [self.process sectionAtIndex:self.sectionIndex].items.count + 1;
+        } else {
+            return [self.process sectionAtIndex:self.sectionIndex].items.count;
+        }
     }
 }
 
@@ -93,6 +99,11 @@
         BannerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"BannerCell"];
         return cell;
     } else {
+        if ([Business hasYs:self.sectionIndex]) {
+            return nil;
+        } else {
+            
+        }
         ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
         return cell;
     }
@@ -174,11 +185,8 @@
 //        
 //    }];
     
-    NSArray *arry = [ProcessCDDao find];
-    for (ProcessCD *processCD in arry) {
-        DDLogDebug(@"%@ what 2", processCD.process);
-        DDLogDebug(@"%@ what 2", processCD.userid);
-    }
+    ProcessCD *processCD = [ProcessCD findFirstByAttribute:@"processid" withValue:[GVUserDefaults standardUserDefaults].processid];
+    DDLogDebug(@"%@", processCD.process);
     
 //    [API getUserRequirement:[[GetUserRequirement alloc] init] success:^{
 //        NSArray *arry = [ProcessCDDao find];

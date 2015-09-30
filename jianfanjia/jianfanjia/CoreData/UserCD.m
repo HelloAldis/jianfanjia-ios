@@ -22,11 +22,23 @@
 - (void)update:(User *)user {
     if (self.user) {
         [self.user merge:user];
+        self.user = [self.user copy];
     } else {
         self.user = user;
     }
     
     self.userid = [user _id];
+}
+
++ (void)insertOrUpdate:(User *)user {
+    UserCD *userCD = [UserCD findFirstByAttribute:@"userid" withValue:user._id];
+    
+    if (userCD == nil) {
+        userCD = [UserCD insertOne];
+    }
+    
+    [userCD update:user];
+    [NSManagedObjectContext save];
 }
 
 @end

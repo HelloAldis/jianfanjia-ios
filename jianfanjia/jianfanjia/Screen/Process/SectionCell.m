@@ -8,21 +8,33 @@
 
 #import "SectionCell.h"
 #import "SectionView.h"
+#import "Section.h"
 
 @implementation SectionCell
 
 - (void)awakeFromNib {
     CGFloat width = 0;
     CGFloat height = 0;
-    for (int i = 0; i < [Business sectionCount]; i++) {
+    Process *process= [Business defaultProcess];
+    for (int i = 0; i < [process sections].count; i++) {
         SectionView *view = [SectionView sectionView];
         view.frame = CGRectOffset(view.frame, view.frame.size.width * i , 0);
         [self.scrollView addSubview:view];
         width = view.frame.size.width;
         height = view.frame.size.height;
+        
+        if (i == 0) {
+            view.leftLine.hidden = YES;
+        } else if (i == ([process sections].count - 1)) {
+            view.rightLine.hidden = YES;
+        }
+        
+        Section *section = [process sectionAtIndex:i];
+        view.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%d_%@", i, section.status]];
+        view.nameLabel.text = [Business nameForKey:section.name];
     }
     
-    self.scrollView.contentSize = CGSizeMake(width * [Business sectionCount], height);
+    self.scrollView.contentSize = CGSizeMake(width * [process sections].count, height-1);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

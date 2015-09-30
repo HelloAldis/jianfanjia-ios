@@ -7,6 +7,7 @@
 //
 
 #import "BaseModel.h"
+#import "Item.h"
 
 @interface Section : BaseModel
 
@@ -15,5 +16,7 @@
 @property(nonatomic, strong) NSNumber *end_at;
 @property(nonatomic, strong) NSString *status;
 @property(nonatomic, strong) NSMutableArray *items;
+
+- (Item *)itemAtIndex:(NSInteger )index;
 
 @end

@@ -55,7 +55,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="scrollView" destination="1d7-V1-in0" id="A8x-kU-tWY"/>
+                <outlet property="scrollView" destination="1d7-V1-in0" id="WT5-sU-HEp"/>
             </connections>
             <point key="canvasLocation" x="347" y="318"/>
         </tableViewCell>

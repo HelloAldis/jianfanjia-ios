@@ -31,10 +31,6 @@
 		6E3AE0561BB10C0B00A68597 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AE0551BB10C0B00A68597 /* User.m */; settings = {ASSET_TAGS = (); }; };
 		6E3AE0591BB10C1700A68597 /* Designer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AE0581BB10C1700A68597 /* Designer.m */; settings = {ASSET_TAGS = (); }; };
 		6E3AE05F1BB10C7900A68597 /* DesignerToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AE05E1BB10C7900A68597 /* DesignerToData.m */; settings = {ASSET_TAGS = (); }; };
-		6E3AE0631BB23CF200A68597 /* BaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AE0621BB23CF200A68597 /* BaseDao.m */; settings = {ASSET_TAGS = (); }; };
-		6E3AE0661BB242CF00A68597 /* ProcessCDDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AE0651BB242CF00A68597 /* ProcessCDDao.m */; settings = {ASSET_TAGS = (); }; };
-		6E3AE0691BB2785B00A68597 /* UserCDDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AE0681BB2785B00A68597 /* UserCDDao.m */; settings = {ASSET_TAGS = (); }; };
-		6E3AE06C1BB2795B00A68597 /* DesignerCDDao.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AE06B1BB2795B00A68597 /* DesignerCDDao.m */; settings = {ASSET_TAGS = (); }; };
 		6E3AE06F1BB282B000A68597 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AE06E1BB282B000A68597 /* GVUserDefaults+Manager.m */; settings = {ASSET_TAGS = (); }; };
 		6E3AE0721BB299F000A68597 /* GetProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3AE0711BB299F000A68597 /* GetProcess.m */; settings = {ASSET_TAGS = (); }; };
 		6E7866F71BA820BE00DE8B1B /* HUDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7866F61BA820BE00DE8B1B /* HUDUtil.m */; };
@@ -67,6 +63,8 @@
 		6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E4A7C1B9D325400503B35 /* ViewControllerContainer.m */; };
 		6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E4A871B9EC2D700503B35 /* WelcomeViewController.m */; };
 		6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7E4A881B9EC2D700503B35 /* WelcomeViewController.xib */; };
+		6EA2F38A1BBA1C60008E9CC1 /* NSManagedObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2F3891BBA1C60008E9CC1 /* NSManagedObject+Ex.m */; settings = {ASSET_TAGS = (); }; };
+		6EA2F38D1BBA1D61008E9CC1 /* NSManagedObjectContext+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA2F38C1BBA1D61008E9CC1 /* NSManagedObjectContext+Ex.m */; settings = {ASSET_TAGS = (); }; };
 		6EC3A9951B8AF17600A62153 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A9941B8AF17600A62153 /* API.m */; };
 		6EC3A9991B8AF74C00A62153 /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A9981B8AF74C00A62153 /* LogFormatter.m */; };
 		6EC3A99D1B8B009D00A62153 /* SendVerifyCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EC3A99C1B8B009D00A62153 /* SendVerifyCode.m */; };
@@ -133,14 +131,6 @@
 		6E3AE0581BB10C1700A68597 /* Designer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Designer.m; sourceTree = "<group>"; };
 		6E3AE05D1BB10C7900A68597 /* DesignerToData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerToData.h; sourceTree = "<group>"; };
 		6E3AE05E1BB10C7900A68597 /* DesignerToData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerToData.m; sourceTree = "<group>"; };
-		6E3AE0611BB23CF200A68597 /* BaseDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDao.h; sourceTree = "<group>"; };
-		6E3AE0621BB23CF200A68597 /* BaseDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDao.m; sourceTree = "<group>"; };
-		6E3AE0641BB242CF00A68597 /* ProcessCDDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCDDao.h; sourceTree = "<group>"; };
-		6E3AE0651BB242CF00A68597 /* ProcessCDDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCDDao.m; sourceTree = "<group>"; };
-		6E3AE0671BB2785B00A68597 /* UserCDDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCDDao.h; sourceTree = "<group>"; };
-		6E3AE0681BB2785B00A68597 /* UserCDDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCDDao.m; sourceTree = "<group>"; };
-		6E3AE06A1BB2795B00A68597 /* DesignerCDDao.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerCDDao.h; sourceTree = "<group>"; };
-		6E3AE06B1BB2795B00A68597 /* DesignerCDDao.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerCDDao.m; sourceTree = "<group>"; };
 		6E3AE06D1BB282B000A68597 /* GVUserDefaults+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Manager.h"; sourceTree = "<group>"; };
 		6E3AE06E1BB282B000A68597 /* GVUserDefaults+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Manager.m"; sourceTree = "<group>"; };
 		6E3AE0701BB299F000A68597 /* GetProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetProcess.h; sourceTree = "<group>"; };
@@ -202,6 +192,10 @@
 		6E7E4A861B9EC2D700503B35 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		6E7E4A871B9EC2D700503B35 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		6E7E4A881B9EC2D700503B35 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		6EA2F3881BBA1C60008E9CC1 /* NSManagedObject+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Ex.h"; sourceTree = "<group>"; };
+		6EA2F3891BBA1C60008E9CC1 /* NSManagedObject+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Ex.m"; sourceTree = "<group>"; };
+		6EA2F38B1BBA1D61008E9CC1 /* NSManagedObjectContext+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Ex.h"; sourceTree = "<group>"; };
+		6EA2F38C1BBA1D61008E9CC1 /* NSManagedObjectContext+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Ex.m"; sourceTree = "<group>"; };
 		6EC3A9931B8AF17600A62153 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		6EC3A9941B8AF17600A62153 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		6EC3A9961B8AF1D600A62153 /* Pods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
@@ -309,7 +303,6 @@
 		6E3ADFED1BAFF3D700A68597 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				6E3AE0601BB23CC800A68597 /* Dao */,
 				6E3ADFEE1BAFF44100A68597 /* CoreDataManager.h */,
 				6E3ADFEF1BAFF44100A68597 /* CoreDataManager.m */,
 				6E3AE0391BB1088A00A68597 /* Model.xcdatamodeld */,
@@ -333,22 +326,6 @@
 				6E3AE05E1BB10C7900A68597 /* DesignerToData.m */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		6E3AE0601BB23CC800A68597 /* Dao */ = {
-			isa = PBXGroup;
-			children = (
-				6E3AE0611BB23CF200A68597 /* BaseDao.h */,
-				6E3AE0621BB23CF200A68597 /* BaseDao.m */,
-				6E3AE06A1BB2795B00A68597 /* DesignerCDDao.h */,
-				6E3AE06B1BB2795B00A68597 /* DesignerCDDao.m */,
-				6E3AE0671BB2785B00A68597 /* UserCDDao.h */,
-				6E3AE0681BB2785B00A68597 /* UserCDDao.m */,
-				6E3AE0641BB242CF00A68597 /* ProcessCDDao.h */,
-				6E3AE0651BB242CF00A68597 /* ProcessCDDao.m */,
-			);
-			name = Dao;
-			path = dao;
 			sourceTree = "<group>";
 		};
 		6E7867001BA9143A00DE8B1B /* Process */ = {
@@ -413,6 +390,10 @@
 				6E78671F1BA9739E00DE8B1B /* UIView+Ex.m */,
 				6E7867211BA973BE00DE8B1B /* UIImageView+Ex.h */,
 				6E7867221BA973BE00DE8B1B /* UIImageView+Ex.m */,
+				6EA2F3881BBA1C60008E9CC1 /* NSManagedObject+Ex.h */,
+				6EA2F3891BBA1C60008E9CC1 /* NSManagedObject+Ex.m */,
+				6EA2F38B1BBA1D61008E9CC1 /* NSManagedObjectContext+Ex.h */,
+				6EA2F38C1BBA1D61008E9CC1 /* NSManagedObjectContext+Ex.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -684,6 +665,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EA2F38A1BBA1C60008E9CC1 /* NSManagedObject+Ex.m in Sources */,
 				6E2DCAB41BB5271900591A16 /* Item.m in Sources */,
 				6E7E4A5D1B95ACA400503B35 /* NSObject+Ex.m in Sources */,
 				6E78671D1BA9738400DE8B1B /* UIButton+Ex.m in Sources */,
@@ -701,7 +683,6 @@
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
 				6E3ADFF01BAFF44100A68597 /* CoreDataManager.m in Sources */,
-				6E3AE0631BB23CF200A68597 /* BaseDao.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
 				6E3AE0501BB109C200A68597 /* ProcessToData.m in Sources */,
 				6EC3A99D1B8B009D00A62153 /* SendVerifyCode.m in Sources */,
@@ -728,13 +709,11 @@
 				6E3AE06F1BB282B000A68597 /* GVUserDefaults+Manager.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
 				6E2DCABA1BB53B9C00591A16 /* Ys.m in Sources */,
-				6E3AE06C1BB2795B00A68597 /* DesignerCDDao.m in Sources */,
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
-				6E3AE0691BB2785B00A68597 /* UserCDDao.m in Sources */,
+				6EA2F38D1BBA1D61008E9CC1 /* NSManagedObjectContext+Ex.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
 				6E3AE04B1BB1097E00A68597 /* UserCD.m in Sources */,
 				6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */,
-				6E3AE0661BB242CF00A68597 /* ProcessCDDao.m in Sources */,
 				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,
 				6EC3A9991B8AF74C00A62153 /* LogFormatter.m in Sources */,
 				6E7866FA1BA822BE00DE8B1B /* Business.m in Sources */,
@@ -862,7 +841,7 @@
 				GCC_PREFIX_HEADER = jianfanjia/PrefixHeader.pch;
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jianfanjia.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -877,7 +856,7 @@
 				GCC_PREFIX_HEADER = jianfanjia/PrefixHeader.pch;
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jianfanjia.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -888,10 +867,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -908,10 +884,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = jianfanjiaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jianfanjia.$(PRODUCT_NAME:rfc1034identifier)";

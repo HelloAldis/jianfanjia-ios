@@ -64,13 +64,8 @@ static ViewControllerContainer *container;
     ProcessViewController *process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:process];
     
-    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:nav leftDrawerViewController:left];
-    [drawer setShowsShadow:NO];
-    [drawer setRestorationIdentifier:@"MMDrawer"];
-    [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-    
-    container.window.rootViewController = drawer;
+    RESideMenu *side = [[RESideMenu alloc] initWithContentViewController:nav leftMenuViewController:left rightMenuViewController:nil];
+    container.window.rootViewController = side;
 }
 
 

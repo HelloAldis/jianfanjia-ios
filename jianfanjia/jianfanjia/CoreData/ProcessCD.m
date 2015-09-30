@@ -32,4 +32,15 @@
     self.processid = [process _id];
 }
 
++ (void)insertOrUpdate:(Process *)process {
+    ProcessCD *processCD = [ProcessCD findFirstByAttribute:@"processid" withValue:process._id];
+    
+    if (processCD == nil) {
+        processCD = [ProcessCD insertOne];
+    }
+    [processCD update:process];
+    
+    [NSManagedObjectContext save];
+}
+
 @end

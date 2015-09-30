@@ -8,10 +8,38 @@
 
 #import "ItemCell.h"
 
+@interface ItemCell ()
+
+@property (weak, nonatomic) IBOutlet UIView *statusLine1;
+@property (weak, nonatomic) IBOutlet UIView *statusLine2;
+@property (weak, nonatomic) IBOutlet UIImageView *statusImageView;
+
+
+@property (weak, nonatomic) Process *process;
+@property (assign, nonatomic) NSInteger sectionIndex;
+@property (assign, nonatomic) NSInteger itemIndex;
+
+@end
+
 @implementation ItemCell
 
+#pragma mark - life cycle
 - (void)awakeFromNib {
     // Initialization code
+}
+
+#pragma mark - UI
+
+- (void)initUIWith:(Process *)process sectionIndex:(NSInteger )sectionIndex itemIndex:(NSInteger)itemIndex {
+    self.process = process;
+    self.sectionIndex = sectionIndex;
+    self.itemIndex = itemIndex;
+    
+    Section *section = [process sectionAtIndex:self.sectionIndex];
+    Item *item = [section itemAtIndex:self.itemIndex];
+    
+    
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

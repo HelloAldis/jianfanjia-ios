@@ -9,6 +9,12 @@
 #import "BannerCell.h"
 #import "ProcessViewController.h"
 
+@interface BannerCell()
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
+@end
+
 @implementation BannerCell
 
 - (void)awakeFromNib {
