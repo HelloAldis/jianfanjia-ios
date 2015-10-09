@@ -15,7 +15,7 @@
 - (void)awakeFromNib {
     CGFloat width = 0;
     CGFloat height = 0;
-    Process *process= [Business defaultProcess];
+    Process *process= [ProcessBusiness defaultProcess];
     for (int i = 0; i < [process sections].count; i++) {
         SectionView *view = [SectionView sectionView];
         view.frame = CGRectOffset(view.frame, view.frame.size.width * i , 0);
@@ -31,7 +31,7 @@
         
         Section *section = [process sectionAtIndex:i];
         view.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%d_%@", i, section.status]];
-        view.nameLabel.text = [Business nameForKey:section.name];
+        view.nameLabel.text = [ProcessBusiness nameForKey:section.name];
     }
     
     self.scrollView.contentSize = CGSizeMake(width * [process sections].count, height-1);

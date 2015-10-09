@@ -7,9 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Process.h"
-#import "Section.h"
-#import "Item.h"
 
 @interface ItemCell : UITableViewCell
 

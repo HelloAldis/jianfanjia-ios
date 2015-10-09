@@ -20,6 +20,8 @@
   #import "Ex.h"
   #import "Util.h"
   #import "Business.h"
+  #import "Manager.h"
+  #import "Model.h"
 #endif
 
 //#define DEBUG

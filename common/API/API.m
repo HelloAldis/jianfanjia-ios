@@ -7,7 +7,6 @@
 //
 
 #import "API.h"
-#import "DataManager.h"
 
 
 static AFHTTPRequestOperationManager *_manager;

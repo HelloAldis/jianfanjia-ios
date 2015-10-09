@@ -1,18 +1,16 @@
 //
-//  LoginBusiness.m
+//  ProcessBusiness.m
 //  jianfanjia
 //
-//  Created by JYZ on 15/9/15.
-//  Copyright (c) 2015年 JYZ. All rights reserved.
+//  Created by JYZ on 15/10/9.
+//  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "Business.h"
-#import "GVUserDefaults+Manager.h"
-#import "Process.h"
+#import "ProcessBusiness.h"
 
 static NSDictionary *dictName = nil;
 
-@implementation Business
+@implementation ProcessBusiness
 
 + (void)initialize {
     dictName = @{@"kai_gong":@"开工",
@@ -60,18 +58,7 @@ static NSDictionary *dictName = nil;
                  @"jun_gong":@"竣工"};
 }
 
-+ (BOOL)validateLogin:(NSString *)phone pass:(NSString *)pass {
-    return ![phone isEmpty] && ![pass isEmpty];
-}
 
-+ (UIImage *)defaultAvatar {
-    if ([USER_TYPE_USER isEqualToString: [GVUserDefaults standardUserDefaults].usertype] ) {
-        return [UIImage imageNamed:@"default_user_image"];
-    } else if([USER_TYPE_DESIGNER isEqualToString: [GVUserDefaults standardUserDefaults].usertype]) {
-        return [UIImage imageNamed:@"default_designer_image"];
-    }
-    return [UIImage imageNamed:@"default_user_image"];
-}
 
 + (Process *)defaultProcess {
     NSString *json = @"{\"cell\":\"简繁家\",\"sections\":[{\"name\":\"kai_gong\",\"items\":[{\"name\":\"xcjd\",\"status\":\"0\"},{\"name\":\"sgxcl\",\"status\":\"0\"},{\"name\":\"mdbcl\",\"status\":\"0\"},{\"name\":\"cgdyccl\",\"status\":\"0\"},{\"name\":\"qdzmjcl\",\"status\":\"0\"},{\"name\":\"kgmbslcl\",\"status\":\"0\"}],\"status\":\"0\"},{\"name\":\"chai_gai\",\"items\":[{\"name\":\"cpbh\",\"status\":\"0\"},{\"name\":\"ztcg\",\"status\":\"0\"},{\"name\":\"qpcc\",\"status\":\"0\"}],\"status\":\"0\"},{\"name\":\"shui_dian\",\"items\":[{\"name\":\"sdsg\",\"status\":\"0\"},{\"name\":\"ntsg\",\"status\":\"0\"}],\"status\":\"0\"},{\"name\":\"ni_mu\",\"items\":[{\"name\":\"dmzp\",\"status\":\"0\"},{\"name\":\"ddsg\",\"status\":\"0\"},{\"name\":\"gtsg\",\"status\":\"0\"},{\"name\":\"sgxaz\",\"status\":\"0\"},{\"name\":\"cwqfssg\",\"status\":\"0\"},{\"name\":\"cwqdzsg\",\"status\":\"0\"},{\"name\":\"ktytzsg\",\"status\":\"0\"}],\"status\":\"0\"},{\"name\":\"you_qi\",\"items\":[{\"name\":\"mqqsg\",\"status\":\"2\"},{\"name\":\"qmjccl\",\"status\":\"0\"}],\"status\":\"0\"},{\"name\":\"an_zhuang\",\"items\":[{\"name\":\"mdbmmaz\",\"status\":\"0\"},{\"name\":\"cgscaz\",\"status\":\"0\"},{\"name\":\"mbdjaz\",\"status\":\"0\"},{\"name\":\"yjzjaz\",\"status\":\"0\"},{\"name\":\"scaz\",\"status\":\"0\"},{\"name\":\"cwddaz\",\"status\":\"0\"},{\"name\":\"qzpt\",\"status\":\"0\"},{\"name\":\"snzl\",\"status\":\"0\"},{\"name\":\"jjaz\",\"status\":\"0\"},{\"name\":\"wjaz\",\"status\":\"0\"}],\"status\":\"0\"},{\"name\":\"jun_gong\",\"status\":\"0\"}]}";

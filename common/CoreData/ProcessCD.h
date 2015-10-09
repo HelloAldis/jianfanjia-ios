@@ -1,5 +1,5 @@
 //
-//  UserCD.h
+//  ProcessCD.h
 //  jianfanjia
 //
 //  Created by JYZ on 15/9/22.
@@ -8,19 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-#import "User.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UserCD : NSManagedObject
+@interface ProcessCD : NSManagedObject
 
 // Insert code here to declare functionality of your managed object subclass
 
-- (void)update:(User *)user;
-+ (void)insertOrUpdate:(User *)user;
+- (void)update:(Process *)process;
++ (void)insertOrUpdate:(Process *)process;
 
 @end
 
 NS_ASSUME_NONNULL_END
 
-#import "UserCD+CoreDataProperties.h"
+#import "ProcessCD+CoreDataProperties.h"

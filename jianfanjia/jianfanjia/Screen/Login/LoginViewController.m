@@ -125,7 +125,7 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     textField.text = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
-    self.btnLogin.enabled = [Business validateLogin:self.fldPhone.text pass:self.fldPassword.text];
+    self.btnLogin.enabled = [AccountBusiness validateLogin:self.fldPhone.text pass:self.fldPassword.text];
     return NO;
 }
 

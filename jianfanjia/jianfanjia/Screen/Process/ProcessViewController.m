@@ -12,7 +12,6 @@
 #import "ItemCell.h"
 #import "API.h"
 #import "ProcessCD.h"
-#import "GVUserDefaults+Manager.h"
 
 @interface ProcessViewController ()
 
@@ -42,7 +41,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.process = [Business defaultProcess];
+    self.process = [ProcessBusiness defaultProcess];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -64,7 +63,7 @@
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"translucent"] forBarMetrics:UIBarMetricsDefault];
     UIButton *left = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [left setImageWithId:@"55f681f72d78361a6106bc5f" placeholderImage:[Business defaultAvatar]];
+    [left setImageWithId:@"55f681f72d78361a6106bc5f" placeholderImage:[AccountBusiness defaultAvatar]];
     [left addTarget:self action:@selector(onClickMe) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:left];
@@ -82,7 +81,7 @@
     if (section == 0) {
         return 1;
     } else {
-        if ([Business hasYs:self.sectionIndex]) {
+        if ([ProcessBusiness hasYs:self.sectionIndex]) {
             return [self.process sectionAtIndex:self.sectionIndex].items.count + 1;
         } else {
             return [self.process sectionAtIndex:self.sectionIndex].items.count;
@@ -99,7 +98,7 @@
         BannerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"BannerCell"];
         return cell;
     } else {
-        if ([Business hasYs:self.sectionIndex]) {
+        if ([ProcessBusiness hasYs:self.sectionIndex]) {
             return nil;
         } else {
             

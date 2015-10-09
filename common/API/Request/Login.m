@@ -7,8 +7,6 @@
 //
 
 #import "Login.h"
-#import "User.h"
-#import "Designer.h"
 #import "UserCD.h"
 #import "DesignerCD.h"
 

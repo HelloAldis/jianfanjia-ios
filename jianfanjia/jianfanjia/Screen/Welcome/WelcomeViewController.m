@@ -8,7 +8,6 @@
 
 #import "WelcomeViewController.h"
 #import "ViewControllerContainer.h"
-#import "GVUserDefaults+Manager.h"
 
 @interface WelcomeViewController ()
 

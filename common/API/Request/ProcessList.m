@@ -7,8 +7,6 @@
 //
 
 #import "ProcessList.h"
-#import "User.h"
-#import "GVUserDefaults+Manager.h"
 #import "UserCD.h"
 #import "ProcessCD.h"
 
