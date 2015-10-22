@@ -17,7 +17,7 @@
 }
 
 - (NSURL *)imageurl:(NSString *)imageid {
-    NSString *url = [NSString stringWithFormat:@"%@image/%@", API_URL, imageid];
+    NSString *url = [NSString stringWithFormat:@"%@image/%@", kApiUrl, imageid];
     return [NSURL URLWithString:url];
 }
 

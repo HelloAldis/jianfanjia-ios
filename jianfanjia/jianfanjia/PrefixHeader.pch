@@ -22,6 +22,7 @@
   #import "Business.h"
   #import "Manager.h"
   #import "Model.h"
+  #import "Constant.h"
 #endif
 
 //#define DEBUG

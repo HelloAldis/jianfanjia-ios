@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "ViewControllerContainer.h"
-
 #import "API.h"
 
 @interface AppDelegate ()
@@ -21,7 +20,7 @@
     // Override point for customization after application launch.
     [self initLog];
     
-    self.window = [[UIWindow alloc] initWithFrame:SCREEN_FULL_FRAME];
+    self.window = [[UIWindow alloc] initWithFrame:kScreenFullFrame];
     [ViewControllerContainer showAfterLanching];
     [self.window makeKeyAndVisible];
 //    Login *login = [[Login alloc] init];
@@ -31,6 +30,8 @@
 //    DDLogDebug(@"%@", login);
 //    [API login:login success:^{} failure:^{}];
 //    [API getUserRequirementSuccess:nil failure:nil];
+    
+    DDLogDebug(@"%@", NSStringFromCGRect(kScreenFullFrame));
     return YES;
 }
 

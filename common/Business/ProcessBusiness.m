@@ -71,7 +71,7 @@ static NSDictionary *dictName = nil;
 }
 
 + (BOOL)hasYs:(NSInteger)sectionIndex {
-    return sectionIndex != 0 || sectionIndex != 1;
+    return !(sectionIndex == 0 || sectionIndex == 1);
 }
 
 @end

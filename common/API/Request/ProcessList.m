@@ -7,8 +7,6 @@
 //
 
 #import "ProcessList.h"
-#import "UserCD.h"
-#import "ProcessCD.h"
 
 
 @implementation ProcessList
@@ -23,18 +21,15 @@
     for (NSMutableDictionary *dict in array) {
         Process *process = [[Process alloc] initWith:dict];
         
-        NSMutableDictionary *userDict = [dict objectForKey:@"user"];
+
         [dict removeObjectForKey:@"user"];
         
         if (![GVUserDefaults standardUserDefaults].processid) {
             [GVUserDefaults standardUserDefaults].processid = process._id;
         }
         
-        [ProcessCD insertOrUpdate:process];
-
-        User *user = [[User alloc] initWith:userDict];
-        [UserCD insertOrUpdate:user];
-        
+//        NSMutableDictionary *userDict = [dict objectForKey:@"user"];
+//        User *user = [[User alloc] initWith:userDict];
     }
 }
 

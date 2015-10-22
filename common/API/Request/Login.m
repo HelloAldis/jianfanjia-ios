@@ -7,8 +7,6 @@
 //
 
 #import "Login.h"
-#import "UserCD.h"
-#import "DesignerCD.h"
 
 @implementation Login
 
@@ -33,13 +31,11 @@
     [dict removeObjectForKey:@"usertype"];
     [GVUserDefaults standardUserDefaults].usertype = usertype;
     
-    if ([USER_TYPE_USER isEqualToString:usertype]) {
+    if ([kUserTypeUser isEqualToString:usertype]) {
         User *user = [[User alloc] initWith:dict];
-        [UserCD insertOrUpdate:user];
         [GVUserDefaults standardUserDefaults].userid = [user _id];
-    } else if([USER_TYPE_DESIGNER isEqualToString:usertype]) {
+    } else if([kUserTypeDesigner isEqualToString:usertype]) {
         Designer *designer = [[Designer alloc] initWith:dict];
-        [DesignerCD insertOrUpdate:designer];
         [GVUserDefaults standardUserDefaults].userid = [designer _id];
     }
 }

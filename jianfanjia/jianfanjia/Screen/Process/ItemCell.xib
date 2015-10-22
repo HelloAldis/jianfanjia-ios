@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -18,6 +18,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hde-wy-FiP">
                         <rect key="frame" x="40" y="0.0" width="1" height="59"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.74901960784313726" green="0.72941176470588232" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="mx3-Ua-BDc"/>
@@ -28,28 +29,33 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="现场交底" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfC-lp-QFN">
                                 <rect key="frame" x="25" y="11" width="234" height="21"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQQ-4g-xdG">
                         <rect key="frame" x="57" y="16" width="2" height="43"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.74901960779999999" green="0.72941176470000002" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="2" id="QNz-fH-VAO"/>
                         </constraints>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item_new" translatesAutoresizingMaskIntoConstraints="NO" id="i3E-BS-wi3">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item_status_0" translatesAutoresizingMaskIntoConstraints="NO" id="i3E-BS-wi3">
                         <rect key="frame" x="33" y="28" width="16" height="16"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="i3E-BS-wi3" secondAttribute="height" multiplier="1:1" id="0vJ-oq-jXs"/>
                             <constraint firstAttribute="width" constant="16" id="EnW-Ub-gtg"/>
                         </constraints>
                     </imageView>
                 </subviews>
+                <animations/>
                 <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="aUu-Au-cqk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="8" id="1TZ-if-dEz"/>
@@ -66,6 +72,7 @@
                     <constraint firstItem="Hde-wy-FiP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="xsz-QD-ksm"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="statusImageView" destination="i3E-BS-wi3" id="yYf-Jj-AKb"/>
                 <outlet property="statusLine1" destination="Hde-wy-FiP" id="9dd-2V-tXs"/>
@@ -75,6 +82,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="item_new" width="16" height="16"/>
+        <image name="item_status_0" width="16" height="16"/>
     </resources>
 </document>

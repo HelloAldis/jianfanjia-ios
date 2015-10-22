@@ -11,7 +11,8 @@
 #import "SectionCell.h"
 #import "ItemCell.h"
 #import "API.h"
-#import "ProcessCD.h"
+
+
 
 @interface ProcessViewController ()
 
@@ -110,9 +111,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return BANNER_CELL_HEIGHT;
+        return kBannerCellHeight;
     } else {
-        return ITEM_CELL_HEIGHT;
+        return kItemCellHeight;
     }
 }
 
@@ -120,7 +121,7 @@
     if (section == 0) {
         return 0;
     } else {
-        return SECTION_CELL_HEIGHT;
+        return kSectionCellHeight;
     }
 }
 
@@ -134,11 +135,11 @@
 
 #pragma mark - scroll view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y >= (BANNER_CELL_HEIGHT - 64)) {
+    if (scrollView.contentOffset.y >= (kBannerCellHeight - 64)) {
         if (self.navigationController.navigationBar.translucent) {
             self.navigationController.navigationBar.translucent = NO;
             self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-            self.navigationController.navigationBar.barTintColor = THEME_COLOR;
+            self.navigationController.navigationBar.barTintColor = kThemeColor;
         }
     } else {
         if (!self.navigationController.navigationBar.translucent) {
@@ -184,8 +185,6 @@
 //        
 //    }];
     
-    ProcessCD *processCD = [ProcessCD findFirstByAttribute:@"processid" withValue:[GVUserDefaults standardUserDefaults].processid];
-    DDLogDebug(@"%@", processCD.process);
     
 //    [API getUserRequirement:[[GetUserRequirement alloc] init] success:^{
 //        NSArray *arry = [ProcessCDDao find];

@@ -7,7 +7,6 @@
 //
 
 #import "GetProcess.h"
-#import "ProcessCD.h"
 
 @implementation GetProcess
 
@@ -19,8 +18,7 @@
 }
 
 - (void)success {
-    Process *process = [[Process alloc] initWith:[DataManager shared].data];
-    [ProcessCD insertOrUpdate:process];
+//    Process *process = [[Process alloc] initWith:[DataManager shared].data];
 }
 
 @end

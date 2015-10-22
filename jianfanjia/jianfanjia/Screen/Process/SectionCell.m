@@ -34,7 +34,7 @@
         view.nameLabel.text = [ProcessBusiness nameForKey:section.name];
     }
     
-    self.scrollView.contentSize = CGSizeMake(width * [process sections].count, height-1);
+    self.scrollView.contentSize = CGSizeMake(width * [process sections].count, height);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

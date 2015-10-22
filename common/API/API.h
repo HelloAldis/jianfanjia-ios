@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Request.h"
 
-#define API_URL @"http://127.0.0.1/api/v1/"
+extern NSString * const kApiUrl;
 
 @interface API : NSObject
 

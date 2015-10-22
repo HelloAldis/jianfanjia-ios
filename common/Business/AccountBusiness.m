@@ -7,7 +7,6 @@
 //
 
 #import "AccountBusiness.h"
-#import "Type.h"
 
 @implementation AccountBusiness
 
@@ -16,9 +15,9 @@
 }
 
 + (UIImage *)defaultAvatar {
-    if ([USER_TYPE_USER isEqualToString: [GVUserDefaults standardUserDefaults].usertype] ) {
+    if ([kUserTypeUser isEqualToString: [GVUserDefaults standardUserDefaults].usertype] ) {
         return [UIImage imageNamed:@"default_user_image"];
-    } else if([USER_TYPE_DESIGNER isEqualToString: [GVUserDefaults standardUserDefaults].usertype]) {
+    } else if([kUserTypeDesigner isEqualToString: [GVUserDefaults standardUserDefaults].usertype]) {
         return [UIImage imageNamed:@"default_designer_image"];
     }
     return [UIImage imageNamed:@"default_user_image"];

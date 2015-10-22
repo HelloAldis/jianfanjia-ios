@@ -8,10 +8,6 @@
 
 #import "BaseViewController.h"
 
-#define BANNER_CELL_HEIGHT 170
-#define SECTION_CELL_HEIGHT 115
-#define ITEM_CELL_HEIGHT 60
-
 @interface ProcessViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end

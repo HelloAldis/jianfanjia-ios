@@ -10,7 +10,7 @@
 
 @interface CoreDataManager : NSObject
 
-SYNTHESIZE_SINGLETON_FOR_HEADER(CoreDataManager)
+kSynthesizeSingletonForHeader(CoreDataManager)
 
 - (void)saveContext;
 - (NSManagedObjectContext *)managedObjectContext;

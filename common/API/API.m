@@ -8,13 +8,13 @@
 
 #import "API.h"
 
-
+NSString * const kApiUrl = @"http://127.0.0.1/api/v2/";
 static AFHTTPRequestOperationManager *_manager;
 
 @implementation API
 
 + (void)initialize {
-    _manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:API_URL]];
+    _manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:kApiUrl]];
     _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     _manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
 }

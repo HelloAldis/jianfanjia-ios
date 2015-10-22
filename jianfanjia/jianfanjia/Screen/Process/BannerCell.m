@@ -18,19 +18,19 @@
 @implementation BannerCell
 
 - (void)awakeFromNib {
-    UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, BANNER_CELL_HEIGHT)];
+    UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kBannerCellHeight)];
     [w1 setContentMode:UIViewContentModeScaleToFill];
     w1.image = [UIImage imageNamed:@"banner_1"];
     
-    UIImageView *w2 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, 0, SCREEN_WIDTH, BANNER_CELL_HEIGHT)];
+    UIImageView *w2 = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, kBannerCellHeight)];
     [w2 setContentMode:UIViewContentModeScaleToFill];
     w2.image = [UIImage imageNamed:@"banner_2"];
     
-    UIImageView *w3 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*2, 0, SCREEN_WIDTH, BANNER_CELL_HEIGHT)];
+    UIImageView *w3 = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth*2, 0, kScreenWidth, kBannerCellHeight)];
     [w3 setContentMode:UIViewContentModeScaleToFill];
     w3.image = [UIImage imageNamed:@"banner_3"];
 
-    UIImageView *w4 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH*3, 0, SCREEN_WIDTH, BANNER_CELL_HEIGHT)];
+    UIImageView *w4 = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth*3, 0, kScreenWidth, kBannerCellHeight)];
     [w4 setContentMode:UIViewContentModeScaleToFill];
     w4.image = [UIImage imageNamed:@"banner_4"];
     
@@ -38,7 +38,7 @@
     [self.scrollView addSubview:w2];
     [self.scrollView addSubview:w3];
     [self.scrollView addSubview:w4];
-    [self.scrollView setContentSize:CGSizeMake(SCREEN_WIDTH *4, BANNER_CELL_HEIGHT)];
+    [self.scrollView setContentSize:CGSizeMake(kScreenWidth *4, kBannerCellHeight)];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

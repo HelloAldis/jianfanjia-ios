@@ -35,10 +35,8 @@
     self.sectionIndex = sectionIndex;
     self.itemIndex = itemIndex;
     
-    Section *section = [process sectionAtIndex:self.sectionIndex];
-    Item *item = [section itemAtIndex:self.itemIndex];
-    
-    
+//    Section *section = [process sectionAtIndex:self.sectionIndex];
+//    Item *item = [section itemAtIndex:self.itemIndex];
     
 }
 

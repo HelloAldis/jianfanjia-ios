@@ -17,7 +17,7 @@ static NSPersistentStoreCoordinator *_persistentStoreCoordinator;
 
 @implementation CoreDataManager
 
-SYNTHESIZE_SINGLETON_FOR_CLASS(CoreDataManager)
+kSynthesizeSingletonForClass(CoreDataManager)
 
 - (instancetype)init {
   if (self = [super init]) {
