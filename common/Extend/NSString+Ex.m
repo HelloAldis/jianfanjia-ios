@@ -63,16 +63,6 @@
     return [self stringByReplacingOccurrencesOfString:@" " withString:@"+"];
 }
 
-- (NSString *)urlEncode {
-    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                                 (CFStringRef)self,
-                                                                                 NULL,
-                                                                                 CFSTR("!*'();:@&=+$,/?%#[]~"),
-                                                                                 kCFStringEncodingUTF8));
-    //  return [self stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet letterCharacterSet]];
-    //  return self;
-}
-
 - (NSString *)add:(NSInteger)add {
     NSInteger i = [self integerValue];
     return [NSString stringWithFormat:@"%ld", (i + add)];

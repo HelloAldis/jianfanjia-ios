@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EA8697A9EFC05FE1962596B3C9CAC332C83A478D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "EA8697A9EFC05FE1962596B3C9CAC332C83A478D" : 0,
+    "BF2FE30DD30E807A424B26D63A15FEB4A29593EB" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BEA71C91-6952-4038-BD33-99611699DE99",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "EA8697A9EFC05FE1962596B3C9CAC332C83A478D" : "jianfanjia-ios\/",
+    "BF2FE30DD30E807A424B26D63A15FEB4A29593EB" : "MMDrawerController\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "jianfanjia-designer",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "jianfanjia-designer\/jianfanjia-designer.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/mutualmobile\/MMDrawerController.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BF2FE30DD30E807A424B26D63A15FEB4A29593EB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/adminJyz\/jianfanjia-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EA8697A9EFC05FE1962596B3C9CAC332C83A478D"
+    }
+  ]
+}
