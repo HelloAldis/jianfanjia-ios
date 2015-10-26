@@ -31,7 +31,6 @@
 //    [API login:login success:^{} failure:^{}];
 //    [API getUserRequirementSuccess:nil failure:nil];
     
-    DDLogDebug(@"%@", NSStringFromCGRect(kScreenFullFrame));
     return YES;
 }
 

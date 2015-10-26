@@ -6,13 +6,13 @@
     },
     {
       "idiom" : "universal",
-      "scale" : "2x",
-      "filename" : "bg_welcome3@2x.png"
+      "filename" : "pic_welcome3@2x.png",
+      "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x",
-      "filename" : "Bg_welcome3.jpg"
+      "filename" : "Pic_welcome3.png",
+      "scale" : "3x"
     }
   ],
   "info" : {

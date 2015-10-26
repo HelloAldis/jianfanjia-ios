@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController">
@@ -19,21 +19,28 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4s-r1-wq6">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_welcome" translatesAutoresizingMaskIntoConstraints="NO" id="eAt-dC-Vgh">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4s-r1-wq6">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="ARJ-Nr-gfV"/>
                     </connections>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="AwI-s0-k0c">
-                    <rect key="frame" x="175" y="483" width="250" height="37"/>
+                    <rect key="frame" x="175" y="523" width="250" height="37"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="250" id="5kY-N5-JP0"/>
                     </constraints>
                 </pageControl>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0i-jD-19A">
                     <rect key="frame" x="315" y="540" width="250" height="40"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Krc-Gm-dPp"/>
@@ -48,6 +55,7 @@
                 </button>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmJ-rZ-xKj">
                     <rect key="frame" x="35" y="540" width="250" height="40"/>
+                    <animations/>
                     <state key="normal" title="注册">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -57,22 +65,30 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="eAt-dC-Vgh" secondAttribute="bottom" id="30M-kB-qbf"/>
                 <constraint firstAttribute="centerX" secondItem="AwI-s0-k0c" secondAttribute="centerX" id="7Nd-xf-NOu"/>
+                <constraint firstItem="eAt-dC-Vgh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ASc-XL-Xuv"/>
                 <constraint firstAttribute="trailing" secondItem="o4s-r1-wq6" secondAttribute="trailing" id="GeB-W5-zm7"/>
-                <constraint firstAttribute="bottom" secondItem="AwI-s0-k0c" secondAttribute="bottom" constant="80" id="Jbi-r1-z1a"/>
+                <constraint firstAttribute="bottom" secondItem="AwI-s0-k0c" secondAttribute="bottom" constant="40" id="Jbi-r1-z1a"/>
                 <constraint firstAttribute="bottom" secondItem="F0i-jD-19A" secondAttribute="bottom" constant="20" id="LMQ-qd-y56"/>
                 <constraint firstAttribute="trailing" secondItem="F0i-jD-19A" secondAttribute="trailing" constant="35" id="Mai-ea-7rk"/>
+                <constraint firstItem="eAt-dC-Vgh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="PJT-mL-1Zc"/>
                 <constraint firstItem="o4s-r1-wq6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Xup-fT-3Ak"/>
                 <constraint firstItem="mmJ-rZ-xKj" firstAttribute="height" secondItem="F0i-jD-19A" secondAttribute="height" id="cdy-Ki-hbi"/>
                 <constraint firstItem="F0i-jD-19A" firstAttribute="leading" secondItem="mmJ-rZ-xKj" secondAttribute="trailing" constant="30" id="gHh-pJ-HBk"/>
                 <constraint firstItem="mmJ-rZ-xKj" firstAttribute="width" secondItem="F0i-jD-19A" secondAttribute="width" id="h6n-hk-eAa"/>
                 <constraint firstAttribute="bottom" secondItem="mmJ-rZ-xKj" secondAttribute="bottom" constant="20" id="k0s-ED-gMm"/>
                 <constraint firstAttribute="bottom" secondItem="o4s-r1-wq6" secondAttribute="bottom" id="lLz-bN-HcD"/>
+                <constraint firstAttribute="trailing" secondItem="eAt-dC-Vgh" secondAttribute="trailing" id="oOw-j3-UTK"/>
                 <constraint firstItem="o4s-r1-wq6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="u1f-AT-Zsz"/>
                 <constraint firstItem="mmJ-rZ-xKj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="35" id="w1Y-oj-NoB"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="bg_welcome" width="320" height="569"/>
+    </resources>
 </document>

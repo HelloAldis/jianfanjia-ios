@@ -7,44 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4A1BD88DBE001461DD /* BaseRequest.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4C1BD88DBE001461DD /* GetProcess.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4E1BD88DBE001461DD /* GetUserRequirement.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAA91BD88DBE001461DD /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA501BD88DBE001461DD /* Login.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAAA1BD88DBE001461DD /* ProcessList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA521BD88DBE001461DD /* ProcessList.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA551BD88DBE001461DD /* SendVerifyCode.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAAC1BD88DBE001461DD /* AccountBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA581BD88DBE001461DD /* AccountBusiness.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA5B1BD88DBE001461DD /* ProcessBusiness.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAB91BD88DBE001461DD /* NSManagedObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA781BD88DBE001461DD /* NSManagedObject+Ex.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DABA1BD88DBE001461DD /* NSManagedObjectContext+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA7A1BD88DBE001461DD /* NSManagedObjectContext+Ex.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA7C1BD88DBE001461DD /* NSObject+Ex.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DABC1BD88DBE001461DD /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA7E1BD88DBE001461DD /* NSString+Ex.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA801BD88DBE001461DD /* UIButton+Ex.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA821BD88DBE001461DD /* UIImageView+Ex.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DABF1BD88DBE001461DD /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA841BD88DBE001461DD /* UIView+Ex.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA871BD88DBE001461DD /* DataManager.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAC11BD88DBE001461DD /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA891BD88DBE001461DD /* GVUserDefaults+Manager.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA8D1BD88DBE001461DD /* BaseModel.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAC31BD88DBE001461DD /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA8F1BD88DBE001461DD /* Comment.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAC41BD88DBE001461DD /* Designer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA911BD88DBE001461DD /* Designer.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAC51BD88DBE001461DD /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA931BD88DBE001461DD /* Item.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAC61BD88DBE001461DD /* Process.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA961BD88DBE001461DD /* Process.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAC71BD88DBE001461DD /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA981BD88DBE001461DD /* Section.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAC81BD88DBE001461DD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA9A1BD88DBE001461DD /* User.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAC91BD88DBE001461DD /* Ys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA9C1BD88DBE001461DD /* Ys.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DACA1BD88DBE001461DD /* BaseDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA9F1BD88DBE001461DD /* BaseDynamicObject.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DAA11BD88DBE001461DD /* HUDUtil.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DAA31BD88DBE001461DD /* LogFormatter.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAD51BD8BACD001461DD /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DAD41BD8BACD001461DD /* Constant.m */; settings = {ASSET_TAGS = (); }; };
-		6E07DAD81BD8C6AF001461DD /* Bc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DAD71BD8C6AF001461DD /* Bc.m */; settings = {ASSET_TAGS = (); }; };
+		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; };
+		6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4A1BD88DBE001461DD /* BaseRequest.m */; };
+		6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4C1BD88DBE001461DD /* GetProcess.m */; };
+		6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4E1BD88DBE001461DD /* GetUserRequirement.m */; };
+		6E07DAA91BD88DBE001461DD /* Login.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA501BD88DBE001461DD /* Login.m */; };
+		6E07DAAA1BD88DBE001461DD /* ProcessList.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA521BD88DBE001461DD /* ProcessList.m */; };
+		6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA551BD88DBE001461DD /* SendVerifyCode.m */; };
+		6E07DAAC1BD88DBE001461DD /* AccountBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA581BD88DBE001461DD /* AccountBusiness.m */; };
+		6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA5B1BD88DBE001461DD /* ProcessBusiness.m */; };
+		6E07DAB91BD88DBE001461DD /* NSManagedObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA781BD88DBE001461DD /* NSManagedObject+Ex.m */; };
+		6E07DABA1BD88DBE001461DD /* NSManagedObjectContext+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA7A1BD88DBE001461DD /* NSManagedObjectContext+Ex.m */; };
+		6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA7C1BD88DBE001461DD /* NSObject+Ex.m */; };
+		6E07DABC1BD88DBE001461DD /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA7E1BD88DBE001461DD /* NSString+Ex.m */; };
+		6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA801BD88DBE001461DD /* UIButton+Ex.m */; };
+		6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA821BD88DBE001461DD /* UIImageView+Ex.m */; };
+		6E07DABF1BD88DBE001461DD /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA841BD88DBE001461DD /* UIView+Ex.m */; };
+		6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA871BD88DBE001461DD /* DataManager.m */; };
+		6E07DAC11BD88DBE001461DD /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA891BD88DBE001461DD /* GVUserDefaults+Manager.m */; };
+		6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA8D1BD88DBE001461DD /* BaseModel.m */; };
+		6E07DAC31BD88DBE001461DD /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA8F1BD88DBE001461DD /* Comment.m */; };
+		6E07DAC41BD88DBE001461DD /* Designer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA911BD88DBE001461DD /* Designer.m */; };
+		6E07DAC51BD88DBE001461DD /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA931BD88DBE001461DD /* Item.m */; };
+		6E07DAC61BD88DBE001461DD /* Process.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA961BD88DBE001461DD /* Process.m */; };
+		6E07DAC71BD88DBE001461DD /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA981BD88DBE001461DD /* Section.m */; };
+		6E07DAC81BD88DBE001461DD /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA9A1BD88DBE001461DD /* User.m */; };
+		6E07DAC91BD88DBE001461DD /* Ys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA9C1BD88DBE001461DD /* Ys.m */; };
+		6E07DACA1BD88DBE001461DD /* BaseDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA9F1BD88DBE001461DD /* BaseDynamicObject.m */; };
+		6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DAA11BD88DBE001461DD /* HUDUtil.m */; };
+		6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DAA31BD88DBE001461DD /* LogFormatter.m */; };
+		6E07DAD51BD8BACD001461DD /* Constant.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DAD41BD8BACD001461DD /* Constant.m */; };
+		6E07DAD81BD8C6AF001461DD /* Bc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DAD71BD8C6AF001461DD /* Bc.m */; };
 		6E20B2281B87223600E3A8DA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B2271B87223600E3A8DA /* main.m */; };
 		6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B22A1B87223600E3A8DA /* AppDelegate.m */; };
 		6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E20B2321B87223600E3A8DA /* Images.xcassets */; };
 		6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E20B2341B87223600E3A8DA /* LaunchScreen.xib */; };
 		6E20B2421B87223600E3A8DA /* jianfanjiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B2411B87223600E3A8DA /* jianfanjiaTests.m */; };
-		6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2DCAAB1BB5207400591A16 /* LeftViewController.m */; settings = {ASSET_TAGS = (); }; };
-		6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2DCAAC1BB5207400591A16 /* LeftViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2DCAAB1BB5207400591A16 /* LeftViewController.m */; };
+		6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2DCAAC1BB5207400591A16 /* LeftViewController.xib */; };
+		6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D988C1BDDC9C800D45F77 /* W1View.m */; };
+		6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D988E1BDDC9DC00D45F77 /* W1View.xib */; };
+		6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98901BDDFD9700D45F77 /* W2View.xib */; };
+		6E6D98941BDDFDAB00D45F77 /* W2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98931BDDFDAB00D45F77 /* W2View.m */; };
+		6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98951BDDFE5500D45F77 /* W3View.xib */; };
+		6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98971BDDFE6A00D45F77 /* W3View.m */; };
+		6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D989A1BDDFEC900D45F77 /* W4View.xib */; };
+		6E6D989E1BDDFF1B00D45F77 /* W4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D989D1BDDFF1B00D45F77 /* W4View.m */; };
 		6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7867051BA9164700DE8B1B /* ProcessViewController.m */; };
 		6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7867061BA9164700DE8B1B /* ProcessViewController.xib */; };
 		6E78670C1BA920D900DE8B1B /* BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E78670A1BA920D900DE8B1B /* BannerCell.m */; };
@@ -158,6 +166,18 @@
 		6E2DCAAA1BB5207400591A16 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		6E2DCAAB1BB5207400591A16 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		6E2DCAAC1BB5207400591A16 /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewController.xib; sourceTree = "<group>"; };
+		6E6D988B1BDDC9C800D45F77 /* W1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W1View.h; sourceTree = "<group>"; };
+		6E6D988C1BDDC9C800D45F77 /* W1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W1View.m; sourceTree = "<group>"; };
+		6E6D988E1BDDC9DC00D45F77 /* W1View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W1View.xib; sourceTree = "<group>"; };
+		6E6D98901BDDFD9700D45F77 /* W2View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W2View.xib; sourceTree = "<group>"; };
+		6E6D98921BDDFDAB00D45F77 /* W2View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W2View.h; sourceTree = "<group>"; };
+		6E6D98931BDDFDAB00D45F77 /* W2View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W2View.m; sourceTree = "<group>"; };
+		6E6D98951BDDFE5500D45F77 /* W3View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W3View.xib; sourceTree = "<group>"; };
+		6E6D98971BDDFE6A00D45F77 /* W3View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W3View.m; sourceTree = "<group>"; };
+		6E6D98991BDDFE7200D45F77 /* W3View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W3View.h; sourceTree = "<group>"; };
+		6E6D989A1BDDFEC900D45F77 /* W4View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W4View.xib; sourceTree = "<group>"; };
+		6E6D989C1BDDFF1B00D45F77 /* W4View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W4View.h; sourceTree = "<group>"; };
+		6E6D989D1BDDFF1B00D45F77 /* W4View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W4View.m; sourceTree = "<group>"; };
 		6E7867041BA9164700DE8B1B /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
 		6E7867051BA9164700DE8B1B /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
 		6E7867061BA9164700DE8B1B /* ProcessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewController.xib; sourceTree = "<group>"; };
@@ -457,6 +477,18 @@
 				6E7E4A861B9EC2D700503B35 /* WelcomeViewController.h */,
 				6E7E4A871B9EC2D700503B35 /* WelcomeViewController.m */,
 				6E7E4A881B9EC2D700503B35 /* WelcomeViewController.xib */,
+				6E6D988B1BDDC9C800D45F77 /* W1View.h */,
+				6E6D988C1BDDC9C800D45F77 /* W1View.m */,
+				6E6D988E1BDDC9DC00D45F77 /* W1View.xib */,
+				6E6D98921BDDFDAB00D45F77 /* W2View.h */,
+				6E6D98931BDDFDAB00D45F77 /* W2View.m */,
+				6E6D98901BDDFD9700D45F77 /* W2View.xib */,
+				6E6D98991BDDFE7200D45F77 /* W3View.h */,
+				6E6D98971BDDFE6A00D45F77 /* W3View.m */,
+				6E6D98951BDDFE5500D45F77 /* W3View.xib */,
+				6E6D989C1BDDFF1B00D45F77 /* W4View.h */,
+				6E6D989D1BDDFF1B00D45F77 /* W4View.m */,
+				6E6D989A1BDDFEC900D45F77 /* W4View.xib */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -573,6 +605,7 @@
 			files = (
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */,
+				6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */,
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
 				6E78670D1BA920D900DE8B1B /* BannerCell.xib in Resources */,
 				6E7867171BA944AF00DE8B1B /* ItemCell.xib in Resources */,
@@ -580,7 +613,10 @@
 				6E7E4A6A1B9A90BA00503B35 /* LoginViewController.xib in Resources */,
 				6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */,
 				6E7867281BAA538E00DE8B1B /* SectionView.xib in Resources */,
+				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
+				6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */,
 				6E7867121BA942C700DE8B1B /* SectionCell.xib in Resources */,
+				6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,18 +690,21 @@
 				6E07DABF1BD88DBE001461DD /* UIView+Ex.m in Sources */,
 				6E07DAC91BD88DBE001461DD /* Ys.m in Sources */,
 				6E07DAAA1BD88DBE001461DD /* ProcessList.m in Sources */,
+				6E6D989E1BDDFF1B00D45F77 /* W4View.m in Sources */,
 				6E07DAA91BD88DBE001461DD /* Login.m in Sources */,
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */,
 				6E07DAC41BD88DBE001461DD /* Designer.m in Sources */,
+				6E6D98941BDDFDAB00D45F77 /* W2View.m in Sources */,
 				6E78670C1BA920D900DE8B1B /* BannerCell.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
 				6E7E4A691B9A90BA00503B35 /* LoginViewController.m in Sources */,
 				6E07DAC31BD88DBE001461DD /* Comment.m in Sources */,
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
+				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
 				6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */,
@@ -673,6 +712,7 @@
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
 				6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */,
 				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,
+				6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */,
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
