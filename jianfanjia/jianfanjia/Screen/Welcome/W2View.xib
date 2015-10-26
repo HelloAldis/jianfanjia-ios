@@ -13,7 +13,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_2" translatesAutoresizingMaskIntoConstraints="NO" id="NC1-kA-f8k">
-                    <rect key="frame" x="157" y="40" width="286" height="500"/>
+                    <rect key="frame" x="163" y="40" width="274" height="480"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="NC1-kA-f8k" secondAttribute="height" multiplier="522:915" id="xph-tH-IVh"/>
@@ -21,9 +21,9 @@
                 </imageView>
             </subviews>
             <animations/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="NC1-kA-f8k" secondAttribute="bottom" constant="60" id="AG7-KK-wp0"/>
+                <constraint firstAttribute="bottom" secondItem="NC1-kA-f8k" secondAttribute="bottom" constant="80" id="AG7-KK-wp0"/>
                 <constraint firstItem="NC1-kA-f8k" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="ZSl-Wa-e1W"/>
                 <constraint firstItem="NC1-kA-f8k" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="v2z-fk-5EP"/>
             </constraints>

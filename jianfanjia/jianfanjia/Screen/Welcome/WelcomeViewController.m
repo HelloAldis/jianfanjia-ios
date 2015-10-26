@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnSignup;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
 
+@property (weak, nonatomic) W1View *w1;
+@property (weak, nonatomic) W2View *w2;
+@property (weak, nonatomic) W3View *w3;
+@property (weak, nonatomic) W4View *w4;
 @end
 
 @implementation WelcomeViewController
@@ -30,28 +34,17 @@
     [self.btnSignup setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
     [self.btnLogin setCornerRadius:5];
     
-    UIView *w1 = [W1View w1View];
-    w1.frame = kScreenFullFrame;
-    
-    UIView *w2 = [W2View w2View];
-    w2.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight);
-    
-    UIView *w3 = [W3View w3View];
-    w3.frame = CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight);
-    
-    UIView *w4 = [W4View w4View];
-    w4.frame = CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight);
-    
-    
-    DDLogDebug(@"%@", NSStringFromCGRect(w2.frame));
-    [self.scrollView addSubview:w1];
-    [self.scrollView addSubview:w2];
-    [self.scrollView addSubview:w3];
-    [self.scrollView addSubview:w4];
+    self.w1 = [W1View w1View];
+    self.w2 = [W2View w2View];
+    self.w3 = [W3View w3View];
+    self.w4 = [W4View w4View];
+    [self.scrollView addSubview:self.w1];
+    [self.scrollView addSubview:self.w2];
+    [self.scrollView addSubview:self.w3];
+    [self.scrollView addSubview:self.w4];
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth *4, kScreenHeight)];
     
-//    [GVUserDefaults standardUserDefaults].welcomeVersion  = kWelconeVersion;
-        DDLogDebug(@"%@", NSStringFromCGRect(w2.frame));
+    [GVUserDefaults standardUserDefaults].welcomeVersion  = kWelconeVersion;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -64,11 +57,10 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    for (UIView *v in self.scrollView.subviews) {
-        DDLogDebug(@"%@", v);
-    }
-    
+    self.w1.frame = kScreenFullFrame;
+    self.w2.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight);
+    self.w3.frame = CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight);
+    self.w4.frame = CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight);
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {

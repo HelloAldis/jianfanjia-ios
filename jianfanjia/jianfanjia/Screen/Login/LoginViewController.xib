@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -11,7 +11,9 @@
                 <outlet property="fldPassword" destination="Wwz-cc-Ax3" id="OwC-Og-EdW"/>
                 <outlet property="fldPhone" destination="H8A-IA-x5X" id="oTW-a1-MIr"/>
                 <outlet property="loginConstraint" destination="moy-2N-wTu" id="0C7-Tl-CQc"/>
+                <outlet property="logoHeightConstraint" destination="ilF-Hj-T38" id="h0J-JK-oNc"/>
                 <outlet property="logoImageView" destination="1IB-xy-iak" id="m8q-s9-X4w"/>
+                <outlet property="logoWidthConstraint" destination="ypd-iB-dVu" id="Aq0-j6-wfV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,12 +24,31 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_login" translatesAutoresizingMaskIntoConstraints="NO" id="A81-TV-CcS">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_loading" translatesAutoresizingMaskIntoConstraints="NO" id="1IB-xy-iak">
                     <rect key="frame" x="238" y="50" width="125" height="132"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="132" id="ilF-Hj-T38"/>
+                        <constraint firstAttribute="width" constant="125" id="ypd-iB-dVu"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="ilF-Hj-T38"/>
+                            <exclude reference="ypd-iB-dVu"/>
+                        </mask>
+                    </variation>
+                    <variation key="widthClass=compact">
+                        <mask key="constraints">
+                            <include reference="ilF-Hj-T38"/>
+                            <include reference="ypd-iB-dVu"/>
+                        </mask>
+                    </variation>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2M-jo-bza">
                     <rect key="frame" x="60" y="467" width="80" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="kqC-YW-Pmj"/>
                     </constraints>
@@ -42,6 +63,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgD-MF-3Bz">
                     <rect key="frame" x="460" y="467" width="80" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="F9N-9p-kFP"/>
                     </constraints>
@@ -55,30 +77,29 @@
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="import_login" translatesAutoresizingMaskIntoConstraints="NO" id="pfv-qT-EOC">
                     <rect key="frame" x="60" y="414" width="480" height="48"/>
+                    <animations/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="import_login" translatesAutoresizingMaskIntoConstraints="NO" id="DSk-g6-yO8">
                     <rect key="frame" x="60" y="354" width="480" height="48"/>
+                    <animations/>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wwz-cc-Ax3">
                     <rect key="frame" x="85" y="414" width="430" height="48"/>
-                    <color key="textColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="calibratedRGB"/>
+                    <animations/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="uH7-ZB-GPR"/>
-                    </connections>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入账号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H8A-IA-x5X">
                     <rect key="frame" x="85" y="354" width="430" height="48"/>
+                    <animations/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="E1p-KJ-lj2"/>
-                    </connections>
+                    <textInputTraits key="textInputTraits" returnKeyType="next"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFj-Kc-4IV">
                     <rect key="frame" x="60" y="512" width="480" height="48"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.99607843137254903" green="0.4392156862745098" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="hCE-6N-xba">
@@ -94,6 +115,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="IFj-Kc-4IV" firstAttribute="top" secondItem="pfv-qT-EOC" secondAttribute="bottom" constant="50" id="0Je-SR-ayJ"/>

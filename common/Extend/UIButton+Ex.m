@@ -21,4 +21,12 @@
     return [NSURL URLWithString:url];
 }
 
+- (void)setDisableAlpha {
+    self.alpha = 0.6;
+}
+
+- (void)setEnableAlpha {
+    self.alpha = 1;
+}
+
 @end

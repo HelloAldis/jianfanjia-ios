@@ -47,6 +47,7 @@
 }
 
 - (void)handleHttpError:(NSError *)err failure:(void (^)(void))failure {
+    [HUDUtil hideWait];
     [HUDUtil showErrText:@"网络故障"];
 }
 

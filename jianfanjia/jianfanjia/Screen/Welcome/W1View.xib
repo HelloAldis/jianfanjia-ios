@@ -12,8 +12,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RrN-dN-87V">
-                    <rect key="frame" x="156" y="40" width="288" height="500"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="welcome_1" translatesAutoresizingMaskIntoConstraints="NO" id="RrN-dN-87V">
+                    <rect key="frame" x="161" y="40" width="278" height="480"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="RrN-dN-87V" secondAttribute="height" multiplier="529:916" id="Ron-6O-4lr"/>
@@ -21,12 +21,14 @@
                 </imageView>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="RrN-dN-87V" secondAttribute="bottom" constant="60" id="BAq-TX-fJw"/>
+                <constraint firstAttribute="bottom" secondItem="RrN-dN-87V" secondAttribute="bottom" constant="80" id="BAq-TX-fJw"/>
                 <constraint firstItem="RrN-dN-87V" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="40" id="Ymm-dk-cef"/>
                 <constraint firstItem="RrN-dN-87V" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ypc-Nw-GYh"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="welcome_1" width="264" height="458"/>
+    </resources>
 </document>

@@ -20,5 +20,6 @@
 #import "UIImageView+WebCache.h"
 #import "GVUserDefaults.h"
 #import "RESideMenu.h"
+#import "ReactiveCocoa.h"
 
 #endif
