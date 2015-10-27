@@ -13,11 +13,20 @@
 #import "LoginViewController.h"
 #import "ProcessViewController.h"
 #import "LeftViewController.h"
+#import "TabViewController.h"
+#import "DesignerListViewController.h"
+#import "RequirementListViewController.h"
+#import "MeViewController.h"
 
 @interface ViewControllerContainer ()
 
 @property(weak, nonatomic) UIWindow *window;
-@property(weak, nonatomic) UINavigationController *nav;
+@property(strong, nonatomic) UINavigationController *nav;
+
+@property(strong, nonatomic) UINavigationController *navTap1;
+@property(strong, nonatomic) UINavigationController *navTap2;
+@property(strong, nonatomic) UINavigationController *navTap3;
+@property(strong, nonatomic) UINavigationController *navTap4;
 
 @end
 
@@ -46,11 +55,29 @@ static ViewControllerContainer *container;
         container.window.rootViewController = pages;
     } else if ([GVUserDefaults standardUserDefaults].isLogin) {
         //显示首页
-        [self showProcess];
+        [self showTab];
     } else {
         //显示登录
         [self showLogin];
     }
+}
+
++ (void)showTab {
+    TabViewController *tab = [[TabViewController alloc] initWithNibName:nil bundle:nil];
+    DesignerListViewController *designerlist = [[DesignerListViewController alloc] initWithNibName:nil bundle:nil];
+    container.navTap1 = [[UINavigationController alloc] initWithRootViewController:designerlist];
+    
+    RequirementListViewController *requirementList = [[RequirementListViewController alloc] initWithNibName:nil bundle:nil];
+    container.navTap2 = [[UINavigationController alloc] initWithRootViewController:requirementList];
+    
+    ProcessViewController *process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
+    container.navTap3 = [[UINavigationController alloc] initWithRootViewController:process];
+    
+    MeViewController *me = [[MeViewController alloc] initWithNibName:nil bundle:nil];
+    container.navTap4 = [[UINavigationController alloc] initWithRootViewController:me];
+    
+    tab.viewControllers = @[container.navTap1, container.navTap2, container.navTap3, container.navTap4];
+    container.window.rootViewController = tab;
 }
 
 + (void)showLogin {

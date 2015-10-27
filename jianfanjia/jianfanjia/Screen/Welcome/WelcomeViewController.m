@@ -28,6 +28,7 @@
 
 @implementation WelcomeViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.btnSignup setCornerRadius:5];
@@ -51,10 +52,6 @@
     [super viewWillAppear:animated];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     self.w1.frame = kScreenFullFrame;
@@ -63,6 +60,10 @@
     self.w4.frame = CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight);
 }
 
+#pragma mark - UI
+
+
+#pragma mark - scroll view deleaget
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSInteger index = self.scrollView.contentOffset.x/kScreenWidth;
     self.pageControl.currentPage = index;
@@ -77,6 +78,7 @@
     }
 }
 
+#pragma mark - user actions
 - (IBAction)onClickLogin:(id)sender {
     [ViewControllerContainer showLogin];
 }

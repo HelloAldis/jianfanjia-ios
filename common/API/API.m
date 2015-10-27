@@ -8,7 +8,7 @@
 
 #import "API.h"
 
-NSString * const kApiUrl = @"http://127.0.0.1/api/v2/";
+NSString * const kApiUrl = @"http://101.200.191.159/api/v2/app/";
 static AFHTTPRequestOperationManager *_manager;
 
 @implementation API
@@ -47,8 +47,8 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"/api/v1/" data:[request data] handler:request success:success failure:failure];
 }
 
-+ (void)login:(Login *)request success:(void (^)(void))success failure:(void (^)(void))failure {
-    [API POST:@"login" data:[request data] handler:request success:success failure:failure];
++ (void)userLogin:(UserLogin *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user_login" data:[request data] handler:request success:success failure:failure];
 }
 
 + (void)getUserRequirement:(GetUserRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure {

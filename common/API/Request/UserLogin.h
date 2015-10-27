@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "BaseRequest.h"
 
-@interface Login : BaseRequest
+@interface UserLogin : BaseRequest
 
 @property(nonatomic, strong) NSString *phone;
 @property(nonatomic, strong) NSString *pass;

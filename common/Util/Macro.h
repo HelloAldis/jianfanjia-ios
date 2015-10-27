@@ -28,4 +28,10 @@ return shared##className; \
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
+#define kIs35inchScreen (kScreenHeight == 480)
+#define kIs40inchScreen (kScreenHeight == 568)
+#define kIs47inchScreen (kScreenHeight == 667)
+#define kIs55inchScreen (kScreenHeight == 736)
+#define kIsPad ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+
 #endif /* Macro_h */

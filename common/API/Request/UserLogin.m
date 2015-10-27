@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 JYZ. All rights reserved.
 //
 
-#import "Login.h"
+#import "UserLogin.h"
 
-@implementation Login
+@implementation UserLogin
 
 @dynamic phone;
 @dynamic pass;

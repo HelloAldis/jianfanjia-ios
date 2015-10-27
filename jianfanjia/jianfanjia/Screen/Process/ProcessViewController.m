@@ -71,7 +71,7 @@
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"配置工地" style:UIBarButtonItemStylePlain target:self action:@selector(onClickConfig)];
     self.navigationItem.rightBarButtonItem = item;
-    self.title = @"简繁家";
+    self.title = @"工地管理";
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 

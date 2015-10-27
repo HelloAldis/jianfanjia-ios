@@ -13,23 +13,42 @@
 @interface LoginViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
-@property (weak, nonatomic) IBOutlet UIImageView *logoImageView;
 @property (weak, nonatomic) IBOutlet UITextField *fldPassword;
 @property (weak, nonatomic) IBOutlet UITextField *fldPhone;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *btnTitleLogin;
+@property (weak, nonatomic) IBOutlet UIButton *btnTitleSignup;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerForBtnTitleLogin;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftForBtnTitleSignup;
+@property (weak, nonatomic) IBOutlet UIView *viewLogin;
+@property (weak, nonatomic) IBOutlet UIView *viewSignup;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *fldSignupPhone;
+@property (weak, nonatomic) IBOutlet UITextField *fldSignupPassword;
+@property (weak, nonatomic) IBOutlet UIButton *btnNext;
 
 @property (assign, nonatomic) BOOL isUp;
+@property (strong, nonatomic) NSLayoutConstraint *leftForBtnTitleLogin;
+@property (strong, nonatomic) NSLayoutConstraint *centerForBtnTitleSignup;
 
 @end
 
 @implementation LoginViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [RACObserve(self.btnLogin, enabled) subscribeNext:^(NSNumber *newValue) {
+        if (newValue.boolValue) {
+            [self.btnLogin setEnableAlpha];
+        } else {
+            [self.btnLogin setDisableAlpha];
+        }
+    }];
+    
+    [RACObserve(self.btnNext, enabled) subscribeNext:^(NSNumber *newValue) {
         if (newValue.boolValue) {
             [self.btnLogin setEnableAlpha];
         } else {
@@ -43,26 +62,44 @@
                                        return @([AccountBusiness validateLogin:phone pass:password]);
                                    }];
     
+    RAC(self.btnNext, enabled) = [RACSignal
+                                   combineLatest:@[self.fldSignupPhone.rac_textSignal, self.fldSignupPassword.rac_textSignal]
+                                   reduce:^(NSString *phone, NSString *password) {
+                                       return @([AccountBusiness validateLogin:phone pass:password]);
+                                   }];
     
     
     [self.navigationController setNavigationBarHidden:YES];
     [self.btnLogin setCornerRadius:5];
     [self.btnLogin setDisableAlpha];
     self.btnLogin.enabled = NO;
+    [self.btnNext setCornerRadius:5];
+    [self.btnNext setDisableAlpha];
+    self.btnNext.enabled = NO;
+    
     self.isUp = NO;
+    
+    
+#ifdef DEBUG
+    self.fldPhone.text = @"18107218595";
+    self.fldPassword.text = @"123456";
+#endif
 
-    UIColor *color = [UIColor colorWithRed:216/255.0f green:216/255.0f blue:216/255.0f alpha:1.0];
-    self.fldPassword.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入密码" attributes:@{NSForegroundColorAttributeName: color}];
-    self.fldPhone.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入账号" attributes:@{NSForegroundColorAttributeName: color}];
-
-
+//    UIColor *color = [UIColor colorWithRed:216/255.0f green:216/255.0f blue:216/255.0f alpha:1.0];
+//    self.fldPassword.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入密码" attributes:@{NSForegroundColorAttributeName: color}];
+//    self.fldPhone.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入账号" attributes:@{NSForegroundColorAttributeName: color}];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
+
+    if (kIs35inchScreen) {
+        self.topConstraint.constant = 10;
+    } else {
+        self.topConstraint.constant = (kScreenHeight - 480)/2;
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -70,23 +107,79 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
+#pragma mark - UI
+
+
+#pragma mark - user actions
+- (IBAction)swipeRight:(id)sender {
+    DDLogDebug(@"%@", @"swipeRight");
+    [self.view endEditing:YES];
+    self.centerForBtnTitleSignup.active = NO;
+    if (!self.centerForBtnTitleLogin) {
+        self.centerForBtnTitleLogin = [NSLayoutConstraint constraintWithItem:self.btnTitleLogin
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:self.view
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                   multiplier:1
+                                                                     constant:0];
+    }
+    self.centerForBtnTitleLogin.active = YES;
+    [UIView animateWithDuration:0.6
+                          delay:0 usingSpringWithDamping:1.0
+          initialSpringVelocity:1.0
+                        options:UIViewAnimationOptionCurveLinear animations:^{
+                            [self.btnTitleLogin setEnableAlpha];
+                            [self.btnTitleSignup setDisableAlpha];
+                            self.viewLogin.alpha = 1.0;
+                            self.viewSignup.alpha = 0.0;
+                            [self.view layoutIfNeeded];
+                        } completion:nil];
+
+    
 }
+- (IBAction)swipeLeft:(id)sender {
+    DDLogDebug(@"%@", @"swipeLeft");
+    [self.view endEditing:YES];
+    self.centerForBtnTitleLogin.active = NO;
+    if (!self.centerForBtnTitleSignup) {
+        self.centerForBtnTitleSignup = [NSLayoutConstraint constraintWithItem:self.btnTitleSignup
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:self.view
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                   multiplier:1
+                                                                     constant:0];
+//        [self.view addConstraint:self.centerForBtnTitleSignup];
+    }
+
+    self.centerForBtnTitleSignup.active = YES;
+    
+    [UIView animateWithDuration:0.6
+                          delay:0 usingSpringWithDamping:1.0
+          initialSpringVelocity:1.0
+                        options:UIViewAnimationOptionCurveLinear animations:^{
+                            [self.btnTitleSignup setEnableAlpha];
+                            [self.btnTitleLogin setDisableAlpha];
+//                            self.viewLogin.hidden = YES;
+//                            self.viewSignup.hidden = NO;
+                            self.viewLogin.alpha = 0.0;
+                            self.viewSignup.alpha = 1.0;
+                            [self.view layoutIfNeeded];
+                        } completion:nil];
+}
+
+
 
 - (void)keyboardWillShow:(NSNotification *)notification {
     if (!self.isUp) {
         NSDictionary *userInfo = [notification userInfo];
         
         // get keyboard rect in windwo coordinate
-        CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    DDLogDebug(@"%@", [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey]);
         
         // get keybord anmation duration
         NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        self.loginConstraint.constant += (keyboardRect.size.height - 90);
-        self.logoImageView.image = [UIImage imageNamed:@"logo_loading-1"];
-        self.logoWidthConstraint.constant = 134;
-        self.logoHeightConstraint.constant = 40;
         
         [UIView animateWithDuration:animationDuration
                               delay:0 usingSpringWithDamping:1.0
@@ -105,15 +198,10 @@
         NSDictionary *userInfo = [notification userInfo];
         
         // get keyboard rect in windwo coordinate
-        CGRect keyboardRect = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
         
         // get keybord anmation duration
         NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
         
-        self.loginConstraint.constant -= (keyboardRect.size.height - 90);
-        self.logoImageView.image = [UIImage imageNamed:@"logo_loading"];
-        self.logoWidthConstraint.constant = 125;
-        self.logoHeightConstraint.constant = 132;
         [UIView animateWithDuration:animationDuration
                               delay:0 usingSpringWithDamping:1.0
               initialSpringVelocity:1.0
@@ -134,32 +222,32 @@
 }
 
 - (IBAction)onClickLogin:(id)sender {
-    Login *login = [[Login alloc] init];
+    [self.view endEditing:YES];
+    UserLogin *login = [[UserLogin alloc] init];
     
     [login setPhone:[self.fldPhone.text trim]];
     [login setPass:[self.fldPassword.text trim]];
     
     [HUDUtil showWait];
-    [API login:login success:^{
-        [API getProcessList:[[ProcessList alloc] init] success:^{
-            GetProcess *request = [[GetProcess alloc] init];
-            request.processid = [GVUserDefaults standardUserDefaults].processid;
-            [API getProcess:request success:^{
-                [HUDUtil hideWait];
-                [GVUserDefaults standardUserDefaults].isLogin = YES;
-                [ViewControllerContainer showProcess];
-            } failure:^{
-                [HUDUtil hideWait];
-            }];
-        } failure:^{
-            [HUDUtil hideWait];
-        }];
-
+    [API userLogin:login success:^{
+        [HUDUtil hideWait];
+        [GVUserDefaults standardUserDefaults].isLogin = YES;
+        [ViewControllerContainer showProcess];
     } failure:^{
         [HUDUtil hideWait];
     }];
 }
 
+- (IBAction)onClickTitleLogin:(id)sender {
+    if (self.viewLogin.alpha == 0.0) {
+        [self swipeRight:nil];
+    }
+}
 
+- (IBAction)onClickTitleSignup:(id)sender {
+    if (self.viewSignup.alpha == 0.0) {
+        [self swipeLeft:nil];
+    }
+}
 
 @end

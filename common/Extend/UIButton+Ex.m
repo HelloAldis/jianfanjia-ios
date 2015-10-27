@@ -22,7 +22,7 @@
 }
 
 - (void)setDisableAlpha {
-    self.alpha = 0.6;
+    self.alpha = 0.4;
 }
 
 - (void)setEnableAlpha {
