@@ -10,4 +10,7 @@
 
 @interface UIImageView (Ex)
 
+- (void)setImageWithId:(NSString *)imageid;
+- (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image;
+
 @end

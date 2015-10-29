@@ -12,6 +12,7 @@
 @interface BannerCell()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
 
@@ -45,6 +46,12 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+#pragma mark - scroll view deleaget
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    NSInteger index = self.scrollView.contentOffset.x/kScreenWidth;
+    self.pageControl.currentPage = index;
 }
 
 @end

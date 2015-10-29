@@ -16,5 +16,8 @@
 #import "Item.h"
 #import "Comment.h"
 #import "Ys.h"
+#import "Requirement.h"
+#import "Product.h"
+#import "ProductImage.h"
 
 #endif /* Model_h */

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,44 +17,46 @@
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1d7-V1-in0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="169"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <connections>
+                            <outlet property="delegate" destination="KGk-i7-Jjw" id="5sM-Aa-OBb"/>
+                        </connections>
                     </scrollView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_cover" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-qu-xm5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="169"/>
+                        <animations/>
                     </imageView>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="izJ-MJ-YtU">
+                        <rect key="frame" x="273" y="132" width="55" height="37"/>
+                        <animations/>
+                    </pageControl>
                 </subviews>
+                <animations/>
                 <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="izJ-MJ-YtU" secondAttribute="bottom" constant="-8" id="0GP-P2-Zef"/>
                     <constraint firstAttribute="trailing" secondItem="1d7-V1-in0" secondAttribute="trailing" id="0Nn-Du-obc"/>
-                    <constraint firstItem="1d7-V1-in0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="IG7-PP-iFK"/>
+                    <constraint firstItem="izJ-MJ-YtU" firstAttribute="centerX" secondItem="aHH-qu-xm5" secondAttribute="centerX" id="9Qo-Vp-i6F"/>
                     <constraint firstAttribute="trailing" secondItem="aHH-qu-xm5" secondAttribute="trailing" id="IUN-oy-iBv"/>
-                    <constraint firstAttribute="trailing" secondItem="1d7-V1-in0" secondAttribute="trailing" id="KEM-BC-f2d"/>
                     <constraint firstItem="1d7-V1-in0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NNL-39-YjY"/>
-                    <constraint firstItem="1d7-V1-in0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="UL7-LH-9id"/>
+                    <constraint firstItem="izJ-MJ-YtU" firstAttribute="centerX" secondItem="aHH-qu-xm5" secondAttribute="centerX" id="VrO-a1-sua"/>
                     <constraint firstAttribute="bottom" secondItem="1d7-V1-in0" secondAttribute="bottom" id="XCs-N1-zfB"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="1d7-V1-in0" secondAttribute="trailing" constant="-8" id="cMu-wm-q3X"/>
-                    <constraint firstItem="1d7-V1-in0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="iHi-Ce-mkE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="izJ-MJ-YtU" secondAttribute="bottom" constant="-8" id="Xn2-uL-25t"/>
                     <constraint firstItem="1d7-V1-in0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="iUW-KV-QmC"/>
                     <constraint firstItem="aHH-qu-xm5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kMc-BI-2m8"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="1d7-V1-in0" secondAttribute="bottom" constant="-8" id="miE-4A-wtm"/>
-                    <constraint firstItem="1d7-V1-in0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="p7k-NZ-Qva"/>
                     <constraint firstItem="aHH-qu-xm5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pIU-Sj-Aqf"/>
-                    <constraint firstAttribute="bottom" secondItem="1d7-V1-in0" secondAttribute="bottom" id="sym-Ij-S3j"/>
                     <constraint firstAttribute="bottom" secondItem="aHH-qu-xm5" secondAttribute="bottom" id="wbF-Wh-vcq"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="IG7-PP-iFK"/>
-                        <exclude reference="KEM-BC-f2d"/>
-                        <exclude reference="UL7-LH-9id"/>
-                        <exclude reference="cMu-wm-q3X"/>
-                        <exclude reference="iHi-Ce-mkE"/>
-                        <exclude reference="miE-4A-wtm"/>
-                        <exclude reference="p7k-NZ-Qva"/>
-                        <exclude reference="sym-Ij-S3j"/>
+                        <exclude reference="VrO-a1-sua"/>
+                        <exclude reference="Xn2-uL-25t"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <animations/>
             <connections>
+                <outlet property="pageControl" destination="izJ-MJ-YtU" id="xbZ-se-bnb"/>
                 <outlet property="scrollView" destination="1d7-V1-in0" id="WT5-sU-HEp"/>
             </connections>
             <point key="canvasLocation" x="347" y="318"/>

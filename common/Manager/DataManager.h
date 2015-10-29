@@ -13,6 +13,12 @@
 @property (nonatomic, strong) NSString *errMsg;
 @property (nonatomic, strong) id data;
 
-+ (DataManager *)shared;
+//For home page
+@property (strong, nonatomic) Requirement *homePageRequirement;
+@property (strong, nonatomic) NSMutableArray *homePageRequirementDesigners;
+@property (strong, nonatomic) NSMutableArray *homePageDesigners;
+
+kSynthesizeSingletonForHeader(DataManager)
 
 @end
+

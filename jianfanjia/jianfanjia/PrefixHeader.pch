@@ -23,6 +23,7 @@
   #import "Manager.h"
   #import "Model.h"
   #import "Constant.h"
+  #import "API.h"
 #endif
 
 //#define DEBUG

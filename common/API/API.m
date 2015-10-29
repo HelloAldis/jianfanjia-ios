@@ -68,6 +68,10 @@ static AFHTTPRequestOperationManager *_manager;
     }
 }
 
++ (void)homePageDesigners:(HomePageDesigners *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"home_page_designers" data:request.data handler:request success:success failure:failure];
+}
+
 @end
 
 

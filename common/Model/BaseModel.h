@@ -10,4 +10,5 @@
 
 @interface BaseModel : BaseDynamicObject
 
+
 @end

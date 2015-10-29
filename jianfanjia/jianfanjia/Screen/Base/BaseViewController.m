@@ -10,6 +10,7 @@
 
 @implementation BaseViewController
 
+#pragma mark - UI
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
 }

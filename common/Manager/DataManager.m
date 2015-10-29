@@ -12,18 +12,8 @@
 
 @end
 
-static DataManager *dataManager;
-
 @implementation DataManager
 
-+ (void)initialize {
-    if(!dataManager) {
-        dataManager = [[DataManager alloc] init];
-    }
-}
-
-+ (DataManager *)shared {
-    return dataManager;
-}
+kSynthesizeSingletonForClass(DataManager)
 
 @end

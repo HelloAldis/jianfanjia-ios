@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface DesignerListViewController : BaseViewController
+@interface HomePageViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @end

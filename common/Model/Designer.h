@@ -7,6 +7,7 @@
 //
 
 #import "BaseModel.h"
+#import "Product.h"
 
 @interface Designer : BaseModel
 
@@ -20,5 +21,7 @@
 @property(nonatomic, strong) NSString *address;
 @property(nonatomic, strong) NSString *imageid;
 @property(nonatomic, strong) NSString *email;
+
+@property(nonatomic, strong) Product *product;
 
 @end

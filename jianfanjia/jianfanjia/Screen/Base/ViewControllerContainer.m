@@ -14,7 +14,7 @@
 #import "ProcessViewController.h"
 #import "LeftViewController.h"
 #import "TabViewController.h"
-#import "DesignerListViewController.h"
+#import "HomePageViewController.h"
 #import "RequirementListViewController.h"
 #import "MeViewController.h"
 
@@ -64,7 +64,7 @@ static ViewControllerContainer *container;
 
 + (void)showTab {
     TabViewController *tab = [[TabViewController alloc] initWithNibName:nil bundle:nil];
-    DesignerListViewController *designerlist = [[DesignerListViewController alloc] initWithNibName:nil bundle:nil];
+    HomePageViewController *designerlist = [[HomePageViewController alloc] initWithNibName:nil bundle:nil];
     container.navTap1 = [[UINavigationController alloc] initWithRootViewController:designerlist];
     
     RequirementListViewController *requirementList = [[RequirementListViewController alloc] initWithNibName:nil bundle:nil];

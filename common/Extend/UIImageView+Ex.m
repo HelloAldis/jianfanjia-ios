@@ -12,7 +12,11 @@
 @implementation UIImageView (Ex)
 
 - (void)setImageWithId:(NSString *)imageid {
-    [self sd_setImageWithURL:[self imageurl:imageid]];
+    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
+}
+
+- (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image {
+    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:image];
 }
 
 - (NSURL *)imageurl:(NSString *)imageid {

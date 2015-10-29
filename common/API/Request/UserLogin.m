@@ -13,10 +13,6 @@
 @dynamic phone;
 @dynamic pass;
 
-- (void)pre {
-    [super pre];
-}
-
 - (void)failure {
     [HUDUtil hideWait];
     [HUDUtil showErrText:[DataManager shared].errMsg];

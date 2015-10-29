@@ -12,8 +12,7 @@
 
 
 - (void)pre {
-    [DataManager shared].errMsg = nil;
-    [DataManager shared].data = nil;
+
 }
 
 - (void)all {
@@ -44,6 +43,9 @@
             success();
         }
     }
+    
+    [DataManager shared].errMsg = nil;
+    [DataManager shared].data = nil;
 }
 
 - (void)handleHttpError:(NSError *)err failure:(void (^)(void))failure {
