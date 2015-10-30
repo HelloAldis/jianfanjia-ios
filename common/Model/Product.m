@@ -10,6 +10,7 @@
 
 @implementation Product
 
+@dynamic _id;
 @dynamic province;
 @dynamic city;
 @dynamic district;

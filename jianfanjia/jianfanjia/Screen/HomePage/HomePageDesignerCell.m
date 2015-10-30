@@ -7,6 +7,7 @@
 //
 
 #import "HomePageDesignerCell.h"
+#import "ViewControllerContainer.h"
 
 @interface HomePageDesignerCell ()
 
@@ -29,9 +30,9 @@
     [self.designerImageView setCornerRadius:30];
     [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
 
-    self.tapDesignerImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapProductImage:)];
+    self.tapDesignerImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDesignerImage:)];
     [self.designerImageView addGestureRecognizer:self.tapDesignerImage];
-    self.tapProductImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDesignerImage:)];
+    self.tapProductImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapProductImage:)];
     [self.productImageView addGestureRecognizer:self.tapProductImage];
 }
 
@@ -40,9 +41,9 @@
     
     ProductImage *productImage = [designer.product imageAtIndex:0];
     [self.productImageView setImageWithId:productImage.imageid];
-    [self.designerImageView setImageWithId:self.designer.imageid];
+    [self.designerImageView setUserImageWithId:self.designer.imageid];
     self.lblCell.text = self.designer.product.cell;
-    self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@",
+    self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@风格",
                            self.designer.product.house_area,
                            [NameDict nameForHouseType:self.designer.product.house_type],
                            [NameDict nameForDecStyle:self.designer.product.dec_style]];
@@ -56,7 +57,7 @@
 
 - (void)onTapProductImage:(UIGestureRecognizer *)sender {
     if (self.designer) {
-        DDLogDebug(@"%@", @"onTapProductImage");
+        [ViewControllerContainer showProduct:self.designer.product._id];
     }
 }
 

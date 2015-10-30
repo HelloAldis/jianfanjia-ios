@@ -73,6 +73,13 @@
 		6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98DB1BE203B300D45F77 /* ProductViewController.m */; };
 		6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98DC1BE203B300D45F77 /* ProductViewController.xib */; };
 		6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98E01BE205DE00D45F77 /* NameDict.m */; };
+		6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98E41BE343E400D45F77 /* DesignerViewController.m */; };
+		6E6D98E71BE343E400D45F77 /* DesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98E51BE343E400D45F77 /* DesignerViewController.xib */; };
+		6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98E91BE345BC00D45F77 /* ProductInfoCell.m */; };
+		6E6D98EC1BE345BC00D45F77 /* ProductInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98EA1BE345BC00D45F77 /* ProductInfoCell.xib */; };
+		6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98EE1BE34E2700D45F77 /* ProductImageCell.m */; };
+		6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98EF1BE34E2700D45F77 /* ProductImageCell.xib */; };
+		6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98F31BE35DD000D45F77 /* ProductHomePage.m */; };
 		6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7867051BA9164700DE8B1B /* ProcessViewController.m */; };
 		6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7867061BA9164700DE8B1B /* ProcessViewController.xib */; };
 		6E78670C1BA920D900DE8B1B /* BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E78670A1BA920D900DE8B1B /* BannerCell.m */; };
@@ -231,6 +238,17 @@
 		6E6D98DC1BE203B300D45F77 /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
 		6E6D98DF1BE205DE00D45F77 /* NameDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameDict.h; sourceTree = "<group>"; };
 		6E6D98E01BE205DE00D45F77 /* NameDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameDict.m; sourceTree = "<group>"; };
+		6E6D98E31BE343E400D45F77 /* DesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerViewController.h; sourceTree = "<group>"; };
+		6E6D98E41BE343E400D45F77 /* DesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerViewController.m; sourceTree = "<group>"; };
+		6E6D98E51BE343E400D45F77 /* DesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerViewController.xib; sourceTree = "<group>"; };
+		6E6D98E81BE345BC00D45F77 /* ProductInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductInfoCell.h; sourceTree = "<group>"; };
+		6E6D98E91BE345BC00D45F77 /* ProductInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductInfoCell.m; sourceTree = "<group>"; };
+		6E6D98EA1BE345BC00D45F77 /* ProductInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductInfoCell.xib; sourceTree = "<group>"; };
+		6E6D98ED1BE34E2700D45F77 /* ProductImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductImageCell.h; sourceTree = "<group>"; };
+		6E6D98EE1BE34E2700D45F77 /* ProductImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductImageCell.m; sourceTree = "<group>"; };
+		6E6D98EF1BE34E2700D45F77 /* ProductImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductImageCell.xib; sourceTree = "<group>"; };
+		6E6D98F21BE35DD000D45F77 /* ProductHomePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductHomePage.h; sourceTree = "<group>"; };
+		6E6D98F31BE35DD000D45F77 /* ProductHomePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductHomePage.m; sourceTree = "<group>"; };
 		6E7867041BA9164700DE8B1B /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
 		6E7867051BA9164700DE8B1B /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
 		6E7867061BA9164700DE8B1B /* ProcessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewController.xib; sourceTree = "<group>"; };
@@ -324,6 +342,8 @@
 				6E07DA551BD88DBE001461DD /* SendVerifyCode.m */,
 				6E6D98B81BE05F9600D45F77 /* HomePageDesigners.h */,
 				6E6D98B91BE05F9600D45F77 /* HomePageDesigners.m */,
+				6E6D98F21BE35DD000D45F77 /* ProductHomePage.h */,
+				6E6D98F31BE35DD000D45F77 /* ProductHomePage.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -536,8 +556,24 @@
 				6E6D98DA1BE203B300D45F77 /* ProductViewController.h */,
 				6E6D98DB1BE203B300D45F77 /* ProductViewController.m */,
 				6E6D98DC1BE203B300D45F77 /* ProductViewController.xib */,
+				6E6D98E81BE345BC00D45F77 /* ProductInfoCell.h */,
+				6E6D98E91BE345BC00D45F77 /* ProductInfoCell.m */,
+				6E6D98EA1BE345BC00D45F77 /* ProductInfoCell.xib */,
+				6E6D98ED1BE34E2700D45F77 /* ProductImageCell.h */,
+				6E6D98EE1BE34E2700D45F77 /* ProductImageCell.m */,
+				6E6D98EF1BE34E2700D45F77 /* ProductImageCell.xib */,
 			);
 			path = Product;
+			sourceTree = "<group>";
+		};
+		6E6D98E21BE343B600D45F77 /* Designer */ = {
+			isa = PBXGroup;
+			children = (
+				6E6D98E31BE343E400D45F77 /* DesignerViewController.h */,
+				6E6D98E41BE343E400D45F77 /* DesignerViewController.m */,
+				6E6D98E51BE343E400D45F77 /* DesignerViewController.xib */,
+			);
+			path = Designer;
 			sourceTree = "<group>";
 		};
 		6E7867001BA9143A00DE8B1B /* Process */ = {
@@ -610,6 +646,7 @@
 		6EC3A98B1B8ACFD300A62153 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				6E6D98E21BE343B600D45F77 /* Designer */,
 				6E6D98D91BE2039800D45F77 /* Product */,
 				6E6D98B21BDF73D300D45F77 /* Me */,
 				6E6D98AC1BDF735C00D45F77 /* RequirementList */,
@@ -730,12 +767,15 @@
 				6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */,
 				6E6D98CB1BE0AB7C00D45F77 /* HomePageRequirementCell.xib in Resources */,
 				6E6D98D51BE0D62F00D45F77 /* HomePageDesignerCell.xib in Resources */,
+				6E6D98E71BE343E400D45F77 /* DesignerViewController.xib in Resources */,
 				6E7E4A6A1B9A90BA00503B35 /* LoginViewController.xib in Resources */,
 				6E6D98AB1BDF733F00D45F77 /* HomePageViewController.xib in Resources */,
 				6E6D98D01BE0C34000D45F77 /* HomePageRecDesignersCell.xib in Resources */,
+				6E6D98EC1BE345BC00D45F77 /* ProductInfoCell.xib in Resources */,
 				6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */,
 				6E6D98B11BDF736A00D45F77 /* RequirementListViewController.xib in Resources */,
 				6E7867281BAA538E00DE8B1B /* SectionView.xib in Resources */,
+				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
 				6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */,
@@ -802,6 +842,7 @@
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
 				6E07DAC61BD88DBE001461DD /* Process.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
+				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
 				6E6D98D41BE0D62F00D45F77 /* HomePageDesignerCell.m in Sources */,
@@ -810,11 +851,13 @@
 				6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */,
 				6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */,
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
+				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
 				6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */,
 				6E07DAC11BD88DBE001461DD /* GVUserDefaults+Manager.m in Sources */,
 				6E07DABA1BD88DBE001461DD /* NSManagedObjectContext+Ex.m in Sources */,
+				6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */,
 				6E07DAB91BD88DBE001461DD /* NSManagedObject+Ex.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
 				6E6D98AA1BDF733F00D45F77 /* HomePageViewController.m in Sources */,
@@ -826,6 +869,7 @@
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
+				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
 				6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */,
 				6E07DAC41BD88DBE001461DD /* Designer.m in Sources */,
 				6E6D98941BDDFDAB00D45F77 /* W2View.m in Sources */,

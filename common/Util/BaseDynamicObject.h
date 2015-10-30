@@ -14,6 +14,8 @@
 
 - (instancetype)init;
 - (instancetype)initWith:(NSMutableDictionary *)data;
+- (void)setObject:(id)o forKey:(NSString *)key;
+- (id)objectForKey:(NSString *)key;
 
 - (BaseDynamicObject *)merge:(BaseDynamicObject *)dynamicObject;
 @end

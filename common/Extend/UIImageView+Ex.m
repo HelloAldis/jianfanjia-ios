@@ -15,6 +15,10 @@
     [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
 }
 
+- (void)setUserImageWithId:(NSString *)imageid {
+    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder_2"]];
+}
+
 - (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image {
     [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:image];
 }

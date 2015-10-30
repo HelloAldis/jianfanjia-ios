@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Model.h"
+@class Process;
 
 @interface ProcessBusiness : NSObject
 

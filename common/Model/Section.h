@@ -7,7 +7,7 @@
 //
 
 #import "BaseModel.h"
-#import "Item.h"
+@class Item;
 
 @interface Section : BaseModel
 

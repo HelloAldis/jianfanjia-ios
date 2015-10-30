@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Requirement;
+@class Product;
 
 @interface DataManager : NSObject
 
@@ -17,6 +19,9 @@
 @property (strong, nonatomic) Requirement *homePageRequirement;
 @property (strong, nonatomic) NSMutableArray *homePageRequirementDesigners;
 @property (strong, nonatomic) NSMutableArray *homePageDesigners;
+
+//For product page
+@property (strong, nonatomic) Product *productPageProduct;
 
 kSynthesizeSingletonForHeader(DataManager)
 

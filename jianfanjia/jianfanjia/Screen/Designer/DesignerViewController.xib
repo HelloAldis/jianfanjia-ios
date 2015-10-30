@@ -5,9 +5,8 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DesignerViewController">
             <connections>
-                <outlet property="tableView" destination="NMn-De-ejd" id="eVH-Ci-nvC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,23 +15,19 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NMn-De-ejd">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bku-Nl-7Wo">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="6fK-rB-Kza"/>
-                        <outlet property="delegate" destination="-1" id="xcN-Lj-KJQ"/>
-                    </connections>
                 </tableView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="NMn-De-ejd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0Ci-fO-t8F"/>
-                <constraint firstAttribute="bottom" secondItem="NMn-De-ejd" secondAttribute="bottom" id="HQW-k8-q7l"/>
-                <constraint firstItem="NMn-De-ejd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Spx-mj-JrE"/>
-                <constraint firstAttribute="trailing" secondItem="NMn-De-ejd" secondAttribute="trailing" id="esM-cD-hrO"/>
+                <constraint firstAttribute="bottom" secondItem="Bku-Nl-7Wo" secondAttribute="bottom" id="9jT-Ms-edd"/>
+                <constraint firstItem="Bku-Nl-7Wo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KKv-7g-mlv"/>
+                <constraint firstAttribute="trailing" secondItem="Bku-Nl-7Wo" secondAttribute="trailing" id="bup-WG-4i7"/>
+                <constraint firstItem="Bku-Nl-7Wo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xLr-AN-NSy"/>
             </constraints>
         </view>
     </objects>

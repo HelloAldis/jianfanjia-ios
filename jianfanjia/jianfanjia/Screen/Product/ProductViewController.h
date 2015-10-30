@@ -10,4 +10,6 @@
 
 @interface ProductViewController : BaseViewController
 
+@property (strong, nonatomic) NSString *productid;
+
 @end

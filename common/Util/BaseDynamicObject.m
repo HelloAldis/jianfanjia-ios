@@ -103,8 +103,9 @@ NSObject* objGetterImp(id self, SEL _cmd) {
 + (BOOL)resolveInstanceMethod:(SEL)aSEL {
     NSString *selStr = NSStringFromSelector(aSEL);
     NSDictionary *propDict = [self propertyNamesDictionary];
-    
+
     if ([propDict objectForKey:selStr]) {
+        
         //NAILog("model", @"Add getter selector %@", selStr);
         class_addMethod([self class], aSEL, (IMP) objGetterImp, "@@:");
         return YES;
@@ -122,7 +123,7 @@ NSObject* objGetterImp(id self, SEL _cmd) {
 
 #pragma mark - Override description method
 -(NSString *)description{
-    return [NSString stringWithFormat:@"%@ = %@", [super description], [self data]];
+    return [self objectForKey:@"description"];
 }
 
 

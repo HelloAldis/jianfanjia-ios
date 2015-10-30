@@ -7,7 +7,7 @@
 //
 
 #import "BaseModel.h"
-#import "Product.h"
+@class Product;
 
 @interface Designer : BaseModel
 
@@ -22,6 +22,7 @@
 @property(nonatomic, strong) NSString *imageid;
 @property(nonatomic, strong) NSString *email;
 
+//不动态的属性
 @property(nonatomic, strong) Product *product;
 
 @end

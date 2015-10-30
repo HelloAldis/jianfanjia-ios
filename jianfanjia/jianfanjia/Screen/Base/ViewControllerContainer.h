@@ -15,5 +15,6 @@
 + (void)showAfterLanching;
 + (void)showLogin;
 + (void)showProcess;
++ (void)showProduct:(NSString *)productid;
 
 @end

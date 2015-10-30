@@ -17,16 +17,17 @@
 #import "HomePageViewController.h"
 #import "RequirementListViewController.h"
 #import "MeViewController.h"
+#import "ProductViewController.h"
 
 @interface ViewControllerContainer ()
 
 @property(weak, nonatomic) UIWindow *window;
-@property(strong, nonatomic) UINavigationController *nav;
-
 @property(strong, nonatomic) UINavigationController *navTap1;
 @property(strong, nonatomic) UINavigationController *navTap2;
 @property(strong, nonatomic) UINavigationController *navTap3;
 @property(strong, nonatomic) UINavigationController *navTap4;
+
+@property(strong, nonatomic) TabViewController *tab;
 
 @end
 
@@ -63,21 +64,25 @@ static ViewControllerContainer *container;
 }
 
 + (void)showTab {
-    TabViewController *tab = [[TabViewController alloc] initWithNibName:nil bundle:nil];
+    container.tab = [[TabViewController alloc] initWithNibName:nil bundle:nil];
     HomePageViewController *designerlist = [[HomePageViewController alloc] initWithNibName:nil bundle:nil];
     container.navTap1 = [[UINavigationController alloc] initWithRootViewController:designerlist];
+    container.navTap1.hidesBottomBarWhenPushed = YES;
     
     RequirementListViewController *requirementList = [[RequirementListViewController alloc] initWithNibName:nil bundle:nil];
     container.navTap2 = [[UINavigationController alloc] initWithRootViewController:requirementList];
+    container.navTap2.hidesBottomBarWhenPushed = YES;
     
     ProcessViewController *process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
     container.navTap3 = [[UINavigationController alloc] initWithRootViewController:process];
+    container.navTap3.hidesBottomBarWhenPushed = YES;
     
     MeViewController *me = [[MeViewController alloc] initWithNibName:nil bundle:nil];
     container.navTap4 = [[UINavigationController alloc] initWithRootViewController:me];
+    container.navTap4.hidesBottomBarWhenPushed = YES;
     
-    tab.viewControllers = @[container.navTap1, container.navTap2, container.navTap3, container.navTap4];
-    container.window.rootViewController = tab;
+    container.tab.viewControllers = @[container.navTap1, container.navTap2, container.navTap3, container.navTap4];
+    container.window.rootViewController = container.tab;
 }
 
 + (void)showLogin {
@@ -92,6 +97,12 @@ static ViewControllerContainer *container;
     
     RESideMenu *side = [[RESideMenu alloc] initWithContentViewController:nav leftMenuViewController:left rightMenuViewController:nil];
     container.window.rootViewController = side;
+}
+
++ (void)showProduct:(NSString *)productid {
+    ProductViewController *v = [[ProductViewController alloc] initWithNibName:nil bundle:nil];
+    v.productid = productid;
+    [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
 

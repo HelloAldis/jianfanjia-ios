@@ -7,7 +7,9 @@
 //
 
 #import "BaseModel.h"
-#import "ProductImage.h"
+
+@class ProductImage;
+@class Designer;
 
 @interface Product : BaseModel
 
@@ -25,8 +27,11 @@
 @property (strong, nonatomic) NSString *description;
 @property (strong, nonatomic) NSMutableArray *images;
 
-- (ProductImage *)imageAtIndex:(NSInteger )index;
 
+//不动态的属性
+@property (strong, nonatomic) Designer *designer;
+
+- (ProductImage *)imageAtIndex:(NSInteger )index;
 
 @end
 

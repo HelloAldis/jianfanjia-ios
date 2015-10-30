@@ -7,31 +7,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RequirementListViewController">
             <connections>
-                <outlet property="imageView" destination="Oao-Yr-uEE" id="TqC-Ii-oVw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="K7E-IL-zYl"/>
-                <outlet property="view1" destination="mem-Ab-xhX" id="t7c-4a-oW2"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="banner_1" translatesAutoresizingMaskIntoConstraints="NO" id="Oao-Yr-uEE">
-                    <rect key="frame" x="202" y="174" width="240" height="128"/>
-                    <animations/>
-                </imageView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mem-Ab-xhX">
-                    <rect key="frame" x="156" y="342" width="240" height="128"/>
-                    <animations/>
-                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
-            </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
         </view>
     </objects>
-    <resources>
-        <image name="banner_1" width="320" height="133"/>
-    </resources>
 </document>

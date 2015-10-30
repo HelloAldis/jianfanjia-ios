@@ -19,5 +19,6 @@ extern NSString * const kApiUrl;
 + (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)getProcess:(GetProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)homePageDesigners:(HomePageDesigners *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)productHomeGage:(ProductHomePage *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 
 @end

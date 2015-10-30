@@ -41,7 +41,25 @@
     self.preY = 0;
     self.isTabbarhide = NO;
     [self refresh];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self initNav];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.isTabbarhide) {
+        [self showTabbar];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (!self.isTabbarhide) {
+        [self hideTabbar];
+    }
 }
 
 #pragma mark - UI
@@ -145,7 +163,7 @@
 - (void)refresh {
     HomePageDesigners *request = [[HomePageDesigners alloc] init];
     request.from = @0;
-    request.limit = @5;
+    request.limit = @10;
     
     [API homePageDesigners:request success:^{
         [self.tableView.header endRefreshing];
@@ -156,7 +174,7 @@
 - (void)loadMore {
     HomePageDesigners *request = [[HomePageDesigners alloc] init];
     request.from = @([DataManager shared].homePageDesigners.count);
-    request.limit = @5;
+    request.limit = @10;
     
     [API homePageDesigners:request success:^{
          [self.tableView.footer endRefreshing];
