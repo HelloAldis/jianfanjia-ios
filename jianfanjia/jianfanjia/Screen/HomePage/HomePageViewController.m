@@ -34,7 +34,7 @@
         [self refresh];
     }];
     
-    self.tableView.footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [self loadMore];
     }];
     
@@ -57,7 +57,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    if (!self.isTabbarhide) {
+    if (!self.isTabbarhide && animated) {
         [self hideTabbar];
     }
 }
@@ -123,7 +123,9 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (self.preY > scrollView.contentOffset.y) {
         //上滑
-        [self showTabbar];
+        if (!self.tableView.footer.isRefreshing) {
+            [self showTabbar];
+        }
     } else if (self.preY < scrollView.contentOffset.y && scrollView.contentOffset.y > 0) {
         //下滑
         [self hideTabbar];

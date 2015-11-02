@@ -18,6 +18,7 @@
 #import "RequirementListViewController.h"
 #import "MeViewController.h"
 #import "ProductViewController.h"
+#import "ImageDetailViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -105,6 +106,12 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
++ (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index {
+    ImageDetailViewController *v = [[ImageDetailViewController alloc] initWithNibName:nil bundle:nil];
+    v.imageArray = images;
+    v.index = index;
+    [container.tab.selectedViewController presentViewController:v animated:YES completion:^{}];
+}
 
 
 @end

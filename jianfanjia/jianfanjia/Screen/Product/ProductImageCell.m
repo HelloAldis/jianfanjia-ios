@@ -7,6 +7,7 @@
 //
 
 #import "ProductImageCell.h"
+#import "ViewControllerContainer.h"
 
 @interface ProductImageCell ()
 
@@ -15,13 +16,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDescribtion;
 
 @property (weak, nonatomic) ProductImage *productImage;
+@property (strong, nonatomic) UITapGestureRecognizer *tap;
 
 @end
 
 @implementation ProductImageCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)];
+    [self.productImageView addGestureRecognizer:self.tap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -36,6 +39,15 @@
     [self.productImageView setImageWithId:self.productImage.imageid];
     self.lblSection.text = self.productImage.section;
     self.lblDescribtion.text = self.productImage.description;
+}
+
+- (void)onTap {
+    NSArray *imageArray = [[DataManager shared].productPageProduct.images map:^(NSDictionary *dict) {
+        return [dict objectForKey:@"imageid"];
+    }];
+    
+    
+    [ViewControllerContainer showImageDetail:imageArray withIndex:0];
 }
 
 @end

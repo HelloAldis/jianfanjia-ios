@@ -17,5 +17,6 @@
 #import "UIColor+Ex.h"
 #import "NSManagedObject+Ex.h"
 #import "NSManagedObjectContext+Ex.h"
+#import "NSArray+Ex.h"
 
 #endif

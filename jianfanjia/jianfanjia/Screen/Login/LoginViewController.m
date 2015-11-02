@@ -231,7 +231,7 @@
     [API userLogin:login success:^{
         [HUDUtil hideWait];
         [GVUserDefaults standardUserDefaults].isLogin = YES;
-        [ViewControllerContainer showProcess];
+        [ViewControllerContainer showTab];
     } failure:^{
         [HUDUtil hideWait];
     }];
