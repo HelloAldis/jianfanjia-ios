@@ -14,13 +14,25 @@
 
 @implementation RequirementListViewController
 
+
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initNav];
 }
 
-- (void)onTapDesignerImage:(UIGestureRecognizer *)sender {
-    DDLogDebug(@"%@", @"onTapProductImage");
+#pragma mark - UI
+- (void)initNav {
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
+    self.title = @"需求列表";
 }
 
+#pragma mark - actions
+- (void)onClickCreate {
+    
+}
 
 @end
