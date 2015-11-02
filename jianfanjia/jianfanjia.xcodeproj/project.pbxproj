@@ -96,6 +96,9 @@
 		6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E4A7C1B9D325400503B35 /* ViewControllerContainer.m */; };
 		6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E4A871B9EC2D700503B35 /* WelcomeViewController.m */; };
 		6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7E4A881B9EC2D700503B35 /* WelcomeViewController.xib */; };
+		6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838D981BE6EF49000BF5CD /* ImageDetailViewController.m */; };
+		6E838D9B1BE6EF49000BF5CD /* ImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E838D991BE6EF49000BF5CD /* ImageDetailViewController.xib */; };
+		6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838D9D1BE6FB3A000BF5CD /* NSArray+Ex.m */; };
 		E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D2BD40530E2CA1D84D921D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -276,6 +279,11 @@
 		6E7E4A861B9EC2D700503B35 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		6E7E4A871B9EC2D700503B35 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		6E7E4A881B9EC2D700503B35 /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		6E838D971BE6EF49000BF5CD /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
+		6E838D981BE6EF49000BF5CD /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
+		6E838D991BE6EF49000BF5CD /* ImageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailViewController.xib; sourceTree = "<group>"; };
+		6E838D9C1BE6FB3A000BF5CD /* NSArray+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Ex.h"; sourceTree = "<group>"; };
+		6E838D9D1BE6FB3A000BF5CD /* NSArray+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Ex.m"; sourceTree = "<group>"; };
 		6EC3A9961B8AF1D600A62153 /* Pods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BFE23DDA1E815FFFBCFFB23F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -382,6 +390,8 @@
 				6E07DA821BD88DBE001461DD /* UIImageView+Ex.m */,
 				6E07DA831BD88DBE001461DD /* UIView+Ex.h */,
 				6E07DA841BD88DBE001461DD /* UIView+Ex.m */,
+				6E838D9C1BE6FB3A000BF5CD /* NSArray+Ex.h */,
+				6E838D9D1BE6FB3A000BF5CD /* NSArray+Ex.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -643,9 +653,20 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		6E838D961BE6EF3A000BF5CD /* ImageDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6E838D971BE6EF49000BF5CD /* ImageDetailViewController.h */,
+				6E838D981BE6EF49000BF5CD /* ImageDetailViewController.m */,
+				6E838D991BE6EF49000BF5CD /* ImageDetailViewController.xib */,
+			);
+			path = ImageDetail;
+			sourceTree = "<group>";
+		};
 		6EC3A98B1B8ACFD300A62153 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				6E838D961BE6EF3A000BF5CD /* ImageDetail */,
 				6E6D98E21BE343B600D45F77 /* Designer */,
 				6E6D98D91BE2039800D45F77 /* Product */,
 				6E6D98B21BDF73D300D45F77 /* Me */,
@@ -778,6 +799,7 @@
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
+				6E838D9B1BE6EF49000BF5CD /* ImageDetailViewController.xib in Resources */,
 				6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */,
 				6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */,
 				6E7867121BA942C700DE8B1B /* SectionCell.xib in Resources */,
@@ -853,6 +875,7 @@
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
+				6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
 				6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */,
 				6E07DAC11BD88DBE001461DD /* GVUserDefaults+Manager.m in Sources */,
@@ -894,6 +917,7 @@
 				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
 				6E6D98CA1BE0AB7C00D45F77 /* HomePageRequirementCell.m in Sources */,
+				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,
 				6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */,
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
 			);

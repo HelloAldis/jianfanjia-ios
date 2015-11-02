@@ -16,5 +16,7 @@
 + (void)showLogin;
 + (void)showProcess;
 + (void)showProduct:(NSString *)productid;
++ (void)showTab;
++ (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index;
 
 @end
