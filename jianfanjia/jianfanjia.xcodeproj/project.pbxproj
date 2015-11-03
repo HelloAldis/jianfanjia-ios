@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6846C3941BE8C421009692D8 /* RequirementCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6846C3921BE8C421009692D8 /* RequirementCreateViewController.m */; settings = {ASSET_TAGS = (); }; };
+		6846C3951BE8C421009692D8 /* RequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6846C3931BE8C421009692D8 /* RequirementCreateViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B51051BE76D45001C8B34 /* UIColor+Ex.m */; settings = {ASSET_TAGS = (); }; };
 		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; };
 		6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4A1BD88DBE001461DD /* BaseRequest.m */; };
@@ -115,6 +117,9 @@
 
 /* Begin PBXFileReference section */
 		44D2BD40530E2CA1D84D921D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6846C3911BE8C421009692D8 /* RequirementCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementCreateViewController.h; sourceTree = "<group>"; };
+		6846C3921BE8C421009692D8 /* RequirementCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementCreateViewController.m; sourceTree = "<group>"; };
+		6846C3931BE8C421009692D8 /* RequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementCreateViewController.xib; sourceTree = "<group>"; };
 		685B51041BE76D45001C8B34 /* UIColor+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ex.h"; sourceTree = "<group>"; };
 		685B51051BE76D45001C8B34 /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
 		6E07DA461BD88DBE001461DD /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
@@ -551,6 +556,9 @@
 				6E6D98AD1BDF736A00D45F77 /* RequirementListViewController.h */,
 				6E6D98AE1BDF736A00D45F77 /* RequirementListViewController.m */,
 				6E6D98AF1BDF736A00D45F77 /* RequirementListViewController.xib */,
+				6846C3911BE8C421009692D8 /* RequirementCreateViewController.h */,
+				6846C3921BE8C421009692D8 /* RequirementCreateViewController.m */,
+				6846C3931BE8C421009692D8 /* RequirementCreateViewController.xib */,
 			);
 			path = RequirementList;
 			sourceTree = "<group>";
@@ -784,6 +792,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6846C3951BE8C421009692D8 /* RequirementCreateViewController.xib in Resources */,
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */,
 				6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */,
@@ -915,6 +924,7 @@
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
+				6846C3941BE8C421009692D8 /* RequirementCreateViewController.m in Sources */,
 				6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */,
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,

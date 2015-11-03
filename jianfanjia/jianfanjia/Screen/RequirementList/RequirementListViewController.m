@@ -7,8 +7,11 @@
 //
 
 #import "RequirementListViewController.h"
+#import "RequirementCreateViewController.h"
 
 @interface RequirementListViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *btnCreate;
+@property (weak, nonatomic) IBOutlet UILabel *lblNoRequirement;
 
 @end
 
@@ -25,14 +28,15 @@
 #pragma mark - UI
 - (void)initNav {
     self.navigationController.navigationBarHidden = NO;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate:)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
     self.title = @"需求列表";
 }
 
 #pragma mark - actions
-- (void)onClickCreate {
-    
+- (IBAction)onClickCreate:(id)sender {
+    UIViewController *requirementCreateVC = [[RequirementCreateViewController alloc] init];
+    [self.navigationController pushViewController:requirementCreateVC animated:YES];
 }
 
 @end

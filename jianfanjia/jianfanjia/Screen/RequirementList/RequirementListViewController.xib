@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RequirementListViewController">
             <connections>
+                <outlet property="btnCreate" destination="zlJ-1x-l7N" id="ExM-JD-fNv"/>
+                <outlet property="lblNoRequirement" destination="DS7-EN-yPO" id="qRS-FH-Cs4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="K7E-IL-zYl"/>
             </connections>
         </placeholder>
@@ -22,8 +24,8 @@
                         <constraint firstAttribute="height" constant="268" id="Ldn-Uh-QmO"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="您还没有发布需求，当前列表为空" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS7-EN-yPO">
-                    <rect key="frame" x="166" y="319" width="236" height="16"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有发布需求，当前列表为空" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS7-EN-yPO">
+                    <rect key="frame" x="182" y="319" width="236" height="16"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="236" id="Ohj-wb-RoY"/>
@@ -33,17 +35,20 @@
                     <color key="textColor" red="0.48627450980392156" green="0.51764705882352935" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlJ-1x-l7N">
-                    <rect key="frame" x="185" y="392" width="170" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlJ-1x-l7N">
+                    <rect key="frame" x="215" y="392" width="170" height="30"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="158" id="189-6e-qMM"/>
-                        <constraint firstAttribute="height" constant="17" id="jH4-nX-FrL"/>
+                        <constraint firstAttribute="width" constant="170" id="189-6e-qMM"/>
+                        <constraint firstAttribute="height" constant="30" id="jH4-nX-FrL"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <state key="normal" title="点击前往发布 &gt;">
                         <color key="titleColor" red="0.99607843137254903" green="0.4392156862745098" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="onClickCreate:" destination="-1" eventType="touchUpInside" id="BA5-Us-3br"/>
+                    </connections>
                 </button>
             </subviews>
             <animations/>
@@ -53,9 +58,9 @@
                 <constraint firstItem="zlJ-1x-l7N" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hba-YJ-Uf3"/>
                 <constraint firstItem="9ig-fY-uhR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HnY-4X-aKU"/>
                 <constraint firstItem="DS7-EN-yPO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ku7-vy-uXE"/>
-                <constraint firstItem="zlJ-1x-l7N" firstAttribute="top" secondItem="DS7-EN-yPO" secondAttribute="bottom" constant="37" id="bGT-nb-VAg"/>
+                <constraint firstItem="zlJ-1x-l7N" firstAttribute="top" secondItem="DS7-EN-yPO" secondAttribute="bottom" constant="57" id="bGT-nb-VAg"/>
                 <constraint firstItem="9ig-fY-uhR" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="dRJ-vq-A1r"/>
-                <constraint firstItem="DS7-EN-yPO" firstAttribute="top" secondItem="9ig-fY-uhR" secondAttribute="bottom" constant="46" id="puF-01-rpe"/>
+                <constraint firstItem="DS7-EN-yPO" firstAttribute="top" secondItem="9ig-fY-uhR" secondAttribute="bottom" constant="51" id="puF-01-rpe"/>
             </constraints>
             <point key="canvasLocation" x="330" y="345"/>
         </view>
