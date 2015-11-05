@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class Requirement;
 @class Product;
+@class Designer;
 
 @interface DataManager : NSObject
 
@@ -22,6 +23,10 @@
 
 //For product page
 @property (strong, nonatomic) Product *productPageProduct;
+
+//For designer page
+@property (strong, nonatomic) Designer *designerPageDesigner;
+@property (assign, nonatomic) BOOL isShowProductList;
 
 kSynthesizeSingletonForHeader(DataManager)
 

@@ -11,6 +11,7 @@
 @interface UIImageView (Ex)
 
 - (void)setImageWithId:(NSString *)imageid;
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width;
 - (void)setUserImageWithId:(NSString *)imageid;
 
 @end

@@ -40,7 +40,7 @@
     self.designer = designer;
     
     ProductImage *productImage = [designer.product imageAtIndex:0];
-    [self.productImageView setImageWithId:productImage.imageid];
+    [self.productImageView setImageWithId:productImage.imageid withWidth:kScreenWidth];
     [self.designerImageView setUserImageWithId:self.designer.imageid];
     self.lblCell.text = self.designer.product.cell;
     self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@风格",

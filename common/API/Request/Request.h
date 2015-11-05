@@ -16,5 +16,6 @@
 #import "GetProcess.h"
 #import "HomePageDesigners.h"
 #import "ProductHomePage.h"
+#import "DesignerHomePage.h"
 
 #endif

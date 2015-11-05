@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *designerView;
 @property (weak, nonatomic) IBOutlet UIImageView *designerImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
 @end
 
@@ -42,19 +43,22 @@
 - (void)initUI {
     [self.designerImageView setCornerRadius:15];
     [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
-    self.designerView.alpha = 0;
-    
 }
 
 - (void)initUIData {
     [self.designerImageView setUserImageWithId:[DataManager shared].productPageProduct.designer.imageid];
     self.lblName.text = [DataManager shared].productPageProduct.designer.username;
+    self.title = [DataManager shared].productPageProduct.cell;
 }
 
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1 + [DataManager shared].productPageProduct.images.count;
+    if ([DataManager shared].productPageProduct) {
+            return 1 + [DataManager shared].productPageProduct.images.count;
+    } else {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -80,9 +84,15 @@
 #pragma mark - scroll view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     DDLogDebug(@"%f", scrollView.contentOffset.y);
-    if (scrollView.contentOffset.y >= -5 && scrollView.contentOffset.y <= 55) {
-        float x = (scrollView.contentOffset.y - -5)/60;
-        self.designerView.alpha = x;
+    if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y <= 200) {
+        CGFloat dy = scrollView.contentOffset.y - 39;
+        if (dy < 0) {
+            dy = 0;
+        } else if (dy > 44) {
+            dy = 44;
+        }
+        
+        self.topConstraint.constant = 20 + dy;
     }
 }
 
@@ -97,7 +107,7 @@
     ProductHomePage *request = [[ProductHomePage alloc] init];
     request._id = self.productid;
     
-    [API productHomeGage:request success:^{
+    [API productHomePage:request success:^{
         [self initUIData];
         [self.tableView reloadData];
     } failure:^{

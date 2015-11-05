@@ -15,6 +15,10 @@
     [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
 }
 
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width {
+    [self sd_setImageWithURL:[self imageurl:imageid withWidth:width] placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
+}
+
 - (void)setUserImageWithId:(NSString *)imageid {
     [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder_2"]];
 }
@@ -25,6 +29,12 @@
 
 - (NSURL *)imageurl:(NSString *)imageid {
     NSString *url = [NSString stringWithFormat:@"%@image/%@", kApiUrl, imageid];
+    return [NSURL URLWithString:url];
+}
+
+- (NSURL *)imageurl:(NSString *)imageid withWidth:(long)width {
+    width = width * 2;
+    NSString *url = [NSString stringWithFormat:@"%@thumbnail/%ld/%@", kApiUrl, width ,imageid];
     return [NSURL URLWithString:url];
 }
 

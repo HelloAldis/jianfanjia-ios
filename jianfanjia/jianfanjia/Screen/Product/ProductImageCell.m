@@ -36,7 +36,7 @@
 - (void)initWithProductImage:(ProductImage *)productImage {
     self.productImage = productImage;
     
-    [self.productImageView setImageWithId:self.productImage.imageid];
+    [self.productImageView setImageWithId:self.productImage.imageid withWidth:kScreenWidth];
     self.lblSection.text = self.productImage.section;
     self.lblDescribtion.text = self.productImage.description;
 }

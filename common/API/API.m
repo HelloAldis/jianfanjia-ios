@@ -72,7 +72,7 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"home_page_designers" data:request.data handler:request success:success failure:failure];
 }
 
-+ (void)productHomeGage:(ProductHomePage *)request success:(void (^)(void))success failure:(void (^)(void))failure {
++ (void)productHomePage:(ProductHomePage *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API POST:@"product_home_page" data:request.data handler:request success:success failure:failure];
 }
 

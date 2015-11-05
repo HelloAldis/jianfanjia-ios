@@ -7,9 +7,14 @@
 //
 
 #import "DesignerViewController.h"
+#import "DesignerInfoCell.h"
+#import "DesignerSectionCell.h"
+#import "DesignerDetailCell.h"
+#import "DesignerProductCell.h"
 
 @interface DesignerViewController ()
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -18,9 +23,79 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [self.tableView registerNib:[UINib nibWithNibName:@"DesignerInfoCell" bundle:nil] forCellReuseIdentifier:@"DesignerInfoCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DesignerSectionCell" bundle:nil] forCellReuseIdentifier:@"DesignerSectionCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DesignerDetailCell" bundle:nil] forCellReuseIdentifier:@"DesignerDetailCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"DesignerProductCell" bundle:nil] forCellReuseIdentifier:@"DesignerProductCell"];
 }
 
 #pragma mark - UI
+- (void)initNav {
+    self.navigationController.navigationBarHidden = NO;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    self.navigationItem.leftBarButtonItem = item;
+}
+
+#pragma mark - user action
+- (void)onClickBack {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - table view delegate
+//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+//    if (section == 0) {
+//        return 1;
+//    } else {
+//        if ([ProcessBusiness hasYs:self.sectionIndex]) {
+//            return [self.process sectionAtIndex:self.sectionIndex].items.count + 1;
+//        } else {
+//            return [self.process sectionAtIndex:self.sectionIndex].items.count;
+//        }
+//    }
+//}
+//
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+//    return 2;
+//}
+//
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (indexPath.section == 0) {
+//        BannerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"BannerCell"];
+//        return cell;
+//    } else {
+//        if ([ProcessBusiness hasYs:self.sectionIndex]) {
+//            return nil;
+//        } else {
+//            
+//        }
+//        ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
+//        return cell;
+//    }
+//}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return kBannerCellHeight;
+    } else {
+        return kItemCellHeight;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 0;
+    } else {
+        return kSectionCellHeight;
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return nil;
+    } else {
+        return [self.tableView dequeueReusableCellWithIdentifier:@"SectionCell"];
+    }
+}
+
 
 @end
