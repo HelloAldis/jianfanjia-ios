@@ -14,6 +14,7 @@
 #import "NSObject+Ex.h"
 #import "UIButton+Ex.h"
 #import "UIImageView+Ex.h"
+#import "UIColor+Ex.h"
 #import "NSManagedObject+Ex.h"
 #import "NSManagedObjectContext+Ex.h"
 #import "NSArray+Ex.h"
