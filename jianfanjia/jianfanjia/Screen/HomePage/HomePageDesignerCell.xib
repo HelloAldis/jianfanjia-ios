@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="375"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4TU-tu-Q62">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4TU-tu-Q62">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="270"/>
                         <animations/>
                         <gestureRecognizers/>
