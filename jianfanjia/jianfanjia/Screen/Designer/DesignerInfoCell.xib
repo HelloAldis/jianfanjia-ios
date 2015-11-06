@@ -32,7 +32,7 @@
                             <constraint firstAttribute="width" constant="16" id="YPA-li-m12"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="250K" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl6-9h-8CQ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hl6-9h-8CQ">
                         <rect key="frame" x="0.0" y="143" width="107" height="20"/>
                         <animations/>
                         <constraints>
@@ -42,7 +42,7 @@
                         <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYy-TQ-OFB">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CYy-TQ-OFB">
                         <rect key="frame" x="107" y="143" width="107" height="20"/>
                         <animations/>
                         <constraints>
@@ -52,7 +52,7 @@
                         <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfI-S9-rNX">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfI-S9-rNX">
                         <rect key="frame" x="213" y="143" width="107" height="20"/>
                         <animations/>
                         <constraints>
@@ -62,7 +62,7 @@
                         <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王大崔" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmF-aq-MHT">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmF-aq-MHT">
                         <rect key="frame" x="110" y="90" width="100" height="20"/>
                         <animations/>
                         <constraints>
@@ -118,6 +118,22 @@
                             </mask>
                         </variation>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-DK-YKk">
+                        <rect key="frame" x="114" y="118" width="17" height="15"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="AMY-gT-GJh"/>
+                            <constraint firstAttribute="width" constant="17" id="Rl9-h3-4ml"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big" translatesAutoresizingMaskIntoConstraints="NO" id="klb-Hh-jFa">
+                        <rect key="frame" x="133" y="118" width="17" height="15"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="bL2-Ur-jfu"/>
+                            <constraint firstAttribute="width" constant="17" id="jPW-0o-OEs"/>
+                        </constraints>
+                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big" translatesAutoresizingMaskIntoConstraints="NO" id="APo-Do-Qtc">
                         <rect key="frame" x="152" y="118" width="17" height="15"/>
                         <animations/>
@@ -140,22 +156,6 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="20c-Nz-7Ml"/>
                             <constraint firstAttribute="width" constant="17" id="XRf-Yi-WRr"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big" translatesAutoresizingMaskIntoConstraints="NO" id="klb-Hh-jFa">
-                        <rect key="frame" x="133" y="118" width="17" height="15"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="bL2-Ur-jfu"/>
-                            <constraint firstAttribute="width" constant="17" id="jPW-0o-OEs"/>
-                        </constraints>
-                    </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-DK-YKk">
-                        <rect key="frame" x="114" y="118" width="17" height="15"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="15" id="AMY-gT-GJh"/>
-                            <constraint firstAttribute="width" constant="17" id="Rl9-h3-4ml"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j2-Zi-RyX">
@@ -228,6 +228,16 @@
                 </variation>
             </tableViewCellContentView>
             <animations/>
+            <connections>
+                <outlet property="btnAdd" destination="2j2-Zi-RyX" id="UjR-v7-i8N"/>
+                <outlet property="designerImageView" destination="NSd-gx-JPd" id="mcF-oi-tZT"/>
+                <outlet property="lblDesignerName" destination="CmF-aq-MHT" id="sq5-aS-FH0"/>
+                <outlet property="lblOrderCount" destination="lfI-S9-rNX" id="1Dq-eR-mG0"/>
+                <outlet property="lblProductCount" destination="CYy-TQ-OFB" id="kNa-Yn-xb5"/>
+                <outlet property="lblViewCount" destination="hl6-9h-8CQ" id="W7G-mT-1iZ"/>
+                <outlet property="vImageView" destination="y7s-yo-Zjz" id="YRO-Kp-8Ms"/>
+                <outletCollection property="starts" destination="klb-Hh-jFa" id="7Qf-yC-yck"/>
+            </connections>
         </tableViewCell>
     </objects>
     <resources>

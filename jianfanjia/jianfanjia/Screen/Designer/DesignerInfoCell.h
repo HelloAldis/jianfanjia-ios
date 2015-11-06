@@ -10,4 +10,6 @@
 
 @interface DesignerInfoCell : UITableViewCell
 
+- (void)initWithDesigner:(Designer *)designer;
+
 @end

@@ -20,5 +20,19 @@
 @dynamic address;
 @dynamic imageid;
 @dynamic email;
+@dynamic view_count;
+@dynamic authed_product_count;
+@dynamic order_count;
+@dynamic dec_types;
+@dynamic dec_house_types;
+@dynamic dec_districts;
+@dynamic dec_styles;
+@dynamic philosophy;
+@dynamic achievement;
+@dynamic company;
+@dynamic team_count;
+@dynamic design_fee_range;
+@dynamic is_my_favorite;
+
 
 @end

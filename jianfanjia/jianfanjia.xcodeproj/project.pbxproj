@@ -111,6 +111,7 @@
 		6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DAF1BEB4FE1000BF5CD /* DesignerProductCell.m */; };
 		6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E838DB01BEB4FE1000BF5CD /* DesignerProductCell.xib */; };
 		6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DB41BEB5603000BF5CD /* DesignerHomePage.m */; };
+		6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DB71BECA39B000BF5CD /* QueryProduct.m */; };
 		E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D2BD40530E2CA1D84D921D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -315,6 +316,8 @@
 		6E838DB01BEB4FE1000BF5CD /* DesignerProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerProductCell.xib; sourceTree = "<group>"; };
 		6E838DB31BEB5603000BF5CD /* DesignerHomePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerHomePage.h; sourceTree = "<group>"; };
 		6E838DB41BEB5603000BF5CD /* DesignerHomePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerHomePage.m; sourceTree = "<group>"; };
+		6E838DB61BECA39B000BF5CD /* QueryProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryProduct.h; sourceTree = "<group>"; };
+		6E838DB71BECA39B000BF5CD /* QueryProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryProduct.m; sourceTree = "<group>"; };
 		6EC3A9961B8AF1D600A62153 /* Pods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BFE23DDA1E815FFFBCFFB23F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -385,6 +388,8 @@
 				6E6D98F31BE35DD000D45F77 /* ProductHomePage.m */,
 				6E838DB31BEB5603000BF5CD /* DesignerHomePage.h */,
 				6E838DB41BEB5603000BF5CD /* DesignerHomePage.m */,
+				6E838DB61BECA39B000BF5CD /* QueryProduct.h */,
+				6E838DB71BECA39B000BF5CD /* QueryProduct.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -952,6 +957,7 @@
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
+				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
 				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
 				6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */,
 				6E07DAC41BD88DBE001461DD /* Designer.m in Sources */,

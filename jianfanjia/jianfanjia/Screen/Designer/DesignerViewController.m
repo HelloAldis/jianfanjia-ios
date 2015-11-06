@@ -42,40 +42,49 @@
 }
 
 #pragma mark - table view delegate
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    if (section == 0) {
-//        return 1;
-//    } else {
-//        if ([ProcessBusiness hasYs:self.sectionIndex]) {
-//            return [self.process sectionAtIndex:self.sectionIndex].items.count + 1;
-//        } else {
-//            return [self.process sectionAtIndex:self.sectionIndex].items.count;
-//        }
-//    }
-//}
-//
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return 2;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.section == 0) {
-//        BannerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"BannerCell"];
-//        return cell;
-//    } else {
-//        if ([ProcessBusiness hasYs:self.sectionIndex]) {
-//            return nil;
-//        } else {
-//            
-//        }
-//        ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
-//        return cell;
-//    }
-//}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        if ([DataManager shared].designerPageDesigner) {
+            return 1;
+        } else {
+            return 0;
+        }
+    } else {
+        if ([DataManager shared].designerPageDesigner) {
+            if ([DataManager shared].isShowProductList) {
+                return [DataManager shared].designerPageProducts.count;
+            } else {
+                return 1;
+            }
+        } else {
+            return 0;
+        }
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        DesignerInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerInfoCell"];
+        [cell initWithDesigner:[DataManager shared].designerPageDesigner];
+        return cell;
+    } else {
+        if ([DataManager shared].isShowProductList) {
+            DesignerDetailCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerDetailCell"];
+            return cell;
+        } else {
+            DesignerProductCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerProductCell"];
+            return cell;
+        }
+    }
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return kBannerCellHeight;
+        return 260;
     } else {
         return kItemCellHeight;
     }
@@ -85,7 +94,11 @@
     if (section == 0) {
         return 0;
     } else {
-        return kSectionCellHeight;
+        if ([DataManager shared].isShowProductList) {
+            return 284;
+        } else {
+            return 310;
+        }
     }
 }
 
@@ -93,7 +106,7 @@
     if (section == 0) {
         return nil;
     } else {
-        return [self.tableView dequeueReusableCellWithIdentifier:@"SectionCell"];
+        return [self.tableView dequeueReusableCellWithIdentifier:@"DesignerSectionCell"];
     }
 }
 

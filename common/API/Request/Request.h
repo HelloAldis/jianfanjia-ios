@@ -17,5 +17,6 @@
 #import "HomePageDesigners.h"
 #import "ProductHomePage.h"
 #import "DesignerHomePage.h"
+#import "QueryProduct.h"
 
 #endif

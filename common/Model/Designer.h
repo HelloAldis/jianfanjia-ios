@@ -21,6 +21,19 @@
 @property(nonatomic, strong) NSString *address;
 @property(nonatomic, strong) NSString *imageid;
 @property(nonatomic, strong) NSString *email;
+@property(nonatomic, strong) NSNumber *view_count;
+@property(nonatomic, strong) NSNumber *authed_product_count;
+@property(nonatomic, strong) NSNumber *order_count;
+@property(nonatomic, strong) NSArray *dec_types;
+@property(nonatomic, strong) NSArray *dec_house_types;
+@property(nonatomic, strong) NSArray *dec_districts;
+@property(nonatomic, strong) NSArray *dec_styles;
+@property(nonatomic, strong) NSString *philosophy;
+@property(nonatomic, strong) NSString *achievement;
+@property(nonatomic, strong) NSString *company;
+@property(nonatomic, strong) NSNumber *team_count;
+@property(nonatomic, strong) NSString *design_fee_range;
+@property(nonatomic, strong) NSNumber *is_my_favorite;
 
 //不动态的属性
 @property(nonatomic, strong) Product *product;

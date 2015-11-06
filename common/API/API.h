@@ -21,5 +21,6 @@ extern NSString * const kApiUrl;
 + (void)homePageDesigners:(HomePageDesigners *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)productHomePage:(ProductHomePage *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)designerHomePage:(DesignerHomePage *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)queryProduct:(QueryProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 
 @end
