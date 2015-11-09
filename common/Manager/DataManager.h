@@ -29,6 +29,11 @@
 @property (assign, nonatomic) BOOL isShowProductList;
 @property (strong, nonatomic) NSMutableArray *designerPageProducts;
 
+//For requirement page
+@property (nonatomic, strong) NSString *selectedProvince;
+@property (nonatomic, strong) NSString *selectedCity;
+@property (nonatomic, strong) NSString *selectedArea;
+
 kSynthesizeSingletonForHeader(DataManager)
 
 @end

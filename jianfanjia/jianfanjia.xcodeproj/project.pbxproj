@@ -10,6 +10,8 @@
 		6846C3941BE8C421009692D8 /* RequirementCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6846C3921BE8C421009692D8 /* RequirementCreateViewController.m */; };
 		6846C3951BE8C421009692D8 /* RequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6846C3931BE8C421009692D8 /* RequirementCreateViewController.xib */; };
 		685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B51051BE76D45001C8B34 /* UIColor+Ex.m */; };
+		68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E505641BF0BB0100B0B910 /* SelectCityViewController.m */; settings = {ASSET_TAGS = (); }; };
+		68E505671BF0BB0100B0B910 /* SelectCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; };
 		6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4A1BD88DBE001461DD /* BaseRequest.m */; };
 		6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4C1BD88DBE001461DD /* GetProcess.m */; };
@@ -132,6 +134,9 @@
 		6846C3931BE8C421009692D8 /* RequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementCreateViewController.xib; sourceTree = "<group>"; };
 		685B51041BE76D45001C8B34 /* UIColor+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ex.h"; sourceTree = "<group>"; };
 		685B51051BE76D45001C8B34 /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
+		68E505631BF0BB0100B0B910 /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
+		68E505641BF0BB0100B0B910 /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
+		68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCityViewController.xib; sourceTree = "<group>"; };
 		6E07DA461BD88DBE001461DD /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		6E07DA471BD88DBE001461DD /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		6E07DA491BD88DBE001461DD /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
@@ -342,6 +347,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68E505621BF0BA3000B0B910 /* SelectCity */ = {
+			isa = PBXGroup;
+			children = (
+				68E505631BF0BB0100B0B910 /* SelectCityViewController.h */,
+				68E505641BF0BB0100B0B910 /* SelectCityViewController.m */,
+				68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */,
+			);
+			path = SelectCity;
+			sourceTree = "<group>";
+		};
 		6E07DA441BD88DBE001461DD /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,6 +736,7 @@
 		6EC3A98B1B8ACFD300A62153 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				68E505621BF0BA3000B0B910 /* SelectCity */,
 				6E838D961BE6EF3A000BF5CD /* ImageDetail */,
 				6E6D98E21BE343B600D45F77 /* Designer */,
 				6E6D98D91BE2039800D45F77 /* Product */,
@@ -855,6 +871,7 @@
 				6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */,
 				6E6D98B11BDF736A00D45F77 /* RequirementListViewController.xib in Resources */,
 				6E7867281BAA538E00DE8B1B /* SectionView.xib in Resources */,
+				68E505671BF0BB0100B0B910 /* SelectCityViewController.xib in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
 				6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */,
@@ -974,6 +991,7 @@
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
+				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
