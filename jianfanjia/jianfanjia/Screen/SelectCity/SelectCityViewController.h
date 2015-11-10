@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectCityViewController : UIViewController
-
-@property (nonatomic, assign) int displayType;
+@interface SelectCityViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

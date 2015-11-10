@@ -8,6 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RequirementCreateViewController">
             <connections>
+                <outlet property="btnSelectCity" destination="zh8-HU-bKz" id="J8n-2W-KUC"/>
+                <outlet property="lblSelectCityVal" destination="huN-PG-vow" id="uax-pg-HPf"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

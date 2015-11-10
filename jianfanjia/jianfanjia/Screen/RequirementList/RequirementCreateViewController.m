@@ -7,31 +7,39 @@
 //
 
 #import "RequirementCreateViewController.h"
+#import "SelectCityViewController.h"
 
 @interface RequirementCreateViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *btnSelectCity;
+@property (weak, nonatomic) IBOutlet UILabel *lblSelectCityVal;
 
 @end
 
 @implementation RequirementCreateViewController
 
+#pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [self initUI];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - UI
+- (void)initUI {
+    [[self.btnSelectCity rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
+        SelectCityViewController *cityController = [[SelectCityViewController alloc] init];
+        [self.navigationController pushViewController:cityController animated:YES];
+    }];
+    
+    RAC(self.lblSelectCityVal, text) = [RACSignal
+                                        combineLatest:@[RACObserve([DataManager shared], selectedProvince), RACObserve([DataManager shared], selectedCity), RACObserve([DataManager shared], selectedArea)]
+                                        reduce:^(NSString *province, NSString *city, NSString *area) {
+                                            return [NSString stringWithFormat:@"%@ %@ %@",
+                                                    province == nil ? @"" : province,
+                                                    city == nil ? @"" : city,
+                                                    area == nil ? @"" : area];
+                                        }];
 }
-*/
 
 @end
