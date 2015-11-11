@@ -11,6 +11,9 @@
 @interface AccountBusiness : NSObject
 
 + (BOOL)validateLogin:(NSString *)phone pass:(NSString *)pass;
++ (BOOL)validatePhone:(NSString *)phone;
++ (BOOL)validatePass:(NSString *)pass;
+
 + (UIImage *)defaultAvatar;
 
 @end

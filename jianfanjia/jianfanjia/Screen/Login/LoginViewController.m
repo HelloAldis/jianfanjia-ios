@@ -49,9 +49,20 @@
     
     [RACObserve(self.btnNext, enabled) subscribeNext:^(NSNumber *newValue) {
         if (newValue.boolValue) {
-            [self.btnLogin setEnableAlpha];
+            [self.btnNext setEnableAlpha];
         } else {
-            [self.btnLogin setDisableAlpha];
+            [self.btnNext setDisableAlpha];
+        }
+    }];
+    
+    [self.fldSignupPhone.rac_textSignal subscribeNext:^(NSString* newValue) {
+        if (newValue.length > 11) {
+            self.fldSignupPhone.text = [newValue substringToIndex:11];
+        }
+    }];
+    [self.fldSignupPassword.rac_textSignal subscribeNext:^(NSString* newValue) {
+        if (newValue.length > 30) {
+            self.fldSignupPassword.text = [newValue substringToIndex:30];
         }
     }];
     
@@ -64,7 +75,7 @@
     RAC(self.btnNext, enabled) = [RACSignal
                                    combineLatest:@[self.fldSignupPhone.rac_textSignal, self.fldSignupPassword.rac_textSignal]
                                    reduce:^(NSString *phone, NSString *password) {
-                                       return @([AccountBusiness validateLogin:phone pass:password]);
+                                       return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
                                    }];
     
     

@@ -19,6 +19,7 @@
 #import "MeViewController.h"
 #import "ProductViewController.h"
 #import "ImageDetailViewController.h"
+#import "DesignerViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -104,6 +105,10 @@ static ViewControllerContainer *container;
     ProductViewController *v = [[ProductViewController alloc] initWithNibName:nil bundle:nil];
     v.productid = productid;
     [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showDesigner:(NSString *)designerid {
+    
 }
 
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index {
