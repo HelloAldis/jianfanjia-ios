@@ -17,5 +17,6 @@
 @dynamic processid;
 @dynamic x;
 @dynamic xx;
+@dynamic loginDate;
 
 @end

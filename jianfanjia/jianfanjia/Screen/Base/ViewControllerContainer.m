@@ -75,10 +75,6 @@ static ViewControllerContainer *container;
     container.navTap2 = [[UINavigationController alloc] initWithRootViewController:requirementList];
     container.navTap2.hidesBottomBarWhenPushed = YES;
     
-    ProcessViewController *process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTap3 = [[UINavigationController alloc] initWithRootViewController:process];
-    container.navTap3.hidesBottomBarWhenPushed = YES;
-    
     MeViewController *me = [[MeViewController alloc] initWithNibName:nil bundle:nil];
     container.navTap4 = [[UINavigationController alloc] initWithRootViewController:me];
     container.navTap4.hidesBottomBarWhenPushed = YES;

@@ -21,6 +21,7 @@
 - (void)success {
     [GVUserDefaults standardUserDefaults].x = self.phone;
     [GVUserDefaults standardUserDefaults].xx = self.pass;
+    [GVUserDefaults standardUserDefaults].loginDate = [[NSDate date] yyyy_MM_dd];
     
     NSMutableDictionary *dict = [DataManager shared].data;
     NSString *usertype = [dict objectForKey:@"usertype"];

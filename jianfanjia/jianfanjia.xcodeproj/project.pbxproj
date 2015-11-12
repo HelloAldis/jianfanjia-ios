@@ -114,6 +114,7 @@
 		6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E838DB01BEB4FE1000BF5CD /* DesignerProductCell.xib */; };
 		6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DB41BEB5603000BF5CD /* DesignerHomePage.m */; };
 		6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DB71BECA39B000BF5CD /* QueryProduct.m */; };
+		AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = AD89AE4F1BF4960000B24959 /* NSDate+Ex.m */; };
 		E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D2BD40530E2CA1D84D921D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -325,6 +326,8 @@
 		6E838DB71BECA39B000BF5CD /* QueryProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryProduct.m; sourceTree = "<group>"; };
 		6EC3A9961B8AF1D600A62153 /* Pods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AD89AE4E1BF4960000B24959 /* NSDate+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ex.h"; sourceTree = "<group>"; };
+		AD89AE4F1BF4960000B24959 /* NSDate+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ex.m"; sourceTree = "<group>"; };
 		BFE23DDA1E815FFFBCFFB23F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -447,6 +450,8 @@
 				685B51051BE76D45001C8B34 /* UIColor+Ex.m */,
 				6E838D9C1BE6FB3A000BF5CD /* NSArray+Ex.h */,
 				6E838D9D1BE6FB3A000BF5CD /* NSArray+Ex.m */,
+				AD89AE4E1BF4960000B24959 /* NSDate+Ex.h */,
+				AD89AE4F1BF4960000B24959 /* NSDate+Ex.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -941,6 +946,7 @@
 				6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */,
 				685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */,
 				6E07DABC1BD88DBE001461DD /* NSString+Ex.m in Sources */,
+				AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */,
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
 				6E07DAC61BD88DBE001461DD /* Process.m in Sources */,
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,

@@ -17,5 +17,6 @@
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, weak) NSString *x;
 @property (nonatomic, weak) NSString *xx;
+@property (nonatomic, weak) NSString *loginDate;
 
 @end

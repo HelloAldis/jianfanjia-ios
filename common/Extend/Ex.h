@@ -18,5 +18,6 @@
 #import "NSManagedObject+Ex.h"
 #import "NSManagedObjectContext+Ex.h"
 #import "NSArray+Ex.h"
+#import "NSDate+Ex.h"
 
 #endif

@@ -69,6 +69,13 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    if ([GVUserDefaults standardUserDefaults].isLogin) {
+        NSString *todoy = [[NSDate date] yyyy_MM_dd];
+        if (![todoy isEqualToString:[GVUserDefaults standardUserDefaults].loginDate]) {
+            //Go to refresh screen
+        }
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
