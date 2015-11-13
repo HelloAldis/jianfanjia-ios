@@ -16,7 +16,11 @@
 + (void)showLogin;
 + (void)showProcess;
 + (void)showProduct:(NSString *)productid;
++ (void)showDesigner:(NSString *)designerid;
 + (void)showTab;
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index;
++ (void)showRefresh;
++ (void)refreshSuccess;
++ (void)logout;
 
 @end

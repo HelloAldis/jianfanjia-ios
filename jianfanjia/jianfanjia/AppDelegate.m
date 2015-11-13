@@ -73,7 +73,7 @@
     if ([GVUserDefaults standardUserDefaults].isLogin) {
         NSString *todoy = [[NSDate date] yyyy_MM_dd];
         if (![todoy isEqualToString:[GVUserDefaults standardUserDefaults].loginDate]) {
-            //Go to refresh screen
+            [ViewControllerContainer showRefresh];
         }
     }
 }

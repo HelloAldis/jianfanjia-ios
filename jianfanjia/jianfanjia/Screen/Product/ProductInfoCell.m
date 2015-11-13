@@ -7,6 +7,7 @@
 //
 
 #import "ProductInfoCell.h"
+#import "ViewControllerContainer.h"
 
 @interface ProductInfoCell ()
 
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *vImageView;
 
 @property (weak, nonatomic) Product *product;
+@property (strong, nonatomic) UITapGestureRecognizer *tapDesigner;
 
 @end
 
@@ -26,6 +28,8 @@
     // Initialization code
     [self.designerImageView setCornerRadius:30];
     [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
+    self.tapDesigner = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDesigner)];
+    [self.designerImageView addGestureRecognizer:self.tapDesigner];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -44,6 +48,11 @@
                            [NameDict nameForDecStyle:self.product.dec_style]];
     [self.designerImageView setUserImageWithId:self.product.designer.imageid];
     self.lblDescription.text = self.product.description;
+}
+
+#pragma mark - user action
+- (void)onTapDesigner {
+    [ViewControllerContainer showDesigner:self.product.designer._id];
 }
 
 @end

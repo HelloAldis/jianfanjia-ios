@@ -10,4 +10,6 @@
 
 @interface DesignerProductCell : UITableViewCell
 
+- (void)initWithProduct:(Product *)product;
+
 @end

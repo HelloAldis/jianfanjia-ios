@@ -107,13 +107,15 @@
 		6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DA01BEB37BD000BF5CD /* DesignerInfoCell.m */; };
 		6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E838DA11BEB37BD000BF5CD /* DesignerInfoCell.xib */; };
 		6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DA51BEB4273000BF5CD /* DesignerSectionCell.m */; };
-		6E838DA81BEB4273000BF5CD /* DesignerSectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E838DA61BEB4273000BF5CD /* DesignerSectionCell.xib */; };
 		6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DAA1BEB44B1000BF5CD /* DesignerDetailCell.m */; };
 		6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E838DAB1BEB44B1000BF5CD /* DesignerDetailCell.xib */; };
 		6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DAF1BEB4FE1000BF5CD /* DesignerProductCell.m */; };
 		6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E838DB01BEB4FE1000BF5CD /* DesignerProductCell.xib */; };
 		6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DB41BEB5603000BF5CD /* DesignerHomePage.m */; };
 		6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DB71BECA39B000BF5CD /* QueryProduct.m */; };
+		6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE299C21BF57C7900A527F6 /* RefreshViewController.m */; };
+		6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */; };
+		6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C61BF5BC6E00A527F6 /* DesignerSection.xib */; };
 		AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = AD89AE4F1BF4960000B24959 /* NSDate+Ex.m */; };
 		E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D2BD40530E2CA1D84D921D /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -313,7 +315,6 @@
 		6E838DA11BEB37BD000BF5CD /* DesignerInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerInfoCell.xib; sourceTree = "<group>"; };
 		6E838DA41BEB4273000BF5CD /* DesignerSectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerSectionCell.h; sourceTree = "<group>"; };
 		6E838DA51BEB4273000BF5CD /* DesignerSectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerSectionCell.m; sourceTree = "<group>"; };
-		6E838DA61BEB4273000BF5CD /* DesignerSectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerSectionCell.xib; sourceTree = "<group>"; };
 		6E838DA91BEB44B1000BF5CD /* DesignerDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDetailCell.h; sourceTree = "<group>"; };
 		6E838DAA1BEB44B1000BF5CD /* DesignerDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDetailCell.m; sourceTree = "<group>"; };
 		6E838DAB1BEB44B1000BF5CD /* DesignerDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerDetailCell.xib; sourceTree = "<group>"; };
@@ -325,6 +326,10 @@
 		6E838DB61BECA39B000BF5CD /* QueryProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryProduct.h; sourceTree = "<group>"; };
 		6E838DB71BECA39B000BF5CD /* QueryProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryProduct.m; sourceTree = "<group>"; };
 		6EC3A9961B8AF1D600A62153 /* Pods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
+		6EE299C11BF57C7900A527F6 /* RefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshViewController.h; sourceTree = "<group>"; };
+		6EE299C21BF57C7900A527F6 /* RefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
+		6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshViewController.xib; sourceTree = "<group>"; };
+		6EE299C61BF5BC6E00A527F6 /* DesignerSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerSection.xib; sourceTree = "<group>"; };
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AD89AE4E1BF4960000B24959 /* NSDate+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ex.h"; sourceTree = "<group>"; };
 		AD89AE4F1BF4960000B24959 /* NSDate+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ex.m"; sourceTree = "<group>"; };
@@ -650,7 +655,7 @@
 				6E838DA11BEB37BD000BF5CD /* DesignerInfoCell.xib */,
 				6E838DA41BEB4273000BF5CD /* DesignerSectionCell.h */,
 				6E838DA51BEB4273000BF5CD /* DesignerSectionCell.m */,
-				6E838DA61BEB4273000BF5CD /* DesignerSectionCell.xib */,
+				6EE299C61BF5BC6E00A527F6 /* DesignerSection.xib */,
 				6E838DA91BEB44B1000BF5CD /* DesignerDetailCell.h */,
 				6E838DAA1BEB44B1000BF5CD /* DesignerDetailCell.m */,
 				6E838DAB1BEB44B1000BF5CD /* DesignerDetailCell.xib */,
@@ -741,6 +746,7 @@
 		6EC3A98B1B8ACFD300A62153 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				6EE299C01BF57C4E00A527F6 /* Refresh */,
 				68E505621BF0BA3000B0B910 /* SelectCity */,
 				6E838D961BE6EF3A000BF5CD /* ImageDetail */,
 				6E6D98E21BE343B600D45F77 /* Designer */,
@@ -754,6 +760,16 @@
 				6E7E4A611B9A8F6E00503B35 /* Login */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		6EE299C01BF57C4E00A527F6 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				6EE299C11BF57C7900A527F6 /* RefreshViewController.h */,
+				6EE299C21BF57C7900A527F6 /* RefreshViewController.m */,
+				6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */,
+			);
+			path = Refresh;
 			sourceTree = "<group>";
 		};
 		94C7F59597BA43E8F719C985 /* Frameworks */ = {
@@ -867,7 +883,6 @@
 				6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */,
 				6E6D98CB1BE0AB7C00D45F77 /* HomePageRequirementCell.xib in Resources */,
 				6E6D98D51BE0D62F00D45F77 /* HomePageDesignerCell.xib in Resources */,
-				6E838DA81BEB4273000BF5CD /* DesignerSectionCell.xib in Resources */,
 				6E6D98E71BE343E400D45F77 /* DesignerViewController.xib in Resources */,
 				6E7E4A6A1B9A90BA00503B35 /* LoginViewController.xib in Resources */,
 				6E6D98AB1BDF733F00D45F77 /* HomePageViewController.xib in Resources */,
@@ -880,6 +895,8 @@
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
 				6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */,
+				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
+				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
 				6E838D9B1BE6EF49000BF5CD /* ImageDetailViewController.xib in Resources */,
 				6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */,
@@ -969,6 +986,7 @@
 				6E07DAC11BD88DBE001461DD /* GVUserDefaults+Manager.m in Sources */,
 				6E07DABA1BD88DBE001461DD /* NSManagedObjectContext+Ex.m in Sources */,
 				6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */,
+				6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */,
 				6E07DAB91BD88DBE001461DD /* NSManagedObject+Ex.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
 				6E6D98AA1BDF733F00D45F77 /* HomePageViewController.m in Sources */,

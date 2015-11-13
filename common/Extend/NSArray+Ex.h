@@ -11,5 +11,6 @@
 @interface NSArray (Ex)
 
 - (NSArray *)map:(id (^)(id obj))fun;
+- (NSString *)join:(NSString *)string;
 
 @end

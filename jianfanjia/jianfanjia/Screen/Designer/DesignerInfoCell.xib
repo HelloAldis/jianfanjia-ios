@@ -228,6 +228,7 @@
                 </variation>
             </tableViewCellContentView>
             <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="btnAdd" destination="2j2-Zi-RyX" id="UjR-v7-i8N"/>
                 <outlet property="designerImageView" destination="NSd-gx-JPd" id="mcF-oi-tZT"/>

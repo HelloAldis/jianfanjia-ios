@@ -26,7 +26,6 @@
 
 //For designer page
 @property (strong, nonatomic) Designer *designerPageDesigner;
-@property (assign, nonatomic) BOOL isShowProductList;
 @property (strong, nonatomic) NSMutableArray *designerPageProducts;
 
 //For requirement page

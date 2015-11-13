@@ -20,13 +20,13 @@
 #import "ProductViewController.h"
 #import "ImageDetailViewController.h"
 #import "DesignerViewController.h"
+#import "RefreshViewController.h"
 
 @interface ViewControllerContainer ()
 
 @property(weak, nonatomic) UIWindow *window;
 @property(strong, nonatomic) UINavigationController *navTap1;
 @property(strong, nonatomic) UINavigationController *navTap2;
-@property(strong, nonatomic) UINavigationController *navTap3;
 @property(strong, nonatomic) UINavigationController *navTap4;
 
 @property(strong, nonatomic) TabViewController *tab;
@@ -79,7 +79,7 @@ static ViewControllerContainer *container;
     container.navTap4 = [[UINavigationController alloc] initWithRootViewController:me];
     container.navTap4.hidesBottomBarWhenPushed = YES;
     
-    container.tab.viewControllers = @[container.navTap1, container.navTap2, container.navTap3, container.navTap4];
+    container.tab.viewControllers = @[container.navTap1, container.navTap2, container.navTap4];
     container.window.rootViewController = container.tab;
 }
 
@@ -104,7 +104,9 @@ static ViewControllerContainer *container;
 }
 
 + (void)showDesigner:(NSString *)designerid {
-    
+    DesignerViewController *v = [[DesignerViewController alloc] initWithNibName:nil bundle:nil];
+    v.designerid = designerid;
+    [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index {
@@ -112,6 +114,23 @@ static ViewControllerContainer *container;
     v.imageArray = images;
     v.index = index;
     [container.tab.selectedViewController presentViewController:v animated:YES completion:^{}];
+}
+
++ (void)showRefresh {
+    RefreshViewController *refresh = [[RefreshViewController alloc] initWithNibName:nil bundle:nil];
+    container.window.rootViewController = refresh;
+}
+
++ (void)refreshSuccess {
+    container.window.rootViewController = container.tab;
+}
+
++ (void)logout {
+    container.tab = nil;
+    container.navTap1 = nil;
+    container.navTap2 = nil;
+    container.navTap4 = nil;
+    [ViewControllerContainer showLogin];
 }
 
 

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DesignerSectionCell : UITableViewCell
+@interface DesignerSectionCell : UIView
+
+@property (weak, nonatomic) IBOutlet UIButton *btnDetail;
+@property (weak, nonatomic) IBOutlet UIButton *btnProduct;
+
++ (DesignerSectionCell *)sectionView;
 
 @end

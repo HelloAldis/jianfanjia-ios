@@ -10,4 +10,6 @@
 
 @interface DesignerViewController : BaseViewController
 
+@property (strong, nonatomic) NSString *designerid;
+
 @end

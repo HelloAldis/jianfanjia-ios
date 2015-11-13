@@ -9,6 +9,7 @@
 #import "ProductViewController.h"
 #import "ProductInfoCell.h"
 #import "ProductImageCell.h"
+#import "ViewControllerContainer.h"
 
 @interface ProductViewController ()
 
@@ -43,12 +44,12 @@
 - (void)initUI {
     [self.designerImageView setCornerRadius:15];
     [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)initUIData {
     [self.designerImageView setUserImageWithId:[DataManager shared].productPageProduct.designer.imageid];
     self.lblName.text = [DataManager shared].productPageProduct.designer.username;
-    self.title = [DataManager shared].productPageProduct.cell;
 }
 
 
@@ -84,12 +85,14 @@
 #pragma mark - scroll view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     DDLogDebug(@"%f", scrollView.contentOffset.y);
-    if (scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y <= 200) {
+    if (scrollView.contentOffset.y >= -64 && scrollView.contentOffset.y <= 200) {
         CGFloat dy = scrollView.contentOffset.y - 39;
         if (dy < 0) {
             dy = 0;
+            self.title = nil;
         } else if (dy > 44) {
             dy = 44;
+            self.title = [DataManager shared].productPageProduct.cell;
         }
         
         self.topConstraint.constant = 20 + dy;
@@ -100,6 +103,10 @@
 #pragma mark - user action
 - (void)onClickBack {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)onTapDesigner:(id)sender {
+    [ViewControllerContainer showDesigner:[DataManager shared].productPageProduct.designer._id];
 }
 
 #pragma mark - Util

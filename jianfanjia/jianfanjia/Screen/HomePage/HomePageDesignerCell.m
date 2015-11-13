@@ -63,7 +63,7 @@
 
 - (void)onTapDesignerImage:(UIGestureRecognizer *)sender {
     if (self.designer) {
-        DDLogDebug(@"%@", @"onTapDesignerImage");
+        [ViewControllerContainer showDesigner:self.designer._id];
     }
 }
 

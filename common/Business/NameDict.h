@@ -12,5 +12,7 @@
 
 + (NSString *)nameForHouseType:(NSString *)type;
 + (NSString *)nameForDecStyle:(NSString *)style;
++ (NSString *)nameForDecType:(NSString *)type;
++ (NSString *)nameForDesignerFee:(NSString *)design_fee;
 
 @end

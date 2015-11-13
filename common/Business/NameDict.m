@@ -12,6 +12,8 @@
 
 static NSDictionary *houseTypeDict = nil;
 static NSDictionary *decStyleDict = nil;
+static NSDictionary *decTypeDict = nil;
+static NSDictionary *desginFeeDict = nil;
 
 + (void)initialize {
     houseTypeDict = @{@"0":@"一居",
@@ -30,6 +32,15 @@ static NSDictionary *decStyleDict = nil;
                      @"4":@"美式",
                      @"5":@"东南亚",
                      @"6":@"田园",};
+    
+    decTypeDict = @{@"0":@"家装",
+                    @"1":@"商装",
+                    @"2":@"软装"};
+    
+    desginFeeDict = @{@"0":@"50 - 100",
+                      @"1":@"100 - 200",
+                      @"2":@"200 - 300",
+                      @"3":@"300以上"};
 }
 
 + (NSString *)nameForHouseType:(NSString *)type {
@@ -38,6 +49,14 @@ static NSDictionary *decStyleDict = nil;
 
 + (NSString *)nameForDecStyle:(NSString *)style {
     return [decStyleDict objectForKey:style];
+}
+
++ (NSString *)nameForDecType:(NSString *)type {
+    return [decTypeDict objectForKey:type];
+}
+
++ (NSString *)nameForDesignerFee:(NSString *)design_fee {
+    return [desginFeeDict objectForKey:design_fee];
 }
 
 @end

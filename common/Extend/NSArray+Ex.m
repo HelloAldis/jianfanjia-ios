@@ -19,4 +19,21 @@
     return array;
 }
 
+- (NSString *)join:(NSString *)join {
+    if (self.count == 0) {
+        return @"";
+    } else {
+        NSMutableString *muStr = [[NSMutableString alloc] init];
+        for (int i = 0; i < self.count; i++) {
+            if (i == self.count - 1) {
+                [muStr appendString:[self objectAtIndex:i]];
+            } else {
+                [muStr appendFormat:@"%@%@", [self objectAtIndex:i], join];
+            }
+        }
+        
+        return muStr;
+    }
+}
+
 @end
