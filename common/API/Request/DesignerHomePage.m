@@ -13,12 +13,11 @@
 @dynamic _id;
 
 - (void)pre {
-    [DataManager shared].designerPageDesigner = nil;
+
 }
 
 - (void)success {
-    NSMutableDictionary *dict = [DataManager shared].data;
-    [DataManager shared].designerPageDesigner = [[Designer alloc] initWith:dict];
+
 }
 
 @end

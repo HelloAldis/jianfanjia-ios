@@ -11,5 +11,6 @@
 @interface DesignerViewController : BaseViewController
 
 @property (strong, nonatomic) NSString *designerid;
+@property (assign, nonatomic) BOOL needRefreshDesignerViewController;
 
 @end

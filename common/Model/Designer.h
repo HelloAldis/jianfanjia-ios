@@ -34,6 +34,8 @@
 @property(nonatomic, strong) NSNumber *team_count;
 @property(nonatomic, strong) NSString *design_fee_range;
 @property(nonatomic, strong) NSNumber *is_my_favorite;
+@property(nonatomic, strong) NSNumber *service_attitude;
+@property(nonatomic, strong) NSNumber *respond_speed;
 
 //不动态的属性
 @property(nonatomic, strong) Product *product;

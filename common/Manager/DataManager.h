@@ -21,13 +21,6 @@
 @property (strong, nonatomic) NSMutableArray *homePageRequirementDesigners;
 @property (strong, nonatomic) NSMutableArray *homePageDesigners;
 
-//For product page
-@property (strong, nonatomic) Product *productPageProduct;
-
-//For designer page
-@property (strong, nonatomic) Designer *designerPageDesigner;
-@property (strong, nonatomic) NSMutableArray *designerPageProducts;
-
 //For requirement page
 @property (nonatomic, strong) NSString *requirementPageSelectedProvince;
 @property (nonatomic, strong) NSString *requirementPageSelectedCity;
