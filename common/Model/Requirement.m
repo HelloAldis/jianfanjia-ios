@@ -10,6 +10,7 @@
 
 @implementation Requirement
 
+@dynamic _id;
 @dynamic province;
 @dynamic city;
 @dynamic district;
@@ -26,5 +27,6 @@
 @dynamic work_type;
 @dynamic total_price;
 @dynamic prefer_sex;
+@dynamic family_description;
 
 @end

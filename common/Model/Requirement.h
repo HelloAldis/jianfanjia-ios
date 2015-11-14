@@ -10,6 +10,7 @@
 
 @interface Requirement : BaseModel
 
+@property (strong, nonatomic) NSString *_id;
 @property (strong, nonatomic) NSString *province;
 @property (strong, nonatomic) NSString *city;
 @property (strong, nonatomic) NSString *district;
@@ -26,5 +27,8 @@
 @property (strong, nonatomic) NSString *work_type;
 @property (strong, nonatomic) NSNumber *total_price;
 @property (strong, nonatomic) NSString *prefer_sex;
+@property (strong, nonatomic) NSString *family_description;
+@property (strong, nonatomic) NSString *communication_type;
+
 
 @end

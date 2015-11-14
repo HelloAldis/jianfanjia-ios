@@ -12,9 +12,6 @@
 #define kDisplayCity        1
 #define kDisplayArea        2
 
-#define kKeyName            @"name"
-#define kKeySub             @"sub"
-
 static NSString* cellId = @"cityCell";
 
 @interface SelectCityViewController ()
@@ -26,7 +23,6 @@ static NSString* cellId = @"cityCell";
 @property (nonatomic, strong) NSString *selectedProvince;
 @property (nonatomic, strong) NSString *selectedCity;
 @property (nonatomic, strong) NSString *selectedArea;
-@property (nonatomic, weak) NSIndexPath *selectedIndexPath;
 
 @end
 
@@ -43,9 +39,9 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - init Nav
 - (void)initNav {
-    [[UIBarButtonItem appearance]setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin) forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setTintColor:[UIColor colorWithR:0x34 g:0x4a b:0x5c]];
-    [self.navigationController.navigationItem.titleView setTintColor:[UIColor colorWithR:0x34 g:0x4a b:0x5c]];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    self.navigationItem.leftBarButtonItem = item;
+    
     
     if (self.displayType == kDisplayProvince) {
         self.title = @"省份选择";
@@ -64,50 +60,25 @@ static NSString* cellId = @"cityCell";
 #pragma mark - init data 
 - (void)initData {
     if (self.displayType == kDisplayProvince) {
-        self.provinces = @[
-                            @{
-                                kKeyName:@"湖北省",
-                                kKeySub:@[
-                                            @{
-                                                kKeyName:@"武汉市",
-                                                kKeySub:@[
-                                                            @"洪山区",
-                                                            @"江夏区"
-                                                ]
-                                            },
-                                            
-                                            @{
-                                                kKeyName:@"咸宁市",
-                                                kKeySub:@[
-                                                        @"咸安区",
-                                                        @"温泉区"
-                                                ]
-                                            }
-                                ]
-                             },
-                            
-                            @{
-                                kKeyName:@"湖北1省",
-                                kKeySub:@[
-                                            @{
-                                                kKeyName:@"武汉1市",
-                                                kKeySub:@[
-                                                            @"洪山1区",
-                                                            @"江夏1区"
-                                                ]
-                                            },
-                                            
-                                            @{
-                                                kKeyName:@"咸宁1市",
-                                                kKeySub:@[
-                                                        @"咸安1区",
-                                                        @"温泉1区"
-                                                ]
-                                            }
-                                ]
-                              },
-                        ];
+        NSData *allProvinceData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"allprovince" ofType:@"js"]];
+        
+        self.provinces = [NSJSONSerialization JSONObjectWithData:allProvinceData options:NSJSONReadingMutableContainers error:nil];
+    } else if (self.displayType == kDisplayCity) {
+        NSData *province2cityData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"province2city" ofType:@"js"]];
+        NSDictionary *province2cityDic = [NSJSONSerialization JSONObjectWithData:province2cityData options:NSJSONReadingMutableContainers error:nil];
+        
+        self.citys = province2cityDic[self.selectedProvince];
+    } else if (self.displayType == kDisplayArea) {
+        NSData *city2AreaData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"city2area" ofType:@"js"]];
+        NSDictionary *city2AreaDic = [NSJSONSerialization JSONObjectWithData:city2AreaData options:NSJSONReadingMutableContainers error:nil];
+        
+        self.areas = city2AreaDic[self.selectedCity];
     }
+}
+
+#pragma mark - user action
+- (void)onClickBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - table view delegate
@@ -132,12 +103,10 @@ static NSString* cellId = @"cityCell";
 
     
     if (self.displayType == kDisplayProvince) {
-        NSDictionary *province = self.provinces[indexPath.row];
-        NSString *provinceName = [province objectForKey:kKeyName];
+        NSString *provinceName = self.provinces[indexPath.row];
         cell.textLabel.text= provinceName;
     } else if (self.displayType == kDisplayCity){
-        NSDictionary *city = self.citys[indexPath.row];
-        NSString *cityName = [city objectForKey:kKeyName];
+        NSString *cityName = self.citys[indexPath.row];
         cell.textLabel.text= cityName;
     } else{
         cell.textLabel.text= self.areas[indexPath.row];
@@ -148,23 +117,17 @@ static NSString* cellId = @"cityCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.displayType == kDisplayProvince) {
-        NSDictionary *province = self.provinces[indexPath.row];
-        NSArray *citys = [province objectForKey:kKeySub];
-        self.selectedProvince = [province objectForKey:kKeyName];
+        self.selectedProvince = self.provinces[indexPath.row];
         
         SelectCityViewController *cityVC = [[SelectCityViewController alloc]init];
         cityVC.displayType = kDisplayCity;
-        cityVC.citys = citys;
         cityVC.selectedProvince = self.selectedProvince;
         [self.navigationController pushViewController:cityVC animated:YES];
     } else if (self.displayType == kDisplayCity){
-        NSDictionary *city = self.citys[indexPath.row];
-        self.selectedCity = [city objectForKey:kKeyName];
-        NSArray *areas = [city objectForKey:kKeySub];
+        self.selectedCity = self.citys[indexPath.row];
         
         SelectCityViewController *areaVC = [[SelectCityViewController alloc]init];
         areaVC.displayType = kDisplayArea;
-        areaVC.areas = areas;
         areaVC.selectedCity = self.selectedCity;
         areaVC.selectedProvince = self.selectedProvince;
         [self.navigationController pushViewController:areaVC animated:YES];
@@ -175,10 +138,11 @@ static NSString* cellId = @"cityCell";
     
 }
 
+#pragma mark - other
 -(void)submit{
-    [DataManager shared].selectedProvince = self.selectedProvince;
-    [DataManager shared].selectedCity = self.selectedCity;
-    [DataManager shared].selectedArea = self.selectedArea;
+    [DataManager shared].requirementPageSelectedProvince = self.selectedProvince;
+    [DataManager shared].requirementPageSelectedCity = self.selectedCity;
+    [DataManager shared].requirementPageSelectedArea = self.selectedArea;
     
     [self navigateToOriginalScreen];
 }
