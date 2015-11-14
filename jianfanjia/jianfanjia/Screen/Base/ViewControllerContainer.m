@@ -98,15 +98,48 @@ static ViewControllerContainer *container;
 }
 
 + (void)showProduct:(NSString *)productid {
-    ProductViewController *v = [[ProductViewController alloc] initWithNibName:nil bundle:nil];
-    v.productid = productid;
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    UINavigationController* nav =  container.tab.selectedViewController;
+    BOOL hasProduct = NO;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[ProductViewController class]]) {
+            hasProduct = YES;
+            ProductViewController *p = (ProductViewController *)v;
+            if (![p.productid isEqualToString:productid]) {
+                p.productid = productid;
+                p.needRefreshProductViewController = YES;
+            }
+            [nav popToViewController:v animated:YES];
+        }
+    }
+    
+    if (!hasProduct) {
+        ProductViewController *v = [[ProductViewController alloc] initWithNibName:nil bundle:nil];
+        v.productid = productid;
+        [container.tab.selectedViewController pushViewController:v animated:YES];
+    }
 }
 
 + (void)showDesigner:(NSString *)designerid {
-    DesignerViewController *v = [[DesignerViewController alloc] initWithNibName:nil bundle:nil];
-    v.designerid = designerid;
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    UINavigationController* nav =  container.tab.selectedViewController;
+    BOOL hasDesigner = NO;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[DesignerViewController class]]) {
+            hasDesigner = YES;
+            DesignerViewController *d = (DesignerViewController *)v;
+            if (![d.designerid isEqualToString:designerid]) {
+                d.designerid = designerid;
+                d.needRefreshDesignerViewController = YES;
+            }
+            
+            [nav popToViewController:v animated:YES];
+        }
+    }
+    
+    if (!hasDesigner) {
+        DesignerViewController *v = [[DesignerViewController alloc] initWithNibName:nil bundle:nil];
+        v.designerid = designerid;
+        [container.tab.selectedViewController pushViewController:v animated:YES];
+    }
 }
 
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index {

@@ -11,5 +11,6 @@
 @interface ProductViewController : BaseViewController
 
 @property (strong, nonatomic) NSString *productid;
+@property (assign, nonatomic) BOOL needRefreshProductViewController;
 
 @end

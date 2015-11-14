@@ -10,6 +10,7 @@
 #import "ProductInfoCell.h"
 #import "ProductImageCell.h"
 #import "ViewControllerContainer.h"
+#import "ProductPageData.h"
 
 @interface ProductViewController ()
 
@@ -18,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *designerImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+
+@property (strong, nonatomic) ProductPageData *productPageData;
 
 @end
 
@@ -29,9 +32,17 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"ProductInfoCell" bundle:nil] forCellReuseIdentifier:@"ProductInfoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"ProductImageCell" bundle:nil] forCellReuseIdentifier:@"ProductImageCell"];
     
+    self.needRefreshProductViewController = YES;
+    self.productPageData = [[ProductPageData alloc] init];
     [self initNav];
     [self initUI];
-    [self refresh];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.needRefreshProductViewController) {
+        [self refresh];
+    }
 }
 
 #pragma mark - UI
@@ -48,15 +59,15 @@
 }
 
 - (void)initUIData {
-    [self.designerImageView setUserImageWithId:[DataManager shared].productPageProduct.designer.imageid];
-    self.lblName.text = [DataManager shared].productPageProduct.designer.username;
+    [self.designerImageView setUserImageWithId:self.productPageData.product.designer.imageid];
+    self.lblName.text = self.productPageData.product.designer.username;
 }
 
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([DataManager shared].productPageProduct) {
-            return 1 + [DataManager shared].productPageProduct.images.count;
+    if (self.productPageData.product) {
+            return 1 + self.productPageData.product.images.count;
     } else {
         return 0;
     }
@@ -65,11 +76,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         ProductInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ProductInfoCell"];
-        [cell initWithProduct:[DataManager shared].productPageProduct];
+        [cell initWithProduct:self.productPageData.product];
         return cell;
     } else {
         ProductImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ProductImageCell"];
-        [cell initWithProductImage:[[DataManager shared].productPageProduct imageAtIndex:indexPath.row - 1]];
+        [cell initWithProductImage:[self.productPageData.product imageAtIndex:indexPath.row - 1]
+                          andIndex:indexPath.row - 1
+                         andImages:self.productPageData.product.images];
         return cell;
     }
 }
@@ -84,7 +97,6 @@
 
 #pragma mark - scroll view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    DDLogDebug(@"%f", scrollView.contentOffset.y);
     if (scrollView.contentOffset.y >= -64 && scrollView.contentOffset.y <= 200) {
         CGFloat dy = scrollView.contentOffset.y - 39;
         if (dy < 0) {
@@ -92,7 +104,7 @@
             self.title = nil;
         } else if (dy > 44) {
             dy = 44;
-            self.title = [DataManager shared].productPageProduct.cell;
+            self.title = self.productPageData.product.cell;
         }
         
         self.topConstraint.constant = 20 + dy;
@@ -106,7 +118,7 @@
 }
 
 - (IBAction)onTapDesigner:(id)sender {
-    [ViewControllerContainer showDesigner:[DataManager shared].productPageProduct.designer._id];
+    [ViewControllerContainer showDesigner:self.productPageData.product.designer._id];
 }
 
 #pragma mark - Util
@@ -115,6 +127,8 @@
     request._id = self.productid;
     
     [API productHomePage:request success:^{
+        [self.productPageData refresh];
+        self.needRefreshProductViewController = NO;
         [self initUIData];
         [self.tableView reloadData];
     } failure:^{

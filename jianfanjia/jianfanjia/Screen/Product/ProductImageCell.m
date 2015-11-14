@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDescribtion;
 
 @property (weak, nonatomic) ProductImage *productImage;
+@property (weak, nonatomic) NSArray *images;
+@property (assign, nonatomic) NSInteger index;
 @property (strong, nonatomic) UITapGestureRecognizer *tap;
 
 @end
@@ -33,8 +35,10 @@
     // Configure the view for the selected state
 }
 
-- (void)initWithProductImage:(ProductImage *)productImage {
+- (void)initWithProductImage:(ProductImage *)productImage andIndex:(NSInteger)index andImages:(NSArray *)images {
     self.productImage = productImage;
+    self.index = index;
+    self.images = images;
     
     [self.productImageView setImageWithId:self.productImage.imageid withWidth:kScreenWidth];
     self.lblSection.text = self.productImage.section;
@@ -42,12 +46,11 @@
 }
 
 - (void)onTap {
-    NSArray *imageArray = [[DataManager shared].productPageProduct.images map:^(NSDictionary *dict) {
+    NSArray *imageArray = [self.images map:^(NSDictionary *dict) {
         return [dict objectForKey:@"imageid"];
     }];
     
-    
-    [ViewControllerContainer showImageDetail:imageArray withIndex:0];
+    [ViewControllerContainer showImageDetail:imageArray withIndex:self.index];
 }
 
 @end

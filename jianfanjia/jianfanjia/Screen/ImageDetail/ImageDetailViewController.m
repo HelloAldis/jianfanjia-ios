@@ -43,7 +43,7 @@
         [self.imageViewArray addObject:w1];
     }
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.imageArray.count, kBannerCellHeight)];
-    self.lblIndex.text = [NSString stringWithFormat:@"%ld/%ld", self.index + 1, self.imageArray.count];
+    self.lblIndex.text = [NSString stringWithFormat:@"%d/%d", self.index + 1, self.imageArray.count];
     self.scrollView.contentOffset = CGPointMake(self.index * kScreenWidth, 0);
     
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)];
@@ -54,7 +54,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.scrollView) {
         self.index = self.scrollView.contentOffset.x/kScreenWidth;
-        self.lblIndex.text = [NSString stringWithFormat:@"%ld/%ld", self.index + 1, self.imageArray.count];
+        self.lblIndex.text = [NSString stringWithFormat:@"%d/%d", self.index + 1, self.imageArray.count];
     }
 }
 

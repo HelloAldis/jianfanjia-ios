@@ -47,10 +47,17 @@
     self.lblOrderCount.text = [designer.order_count stringValue];
     
     if ([designer.is_my_favorite boolValue]) {
-        
+        [self.btnAdd setTitle:@"已添加意向" forState:UIControlStateNormal];
+        self.btnAdd.backgroundColor = [UIColor colorWithR:179 g:179 b:179];
     } else {
-        
+        [self.btnAdd setTitle:@"添加意向" forState:UIControlStateNormal];
+        self.btnAdd.backgroundColor = kThemeColor;
     }
+    
+    double star = (self.designer.service_attitude.doubleValue + self.designer.respond_speed.doubleValue)/2;
+    UIImage *full = [UIImage imageNamed:@"star_middle"];
+    UIImage *empty = [UIImage imageNamed:@"star_middle_empty"];
+    [DesignerBusiness setStars:self.starts withStar:star fullStar:full emptyStar:empty];
 }
 
 @end

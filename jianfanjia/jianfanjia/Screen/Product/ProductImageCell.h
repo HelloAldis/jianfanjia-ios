@@ -10,6 +10,6 @@
 
 @interface ProductImageCell : UITableViewCell
 
-- (void)initWithProductImage:(ProductImage *)productImage;
+- (void)initWithProductImage:(ProductImage *)productImage andIndex:(NSInteger)index andImages:(NSArray *)images;
 
 @end

@@ -33,6 +33,8 @@
 @dynamic team_count;
 @dynamic design_fee_range;
 @dynamic is_my_favorite;
+@dynamic service_attitude;
+@dynamic respond_speed;
 
 
 @end

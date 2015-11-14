@@ -11,12 +11,16 @@
 #import "DesignerSectionCell.h"
 #import "DesignerDetailCell.h"
 #import "DesignerProductCell.h"
+#import "DesignerPageData.h"
 
 @interface DesignerViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet DesignerSectionCell *section;
+
+@property (strong, nonatomic) DesignerPageData *designerPageData;
+@property (weak, nonatomic) DesignerSectionCell *section;
 @property (assign, nonatomic) BOOL isShowProductList;
+
 
 @end
 
@@ -29,14 +33,20 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerDetailCell" bundle:nil] forCellReuseIdentifier:@"DesignerDetailCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerProductCell" bundle:nil] forCellReuseIdentifier:@"DesignerProductCell"];
     
-    [self initNav];
-    [self refresh];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.needRefreshDesignerViewController = YES;
+    self.isShowProductList = NO;
+    self.designerPageData = [[DesignerPageData alloc] init];
+    
+    [self initNav];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.isShowProductList = NO;
+    if (self.needRefreshDesignerViewController) {
+        [self refreshDesigner];
+        [self refreshProduct];
+    }
 }
 
 #pragma mark - UI
@@ -54,15 +64,15 @@
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == 0) {
-        if ([DataManager shared].designerPageDesigner) {
+        if (self.designerPageData.designer) {
             return 1;
         } else {
             return 0;
         }
     } else {
-        if ([DataManager shared].designerPageDesigner) {
+        if (self.designerPageData.designer) {
             if (self.isShowProductList) {
-                return [DataManager shared].designerPageProducts.count;
+                return self.designerPageData.products.count;
             } else {
                 return 1;
             }
@@ -79,16 +89,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         DesignerInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerInfoCell"];
-        [cell initWithDesigner:[DataManager shared].designerPageDesigner];
+        [cell initWithDesigner:self.designerPageData.designer];
         return cell;
     } else {
         if (self.isShowProductList) {
             DesignerProductCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerProductCell"];
-            [cell initWithProduct:[[DataManager shared].designerPageProducts objectAtIndex:indexPath.row]];
+            [cell initWithProduct:[self.designerPageData.products objectAtIndex:indexPath.row]];
             return cell;
         } else {
             DesignerDetailCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerDetailCell"];
-            [cell initWithDesigner:[DataManager shared].designerPageDesigner];
+            [cell initWithDesigner:self.designerPageData.designer];
             return cell;
         }
     }
@@ -148,11 +158,11 @@
         [self.section.btnProduct setTitleColor:[UIColor colorWithR:52 g:74 b:93] forState:UIControlStateNormal];
         [self.section.btnDetail setTitleColor:[UIColor colorWithR:170 g:177 b:182] forState:UIControlStateNormal];
         self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [self loadProduct];
+            [self loadMoreProduct];
         }];
         
-        if (![DataManager shared].designerPageProducts) {
-            [self loadProduct];
+        if (!self.designerPageData.products) {
+            [self loadMoreProduct];
         } else {
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
         }
@@ -160,24 +170,42 @@
 }
 
 #pragma mark - Util
-- (void)refresh {
+- (void)refreshDesigner {
     DesignerHomePage *request = [[DesignerHomePage alloc] init];
     request._id = self.designerid;
     
     [API designerHomePage:request success:^{
+        [self.designerPageData refreshDesigner];
+        self.needRefreshDesignerViewController = NO;
         [self.tableView reloadData];
     } failure:^{
         
     }];
 }
 
-- (void)loadProduct {
+- (void)refreshProduct {
     QueryProduct *request = [[QueryProduct alloc] init];
     request.query = @{@"designerid":self.designerid};
-    request.from = @([DataManager shared].designerPageProducts.count);
+    request.from = @0;
     request.limit = @10;
     
     [API queryProduct:request success:^{
+        [self.designerPageData refreshProduct];
+        [self.tableView.footer endRefreshing];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } failure:^{
+        
+    }];
+}
+
+- (void)loadMoreProduct {
+    QueryProduct *request = [[QueryProduct alloc] init];
+    request.query = @{@"designerid":self.designerid};
+    request.from = @(self.designerPageData.products.count);
+    request.limit = @10;
+    
+    [API queryProduct:request success:^{
+        [self.designerPageData loadMoreProduct];
         [self.tableView.footer endRefreshing];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
