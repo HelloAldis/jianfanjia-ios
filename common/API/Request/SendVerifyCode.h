@@ -11,6 +11,6 @@
 
 @interface SendVerifyCode : BaseRequest
 
-- (void)setphone:(NSString *)phone;
+@property (strong, nonatomic) NSString *phone;
 
 @end

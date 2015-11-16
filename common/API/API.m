@@ -44,7 +44,7 @@ static AFHTTPRequestOperationManager *_manager;
 }
 
 + (void)sendVerifyCode:(SendVerifyCode *)request success:(void (^)(void))success failure:(void (^)(void))failure {
-    [API POST:@"/api/v1/" data:[request data] handler:request success:success failure:failure];
+    [API POST:@"send_verify_code" data:[request data] handler:request success:success failure:failure];
 }
 
 + (void)userLogin:(UserLogin *)request success:(void (^)(void))success failure:(void (^)(void))failure {
@@ -82,6 +82,14 @@ static AFHTTPRequestOperationManager *_manager;
 
 + (void) queryProduct:(QueryProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API POST:@"search_designer_product" data:request.data handler:request success:success failure:failure];
+}
+
++ (void)verifyPhone:(VerifyPhone *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"verify_phone" data:request.data handler:request success:success failure:failure];
+}
+
++ (void)userSignup:(UserSignup *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user_signup" data:request.data handler:request success:success failure:failure];
 }
 
 @end

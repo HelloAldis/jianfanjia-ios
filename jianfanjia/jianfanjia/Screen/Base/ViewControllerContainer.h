@@ -14,6 +14,8 @@
 
 + (void)showAfterLanching;
 + (void)showLogin;
++ (void)showSignup;
++ (void)showVerifyPhone;
 + (void)showProcess;
 + (void)showProduct:(NSString *)productid;
 + (void)showDesigner:(NSString *)designerid;

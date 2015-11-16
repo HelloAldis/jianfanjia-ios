@@ -18,5 +18,7 @@
 #import "ProductHomePage.h"
 #import "DesignerHomePage.h"
 #import "QueryProduct.h"
+#import "VerifyPhone.h"
+#import "UserSignup.h"
 
 #endif

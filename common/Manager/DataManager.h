@@ -16,6 +16,10 @@
 @property (nonatomic, strong) NSString *errMsg;
 @property (nonatomic, strong) id data;
 
+//For signup page
+@property (strong, nonatomic) NSString *signupPagePhone;
+@property (strong, nonatomic) NSString *signupPagePass;
+
 //For home page
 @property (strong, nonatomic) Requirement *homePageRequirement;
 @property (strong, nonatomic) NSMutableArray *homePageRequirementDesigners;

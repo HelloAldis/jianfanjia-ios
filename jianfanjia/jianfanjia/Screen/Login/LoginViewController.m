@@ -78,8 +78,6 @@
                                        return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
                                    }];
     
-    
-    [self.navigationController setNavigationBarHidden:YES];
     [self.btnLogin setCornerRadius:5];
     [self.btnLogin setDisableAlpha];
     self.btnLogin.enabled = NO;
@@ -102,13 +100,20 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [self.navigationController setNavigationBarHidden:YES];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 
     if (kIs35inchScreen) {
         self.topConstraint.constant = 10;
     } else {
         self.topConstraint.constant = (kScreenHeight - 480)/2;
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (self.showSignup) {
+        [self swipeLeft:nil];
     }
 }
 
@@ -122,7 +127,6 @@
 
 #pragma mark - user actions
 - (IBAction)swipeRight:(id)sender {
-    DDLogDebug(@"%@", @"swipeRight");
     [self.view endEditing:YES];
     self.centerForBtnTitleSignup.active = NO;
     if (!self.centerForBtnTitleLogin) {
@@ -149,7 +153,6 @@
     
 }
 - (IBAction)swipeLeft:(id)sender {
-    DDLogDebug(@"%@", @"swipeLeft");
     [self.view endEditing:YES];
     self.centerForBtnTitleLogin.active = NO;
     if (!self.centerForBtnTitleSignup) {
@@ -228,7 +231,24 @@
 }
 
 - (IBAction)onClickSignup:(id)sender {
+    [DataManager shared].signupPagePhone = [self.fldSignupPhone.text trim];
+    [DataManager shared].signupPagePass = [self.fldSignupPassword.text trim];
+    VerifyPhone *request = [[VerifyPhone alloc] init];
+    request.phone = [DataManager shared].signupPagePhone;
     
+    [HUDUtil showWait];
+    [API verifyPhone:request success:^{
+        SendVerifyCode *req = [[SendVerifyCode alloc] init];
+        req.phone = [DataManager shared].signupPagePhone;
+        [API sendVerifyCode:req success:^{
+            [HUDUtil hideWait];
+            [ViewControllerContainer showVerifyPhone];
+        } failure:^{
+            [HUDUtil hideWait];
+        }];
+    } failure:^{
+        
+    }];
 }
 
 - (IBAction)onClickLogin:(id)sender {
@@ -244,7 +264,7 @@
         [GVUserDefaults standardUserDefaults].isLogin = YES;
         [ViewControllerContainer showTab];
     } failure:^{
-        [HUDUtil hideWait];
+
     }];
 }
 

@@ -21,6 +21,7 @@
 #import "ImageDetailViewController.h"
 #import "DesignerViewController.h"
 #import "RefreshViewController.h"
+#import "VerifyPhoneViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -86,6 +87,18 @@ static ViewControllerContainer *container;
 + (void)showLogin {
     container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:
                                            [[LoginViewController alloc] initWithNibName:nil bundle:nil]];
+}
+
++ (void)showSignup {
+    LoginViewController *v = [[LoginViewController alloc] initWithNibName:nil bundle:nil];
+    v.showSignup = YES;
+    container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:v];
+}
+
++ (void)showVerifyPhone {
+    VerifyPhoneViewController *v = [[VerifyPhoneViewController alloc] init];
+    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+    [nav pushViewController:v animated:YES];
 }
 
 + (void)showProcess {

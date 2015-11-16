@@ -11,8 +11,6 @@
 
 @implementation SendVerifyCode
 
-- (void)setphone:(NSString *)phone {
-    [self.data setObject:phone forKey:@"phone"];
-}
+@dynamic phone;
 
 @end

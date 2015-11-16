@@ -84,7 +84,7 @@
 }
 
 - (IBAction)onClickSignup:(id)sender {
-    
+    [ViewControllerContainer showSignup];
 }
 
 @end

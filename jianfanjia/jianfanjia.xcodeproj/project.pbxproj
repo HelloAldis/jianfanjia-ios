@@ -68,6 +68,12 @@
 		6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496171BF717B100C90851 /* DesignerBusiness.m */; };
 		6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44961A1BF72F3600C90851 /* ProductPageData.m */; };
 		6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44961D1BF7368900C90851 /* DesignerPageData.m */; };
+		6E4496211BF9B58800C90851 /* VerifyPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496201BF9B58800C90851 /* VerifyPhone.m */; };
+		6E4496251BF9BA2600C90851 /* VerifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496231BF9BA2600C90851 /* VerifyPhoneViewController.m */; };
+		6E4496261BF9BA2600C90851 /* VerifyPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4496241BF9BA2600C90851 /* VerifyPhoneViewController.xib */; };
+		6E4496291BF9DF9700C90851 /* UserSignup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496281BF9DF9700C90851 /* UserSignup.m */; };
+		6E44962D1BF9E32200C90851 /* SignupSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44962B1BF9E32200C90851 /* SignupSuccessViewController.m */; };
+		6E44962E1BF9E32200C90851 /* SignupSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E44962C1BF9E32200C90851 /* SignupSuccessViewController.xib */; };
 		6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D988C1BDDC9C800D45F77 /* W1View.m */; };
 		6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D988E1BDDC9DC00D45F77 /* W1View.xib */; };
 		6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98901BDDFD9700D45F77 /* W2View.xib */; };
@@ -267,6 +273,16 @@
 		6E44961A1BF72F3600C90851 /* ProductPageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductPageData.m; sourceTree = "<group>"; };
 		6E44961C1BF7368900C90851 /* DesignerPageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerPageData.h; sourceTree = "<group>"; };
 		6E44961D1BF7368900C90851 /* DesignerPageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerPageData.m; sourceTree = "<group>"; };
+		6E44961F1BF9B58800C90851 /* VerifyPhone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyPhone.h; sourceTree = "<group>"; };
+		6E4496201BF9B58800C90851 /* VerifyPhone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyPhone.m; sourceTree = "<group>"; };
+		6E4496221BF9BA2600C90851 /* VerifyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyPhoneViewController.h; sourceTree = "<group>"; };
+		6E4496231BF9BA2600C90851 /* VerifyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyPhoneViewController.m; sourceTree = "<group>"; };
+		6E4496241BF9BA2600C90851 /* VerifyPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerifyPhoneViewController.xib; sourceTree = "<group>"; };
+		6E4496271BF9DF9700C90851 /* UserSignup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSignup.h; sourceTree = "<group>"; };
+		6E4496281BF9DF9700C90851 /* UserSignup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSignup.m; sourceTree = "<group>"; };
+		6E44962A1BF9E32200C90851 /* SignupSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupSuccessViewController.h; sourceTree = "<group>"; };
+		6E44962B1BF9E32200C90851 /* SignupSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupSuccessViewController.m; sourceTree = "<group>"; };
+		6E44962C1BF9E32200C90851 /* SignupSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupSuccessViewController.xib; sourceTree = "<group>"; };
 		6E6D988B1BDDC9C800D45F77 /* W1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W1View.h; sourceTree = "<group>"; };
 		6E6D988C1BDDC9C800D45F77 /* W1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W1View.m; sourceTree = "<group>"; };
 		6E6D988E1BDDC9DC00D45F77 /* W1View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W1View.xib; sourceTree = "<group>"; };
@@ -461,6 +477,10 @@
 				6E838DB41BEB5603000BF5CD /* DesignerHomePage.m */,
 				6E838DB61BECA39B000BF5CD /* QueryProduct.h */,
 				6E838DB71BECA39B000BF5CD /* QueryProduct.m */,
+				6E44961F1BF9B58800C90851 /* VerifyPhone.h */,
+				6E4496201BF9B58800C90851 /* VerifyPhone.m */,
+				6E4496271BF9DF9700C90851 /* UserSignup.h */,
+				6E4496281BF9DF9700C90851 /* UserSignup.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -766,6 +786,12 @@
 				6E7E4A661B9A90BA00503B35 /* LoginViewController.h */,
 				6E7E4A671B9A90BA00503B35 /* LoginViewController.m */,
 				6E7E4A681B9A90BA00503B35 /* LoginViewController.xib */,
+				6E4496221BF9BA2600C90851 /* VerifyPhoneViewController.h */,
+				6E4496231BF9BA2600C90851 /* VerifyPhoneViewController.m */,
+				6E4496241BF9BA2600C90851 /* VerifyPhoneViewController.xib */,
+				6E44962A1BF9E32200C90851 /* SignupSuccessViewController.h */,
+				6E44962B1BF9E32200C90851 /* SignupSuccessViewController.m */,
+				6E44962C1BF9E32200C90851 /* SignupSuccessViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -912,7 +938,7 @@
 				TargetAttributes = {
 					6E20B2211B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 9N6Y5VRGG7;
+						DevelopmentTeam = CSFDRG22AA;
 					};
 					6E20B23A1B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
@@ -956,6 +982,7 @@
 				6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */,
 				6E6D98CB1BE0AB7C00D45F77 /* HomePageRequirementCell.xib in Resources */,
 				6E6D98D51BE0D62F00D45F77 /* HomePageDesignerCell.xib in Resources */,
+				6E4496261BF9BA2600C90851 /* VerifyPhoneViewController.xib in Resources */,
 				6E6D98E71BE343E400D45F77 /* DesignerViewController.xib in Resources */,
 				6E7E4A6A1B9A90BA00503B35 /* LoginViewController.xib in Resources */,
 				68343A191BF70719004F15C1 /* province2city.js in Resources */,
@@ -978,6 +1005,7 @@
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
+				6E44962E1BF9E32200C90851 /* SignupSuccessViewController.xib in Resources */,
 				68343A0B1BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.xib in Resources */,
 				6E838D9B1BE6EF49000BF5CD /* ImageDetailViewController.xib in Resources */,
 				6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */,
@@ -1069,8 +1097,10 @@
 				6E07DAC11BD88DBE001461DD /* GVUserDefaults+Manager.m in Sources */,
 				6E07DABA1BD88DBE001461DD /* NSManagedObjectContext+Ex.m in Sources */,
 				6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */,
+				6E44962D1BF9E32200C90851 /* SignupSuccessViewController.m in Sources */,
 				6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */,
 				6E07DAB91BD88DBE001461DD /* NSManagedObject+Ex.m in Sources */,
+				6E4496211BF9B58800C90851 /* VerifyPhone.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
 				6E6D98AA1BDF733F00D45F77 /* HomePageViewController.m in Sources */,
 				6E07DABF1BD88DBE001461DD /* UIView+Ex.m in Sources */,
@@ -1078,6 +1108,7 @@
 				6E07DAAA1BD88DBE001461DD /* ProcessList.m in Sources */,
 				6E6D989E1BDDFF1B00D45F77 /* W4View.m in Sources */,
 				6E07DAA91BD88DBE001461DD /* UserLogin.m in Sources */,
+				6E4496251BF9BA2600C90851 /* VerifyPhoneViewController.m in Sources */,
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
@@ -1097,6 +1128,7 @@
 				6E7E4A691B9A90BA00503B35 /* LoginViewController.m in Sources */,
 				6E6D98C31BE0665700D45F77 /* Requirement.m in Sources */,
 				6E07DAC31BD88DBE001461DD /* Comment.m in Sources */,
+				6E4496291BF9DF9700C90851 /* UserSignup.m in Sources */,
 				68343A271BF73512004F15C1 /* SelectDecorationTypeViewController.m in Sources */,
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,

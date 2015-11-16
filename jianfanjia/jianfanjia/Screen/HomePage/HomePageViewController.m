@@ -113,7 +113,11 @@
     if (indexPath.row == 0) {
         return kBannerCellHeight;
     } else if (indexPath.row == 1) {
-        return kHomePageRequirementCellHeight;
+        if ([self hasRequirement] && ![self hasRequirementDesigners]) {
+            return kHomePageDesignerCellHeight;
+        } else {
+            return kHomePageRequirementCellHeight;
+        }
     } else {
         return kHomePageDesignerCellHeight;
     }
