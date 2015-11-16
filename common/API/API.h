@@ -23,5 +23,7 @@ extern NSString * const kApiUrl;
 + (void)productHomePage:(ProductHomePage *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)designerHomePage:(DesignerHomePage *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)queryProduct:(QueryProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)verifyPhone:(VerifyPhone *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)userSignup:(UserSignup *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 
 @end

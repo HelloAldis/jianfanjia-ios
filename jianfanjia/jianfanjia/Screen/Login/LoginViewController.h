@@ -10,4 +10,6 @@
 
 @interface LoginViewController : BaseViewController<UITextFieldDelegate>
 
+@property (assign, nonatomic) BOOL showSignup;
+
 @end
