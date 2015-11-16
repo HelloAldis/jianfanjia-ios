@@ -13,5 +13,6 @@
 
 - (void)setCornerRadius:(CGFloat)radius;
 - (void)setBorder:(CGFloat)width andColor:(CGColorRef)color;
+- (UIView *)getFirstResponder;
 
 @end

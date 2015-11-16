@@ -19,5 +19,6 @@
 #import "NSManagedObjectContext+Ex.h"
 #import "NSArray+Ex.h"
 #import "NSDate+Ex.h"
+#import "RACStream+Ex.h"
 
 #endif

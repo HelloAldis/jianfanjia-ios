@@ -14,8 +14,13 @@
 #import "SelectWorkTypeViewController.h"
 #import "SelectDecorationTypeViewController.h"
 #import "SelectSexTypeViewController.h"
+#import "SelectDecorationStyleViewController.h"
+
+static float kKeyboardHeight = 480;
+static NSTimeInterval kKeyboardDuration = 2.0;
 
 @interface RequirementCreateViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *btnSelectCity;
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectCityVal;
 @property (weak, nonatomic) IBOutlet UITextField *fldStreetVal;
@@ -73,6 +78,17 @@
     [self initUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 #pragma mark - UI
 - (void)initNav {
@@ -88,7 +104,7 @@
     [[self.btnSelectCity rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
         @strongify(self);
         SelectCityViewController *controller = [[SelectCityViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+        [self navigateToSelection:controller];
     }];
     
     RAC(self.lblSelectCityVal, text) = [RACSignal
@@ -109,7 +125,7 @@
     [[self.btnSelectHouseType rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
         @strongify(self);
         SelectHouseTypeViewController *controller = [[SelectHouseTypeViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+        [self navigateToSelection:controller];
     }];
     
     [RACObserve([DataManager shared], requirementPageSelectedHouseType) subscribeNext:^(NSString *value) {
@@ -122,7 +138,7 @@
     [[self.btnSelectWorkType rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
         @strongify(self);
         SelectWorkTypeViewController *controller = [[SelectWorkTypeViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+        [self navigateToSelection:controller];
     }];
     
     [RACObserve([DataManager shared], requirementPageSelectedWorkType) subscribeNext:^(NSString *value) {
@@ -135,20 +151,20 @@
     [[self.btnSelectDecorationType rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
         @strongify(self);
         SelectDecorationTypeViewController *controller = [[SelectDecorationTypeViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+        [self navigateToSelection:controller];
     }];
     
     [RACObserve([DataManager shared], requirementPageSelectedDecorationType) subscribeNext:^(NSString *value) {
         @strongify(self);
         self.editingRequirement.dec_type = value;
-        self.lblSelectDecorationTypeVal.text = [NameDict nameForWorkType:value];
+        self.lblSelectDecorationTypeVal.text = [NameDict nameForDecType:value];
     }];
     
     //Select population
     [[self.btnSelectPopulation rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
         @strongify(self);
         SelectPopulationViewController *controller = [[SelectPopulationViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+        [self navigateToSelection:controller];
     }];
     
     [RACObserve([DataManager shared], requirementPageSelectedPopulationType) subscribeNext:^(NSString *value) {
@@ -157,11 +173,24 @@
         self.lblSelectPopulationVal.text = value;
     }];
     
+    //Select decoration style
+    [[self.btnSelectPreferredStyle rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
+        @strongify(self);
+        SelectDecorationStyleViewController *controller = [[SelectDecorationStyleViewController alloc] init];
+        [self navigateToSelection:controller];
+    }];
+    
+    [RACObserve([DataManager shared], requirementPageSelectedDecorationStyle) subscribeNext:^(NSString *value) {
+        @strongify(self);
+        self.editingRequirement.dec_style = value;
+        self.lblSelectPreferredStyleVal.text = [NameDict nameForDecStyle:value];
+    }];
+    
     //Select communication type
     [[self.btnSelectCommunicationType rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
         @strongify(self);
         SelectCommunicationTypeViewController *controller = [[SelectCommunicationTypeViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+        [self navigateToSelection:controller];
     }];
     
     [RACObserve([DataManager shared], requirementPageSelectedCommunicationType) subscribeNext:^(NSString *value) {
@@ -174,7 +203,7 @@
     [[self.btnSelectSexType rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
         @strongify(self);
         SelectSexTypeViewController *controller = [[SelectSexTypeViewController alloc] init];
-        [self.navigationController pushViewController:controller animated:YES];
+        [self navigateToSelection:controller];
     }];
     
     [RACObserve([DataManager shared], requirementPageSelectedSexType) subscribeNext:^(NSString *value) {
@@ -200,45 +229,80 @@
         @strongify(self);
         self.editingRequirement.cell = value;
     }];
+    
 
     //Phase
-    [[self.fldPhaseVal rac_textSignal] subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.cell_phase = value;
-    }];
-    
-    //Building
-    [[self.fldBuildingVal rac_textSignal] subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.cell_building = value;
-    }];
-    
-    //Unit
-    [[self.fldUnitVal rac_textSignal] subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.cell_unit = value;
-    }];
-    
-    //Room number
-    [[self.fldRoomVal rac_textSignal] subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.cell_detail_number = value;
-    }];
-    
-    //Budget
-    [[[[self.fldDecorationBudgetVal rac_textSignal]
-        filter:^BOOL(NSString *value) {
-            return false;
+    [[[[self.fldPhaseVal rac_textSignal]
+        filterNonDigit:^BOOL {
+            return true;
         }]
-        map:^NSNumber* (NSString *value) {
-            return @20;
+        length:^NSInteger {
+            return 3;
         }]
-        subscribeNext:^(NSNumber *value) {
+        subscribeNext:^(NSString *value) {
             @strongify(self);
-            self.editingRequirement.total_price = value;
+            self.editingRequirement.cell_phase = value;
         }];
     
+    //Building
+    [[[[self.fldBuildingVal rac_textSignal]
+        filterNonDigit:^BOOL {
+            return true;
+        }]
+        length:^NSInteger {
+            return 3;
+        }]
+        subscribeNext:^(NSString *value) {
+            @strongify(self);
+            self.editingRequirement.cell_building = value;
+        }];
     
+    //Unit
+    [[[[self.fldUnitVal rac_textSignal]
+        filterNonDigit:^BOOL {
+            return true;
+        }]
+        length:^NSInteger {
+            return 3;
+        }]
+        subscribeNext:^(NSString *value) {
+            @strongify(self);
+            self.editingRequirement.cell_unit = value;
+        }];
+    
+    //Room number
+    [[[[self.fldRoomVal rac_textSignal]
+        filterNonDigit:^BOOL {
+            return true;
+        }]
+        length:^NSInteger {
+            return 3;
+        }]
+        subscribeNext:^(NSString *value) {
+            @strongify(self);
+            self.editingRequirement.cell_detail_number = value;
+        }];
+    
+    //Budget
+    [[[self.fldDecorationBudgetVal.rac_textSignal
+        filterNonDigit:^BOOL {
+            return true;
+        }]
+        length:^NSInteger {
+            return 4;
+        }]
+        subscribeNext:^(NSString *value) {
+            @strongify(self);
+            self.fldDecorationBudgetVal.text = value;
+            self.editingRequirement.total_price = [NSNumber numberWithInteger:[value integerValue]];
+        }];
+    
+}
+
+#pragma mark - navigation
+- (void)navigateToSelection:(UIViewController *)controller {
+    [self.view endEditing:YES];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - user action
@@ -247,7 +311,43 @@
 }
 
 - (void)onClickDone {
+    SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
     
+    [API sendAddRequirement:sendAddRequirement success:^{
+        [self onClickBack];
+    } failure:^{
+    
+    }];
+}
+
+#pragma mark - keyboard
+- (void)keyboardWillShow:(NSNotification *)notification {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        NSDictionary *userInfo = [notification userInfo];
+
+        // get keyboard rect in windwo coordinate
+        DDLogDebug(@"%@", [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey]);
+
+        // get keyboard height
+        kKeyboardHeight = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+        // get keybord anmation duration
+        kKeyboardDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
+    });
+    
+    self.scrollView.contentInset = UIEdgeInsetsMake(64, 0, kKeyboardHeight, 0);
+    self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, kKeyboardHeight, 0);
+}
+
+- (void) keyboardWillHide:(NSNotification *)notification {
+    [self.view endEditing:YES];
+    self.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, kKeyboardHeight, 0);
+}
+
+//#pragma mark - touch
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 @end

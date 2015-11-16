@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
 typedef enum {
     Create,
@@ -14,7 +15,7 @@ typedef enum {
     Edit,
 } RequirementEditType;
 
-@interface RequirementCreateViewController : UIViewController
+@interface RequirementCreateViewController : BaseViewController
 
 - (id)initToCreateRequirement;
 

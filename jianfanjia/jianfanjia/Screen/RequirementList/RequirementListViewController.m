@@ -10,6 +10,7 @@
 #import "RequirementCreateViewController.h"
 
 @interface RequirementListViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UIButton *btnCreate;
 @property (weak, nonatomic) IBOutlet UILabel *lblNoRequirement;
 

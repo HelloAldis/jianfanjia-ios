@@ -12,6 +12,7 @@
 #import "SendVerifyCode.h"
 #import "UserLogin.h"
 #import "GetUserRequirement.h"
+#import "SendAddRequirement.h"
 #import "ProcessList.h"
 #import "GetProcess.h"
 #import "HomePageDesigners.h"

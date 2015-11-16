@@ -32,6 +32,7 @@
                 <outlet property="lblSelectPreferredStyleVal" destination="vbU-bi-dUL" id="cAg-d4-csc"/>
                 <outlet property="lblSelectSexTypeVal" destination="bfY-AV-L9U" id="LLq-Yz-WpZ"/>
                 <outlet property="lblSelectWorkTypeVal" destination="kmT-fl-2kz" id="kW7-OW-GqC"/>
+                <outlet property="scrollView" destination="4oR-AB-99t" id="hyx-FP-tKJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -67,10 +68,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zh8-HU-bKz">
-                                    <rect key="frame" x="570" y="16" width="10" height="22"/>
+                                    <rect key="frame" x="560" y="16" width="20" height="22"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="10" id="cOW-a8-Ik7"/>
+                                        <constraint firstAttribute="width" constant="20" id="cOW-a8-Ik7"/>
                                     </constraints>
                                     <state key="normal" image="bar_shape"/>
                                 </button>
@@ -179,7 +180,7 @@
                                             </constraints>
                                             <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                     </subviews>
                                     <animations/>
@@ -212,7 +213,7 @@
                                             </constraints>
                                             <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                     </subviews>
                                     <animations/>
@@ -245,7 +246,7 @@
                                             </constraints>
                                             <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                     </subviews>
                                     <animations/>
@@ -327,10 +328,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XR0-At-dZK">
-                                    <rect key="frame" x="570" y="16" width="10" height="22"/>
+                                    <rect key="frame" x="560" y="16" width="20" height="22"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="10" id="Dhr-tN-kc0"/>
+                                        <constraint firstAttribute="width" constant="20" id="Dhr-tN-kc0"/>
                                     </constraints>
                                     <state key="normal" image="bar_shape"/>
                                 </button>
@@ -352,7 +353,7 @@
                                     </constraints>
                                     <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m2" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NX1-0z-Hhy">
                                     <rect key="frame" x="555" y="69" width="25" height="17"/>
@@ -382,7 +383,7 @@
                                     </constraints>
                                     <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="装修预算" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ocK-t2-oL5">
                                     <rect key="frame" x="15" y="172" width="60" height="17"/>
@@ -437,10 +438,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wH-ot-xzq">
-                                    <rect key="frame" x="570" y="118" width="10" height="22"/>
+                                    <rect key="frame" x="560" y="118" width="20" height="22"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="10" id="yPo-L1-nDv"/>
+                                        <constraint firstAttribute="width" constant="20" id="yPo-L1-nDv"/>
                                     </constraints>
                                     <state key="normal" image="bar_shape"/>
                                 </button>
@@ -465,10 +466,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zot-HI-LXZ">
-                                    <rect key="frame" x="570" y="220" width="10" height="22"/>
+                                    <rect key="frame" x="560" y="220" width="20" height="22"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="10" id="TMF-DO-OhG"/>
+                                        <constraint firstAttribute="width" constant="20" id="TMF-DO-OhG"/>
                                     </constraints>
                                     <state key="normal" image="bar_shape"/>
                                 </button>
@@ -558,10 +559,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWt-xg-756">
-                                    <rect key="frame" x="570" y="16" width="10" height="22"/>
+                                    <rect key="frame" x="560" y="16" width="20" height="22"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="10" id="gWF-Ar-5as"/>
+                                        <constraint firstAttribute="width" constant="20" id="gWF-Ar-5as"/>
                                     </constraints>
                                     <state key="normal" image="bar_shape"/>
                                 </button>
@@ -586,10 +587,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-dy-39c">
-                                    <rect key="frame" x="570" y="65" width="10" height="22"/>
+                                    <rect key="frame" x="560" y="65" width="20" height="22"/>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="10" id="EVk-Xn-mRT"/>
+                                        <constraint firstAttribute="width" constant="20" id="EVk-Xn-mRT"/>
                                     </constraints>
                                     <state key="normal" image="bar_shape"/>
                                 </button>

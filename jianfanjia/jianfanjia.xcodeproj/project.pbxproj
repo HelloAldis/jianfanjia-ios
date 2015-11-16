@@ -25,6 +25,13 @@
 		6846C3941BE8C421009692D8 /* RequirementCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6846C3921BE8C421009692D8 /* RequirementCreateViewController.m */; };
 		6846C3951BE8C421009692D8 /* RequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6846C3931BE8C421009692D8 /* RequirementCreateViewController.xib */; };
 		685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B51051BE76D45001C8B34 /* UIColor+Ex.m */; };
+		685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21471BF9729E00D5D320 /* SendAddRequirement.m */; };
+		685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214A1BF9870B00D5D320 /* RACStream+Ex.m */; };
+		685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */; };
+		685C21521BF9C92800D5D320 /* SelectDecorationStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21501BF9C92800D5D320 /* SelectDecorationStyleViewController.m */; };
+		685C21531BF9C92800D5D320 /* SelectDecorationStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685C21511BF9C92800D5D320 /* SelectDecorationStyleViewController.xib */; };
+		685C215A1BF9CDF900D5D320 /* DecorationStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21581BF9CDF900D5D320 /* DecorationStyleCell.m */; };
+		685C215B1BF9CDF900D5D320 /* DecorationStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685C21591BF9CDF900D5D320 /* DecorationStyleCell.xib */; };
 		68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E505641BF0BB0100B0B910 /* SelectCityViewController.m */; };
 		68E505671BF0BB0100B0B910 /* SelectCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */; };
 		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; };
@@ -176,6 +183,18 @@
 		6846C3931BE8C421009692D8 /* RequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementCreateViewController.xib; sourceTree = "<group>"; };
 		685B51041BE76D45001C8B34 /* UIColor+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ex.h"; sourceTree = "<group>"; };
 		685B51051BE76D45001C8B34 /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
+		685C21461BF9729E00D5D320 /* SendAddRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendAddRequirement.h; sourceTree = "<group>"; };
+		685C21471BF9729E00D5D320 /* SendAddRequirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendAddRequirement.m; sourceTree = "<group>"; };
+		685C21491BF9870B00D5D320 /* RACStream+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACStream+Ex.h"; sourceTree = "<group>"; };
+		685C214A1BF9870B00D5D320 /* RACStream+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACStream+Ex.m"; sourceTree = "<group>"; };
+		685C214C1BF9C7E100D5D320 /* UIScrollView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Ex.h"; sourceTree = "<group>"; };
+		685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Ex.m"; sourceTree = "<group>"; };
+		685C214F1BF9C92800D5D320 /* SelectDecorationStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDecorationStyleViewController.h; sourceTree = "<group>"; };
+		685C21501BF9C92800D5D320 /* SelectDecorationStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDecorationStyleViewController.m; sourceTree = "<group>"; };
+		685C21511BF9C92800D5D320 /* SelectDecorationStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDecorationStyleViewController.xib; sourceTree = "<group>"; };
+		685C21571BF9CDF900D5D320 /* DecorationStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecorationStyleCell.h; sourceTree = "<group>"; };
+		685C21581BF9CDF900D5D320 /* DecorationStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecorationStyleCell.m; sourceTree = "<group>"; };
+		685C21591BF9CDF900D5D320 /* DecorationStyleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecorationStyleCell.xib; sourceTree = "<group>"; };
 		68E505631BF0BB0100B0B910 /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
 		68E505641BF0BB0100B0B910 /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCityViewController.xib; sourceTree = "<group>"; };
@@ -461,6 +480,8 @@
 				6E838DB41BEB5603000BF5CD /* DesignerHomePage.m */,
 				6E838DB61BECA39B000BF5CD /* QueryProduct.h */,
 				6E838DB71BECA39B000BF5CD /* QueryProduct.m */,
+				685C21461BF9729E00D5D320 /* SendAddRequirement.h */,
+				685C21471BF9729E00D5D320 /* SendAddRequirement.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -507,6 +528,10 @@
 				6E838D9D1BE6FB3A000BF5CD /* NSArray+Ex.m */,
 				AD89AE4E1BF4960000B24959 /* NSDate+Ex.h */,
 				AD89AE4F1BF4960000B24959 /* NSDate+Ex.m */,
+				685C21491BF9870B00D5D320 /* RACStream+Ex.h */,
+				685C214A1BF9870B00D5D320 /* RACStream+Ex.m */,
+				685C214C1BF9C7E100D5D320 /* UIScrollView+Ex.h */,
+				685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -682,6 +707,12 @@
 				68343A1A1BF72E90004F15C1 /* SelectSexTypeViewController.h */,
 				68343A1B1BF72E90004F15C1 /* SelectSexTypeViewController.m */,
 				68343A1C1BF72E90004F15C1 /* SelectSexTypeViewController.xib */,
+				685C214F1BF9C92800D5D320 /* SelectDecorationStyleViewController.h */,
+				685C21501BF9C92800D5D320 /* SelectDecorationStyleViewController.m */,
+				685C21511BF9C92800D5D320 /* SelectDecorationStyleViewController.xib */,
+				685C21571BF9CDF900D5D320 /* DecorationStyleCell.h */,
+				685C21581BF9CDF900D5D320 /* DecorationStyleCell.m */,
+				685C21591BF9CDF900D5D320 /* DecorationStyleCell.xib */,
 			);
 			path = RequirementList;
 			sourceTree = "<group>";
@@ -946,12 +977,14 @@
 			files = (
 				6846C3951BE8C421009692D8 /* RequirementCreateViewController.xib in Resources */,
 				68343A061BF6E757004F15C1 /* SelectPopulationViewController.xib in Resources */,
+				685C21531BF9C92800D5D320 /* SelectDecorationStyleViewController.xib in Resources */,
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */,
 				6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */,
 				6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */,
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
 				6E78670D1BA920D900DE8B1B /* BannerCell.xib in Resources */,
+				685C215B1BF9CDF900D5D320 /* DecorationStyleCell.xib in Resources */,
 				6E7867171BA944AF00DE8B1B /* ItemCell.xib in Resources */,
 				6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */,
 				6E6D98CB1BE0AB7C00D45F77 /* HomePageRequirementCell.xib in Resources */,
@@ -1058,12 +1091,14 @@
 				6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */,
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
+				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,
 				6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */,
 				6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */,
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */,
+				685C21521BF9C92800D5D320 /* SelectDecorationStyleViewController.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
 				6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */,
 				6E07DAC11BD88DBE001461DD /* GVUserDefaults+Manager.m in Sources */,
@@ -1096,6 +1131,7 @@
 				6E6D98C01BE0637700D45F77 /* Product.m in Sources */,
 				6E7E4A691B9A90BA00503B35 /* LoginViewController.m in Sources */,
 				6E6D98C31BE0665700D45F77 /* Requirement.m in Sources */,
+				685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */,
 				6E07DAC31BD88DBE001461DD /* Comment.m in Sources */,
 				68343A271BF73512004F15C1 /* SelectDecorationTypeViewController.m in Sources */,
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
@@ -1111,7 +1147,9 @@
 				6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */,
 				6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */,
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
+				685C215A1BF9CDF900D5D320 /* DecorationStyleCell.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
+				685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */,
 				6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */,
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
 				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,

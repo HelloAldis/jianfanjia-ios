@@ -20,4 +20,19 @@
   self.layer.borderColor = color;
 }
 
+- (UIView *)getFirstResponder {
+    if ([self isFirstResponder]) {
+        return self;
+    }
+    
+    for (UIView *view in self.subviews) {
+        id responder = [view getFirstResponder];
+        if (responder) {
+            return responder;
+        }
+    }
+    
+    return nil;
+ }
+
 @end

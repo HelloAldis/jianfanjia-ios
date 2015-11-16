@@ -55,6 +55,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API GET:@"user/requirement" handler:request success:success failure:failure];
 }
 
++ (void)sendAddRequirement:(SendAddRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user_add_requirement" data:[request data] handler:request success:success failure:failure];
+}
+
 + (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API GET:@"process/list" handler:request success:success failure:success];
 }

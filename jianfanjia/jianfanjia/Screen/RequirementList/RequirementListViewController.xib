@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RequirementListViewController">
             <connections>
                 <outlet property="btnCreate" destination="zlJ-1x-l7N" id="ExM-JD-fNv"/>
                 <outlet property="lblNoRequirement" destination="DS7-EN-yPO" id="qRS-FH-Cs4"/>
+                <outlet property="tableview" destination="SBR-wo-UES" id="ahA-BX-wpv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="K7E-IL-zYl"/>
             </connections>
         </placeholder>
@@ -50,17 +51,26 @@
                         <action selector="onClickCreate:" destination="-1" eventType="touchUpInside" id="BA5-Us-3br"/>
                     </connections>
                 </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SBR-wo-UES">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="9ig-fY-uhR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="4u6-jz-Lnp"/>
                 <constraint firstItem="zlJ-1x-l7N" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hba-YJ-Uf3"/>
+                <constraint firstItem="SBR-wo-UES" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hct-SA-zbl"/>
                 <constraint firstItem="9ig-fY-uhR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HnY-4X-aKU"/>
                 <constraint firstItem="DS7-EN-yPO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ku7-vy-uXE"/>
                 <constraint firstItem="zlJ-1x-l7N" firstAttribute="top" secondItem="DS7-EN-yPO" secondAttribute="bottom" constant="57" id="bGT-nb-VAg"/>
                 <constraint firstItem="9ig-fY-uhR" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="dRJ-vq-A1r"/>
+                <constraint firstItem="SBR-wo-UES" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="kwS-6c-Nne"/>
+                <constraint firstItem="SBR-wo-UES" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nVf-aM-nic"/>
                 <constraint firstItem="DS7-EN-yPO" firstAttribute="top" secondItem="9ig-fY-uhR" secondAttribute="bottom" constant="51" id="puF-01-rpe"/>
+                <constraint firstItem="SBR-wo-UES" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="yeJ-Zu-T53"/>
             </constraints>
             <point key="canvasLocation" x="330" y="345"/>
         </view>
