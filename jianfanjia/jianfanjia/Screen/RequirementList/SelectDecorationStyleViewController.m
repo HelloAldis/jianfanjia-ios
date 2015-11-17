@@ -63,7 +63,7 @@ static NSString* cellId = @"cityCell";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DecorationStyleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    NSString* imageName = [NSString stringWithFormat:@"%ld%@", (long)[self.keys[indexPath.row] integerValue] + 1, self.values[indexPath.row]];
+    NSString* imageName = [NSString stringWithFormat:@"dec_style_%@", self.keys[indexPath.row]];
     
     [cell initWithImage:[UIImage imageNamed:imageName] withTitle:self.values[indexPath.row]];
     

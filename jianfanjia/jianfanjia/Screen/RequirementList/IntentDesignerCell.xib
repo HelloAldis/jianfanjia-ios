@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="Vgo-fm-pSj" customClass="IntentDesignerCell">
+            <rect key="frame" x="0.0" y="0.0" width="570" height="165"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vgo-fm-pSj" id="Qxz-lE-rJL">
+                <rect key="frame" x="0.0" y="0.0" width="570" height="164"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="EOD-si-Dcz">
+                        <rect key="frame" x="36" y="52" width="60" height="60"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="GQP-fA-9Dm"/>
+                            <constraint firstAttribute="height" constant="60" id="mda-Al-ltE"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="d4C-0E-bT3">
+                        <rect key="frame" x="80" y="96" width="16" height="16"/>
+                        <animations/>
+                        <gestureRecognizers/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="蒋劲夫" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVw-2R-iWw">
+                        <rect key="frame" x="121" y="57" width="42" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="Ya6-wq-SGr">
+                        <rect key="frame" x="515" y="70" width="25" height="25"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="HSg-UF-5Um"/>
+                            <constraint firstAttribute="width" constant="25" id="s1e-0A-Oot"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVO-ud-aXz">
+                        <rect key="frame" x="121" y="155" width="570" height="1"/>
+                        <animations/>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="F1o-Mx-NKq"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle" translatesAutoresizingMaskIntoConstraints="NO" id="Yvv-Hm-Anm">
+                        <rect key="frame" x="121" y="92" width="17" height="15"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle" translatesAutoresizingMaskIntoConstraints="NO" id="oOF-BC-Gz4">
+                        <rect key="frame" x="140" y="92" width="17" height="15"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle" translatesAutoresizingMaskIntoConstraints="NO" id="ulR-di-8Zs">
+                        <rect key="frame" x="159" y="92" width="17" height="15"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle" translatesAutoresizingMaskIntoConstraints="NO" id="dmg-8G-cXQ">
+                        <rect key="frame" x="178" y="92" width="17" height="15"/>
+                        <animations/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle" translatesAutoresizingMaskIntoConstraints="NO" id="6FS-JA-7dZ">
+                        <rect key="frame" x="197" y="92" width="17" height="15"/>
+                        <animations/>
+                    </imageView>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="Yvv-Hm-Anm" firstAttribute="bottom" secondItem="EOD-si-Dcz" secondAttribute="bottom" constant="-5" id="20u-ci-Jdt"/>
+                    <constraint firstItem="EOD-si-Dcz" firstAttribute="centerY" secondItem="Qxz-lE-rJL" secondAttribute="centerY" id="2Pa-s2-i11"/>
+                    <constraint firstItem="dmg-8G-cXQ" firstAttribute="top" secondItem="ulR-di-8Zs" secondAttribute="top" id="2ST-b0-aYT"/>
+                    <constraint firstItem="6FS-JA-7dZ" firstAttribute="top" secondItem="dmg-8G-cXQ" secondAttribute="top" id="3qZ-Y2-JUZ"/>
+                    <constraint firstItem="dmg-8G-cXQ" firstAttribute="leading" secondItem="ulR-di-8Zs" secondAttribute="trailing" constant="2" id="3tU-QM-Z3T"/>
+                    <constraint firstItem="DVw-2R-iWw" firstAttribute="leading" secondItem="EOD-si-Dcz" secondAttribute="trailing" constant="25" id="A97-XU-3pD"/>
+                    <constraint firstItem="ulR-di-8Zs" firstAttribute="top" secondItem="oOF-BC-Gz4" secondAttribute="bottom" constant="-15" id="F9M-38-iFa"/>
+                    <constraint firstItem="oOF-BC-Gz4" firstAttribute="leading" secondItem="Yvv-Hm-Anm" secondAttribute="trailing" constant="2" id="ILZ-WL-3li"/>
+                    <constraint firstItem="dmg-8G-cXQ" firstAttribute="top" secondItem="Yvv-Hm-Anm" secondAttribute="top" id="Jc1-Z3-YQc"/>
+                    <constraint firstItem="ulR-di-8Zs" firstAttribute="top" secondItem="oOF-BC-Gz4" secondAttribute="top" id="K7n-hf-yLo"/>
+                    <constraint firstItem="VVO-ud-aXz" firstAttribute="width" secondItem="Qxz-lE-rJL" secondAttribute="width" id="N09-yf-LaA"/>
+                    <constraint firstItem="ulR-di-8Zs" firstAttribute="leading" secondItem="oOF-BC-Gz4" secondAttribute="trailing" constant="2" id="Ngj-e8-rfW"/>
+                    <constraint firstItem="EOD-si-Dcz" firstAttribute="leading" secondItem="Qxz-lE-rJL" secondAttribute="leadingMargin" constant="28" id="Qdx-m1-aWx"/>
+                    <constraint firstItem="d4C-0E-bT3" firstAttribute="bottom" secondItem="EOD-si-Dcz" secondAttribute="bottom" id="Rt8-Ve-Xmm"/>
+                    <constraint firstItem="Ya6-wq-SGr" firstAttribute="centerY" secondItem="Qxz-lE-rJL" secondAttribute="centerY" id="VSs-C0-bNn"/>
+                    <constraint firstItem="VVO-ud-aXz" firstAttribute="leading" secondItem="Yvv-Hm-Anm" secondAttribute="leading" id="YII-b5-YAw"/>
+                    <constraint firstItem="Yvv-Hm-Anm" firstAttribute="leading" secondItem="DVw-2R-iWw" secondAttribute="leading" id="ege-A3-son"/>
+                    <constraint firstItem="d4C-0E-bT3" firstAttribute="trailing" secondItem="EOD-si-Dcz" secondAttribute="trailing" id="hyh-e0-i2d"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ya6-wq-SGr" secondAttribute="trailing" constant="22" id="jju-3f-1QT"/>
+                    <constraint firstItem="oOF-BC-Gz4" firstAttribute="top" secondItem="Yvv-Hm-Anm" secondAttribute="top" id="kAX-fb-uvs"/>
+                    <constraint firstItem="6FS-JA-7dZ" firstAttribute="leading" secondItem="dmg-8G-cXQ" secondAttribute="trailing" constant="2" id="mjg-z1-XsI"/>
+                    <constraint firstItem="DVw-2R-iWw" firstAttribute="top" secondItem="EOD-si-Dcz" secondAttribute="top" constant="5" id="nqK-bo-04L"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="VVO-ud-aXz" secondAttribute="bottom" id="nu9-Yh-bru"/>
+                    <constraint firstItem="ulR-di-8Zs" firstAttribute="top" secondItem="oOF-BC-Gz4" secondAttribute="bottom" constant="-15" id="olK-3H-nTx"/>
+                    <constraint firstItem="ulR-di-8Zs" firstAttribute="top" secondItem="oOF-BC-Gz4" secondAttribute="bottom" constant="-15" id="z9l-zb-7mz"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="F9M-38-iFa"/>
+                        <exclude reference="olK-3H-nTx"/>
+                        <exclude reference="z9l-zb-7mz"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="299" y="523.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="add" width="60" height="60"/>
+        <image name="star_middle" width="17" height="15"/>
+        <image name="unchecked" width="25" height="25"/>
+        <image name="v" width="16" height="16"/>
+    </resources>
+</document>

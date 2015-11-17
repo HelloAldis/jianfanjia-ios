@@ -17,6 +17,7 @@
 #import "Comment.h"
 #import "Ys.h"
 #import "Requirement.h"
+#import "MatchedDesigner.h"
 #import "Product.h"
 #import "ProductImage.h"
 

@@ -52,7 +52,7 @@ static AFHTTPRequestOperationManager *_manager;
 }
 
 + (void)getUserRequirement:(GetUserRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure {
-    [API GET:@"user/requirement" handler:request success:success failure:failure];
+    [API GET:@"user_my_requirement_list" handler:request success:success failure:failure];
 }
 
 + (void)sendAddRequirement:(SendAddRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure {

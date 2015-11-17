@@ -19,6 +19,7 @@
 + (void)showProcess;
 + (void)showProduct:(NSString *)productid;
 + (void)showDesigner:(NSString *)designerid;
++ (void)showOrderDesigner:(NSArray *)matchedDesigners;
 + (void)showTab;
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index;
 + (void)showRefresh;

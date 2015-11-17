@@ -8,8 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RequirementListViewController">
             <connections>
                 <outlet property="btnCreate" destination="zlJ-1x-l7N" id="ExM-JD-fNv"/>
+                <outlet property="imageView" destination="9ig-fY-uhR" id="xeQ-om-L2z"/>
                 <outlet property="lblNoRequirement" destination="DS7-EN-yPO" id="qRS-FH-Cs4"/>
-                <outlet property="tableview" destination="SBR-wo-UES" id="ahA-BX-wpv"/>
+                <outlet property="tableView" destination="SBR-wo-UES" id="qVI-77-zUb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="K7E-IL-zYl"/>
             </connections>
         </placeholder>
@@ -18,14 +19,24 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="requirement_bg" translatesAutoresizingMaskIntoConstraints="NO" id="9ig-fY-uhR">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SBR-wo-UES">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="k5Z-9E-EN0"/>
+                        <outlet property="delegate" destination="-1" id="mTM-rl-mGR"/>
+                    </connections>
+                </tableView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="requirement_bg" translatesAutoresizingMaskIntoConstraints="NO" id="9ig-fY-uhR">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="268"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="268" id="Ldn-Uh-QmO"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有发布需求，当前列表为空" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS7-EN-yPO">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有发布需求，当前列表为空" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS7-EN-yPO">
                     <rect key="frame" x="182" y="319" width="236" height="16"/>
                     <animations/>
                     <constraints>
@@ -36,7 +47,7 @@
                     <color key="textColor" red="0.48627450980392156" green="0.51764705882352935" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlJ-1x-l7N">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlJ-1x-l7N">
                     <rect key="frame" x="215" y="392" width="170" height="30"/>
                     <animations/>
                     <constraints>
@@ -51,11 +62,6 @@
                         <action selector="onClickCreate:" destination="-1" eventType="touchUpInside" id="BA5-Us-3br"/>
                     </connections>
                 </button>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SBR-wo-UES">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>

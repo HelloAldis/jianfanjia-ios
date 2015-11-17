@@ -8,6 +8,8 @@
 
 #import "BaseModel.h"
 
+@class MatchedDesigner;
+
 @interface Requirement : BaseModel
 
 @property (strong, nonatomic) NSString *_id;
@@ -29,6 +31,9 @@
 @property (strong, nonatomic) NSString *prefer_sex;
 @property (strong, nonatomic) NSString *family_description;
 @property (strong, nonatomic) NSString *communication_type;
+@property (strong, nonatomic) NSArray *order_designerids;
+@property (strong, nonatomic) NSArray *rec_designers;
 
+- (MatchedDesigner *)matchedDesignerAtIndex:(NSInteger)index;
 
 @end

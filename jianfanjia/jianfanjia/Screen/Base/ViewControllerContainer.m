@@ -22,6 +22,7 @@
 #import "DesignerViewController.h"
 #import "RefreshViewController.h"
 #import "VerifyPhoneViewController.h"
+#import "OrderDesignerViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -153,6 +154,12 @@ static ViewControllerContainer *container;
         v.designerid = designerid;
         [container.tab.selectedViewController pushViewController:v animated:YES];
     }
+}
+
++ (void)showOrderDesigner:(NSArray *)matchedDesigners {
+    OrderDesignerViewController *v = [[OrderDesignerViewController alloc] initWithMatchDesigner:matchedDesigners];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+    
 }
 
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index {
