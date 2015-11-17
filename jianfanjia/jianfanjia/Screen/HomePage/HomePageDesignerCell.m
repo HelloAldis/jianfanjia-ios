@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *vImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblCell;
 @property (weak, nonatomic) IBOutlet UILabel *lblDetail;
+@property (weak, nonatomic) IBOutlet UIView *boderView;
 
 @property (weak, nonatomic) Designer *designer;
 @property (strong, nonatomic) UITapGestureRecognizer *tapProductImage;
@@ -28,7 +29,7 @@
 - (void)awakeFromNib {
     // Initialization code
     [self.designerImageView setCornerRadius:30];
-    [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
+    [self.boderView setCornerRadius:31];
 
     self.tapDesignerImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDesignerImage:)];
     [self.designerImageView addGestureRecognizer:self.tapDesignerImage];

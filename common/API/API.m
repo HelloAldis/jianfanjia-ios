@@ -96,6 +96,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"user_signup" data:request.data handler:request success:success failure:failure];
 }
 
++ (void)updatePass:(UpdatePass *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"update_pass" data:request.data handler:request success:success failure:failure];
+}
+
 @end
 
 

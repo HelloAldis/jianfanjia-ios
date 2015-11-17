@@ -23,6 +23,8 @@
 #import "RefreshViewController.h"
 #import "VerifyPhoneViewController.h"
 #import "OrderDesignerViewController.h"
+#import "SignupSuccessViewController.h"
+#import "ResetPassViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -96,8 +98,21 @@ static ViewControllerContainer *container;
     container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:v];
 }
 
-+ (void)showVerifyPhone {
++ (void)showVerifyPhone:(BOOL)isResetPass {
     VerifyPhoneViewController *v = [[VerifyPhoneViewController alloc] init];
+    v.isResetPass = isResetPass;
+    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+    [nav pushViewController:v animated:YES];
+}
+
++ (void)showSignupSuccess {
+    SignupSuccessViewController *v = [[SignupSuccessViewController alloc] init];
+    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+    [nav pushViewController:v animated:YES];
+}
+
++ (void)showResetPass {
+    ResetPassViewController *v = [[ResetPassViewController alloc] init];
     UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
     [nav pushViewController:v animated:YES];
 }

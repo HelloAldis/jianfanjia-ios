@@ -23,6 +23,19 @@
     }] setNameWithFormat:@"[%@] -filterNonDigit:", self.name];
 }
 
+- (instancetype)filterNonSpace:(BOOL (^)())block {
+    NSCParameterAssert(block != nil);
+    
+    return [[self map:^(NSString *value) {
+        if (block()) {
+            return [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];;
+        }
+        
+        return value;
+        
+    }] setNameWithFormat:@"[%@] -filterNonDigit:", self.name];
+}
+
 - (instancetype)length:(NSInteger (^)())block {
     NSCParameterAssert(block != nil);
     

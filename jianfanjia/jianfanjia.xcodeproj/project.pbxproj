@@ -95,6 +95,9 @@
 		6E4496291BF9DF9700C90851 /* UserSignup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496281BF9DF9700C90851 /* UserSignup.m */; };
 		6E44962D1BF9E32200C90851 /* SignupSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44962B1BF9E32200C90851 /* SignupSuccessViewController.m */; };
 		6E44962E1BF9E32200C90851 /* SignupSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E44962C1BF9E32200C90851 /* SignupSuccessViewController.xib */; };
+		6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496301BFAD68B00C90851 /* ResetPassViewController.m */; };
+		6E4496331BFAD68B00C90851 /* ResetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4496311BFAD68B00C90851 /* ResetPassViewController.xib */; };
+		6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496351BFB029E00C90851 /* UpdatePass.m */; };
 		6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D988C1BDDC9C800D45F77 /* W1View.m */; };
 		6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D988E1BDDC9DC00D45F77 /* W1View.xib */; };
 		6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98901BDDFD9700D45F77 /* W2View.xib */; };
@@ -338,6 +341,11 @@
 		6E44962A1BF9E32200C90851 /* SignupSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupSuccessViewController.h; sourceTree = "<group>"; };
 		6E44962B1BF9E32200C90851 /* SignupSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupSuccessViewController.m; sourceTree = "<group>"; };
 		6E44962C1BF9E32200C90851 /* SignupSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupSuccessViewController.xib; sourceTree = "<group>"; };
+		6E44962F1BFAD68B00C90851 /* ResetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPassViewController.h; sourceTree = "<group>"; };
+		6E4496301BFAD68B00C90851 /* ResetPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPassViewController.m; sourceTree = "<group>"; };
+		6E4496311BFAD68B00C90851 /* ResetPassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPassViewController.xib; sourceTree = "<group>"; };
+		6E4496341BFB029E00C90851 /* UpdatePass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePass.h; sourceTree = "<group>"; };
+		6E4496351BFB029E00C90851 /* UpdatePass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePass.m; sourceTree = "<group>"; };
 		6E6D988B1BDDC9C800D45F77 /* W1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W1View.h; sourceTree = "<group>"; };
 		6E6D988C1BDDC9C800D45F77 /* W1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W1View.m; sourceTree = "<group>"; };
 		6E6D988E1BDDC9DC00D45F77 /* W1View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W1View.xib; sourceTree = "<group>"; };
@@ -538,6 +546,8 @@
 				6E4496201BF9B58800C90851 /* VerifyPhone.m */,
 				6E4496271BF9DF9700C90851 /* UserSignup.h */,
 				6E4496281BF9DF9700C90851 /* UserSignup.m */,
+				6E4496341BFB029E00C90851 /* UpdatePass.h */,
+				6E4496351BFB029E00C90851 /* UpdatePass.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -881,6 +891,9 @@
 				6E44962A1BF9E32200C90851 /* SignupSuccessViewController.h */,
 				6E44962B1BF9E32200C90851 /* SignupSuccessViewController.m */,
 				6E44962C1BF9E32200C90851 /* SignupSuccessViewController.xib */,
+				6E44962F1BFAD68B00C90851 /* ResetPassViewController.h */,
+				6E4496301BFAD68B00C90851 /* ResetPassViewController.m */,
+				6E4496311BFAD68B00C90851 /* ResetPassViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -1108,6 +1121,7 @@
 				6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */,
 				6E7867121BA942C700DE8B1B /* SectionCell.xib in Resources */,
 				6855E6421BFAFD6E00E789D4 /* IntentDesignerCell.xib in Resources */,
+				6E4496331BFAD68B00C90851 /* ResetPassViewController.xib in Resources */,
 				6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */,
 				6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */,
 			);
@@ -1193,6 +1207,7 @@
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */,
+				6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */,
 				685C21521BF9C92800D5D320 /* SelectDecorationStyleViewController.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
 				6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */,
@@ -1242,6 +1257,7 @@
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
+				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
 				6846C3941BE8C421009692D8 /* RequirementCreateViewController.m in Sources */,

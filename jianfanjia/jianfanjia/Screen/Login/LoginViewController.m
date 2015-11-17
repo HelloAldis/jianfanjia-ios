@@ -55,15 +55,28 @@
         }
     }];
     
-    [self.fldSignupPhone.rac_textSignal subscribeNext:^(NSString* newValue) {
-        if (newValue.length > 11) {
-            self.fldSignupPhone.text = [newValue substringToIndex:11];
-        }
+    [[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
+        return YES;
+    }] length:^NSInteger{
+        return kPhoneLength;
     }];
-    [self.fldSignupPassword.rac_textSignal subscribeNext:^(NSString* newValue) {
-        if (newValue.length > 30) {
-            self.fldSignupPassword.text = [newValue substringToIndex:30];
-        }
+    
+    [[self.fldSignupPhone.rac_textSignal filterNonDigit:^BOOL{
+        return YES;
+    }] length:^NSInteger{
+        return kPhoneLength;
+    }];
+    
+    [[self.fldPassword.rac_textSignal filterNonSpace:^BOOL{
+        return YES;
+    }] length:^NSInteger{
+        return kPasswordLength;
+    }];
+    
+    [[self.fldSignupPassword.rac_textSignal filterNonSpace:^BOOL{
+        return YES;
+    }] length:^NSInteger{
+        return kPasswordLength;
     }];
     
     RAC(self.btnLogin, enabled) = [RACSignal
@@ -79,23 +92,15 @@
                                    }];
     
     [self.btnLogin setCornerRadius:5];
-    [self.btnLogin setDisableAlpha];
     self.btnLogin.enabled = NO;
     [self.btnNext setCornerRadius:5];
-    [self.btnNext setDisableAlpha];
     self.btnNext.enabled = NO;
-    
     self.isUp = NO;
-    
     
 #ifdef DEBUG
     self.fldPhone.text = @"18107218595";
     self.fldPassword.text = @"123456";
 #endif
-
-//    UIColor *color = [UIColor colorWithRed:216/255.0f green:216/255.0f blue:216/255.0f alpha:1.0];
-//    self.fldPassword.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入密码" attributes:@{NSForegroundColorAttributeName: color}];
-//    self.fldPhone.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入账号" attributes:@{NSForegroundColorAttributeName: color}];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -227,7 +232,7 @@
 }
 
 - (IBAction)onClickForgetPass:(id)sender {
-    
+    [ViewControllerContainer showResetPass];
 }
 
 - (IBAction)onClickSignup:(id)sender {
@@ -242,7 +247,7 @@
         req.phone = [DataManager shared].signupPagePhone;
         [API sendVerifyCode:req success:^{
             [HUDUtil hideWait];
-            [ViewControllerContainer showVerifyPhone];
+            [ViewControllerContainer showVerifyPhone:NO];
         } failure:^{
             [HUDUtil hideWait];
         }];

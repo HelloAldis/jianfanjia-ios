@@ -72,17 +72,32 @@
 
 - (IBAction)onClickSignup:(id)sender {
     if (self.isResetPass) {
+        UpdatePass *request = [[UpdatePass alloc] init];
+        request.phone = [DataManager shared].signupPagePhone;
+        request.pass = [DataManager shared].signupPagePass;
+        request.code = [self.fldVerifyCode.text trim];
         
+        [HUDUtil showWait];
+        [API updatePass:request success:^{
+            [HUDUtil hideWait];
+            [HUDUtil showSuccessText:@"密码更新成功"];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        } failure:^{
+            [HUDUtil hideWait];
+        }];
     } else {
         UserSignup *request = [[UserSignup alloc] init];
         request.phone = [DataManager shared].signupPagePhone;
         request.pass = [DataManager shared].signupPagePass;
         request.code = [self.fldVerifyCode.text trim];
         
+        [HUDUtil showWait];
         [API userSignup:request success:^{
-//            [ViewControllerContainer show]
+            [HUDUtil hideWait];
+            [GVUserDefaults standardUserDefaults].isLogin = YES;
+            [ViewControllerContainer showSignupSuccess];
         } failure:^{
-        
+            [HUDUtil hideWait];
         }];
     }
 }

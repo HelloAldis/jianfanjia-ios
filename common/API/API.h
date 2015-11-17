@@ -25,5 +25,6 @@ extern NSString * const kApiUrl;
 + (void)queryProduct:(QueryProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)verifyPhone:(VerifyPhone *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)userSignup:(UserSignup *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)updatePass:(UpdatePass *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 
 @end

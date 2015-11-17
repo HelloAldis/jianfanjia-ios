@@ -14,4 +14,27 @@
 @dynamic pass;
 @dynamic code;
 
+- (void)failure {
+    [HUDUtil showErrText:[DataManager shared].errMsg];
+}
+
+- (void)success {
+    [GVUserDefaults standardUserDefaults].x = self.phone;
+    [GVUserDefaults standardUserDefaults].xx = self.pass;
+    [GVUserDefaults standardUserDefaults].loginDate = [[NSDate date] yyyy_MM_dd];
+    
+    NSMutableDictionary *dict = [DataManager shared].data;
+    NSString *usertype = [dict objectForKey:@"usertype"];
+    [dict removeObjectForKey:@"usertype"];
+    [GVUserDefaults standardUserDefaults].usertype = usertype;
+    
+    if ([kUserTypeUser isEqualToString:usertype]) {
+        User *user = [[User alloc] initWith:dict];
+        [GVUserDefaults standardUserDefaults].userid = [user _id];
+    } else if([kUserTypeDesigner isEqualToString:usertype]) {
+        Designer *designer = [[Designer alloc] initWith:dict];
+        [GVUserDefaults standardUserDefaults].userid = [designer _id];
+    }
+}
+
 @end

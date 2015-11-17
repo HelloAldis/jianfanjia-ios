@@ -28,7 +28,6 @@
 - (void)awakeFromNib {
     [self.btnAdd setCornerRadius:5];
     [self.designerImageView setCornerRadius:30];
-    [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -11,6 +11,8 @@
 @interface RACStream (Ex)
 
 - (instancetype)filterNonDigit:(BOOL (^)())block;
+- (instancetype)filterNonSpace:(BOOL (^)())block;
 - (instancetype)length:(NSInteger (^)())block;
+
 
 @end
