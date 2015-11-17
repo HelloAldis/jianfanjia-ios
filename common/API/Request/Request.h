@@ -21,5 +21,6 @@
 #import "QueryProduct.h"
 #import "VerifyPhone.h"
 #import "UserSignup.h"
+#import "UpdatePass.h"
 
 #endif

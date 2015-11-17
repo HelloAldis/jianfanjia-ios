@@ -11,13 +11,13 @@
 @implementation UIView (Ex)
 
 - (void)setCornerRadius:(CGFloat)radius {
-  self.layer.cornerRadius = radius;
-  self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = radius;
+    self.layer.masksToBounds = YES;
 }
 
 - (void)setBorder:(CGFloat)width andColor:(CGColorRef)color {
-  self.layer.borderWidth = width;
-  self.layer.borderColor = color;
+    self.layer.borderWidth = width;
+    self.layer.borderColor = color;
 }
 
 - (UIView *)getFirstResponder {

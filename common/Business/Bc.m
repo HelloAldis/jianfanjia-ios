@@ -9,6 +9,8 @@
 #import "Bc.h"
 
 int const kWelconeVersion = 1;
+int const kPhoneLength = 11;
+int const kPasswordLength = 30;
 
 NSString * const kUserTypeUser = @"1";
 NSString * const kUserTypeDesigner = @"2";

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 extern int const kWelconeVersion;
+extern int const kPhoneLength;
+extern int const kPasswordLength;
 extern NSString * const kUserTypeUser;
 extern NSString * const kUserTypeDesigner;
 extern NSString * const kProcessItemStatusNew;

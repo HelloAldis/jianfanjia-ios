@@ -27,7 +27,6 @@
 - (void)awakeFromNib {
     // Initialization code
     [self.designerImageView setCornerRadius:30];
-    [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
     self.tapDesigner = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDesigner)];
     [self.designerImageView addGestureRecognizer:self.tapDesigner];
 }

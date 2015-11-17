@@ -21,7 +21,7 @@
                     <rect key="frame" x="267" y="100" width="66" height="66"/>
                     <animations/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22H-Of-bMg">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22H-Of-bMg">
                     <rect key="frame" x="60" y="258" width="480" height="48"/>
                     <animations/>
                     <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
@@ -34,6 +34,9 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onClickRequirement:" destination="-1" eventType="touchUpInside" id="Unb-Wg-Agq"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAg-Qs-5ku">
                     <rect key="frame" x="188" y="186" width="224" height="21"/>
@@ -57,7 +60,7 @@
                     <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wht-ks-fLf">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wht-ks-fLf">
                     <rect key="frame" x="60" y="316" width="480" height="48"/>
                     <animations/>
                     <constraints>
@@ -69,6 +72,9 @@
                         <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onClickBala:" destination="-1" eventType="touchUpInside" id="VAE-bA-mqq"/>
+                    </connections>
                 </button>
             </subviews>
             <animations/>

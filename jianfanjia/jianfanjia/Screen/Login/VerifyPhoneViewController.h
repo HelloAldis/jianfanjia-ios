@@ -10,6 +10,6 @@
 
 @interface VerifyPhoneViewController : BaseViewController
 
-@property (assign, BOOL) isResetPass;
+@property (assign, nonatomic) BOOL isResetPass;
 
 @end

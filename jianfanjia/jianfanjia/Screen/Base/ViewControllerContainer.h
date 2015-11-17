@@ -15,7 +15,9 @@
 + (void)showAfterLanching;
 + (void)showLogin;
 + (void)showSignup;
-+ (void)showVerifyPhone;
++ (void)showVerifyPhone:(BOOL)isResetPass;
++ (void)showSignupSuccess;
++ (void)showResetPass;
 + (void)showProcess;
 + (void)showProduct:(NSString *)productid;
 + (void)showDesigner:(NSString *)designerid;
