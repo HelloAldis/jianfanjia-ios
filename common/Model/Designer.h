@@ -8,6 +8,7 @@
 
 #import "BaseModel.h"
 @class Product;
+@class Plan;
 
 @interface Designer : BaseModel
 
@@ -36,8 +37,12 @@
 @property(nonatomic, strong) NSNumber *is_my_favorite;
 @property(nonatomic, strong) NSNumber *service_attitude;
 @property(nonatomic, strong) NSNumber *respond_speed;
+@property(nonatomic, strong) NSString *auth_Type;
+@property(nonatomic, strong) NSNumber *match;
 
 //不动态的属性
 @property(nonatomic, strong) Product *product;
+//不动态属性
+@property(nonatomic, strong) Plan *plan;
 
 @end

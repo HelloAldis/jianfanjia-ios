@@ -10,6 +10,6 @@
 
 @interface OrderDesignerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-- (id)initWithMatchDesigner:(NSArray *)matchDesigners;
+- (id)initWithRequirement:(Requirement *)requirement;
 
 @end

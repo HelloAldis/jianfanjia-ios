@@ -18,6 +18,9 @@ static NSDictionary *work_type = nil;
 static NSDictionary *communication_type = nil;
 static NSDictionary *sex_type = nil;
 static NSArray *population_type = nil;
+static NSDictionary *planStatus = nil;
+static NSDictionary *requirementStatus = nil;
+static NSDictionary *authType = nil;
 
 
 + (void)initialize {
@@ -61,6 +64,38 @@ static NSArray *population_type = nil;
                       @"1":@"100 - 200",
                       @"2":@"200 - 300",
                       @"3":@"300以上"};
+
+    planStatus = @{
+                   @"0":@"已预约",
+                   @"1":@"已拒绝",
+                   @"2":@"已响应",
+                   @"3":@"有方案",
+                   @"4":@"未中标",
+                   @"5":@"已中标",
+                   @"6":@"已量房",
+                   @"7":@"未响应",
+                   @"8":@"未提交"
+                   };
+    
+    requirementStatus = @{
+                          @"0":@"未预约",
+                          @"1":@"已预约",
+                          @"2":@"已响应",
+                          @"3":@"有方案",
+                          @"4":@"已选定",
+                          @"5":@"有工地",
+                          @"6":@"已量房",
+                          @"7":@"有合同",
+                          };
+    
+    authType = @{
+                @"0":@"未审核",
+                @"1":@"审核通过",
+                @"2":@"审核不通过",
+                @"3":@"违规屏蔽"
+                };
+    
+    
 }
 
 + (NSDictionary *)getAllHouseType {
@@ -85,6 +120,18 @@ static NSArray *population_type = nil;
 
 + (NSDictionary *)getAllSexType {
     return sex_type;
+}
+
++ (NSDictionary *)getAllAuthType {
+    return authType;
+}
+
++ (NSDictionary *)getAllPlanStatus {
+    return planStatus;
+}
+
++ (NSDictionary *)getAllRequirementStatus {
+    return requirementStatus;
 }
 
 + (NSDictionary *)getAllCommunicationType {
@@ -117,6 +164,18 @@ static NSArray *population_type = nil;
 
 + (NSString *)nameForSexType:(NSString *)type {
     return [sex_type objectForKey:type];
+}
+
++ (NSString *)nameForAuthType:(NSString *)type {
+    return [authType objectForKey:type];
+}
+
++ (NSString *)nameForPlanStatus:(NSString *)status {
+    return [planStatus objectForKey:status];
+}
+
++ (NSString *)nameForRequirementStatus:(NSString *)status {
+    return [requirementStatus objectForKey:status];
 }
 
 @end

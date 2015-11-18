@@ -16,5 +16,8 @@
   return [formate stringFromDate:self];
 }
 
++ (NSString *)yyyy_MM_dd:(NSNumber *)timeInterval {
+    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longValue / 1000] yyyy_MM_dd];
+}
 
 @end

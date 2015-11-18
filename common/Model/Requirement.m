@@ -23,21 +23,13 @@
 @dynamic house_type;
 @dynamic dec_type;
 @dynamic house_area;
+@dynamic status;
 @dynamic dec_style;
 @dynamic work_type;
 @dynamic total_price;
 @dynamic prefer_sex;
 @dynamic family_description;
-@dynamic order_designerids;
-@dynamic rec_designers;
-
-- (MatchedDesigner *)matchedDesignerAtIndex:(NSInteger)index {
-    if (index >= 0 && index < self.rec_designers.count) {
-        NSMutableDictionary *dict = [self.rec_designers objectAtIndex:index];
-        return [[MatchedDesigner alloc] initWith:dict];
-    } else {
-        return nil;
-    }
-}
+@dynamic create_at;
+@dynamic last_status_update_time;
 
 @end

@@ -171,10 +171,9 @@ static ViewControllerContainer *container;
     }
 }
 
-+ (void)showOrderDesigner:(NSArray *)matchedDesigners {
-    OrderDesignerViewController *v = [[OrderDesignerViewController alloc] initWithMatchDesigner:matchedDesigners];
++ (void)showOrderDesigner:(Requirement *)requirement {
+    OrderDesignerViewController *v = [[OrderDesignerViewController alloc] initWithRequirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
-    
 }
 
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index {

@@ -10,4 +10,8 @@
 
 @interface IntentDesignerCell : UITableViewCell
 
+@property (strong, nonatomic) Designer *designer;
+
+- (void)initWithDesigner:(Designer *)designer;
+
 @end

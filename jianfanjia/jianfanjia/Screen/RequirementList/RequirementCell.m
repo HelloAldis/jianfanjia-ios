@@ -8,13 +8,7 @@
 
 #import "RequirementCell.h"
 #import "ViewControllerContainer.h"
-#import "DesignerPageData.h"
-
-typedef enum {
-    Unorder = -1,
-    OrderedWithoutResponse,
-
-} PlanStatus;
+#import "RequirementDataManager.h"
 
 @interface RequirementCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgHomeOwner;
@@ -26,10 +20,12 @@ typedef enum {
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *authIcon;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *designerName;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *designerStatus;
+@property (weak, nonatomic) IBOutlet UILabel *lblRequirementStatusVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnGoToWorkspace;
 
-@property (strong, nonatomic) NSMutableArray *currentStatus;
-@property (strong, nonatomic) DesignerPageData *designerPageData;
+@property (strong, nonatomic) NSMutableArray *currentPlanStatus;
+@property (strong, nonatomic) NSString *currentRequirementStatus;
+@property (strong, nonatomic) RequirementDataManager *requirementDataManager;
 @property (strong, nonatomic) Requirement *requirement;
 
 @end
@@ -37,43 +33,39 @@ typedef enum {
 @implementation RequirementCell
 
 - (void)awakeFromNib {
-    self.designerPageData = [[DesignerPageData alloc] init];
-    self.currentStatus = [[NSMutableArray alloc] initWithCapacity:self.designerAvatar.count];
-    for (id obj in self.designerAvatar) {
-        [self.currentStatus addObject:[NSNumber numberWithInt:Unorder]];
-    }
+    self.requirementDataManager = [[RequirementDataManager alloc] init];
+    self.currentPlanStatus = [[NSMutableArray alloc] initWithCapacity:self.designerAvatar.count];
     
-    for (UIImageView *imageView in self.designerAvatar) {
+    @weakify(self);
+    [self.designerStatus enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        [self.currentPlanStatus addObject:kPlanStatusUnorder];
+    }];
+    
+    [self.designerAvatar enumerateObjectsUsingBlock:^(UIImageView* _Nonnull imageView, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
         UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDesignerAvatar:)];
         [imageView setCornerRadius:30];
         [imageView addGestureRecognizer:gesture];
-    }
+    }];
+    
+    [[self.btnGoToWorkspace rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickButton];
+    }];
+    
+    [self.imgHomeOwner setUserImageWithId:nil];
 }
 
 - (void)initWithRequirement:(Requirement *)requirement {
     self.requirement = requirement;
+    [self updateRequirement:requirement];
+    
+    [self.requirementDataManager refreshOrderedDesigners:requirement];
     @weakify(self);
-    [requirement.order_designerids enumerateObjectsUsingBlock:^(NSString*  _Nonnull designerId, NSUInteger idx, BOOL * _Nonnull stop) {
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            DesignerHomePage *request = [[DesignerHomePage alloc] init];
-            request._id = designerId;
-            
-            [API designerHomePage:request success:^{
-                @strongify(self);
-                [self.designerPageData refreshDesigner];
-                UIImageView *imgView = self.designerAvatar[idx];
-                [imgView setImageWithId:self.designerPageData.designer.imageid withWidth:kScreenWidth];
-                
-                UILabel *lblName = self.designerName[idx];
-                lblName.text = self.designerPageData.designer.username;
-                
-                UILabel *lblStatus = self.designerStatus[idx];
-                [self updateStatus:lblStatus withPlan:nil withIndex:idx];
-            } failure:^{
-                
-            }];
-        });
-        
+    [self.requirementDataManager.orderedDesigners enumerateObjectsUsingBlock:^(Designer*  _Nonnull orderedDesigner, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        [self updateDesigner:orderedDesigner forIndex:idx];
     }];
 }
 
@@ -90,26 +82,67 @@ typedef enum {
         return;
     }
     
-    
-    
-    [ViewControllerContainer showOrderDesigner:nil];
+    [ViewControllerContainer showOrderDesigner:self.requirement];
 }
 
-/**
-   预约方案状态 plan status
- * 0. 已预约但没有响应
- * 1. 已拒绝业主
- * 7. 设计师无响应导致响应过期
- * 2. 已响应但是没有确认量房
- * 6. 已确认量房但是没有方案
- * 8. 设计师规定时间内没有上场方案，过期
- * 3. 提交了方案
- * 4. 方案被未中标
- * 5. 方案被选中
- **/
+- (void)onClickButton {
+    if (kRequirementStatusConfiguredWorkSite == self.currentRequirementStatus) {
+        
+    } else {
+        
+    }
+}
 
-- (void)updateStatus:(UILabel *)lblStatus withPlan:(id)plan withIndex:(NSInteger)index {
-    lblStatus.text = @"未预约";
+- (void)updateDesigner:(Designer *)orderedDesigner forIndex:(NSUInteger) idx {
+    UIImageView *imgView = self.designerAvatar[idx];
+    [imgView setImageWithId:orderedDesigner.imageid withWidth:imgView.bounds.size.width];
+    
+    UILabel *lblName = self.designerName[idx];
+    lblName.text = orderedDesigner.username;
+    
+    UILabel *lblStatus = self.designerStatus[idx];
+    UIImageView *authIcon = self.authIcon[idx];
+    
+    lblStatus.text = [NameDict nameForPlanStatus:orderedDesigner.plan.status];
+    [DesignerBusiness setV:authIcon withAuthType:orderedDesigner.auth_Type];
+    
+    NSString *status = orderedDesigner.plan.status;
+    
+    if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]
+        || [status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]
+        || [status isEqualToString:kPlanStatusDesignerSubmittedPlan]) {
+        lblStatus.textColor = OrderedColor;
+    } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
+        lblStatus.textColor = PlanChoosedColor;
+    } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]
+               || [status isEqualToString:kPlanStatusPlanWasNotChoosed]
+               || [status isEqualToString:kPlanStatusDesignerMeasureHouseWithoutPlan]
+               || [status isEqualToString:kPlanStatusExpiredAsDesignerDidNotRespond]) {
+        lblStatus.textColor = UnorderColor;
+    }
+}
+
+- (void)updateRequirement:(Requirement *)requirement {
+    self.currentRequirementStatus = requirement.status;
+    self.lblRequirementStatusVal.text = [NameDict nameForRequirementStatus:requirement.status];
+    self.lblPubulishTimeVal.text = [NSDate yyyy_MM_dd:requirement.create_at];
+    self.lblUpdateTimeVal.text = [NSDate yyyy_MM_dd:requirement.last_status_update_time];
+    
+    NSString *status = requirement.status;
+    
+    if ([status isEqualToString:kRequirementStatusOrderedDesignerWithoutAnyResponse]
+        || [status isEqualToString:kRequirementStatusDesignerRespondedWithoutMeasureHouse]
+        || [status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
+        || [status isEqualToString:kRequirementStatusDesignerMeasureHouseWithoutPlan]
+        || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]) {
+        self.lblRequirementStatusVal.textColor = OrderedColor;
+    } else if ([status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
+        self.lblRequirementStatusVal.textColor = PlanChoosedColor;
+        self.btnGoToWorkspace.titleLabel.textColor = PlanChoosedColor;
+        self.btnGoToWorkspace.titleLabel.text = @"前往工地";
+    } else if ([status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
+        self.lblRequirementStatusVal.textColor = UnorderColor;
+    }
 }
 
 @end

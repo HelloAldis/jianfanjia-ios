@@ -17,6 +17,9 @@
 + (NSDictionary *)getAllCommunicationType;
 + (NSDictionary *)getAllWorkType;
 + (NSDictionary *)getAllSexType;
++ (NSDictionary *)getAllAuthType;
++ (NSDictionary *)getAllPlanStatus;
++ (NSDictionary *)getAllRequirementStatus;
 
 + (NSString *)nameForHouseType:(NSString *)type;
 + (NSString *)nameForDecStyle:(NSString *)style;
@@ -25,5 +28,8 @@
 + (NSString *)nameForWorkType:(NSString *)type;
 + (NSString *)nameForCommunicationType:(NSString *)type;
 + (NSString *)nameForSexType:(NSString *)type;
++ (NSString *)nameForAuthType:(NSString *)type;
++ (NSString *)nameForPlanStatus:(NSString *)status;
++ (NSString *)nameForRequirementStatus:(NSString *)status;
 
 @end

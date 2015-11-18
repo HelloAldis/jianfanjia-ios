@@ -25,15 +25,15 @@
 @property (strong, nonatomic) NSString *house_type;
 @property (strong, nonatomic) NSString *dec_type;
 @property (strong, nonatomic) NSNumber *house_area;
+@property (strong, nonatomic) NSString *status;
 @property (strong, nonatomic) NSString *dec_style;
 @property (strong, nonatomic) NSString *work_type;
 @property (strong, nonatomic) NSNumber *total_price;
 @property (strong, nonatomic) NSString *prefer_sex;
 @property (strong, nonatomic) NSString *family_description;
 @property (strong, nonatomic) NSString *communication_type;
-@property (strong, nonatomic) NSArray *order_designerids;
-@property (strong, nonatomic) NSArray *rec_designers;
+@property (strong, nonatomic) NSNumber *create_at;
+@property (strong, nonatomic) NSNumber *last_status_update_time;
 
-- (MatchedDesigner *)matchedDesignerAtIndex:(NSInteger)index;
 
 @end

@@ -59,6 +59,14 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"user_add_requirement" data:[request data] handler:request success:success failure:failure];
 }
 
++ (void)getOrderableDesigners:(GetOrderableDesigners *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"designers_user_can_order" data:[request data] handler:request success:success failure:failure];
+}
+
++ (void)orderDesigner:(OrderDesignder *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user_order_designer" data:[request data] handler:request success:success failure:failure];
+}
+
 + (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API GET:@"process/list" handler:request success:success failure:success];
 }

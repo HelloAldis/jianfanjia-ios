@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */; };
+		68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEE1BFC06CB0000EBBE /* OrderDesignder.m */; };
+		68342DF51BFC0F960000EBBE /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DF41BFC0F960000EBBE /* Plan.m */; };
+		68342DF91BFC45EE0000EBBE /* RequirementBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DF81BFC45EE0000EBBE /* RequirementBusiness.m */; };
 		68343A001BF6DDE0004F15C1 /* SelectHouseTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683439FE1BF6DDE0004F15C1 /* SelectHouseTypeViewController.m */; };
 		68343A011BF6DDE0004F15C1 /* SelectHouseTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683439FF1BF6DDE0004F15C1 /* SelectHouseTypeViewController.xib */; };
 		68343A051BF6E757004F15C1 /* SelectPopulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68343A031BF6E757004F15C1 /* SelectPopulationViewController.m */; };
@@ -37,7 +41,6 @@
 		6855E6481BFAFE5700E789D4 /* IntentDesignerSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E6471BFAFE5700E789D4 /* IntentDesignerSection.m */; };
 		6855E64A1BFAFE6900E789D4 /* MatchDesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E6491BFAFE6900E789D4 /* MatchDesignerSection.xib */; };
 		6855E64C1BFAFE7E00E789D4 /* IntentDesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E64B1BFAFE7E00E789D4 /* IntentDesignerSection.xib */; };
-		6855E64F1BFB2D1D00E789D4 /* MatchedDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E64E1BFB2D1D00E789D4 /* MatchedDesigner.m */; };
 		685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B51051BE76D45001C8B34 /* UIColor+Ex.m */; };
 		685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21471BF9729E00D5D320 /* SendAddRequirement.m */; };
 		685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214A1BF9870B00D5D320 /* RACStream+Ex.m */; };
@@ -180,6 +183,14 @@
 
 /* Begin PBXFileReference section */
 		44D2BD40530E2CA1D84D921D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		68342DEA1BFC057C0000EBBE /* GetOrderableDesigners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetOrderableDesigners.h; sourceTree = "<group>"; };
+		68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetOrderableDesigners.m; sourceTree = "<group>"; };
+		68342DED1BFC06CB0000EBBE /* OrderDesignder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignder.h; sourceTree = "<group>"; };
+		68342DEE1BFC06CB0000EBBE /* OrderDesignder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDesignder.m; sourceTree = "<group>"; };
+		68342DF31BFC0F960000EBBE /* Plan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plan.h; sourceTree = "<group>"; };
+		68342DF41BFC0F960000EBBE /* Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plan.m; sourceTree = "<group>"; };
+		68342DF71BFC45EE0000EBBE /* RequirementBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementBusiness.h; sourceTree = "<group>"; };
+		68342DF81BFC45EE0000EBBE /* RequirementBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementBusiness.m; sourceTree = "<group>"; };
 		683439FD1BF6DDE0004F15C1 /* SelectHouseTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectHouseTypeViewController.h; sourceTree = "<group>"; };
 		683439FE1BF6DDE0004F15C1 /* SelectHouseTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectHouseTypeViewController.m; sourceTree = "<group>"; };
 		683439FF1BF6DDE0004F15C1 /* SelectHouseTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectHouseTypeViewController.xib; sourceTree = "<group>"; };
@@ -224,8 +235,6 @@
 		6855E6471BFAFE5700E789D4 /* IntentDesignerSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntentDesignerSection.m; sourceTree = "<group>"; };
 		6855E6491BFAFE6900E789D4 /* MatchDesignerSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchDesignerSection.xib; sourceTree = "<group>"; };
 		6855E64B1BFAFE7E00E789D4 /* IntentDesignerSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntentDesignerSection.xib; sourceTree = "<group>"; };
-		6855E64D1BFB2D1D00E789D4 /* MatchedDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchedDesigner.h; sourceTree = "<group>"; };
-		6855E64E1BFB2D1D00E789D4 /* MatchedDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchedDesigner.m; sourceTree = "<group>"; };
 		685B51041BE76D45001C8B34 /* UIColor+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ex.h"; sourceTree = "<group>"; };
 		685B51051BE76D45001C8B34 /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
 		685C21461BF9729E00D5D320 /* SendAddRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendAddRequirement.h; sourceTree = "<group>"; };
@@ -548,6 +557,10 @@
 				6E4496281BF9DF9700C90851 /* UserSignup.m */,
 				6E4496341BFB029E00C90851 /* UpdatePass.h */,
 				6E4496351BFB029E00C90851 /* UpdatePass.m */,
+				68342DEA1BFC057C0000EBBE /* GetOrderableDesigners.h */,
+				68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */,
+				68342DED1BFC06CB0000EBBE /* OrderDesignder.h */,
+				68342DEE1BFC06CB0000EBBE /* OrderDesignder.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -566,6 +579,8 @@
 				6E6D98E01BE205DE00D45F77 /* NameDict.m */,
 				6E4496161BF717B100C90851 /* DesignerBusiness.h */,
 				6E4496171BF717B100C90851 /* DesignerBusiness.m */,
+				68342DF71BFC45EE0000EBBE /* RequirementBusiness.h */,
+				68342DF81BFC45EE0000EBBE /* RequirementBusiness.m */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -640,8 +655,8 @@
 				6E6D98C21BE0665700D45F77 /* Requirement.m */,
 				6E6D98D61BE1BD3500D45F77 /* ProductImage.h */,
 				6E6D98D71BE1BD3500D45F77 /* ProductImage.m */,
-				6855E64D1BFB2D1D00E789D4 /* MatchedDesigner.h */,
-				6855E64E1BFB2D1D00E789D4 /* MatchedDesigner.m */,
+				68342DF31BFC0F960000EBBE /* Plan.h */,
+				68342DF41BFC0F960000EBBE /* Plan.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1183,6 +1198,7 @@
 				6E07DACA1BD88DBE001461DD /* BaseDynamicObject.m in Sources */,
 				6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */,
 				685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */,
+				68342DF91BFC45EE0000EBBE /* RequirementBusiness.m in Sources */,
 				6E07DABC1BD88DBE001461DD /* NSString+Ex.m in Sources */,
 				AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */,
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
@@ -1192,7 +1208,6 @@
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
 				6855E6371BFAFCFE00E789D4 /* OrderDesignerViewController.m in Sources */,
-				6855E64F1BFB2D1D00E789D4 /* MatchedDesigner.m in Sources */,
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
 				6E6D98D41BE0D62F00D45F77 /* HomePageDesignerCell.m in Sources */,
@@ -1240,6 +1255,7 @@
 				6E6D98941BDDFDAB00D45F77 /* W2View.m in Sources */,
 				6E6D98B61BDF73DE00D45F77 /* MeViewController.m in Sources */,
 				6E78670C1BA920D900DE8B1B /* BannerCell.m in Sources */,
+				68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */,
 				68343A001BF6DDE0004F15C1 /* SelectHouseTypeViewController.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
@@ -1250,6 +1266,7 @@
 				6E07DAC31BD88DBE001461DD /* Comment.m in Sources */,
 				6E4496291BF9DF9700C90851 /* UserSignup.m in Sources */,
 				68343A271BF73512004F15C1 /* SelectDecorationTypeViewController.m in Sources */,
+				68342DF51BFC0F960000EBBE /* Plan.m in Sources */,
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
@@ -1275,6 +1292,7 @@
 				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
 				68343A0A1BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.m in Sources */,
+				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
 				6E6D98CA1BE0AB7C00D45F77 /* HomePageRequirementCell.m in Sources */,
 				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,
 				6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */,

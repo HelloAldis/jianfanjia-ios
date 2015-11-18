@@ -99,7 +99,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
     GetUserRequirement *getRequirements = [[GetUserRequirement alloc] init];
     
     [API getUserRequirement:getRequirements success:^{
-        [self.requirementDataManager refresh];
+        [self.requirementDataManager refreshRequirementList];
         [self switchViewToHide];
         [self.tableView reloadData];
     } failure:^{

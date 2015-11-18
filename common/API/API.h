@@ -17,6 +17,8 @@ extern NSString * const kApiUrl;
 + (void)userLogin:(UserLogin *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)getUserRequirement:(GetUserRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)sendAddRequirement:(SendAddRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)getOrderableDesigners:(GetOrderableDesigners *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)orderDesigner:(OrderDesignder *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)getProcess:(GetProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)homePageDesigners:(HomePageDesigners *)request success:(void (^)(void))success failure:(void (^)(void))failure;

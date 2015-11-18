@@ -22,4 +22,13 @@
     }
 }
 
++ (void)setV:(UIImageView *)imageView withAuthType:(NSString *)authType {
+    if ([kAuthTypeVerifyPass isEqualToString:authType]) {
+        [imageView setImage:[UIImage imageNamed:@"v"]];
+        imageView.hidden = NO;
+    } else {
+        imageView.hidden = YES;
+    }
+}
+
 @end

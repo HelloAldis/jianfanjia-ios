@@ -11,8 +11,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdJ-BB-a29">
-                    <rect key="frame" x="534" y="8" width="30" height="28"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdJ-BB-a29">
+                    <rect key="frame" x="534" y="11" width="30" height="29"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="更多">
@@ -20,20 +20,42 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="意向设计师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRO-1u-pGJ">
-                    <rect key="frame" x="28" y="14" width="70" height="17"/>
+                    <rect key="frame" x="28" y="17" width="70" height="17"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKA-r5-frp">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="6"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="6" id="mtZ-gN-VBK"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ezo-7c-OgE">
+                    <rect key="frame" x="0.0" y="43" width="600" height="1"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="cd6-RB-mZL"/>
+                    </constraints>
+                </view>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="aRO-1u-pGJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="28" id="83Z-J0-bGS"/>
                 <constraint firstItem="aRO-1u-pGJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="AKY-LL-9po"/>
+                <constraint firstItem="ezo-7c-OgE" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="BlQ-Q6-wMd"/>
                 <constraint firstAttribute="trailing" secondItem="wdJ-BB-a29" secondAttribute="trailing" constant="36" id="DOV-0J-AQy"/>
-                <constraint firstItem="aRO-1u-pGJ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="j6v-am-caw"/>
+                <constraint firstItem="SKA-r5-frp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="IaN-19-Lxa"/>
+                <constraint firstItem="SKA-r5-frp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Il9-yc-fiF"/>
+                <constraint firstItem="ezo-7c-OgE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Nkk-cA-H62"/>
+                <constraint firstItem="ezo-7c-OgE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="43" id="cXc-XL-GY5"/>
+                <constraint firstItem="SKA-r5-frp" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="fVz-0X-WL9"/>
+                <constraint firstItem="aRO-1u-pGJ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="3" id="j6v-am-caw"/>
                 <constraint firstItem="aRO-1u-pGJ" firstAttribute="centerY" secondItem="wdJ-BB-a29" secondAttribute="centerY" id="jVE-UQ-5YL"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>

@@ -11,7 +11,12 @@
 @interface RequirementDataManager : NSObject
 
 @property (nonatomic, strong) NSArray *requirements;
+@property (nonatomic, strong) NSArray *orderedDesigners;
+@property (nonatomic, strong) NSArray *recommendedDesigners;
+@property (nonatomic, strong) NSArray *favoriteDesigners;
 
-- (void)refresh;
+- (void)refreshRequirementList;
+- (void)refreshOrderedDesigners:(Requirement *)requirement;
+- (void)refreshOrderableDesigners;
 
 @end

@@ -11,5 +11,6 @@
 @interface DesignerBusiness : NSObject
 
 + (void)setStars:(NSArray *)imageViewArray withStar:(double)star fullStar:(UIImage *)full emptyStar:(UIImage *)empty;
++ (void)setV:(UIImageView *)imageView withAuthType:(NSString *)authType;
 
 @end
