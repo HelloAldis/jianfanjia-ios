@@ -49,16 +49,8 @@
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J2N-KF-gBZ">
                     <rect key="frame" x="60" y="177" width="480" height="30"/>
                     <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="2fE-mb-QWF"/>
-                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="2fE-mb-QWF"/>
-                        </mask>
-                    </variation>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fw0-w5-OxE">
                     <rect key="frame" x="60" y="229" width="480" height="48"/>
@@ -90,7 +82,6 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="o27-mY-pQn" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="0Nq-IT-xTX"/>
-                <constraint firstItem="J2N-KF-gBZ" firstAttribute="top" secondItem="Igr-fP-xTO" secondAttribute="bottom" constant="10" id="2qq-ht-8cr"/>
                 <constraint firstItem="fw0-w5-OxE" firstAttribute="top" secondItem="pWt-Nn-ss9" secondAttribute="bottom" constant="20" id="345-wa-3bK"/>
                 <constraint firstItem="dhU-73-rlb" firstAttribute="top" secondItem="o27-mY-pQn" secondAttribute="bottom" constant="20" id="C3d-QK-SRR"/>
                 <constraint firstAttribute="trailing" secondItem="fw0-w5-OxE" secondAttribute="trailing" constant="60" id="Idh-qn-vDt"/>
@@ -101,24 +92,15 @@
                 <constraint firstItem="pWt-Nn-ss9" firstAttribute="width" secondItem="fw0-w5-OxE" secondAttribute="width" id="UyF-3L-g5K"/>
                 <constraint firstItem="fw0-w5-OxE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="YJT-FX-XyG"/>
                 <constraint firstItem="pWt-Nn-ss9" firstAttribute="top" secondItem="J2N-KF-gBZ" secondAttribute="bottom" constant="1" id="bLZ-VT-ZCT"/>
-                <constraint firstItem="J2N-KF-gBZ" firstAttribute="top" secondItem="o27-mY-pQn" secondAttribute="bottom" constant="14" id="cpt-I7-r3E"/>
                 <constraint firstItem="dhU-73-rlb" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dKZ-1m-uo7"/>
                 <constraint firstItem="fw0-w5-OxE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="fb3-Fc-b5u"/>
                 <constraint firstItem="J2N-KF-gBZ" firstAttribute="height" secondItem="dhU-73-rlb" secondAttribute="height" id="fsf-pX-FnD"/>
                 <constraint firstItem="Igr-fP-xTO" firstAttribute="top" secondItem="dhU-73-rlb" secondAttribute="bottom" constant="1" id="iLK-DS-sl0"/>
                 <constraint firstItem="o27-mY-pQn" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pr5-7J-tIu"/>
                 <constraint firstItem="J2N-KF-gBZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="t0p-SJ-OXl"/>
-                <constraint firstItem="dhU-73-rlb" firstAttribute="top" secondItem="Igr-fP-xTO" secondAttribute="bottom" constant="17" id="tWh-qz-4Tj"/>
                 <constraint firstItem="pWt-Nn-ss9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="v3L-XM-hKM"/>
                 <constraint firstItem="Igr-fP-xTO" firstAttribute="width" secondItem="fw0-w5-OxE" secondAttribute="width" id="vOo-3R-aWd"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="tWh-qz-4Tj"/>
-                    <exclude reference="2qq-ht-8cr"/>
-                    <exclude reference="cpt-I7-r3E"/>
-                </mask>
-            </variation>
         </view>
     </objects>
 </document>

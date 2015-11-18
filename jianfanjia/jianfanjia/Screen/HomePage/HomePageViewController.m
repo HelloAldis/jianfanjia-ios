@@ -174,7 +174,9 @@
     [API homePageDesigners:request success:^{
         [self.tableView.header endRefreshing];
         [self.tableView reloadData];
-    } failure:^{}];
+    } failure:^{
+        [self.tableView.header endRefreshing];
+    }];
 }
 
 - (void)loadMore {

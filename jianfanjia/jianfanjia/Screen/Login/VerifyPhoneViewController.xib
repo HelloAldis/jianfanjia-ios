@@ -104,12 +104,8 @@
                 </constraint>
                 <constraint firstItem="txj-wh-XlE" firstAttribute="top" secondItem="EgA-g3-f38" secondAttribute="bottom" constant="10" id="QUl-8y-80t"/>
                 <constraint firstItem="7xH-77-Byu" firstAttribute="width" secondItem="tnH-Zm-uZq" secondAttribute="width" id="TiV-rP-9ps"/>
-                <constraint firstItem="gPc-r4-lH7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="U7f-rL-sMp"/>
                 <constraint firstItem="txj-wh-XlE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-80" id="UbT-ot-ESk"/>
-                <constraint firstAttribute="trailing" secondItem="gPc-r4-lH7" secondAttribute="trailing" constant="60" id="jYB-9U-B9V"/>
                 <constraint firstItem="DZo-dq-cGZ" firstAttribute="baseline" secondItem="txj-wh-XlE" secondAttribute="baseline" id="nSr-dA-rP8"/>
-                <constraint firstAttribute="trailing" secondItem="7xH-77-Byu" secondAttribute="trailing" constant="60" id="qPB-lJ-TGB"/>
-                <constraint firstItem="7xH-77-Byu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="tPl-fu-gZi"/>
                 <constraint firstItem="7xH-77-Byu" firstAttribute="top" secondItem="tnH-Zm-uZq" secondAttribute="bottom" constant="5" id="zbm-bT-Y8l"/>
             </constraints>
             <variation key="default">
@@ -124,12 +120,8 @@
                 <mask key="constraints">
                     <include reference="9k5-8y-aLN"/>
                     <include reference="IQD-2G-4dT"/>
-                    <exclude reference="U7f-rL-sMp"/>
-                    <exclude reference="jYB-9U-B9V"/>
                     <include reference="K13-jI-f9b"/>
                     <include reference="TiV-rP-9ps"/>
-                    <exclude reference="qPB-lJ-TGB"/>
-                    <exclude reference="tPl-fu-gZi"/>
                 </mask>
             </variation>
         </view>

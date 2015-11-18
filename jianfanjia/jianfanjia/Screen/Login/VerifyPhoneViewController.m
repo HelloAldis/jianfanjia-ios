@@ -39,7 +39,7 @@
     
     [self.btnSignup setCornerRadius:5];
     self.btnSignup.enabled = NO;
-    [self initNav];
+    [self initLeftBackInNav];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -58,18 +58,8 @@
 }
 
 #pragma mark - UI
-- (void)initNav {
-    self.navigationController.navigationBarHidden = NO;
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
-    self.navigationItem.leftBarButtonItem = item;
-}
 
 #pragma mark - user action
-- (void)onClickBack {
-    [self.navigationController popViewControllerAnimated:YES];
-
-}
-
 - (IBAction)onClickSignup:(id)sender {
     if (self.isResetPass) {
         UpdatePass *request = [[UpdatePass alloc] init];

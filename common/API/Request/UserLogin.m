@@ -31,6 +31,8 @@
     if ([kUserTypeUser isEqualToString:usertype]) {
         User *user = [[User alloc] initWith:dict];
         [GVUserDefaults standardUserDefaults].userid = [user _id];
+        [GVUserDefaults standardUserDefaults].imageid = [user imageid];
+        [GVUserDefaults standardUserDefaults].username = [user username];
     } else if([kUserTypeDesigner isEqualToString:usertype]) {
         Designer *designer = [[Designer alloc] initWith:dict];
         [GVUserDefaults standardUserDefaults].userid = [designer _id];
