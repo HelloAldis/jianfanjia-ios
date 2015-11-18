@@ -13,6 +13,8 @@
 @property (nonatomic, assign) NSInteger welcomeVersion;
 @property (nonatomic, weak) NSString *usertype;
 @property (nonatomic, weak) NSString *userid;
+@property (nonatomic, weak) NSString *imageid;
+@property (nonatomic, weak) NSString *username;
 @property (nonatomic, weak) NSString *processid;
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, weak) NSString *x;

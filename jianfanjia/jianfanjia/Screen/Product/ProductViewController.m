@@ -34,7 +34,7 @@
     
     self.needRefreshProductViewController = YES;
     self.productPageData = [[ProductPageData alloc] init];
-    [self initNav];
+    [self initLeftBackInNav];
     [self initUI];
 }
 
@@ -46,12 +46,6 @@
 }
 
 #pragma mark - UI
-- (void)initNav {
-    self.navigationController.navigationBarHidden = NO;
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
-    self.navigationItem.leftBarButtonItem = item;
-}
-
 - (void)initUI {
     [self.designerImageView setCornerRadius:15];
     [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
@@ -113,10 +107,6 @@
 
 
 #pragma mark - user action
-- (void)onClickBack {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (IBAction)onTapDesigner:(id)sender {
     [ViewControllerContainer showDesigner:self.productPageData.product.designer._id];
 }

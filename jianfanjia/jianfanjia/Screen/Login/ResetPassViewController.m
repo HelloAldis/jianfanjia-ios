@@ -48,17 +48,12 @@
                                   reduce:^(NSString *phone, NSString *password) {
                                       return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
                                   }];
-    [self initNav];
+    [self initLeftBackInNav];
     [self.btnNext setCornerRadius:5];
     self.btnNext.enabled = NO;
 }
 
 #pragma mark - UI
-- (void)initNav {
-    self.navigationController.navigationBarHidden = NO;
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
-    self.navigationItem.leftBarButtonItem = item;
-}
 
 #pragma mark - user actions
 - (IBAction)onClickNext:(id)sender {
@@ -77,10 +72,6 @@
     }];
 }
 
-- (void)onClickBack {
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
 
 
 @end

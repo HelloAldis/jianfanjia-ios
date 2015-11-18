@@ -18,5 +18,7 @@
 @dynamic x;
 @dynamic xx;
 @dynamic loginDate;
+@dynamic username;
+@dynamic imageid;
 
 @end

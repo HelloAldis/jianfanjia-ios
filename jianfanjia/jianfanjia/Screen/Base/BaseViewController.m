@@ -21,4 +21,16 @@
     [self.view endEditing:YES];
 }
 
+- (void)initLeftBackInNav {
+    self.navigationController.navigationBarHidden = NO;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    self.navigationItem.leftBarButtonItem = item;
+}
+
+#pragma mark - user actions
+- (void)onClickBack {
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 @end

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController">
+            <connections>
+                <outlet property="lblVersion" destination="aEI-DL-Lb1" id="zlg-DE-jC4"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关于简繁家" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lwU-Nk-81Q">
+                    <rect key="frame" x="200" y="118" width="200" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="haG-AT-5Bh"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的设计专单平台" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZv-bR-8jb">
+                    <rect key="frame" x="200" y="239" width="200" height="17"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="dpZ-wX-6dr"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="版本号：2.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aEI-DL-Lb1">
+                    <rect key="frame" x="200" y="264" width="200" height="17"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="K18-2X-JMo"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_logo" translatesAutoresizingMaskIntoConstraints="NO" id="lXy-re-9Te">
+                    <rect key="frame" x="270" y="159" width="60" height="60"/>
+                    <animations/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2015 jianfanjia.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ked-K8-ESL">
+                    <rect key="frame" x="150" y="563" width="300" height="17"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="8eG-k1-9bF"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="347" id="Wrl-xK-Vk3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Wrl-xK-Vk3"/>
+                        </mask>
+                    </variation>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="武汉家易装科技有限公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUr-HS-EKa">
+                    <rect key="frame" x="150" y="538" width="300" height="17"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="300" id="G5t-p8-fwp"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="347" id="KEL-wA-HEQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="KEL-wA-HEQ"/>
+                        </mask>
+                    </variation>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="ked-K8-ESL" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4Ne-F3-GQP"/>
+                <constraint firstItem="lwU-Nk-81Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="118" id="6Yz-z3-m71"/>
+                <constraint firstAttribute="bottom" secondItem="ked-K8-ESL" secondAttribute="bottom" constant="20" id="BTa-py-z5i"/>
+                <constraint firstItem="aEI-DL-Lb1" firstAttribute="centerX" secondItem="zZv-bR-8jb" secondAttribute="centerX" id="BVR-K8-KqR"/>
+                <constraint firstItem="mUr-HS-EKa" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Bo6-Tk-NxA"/>
+                <constraint firstItem="lXy-re-9Te" firstAttribute="centerX" secondItem="lwU-Nk-81Q" secondAttribute="centerX" id="Gr9-xV-orb"/>
+                <constraint firstItem="lwU-Nk-81Q" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HBs-Cc-2LY"/>
+                <constraint firstItem="zZv-bR-8jb" firstAttribute="top" secondItem="lXy-re-9Te" secondAttribute="bottom" constant="20" id="JKp-ZS-KZN"/>
+                <constraint firstItem="lXy-re-9Te" firstAttribute="top" secondItem="lwU-Nk-81Q" secondAttribute="bottom" constant="20" id="adI-4f-Nfn"/>
+                <constraint firstItem="zZv-bR-8jb" firstAttribute="centerX" secondItem="lXy-re-9Te" secondAttribute="centerX" id="fxu-sb-qA4"/>
+                <constraint firstItem="aEI-DL-Lb1" firstAttribute="top" secondItem="zZv-bR-8jb" secondAttribute="bottom" constant="8" id="h5w-sD-T3T"/>
+                <constraint firstItem="ked-K8-ESL" firstAttribute="top" secondItem="mUr-HS-EKa" secondAttribute="bottom" constant="8" id="jkB-H7-p8f"/>
+                <constraint firstItem="mUr-HS-EKa" firstAttribute="width" secondItem="ked-K8-ESL" secondAttribute="width" id="x1G-8S-Fu0"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="about_logo" width="60" height="60"/>
+    </resources>
+</document>
