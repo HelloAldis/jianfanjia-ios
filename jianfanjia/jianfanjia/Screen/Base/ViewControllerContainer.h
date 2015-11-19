@@ -22,6 +22,8 @@
 + (void)showProduct:(NSString *)productid;
 + (void)showDesigner:(NSString *)designerid;
 + (void)showOrderDesigner:(Requirement *)requirement;
++ (void)showOrderedDesigner:(Requirement *)requirement;
++ (void)showEvaluateDesigner:(Designer *)designer;
 + (void)showTab;
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index;
 + (void)showRefresh;

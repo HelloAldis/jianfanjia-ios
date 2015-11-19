@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DesignerPlanStatusBaseCell.h"
 
-@interface DesignerMeasureHouseWithoutPlanCell : UITableViewCell
+@interface DesignerMeasureHouseWithoutPlanCell : DesignerPlanStatusBaseCell
 
-@property (strong, nonatomic) Designer *designer;
-
-- (void)initWithDesigner:(Designer *)designer;
+- (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock;
 
 @end

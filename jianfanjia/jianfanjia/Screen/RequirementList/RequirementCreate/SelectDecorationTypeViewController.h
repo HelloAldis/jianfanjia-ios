@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface SelectDecorationTypeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SelectDecorationTypeViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

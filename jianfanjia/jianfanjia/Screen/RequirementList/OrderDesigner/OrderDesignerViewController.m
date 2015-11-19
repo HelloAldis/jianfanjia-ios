@@ -54,7 +54,7 @@
 
 #pragma mark - UI
 - (void)initNav {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"预约" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
     
@@ -159,10 +159,6 @@
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
-- (void)onClickBack {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (void)onClickDone {
     NSInteger selectedCount = [self.tableView indexPathsForSelectedRows].count;
     
@@ -193,7 +189,7 @@
     orderDesigner.designerids = arr;
     
     [API orderDesigner:orderDesigner success:^{
-        [self onClickBack];
+        [self clickBack];
     } failure:^{
     
     }];

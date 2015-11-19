@@ -20,4 +20,14 @@
     return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longValue / 1000] yyyy_MM_dd];
 }
 
+- (NSString *)yyyy_MM_dd_HH_mm {
+    NSDateFormatter *formate = [[NSDateFormatter alloc] init];
+    [formate setDateFormat:@"yyyy-MM-dd HH:mm"];
+    return [formate stringFromDate:self];
+}
+
++ (NSString *)yyyy_MM_dd_HH_mm:(NSNumber *)timeInterval {
+    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longValue / 1000] yyyy_MM_dd_HH_mm];
+}
+
 @end

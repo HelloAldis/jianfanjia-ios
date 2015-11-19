@@ -33,4 +33,8 @@
     
 }
 
+- (void)clickBack {
+    [self onClickBack];
+}
+
 @end

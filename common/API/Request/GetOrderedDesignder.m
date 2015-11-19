@@ -1,17 +1,15 @@
 //
-//  Plan.m
+//  OrderDesignder.m
 //  jianfanjia
 //
 //  Created by Karos on 15/11/18.
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "Plan.h"
+#import "GetOrderedDesignder.h"
 
-@implementation Plan
+@implementation GetOrderedDesignder
 
-@dynamic _id;
-@dynamic status;
-@dynamic house_check_time;
+@dynamic requirementid;
 
 @end

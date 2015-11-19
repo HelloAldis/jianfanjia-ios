@@ -25,6 +25,8 @@
 #import "OrderDesignerViewController.h"
 #import "SignupSuccessViewController.h"
 #import "ResetPassViewController.h"
+#import "OrderedDesignerViewController.h"
+#import "EvaluateDesignerViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -173,6 +175,16 @@ static ViewControllerContainer *container;
 
 + (void)showOrderDesigner:(Requirement *)requirement {
     OrderDesignerViewController *v = [[OrderDesignerViewController alloc] initWithRequirement:requirement];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showOrderedDesigner:(Requirement *)requirement {
+    OrderedDesignerViewController *v = [[OrderedDesignerViewController alloc] initWithRequirement:requirement];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showEvaluateDesigner:(Designer *)designer {
+    EvaluateDesignerViewController *v = [[EvaluateDesignerViewController alloc] initWithDesigner:designer];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

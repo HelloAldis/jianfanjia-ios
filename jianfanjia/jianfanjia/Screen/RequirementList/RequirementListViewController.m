@@ -82,6 +82,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
     return [self.requirementDataManager.requirements count];
 }
 
+#pragma mark - table view delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RequirementCell *cell = [tableView dequeueReusableCellWithIdentifier:requirementCellId forIndexPath:indexPath];
     [cell initWithRequirement:self.requirementDataManager.requirements[indexPath.row]];
@@ -92,7 +93,6 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return kRequirementellHeight;
 }
-
 
 #pragma mark - send request 
 - (void)refreshRequirements {

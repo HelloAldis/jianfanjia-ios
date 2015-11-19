@@ -9,6 +9,7 @@
 #import "BaseModel.h"
 @class Product;
 @class Plan;
+@class Requirement;
 
 @interface Designer : BaseModel
 
@@ -44,5 +45,7 @@
 @property(nonatomic, strong) Product *product;
 //不动态属性
 @property(nonatomic, strong) Plan *plan;
+//不动态属性
+@property(nonatomic, strong) Requirement *requirement;
 
 @end

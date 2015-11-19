@@ -11,6 +11,8 @@
 @interface NSDate (Ex)
 
 - (NSString *)yyyy_MM_dd;
-+ (NSString *)yyyy_MM_dd:(NSNumber *)timeInterval ;
++ (NSString *)yyyy_MM_dd:(NSNumber *)timeInterval;
+- (NSString *)yyyy_MM_dd_HH_mm;
++ (NSString *)yyyy_MM_dd_HH_mm:(NSNumber *)timeInterval;
 
 @end

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface SelectPopulationViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SelectPopulationViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

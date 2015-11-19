@@ -11,5 +11,6 @@
 @interface BaseViewController : UIViewController
 
 - (void)initLeftBackInNav;
+- (void)clickBack;
 
 @end

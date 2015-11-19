@@ -31,8 +31,7 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - init Nav
 - (void)initNav {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
-    self.navigationItem.leftBarButtonItem = item;
+    [self initLeftBackInNav];
     
     self.title = @"风格喜好";
 }
@@ -48,11 +47,6 @@ static NSString* cellId = @"cityCell";
 - (void)initData {
     self.keys = [NameDict getAllDecorationStyle].allKeys;
     self.values = [NameDict getAllDecorationStyle].allValues;
-}
-
-#pragma mark - user action
-- (void)onClickBack {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

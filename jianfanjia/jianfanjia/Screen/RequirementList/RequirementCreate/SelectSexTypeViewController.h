@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface SelectSexTypeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SelectSexTypeViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end
