@@ -112,12 +112,25 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (self.requirementDataManager.recommendedDesigners.count > 0
-        || self.requirementDataManager.favoriteDesigners.count > 0) {
-        return 44;
+    if (section == 0) {
+        if (self.requirementDataManager.recommendedDesigners.count > 0) {
+            return 44;
+        }
     } else {
-        return 0;
+        if (self.requirementDataManager.favoriteDesigners.count > 0) {
+            return 44;
+        }
     }
+    
+    return 0;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 6;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
+    view.tintColor = [UIColor clearColor];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {

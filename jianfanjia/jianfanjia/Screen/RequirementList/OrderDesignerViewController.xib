@@ -28,7 +28,7 @@
                 </tableView>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="OAx-rI-b8d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="YBS-I7-wLH"/>
                 <constraint firstItem="OAx-rI-b8d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YyD-Mk-eYD"/>

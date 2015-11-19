@@ -12,28 +12,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匹配设计师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6W7-VM-CvM">
-                    <rect key="frame" x="24" y="17" width="70" height="17"/>
+                    <rect key="frame" x="24" y="14" width="70" height="17"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.48627450980392156" green="0.51372549019607838" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N6i-mR-XFd">
-                    <rect key="frame" x="548" y="11" width="30" height="29"/>
+                    <rect key="frame" x="548" y="8" width="30" height="29"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="全选">
                         <color key="titleColor" red="0.48627450980392156" green="0.51372549019607838" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u8p-lJ-FGC">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="6"/>
-                    <animations/>
-                    <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="6" id="kgT-gd-GqI"/>
-                    </constraints>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1K-80-TKK">
                     <rect key="frame" x="0.0" y="43" width="600" height="1"/>
                     <animations/>
@@ -47,16 +39,13 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="t1K-80-TKK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0hC-fQ-1ao"/>
-                <constraint firstItem="u8p-lJ-FGC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3Fj-6z-IG9"/>
-                <constraint firstItem="6W7-VM-CvM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="3" id="MWu-E9-0Dn"/>
+                <constraint firstItem="6W7-VM-CvM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="MWu-E9-0Dn"/>
                 <constraint firstAttribute="trailing" secondItem="N6i-mR-XFd" secondAttribute="trailing" constant="22" id="Nbv-jW-ybF"/>
                 <constraint firstItem="t1K-80-TKK" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="ZOz-sd-4lH"/>
-                <constraint firstItem="u8p-lJ-FGC" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="Zz8-TD-U26"/>
                 <constraint firstItem="6W7-VM-CvM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="iYn-vA-KJq"/>
                 <constraint firstItem="6W7-VM-CvM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="kmc-ku-9gJ"/>
                 <constraint firstItem="6W7-VM-CvM" firstAttribute="centerY" secondItem="N6i-mR-XFd" secondAttribute="centerY" id="nHo-aA-jy9"/>
                 <constraint firstItem="t1K-80-TKK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="43" id="rPi-UD-Zic"/>
-                <constraint firstItem="u8p-lJ-FGC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="zPu-xs-YDB"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -51,7 +51,7 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5xt-MV-Y43">
-                        <rect key="frame" x="103" y="90" width="570" height="1"/>
+                        <rect key="frame" x="103" y="91" width="570" height="1"/>
                         <animations/>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -92,7 +92,7 @@
             </tableViewCellContentView>
             <animations/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="5xt-MV-Y43" secondAttribute="bottom" constant="-1" id="6pP-ss-ftN"/>
+                <constraint firstAttribute="bottom" secondItem="5xt-MV-Y43" secondAttribute="bottom" constant="-2" id="6pP-ss-ftN"/>
             </constraints>
             <connections>
                 <outlet property="authIcon" destination="9FD-0s-APL" id="3fj-09-uWO"/>

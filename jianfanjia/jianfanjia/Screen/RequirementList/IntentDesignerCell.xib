@@ -44,7 +44,7 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVO-ud-aXz">
-                        <rect key="frame" x="121" y="88" width="570" height="1"/>
+                        <rect key="frame" x="121" y="91" width="570" height="1"/>
                         <animations/>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -105,7 +105,7 @@
             </tableViewCellContentView>
             <animations/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="VVO-ud-aXz" secondAttribute="bottom" constant="1" id="Ho7-Z2-RRD"/>
+                <constraint firstAttribute="bottom" secondItem="VVO-ud-aXz" secondAttribute="bottom" constant="-2" id="Ho7-Z2-RRD"/>
             </constraints>
             <connections>
                 <outlet property="authIcon" destination="d4C-0E-bT3" id="Wr3-Ma-JYw"/>
@@ -118,7 +118,7 @@
                 <outletCollection property="stars" destination="dmg-8G-cXQ" id="Glm-nA-wBw"/>
                 <outletCollection property="stars" destination="6FS-JA-7dZ" id="h7U-pc-ND8"/>
             </connections>
-            <point key="canvasLocation" x="299" y="523.5"/>
+            <point key="canvasLocation" x="299" y="523"/>
         </tableViewCell>
     </objects>
     <resources>
