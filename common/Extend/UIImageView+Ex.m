@@ -20,7 +20,7 @@
 }
 
 - (void)setUserImageWithId:(NSString *)imageid {
-    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder_2"]];
+    [self sd_setImageWithURL:[self imageurl:imageid withWidth:60] placeholderImage:[UIImage imageNamed:@"image_place_holder_2"]];
 }
 
 - (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image {
@@ -33,7 +33,13 @@
 }
 
 - (NSURL *)imageurl:(NSString *)imageid withWidth:(long)width {
-    width = width * 2;
+    static int scale = 2;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        scale = [UIScreen mainScreen].scale;
+    });
+    
+    width = width * scale;
     NSString *url = [NSString stringWithFormat:@"%@thumbnail/%ld/%@", kApiUrl, width ,imageid];
     return [NSURL URLWithString:url];
 }
