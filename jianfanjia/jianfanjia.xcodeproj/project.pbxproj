@@ -11,44 +11,64 @@
 		68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEE1BFC06CB0000EBBE /* OrderDesignder.m */; };
 		68342DF51BFC0F960000EBBE /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DF41BFC0F960000EBBE /* Plan.m */; };
 		68342DF91BFC45EE0000EBBE /* RequirementBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DF81BFC45EE0000EBBE /* RequirementBusiness.m */; };
-		68343A001BF6DDE0004F15C1 /* SelectHouseTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683439FE1BF6DDE0004F15C1 /* SelectHouseTypeViewController.m */; };
-		68343A011BF6DDE0004F15C1 /* SelectHouseTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683439FF1BF6DDE0004F15C1 /* SelectHouseTypeViewController.xib */; };
-		68343A051BF6E757004F15C1 /* SelectPopulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68343A031BF6E757004F15C1 /* SelectPopulationViewController.m */; };
-		68343A061BF6E757004F15C1 /* SelectPopulationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68343A041BF6E757004F15C1 /* SelectPopulationViewController.xib */; };
-		68343A0A1BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68343A081BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.m */; };
-		68343A0B1BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68343A091BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.xib */; };
 		68343A171BF70719004F15C1 /* allprovince.js in Resources */ = {isa = PBXBuildFile; fileRef = 68343A141BF70719004F15C1 /* allprovince.js */; };
 		68343A181BF70719004F15C1 /* city2area.js in Resources */ = {isa = PBXBuildFile; fileRef = 68343A151BF70719004F15C1 /* city2area.js */; };
 		68343A191BF70719004F15C1 /* province2city.js in Resources */ = {isa = PBXBuildFile; fileRef = 68343A161BF70719004F15C1 /* province2city.js */; };
-		68343A1D1BF72E90004F15C1 /* SelectSexTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68343A1B1BF72E90004F15C1 /* SelectSexTypeViewController.m */; };
-		68343A1E1BF72E90004F15C1 /* SelectSexTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68343A1C1BF72E90004F15C1 /* SelectSexTypeViewController.xib */; };
-		68343A221BF734A8004F15C1 /* SelectWorkTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68343A201BF734A8004F15C1 /* SelectWorkTypeViewController.m */; };
-		68343A231BF734A8004F15C1 /* SelectWorkTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68343A211BF734A8004F15C1 /* SelectWorkTypeViewController.xib */; };
-		68343A271BF73512004F15C1 /* SelectDecorationTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68343A251BF73512004F15C1 /* SelectDecorationTypeViewController.m */; };
-		68343A281BF73512004F15C1 /* SelectDecorationTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68343A261BF73512004F15C1 /* SelectDecorationTypeViewController.xib */; };
-		6846C3941BE8C421009692D8 /* RequirementCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6846C3921BE8C421009692D8 /* RequirementCreateViewController.m */; };
-		6846C3951BE8C421009692D8 /* RequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6846C3931BE8C421009692D8 /* RequirementCreateViewController.xib */; };
+		684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */; };
+		684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */; };
+		684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E51BFD733400F7388C /* DesignerMeasureHouseWithoutPlanCell.m */; };
+		684A37031BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36E61BFD733400F7388C /* DesignerMeasureHouseWithoutPlanCell.xib */; };
+		684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E81BFD733400F7388C /* DesignerRespondedWithoutMeasureHouseCell.m */; };
+		684A37051BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36E91BFD733400F7388C /* DesignerRespondedWithoutMeasureHouseCell.xib */; };
+		684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36EB1BFD733400F7388C /* DesignerSubmittedPlanCell.m */; };
+		684A37071BFD733500F7388C /* DesignerSubmittedPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36EC1BFD733400F7388C /* DesignerSubmittedPlanCell.xib */; };
+		684A37081BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36EE1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.m */; };
+		684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36EF1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.xib */; };
+		684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36F11BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m */; };
+		684A370B1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36F21BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib */; };
+		684A370C1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36F41BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.m */; };
+		684A370D1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36F51BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.xib */; };
+		684A370E1BFD733500F7388C /* OrderedDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36F71BFD733400F7388C /* OrderedDesignerViewController.m */; };
+		684A370F1BFD733500F7388C /* OrderedDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36F81BFD733400F7388C /* OrderedDesignerViewController.xib */; };
+		684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36FA1BFD733400F7388C /* PlanWasChoosedCell.m */; };
+		684A37111BFD733500F7388C /* PlanWasChoosedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36FB1BFD733400F7388C /* PlanWasChoosedCell.xib */; };
+		684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36FD1BFD733400F7388C /* PlanWasNotChoosedCell.m */; };
+		684A37131BFD733500F7388C /* PlanWasNotChoosedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36FE1BFD733400F7388C /* PlanWasNotChoosedCell.xib */; };
+		684A37401BFD73DF00F7388C /* IntentDesignerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37161BFD73DE00F7388C /* IntentDesignerCell.m */; };
+		684A37411BFD73DF00F7388C /* IntentDesignerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A37171BFD73DE00F7388C /* IntentDesignerCell.xib */; };
+		684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37191BFD73DE00F7388C /* IntentDesignerSection.m */; };
+		684A37431BFD73DF00F7388C /* IntentDesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A371A1BFD73DE00F7388C /* IntentDesignerSection.xib */; };
+		684A37441BFD73DF00F7388C /* MatchDesignerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A371C1BFD73DE00F7388C /* MatchDesignerCell.m */; };
+		684A37451BFD73DF00F7388C /* MatchDesignerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A371D1BFD73DE00F7388C /* MatchDesignerCell.xib */; };
+		684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A371F1BFD73DE00F7388C /* MatchDesignerSection.m */; };
+		684A37471BFD73DF00F7388C /* MatchDesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A37201BFD73DE00F7388C /* MatchDesignerSection.xib */; };
+		684A37481BFD73DF00F7388C /* OrderDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37221BFD73DF00F7388C /* OrderDesignerViewController.m */; };
+		684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A37231BFD73DF00F7388C /* OrderDesignerViewController.xib */; };
+		684A374A1BFD73DF00F7388C /* DecorationStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37261BFD73DF00F7388C /* DecorationStyleCell.m */; };
+		684A374B1BFD73DF00F7388C /* DecorationStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A37271BFD73DF00F7388C /* DecorationStyleCell.xib */; };
+		684A374C1BFD73DF00F7388C /* RequirementCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37291BFD73DF00F7388C /* RequirementCreateViewController.m */; };
+		684A374D1BFD73DF00F7388C /* RequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A372A1BFD73DF00F7388C /* RequirementCreateViewController.xib */; };
+		684A374E1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A372C1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m */; };
+		684A374F1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A372D1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib */; };
+		684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A372F1BFD73DF00F7388C /* SelectDecorationStyleViewController.m */; };
+		684A37511BFD73DF00F7388C /* SelectDecorationStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A37301BFD73DF00F7388C /* SelectDecorationStyleViewController.xib */; };
+		684A37521BFD73DF00F7388C /* SelectDecorationTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37321BFD73DF00F7388C /* SelectDecorationTypeViewController.m */; };
+		684A37531BFD73DF00F7388C /* SelectDecorationTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A37331BFD73DF00F7388C /* SelectDecorationTypeViewController.xib */; };
+		684A37541BFD73DF00F7388C /* SelectHouseTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37351BFD73DF00F7388C /* SelectHouseTypeViewController.m */; };
+		684A37551BFD73DF00F7388C /* SelectHouseTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A37361BFD73DF00F7388C /* SelectHouseTypeViewController.xib */; };
+		684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37381BFD73DF00F7388C /* SelectPopulationViewController.m */; };
+		684A37571BFD73DF00F7388C /* SelectPopulationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A37391BFD73DF00F7388C /* SelectPopulationViewController.xib */; };
+		684A37581BFD73DF00F7388C /* SelectSexTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A373B1BFD73DF00F7388C /* SelectSexTypeViewController.m */; };
+		684A37591BFD73DF00F7388C /* SelectSexTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A373C1BFD73DF00F7388C /* SelectSexTypeViewController.xib */; };
+		684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A373E1BFD73DF00F7388C /* SelectWorkTypeViewController.m */; };
+		684A375B1BFD73DF00F7388C /* SelectWorkTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A373F1BFD73DF00F7388C /* SelectWorkTypeViewController.xib */; };
 		6855E62E1BFAB87A00E789D4 /* RequirementDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E62D1BFAB87A00E789D4 /* RequirementDataManager.m */; };
 		6855E6321BFAC78A00E789D4 /* RequirementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E6301BFAC78A00E789D4 /* RequirementCell.m */; };
 		6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E6311BFAC78A00E789D4 /* RequirementCell.xib */; };
-		6855E6371BFAFCFE00E789D4 /* OrderDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E6351BFAFCFE00E789D4 /* OrderDesignerViewController.m */; };
-		6855E6381BFAFCFE00E789D4 /* OrderDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E6361BFAFCFE00E789D4 /* OrderDesignerViewController.xib */; };
-		6855E63C1BFAFD3D00E789D4 /* MatchDesignerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E63A1BFAFD3D00E789D4 /* MatchDesignerCell.m */; };
-		6855E63D1BFAFD3D00E789D4 /* MatchDesignerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E63B1BFAFD3D00E789D4 /* MatchDesignerCell.xib */; };
-		6855E6411BFAFD6E00E789D4 /* IntentDesignerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E63F1BFAFD6E00E789D4 /* IntentDesignerCell.m */; };
-		6855E6421BFAFD6E00E789D4 /* IntentDesignerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E6401BFAFD6E00E789D4 /* IntentDesignerCell.xib */; };
-		6855E6451BFAFE4000E789D4 /* MatchDesignerSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E6441BFAFE4000E789D4 /* MatchDesignerSection.m */; };
-		6855E6481BFAFE5700E789D4 /* IntentDesignerSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E6471BFAFE5700E789D4 /* IntentDesignerSection.m */; };
-		6855E64A1BFAFE6900E789D4 /* MatchDesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E6491BFAFE6900E789D4 /* MatchDesignerSection.xib */; };
-		6855E64C1BFAFE7E00E789D4 /* IntentDesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E64B1BFAFE7E00E789D4 /* IntentDesignerSection.xib */; };
 		685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B51051BE76D45001C8B34 /* UIColor+Ex.m */; };
 		685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21471BF9729E00D5D320 /* SendAddRequirement.m */; };
 		685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214A1BF9870B00D5D320 /* RACStream+Ex.m */; };
 		685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */; };
-		685C21521BF9C92800D5D320 /* SelectDecorationStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21501BF9C92800D5D320 /* SelectDecorationStyleViewController.m */; };
-		685C21531BF9C92800D5D320 /* SelectDecorationStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685C21511BF9C92800D5D320 /* SelectDecorationStyleViewController.xib */; };
-		685C215A1BF9CDF900D5D320 /* DecorationStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21581BF9CDF900D5D320 /* DecorationStyleCell.m */; };
-		685C215B1BF9CDF900D5D320 /* DecorationStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685C21591BF9CDF900D5D320 /* DecorationStyleCell.xib */; };
 		68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E505641BF0BB0100B0B910 /* SelectCityViewController.m */; };
 		68E505671BF0BB0100B0B910 /* SelectCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */; };
 		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; };
@@ -199,50 +219,86 @@
 		68342DF41BFC0F960000EBBE /* Plan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plan.m; sourceTree = "<group>"; };
 		68342DF71BFC45EE0000EBBE /* RequirementBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementBusiness.h; sourceTree = "<group>"; };
 		68342DF81BFC45EE0000EBBE /* RequirementBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementBusiness.m; sourceTree = "<group>"; };
-		683439FD1BF6DDE0004F15C1 /* SelectHouseTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectHouseTypeViewController.h; sourceTree = "<group>"; };
-		683439FE1BF6DDE0004F15C1 /* SelectHouseTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectHouseTypeViewController.m; sourceTree = "<group>"; };
-		683439FF1BF6DDE0004F15C1 /* SelectHouseTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectHouseTypeViewController.xib; sourceTree = "<group>"; };
-		68343A021BF6E757004F15C1 /* SelectPopulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPopulationViewController.h; sourceTree = "<group>"; };
-		68343A031BF6E757004F15C1 /* SelectPopulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPopulationViewController.m; sourceTree = "<group>"; };
-		68343A041BF6E757004F15C1 /* SelectPopulationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPopulationViewController.xib; sourceTree = "<group>"; };
-		68343A071BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCommunicationTypeViewController.h; sourceTree = "<group>"; };
-		68343A081BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCommunicationTypeViewController.m; sourceTree = "<group>"; };
-		68343A091BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCommunicationTypeViewController.xib; sourceTree = "<group>"; };
 		68343A141BF70719004F15C1 /* allprovince.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = allprovince.js; sourceTree = "<group>"; };
 		68343A151BF70719004F15C1 /* city2area.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = city2area.js; sourceTree = "<group>"; };
 		68343A161BF70719004F15C1 /* province2city.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = province2city.js; sourceTree = "<group>"; };
-		68343A1A1BF72E90004F15C1 /* SelectSexTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSexTypeViewController.h; sourceTree = "<group>"; };
-		68343A1B1BF72E90004F15C1 /* SelectSexTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSexTypeViewController.m; sourceTree = "<group>"; };
-		68343A1C1BF72E90004F15C1 /* SelectSexTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectSexTypeViewController.xib; sourceTree = "<group>"; };
-		68343A1F1BF734A8004F15C1 /* SelectWorkTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWorkTypeViewController.h; sourceTree = "<group>"; };
-		68343A201BF734A8004F15C1 /* SelectWorkTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWorkTypeViewController.m; sourceTree = "<group>"; };
-		68343A211BF734A8004F15C1 /* SelectWorkTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectWorkTypeViewController.xib; sourceTree = "<group>"; };
-		68343A241BF73512004F15C1 /* SelectDecorationTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDecorationTypeViewController.h; sourceTree = "<group>"; };
-		68343A251BF73512004F15C1 /* SelectDecorationTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDecorationTypeViewController.m; sourceTree = "<group>"; };
-		68343A261BF73512004F15C1 /* SelectDecorationTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDecorationTypeViewController.xib; sourceTree = "<group>"; };
-		6846C3911BE8C421009692D8 /* RequirementCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementCreateViewController.h; sourceTree = "<group>"; };
-		6846C3921BE8C421009692D8 /* RequirementCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementCreateViewController.m; sourceTree = "<group>"; };
-		6846C3931BE8C421009692D8 /* RequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementCreateViewController.xib; sourceTree = "<group>"; };
+		684A36E11BFD733400F7388C /* DesignerDeclineHomeOwnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDeclineHomeOwnerCell.h; sourceTree = "<group>"; };
+		684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDeclineHomeOwnerCell.m; sourceTree = "<group>"; };
+		684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerDeclineHomeOwnerCell.xib; sourceTree = "<group>"; };
+		684A36E41BFD733400F7388C /* DesignerMeasureHouseWithoutPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerMeasureHouseWithoutPlanCell.h; sourceTree = "<group>"; };
+		684A36E51BFD733400F7388C /* DesignerMeasureHouseWithoutPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerMeasureHouseWithoutPlanCell.m; sourceTree = "<group>"; };
+		684A36E61BFD733400F7388C /* DesignerMeasureHouseWithoutPlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerMeasureHouseWithoutPlanCell.xib; sourceTree = "<group>"; };
+		684A36E71BFD733400F7388C /* DesignerRespondedWithoutMeasureHouseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerRespondedWithoutMeasureHouseCell.h; sourceTree = "<group>"; };
+		684A36E81BFD733400F7388C /* DesignerRespondedWithoutMeasureHouseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerRespondedWithoutMeasureHouseCell.m; sourceTree = "<group>"; };
+		684A36E91BFD733400F7388C /* DesignerRespondedWithoutMeasureHouseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerRespondedWithoutMeasureHouseCell.xib; sourceTree = "<group>"; };
+		684A36EA1BFD733400F7388C /* DesignerSubmittedPlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerSubmittedPlanCell.h; sourceTree = "<group>"; };
+		684A36EB1BFD733400F7388C /* DesignerSubmittedPlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerSubmittedPlanCell.m; sourceTree = "<group>"; };
+		684A36EC1BFD733400F7388C /* DesignerSubmittedPlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerSubmittedPlanCell.xib; sourceTree = "<group>"; };
+		684A36ED1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpiredAsDesignerDidNotRespondCell.h; sourceTree = "<group>"; };
+		684A36EE1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpiredAsDesignerDidNotRespondCell.m; sourceTree = "<group>"; };
+		684A36EF1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpiredAsDesignerDidNotRespondCell.xib; sourceTree = "<group>"; };
+		684A36F01BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.h; sourceTree = "<group>"; };
+		684A36F11BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m; sourceTree = "<group>"; };
+		684A36F21BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib; sourceTree = "<group>"; };
+		684A36F31BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeOwnerOrderedWithoutResponseCell.h; sourceTree = "<group>"; };
+		684A36F41BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeOwnerOrderedWithoutResponseCell.m; sourceTree = "<group>"; };
+		684A36F51BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeOwnerOrderedWithoutResponseCell.xib; sourceTree = "<group>"; };
+		684A36F61BFD733400F7388C /* OrderedDesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderedDesignerViewController.h; sourceTree = "<group>"; };
+		684A36F71BFD733400F7388C /* OrderedDesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderedDesignerViewController.m; sourceTree = "<group>"; };
+		684A36F81BFD733400F7388C /* OrderedDesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderedDesignerViewController.xib; sourceTree = "<group>"; };
+		684A36F91BFD733400F7388C /* PlanWasChoosedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanWasChoosedCell.h; sourceTree = "<group>"; };
+		684A36FA1BFD733400F7388C /* PlanWasChoosedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanWasChoosedCell.m; sourceTree = "<group>"; };
+		684A36FB1BFD733400F7388C /* PlanWasChoosedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanWasChoosedCell.xib; sourceTree = "<group>"; };
+		684A36FC1BFD733400F7388C /* PlanWasNotChoosedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanWasNotChoosedCell.h; sourceTree = "<group>"; };
+		684A36FD1BFD733400F7388C /* PlanWasNotChoosedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanWasNotChoosedCell.m; sourceTree = "<group>"; };
+		684A36FE1BFD733400F7388C /* PlanWasNotChoosedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanWasNotChoosedCell.xib; sourceTree = "<group>"; };
+		684A37151BFD73DE00F7388C /* IntentDesignerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntentDesignerCell.h; sourceTree = "<group>"; };
+		684A37161BFD73DE00F7388C /* IntentDesignerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntentDesignerCell.m; sourceTree = "<group>"; };
+		684A37171BFD73DE00F7388C /* IntentDesignerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntentDesignerCell.xib; sourceTree = "<group>"; };
+		684A37181BFD73DE00F7388C /* IntentDesignerSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntentDesignerSection.h; sourceTree = "<group>"; };
+		684A37191BFD73DE00F7388C /* IntentDesignerSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntentDesignerSection.m; sourceTree = "<group>"; };
+		684A371A1BFD73DE00F7388C /* IntentDesignerSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntentDesignerSection.xib; sourceTree = "<group>"; };
+		684A371B1BFD73DE00F7388C /* MatchDesignerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDesignerCell.h; sourceTree = "<group>"; };
+		684A371C1BFD73DE00F7388C /* MatchDesignerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDesignerCell.m; sourceTree = "<group>"; };
+		684A371D1BFD73DE00F7388C /* MatchDesignerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchDesignerCell.xib; sourceTree = "<group>"; };
+		684A371E1BFD73DE00F7388C /* MatchDesignerSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDesignerSection.h; sourceTree = "<group>"; };
+		684A371F1BFD73DE00F7388C /* MatchDesignerSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDesignerSection.m; sourceTree = "<group>"; };
+		684A37201BFD73DE00F7388C /* MatchDesignerSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchDesignerSection.xib; sourceTree = "<group>"; };
+		684A37211BFD73DE00F7388C /* OrderDesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignerViewController.h; sourceTree = "<group>"; };
+		684A37221BFD73DF00F7388C /* OrderDesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDesignerViewController.m; sourceTree = "<group>"; };
+		684A37231BFD73DF00F7388C /* OrderDesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDesignerViewController.xib; sourceTree = "<group>"; };
+		684A37251BFD73DF00F7388C /* DecorationStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecorationStyleCell.h; sourceTree = "<group>"; };
+		684A37261BFD73DF00F7388C /* DecorationStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecorationStyleCell.m; sourceTree = "<group>"; };
+		684A37271BFD73DF00F7388C /* DecorationStyleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecorationStyleCell.xib; sourceTree = "<group>"; };
+		684A37281BFD73DF00F7388C /* RequirementCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementCreateViewController.h; sourceTree = "<group>"; };
+		684A37291BFD73DF00F7388C /* RequirementCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementCreateViewController.m; sourceTree = "<group>"; };
+		684A372A1BFD73DF00F7388C /* RequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementCreateViewController.xib; sourceTree = "<group>"; };
+		684A372B1BFD73DF00F7388C /* SelectCommunicationTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCommunicationTypeViewController.h; sourceTree = "<group>"; };
+		684A372C1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCommunicationTypeViewController.m; sourceTree = "<group>"; };
+		684A372D1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCommunicationTypeViewController.xib; sourceTree = "<group>"; };
+		684A372E1BFD73DF00F7388C /* SelectDecorationStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDecorationStyleViewController.h; sourceTree = "<group>"; };
+		684A372F1BFD73DF00F7388C /* SelectDecorationStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDecorationStyleViewController.m; sourceTree = "<group>"; };
+		684A37301BFD73DF00F7388C /* SelectDecorationStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDecorationStyleViewController.xib; sourceTree = "<group>"; };
+		684A37311BFD73DF00F7388C /* SelectDecorationTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDecorationTypeViewController.h; sourceTree = "<group>"; };
+		684A37321BFD73DF00F7388C /* SelectDecorationTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDecorationTypeViewController.m; sourceTree = "<group>"; };
+		684A37331BFD73DF00F7388C /* SelectDecorationTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDecorationTypeViewController.xib; sourceTree = "<group>"; };
+		684A37341BFD73DF00F7388C /* SelectHouseTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectHouseTypeViewController.h; sourceTree = "<group>"; };
+		684A37351BFD73DF00F7388C /* SelectHouseTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectHouseTypeViewController.m; sourceTree = "<group>"; };
+		684A37361BFD73DF00F7388C /* SelectHouseTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectHouseTypeViewController.xib; sourceTree = "<group>"; };
+		684A37371BFD73DF00F7388C /* SelectPopulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPopulationViewController.h; sourceTree = "<group>"; };
+		684A37381BFD73DF00F7388C /* SelectPopulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPopulationViewController.m; sourceTree = "<group>"; };
+		684A37391BFD73DF00F7388C /* SelectPopulationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPopulationViewController.xib; sourceTree = "<group>"; };
+		684A373A1BFD73DF00F7388C /* SelectSexTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSexTypeViewController.h; sourceTree = "<group>"; };
+		684A373B1BFD73DF00F7388C /* SelectSexTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSexTypeViewController.m; sourceTree = "<group>"; };
+		684A373C1BFD73DF00F7388C /* SelectSexTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectSexTypeViewController.xib; sourceTree = "<group>"; };
+		684A373D1BFD73DF00F7388C /* SelectWorkTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWorkTypeViewController.h; sourceTree = "<group>"; };
+		684A373E1BFD73DF00F7388C /* SelectWorkTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWorkTypeViewController.m; sourceTree = "<group>"; };
+		684A373F1BFD73DF00F7388C /* SelectWorkTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectWorkTypeViewController.xib; sourceTree = "<group>"; };
 		6855E62C1BFAB87A00E789D4 /* RequirementDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementDataManager.h; sourceTree = "<group>"; };
 		6855E62D1BFAB87A00E789D4 /* RequirementDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementDataManager.m; sourceTree = "<group>"; };
 		6855E62F1BFAC78A00E789D4 /* RequirementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementCell.h; sourceTree = "<group>"; };
 		6855E6301BFAC78A00E789D4 /* RequirementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementCell.m; sourceTree = "<group>"; };
 		6855E6311BFAC78A00E789D4 /* RequirementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementCell.xib; sourceTree = "<group>"; };
-		6855E6341BFAFCFE00E789D4 /* OrderDesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignerViewController.h; sourceTree = "<group>"; };
-		6855E6351BFAFCFE00E789D4 /* OrderDesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDesignerViewController.m; sourceTree = "<group>"; };
-		6855E6361BFAFCFE00E789D4 /* OrderDesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderDesignerViewController.xib; sourceTree = "<group>"; };
-		6855E6391BFAFD3D00E789D4 /* MatchDesignerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDesignerCell.h; sourceTree = "<group>"; };
-		6855E63A1BFAFD3D00E789D4 /* MatchDesignerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDesignerCell.m; sourceTree = "<group>"; };
-		6855E63B1BFAFD3D00E789D4 /* MatchDesignerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchDesignerCell.xib; sourceTree = "<group>"; };
-		6855E63E1BFAFD6E00E789D4 /* IntentDesignerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntentDesignerCell.h; sourceTree = "<group>"; };
-		6855E63F1BFAFD6E00E789D4 /* IntentDesignerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntentDesignerCell.m; sourceTree = "<group>"; };
-		6855E6401BFAFD6E00E789D4 /* IntentDesignerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntentDesignerCell.xib; sourceTree = "<group>"; };
-		6855E6431BFAFE4000E789D4 /* MatchDesignerSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchDesignerSection.h; sourceTree = "<group>"; };
-		6855E6441BFAFE4000E789D4 /* MatchDesignerSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchDesignerSection.m; sourceTree = "<group>"; };
-		6855E6461BFAFE5700E789D4 /* IntentDesignerSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntentDesignerSection.h; sourceTree = "<group>"; };
-		6855E6471BFAFE5700E789D4 /* IntentDesignerSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntentDesignerSection.m; sourceTree = "<group>"; };
-		6855E6491BFAFE6900E789D4 /* MatchDesignerSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchDesignerSection.xib; sourceTree = "<group>"; };
-		6855E64B1BFAFE7E00E789D4 /* IntentDesignerSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntentDesignerSection.xib; sourceTree = "<group>"; };
 		685B51041BE76D45001C8B34 /* UIColor+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ex.h"; sourceTree = "<group>"; };
 		685B51051BE76D45001C8B34 /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
 		685C21461BF9729E00D5D320 /* SendAddRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendAddRequirement.h; sourceTree = "<group>"; };
@@ -251,12 +307,6 @@
 		685C214A1BF9870B00D5D320 /* RACStream+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACStream+Ex.m"; sourceTree = "<group>"; };
 		685C214C1BF9C7E100D5D320 /* UIScrollView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Ex.h"; sourceTree = "<group>"; };
 		685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Ex.m"; sourceTree = "<group>"; };
-		685C214F1BF9C92800D5D320 /* SelectDecorationStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDecorationStyleViewController.h; sourceTree = "<group>"; };
-		685C21501BF9C92800D5D320 /* SelectDecorationStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDecorationStyleViewController.m; sourceTree = "<group>"; };
-		685C21511BF9C92800D5D320 /* SelectDecorationStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDecorationStyleViewController.xib; sourceTree = "<group>"; };
-		685C21571BF9CDF900D5D320 /* DecorationStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecorationStyleCell.h; sourceTree = "<group>"; };
-		685C21581BF9CDF900D5D320 /* DecorationStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecorationStyleCell.m; sourceTree = "<group>"; };
-		685C21591BF9CDF900D5D320 /* DecorationStyleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecorationStyleCell.xib; sourceTree = "<group>"; };
 		68E505631BF0BB0100B0B910 /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
 		68E505641BF0BB0100B0B910 /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCityViewController.xib; sourceTree = "<group>"; };
@@ -508,6 +558,99 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		684A36E01BFD733400F7388C /* OrderedDesigner */ = {
+			isa = PBXGroup;
+			children = (
+				684A36F61BFD733400F7388C /* OrderedDesignerViewController.h */,
+				684A36F71BFD733400F7388C /* OrderedDesignerViewController.m */,
+				684A36F81BFD733400F7388C /* OrderedDesignerViewController.xib */,
+				684A36E11BFD733400F7388C /* DesignerDeclineHomeOwnerCell.h */,
+				684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */,
+				684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */,
+				684A36E41BFD733400F7388C /* DesignerMeasureHouseWithoutPlanCell.h */,
+				684A36E51BFD733400F7388C /* DesignerMeasureHouseWithoutPlanCell.m */,
+				684A36E61BFD733400F7388C /* DesignerMeasureHouseWithoutPlanCell.xib */,
+				684A36E71BFD733400F7388C /* DesignerRespondedWithoutMeasureHouseCell.h */,
+				684A36E81BFD733400F7388C /* DesignerRespondedWithoutMeasureHouseCell.m */,
+				684A36E91BFD733400F7388C /* DesignerRespondedWithoutMeasureHouseCell.xib */,
+				684A36EA1BFD733400F7388C /* DesignerSubmittedPlanCell.h */,
+				684A36EB1BFD733400F7388C /* DesignerSubmittedPlanCell.m */,
+				684A36EC1BFD733400F7388C /* DesignerSubmittedPlanCell.xib */,
+				684A36ED1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.h */,
+				684A36EE1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.m */,
+				684A36EF1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.xib */,
+				684A36F01BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.h */,
+				684A36F11BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m */,
+				684A36F21BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib */,
+				684A36F31BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.h */,
+				684A36F41BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.m */,
+				684A36F51BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.xib */,
+				684A36F91BFD733400F7388C /* PlanWasChoosedCell.h */,
+				684A36FA1BFD733400F7388C /* PlanWasChoosedCell.m */,
+				684A36FB1BFD733400F7388C /* PlanWasChoosedCell.xib */,
+				684A36FC1BFD733400F7388C /* PlanWasNotChoosedCell.h */,
+				684A36FD1BFD733400F7388C /* PlanWasNotChoosedCell.m */,
+				684A36FE1BFD733400F7388C /* PlanWasNotChoosedCell.xib */,
+			);
+			path = OrderedDesigner;
+			sourceTree = "<group>";
+		};
+		684A37141BFD73DE00F7388C /* OrderDesigner */ = {
+			isa = PBXGroup;
+			children = (
+				684A37151BFD73DE00F7388C /* IntentDesignerCell.h */,
+				684A37161BFD73DE00F7388C /* IntentDesignerCell.m */,
+				684A37171BFD73DE00F7388C /* IntentDesignerCell.xib */,
+				684A37181BFD73DE00F7388C /* IntentDesignerSection.h */,
+				684A37191BFD73DE00F7388C /* IntentDesignerSection.m */,
+				684A371A1BFD73DE00F7388C /* IntentDesignerSection.xib */,
+				684A371B1BFD73DE00F7388C /* MatchDesignerCell.h */,
+				684A371C1BFD73DE00F7388C /* MatchDesignerCell.m */,
+				684A371D1BFD73DE00F7388C /* MatchDesignerCell.xib */,
+				684A371E1BFD73DE00F7388C /* MatchDesignerSection.h */,
+				684A371F1BFD73DE00F7388C /* MatchDesignerSection.m */,
+				684A37201BFD73DE00F7388C /* MatchDesignerSection.xib */,
+				684A37211BFD73DE00F7388C /* OrderDesignerViewController.h */,
+				684A37221BFD73DF00F7388C /* OrderDesignerViewController.m */,
+				684A37231BFD73DF00F7388C /* OrderDesignerViewController.xib */,
+			);
+			path = OrderDesigner;
+			sourceTree = "<group>";
+		};
+		684A37241BFD73DF00F7388C /* RequirementCreate */ = {
+			isa = PBXGroup;
+			children = (
+				684A37251BFD73DF00F7388C /* DecorationStyleCell.h */,
+				684A37261BFD73DF00F7388C /* DecorationStyleCell.m */,
+				684A37271BFD73DF00F7388C /* DecorationStyleCell.xib */,
+				684A37281BFD73DF00F7388C /* RequirementCreateViewController.h */,
+				684A37291BFD73DF00F7388C /* RequirementCreateViewController.m */,
+				684A372A1BFD73DF00F7388C /* RequirementCreateViewController.xib */,
+				684A372B1BFD73DF00F7388C /* SelectCommunicationTypeViewController.h */,
+				684A372C1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m */,
+				684A372D1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib */,
+				684A372E1BFD73DF00F7388C /* SelectDecorationStyleViewController.h */,
+				684A372F1BFD73DF00F7388C /* SelectDecorationStyleViewController.m */,
+				684A37301BFD73DF00F7388C /* SelectDecorationStyleViewController.xib */,
+				684A37311BFD73DF00F7388C /* SelectDecorationTypeViewController.h */,
+				684A37321BFD73DF00F7388C /* SelectDecorationTypeViewController.m */,
+				684A37331BFD73DF00F7388C /* SelectDecorationTypeViewController.xib */,
+				684A37341BFD73DF00F7388C /* SelectHouseTypeViewController.h */,
+				684A37351BFD73DF00F7388C /* SelectHouseTypeViewController.m */,
+				684A37361BFD73DF00F7388C /* SelectHouseTypeViewController.xib */,
+				684A37371BFD73DF00F7388C /* SelectPopulationViewController.h */,
+				684A37381BFD73DF00F7388C /* SelectPopulationViewController.m */,
+				684A37391BFD73DF00F7388C /* SelectPopulationViewController.xib */,
+				684A373A1BFD73DF00F7388C /* SelectSexTypeViewController.h */,
+				684A373B1BFD73DF00F7388C /* SelectSexTypeViewController.m */,
+				684A373C1BFD73DF00F7388C /* SelectSexTypeViewController.xib */,
+				684A373D1BFD73DF00F7388C /* SelectWorkTypeViewController.h */,
+				684A373E1BFD73DF00F7388C /* SelectWorkTypeViewController.m */,
+				684A373F1BFD73DF00F7388C /* SelectWorkTypeViewController.xib */,
+			);
+			path = RequirementCreate;
+			sourceTree = "<group>";
+		};
 		68E505621BF0BA3000B0B910 /* SelectCity */ = {
 			isa = PBXGroup;
 			children = (
@@ -812,56 +955,17 @@
 		6E6D98AC1BDF735C00D45F77 /* RequirementList */ = {
 			isa = PBXGroup;
 			children = (
+				684A37141BFD73DE00F7388C /* OrderDesigner */,
+				684A37241BFD73DF00F7388C /* RequirementCreate */,
+				684A36E01BFD733400F7388C /* OrderedDesigner */,
 				6E6D98AD1BDF736A00D45F77 /* RequirementListViewController.h */,
 				6E6D98AE1BDF736A00D45F77 /* RequirementListViewController.m */,
 				6E6D98AF1BDF736A00D45F77 /* RequirementListViewController.xib */,
-				6846C3911BE8C421009692D8 /* RequirementCreateViewController.h */,
-				6846C3921BE8C421009692D8 /* RequirementCreateViewController.m */,
-				6846C3931BE8C421009692D8 /* RequirementCreateViewController.xib */,
-				683439FD1BF6DDE0004F15C1 /* SelectHouseTypeViewController.h */,
-				683439FE1BF6DDE0004F15C1 /* SelectHouseTypeViewController.m */,
-				683439FF1BF6DDE0004F15C1 /* SelectHouseTypeViewController.xib */,
-				68343A1F1BF734A8004F15C1 /* SelectWorkTypeViewController.h */,
-				68343A201BF734A8004F15C1 /* SelectWorkTypeViewController.m */,
-				68343A211BF734A8004F15C1 /* SelectWorkTypeViewController.xib */,
-				68343A241BF73512004F15C1 /* SelectDecorationTypeViewController.h */,
-				68343A251BF73512004F15C1 /* SelectDecorationTypeViewController.m */,
-				68343A261BF73512004F15C1 /* SelectDecorationTypeViewController.xib */,
-				68343A021BF6E757004F15C1 /* SelectPopulationViewController.h */,
-				68343A031BF6E757004F15C1 /* SelectPopulationViewController.m */,
-				68343A041BF6E757004F15C1 /* SelectPopulationViewController.xib */,
-				68343A071BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.h */,
-				68343A081BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.m */,
-				68343A091BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.xib */,
-				68343A1A1BF72E90004F15C1 /* SelectSexTypeViewController.h */,
-				68343A1B1BF72E90004F15C1 /* SelectSexTypeViewController.m */,
-				68343A1C1BF72E90004F15C1 /* SelectSexTypeViewController.xib */,
-				685C214F1BF9C92800D5D320 /* SelectDecorationStyleViewController.h */,
-				685C21501BF9C92800D5D320 /* SelectDecorationStyleViewController.m */,
-				685C21511BF9C92800D5D320 /* SelectDecorationStyleViewController.xib */,
-				685C21571BF9CDF900D5D320 /* DecorationStyleCell.h */,
-				685C21581BF9CDF900D5D320 /* DecorationStyleCell.m */,
-				685C21591BF9CDF900D5D320 /* DecorationStyleCell.xib */,
 				6855E62C1BFAB87A00E789D4 /* RequirementDataManager.h */,
 				6855E62D1BFAB87A00E789D4 /* RequirementDataManager.m */,
 				6855E62F1BFAC78A00E789D4 /* RequirementCell.h */,
 				6855E6301BFAC78A00E789D4 /* RequirementCell.m */,
 				6855E6311BFAC78A00E789D4 /* RequirementCell.xib */,
-				6855E6341BFAFCFE00E789D4 /* OrderDesignerViewController.h */,
-				6855E6351BFAFCFE00E789D4 /* OrderDesignerViewController.m */,
-				6855E6361BFAFCFE00E789D4 /* OrderDesignerViewController.xib */,
-				6855E6391BFAFD3D00E789D4 /* MatchDesignerCell.h */,
-				6855E63A1BFAFD3D00E789D4 /* MatchDesignerCell.m */,
-				6855E63B1BFAFD3D00E789D4 /* MatchDesignerCell.xib */,
-				6855E63E1BFAFD6E00E789D4 /* IntentDesignerCell.h */,
-				6855E63F1BFAFD6E00E789D4 /* IntentDesignerCell.m */,
-				6855E6401BFAFD6E00E789D4 /* IntentDesignerCell.xib */,
-				6855E6431BFAFE4000E789D4 /* MatchDesignerSection.h */,
-				6855E6441BFAFE4000E789D4 /* MatchDesignerSection.m */,
-				6855E6491BFAFE6900E789D4 /* MatchDesignerSection.xib */,
-				6855E6461BFAFE5700E789D4 /* IntentDesignerSection.h */,
-				6855E6471BFAFE5700E789D4 /* IntentDesignerSection.m */,
-				6855E64B1BFAFE7E00E789D4 /* IntentDesignerSection.xib */,
 			);
 			path = RequirementList;
 			sourceTree = "<group>";
@@ -1134,59 +1238,69 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6846C3951BE8C421009692D8 /* RequirementCreateViewController.xib in Resources */,
-				68343A061BF6E757004F15C1 /* SelectPopulationViewController.xib in Resources */,
-				685C21531BF9C92800D5D320 /* SelectDecorationStyleViewController.xib in Resources */,
+				684A370D1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.xib in Resources */,
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */,
+				684A37451BFD73DF00F7388C /* MatchDesignerCell.xib in Resources */,
 				6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */,
 				6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */,
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
-				6855E64A1BFAFE6900E789D4 /* MatchDesignerSection.xib in Resources */,
 				6E4496461BFC562900C90851 /* AboutViewController.xib in Resources */,
+				684A375B1BFD73DF00F7388C /* SelectWorkTypeViewController.xib in Resources */,
 				6E78670D1BA920D900DE8B1B /* BannerCell.xib in Resources */,
-				685C215B1BF9CDF900D5D320 /* DecorationStyleCell.xib in Resources */,
+				684A37431BFD73DF00F7388C /* IntentDesignerSection.xib in Resources */,
+				684A37071BFD733500F7388C /* DesignerSubmittedPlanCell.xib in Resources */,
 				6E7867171BA944AF00DE8B1B /* ItemCell.xib in Resources */,
+				684A37471BFD73DF00F7388C /* MatchDesignerSection.xib in Resources */,
 				6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */,
 				6E6D98CB1BE0AB7C00D45F77 /* HomePageRequirementCell.xib in Resources */,
 				6E6D98D51BE0D62F00D45F77 /* HomePageDesignerCell.xib in Resources */,
+				684A374D1BFD73DF00F7388C /* RequirementCreateViewController.xib in Resources */,
+				684A37571BFD73DF00F7388C /* SelectPopulationViewController.xib in Resources */,
 				6E4496261BF9BA2600C90851 /* VerifyPhoneViewController.xib in Resources */,
+				684A370B1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib in Resources */,
 				6E6D98E71BE343E400D45F77 /* DesignerViewController.xib in Resources */,
+				684A370F1BFD733500F7388C /* OrderedDesignerViewController.xib in Resources */,
+				684A37551BFD73DF00F7388C /* SelectHouseTypeViewController.xib in Resources */,
 				6E7E4A6A1B9A90BA00503B35 /* LoginViewController.xib in Resources */,
+				684A37591BFD73DF00F7388C /* SelectSexTypeViewController.xib in Resources */,
 				68343A191BF70719004F15C1 /* province2city.js in Resources */,
+				684A37051BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.xib in Resources */,
 				6E6D98AB1BDF733F00D45F77 /* HomePageViewController.xib in Resources */,
 				6E6D98D01BE0C34000D45F77 /* HomePageRecDesignersCell.xib in Resources */,
-				68343A011BF6DDE0004F15C1 /* SelectHouseTypeViewController.xib in Resources */,
-				68343A231BF734A8004F15C1 /* SelectWorkTypeViewController.xib in Resources */,
-				6855E64C1BFAFE7E00E789D4 /* IntentDesignerSection.xib in Resources */,
+				684A37031BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.xib in Resources */,
 				6E6D98EC1BE345BC00D45F77 /* ProductInfoCell.xib in Resources */,
 				6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */,
 				6E6D98B11BDF736A00D45F77 /* RequirementListViewController.xib in Resources */,
 				6E7867281BAA538E00DE8B1B /* SectionView.xib in Resources */,
 				68E505671BF0BB0100B0B910 /* SelectCityViewController.xib in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
-				68343A1E1BF72E90004F15C1 /* SelectSexTypeViewController.xib in Resources */,
-				68343A281BF73512004F15C1 /* SelectDecorationTypeViewController.xib in Resources */,
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
+				684A37411BFD73DF00F7388C /* IntentDesignerCell.xib in Resources */,
 				6E44963C1BFC2DA900C90851 /* SettingViewController.xib in Resources */,
+				684A37531BFD73DF00F7388C /* SelectDecorationTypeViewController.xib in Resources */,
 				68343A171BF70719004F15C1 /* allprovince.js in Resources */,
 				6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */,
+				684A374B1BFD73DF00F7388C /* DecorationStyleCell.xib in Resources */,
 				6E44964C1BFC82F500C90851 /* UserInfoViewController.xib in Resources */,
+				684A37111BFD733500F7388C /* PlanWasChoosedCell.xib in Resources */,
 				6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */,
+				684A37131BFD733500F7388C /* PlanWasNotChoosedCell.xib in Resources */,
 				6E4496411BFC53CE00C90851 /* FeedbackViewController.xib in Resources */,
-				6855E6381BFAFCFE00E789D4 /* OrderDesignerViewController.xib in Resources */,
 				68343A181BF70719004F15C1 /* city2area.js in Resources */,
-				6855E63D1BFAFD3D00E789D4 /* MatchDesignerCell.xib in Resources */,
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
+				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
 				6E44962E1BF9E32200C90851 /* SignupSuccessViewController.xib in Resources */,
-				68343A0B1BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.xib in Resources */,
 				6E838D9B1BE6EF49000BF5CD /* ImageDetailViewController.xib in Resources */,
 				6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */,
+				684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */,
+				684A374F1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib in Resources */,
 				6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */,
 				6E7867121BA942C700DE8B1B /* SectionCell.xib in Resources */,
-				6855E6421BFAFD6E00E789D4 /* IntentDesignerCell.xib in Resources */,
+				684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */,
+				684A37511BFD73DF00F7388C /* SelectDecorationStyleViewController.xib in Resources */,
 				6E4496331BFAD68B00C90851 /* ResetPassViewController.xib in Resources */,
 				6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */,
 				6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */,
@@ -1241,27 +1355,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E07DAC51BD88DBE001461DD /* Item.m in Sources */,
+				684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */,
 				6E6D98CF1BE0C34000D45F77 /* HomePageRecDesignersCell.m in Sources */,
-				68343A1D1BF72E90004F15C1 /* SelectSexTypeViewController.m in Sources */,
 				6E7867161BA944AF00DE8B1B /* ItemCell.m in Sources */,
 				6E6D98B01BDF736A00D45F77 /* RequirementListViewController.m in Sources */,
 				6E07DAAC1BD88DBE001461DD /* AccountBusiness.m in Sources */,
+				684A374C1BFD73DF00F7388C /* RequirementCreateViewController.m in Sources */,
 				6E07DACA1BD88DBE001461DD /* BaseDynamicObject.m in Sources */,
 				6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */,
+				684A374A1BFD73DF00F7388C /* DecorationStyleCell.m in Sources */,
 				6E44964B1BFC82F500C90851 /* UserInfoViewController.m in Sources */,
 				685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */,
+				684A37481BFD73DF00F7388C /* OrderDesignerViewController.m in Sources */,
 				68342DF91BFC45EE0000EBBE /* RequirementBusiness.m in Sources */,
 				6E07DABC1BD88DBE001461DD /* NSString+Ex.m in Sources */,
 				AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */,
 				6E44963B1BFC2DA900C90851 /* SettingViewController.m in Sources */,
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
+				684A374E1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m in Sources */,
 				6E07DAC61BD88DBE001461DD /* Process.m in Sources */,
-				6855E63C1BFAFD3D00E789D4 /* MatchDesignerCell.m in Sources */,
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
+				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
 				6E4496451BFC562900C90851 /* AboutViewController.m in Sources */,
-				6855E6371BFAFCFE00E789D4 /* OrderDesignerViewController.m in Sources */,
+				684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */,
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
 				6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */,
@@ -1270,6 +1388,7 @@
 				6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */,
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
+				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,
 				6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */,
 				6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */,
@@ -1277,18 +1396,23 @@
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */,
+				684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */,
+				684A370E1BFD733500F7388C /* OrderedDesignerViewController.m in Sources */,
 				6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */,
-				685C21521BF9C92800D5D320 /* SelectDecorationStyleViewController.m in Sources */,
+				684A37581BFD73DF00F7388C /* SelectSexTypeViewController.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
 				6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */,
 				6E07DAC11BD88DBE001461DD /* GVUserDefaults+Manager.m in Sources */,
+				684A37081BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.m in Sources */,
 				6E07DABA1BD88DBE001461DD /* NSManagedObjectContext+Ex.m in Sources */,
 				6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */,
+				684A370C1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.m in Sources */,
 				6E44962D1BF9E32200C90851 /* SignupSuccessViewController.m in Sources */,
 				6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */,
 				6E07DAB91BD88DBE001461DD /* NSManagedObject+Ex.m in Sources */,
 				6E4496211BF9B58800C90851 /* VerifyPhone.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
+				684A37401BFD73DF00F7388C /* IntentDesignerCell.m in Sources */,
 				6E6D98AA1BDF733F00D45F77 /* HomePageViewController.m in Sources */,
 				6E07DABF1BD88DBE001461DD /* UIView+Ex.m in Sources */,
 				6E07DAC91BD88DBE001461DD /* Ys.m in Sources */,
@@ -1296,22 +1420,21 @@
 				6E6D989E1BDDFF1B00D45F77 /* W4View.m in Sources */,
 				6E07DAA91BD88DBE001461DD /* UserLogin.m in Sources */,
 				6E4496251BF9BA2600C90851 /* VerifyPhoneViewController.m in Sources */,
-				6855E6411BFAFD6E00E789D4 /* IntentDesignerCell.m in Sources */,
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */,
+				684A37521BFD73DF00F7388C /* SelectDecorationTypeViewController.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
-				68343A221BF734A8004F15C1 /* SelectWorkTypeViewController.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
 				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
 				6855E6321BFAC78A00E789D4 /* RequirementCell.m in Sources */,
-				68343A051BF6E757004F15C1 /* SelectPopulationViewController.m in Sources */,
 				6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */,
 				6E07DAC41BD88DBE001461DD /* Designer.m in Sources */,
 				6E6D98941BDDFDAB00D45F77 /* W2View.m in Sources */,
 				6E6D98B61BDF73DE00D45F77 /* MeViewController.m in Sources */,
 				6E78670C1BA920D900DE8B1B /* BannerCell.m in Sources */,
 				68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */,
-				68343A001BF6DDE0004F15C1 /* SelectHouseTypeViewController.m in Sources */,
+				684A37441BFD73DF00F7388C /* MatchDesignerCell.m in Sources */,
+				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
 				6E6D98C01BE0637700D45F77 /* Product.m in Sources */,
@@ -1320,37 +1443,38 @@
 				685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */,
 				6E07DAC31BD88DBE001461DD /* Comment.m in Sources */,
 				6E4496291BF9DF9700C90851 /* UserSignup.m in Sources */,
-				68343A271BF73512004F15C1 /* SelectDecorationTypeViewController.m in Sources */,
 				68342DF51BFC0F960000EBBE /* Plan.m in Sources */,
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
+				684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */,
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
+				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
+				684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
-				6846C3941BE8C421009692D8 /* RequirementCreateViewController.m in Sources */,
+				684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */,
+				684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */,
 				6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */,
 				6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */,
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
-				685C215A1BF9CDF900D5D320 /* DecorationStyleCell.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
-				6855E6451BFAFE4000E789D4 /* MatchDesignerSection.m in Sources */,
-				6855E6481BFAFE5700E789D4 /* IntentDesignerSection.m in Sources */,
 				685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */,
 				6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */,
 				6855E62E1BFAB87A00E789D4 /* RequirementDataManager.m in Sources */,
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
 				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
-				68343A0A1BF6E8ED004F15C1 /* SelectCommunicationTypeViewController.m in Sources */,
+				684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
 				6E6D98CA1BE0AB7C00D45F77 /* HomePageRequirementCell.m in Sources */,
 				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,
 				6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */,
+				684A37541BFD73DF00F7388C /* SelectHouseTypeViewController.m in Sources */,
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
