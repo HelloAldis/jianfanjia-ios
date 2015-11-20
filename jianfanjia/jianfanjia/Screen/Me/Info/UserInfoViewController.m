@@ -7,6 +7,7 @@
 //
 
 #import "UserInfoViewController.h"
+#import "ImageBrowerViewController.h"
 
 @interface UserInfoViewController ()
 
@@ -27,13 +28,6 @@
     
     [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-//    if (self.tabBarController.tabBar.frame.origin.y == ) {
-//        <#statements#>
-//    }
-//    self.tabBarController.tabBar.frame = CGRectOffset(self.tabBarController.tabBar.frame, 0, 50);
 }
 
 #pragma mark - UI
@@ -82,18 +76,7 @@
 - (void)showPhotoLib {
     if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] == NO))
         return ;
-//    PHFetchOptions *options = [[PHFetchOptions alloc] init];
-//    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
-//    self.result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
-//    MWPhotoBrowser *browser = [[MWPhotoBrowser alloc] initWithDelegate:self];
-//    browser.displayActionButton = YES;
-//    browser.startOnGrid = YES;
-//    browser.enableGrid = YES;
-//    browser.alwaysShowControls = NO;
-//    browser.displaySelectionButtons = YES;
-//    browser.enableSwipeToDismiss = YES;
-    
-//    [self.navigationController pushViewController:browser animated:YES];
+    [ImageBrowerViewController imageBrowerForUserImage:self.navigationController];
 }
 
 - (void)showCamera {
