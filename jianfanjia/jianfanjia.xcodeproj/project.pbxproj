@@ -83,6 +83,8 @@
 		685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21471BF9729E00D5D320 /* SendAddRequirement.m */; };
 		685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214A1BF9870B00D5D320 /* RACStream+Ex.m */; };
 		685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */; };
+		68D536A61BFF563800D8F1B2 /* PlanPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */; };
+		68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */; };
 		68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E505641BF0BB0100B0B910 /* SelectCityViewController.m */; };
 		68E505671BF0BB0100B0B910 /* SelectCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */; };
 		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; };
@@ -355,6 +357,9 @@
 		685C214A1BF9870B00D5D320 /* RACStream+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACStream+Ex.m"; sourceTree = "<group>"; };
 		685C214C1BF9C7E100D5D320 /* UIScrollView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Ex.h"; sourceTree = "<group>"; };
 		685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Ex.m"; sourceTree = "<group>"; };
+		68D536A31BFF563800D8F1B2 /* PlanPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPreviewViewController.h; sourceTree = "<group>"; };
+		68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPreviewViewController.m; sourceTree = "<group>"; };
+		68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPreviewViewController.xib; sourceTree = "<group>"; };
 		68E505631BF0BB0100B0B910 /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
 		68E505641BF0BB0100B0B910 /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCityViewController.xib; sourceTree = "<group>"; };
@@ -625,12 +630,15 @@
 		683669001BFF0AF4006A5053 /* PlanList */ = {
 			isa = PBXGroup;
 			children = (
-				683669061BFF0C05006A5053 /* PlanCell.h */,
-				683669071BFF0C05006A5053 /* PlanCell.m */,
-				683669081BFF0C05006A5053 /* PlanCell.xib */,
 				683669011BFF0B44006A5053 /* PlanListViewController.h */,
 				683669021BFF0B44006A5053 /* PlanListViewController.m */,
 				683669031BFF0B44006A5053 /* PlanListViewController.xib */,
+				683669061BFF0C05006A5053 /* PlanCell.h */,
+				683669071BFF0C05006A5053 /* PlanCell.m */,
+				683669081BFF0C05006A5053 /* PlanCell.xib */,
+				68D536A31BFF563800D8F1B2 /* PlanPreviewViewController.h */,
+				68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */,
+				68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */,
 			);
 			path = PlanList;
 			sourceTree = "<group>";
@@ -1370,6 +1378,7 @@
 				6E4496611BFECE0100C90851 /* ThumbnailCell.xib in Resources */,
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */,
+				68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */,
 				684A37451BFD73DF00F7388C /* MatchDesignerCell.xib in Resources */,
 				6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */,
 				6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */,
@@ -1607,6 +1616,7 @@
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
 				684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */,
 				684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */,
+				68D536A61BFF563800D8F1B2 /* PlanPreviewViewController.m in Sources */,
 				6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */,
 				683669041BFF0B44006A5053 /* PlanListViewController.m in Sources */,
 				6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */,
