@@ -30,7 +30,6 @@
 #pragma mark - user actions
 - (void)onClickBack {
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
 
 - (void)clickBack {

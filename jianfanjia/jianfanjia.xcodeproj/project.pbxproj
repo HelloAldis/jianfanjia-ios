@@ -135,6 +135,14 @@
 		6E44964B1BFC82F500C90851 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496491BFC82F500C90851 /* UserInfoViewController.m */; };
 		6E44964C1BFC82F500C90851 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E44964A1BFC82F500C90851 /* UserInfoViewController.xib */; };
 		6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496511BFD7DDE00C90851 /* NSNumber+Ex.m */; };
+		6E4496571BFEC2BD00C90851 /* ImageBrowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496551BFEC2BD00C90851 /* ImageBrowerViewController.m */; };
+		6E4496581BFEC2BD00C90851 /* ImageBrowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4496561BFEC2BD00C90851 /* ImageBrowerViewController.xib */; };
+		6E44965A1BFEC69C00C90851 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E4496591BFEC69C00C90851 /* Photos.framework */; };
+		6E4496601BFECE0100C90851 /* ThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44965E1BFECE0100C90851 /* ThumbnailCell.m */; };
+		6E4496611BFECE0100C90851 /* ThumbnailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E44965F1BFECE0100C90851 /* ThumbnailCell.xib */; };
+		6E4496661BFF0B6F00C90851 /* ImageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496641BFF0B6F00C90851 /* ImageEditorViewController.m */; };
+		6E4496671BFF0B6F00C90851 /* ImageEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4496651BFF0B6F00C90851 /* ImageEditorViewController.xib */; };
+		6E44966A1BFF1AC700C90851 /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496691BFF1AC700C90851 /* OverlayView.m */; };
 		6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D988C1BDDC9C800D45F77 /* W1View.m */; };
 		6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D988E1BDDC9DC00D45F77 /* W1View.xib */; };
 		6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98901BDDFD9700D45F77 /* W2View.xib */; };
@@ -442,6 +450,19 @@
 		6E44964A1BFC82F500C90851 /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		6E4496501BFD7DDE00C90851 /* NSNumber+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Ex.h"; sourceTree = "<group>"; };
 		6E4496511BFD7DDE00C90851 /* NSNumber+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Ex.m"; sourceTree = "<group>"; };
+		6E4496541BFEC2BD00C90851 /* ImageBrowerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBrowerViewController.h; sourceTree = "<group>"; };
+		6E4496551BFEC2BD00C90851 /* ImageBrowerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBrowerViewController.m; sourceTree = "<group>"; };
+		6E4496561BFEC2BD00C90851 /* ImageBrowerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageBrowerViewController.xib; sourceTree = "<group>"; };
+		6E4496591BFEC69C00C90851 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		6E44965B1BFEC6D600C90851 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		6E44965D1BFECE0100C90851 /* ThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailCell.h; sourceTree = "<group>"; };
+		6E44965E1BFECE0100C90851 /* ThumbnailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailCell.m; sourceTree = "<group>"; };
+		6E44965F1BFECE0100C90851 /* ThumbnailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThumbnailCell.xib; sourceTree = "<group>"; };
+		6E4496631BFF0B6F00C90851 /* ImageEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEditorViewController.h; sourceTree = "<group>"; };
+		6E4496641BFF0B6F00C90851 /* ImageEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEditorViewController.m; sourceTree = "<group>"; };
+		6E4496651BFF0B6F00C90851 /* ImageEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageEditorViewController.xib; sourceTree = "<group>"; };
+		6E4496681BFF1AC700C90851 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
+		6E4496691BFF1AC700C90851 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
 		6E6D988B1BDDC9C800D45F77 /* W1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W1View.h; sourceTree = "<group>"; };
 		6E6D988C1BDDC9C800D45F77 /* W1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W1View.m; sourceTree = "<group>"; };
 		6E6D988E1BDDC9DC00D45F77 /* W1View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W1View.xib; sourceTree = "<group>"; };
@@ -561,6 +582,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E44965A1BFEC69C00C90851 /* Photos.framework in Frameworks */,
 				E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -961,8 +983,26 @@
 		6E4496531BFDB6F700C90851 /* ImageBrower */ = {
 			isa = PBXGroup;
 			children = (
+				6E4496541BFEC2BD00C90851 /* ImageBrowerViewController.h */,
+				6E4496551BFEC2BD00C90851 /* ImageBrowerViewController.m */,
+				6E4496561BFEC2BD00C90851 /* ImageBrowerViewController.xib */,
+				6E44965D1BFECE0100C90851 /* ThumbnailCell.h */,
+				6E44965E1BFECE0100C90851 /* ThumbnailCell.m */,
+				6E44965F1BFECE0100C90851 /* ThumbnailCell.xib */,
 			);
 			path = ImageBrower;
+			sourceTree = "<group>";
+		};
+		6E4496621BFF0B5300C90851 /* ImageEditor */ = {
+			isa = PBXGroup;
+			children = (
+				6E4496631BFF0B6F00C90851 /* ImageEditorViewController.h */,
+				6E4496641BFF0B6F00C90851 /* ImageEditorViewController.m */,
+				6E4496651BFF0B6F00C90851 /* ImageEditorViewController.xib */,
+				6E4496681BFF1AC700C90851 /* OverlayView.h */,
+				6E4496691BFF1AC700C90851 /* OverlayView.m */,
+			);
+			path = ImageEditor;
 			sourceTree = "<group>";
 		};
 		6E6D98A61BDF732A00D45F77 /* HomePage */ = {
@@ -1148,6 +1188,7 @@
 		6EC3A98B1B8ACFD300A62153 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				6E4496621BFF0B5300C90851 /* ImageEditor */,
 				6E4496531BFDB6F700C90851 /* ImageBrower */,
 				6EE299C01BF57C4E00A527F6 /* Refresh */,
 				68E505621BF0BA3000B0B910 /* SelectCity */,
@@ -1178,6 +1219,8 @@
 		94C7F59597BA43E8F719C985 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6E44965B1BFEC6D600C90851 /* PhotosUI.framework */,
+				6E4496591BFEC69C00C90851 /* Photos.framework */,
 				44D2BD40530E2CA1D84D921D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -1275,6 +1318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				684A370D1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.xib in Resources */,
+				6E4496611BFECE0100C90851 /* ThumbnailCell.xib in Resources */,
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */,
 				684A37451BFD73DF00F7388C /* MatchDesignerCell.xib in Resources */,
@@ -1304,6 +1348,7 @@
 				684A37051BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.xib in Resources */,
 				6E6D98AB1BDF733F00D45F77 /* HomePageViewController.xib in Resources */,
 				6E6D98D01BE0C34000D45F77 /* HomePageRecDesignersCell.xib in Resources */,
+				6E4496671BFF0B6F00C90851 /* ImageEditorViewController.xib in Resources */,
 				684A37031BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.xib in Resources */,
 				6E6D98EC1BE345BC00D45F77 /* ProductInfoCell.xib in Resources */,
 				6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */,
@@ -1339,6 +1384,7 @@
 				684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */,
 				684A37511BFD73DF00F7388C /* SelectDecorationStyleViewController.xib in Resources */,
 				6E4496331BFAD68B00C90851 /* ResetPassViewController.xib in Resources */,
+				6E4496581BFEC2BD00C90851 /* ImageBrowerViewController.xib in Resources */,
 				6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */,
 				6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */,
 			);
@@ -1404,6 +1450,7 @@
 				6E44964B1BFC82F500C90851 /* UserInfoViewController.m in Sources */,
 				685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */,
 				684A375E1BFD7D6600F7388C /* GetOrderedDesignder.m in Sources */,
+				6E44966A1BFF1AC700C90851 /* OverlayView.m in Sources */,
 				684A37481BFD73DF00F7388C /* OrderDesignerViewController.m in Sources */,
 				68342DF91BFC45EE0000EBBE /* RequirementBusiness.m in Sources */,
 				6E07DABC1BD88DBE001461DD /* NSString+Ex.m in Sources */,
@@ -1423,6 +1470,7 @@
 				6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */,
 				6E6D98D41BE0D62F00D45F77 /* HomePageDesignerCell.m in Sources */,
 				6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */,
+				6E4496601BFECE0100C90851 /* ThumbnailCell.m in Sources */,
 				6E07DAD81BD8C6AF001461DD /* Bc.m in Sources */,
 				6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */,
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
@@ -1464,6 +1512,7 @@
 				684A37521BFD73DF00F7388C /* SelectDecorationTypeViewController.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
+				6E4496571BFEC2BD00C90851 /* ImageBrowerViewController.m in Sources */,
 				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
 				6855E6321BFAC78A00E789D4 /* RequirementCell.m in Sources */,
 				684A37611BFD80E800F7388C /* DesignerPlanStatusBaseCell.m in Sources */,
@@ -1480,6 +1529,7 @@
 				6E6D98C01BE0637700D45F77 /* Product.m in Sources */,
 				684A37671BFDE24900F7388C /* EvaluateDesignerViewController.m in Sources */,
 				6E7E4A691B9A90BA00503B35 /* LoginViewController.m in Sources */,
+				6E4496661BFF0B6F00C90851 /* ImageEditorViewController.m in Sources */,
 				6E6D98C31BE0665700D45F77 /* Requirement.m in Sources */,
 				685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */,
 				6E07DAC31BD88DBE001461DD /* Comment.m in Sources */,
