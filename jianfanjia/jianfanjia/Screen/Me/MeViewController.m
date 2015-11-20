@@ -8,6 +8,7 @@
 
 #import "MeViewController.h"
 #import "SettingViewController.h"
+#import "UserInfoViewController.h"
 
 @interface MeViewController ()
 
@@ -69,6 +70,11 @@
 
 - (IBAction)onClickFavoriateDesigner:(id)sender {
     
+}
+
+- (IBAction)onTapUserImageView:(id)sender {
+    UserInfoViewController *v = [[UserInfoViewController alloc] initWithNibName:nil bundle:nil];
+    [self.navigationController pushViewController:v animated:YES];
 }
 
 - (IBAction)onClickSetting:(id)sender {

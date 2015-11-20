@@ -42,7 +42,8 @@
     } else if (diff >= kOneYear) {
         return [date yyyy_MM_dd];
     } else {
-        return [date yyyy_MM_dd];    }
+        return [date yyyy_MM_dd];
+    }
 }
 
 - (NSString *)humCountString {

@@ -30,9 +30,13 @@
                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PTZ-eg-d8P">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="274"/>
                                     <animations/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="274" id="3T4-DM-E2e"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="FZ5-Bz-HJu" appends="YES" id="EWk-hK-jiv"/>
+                                    </connections>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aldis Zhan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgH-KV-wJY">
                                     <rect key="frame" x="40" y="233" width="87" height="21"/>
@@ -180,6 +184,11 @@
                 <constraint firstItem="J6e-uE-ld4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="uQc-4f-Bfq"/>
             </constraints>
         </view>
+        <tapGestureRecognizer id="FZ5-Bz-HJu">
+            <connections>
+                <action selector="onTapUserImageView:" destination="-1" id="Mal-om-0dl"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="bar_shape" width="7" height="13"/>

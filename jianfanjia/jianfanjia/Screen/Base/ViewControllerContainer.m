@@ -118,12 +118,12 @@ static ViewControllerContainer *container;
 }
 
 + (void)showProcess {
-    LeftViewController *left = [[LeftViewController alloc] initWithNibName:nil bundle:nil];
-    ProcessViewController *process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:process];
+//    LeftViewController *left = [[LeftViewController alloc] initWithNibName:nil bundle:nil];
+//    ProcessViewController *process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:process];
     
-    RESideMenu *side = [[RESideMenu alloc] initWithContentViewController:nav leftMenuViewController:left rightMenuViewController:nil];
-    container.window.rootViewController = side;
+//    RESideMenu *side = [[RESideMenu alloc] initWithContentViewController:nav leftMenuViewController:left rightMenuViewController:nil];
+//    container.window.rootViewController = side;
 }
 
 + (void)showProduct:(NSString *)productid {

@@ -129,6 +129,7 @@
 		6E4496461BFC562900C90851 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4496441BFC562900C90851 /* AboutViewController.xib */; };
 		6E44964B1BFC82F500C90851 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496491BFC82F500C90851 /* UserInfoViewController.m */; };
 		6E44964C1BFC82F500C90851 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E44964A1BFC82F500C90851 /* UserInfoViewController.xib */; };
+		6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496511BFD7DDE00C90851 /* NSNumber+Ex.m */; };
 		6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D988C1BDDC9C800D45F77 /* W1View.m */; };
 		6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D988E1BDDC9DC00D45F77 /* W1View.xib */; };
 		6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98901BDDFD9700D45F77 /* W2View.xib */; };
@@ -425,6 +426,8 @@
 		6E4496481BFC82F500C90851 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		6E4496491BFC82F500C90851 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		6E44964A1BFC82F500C90851 /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
+		6E4496501BFD7DDE00C90851 /* NSNumber+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSNumber+Ex.h"; sourceTree = "<group>"; };
+		6E4496511BFD7DDE00C90851 /* NSNumber+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+Ex.m"; sourceTree = "<group>"; };
 		6E6D988B1BDDC9C800D45F77 /* W1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W1View.h; sourceTree = "<group>"; };
 		6E6D988C1BDDC9C800D45F77 /* W1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W1View.m; sourceTree = "<group>"; };
 		6E6D988E1BDDC9DC00D45F77 /* W1View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W1View.xib; sourceTree = "<group>"; };
@@ -751,6 +754,8 @@
 		6E07DA751BD88DBE001461DD /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				6E4496501BFD7DDE00C90851 /* NSNumber+Ex.h */,
+				6E4496511BFD7DDE00C90851 /* NSNumber+Ex.m */,
 				6E07DA761BD88DBE001461DD /* Ex.h */,
 				6E07DA771BD88DBE001461DD /* NSManagedObject+Ex.h */,
 				6E07DA781BD88DBE001461DD /* NSManagedObject+Ex.m */,
@@ -928,6 +933,13 @@
 				6E44964A1BFC82F500C90851 /* UserInfoViewController.xib */,
 			);
 			path = Info;
+			sourceTree = "<group>";
+		};
+		6E4496531BFDB6F700C90851 /* ImageBrower */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ImageBrower;
 			sourceTree = "<group>";
 		};
 		6E6D98A61BDF732A00D45F77 /* HomePage */ = {
@@ -1113,6 +1125,7 @@
 		6EC3A98B1B8ACFD300A62153 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				6E4496531BFDB6F700C90851 /* ImageBrower */,
 				6EE299C01BF57C4E00A527F6 /* Refresh */,
 				68E505621BF0BA3000B0B910 /* SelectCity */,
 				6E838D961BE6EF3A000BF5CD /* ImageDetail */,
@@ -1384,6 +1397,7 @@
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
 				6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */,
 				6E6D98D41BE0D62F00D45F77 /* HomePageDesignerCell.m in Sources */,
+				6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */,
 				6E07DAD81BD8C6AF001461DD /* Bc.m in Sources */,
 				6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */,
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,

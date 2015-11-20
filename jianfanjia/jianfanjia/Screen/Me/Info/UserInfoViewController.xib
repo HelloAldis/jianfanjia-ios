@@ -7,6 +7,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserInfoViewController">
             <connections>
+                <outlet property="lblDetailLocation" destination="2ls-Th-qMJ" id="OEu-NH-lP4"/>
+                <outlet property="lblLocation" destination="Gaf-Lv-qIB" id="Cfo-Oa-fR0"/>
+                <outlet property="lblPhone" destination="wk7-Jk-JUB" id="6Pn-af-BXT"/>
+                <outlet property="lblSex" destination="SBB-M2-hfI" id="tuM-eh-i4C"/>
+                <outlet property="lblUsername" destination="tXg-ap-6V2" id="MLt-61-TIW"/>
+                <outlet property="userImageView" destination="TNE-t4-3eF" id="gjk-Ok-Rgy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -34,6 +40,9 @@
                                             <state key="normal" title="头像">
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onClickImage:" destination="-1" eventType="touchUpInside" id="J62-gR-rSF"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5k-JK-exA">
                                             <rect key="frame" x="0.0" y="80" width="600" height="1"/>
@@ -65,6 +74,9 @@
                                             <state key="normal" title="姓名">
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onClickUsername:" destination="-1" eventType="touchUpInside" id="ZCA-QY-lso"/>
+                                            </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="FZo-rE-3wi">
                                             <rect key="frame" x="573" y="97" width="7" height="13"/>
@@ -99,6 +111,9 @@
                                             <state key="normal" title="性别">
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onClickSex:" destination="-1" eventType="touchUpInside" id="UuG-SQ-LZB"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRt-W8-kQV">
                                             <rect key="frame" x="0.0" y="170" width="600" height="1"/>
@@ -161,6 +176,9 @@
                                             <state key="normal" title="所在地">
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onClickLocation:" destination="-1" eventType="touchUpInside" id="BPC-AW-NUZ"/>
+                                            </connections>
                                         </button>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAJ-Xd-L3V">
                                             <rect key="frame" x="0.0" y="260" width="600" height="1"/>
@@ -194,6 +212,9 @@
                                             <state key="normal" title="详细地址">
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="onClickDetailLocation:" destination="-1" eventType="touchUpInside" id="zNF-e7-Iwu"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ls-Th-qMJ">
                                             <rect key="frame" x="410" y="273" width="150" height="21"/>
