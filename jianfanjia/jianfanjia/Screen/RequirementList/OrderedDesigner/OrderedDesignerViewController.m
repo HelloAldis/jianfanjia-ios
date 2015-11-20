@@ -49,13 +49,13 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
         _requirementDataManager = [[RequirementDataManager alloc] init];
     }
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
     return self;
 }
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tableView registerNib:[UINib nibWithNibName:DesignerDeclineHomeOwner bundle:nil] forCellReuseIdentifier:DesignerDeclineHomeOwner];
     [self.tableView registerNib:[UINib nibWithNibName:DesignerMeasureHouseWithoutPlan bundle:nil] forCellReuseIdentifier:DesignerMeasureHouseWithoutPlan];
     [self.tableView registerNib:[UINib nibWithNibName:DesignerRespondedWithoutMeasureHouse bundle:nil] forCellReuseIdentifier:DesignerRespondedWithoutMeasureHouse];

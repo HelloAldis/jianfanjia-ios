@@ -14,6 +14,15 @@
 		68343A171BF70719004F15C1 /* allprovince.js in Resources */ = {isa = PBXBuildFile; fileRef = 68343A141BF70719004F15C1 /* allprovince.js */; };
 		68343A181BF70719004F15C1 /* city2area.js in Resources */ = {isa = PBXBuildFile; fileRef = 68343A151BF70719004F15C1 /* city2area.js */; };
 		68343A191BF70719004F15C1 /* province2city.js in Resources */ = {isa = PBXBuildFile; fileRef = 68343A161BF70719004F15C1 /* province2city.js */; };
+		683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 683668F81BFECEBC006A5053 /* EvaluateDesigner.m */; };
+		683668FC1BFEECC0006A5053 /* Evaluation.m in Sources */ = {isa = PBXBuildFile; fileRef = 683668FB1BFEECC0006A5053 /* Evaluation.m */; };
+		683668FF1BFF055D006A5053 /* ReplaceOrderedDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 683668FE1BFF055D006A5053 /* ReplaceOrderedDesigner.m */; };
+		683669041BFF0B44006A5053 /* PlanListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683669021BFF0B44006A5053 /* PlanListViewController.m */; };
+		683669051BFF0B44006A5053 /* PlanListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683669031BFF0B44006A5053 /* PlanListViewController.xib */; };
+		683669091BFF0C05006A5053 /* PlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683669071BFF0C05006A5053 /* PlanCell.m */; };
+		6836690A1BFF0C05006A5053 /* PlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683669081BFF0C05006A5053 /* PlanCell.xib */; };
+		6836690D1BFF183F006A5053 /* PriceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6836690C1BFF183F006A5053 /* PriceItem.m */; };
+		683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */ = {isa = PBXBuildFile; fileRef = 6836690F1BFF1A8F006A5053 /* GetRequirementPlans.m */; };
 		684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */; };
 		684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */; };
 		684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E51BFD733400F7388C /* DesignerMeasureHouseWithoutPlanCell.m */; };
@@ -228,6 +237,22 @@
 		68343A141BF70719004F15C1 /* allprovince.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = allprovince.js; sourceTree = "<group>"; };
 		68343A151BF70719004F15C1 /* city2area.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = city2area.js; sourceTree = "<group>"; };
 		68343A161BF70719004F15C1 /* province2city.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = province2city.js; sourceTree = "<group>"; };
+		683668F71BFECEBC006A5053 /* EvaluateDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateDesigner.h; sourceTree = "<group>"; };
+		683668F81BFECEBC006A5053 /* EvaluateDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateDesigner.m; sourceTree = "<group>"; };
+		683668FA1BFEECC0006A5053 /* Evaluation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evaluation.h; sourceTree = "<group>"; };
+		683668FB1BFEECC0006A5053 /* Evaluation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evaluation.m; sourceTree = "<group>"; };
+		683668FD1BFF055D006A5053 /* ReplaceOrderedDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplaceOrderedDesigner.h; sourceTree = "<group>"; };
+		683668FE1BFF055D006A5053 /* ReplaceOrderedDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplaceOrderedDesigner.m; sourceTree = "<group>"; };
+		683669011BFF0B44006A5053 /* PlanListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanListViewController.h; sourceTree = "<group>"; };
+		683669021BFF0B44006A5053 /* PlanListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanListViewController.m; sourceTree = "<group>"; };
+		683669031BFF0B44006A5053 /* PlanListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanListViewController.xib; sourceTree = "<group>"; };
+		683669061BFF0C05006A5053 /* PlanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanCell.h; sourceTree = "<group>"; };
+		683669071BFF0C05006A5053 /* PlanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanCell.m; sourceTree = "<group>"; };
+		683669081BFF0C05006A5053 /* PlanCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanCell.xib; sourceTree = "<group>"; };
+		6836690B1BFF183F006A5053 /* PriceItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceItem.h; sourceTree = "<group>"; };
+		6836690C1BFF183F006A5053 /* PriceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceItem.m; sourceTree = "<group>"; };
+		6836690E1BFF1A8F006A5053 /* GetRequirementPlans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRequirementPlans.h; sourceTree = "<group>"; };
+		6836690F1BFF1A8F006A5053 /* GetRequirementPlans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRequirementPlans.m; sourceTree = "<group>"; };
 		684A36E11BFD733400F7388C /* DesignerDeclineHomeOwnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDeclineHomeOwnerCell.h; sourceTree = "<group>"; };
 		684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDeclineHomeOwnerCell.m; sourceTree = "<group>"; };
 		684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerDeclineHomeOwnerCell.xib; sourceTree = "<group>"; };
@@ -575,6 +600,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		683669001BFF0AF4006A5053 /* PlanList */ = {
+			isa = PBXGroup;
+			children = (
+				683669061BFF0C05006A5053 /* PlanCell.h */,
+				683669071BFF0C05006A5053 /* PlanCell.m */,
+				683669081BFF0C05006A5053 /* PlanCell.xib */,
+				683669011BFF0B44006A5053 /* PlanListViewController.h */,
+				683669021BFF0B44006A5053 /* PlanListViewController.m */,
+				683669031BFF0B44006A5053 /* PlanListViewController.xib */,
+			);
+			path = PlanList;
+			sourceTree = "<group>";
+		};
 		684A36E01BFD733400F7388C /* OrderedDesigner */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,6 +788,12 @@
 				684A375D1BFD7D6600F7388C /* GetOrderedDesignder.m */,
 				684A37621BFDDCB100F7388C /* ConfirmMeasuringHouse.h */,
 				684A37631BFDDCB100F7388C /* ConfirmMeasuringHouse.m */,
+				683668F71BFECEBC006A5053 /* EvaluateDesigner.h */,
+				683668F81BFECEBC006A5053 /* EvaluateDesigner.m */,
+				683668FD1BFF055D006A5053 /* ReplaceOrderedDesigner.h */,
+				683668FE1BFF055D006A5053 /* ReplaceOrderedDesigner.m */,
+				6836690E1BFF1A8F006A5053 /* GetRequirementPlans.h */,
+				6836690F1BFF1A8F006A5053 /* GetRequirementPlans.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -848,6 +892,10 @@
 				6E6D98D71BE1BD3500D45F77 /* ProductImage.m */,
 				68342DF31BFC0F960000EBBE /* Plan.h */,
 				68342DF41BFC0F960000EBBE /* Plan.m */,
+				683668FA1BFEECC0006A5053 /* Evaluation.h */,
+				683668FB1BFEECC0006A5053 /* Evaluation.m */,
+				6836690B1BFF183F006A5053 /* PriceItem.h */,
+				6836690C1BFF183F006A5053 /* PriceItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -990,6 +1038,7 @@
 		6E6D98AC1BDF735C00D45F77 /* RequirementList */ = {
 			isa = PBXGroup;
 			children = (
+				683669001BFF0AF4006A5053 /* PlanList */,
 				684A37141BFD73DE00F7388C /* OrderDesigner */,
 				684A37241BFD73DF00F7388C /* RequirementCreate */,
 				684A36E01BFD733400F7388C /* OrderedDesigner */,
@@ -1295,7 +1344,9 @@
 				684A37571BFD73DF00F7388C /* SelectPopulationViewController.xib in Resources */,
 				6E4496261BF9BA2600C90851 /* VerifyPhoneViewController.xib in Resources */,
 				684A370B1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib in Resources */,
+				683669051BFF0B44006A5053 /* PlanListViewController.xib in Resources */,
 				6E6D98E71BE343E400D45F77 /* DesignerViewController.xib in Resources */,
+				6836690A1BFF0C05006A5053 /* PlanCell.xib in Resources */,
 				684A370F1BFD733500F7388C /* OrderedDesignerViewController.xib in Resources */,
 				684A37551BFD73DF00F7388C /* SelectHouseTypeViewController.xib in Resources */,
 				6E7E4A6A1B9A90BA00503B35 /* LoginViewController.xib in Resources */,
@@ -1412,6 +1463,7 @@
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
 				684A374E1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m in Sources */,
 				6E07DAC61BD88DBE001461DD /* Process.m in Sources */,
+				683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */,
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
@@ -1423,6 +1475,7 @@
 				6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */,
 				6E6D98D41BE0D62F00D45F77 /* HomePageDesignerCell.m in Sources */,
 				6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */,
+				6836690D1BFF183F006A5053 /* PriceItem.m in Sources */,
 				6E07DAD81BD8C6AF001461DD /* Bc.m in Sources */,
 				6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */,
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
@@ -1473,6 +1526,8 @@
 				6E6D98B61BDF73DE00D45F77 /* MeViewController.m in Sources */,
 				6E78670C1BA920D900DE8B1B /* BannerCell.m in Sources */,
 				68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */,
+				683668FF1BFF055D006A5053 /* ReplaceOrderedDesigner.m in Sources */,
+				683668FC1BFEECC0006A5053 /* Evaluation.m in Sources */,
 				684A37441BFD73DF00F7388C /* MatchDesignerCell.m in Sources */,
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
@@ -1492,6 +1547,7 @@
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
+				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
 				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
@@ -1502,6 +1558,7 @@
 				684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */,
 				684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */,
 				6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */,
+				683669041BFF0B44006A5053 /* PlanListViewController.m in Sources */,
 				6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */,
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
@@ -1511,6 +1568,7 @@
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
 				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
+				683669091BFF0C05006A5053 /* PlanCell.m in Sources */,
 				684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
 				6E6D98CA1BE0AB7C00D45F77 /* HomePageRequirementCell.m in Sources */,

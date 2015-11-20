@@ -31,4 +31,31 @@
     }
 }
 
++ (NSInteger)setStars:(NSArray *)imageViewArray withTouchStar:(UIImageView *)touchedStar fullStar:(UIImage *)full emptyStar:(UIImage *)empty {
+    __block NSInteger touchIndex = imageViewArray.count - 1;
+    [imageViewArray enumerateObjectsUsingBlock:^(UIImageView*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj == touchedStar) {
+            touchIndex = idx;
+        }
+        
+        if (idx > touchIndex) {
+            obj.image = empty;
+        } else {
+            obj.image = full;
+        }
+    }];
+    
+    return touchIndex + 1;
+}
+
++ (void)displayStars:(NSArray *)imageViewArray withAmount:(NSInteger)amount withStar:(UIImage *)starImg {
+    [imageViewArray enumerateObjectsUsingBlock:^(UIImageView*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (idx <= amount) {
+            obj.image = starImg;
+        } else {
+            obj.image = nil;
+        }
+    }];
+}
+
 @end

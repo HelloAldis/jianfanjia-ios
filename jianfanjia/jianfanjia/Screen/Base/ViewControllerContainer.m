@@ -27,6 +27,7 @@
 #import "ResetPassViewController.h"
 #import "OrderedDesignerViewController.h"
 #import "EvaluateDesignerViewController.h"
+#import "PlanListViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -178,13 +179,23 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
++ (void)showReplaceOrderedDesigner:(NSString *)designerid forRequirement:(Requirement *)requirement {
+    OrderDesignerViewController *v = [[OrderDesignerViewController alloc] initWithRequirement:requirement withToBeReplacedDesigner:designerid];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showPlanList:(NSString *)designerid forRequirement:(Requirement *)requirement {
+    PlanListViewController *v = [[PlanListViewController alloc] initWithRequirement:requirement withDesigner:designerid];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
 + (void)showOrderedDesigner:(Requirement *)requirement {
     OrderedDesignerViewController *v = [[OrderedDesignerViewController alloc] initWithRequirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showEvaluateDesigner:(Designer *)designer {
-    EvaluateDesignerViewController *v = [[EvaluateDesignerViewController alloc] initWithDesigner:designer];
++ (void)showEvaluateDesigner:(Designer *)designer withRequirement:(NSString *)requirementid {
+    EvaluateDesignerViewController *v = [[EvaluateDesignerViewController alloc] initWithDesigner:designer withRequirment:requirementid];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

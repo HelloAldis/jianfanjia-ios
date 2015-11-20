@@ -13,11 +13,18 @@
 #import "IntentDesignerSection.h"
 #import "RequirementDataManager.h"
 
+typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
+    NormalOrder,
+    ReplaceOrder,
+};
+
 @interface OrderDesignerViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *orderableDesigners;
 @property (strong, nonatomic) Requirement *requirement;
+@property (strong, nonatomic) NSString *toBeReplacedDesignerId;
 @property (strong, nonatomic) RequirementDataManager *requirementDataManager;
+@property (assign, nonatomic) OrderDesignerOrderType orderType;
 @property (assign, nonatomic) NSInteger orderableCount;
 
 @property (assign, nonatomic) BOOL isChooseAll;
@@ -27,19 +34,32 @@
 @implementation OrderDesignerViewController
 
 #pragma mark - init method
-- (id)initWithRequirement:(Requirement *)requirement {
+- (id)initWithRequirement:(Requirement *)requirement withOrderType:(OrderDesignerOrderType)type {
     if (self = [super init]) {
         _requirement = requirement;
+        _orderType = type;
         _requirementDataManager = [[RequirementDataManager alloc] init];
     }
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    return self;
+}
+
+- (id)initWithRequirement:(Requirement *)requirement {
+    return [self initWithRequirement:requirement withOrderType:NormalOrder];
+}
+
+- (id)initWithRequirement:(Requirement *)requirement withToBeReplacedDesigner:(NSString *)designerid {
+    if ([self initWithRequirement:requirement withOrderType:ReplaceOrder]) {
+        _toBeReplacedDesignerId = designerid;
+    }
+    
     return self;
 }
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tableView registerNib:[UINib nibWithNibName:@"MatchDesignerCell" bundle:nil] forCellReuseIdentifier:@"MatchDesignerCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"IntentDesignerCell" bundle:nil] forCellReuseIdentifier:@"IntentDesignerCell"];
     
@@ -76,7 +96,11 @@
 #pragma mark - init data 
 - (void)initData {
     [self.requirementDataManager refreshOrderedDesigners:self.requirement];
-    self.orderableCount = kMaxOrderableDesignerCount - self.requirementDataManager.orderedDesigners.count;
+    if (self.orderType == NormalOrder) {
+        self.orderableCount = kMaxOrderableDesignerCount - self.requirementDataManager.orderedDesigners.count;
+    } else {
+        self.orderableCount = 1;
+    }
 }
 
 
@@ -184,15 +208,29 @@
         [arr addObject:designerId];
     }];
     
-    OrderDesignder *orderDesigner = [[OrderDesignder alloc] init];
-    orderDesigner.requirementid = self.requirement._id;
-    orderDesigner.designerids = arr;
     
-    [API orderDesigner:orderDesigner success:^{
-        [self clickBack];
-    } failure:^{
-    
-    }];
+    if (self.orderType == NormalOrder) {
+        OrderDesignder *orderDesigner = [[OrderDesignder alloc] init];
+        orderDesigner.requirementid = self.requirement._id;
+        orderDesigner.designerids = arr;
+        
+        [API orderDesigner:orderDesigner success:^{
+            [self clickBack];
+        } failure:^{
+            
+        }];
+    } else {
+        ReplaceOrderedDesigner *request = [[ReplaceOrderedDesigner alloc] init];
+        request.requirementid = self.requirement._id;
+        request.old_designerid = self.toBeReplacedDesignerId;
+        request.replaced_designerid = arr[0];
+        
+        [API replaceOrderedDesigner:request success:^{
+            [self clickBack];
+        } failure:^{
+            
+        }];
+    }
 }
 
 #pragma mark - send request 

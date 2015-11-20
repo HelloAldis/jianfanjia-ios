@@ -20,5 +20,7 @@
 #import "Plan.h"
 #import "Product.h"
 #import "ProductImage.h"
+#import "Evaluation.h"
+#import "PriceItem.h"
 
 #endif /* Model_h */

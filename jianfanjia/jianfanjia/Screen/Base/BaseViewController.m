@@ -27,6 +27,13 @@
     self.navigationItem.leftBarButtonItem = item;
 }
 
+- (void)initTranslucentNavBar {
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.translucent = YES;
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"translucent"] forBarMetrics:UIBarMetricsDefault];
+}
+
 #pragma mark - user actions
 - (void)onClickBack {
     [self.navigationController popViewControllerAnimated:YES];

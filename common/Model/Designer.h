@@ -10,6 +10,7 @@
 @class Product;
 @class Plan;
 @class Requirement;
+@class Evaluation;
 
 @interface Designer : BaseModel
 
@@ -47,5 +48,7 @@
 @property(nonatomic, strong) Plan *plan;
 //不动态属性
 @property(nonatomic, strong) Requirement *requirement;
+//不动态属性
+@property(nonatomic, strong) Evaluation *evaluation;
 
 @end

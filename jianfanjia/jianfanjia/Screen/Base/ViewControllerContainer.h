@@ -22,8 +22,10 @@
 + (void)showProduct:(NSString *)productid;
 + (void)showDesigner:(NSString *)designerid;
 + (void)showOrderDesigner:(Requirement *)requirement;
++ (void)showReplaceOrderedDesigner:(NSString *)designerid forRequirement:(Requirement *)requirement;
 + (void)showOrderedDesigner:(Requirement *)requirement;
-+ (void)showEvaluateDesigner:(Designer *)designer;
++ (void)showEvaluateDesigner:(Designer *)designer withRequirement:(NSString *)requirementid;
++ (void)showPlanList:(NSString *)designerid forRequirement:(Requirement *)requirement;
 + (void)showTab;
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index;
 + (void)showRefresh;

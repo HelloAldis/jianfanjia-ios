@@ -67,12 +67,24 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"user_order_designer" data:[request data] handler:request success:success failure:failure];
 }
 
++ (void)replaceOrderedDesigner:(ReplaceOrderedDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user_change_ordered_designer" data:[request data] handler:request success:success failure:failure];
+}
+
 + (void)getOrderedDesigner:(GetOrderedDesignder *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API POST:@"user_ordered_designers" data:[request data] handler:request success:success failure:failure];
 }
 
 + (void)confirmMeasuringHouse:(ConfirmMeasuringHouse *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API POST:@"designer_house_checked" data:[request data] handler:request success:success failure:failure];
+}
+
++ (void)evaluateDesigner:(EvaluateDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user_evaluate_designer" data:[request data] handler:request success:success failure:failure];
+}
+
++ (void)getRequirementPlans:(GetRequirementPlans *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user_requirement_plans" data:[request data] handler:request success:success failure:failure];
 }
 
 + (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure {

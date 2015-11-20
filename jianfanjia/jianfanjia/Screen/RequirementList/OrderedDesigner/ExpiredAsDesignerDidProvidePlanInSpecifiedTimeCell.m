@@ -7,6 +7,7 @@
 //
 
 #import "ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.h"
+#import "ViewControllerContainer.h"
 
 @interface ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
@@ -38,7 +39,7 @@
 }
 
 - (void)onClickButton {
-    
+    [ViewControllerContainer showReplaceOrderedDesigner:self.designer._id forRequirement:self.requirement];
 }
 
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PlanListViewController">
+            <connections>
+                <outlet property="tableView" destination="OAx-rI-b8d" id="c9U-fb-b3T"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="OAx-rI-b8d">
+                    <rect key="frame" x="0.0" y="64" width="600" height="600"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="m2l-AG-fh6"/>
+                        <outlet property="delegate" destination="-1" id="G1p-7x-l1y"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="OAx-rI-b8d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="YBS-I7-wLH"/>
+                <constraint firstItem="OAx-rI-b8d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YyD-Mk-eYD"/>
+                <constraint firstItem="OAx-rI-b8d" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="iPp-sR-4GT"/>
+                <constraint firstItem="OAx-rI-b8d" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="vvg-9x-5QY"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

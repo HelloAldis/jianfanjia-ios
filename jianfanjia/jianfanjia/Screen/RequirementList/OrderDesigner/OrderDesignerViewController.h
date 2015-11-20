@@ -12,5 +12,6 @@
 @interface OrderDesignerViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithRequirement:(Requirement *)requirement;
+- (id)initWithRequirement:(Requirement *)requirement withToBeReplacedDesigner:(NSString *)designerid;
 
 @end

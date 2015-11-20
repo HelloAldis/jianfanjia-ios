@@ -7,6 +7,7 @@
 //
 
 #import "DesignerSubmittedPlanCell.h"
+#import "ViewControllerContainer.h"
 
 @interface DesignerSubmittedPlanCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
@@ -24,6 +25,17 @@
     [self.btnViewPlan setCornerRadius:5];
     [self.btnEvaluate setBorder:1 andColor:[UIColor colorWithR:0xFE g:0x70 b:0x04].CGColor];
     [self.btnEvaluate setCornerRadius:5];
+    
+    @weakify(self);
+    [[self.btnEvaluate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickEvaluateButton];
+    }];
+    
+    [[self.btnViewPlan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickViewPlanButton];
+    }];
 }
 
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock {
@@ -31,6 +43,18 @@
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
     [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_Type];
+    
+    if (self.designer.evaluation) {
+        [self.btnEvaluate setTitle:@"已评价" forState:UIControlStateNormal];
+    }
+}
+
+- (void)onClickEvaluateButton {
+    [ViewControllerContainer showEvaluateDesigner:self.designer withRequirement:self.requirement._id];
+}
+
+- (void)onClickViewPlanButton {
+    [ViewControllerContainer showPlanList:self.designer._id forRequirement:self.requirement];
 }
 
 @end
