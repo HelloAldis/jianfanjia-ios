@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface SelectCommunicationTypeViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SelectCommunicationTypeViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

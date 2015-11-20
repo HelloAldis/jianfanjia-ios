@@ -7,13 +7,14 @@
 //
 
 #import "DesignerMeasureHouseWithoutPlanCell.h"
+#import "ViewControllerContainer.h"
 
 @interface DesignerMeasureHouseWithoutPlanCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *authIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
-@property (weak, nonatomic) IBOutlet UILabel *lblMatchVal;
-@property (weak, nonatomic) IBOutlet UIImageView *imgCheck;
+@property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
+@property (weak, nonatomic) IBOutlet UIButton *btnEvaluate;
 
 @end
 
@@ -21,24 +22,36 @@
 
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+    [self.btnViewPlan setCornerRadius:5];
+    [self.btnViewPlan setBorder:1 andColor:[UIColor colorWithR:0xb5 g:0xb9 b:0xbc].CGColor];
+    [self.btnEvaluate setCornerRadius:5];
+    [self.btnEvaluate setBorder:1 andColor:[UIColor colorWithR:0xFE g:0x70 b:0x04].CGColor];
     
-    if (selected) {
-        self.imgCheck.image = [UIImage imageNamed:@"checked"];
-    } else {
-        self.imgCheck.image = [UIImage imageNamed:@"unchecked"];
-    }
+    @weakify(self);
+    [[self.btnEvaluate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickEvaluateButton];
+    }];
+    
+    [[self.btnViewPlan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickViewPlanButton];
+    }];
 }
 
-- (void)initWithDesigner:(Designer *)designer {
-    self.designer = designer;
+- (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock {
+    [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
-    self.lblMatchVal.text = [NSString stringWithFormat:@"%@%%", designer.match];
     [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_Type];
+}
+
+- (void)onClickEvaluateButton {
+    [ViewControllerContainer showEvaluateDesigner:self.designer];
+}
+
+- (void)onClickViewPlanButton {
+    
 }
 
 @end

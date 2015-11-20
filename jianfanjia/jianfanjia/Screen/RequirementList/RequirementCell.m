@@ -51,7 +51,7 @@
     
     [[self.btnGoToWorkspace rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [self onClickButton];
+        [self onClickGoToWorkSiteButton];
     }];
     
     [self.imgHomeOwner setUserImageWithId:nil];
@@ -72,8 +72,8 @@
 - (void)tapDesignerAvatar:(UIGestureRecognizer*)gestureRecognizer {
     NSInteger touchedIndex = -1;
     for (UIImageView *imageView in self.designerAvatar) {
+        touchedIndex++;
         if (gestureRecognizer.view == imageView) {
-            touchedIndex++;
             break;
         }
     }
@@ -82,10 +82,15 @@
         return;
     }
     
-    [ViewControllerContainer showOrderDesigner:self.requirement];
+    NSString *status = self.currentPlanStatus[touchedIndex];
+    if ([status isEqualToString:kPlanStatusUnorder]) {
+        [ViewControllerContainer showOrderDesigner:self.requirement];
+    } else {
+        [ViewControllerContainer showOrderedDesigner:self.requirement];
+    }
 }
 
-- (void)onClickButton {
+- (void)onClickGoToWorkSiteButton {
     if (kRequirementStatusConfiguredWorkSite == self.currentRequirementStatus) {
         
     } else {
@@ -93,7 +98,7 @@
     }
 }
 
-- (void)updateDesigner:(Designer *)orderedDesigner forIndex:(NSUInteger) idx {
+- (void)updateDesigner:(Designer *)orderedDesigner forIndex:(NSUInteger)idx {
     UIImageView *imgView = self.designerAvatar[idx];
     [imgView setImageWithId:orderedDesigner.imageid withWidth:imgView.bounds.size.width];
     
@@ -107,16 +112,17 @@
     [DesignerBusiness setV:authIcon withAuthType:orderedDesigner.auth_Type];
     
     NSString *status = orderedDesigner.plan.status;
+    self.currentPlanStatus[idx] = status;
     
     if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]
         || [status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]
+        || [status isEqualToString:kPlanStatusDesignerMeasureHouseWithoutPlan]
         || [status isEqualToString:kPlanStatusDesignerSubmittedPlan]) {
         lblStatus.textColor = OrderedColor;
     } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
         lblStatus.textColor = PlanChoosedColor;
     } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]
                || [status isEqualToString:kPlanStatusPlanWasNotChoosed]
-               || [status isEqualToString:kPlanStatusDesignerMeasureHouseWithoutPlan]
                || [status isEqualToString:kPlanStatusExpiredAsDesignerDidNotRespond]) {
         lblStatus.textColor = UnorderColor;
     }

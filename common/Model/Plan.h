@@ -12,5 +12,6 @@
 
 @property(nonatomic, strong) NSString *_id;
 @property(nonatomic, strong) NSString *status;
+@property(nonatomic, strong) NSNumber *house_check_time;
 
 @end

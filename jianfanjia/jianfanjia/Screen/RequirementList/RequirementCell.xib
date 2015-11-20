@@ -61,7 +61,7 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EVa-yr-c1U">
-                        <rect key="frame" x="0.0" y="238" width="492" height="1"/>
+                        <rect key="frame" x="0.0" y="243" width="492" height="1"/>
                         <animations/>
                         <color key="backgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -116,7 +116,7 @@
                         <gestureRecognizers/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKf-Zx-gy1">
-                        <rect key="frame" x="37" y="184" width="42" height="17"/>
+                        <rect key="frame" x="37" y="189" width="42" height="17"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
@@ -151,7 +151,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未预约" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHW-cy-oDP">
-                        <rect key="frame" x="38" y="209" width="39" height="16"/>
+                        <rect key="frame" x="38" y="214" width="39" height="16"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.48627450980392156" green="0.51372549019607838" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
@@ -172,7 +172,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3w5-SK-Y4s">
-                        <rect key="frame" x="218" y="245" width="56" height="29"/>
+                        <rect key="frame" x="218" y="250" width="56" height="29"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="预览工地">
@@ -236,7 +236,7 @@
                     <constraint firstItem="2DL-zK-Kuw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="jjR-WK-Dh1"/>
                     <constraint firstItem="Icl-LB-fX0" firstAttribute="bottom" secondItem="7vo-gK-hs3" secondAttribute="bottom" id="lHa-MZ-GGZ"/>
                     <constraint firstItem="7vo-gK-hs3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="mWC-lM-r2J"/>
-                    <constraint firstItem="oKf-Zx-gy1" firstAttribute="top" secondItem="7vo-gK-hs3" secondAttribute="bottom" constant="10" id="nf2-jo-N1q"/>
+                    <constraint firstItem="oKf-Zx-gy1" firstAttribute="top" secondItem="7vo-gK-hs3" secondAttribute="bottom" constant="15" id="nf2-jo-N1q"/>
                     <constraint firstItem="pKS-DR-vTN" firstAttribute="centerY" secondItem="MK4-PR-aJY" secondAttribute="centerY" id="sJG-8T-VgY"/>
                     <constraint firstItem="JHW-cy-oDP" firstAttribute="centerX" secondItem="oKf-Zx-gy1" secondAttribute="centerX" id="siU-sp-A3d"/>
                     <constraint firstItem="dtU-1X-7lg" firstAttribute="leading" secondItem="oo2-iF-zV5" secondAttribute="leading" id="svT-2x-4Nw"/>

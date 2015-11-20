@@ -12,8 +12,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *authIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
-@property (weak, nonatomic) IBOutlet UILabel *lblMatchVal;
-@property (weak, nonatomic) IBOutlet UIImageView *imgCheck;
+@property (weak, nonatomic) IBOutlet UILabel *lblMeasureHouseTime;
+@property (weak, nonatomic) IBOutlet UILabel *lblMeasureHouseTimeVal;
+@property (weak, nonatomic) IBOutlet UIButton *btnConfirmMeasureHouse;
 
 @end
 
@@ -21,24 +22,41 @@
 
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
+    [self.btnConfirmMeasureHouse setCornerRadius:5];
+    
+    @weakify(self);
+    [[self.btnConfirmMeasureHouse rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickButton];
+    }];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock {
+    [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
+    [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
+    self.lblUserNameVal.text = designer.username;
+    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_Type];
+    self.lblMeasureHouseTimeVal.text = [NSDate yyyy_MM_dd_HH_mm:designer.plan.house_check_time];
     
-    if (selected) {
-        self.imgCheck.image = [UIImage imageNamed:@"checked"];
-    } else {
-        self.imgCheck.image = [UIImage imageNamed:@"unchecked"];
+    if ([[NSDate date] timeIntervalSince1970] > designer.plan.house_check_time.longValue / 1000) {
+        self.btnConfirmMeasureHouse.hidden = NO;
+        self.lblMeasureHouseTime.hidden = YES;
+        self.lblMeasureHouseTimeVal.hidden = YES;
     }
 }
 
-- (void)initWithDesigner:(Designer *)designer {
-    self.designer = designer;
-    [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
-    self.lblUserNameVal.text = designer.username;
-    self.lblMatchVal.text = [NSString stringWithFormat:@"%@%%", designer.match];
-    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_Type];
+- (void)onClickButton {
+    ConfirmMeasuringHouse *request = [[ConfirmMeasuringHouse alloc] init];
+    request.designerid = self.designer._id;
+    request.requirementid = self.requirement._id;
+    
+    @weakify(self);
+    [API confirmMeasuringHouse:request success:^{
+        @strongify(self);
+        [self refresh];
+    } failure:^{
+        
+    }];
 }
 
 @end

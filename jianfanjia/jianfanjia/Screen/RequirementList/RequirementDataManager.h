@@ -17,6 +17,7 @@
 
 - (void)refreshRequirementList;
 - (void)refreshOrderedDesigners:(Requirement *)requirement;
+- (void)refreshOrderedDesigners;
 - (void)refreshOrderableDesigners;
 
 @end

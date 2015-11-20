@@ -29,9 +29,7 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - init Nav
 - (void)initNav {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
-    self.navigationItem.leftBarButtonItem = item;
-    
+    [self initLeftBackInNav];
 
     self.title = @"常住人口";
 }
@@ -45,12 +43,6 @@ static NSString* cellId = @"cityCell";
 - (void)initData {
     self.data = [NameDict getAllPopulationType];
 }
-
-#pragma mark - user action
-- (void)onClickBack {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

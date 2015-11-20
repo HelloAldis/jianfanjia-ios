@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface RequirementListViewController : BaseViewController
+@interface RequirementListViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

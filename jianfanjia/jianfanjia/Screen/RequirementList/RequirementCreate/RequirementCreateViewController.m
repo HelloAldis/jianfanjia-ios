@@ -92,7 +92,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 
 #pragma mark - UI
 - (void)initNav {
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];;
+    [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
     self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
     self.title = @"填写装修需求";
@@ -306,15 +306,11 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 }
 
 #pragma mark - user action
-- (void)onClickBack {
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
 - (void)onClickDone {
     SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
     
     [API sendAddRequirement:sendAddRequirement success:^{
-        [self onClickBack];
+        [self clickBack];
     } failure:^{
     
     }];

@@ -36,6 +36,22 @@
     self.orderedDesigners = orderedDesigners;
 }
 
+- (void)refreshOrderedDesigners {
+    NSArray* arr = [DataManager shared].data;
+    NSMutableArray *orderedDesigners = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    
+    for (NSMutableDictionary *dict in arr) {
+        Designer *orderedDesigner = [[Designer alloc] initWith:dict];
+        NSMutableDictionary *planDic = [orderedDesigner.data objectForKey:@"plan"];
+        NSMutableDictionary *requirementDic = [orderedDesigner.data objectForKey:@"requirement"];
+        orderedDesigner.plan = [[Plan alloc] initWith:planDic];
+        orderedDesigner.requirement = [[Requirement alloc] initWith:requirementDic];
+        [orderedDesigners addObject:orderedDesigner];
+    }
+    
+    self.orderedDesigners = orderedDesigners;
+}
+
 - (void)refreshOrderableDesigners {
     NSMutableDictionary* dataDic = [DataManager shared].data;
     NSArray *arr = [dataDic objectForKey:@"rec_designer"];

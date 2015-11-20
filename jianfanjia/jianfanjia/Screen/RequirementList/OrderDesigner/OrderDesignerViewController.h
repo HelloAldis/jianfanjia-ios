@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface OrderDesignerViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface OrderDesignerViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithRequirement:(Requirement *)requirement;
 
