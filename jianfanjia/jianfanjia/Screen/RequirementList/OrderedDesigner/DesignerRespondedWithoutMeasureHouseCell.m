@@ -35,7 +35,7 @@
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
-    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_Type];
+    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
     self.lblMeasureHouseTimeVal.text = [NSDate yyyy_MM_dd_HH_mm:designer.plan.house_check_time];
     
     if ([[NSDate date] timeIntervalSince1970] > designer.plan.house_check_time.longValue / 1000) {

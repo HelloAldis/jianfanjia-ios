@@ -56,6 +56,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 #pragma mark - init method
 - (id)initToCreateRequirement {
     Requirement *newRequirement = [[Requirement alloc] init];
+    newRequirement._id = @"";
     return [self initWithRequirement:newRequirement withType:Create];
 }
 
@@ -111,14 +112,17 @@ static NSTimeInterval kKeyboardDuration = 2.0;
                                         combineLatest:@[RACObserve([DataManager shared], requirementPageSelectedProvince), RACObserve([DataManager shared], requirementPageSelectedCity), RACObserve([DataManager shared], requirementPageSelectedArea)]
                                         reduce:^(NSString *province, NSString *city, NSString *area) {
                                             @strongify(self);
-                                            self.editingRequirement.province = province;
-                                            self.editingRequirement.city = city;
-                                            self.editingRequirement.district = area;
+                                            self.editingRequirement.province = province == nil ? @"" : province;
+                                            self.editingRequirement.city = city == nil ? @"" : city;
+                                            self.editingRequirement.district = area == nil ? @"" : area;
                                             
                                             return [NSString stringWithFormat:@"%@ %@ %@",
-                                                    province == nil ? @"" : province,
-                                                    city == nil ? @"" : city,
-                                                    area == nil ? @"" : area];
+                                                    self.editingRequirement.province
+                                                    ,
+                                                    self.editingRequirement.city
+                                                    ,
+                                                    self.editingRequirement.district
+                                                    ];
                                         }];
     
     //Select house type
@@ -130,7 +134,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     
     [RACObserve([DataManager shared], requirementPageSelectedHouseType) subscribeNext:^(NSString *value) {
         @strongify(self);
-        self.editingRequirement.house_type = value;
+        self.editingRequirement.house_type = value == nil ? @"" : value;
         self.lblSelectHouseTypeVal.text = [NameDict nameForHouseType:value];
     }];
     
@@ -143,7 +147,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     
     [RACObserve([DataManager shared], requirementPageSelectedWorkType) subscribeNext:^(NSString *value) {
         @strongify(self);
-        self.editingRequirement.work_type = value;
+        self.editingRequirement.work_type = value == nil ? @"" : value;
         self.lblSelectWorkTypeVal.text = [NameDict nameForWorkType:value];
     }];
     
@@ -156,7 +160,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     
     [RACObserve([DataManager shared], requirementPageSelectedDecorationType) subscribeNext:^(NSString *value) {
         @strongify(self);
-        self.editingRequirement.dec_type = value;
+        self.editingRequirement.dec_type = value == nil ? @"" : value;
         self.lblSelectDecorationTypeVal.text = [NameDict nameForDecType:value];
     }];
     
@@ -169,7 +173,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     
     [RACObserve([DataManager shared], requirementPageSelectedPopulationType) subscribeNext:^(NSString *value) {
         @strongify(self);
-        self.editingRequirement.family_description = value;
+        self.editingRequirement.family_description = value == nil ? @"" : value;
         self.lblSelectPopulationVal.text = value;
     }];
     
@@ -182,7 +186,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     
     [RACObserve([DataManager shared], requirementPageSelectedDecorationStyle) subscribeNext:^(NSString *value) {
         @strongify(self);
-        self.editingRequirement.dec_style = value;
+        self.editingRequirement.dec_style = value == nil ? @"" : value;
         self.lblSelectPreferredStyleVal.text = [NameDict nameForDecStyle:value];
     }];
     
@@ -195,7 +199,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     
     [RACObserve([DataManager shared], requirementPageSelectedCommunicationType) subscribeNext:^(NSString *value) {
         @strongify(self);
-        self.editingRequirement.communication_type = value;
+        self.editingRequirement.communication_type = value == nil ? @"" : value;
         self.lblSelectCommunicationTypeVal.text = [NameDict nameForCommunicationType:value];
     }];
     
@@ -208,15 +212,10 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     
     [RACObserve([DataManager shared], requirementPageSelectedSexType) subscribeNext:^(NSString *value) {
         @strongify(self);
-        self.editingRequirement.prefer_sex = value;
+        self.editingRequirement.prefer_sex = value == nil ? @"" : value;
         self.lblSelectSexTypeVal.text = [NameDict nameForSexType:value];
     }];
     
-    //District
-    [[self.fldDecorationAreaVal rac_textSignal] subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.district = value;
-    }];
     
     //Street
     [[self.fldStreetVal rac_textSignal] subscribeNext:^(NSString *value) {
@@ -283,6 +282,19 @@ static NSTimeInterval kKeyboardDuration = 2.0;
             self.editingRequirement.cell_detail_number = value;
         }];
     
+    //Area
+    [[[[self.fldDecorationAreaVal rac_textSignal]
+       filterNonDigit:^BOOL {
+           return true;
+       }]
+      length:^NSInteger {
+          return 6;
+      }]
+     subscribeNext:^(NSString *value) {
+         @strongify(self);
+         self.editingRequirement.house_area = [NSNumber numberWithInteger:[value integerValue]];
+     }];
+    
     //Budget
     [[[self.fldDecorationBudgetVal.rac_textSignal
         filterNonDigit:^BOOL {
@@ -341,7 +353,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, kKeyboardHeight, 0);
 }
 
-//#pragma mark - touch
+#pragma mark - touch
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }

@@ -10,6 +10,11 @@
 
 @implementation Comment
 
+@dynamic _id;
+@dynamic topicid;
+@dynamic section;
+@dynamic topictype;
+@dynamic to;
 @dynamic by;
 @dynamic usertype;
 @dynamic content;

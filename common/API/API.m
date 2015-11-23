@@ -87,6 +87,18 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"user_requirement_plans" data:[request data] handler:request success:success failure:failure];
 }
 
++ (void)choosePlan:(ChoosePlan *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user/plan/final" data:[request data] handler:request success:success failure:failure];
+}
+
++ (void)leaveComment:(LeaveComment *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"add_comment" data:[request data] handler:request success:success failure:failure];
+}
+
++ (void)getComments:(GetComments *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"topic_comments" data:[request data] handler:request success:success failure:failure];
+}
+
 + (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API GET:@"process/list" handler:request success:success failure:success];
 }

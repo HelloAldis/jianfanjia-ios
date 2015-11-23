@@ -28,6 +28,8 @@
 #import "OrderedDesignerViewController.h"
 #import "EvaluateDesignerViewController.h"
 #import "PlanListViewController.h"
+#import "PlanPreviewViewController.h"
+#import "PlanPriceDetailViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -186,6 +188,16 @@ static ViewControllerContainer *container;
 
 + (void)showPlanList:(NSString *)designerid forRequirement:(Requirement *)requirement {
     PlanListViewController *v = [[PlanListViewController alloc] initWithRequirement:requirement withDesigner:designerid];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showPlanPerview:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement {
+    PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan withOrder:order forRequirement:requirement];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showPlanPriceDetail:(Plan *)plan {
+    PlanPriceDetailViewController *v = [[PlanPriceDetailViewController alloc] initWithPlan:plan];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

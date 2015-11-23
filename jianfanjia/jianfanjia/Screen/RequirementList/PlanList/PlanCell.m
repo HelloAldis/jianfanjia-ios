@@ -7,6 +7,7 @@
 //
 
 #import "PlanCell.h"
+#import "ViewControllerContainer.h"
 
 static const NSInteger imgWidth = 170;
 static const NSInteger imgSpace = 2;
@@ -20,6 +21,7 @@ static const NSInteger imgSpace = 2;
 @property (weak, nonatomic) IBOutlet UIScrollView *imgScrollView;
 
 @property (strong, nonatomic) Plan *plan;
+@property (assign, nonatomic) NSInteger order;
 @property (strong, nonatomic) Requirement *requirement;
 
 @end
@@ -41,6 +43,7 @@ static const NSInteger imgSpace = 2;
 
 - (void)initWithPlan:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement  {
     self.plan = plan;
+    self.order = order;
     self.requirement = requirement;
     self.lblPlanTitleVal.text = [NSString stringWithFormat:@"%@%@期 方案%ld", requirement.cell, requirement.cell_phase, order];
     self.lblPlanTimeVal.text = [NSDate yyyy_MM_dd:plan.last_status_update_time];
@@ -85,7 +88,7 @@ static const NSInteger imgSpace = 2;
 }
 
 - (void)onClickPlanPreviewButton {
-    
+    [ViewControllerContainer showPlanPerview:self.plan withOrder:self.order forRequirement:self.requirement];
 }
 
 @end

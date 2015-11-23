@@ -13,6 +13,8 @@ typedef NS_ENUM(NSInteger, EvaluateDesignerType) {
     New
 };
 
+static float kKeyboardHeight = 480;
+
 @interface EvaluateDesignerViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *authIcon;
@@ -39,7 +41,7 @@ typedef NS_ENUM(NSInteger, EvaluateDesignerType) {
     if (self = [super init]) {
         _designer = designer;
         _requirementid = requirementid;
-        _type = designer.evaluation ? View : New;
+        _type = designer.evaluation._id ? View : New;
     }
     
     return self;
@@ -54,6 +56,18 @@ typedef NS_ENUM(NSInteger, EvaluateDesignerType) {
     [self initUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - init UI 
 - (void)initUI {
     [self.imgAvatar setCornerRadius:30];
@@ -63,6 +77,7 @@ typedef NS_ENUM(NSInteger, EvaluateDesignerType) {
     [self.imgAvatar setImageWithId:self.designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = self.designer.username;
     [DesignerBusiness setStars:self.evaluatedStars withStar:(double)(self.designer.respond_speed.doubleValue + self.designer.service_attitude.doubleValue) / 2 fullStar:[UIImage imageNamed:@"star_middle"] emptyStar:[UIImage imageNamed:@"star_middle_empty"]];
+    [DesignerBusiness setV:self.authIcon withAuthType:self.designer.auth_type];
     
     if (self.type == New) {
         @weakify(self);
@@ -102,13 +117,15 @@ typedef NS_ENUM(NSInteger, EvaluateDesignerType) {
         self.btnPublish.hidden = YES;
         self.lblEvaluateTitle.hidden = YES;
         self.tvComment.editable = NO;
-        self.tvComment.backgroundColor = [UIColor colorWithR:0xED g:0xEF b:0xF1];
+        self.tvComment.backgroundColor = self.view.backgroundColor;
+        self.tvComment.text = self.designer.evaluation.comment;
     }
 }
 
 #pragma mark - init nav
 - (void)initNav {
     [self initLeftBackInNav];
+    self.title = @"评价设计师";
 }
 
 #pragma mark - user action
@@ -134,6 +151,31 @@ typedef NS_ENUM(NSInteger, EvaluateDesignerType) {
 
 - (void)onClickServiceAttitudeStar:(UIGestureRecognizer *)gesture {
     self.serviceAttitudeStar = [DesignerBusiness setStars:self.serviceAttitudeStars withTouchStar:(UIImageView *)gesture.view fullStar:[UIImage imageNamed:@"star_big"] emptyStar:[UIImage imageNamed:@"star_big_empty"]];
+}
+
+#pragma mark - keyboard
+- (void)keyboardWillShow:(NSNotification *)notification {
+    // get keyboard height
+    kKeyboardHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    
+    [UIView animateWithDuration:0.6
+                          delay:0 usingSpringWithDamping:1.0
+          initialSpringVelocity:1.0
+                        options:UIViewAnimationOptionCurveLinear animations:^{
+                            CGRect rect = CGRectMake(self.view.frame.origin.x, -kKeyboardHeight, self.view.frame.size.width, self.view.frame.size.height);
+                            self.view.frame = rect;
+                            [self.view layoutIfNeeded];
+                        } completion:nil];
+}
+
+- (void) keyboardWillHide:(NSNotification *)notification {
+    CGRect rect = CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height);
+    self.view.frame = rect;
+}
+
+#pragma mark - touch
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
 }
 
 @end

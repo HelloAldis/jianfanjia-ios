@@ -37,7 +37,7 @@
     self.designer = designer;
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
-    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_Type];
+    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
     [DesignerBusiness setStars:self.stars withStar:(double)(designer.respond_speed.doubleValue + designer.service_attitude.doubleValue) / 2 fullStar:[UIImage imageNamed:@"star_middle"] emptyStar:[UIImage imageNamed:@"star_middle_empty"]];
 }
 

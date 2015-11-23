@@ -83,6 +83,19 @@
 		685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21471BF9729E00D5D320 /* SendAddRequirement.m */; };
 		685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214A1BF9870B00D5D320 /* RACStream+Ex.m */; };
 		685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */; };
+		685CD5CC1C02DCAA00EC1991 /* PlanPriceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5CA1C02DCAA00EC1991 /* PlanPriceDetailViewController.m */; };
+		685CD5CD1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5CB1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib */; };
+		685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5CF1C02DE9300EC1991 /* PlanPriceItemCell.m */; };
+		685CD5D21C02DE9300EC1991 /* PlanPriceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5D01C02DE9300EC1991 /* PlanPriceItemCell.xib */; };
+		685CD5D61C02EA0C00EC1991 /* PlanPriceItemSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5D41C02EA0C00EC1991 /* PlanPriceItemSection.m */; };
+		685CD5D91C02F36A00EC1991 /* PlanPriceItemSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5D81C02F36A00EC1991 /* PlanPriceItemSection.xib */; };
+		685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5DB1C02FA7400EC1991 /* ChoosePlan.m */; };
+		685CD5DF1C030F1400EC1991 /* LeaveComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5DE1C030F1400EC1991 /* LeaveComment.m */; };
+		685CD5E31C0310CA00EC1991 /* LeaveMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5E11C0310CA00EC1991 /* LeaveMessageViewController.m */; };
+		685CD5E41C0310CA00EC1991 /* LeaveMessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5E21C0310CA00EC1991 /* LeaveMessageViewController.xib */; };
+		685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5E61C03178C00EC1991 /* MessageCell.m */; };
+		685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5E71C03178C00EC1991 /* MessageCell.xib */; };
+		685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5EB1C031D1C00EC1991 /* GetComments.m */; };
 		68D536A61BFF563800D8F1B2 /* PlanPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */; };
 		68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */; };
 		68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E505641BF0BB0100B0B910 /* SelectCityViewController.m */; };
@@ -357,6 +370,27 @@
 		685C214A1BF9870B00D5D320 /* RACStream+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACStream+Ex.m"; sourceTree = "<group>"; };
 		685C214C1BF9C7E100D5D320 /* UIScrollView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Ex.h"; sourceTree = "<group>"; };
 		685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Ex.m"; sourceTree = "<group>"; };
+		685CD5C91C02DCAA00EC1991 /* PlanPriceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceDetailViewController.h; sourceTree = "<group>"; };
+		685CD5CA1C02DCAA00EC1991 /* PlanPriceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceDetailViewController.m; sourceTree = "<group>"; };
+		685CD5CB1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceDetailViewController.xib; sourceTree = "<group>"; };
+		685CD5CE1C02DE9300EC1991 /* PlanPriceItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemCell.h; sourceTree = "<group>"; };
+		685CD5CF1C02DE9300EC1991 /* PlanPriceItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemCell.m; sourceTree = "<group>"; };
+		685CD5D01C02DE9300EC1991 /* PlanPriceItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemCell.xib; sourceTree = "<group>"; };
+		685CD5D31C02EA0C00EC1991 /* PlanPriceItemSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemSection.h; sourceTree = "<group>"; };
+		685CD5D41C02EA0C00EC1991 /* PlanPriceItemSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemSection.m; sourceTree = "<group>"; };
+		685CD5D81C02F36A00EC1991 /* PlanPriceItemSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemSection.xib; sourceTree = "<group>"; };
+		685CD5DA1C02FA7400EC1991 /* ChoosePlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePlan.h; sourceTree = "<group>"; };
+		685CD5DB1C02FA7400EC1991 /* ChoosePlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePlan.m; sourceTree = "<group>"; };
+		685CD5DD1C030F1400EC1991 /* LeaveComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaveComment.h; sourceTree = "<group>"; };
+		685CD5DE1C030F1400EC1991 /* LeaveComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaveComment.m; sourceTree = "<group>"; };
+		685CD5E01C0310CA00EC1991 /* LeaveMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaveMessageViewController.h; sourceTree = "<group>"; };
+		685CD5E11C0310CA00EC1991 /* LeaveMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaveMessageViewController.m; sourceTree = "<group>"; };
+		685CD5E21C0310CA00EC1991 /* LeaveMessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeaveMessageViewController.xib; sourceTree = "<group>"; };
+		685CD5E51C03178C00EC1991 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
+		685CD5E61C03178C00EC1991 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
+		685CD5E71C03178C00EC1991 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
+		685CD5EA1C031D1C00EC1991 /* GetComments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetComments.h; sourceTree = "<group>"; };
+		685CD5EB1C031D1C00EC1991 /* GetComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetComments.m; sourceTree = "<group>"; };
 		68D536A31BFF563800D8F1B2 /* PlanPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPreviewViewController.h; sourceTree = "<group>"; };
 		68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPreviewViewController.m; sourceTree = "<group>"; };
 		68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPreviewViewController.xib; sourceTree = "<group>"; };
@@ -639,6 +673,21 @@
 				68D536A31BFF563800D8F1B2 /* PlanPreviewViewController.h */,
 				68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */,
 				68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */,
+				685CD5C91C02DCAA00EC1991 /* PlanPriceDetailViewController.h */,
+				685CD5CA1C02DCAA00EC1991 /* PlanPriceDetailViewController.m */,
+				685CD5CB1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib */,
+				685CD5CE1C02DE9300EC1991 /* PlanPriceItemCell.h */,
+				685CD5CF1C02DE9300EC1991 /* PlanPriceItemCell.m */,
+				685CD5D01C02DE9300EC1991 /* PlanPriceItemCell.xib */,
+				685CD5D31C02EA0C00EC1991 /* PlanPriceItemSection.h */,
+				685CD5D41C02EA0C00EC1991 /* PlanPriceItemSection.m */,
+				685CD5D81C02F36A00EC1991 /* PlanPriceItemSection.xib */,
+				685CD5E01C0310CA00EC1991 /* LeaveMessageViewController.h */,
+				685CD5E11C0310CA00EC1991 /* LeaveMessageViewController.m */,
+				685CD5E21C0310CA00EC1991 /* LeaveMessageViewController.xib */,
+				685CD5E51C03178C00EC1991 /* MessageCell.h */,
+				685CD5E61C03178C00EC1991 /* MessageCell.m */,
+				685CD5E71C03178C00EC1991 /* MessageCell.xib */,
 			);
 			path = PlanList;
 			sourceTree = "<group>";
@@ -824,6 +873,12 @@
 				683668FE1BFF055D006A5053 /* ReplaceOrderedDesigner.m */,
 				6836690E1BFF1A8F006A5053 /* GetRequirementPlans.h */,
 				6836690F1BFF1A8F006A5053 /* GetRequirementPlans.m */,
+				685CD5DA1C02FA7400EC1991 /* ChoosePlan.h */,
+				685CD5DB1C02FA7400EC1991 /* ChoosePlan.m */,
+				685CD5DD1C030F1400EC1991 /* LeaveComment.h */,
+				685CD5DE1C030F1400EC1991 /* LeaveComment.m */,
+				685CD5EA1C031D1C00EC1991 /* GetComments.h */,
+				685CD5EB1C031D1C00EC1991 /* GetComments.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1343,6 +1398,7 @@
 				TargetAttributes = {
 					6E20B2211B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = CSFDRG22AA;
 					};
 					6E20B23A1B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
@@ -1380,6 +1436,7 @@
 				6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */,
 				68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */,
 				684A37451BFD73DF00F7388C /* MatchDesignerCell.xib in Resources */,
+				685CD5D91C02F36A00EC1991 /* PlanPriceItemSection.xib in Resources */,
 				6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */,
 				6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */,
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
@@ -1396,6 +1453,7 @@
 				684A374D1BFD73DF00F7388C /* RequirementCreateViewController.xib in Resources */,
 				684A37571BFD73DF00F7388C /* SelectPopulationViewController.xib in Resources */,
 				6E4496261BF9BA2600C90851 /* VerifyPhoneViewController.xib in Resources */,
+				685CD5E41C0310CA00EC1991 /* LeaveMessageViewController.xib in Resources */,
 				684A370B1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib in Resources */,
 				683669051BFF0B44006A5053 /* PlanListViewController.xib in Resources */,
 				6E6D98E71BE343E400D45F77 /* DesignerViewController.xib in Resources */,
@@ -1415,6 +1473,7 @@
 				6E6D98B11BDF736A00D45F77 /* RequirementListViewController.xib in Resources */,
 				6E7867281BAA538E00DE8B1B /* SectionView.xib in Resources */,
 				68E505671BF0BB0100B0B910 /* SelectCityViewController.xib in Resources */,
+				685CD5D21C02DE9300EC1991 /* PlanPriceItemCell.xib in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
 				684A37411BFD73DF00F7388C /* IntentDesignerCell.xib in Resources */,
@@ -1426,10 +1485,12 @@
 				6E44964C1BFC82F500C90851 /* UserInfoViewController.xib in Resources */,
 				684A37111BFD733500F7388C /* PlanWasChoosedCell.xib in Resources */,
 				6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */,
+				685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */,
 				684A37131BFD733500F7388C /* PlanWasNotChoosedCell.xib in Resources */,
 				6E4496411BFC53CE00C90851 /* FeedbackViewController.xib in Resources */,
 				68343A181BF70719004F15C1 /* city2area.js in Resources */,
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
+				685CD5CD1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
@@ -1499,6 +1560,7 @@
 			files = (
 				6E07DAC51BD88DBE001461DD /* Item.m in Sources */,
 				684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */,
+				685CD5CC1C02DCAA00EC1991 /* PlanPriceDetailViewController.m in Sources */,
 				6E6D98CF1BE0C34000D45F77 /* HomePageRecDesignersCell.m in Sources */,
 				6E7867161BA944AF00DE8B1B /* ItemCell.m in Sources */,
 				6E6D98B01BDF736A00D45F77 /* RequirementListViewController.m in Sources */,
@@ -1521,6 +1583,7 @@
 				6E07DAC61BD88DBE001461DD /* Process.m in Sources */,
 				683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */,
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,
+				685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
@@ -1530,6 +1593,7 @@
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
 				6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */,
 				6E6D98D41BE0D62F00D45F77 /* HomePageDesignerCell.m in Sources */,
+				685CD5D61C02EA0C00EC1991 /* PlanPriceItemSection.m in Sources */,
 				6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */,
 				6836690D1BFF183F006A5053 /* PriceItem.m in Sources */,
 				6E4496601BFECE0100C90851 /* ThumbnailCell.m in Sources */,
@@ -1559,6 +1623,7 @@
 				6E44962D1BF9E32200C90851 /* SignupSuccessViewController.m in Sources */,
 				6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */,
 				6E07DAB91BD88DBE001461DD /* NSManagedObject+Ex.m in Sources */,
+				685CD5E31C0310CA00EC1991 /* LeaveMessageViewController.m in Sources */,
 				6E4496211BF9B58800C90851 /* VerifyPhone.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
 				684A37401BFD73DF00F7388C /* IntentDesignerCell.m in Sources */,
@@ -1603,9 +1668,11 @@
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
 				684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */,
+				685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */,
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
+				685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */,
 				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
 				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
@@ -1616,6 +1683,7 @@
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
 				684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */,
 				684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */,
+				685CD5DF1C030F1400EC1991 /* LeaveComment.m in Sources */,
 				68D536A61BFF563800D8F1B2 /* PlanPreviewViewController.m in Sources */,
 				6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */,
 				683669041BFF0B44006A5053 /* PlanListViewController.m in Sources */,
@@ -1634,6 +1702,7 @@
 				6E6D98CA1BE0AB7C00D45F77 /* HomePageRequirementCell.m in Sources */,
 				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,
 				6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */,
+				685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */,
 				684A37541BFD73DF00F7388C /* SelectHouseTypeViewController.m in Sources */,
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
 			);

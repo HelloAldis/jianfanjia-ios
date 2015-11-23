@@ -109,7 +109,7 @@
     UIImageView *authIcon = self.authIcon[idx];
     
     lblStatus.text = [NameDict nameForPlanStatus:orderedDesigner.plan.status];
-    [DesignerBusiness setV:authIcon withAuthType:orderedDesigner.auth_Type];
+    [DesignerBusiness setV:authIcon withAuthType:orderedDesigner.auth_type];
     
     NSString *status = orderedDesigner.plan.status;
     self.currentPlanStatus[idx] = status;

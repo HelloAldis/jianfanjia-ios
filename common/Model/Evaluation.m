@@ -16,6 +16,6 @@
 @dynamic userid;
 @dynamic respond_speed;
 @dynamic service_attitude;
-@dynamic __v;
+@dynamic comment;
 
 @end

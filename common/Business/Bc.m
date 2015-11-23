@@ -12,6 +12,12 @@ int const kWelconeVersion = 1;
 int const kPhoneLength = 11;
 int const kPasswordLength = 30;
 
+/**
+ 角色 role:
+ * 0. 管理员
+ * 1. 业主
+ * 2. 设计师
+ **/
 NSString * const kUserTypeUser = @"1";
 NSString * const kUserTypeDesigner = @"2";
 
@@ -94,15 +100,26 @@ NSString * const kRequirementStatusConfiguredAgreementWithoutWorkSite  = @"7";
 
 
 /**
- 作品认证状态 auth_type
- * 0. 未审核
- * 1. 审核通过
- * 2. 审核不通过
- * 3. 违规屏蔽
+ 认证状态 包括基本信息认证(auth_type) 身份认证(uid_auth_type) 邮箱认证(email_auth_type) 工地认证(work_auth_type)
+ * 0. 未提交认证
+ * 1. 提交认证还未审核过
+ * 2. 审核通过
+ * 3. 审核不通过
+ * 4. 违规屏蔽
  **/
-NSString * const kAuthTypeUnverify = @"0";
-NSString * const kAuthTypeVerifyPass = @"1";
-NSString * const kAuthTypeVerifyNotPass = @"2";
-NSString * const kAuthTypeBreakRule  = @"3";
+NSString * const kAuthTypeUnsubmitVerify = @"0";
+NSString * const kAuthTypeSubmitedVerifyButNotPass = @"1";
+NSString * const kAuthTypeVerifyPass = @"2";
+NSString * const kAuthTypeVerifyNotPass = @"3";
+NSString * const kAuthTypeBreakRule  = @"4";
 
 
+/**
+ 评论类别 topictype
+ * 0. 方案的评论
+ * 1. 装修流程的小点的评论
+**/
+NSString * const kTopicTypePlan = @"0";
+NSString * const kTopicTypeSection = @"1";
+
+ 

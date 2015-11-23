@@ -7,6 +7,7 @@
 //
 
 #import "PlanWasChoosedCell.h"
+#import "ViewControllerContainer.h"
 
 @interface PlanWasChoosedCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
@@ -41,11 +42,11 @@
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
-    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_Type];
+    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
 }
 
 - (void)onClickViewPlanButton {
-    
+    [ViewControllerContainer showPlanList:self.designer._id forRequirement:self.requirement];
 }
 
 - (void)onClickViewAgreementButton {

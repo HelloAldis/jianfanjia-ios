@@ -30,7 +30,6 @@
 
 //不动态属性
 @property(nonatomic, strong) Designer *designer;
-@property(nonatomic, strong) NSMutableArray *priceItems;
 
 @end
 

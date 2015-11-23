@@ -50,5 +50,5 @@ extern NSString * const kAuthTypeVerifyPass;
 extern NSString * const kAuthTypeVerifyNotPass;
 extern NSString * const kAuthTypeBreakRule;
 
-
-
+extern NSString * const kTopicTypePlan;
+extern NSString * const kTopicTypeSection;

@@ -21,6 +21,9 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 
 @property (strong, nonatomic) RequirementDataManager *requirementDataManager;
 
+@property (assign, nonatomic) CGFloat preY;
+@property (assign, nonatomic) BOOL isTabbarhide;
+
 @end
 
 @implementation RequirementListViewController
@@ -33,6 +36,8 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
     
     [self initUI];
     [self initNav];
+    self.preY = 0;
+    self.isTabbarhide = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -70,6 +75,61 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
     
     NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor colorWithR:0x34 g:0x4a b:0x5c] forKey: NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes = dict;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.isTabbarhide) {
+        [self showTabbar];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (!self.isTabbarhide && animated) {
+        [self hideTabbar];
+    }
+}
+
+#pragma mark - scroll view delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.preY > scrollView.contentOffset.y) {
+        //下滑
+        if (!self.tableView.footer.isRefreshing) {
+            [self showTabbar];
+        }
+    } else if (self.preY < scrollView.contentOffset.y && scrollView.contentOffset.y > 0) {
+        //上滑
+        [self hideTabbar];
+        
+    }
+    
+    NSInteger distanceOfPastEdge = scrollView.contentSize.height - scrollView.contentOffset.y;
+    //是否有滑动超过边界
+    if (distanceOfPastEdge > 0) {
+        self.preY = scrollView.contentSize.height - scrollView.bounds.size.height;
+    } else {
+        self.preY = scrollView.contentOffset.y;
+    }
+}
+
+#pragma mark - Util
+- (void)hideTabbar {
+    if (!self.isTabbarhide) {
+        self.isTabbarhide = YES;
+        [UIView animateWithDuration:0.6 animations:^{
+            self.tabBarController.tabBar.frame = CGRectOffset(self.tabBarController.tabBar.frame, 0, 50);
+        }];
+    }
+}
+
+- (void)showTabbar {
+    if (self.isTabbarhide) {
+        self.isTabbarhide = NO;
+        [UIView animateWithDuration:0.6 animations:^{
+            self.tabBarController.tabBar.frame = CGRectOffset(self.tabBarController.tabBar.frame, 0, -50);
+        }];
+    }
 }
 
 #pragma mark - actions

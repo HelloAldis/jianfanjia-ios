@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="492" height="280"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2DL-zK-Kuw">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2DL-zK-Kuw">
                         <rect key="frame" x="33" y="22" width="65" height="65"/>
                         <animations/>
                         <constraints>
@@ -76,7 +76,7 @@
                             <constraint firstAttribute="height" constant="6" id="DdQ-pi-j1d"/>
                         </constraints>
                     </view>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="7vo-gK-hs3">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="7vo-gK-hs3">
                         <rect key="frame" x="28" y="114" width="60" height="60"/>
                         <animations/>
                         <constraints>
@@ -84,7 +84,7 @@
                             <constraint firstAttribute="width" constant="60" id="gxh-kO-f9X"/>
                         </constraints>
                     </imageView>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="YMg-AW-6VZ">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="YMg-AW-6VZ">
                         <rect key="frame" x="214" y="114" width="60" height="60"/>
                         <animations/>
                         <constraints>
@@ -92,7 +92,7 @@
                             <constraint firstAttribute="height" constant="60" id="mEq-MQ-7tr"/>
                         </constraints>
                     </imageView>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="LdT-Uq-J8T">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="LdT-Uq-J8T">
                         <rect key="frame" x="399" y="114" width="60" height="60"/>
                         <animations/>
                         <constraints>
@@ -100,17 +100,17 @@
                             <constraint firstAttribute="height" constant="60" id="s4f-qW-6va"/>
                         </constraints>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="Icl-LB-fX0">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="Icl-LB-fX0">
                         <rect key="frame" x="72" y="158" width="16" height="16"/>
                         <animations/>
                         <gestureRecognizers/>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="Xiq-gq-8cT">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="Xiq-gq-8cT">
                         <rect key="frame" x="258" y="158" width="16" height="16"/>
                         <animations/>
                         <gestureRecognizers/>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="f5C-ex-S0y">
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="f5C-ex-S0y">
                         <rect key="frame" x="443" y="158" width="16" height="16"/>
                         <animations/>
                         <gestureRecognizers/>

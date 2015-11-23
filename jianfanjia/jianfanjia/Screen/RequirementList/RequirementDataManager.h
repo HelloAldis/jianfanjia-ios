@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSArray *favoriteDesigners;
 @property (nonatomic, strong) NSArray *requirementPlans;
 @property (nonatomic, strong) NSArray *planPriceItems;
+@property (nonatomic, strong) NSMutableArray *comments;
 
 - (void)refreshRequirementList;
 - (void)refreshOrderedDesigners:(Requirement *)requirement;
@@ -23,5 +24,7 @@
 - (void)refreshOrderableDesigners;
 - (void)refreshRequirementPlans;
 - (void)refreshPlanPriceItems:(Plan *)plan;
+- (void)refreshComments;
+- (void)loadMoreComments;
 
 @end

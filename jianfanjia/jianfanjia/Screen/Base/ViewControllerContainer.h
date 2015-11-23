@@ -26,6 +26,8 @@
 + (void)showOrderedDesigner:(Requirement *)requirement;
 + (void)showEvaluateDesigner:(Designer *)designer withRequirement:(NSString *)requirementid;
 + (void)showPlanList:(NSString *)designerid forRequirement:(Requirement *)requirement;
++ (void)showPlanPerview:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement;
++ (void)showPlanPriceDetail:(Plan *)plan;
 + (void)showTab;
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index;
 + (void)showRefresh;

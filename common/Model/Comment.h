@@ -10,6 +10,11 @@
 
 @interface Comment : BaseModel
 
+@property(nonatomic, strong) NSString *_id;
+@property(nonatomic, strong) NSString *topicid;
+@property(nonatomic, strong) NSString *section;
+@property(nonatomic, strong) NSString *topictype;
+@property(nonatomic, strong) NSString *to;
 @property(nonatomic, strong) NSString *by;
 @property(nonatomic, strong) NSString *usertype;
 @property(nonatomic, strong) NSString *content;

@@ -42,7 +42,7 @@
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
-    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_Type];
+    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
     
     if (self.designer.evaluation) {
         [self.btnEvaluate setTitle:@"已评价" forState:UIControlStateNormal];

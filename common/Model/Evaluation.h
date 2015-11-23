@@ -16,6 +16,6 @@
 @property(nonatomic, strong) NSString *userid;
 @property(nonatomic, strong) NSNumber *respond_speed;
 @property(nonatomic, strong) NSNumber *service_attitude;
-@property(nonatomic, strong) NSString *__v;
+@property(nonatomic, strong) NSString *comment;
 
 @end

@@ -38,7 +38,7 @@
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
     self.lblMatchVal.text = [NSString stringWithFormat:@"%@%%", designer.match];
-    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_Type];
+    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
 }
 
 @end

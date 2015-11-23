@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface PlanPreviewViewController : BaseViewController
+@interface PlanPreviewViewController : BaseViewController <UIScrollViewDelegate>
 
-- (id)initWithRequirement:(Requirement *)requirement withDesigner:(NSString *)designerid;
+- (id)initWithPlan:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement;
 
 @end

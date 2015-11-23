@@ -39,7 +39,7 @@
 @property(nonatomic, strong) NSNumber *is_my_favorite;
 @property(nonatomic, strong) NSNumber *service_attitude;
 @property(nonatomic, strong) NSNumber *respond_speed;
-@property(nonatomic, strong) NSString *auth_Type;
+@property(nonatomic, strong) NSString *auth_type;
 @property(nonatomic, strong) NSNumber *match;
 
 //不动态的属性

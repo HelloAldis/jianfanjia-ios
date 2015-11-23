@@ -35,7 +35,7 @@
 @dynamic is_my_favorite;
 @dynamic service_attitude;
 @dynamic respond_speed;
-@dynamic auth_Type;
+@dynamic auth_type;
 @dynamic match;
 
 

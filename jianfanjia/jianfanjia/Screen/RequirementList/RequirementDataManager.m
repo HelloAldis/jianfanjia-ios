@@ -102,4 +102,28 @@
     self.planPriceItems = planPriceItems;
 }
 
+- (void)refreshComments {
+    NSArray* arr = [[DataManager shared].data objectForKey:@"comments"];
+    NSMutableArray *comments = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    
+    for (NSMutableDictionary *dict in arr) {
+        Comment *comment = [[Comment alloc] initWith:dict];
+        [comments addObject:comment];
+    }
+    
+    self.comments = comments;
+}
+
+- (void)loadMoreComments {
+    NSArray* arr = [[DataManager shared].data objectForKey:@"comments"];
+    NSMutableArray *comments = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    
+    for (NSMutableDictionary *dict in arr) {
+        Comment *comment = [[Comment alloc] initWith:dict];
+        [comments addObject:comment];
+    }
+    
+    [self.comments addObjectsFromArray:comments];
+}
+
 @end
