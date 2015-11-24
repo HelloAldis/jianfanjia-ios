@@ -334,11 +334,8 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     dispatch_once(&onceToken, ^{
         NSDictionary *userInfo = [notification userInfo];
 
-        // get keyboard rect in windwo coordinate
-        DDLogDebug(@"%@", [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey]);
-
         // get keyboard height
-        kKeyboardHeight = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+        kKeyboardHeight = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
         // get keybord anmation duration
         kKeyboardDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
     });

@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匹配设计师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6W7-VM-CvM">
-                    <rect key="frame" x="24" y="14" width="70" height="17"/>
+                    <rect key="frame" x="10" y="14" width="70" height="17"/>
                     <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.48627450980392156" green="0.51372549019607838" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
@@ -43,7 +43,7 @@
                 <constraint firstAttribute="trailing" secondItem="N6i-mR-XFd" secondAttribute="trailing" constant="22" id="Nbv-jW-ybF"/>
                 <constraint firstItem="t1K-80-TKK" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="ZOz-sd-4lH"/>
                 <constraint firstItem="6W7-VM-CvM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="iYn-vA-KJq"/>
-                <constraint firstItem="6W7-VM-CvM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="24" id="kmc-ku-9gJ"/>
+                <constraint firstItem="6W7-VM-CvM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="kmc-ku-9gJ"/>
                 <constraint firstItem="6W7-VM-CvM" firstAttribute="centerY" secondItem="N6i-mR-XFd" secondAttribute="centerY" id="nHo-aA-jy9"/>
                 <constraint firstItem="t1K-80-TKK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="43" id="rPi-UD-Zic"/>
             </constraints>

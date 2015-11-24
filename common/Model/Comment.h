@@ -20,4 +20,7 @@
 @property(nonatomic, strong) NSString *content;
 @property(nonatomic, strong) NSNumber *date;
 
+//不懂太属性
+@property(nonatomic, strong) User *user;
+
 @end

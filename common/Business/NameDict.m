@@ -21,7 +21,7 @@ static NSArray *population_type = nil;
 static NSDictionary *planStatus = nil;
 static NSDictionary *requirementStatus = nil;
 static NSDictionary *authType = nil;
-
+static NSDictionary *userType = nil;
 
 + (void)initialize {
     houseTypeDict = @{@"0":@"一居",
@@ -95,6 +95,12 @@ static NSDictionary *authType = nil;
                 @"3":@"违规屏蔽"
                 };
     
+    userType = @{
+                 @"0":@"管理员",
+                 @"1":@"业主",
+                 @"2":@"设计师"
+                 };
+    
     
 }
 
@@ -136,6 +142,10 @@ static NSDictionary *authType = nil;
 
 + (NSDictionary *)getAllCommunicationType {
     return communication_type;
+}
+
++ (NSString *)nameForUserType:(NSString *)type {
+    return [userType objectForKey:type];
 }
 
 + (NSString *)nameForHouseType:(NSString *)type {

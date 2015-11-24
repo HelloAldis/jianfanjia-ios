@@ -24,10 +24,20 @@
 
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
+//    self.lblMessageVal.preferredMaxLayoutWidth = self.lblMessageVal.bounds.size.width;
 }
 
 - (void)initWithComment:(Comment *)comment {
     self.comment = comment;
+    [self.imgAvatar setImageWithId:comment.user.imageid withWidth:self.imgAvatar.bounds.size.width];
+    self.lblUserNameVal.text = comment.user.username;
+    self.lblRoleTypeVal.text = [NameDict nameForUserType:comment.usertype];
+    self.lblTimeVal.text = [comment.date humDateString];
+    self.lblMessageVal.text = comment.content;
+    
+    if ([kUserTypeDesigner isEqualToString:comment.usertype]) {
+        self.lblRoleTypeVal.textColor = [UIColor colorWithR:0x04 g:0xb9 b:0xfe];
+    }
 }
 
 @end

@@ -108,6 +108,9 @@
     
     for (NSMutableDictionary *dict in arr) {
         Comment *comment = [[Comment alloc] initWith:dict];
+        NSMutableDictionary *userDic = [comment.data objectForKey:@"byUser"];
+        User *user = [[User alloc] initWith:userDic];
+        comment.user = user;
         [comments addObject:comment];
     }
     
@@ -120,6 +123,9 @@
     
     for (NSMutableDictionary *dict in arr) {
         Comment *comment = [[Comment alloc] initWith:dict];
+        NSMutableDictionary *userDic = [comment.data objectForKey:@"byUser"];
+        User *user = [[User alloc] initWith:userDic];
+        comment.user = user;
         [comments addObject:comment];
     }
     

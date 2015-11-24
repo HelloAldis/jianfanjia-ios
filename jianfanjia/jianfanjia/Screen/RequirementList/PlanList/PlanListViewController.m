@@ -53,13 +53,17 @@ static NSString *PlanCellIdentifier = @"PlanCell";
 }
 
 #pragma mark - table view delegate
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.requirementDataManager.requirementPlans.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlanCell *cell = [tableView dequeueReusableCellWithIdentifier:PlanCellIdentifier forIndexPath:indexPath];
-    [cell initWithPlan:self.requirementDataManager.requirementPlans[indexPath.row] withOrder:indexPath.row + 1 forRequirement:self.requirement];
+    [cell initWithPlan:self.requirementDataManager.requirementPlans[indexPath.section] withOrder:indexPath.section + 1 forRequirement:self.requirement];
     
     return cell;
 }
@@ -69,7 +73,11 @@ static NSString *PlanCellIdentifier = @"PlanCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 6;
+    return 3;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 3;
 }
 
 #pragma mark - send request 

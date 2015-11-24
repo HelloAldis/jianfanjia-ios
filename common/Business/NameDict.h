@@ -21,6 +21,7 @@
 + (NSDictionary *)getAllPlanStatus;
 + (NSDictionary *)getAllRequirementStatus;
 
++ (NSString *)nameForUserType:(NSString *)type;
 + (NSString *)nameForHouseType:(NSString *)type;
 + (NSString *)nameForDecStyle:(NSString *)style;
 + (NSString *)nameForDecType:(NSString *)type;

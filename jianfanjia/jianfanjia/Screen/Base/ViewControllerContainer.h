@@ -25,7 +25,9 @@
 + (void)showReplaceOrderedDesigner:(NSString *)designerid forRequirement:(Requirement *)requirement;
 + (void)showOrderedDesigner:(Requirement *)requirement;
 + (void)showEvaluateDesigner:(Designer *)designer withRequirement:(NSString *)requirementid;
++ (void)showAgreement;
 + (void)showPlanList:(NSString *)designerid forRequirement:(Requirement *)requirement;
++ (void)leaveMessage:(Plan *)plan;
 + (void)showPlanPerview:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement;
 + (void)showPlanPriceDetail:(Plan *)plan;
 + (void)showTab;

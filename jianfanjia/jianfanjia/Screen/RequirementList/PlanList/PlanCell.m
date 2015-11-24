@@ -84,7 +84,7 @@ static const NSInteger imgSpace = 2;
 }
 
 - (void)onClickCommentButton {
-    
+    [ViewControllerContainer leaveMessage:self.plan];
 }
 
 - (void)onClickPlanPreviewButton {

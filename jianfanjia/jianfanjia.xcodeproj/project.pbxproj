@@ -14,6 +14,8 @@
 		68343A171BF70719004F15C1 /* allprovince.js in Resources */ = {isa = PBXBuildFile; fileRef = 68343A141BF70719004F15C1 /* allprovince.js */; };
 		68343A181BF70719004F15C1 /* city2area.js in Resources */ = {isa = PBXBuildFile; fileRef = 68343A151BF70719004F15C1 /* city2area.js */; };
 		68343A191BF70719004F15C1 /* province2city.js in Resources */ = {isa = PBXBuildFile; fileRef = 68343A161BF70719004F15C1 /* province2city.js */; };
+		683595A81C04565300AD58E7 /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683595A61C04565300AD58E7 /* AgreementViewController.m */; };
+		683595A91C04565300AD58E7 /* AgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683595A71C04565300AD58E7 /* AgreementViewController.xib */; };
 		683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 683668F81BFECEBC006A5053 /* EvaluateDesigner.m */; };
 		683668FC1BFEECC0006A5053 /* Evaluation.m in Sources */ = {isa = PBXBuildFile; fileRef = 683668FB1BFEECC0006A5053 /* Evaluation.m */; };
 		683668FF1BFF055D006A5053 /* ReplaceOrderedDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 683668FE1BFF055D006A5053 /* ReplaceOrderedDesigner.m */; };
@@ -260,6 +262,9 @@
 		68343A141BF70719004F15C1 /* allprovince.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = allprovince.js; sourceTree = "<group>"; };
 		68343A151BF70719004F15C1 /* city2area.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = city2area.js; sourceTree = "<group>"; };
 		68343A161BF70719004F15C1 /* province2city.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = province2city.js; sourceTree = "<group>"; };
+		683595A51C04565300AD58E7 /* AgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreementViewController.h; sourceTree = "<group>"; };
+		683595A61C04565300AD58E7 /* AgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewController.m; sourceTree = "<group>"; };
+		683595A71C04565300AD58E7 /* AgreementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgreementViewController.xib; sourceTree = "<group>"; };
 		683668F71BFECEBC006A5053 /* EvaluateDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateDesigner.h; sourceTree = "<group>"; };
 		683668F81BFECEBC006A5053 /* EvaluateDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateDesigner.m; sourceTree = "<group>"; };
 		683668FA1BFEECC0006A5053 /* Evaluation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evaluation.h; sourceTree = "<group>"; };
@@ -730,6 +735,9 @@
 				684A36FE1BFD733400F7388C /* PlanWasNotChoosedCell.xib */,
 				684A375F1BFD80E800F7388C /* DesignerPlanStatusBaseCell.h */,
 				684A37601BFD80E800F7388C /* DesignerPlanStatusBaseCell.m */,
+				683595A51C04565300AD58E7 /* AgreementViewController.h */,
+				683595A61C04565300AD58E7 /* AgreementViewController.m */,
+				683595A71C04565300AD58E7 /* AgreementViewController.xib */,
 			);
 			path = OrderedDesigner;
 			sourceTree = "<group>";
@@ -1442,6 +1450,7 @@
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
 				6E4496461BFC562900C90851 /* AboutViewController.xib in Resources */,
 				684A375B1BFD73DF00F7388C /* SelectWorkTypeViewController.xib in Resources */,
+				683595A91C04565300AD58E7 /* AgreementViewController.xib in Resources */,
 				6E78670D1BA920D900DE8B1B /* BannerCell.xib in Resources */,
 				684A37431BFD73DF00F7388C /* IntentDesignerSection.xib in Resources */,
 				684A37071BFD733500F7388C /* DesignerSubmittedPlanCell.xib in Resources */,
@@ -1581,6 +1590,7 @@
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
 				684A374E1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m in Sources */,
 				6E07DAC61BD88DBE001461DD /* Process.m in Sources */,
+				683595A81C04565300AD58E7 /* AgreementViewController.m in Sources */,
 				683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */,
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,
 				685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */,

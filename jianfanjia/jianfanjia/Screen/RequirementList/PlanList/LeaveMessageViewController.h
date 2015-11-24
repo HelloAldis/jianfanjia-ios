@@ -11,6 +11,6 @@
 
 @interface LeaveMessageViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
-- (id)initWithPlan:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement;
+- (id)initWithPlan:(Plan *)plan;
 
 @end

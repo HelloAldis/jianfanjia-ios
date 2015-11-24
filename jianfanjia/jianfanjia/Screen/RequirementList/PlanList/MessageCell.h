@@ -10,8 +10,6 @@
 
 @interface MessageCell : UITableViewCell
 
-@property (strong, nonatomic) Designer *designer;
-
 - (void)initWithComment:(Comment *)comment;
 
 @end

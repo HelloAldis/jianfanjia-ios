@@ -30,6 +30,8 @@
 #import "PlanListViewController.h"
 #import "PlanPreviewViewController.h"
 #import "PlanPriceDetailViewController.h"
+#import "LeaveMessageViewController.h"
+#import "AgreementViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -191,6 +193,11 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
++ (void)leaveMessage:(Plan *)plan {
+    LeaveMessageViewController *v = [[LeaveMessageViewController alloc] initWithPlan:plan];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
 + (void)showPlanPerview:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement {
     PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan withOrder:order forRequirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
@@ -208,6 +215,11 @@ static ViewControllerContainer *container;
 
 + (void)showEvaluateDesigner:(Designer *)designer withRequirement:(NSString *)requirementid {
     EvaluateDesignerViewController *v = [[EvaluateDesignerViewController alloc] initWithDesigner:designer withRequirment:requirementid];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showAgreement {
+    AgreementViewController *v = [[AgreementViewController alloc] init];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

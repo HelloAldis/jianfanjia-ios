@@ -156,7 +156,7 @@ static float kKeyboardHeight = 480;
 #pragma mark - keyboard
 - (void)keyboardWillShow:(NSNotification *)notification {
     // get keyboard height
-    kKeyboardHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
+    kKeyboardHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
     
     [UIView animateWithDuration:0.6
                           delay:0 usingSpringWithDamping:1.0
