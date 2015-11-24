@@ -7,9 +7,10 @@
 //
 
 #import "AgreementViewController.h"
+#import <SafariServices/SafariServices.h>
 @import WebKit;
 
-@interface AgreementViewController ()
+@interface AgreementViewController () <WKNavigationDelegate>
 @property (strong, nonatomic) WKWebView *webView;
 
 @end
@@ -31,30 +32,38 @@
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
+    self.title = @"合同";
 }
 
 #pragma mark - load page
 - (void)loadPage {
-    NSString *jScript = @"var meta = document.createElement('meta'); meta.setAttribute('name', 'viewport'); meta.setAttribute('content', 'width=device-width'); document.getElementsByTagName('head')[0].appendChild(meta);";
+    // Javascript that disables pinch-to-zoom by inserting the HTML viewport meta tag into <head>
+    NSString *source = @"var meta = document.createElement('meta'); \
+    meta.name = 'viewport'; \
+    meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'; \
+    var head = document.getElementsByTagName('head')[0];\
+    head.appendChild(meta);";
     
-    WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-    WKUserContentController *wkUController = [[WKUserContentController alloc] init];
-    [wkUController addUserScript:wkUScript];
+    WKUserScript *script = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+    // Create the user content controller and add the script to it
+    WKUserContentController *userContentController = [WKUserContentController new];
+    [userContentController addUserScript:script];
+    // Create the configuration with the user content controller
+    WKWebViewConfiguration *configuration = [WKWebViewConfiguration new];
+    configuration.userContentController = userContentController;
+    // Create the web view with the configuration
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
+    _webView.translatesAutoresizingMaskIntoConstraints = NO;
+    _webView.allowsBackForwardNavigationGestures = YES;
+    [self.view addSubview:_webView];
+    // Add the constraints
+    NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_webView]|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
-    WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
-    wkWebConfig.userContentController = wkUController;
-    
-    self.webView  = [[WKWebView alloc] initWithFrame:self.view.frame configuration:wkWebConfig];
-//    self.webView.navigationDelegate = (id<WKNavigationDelegate>)self;
-    [self.view addSubview:self.webView];
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
     NSString *urlString = [NSString stringWithFormat:@"http://%@/%@", components.host, @"tpl/user/agreement.html"];
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+    [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
-//
-//- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
-//    NSString *javascript = @"var meta = document.createElement('meta');meta.setAttribute('name', 'viewport');meta.setAttribute('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, minimum-scale=1.0');document.getElementsByTagName('head')[0].appendChild(meta);";
-//    [webView evaluateJavaScript:javascript completionHandler:nil];
-//}
 
 @end

@@ -104,10 +104,10 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
         
     }
     
-    NSInteger distanceOfPastEdge = scrollView.contentSize.height - scrollView.contentOffset.y;
+    NSInteger maxOffset = scrollView.contentSize.height - scrollView.bounds.size.height;
     //是否有滑动超过边界
-    if (distanceOfPastEdge > 0) {
-        self.preY = scrollView.contentSize.height - scrollView.bounds.size.height;
+    if (scrollView.contentOffset.y > 0 && scrollView.contentOffset.y > maxOffset) {
+        self.preY = maxOffset;
     } else {
         self.preY = scrollView.contentOffset.y;
     }
