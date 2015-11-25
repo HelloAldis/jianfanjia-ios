@@ -33,5 +33,8 @@
 #import "VerifyPhone.h"
 #import "UserSignup.h"
 #import "UpdatePass.h"
+#import "AddFavoriateDesigner.h"
+#import "DeleteFavoriteDesigner.h"
+#import "ListFavoriteDesigner.h"
 
 #endif

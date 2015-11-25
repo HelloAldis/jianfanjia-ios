@@ -45,18 +45,37 @@
     self.lblProductCount.text = [designer.authed_product_count stringValue];
     self.lblOrderCount.text = [designer.order_count stringValue];
     
-    if ([designer.is_my_favorite boolValue]) {
+    [self refreshAdd];
+    
+    double star = (self.designer.service_attitude.doubleValue + self.designer.respond_speed.doubleValue)/2;
+    UIImage *full = [UIImage imageNamed:@"star_middle"];
+    UIImage *empty = [UIImage imageNamed:@"star_middle_empty"];
+    [DesignerBusiness setStars:self.starts withStar:star fullStar:full emptyStar:empty];
+}
+
+- (void)refreshAdd {
+    if ([self.designer.is_my_favorite boolValue]) {
         [self.btnAdd setTitle:@"已添加意向" forState:UIControlStateNormal];
         self.btnAdd.backgroundColor = [UIColor colorWithR:179 g:179 b:179];
     } else {
         [self.btnAdd setTitle:@"添加意向" forState:UIControlStateNormal];
         self.btnAdd.backgroundColor = kThemeColor;
     }
-    
-    double star = (self.designer.service_attitude.doubleValue + self.designer.respond_speed.doubleValue)/2;
-    UIImage *full = [UIImage imageNamed:@"star_middle"];
-    UIImage *empty = [UIImage imageNamed:@"star_middle_empty"];
-    [DesignerBusiness setStars:self.starts withStar:star fullStar:full emptyStar:empty];
+}
+
+- (IBAction)onClickAdd:(id)sender {
+    if (self.designer && ![self.designer.is_my_favorite boolValue]) {
+        AddFavoriateDesigner *request = [[AddFavoriateDesigner alloc] init];
+        request._id = self.designer._id;
+        @weakify(self);
+        [API addFavoriateDesigner:request success:^{
+            @strongify(self);
+            self.designer.is_my_favorite = @YES;
+            [self refreshAdd];
+        } failure:^{
+            
+        }];
+    }
 }
 
 @end

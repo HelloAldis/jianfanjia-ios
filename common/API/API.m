@@ -144,6 +144,18 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"update_pass" data:request.data handler:request success:success failure:failure];
 }
 
++ (void)addFavoriateDesigner:(AddFavoriateDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"favorite/designer/add" data:request.data handler:request success:success failure:failure];
+}
+
++ (void)deleteFavoriateDesigner:(DeleteFavoriteDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"favorite/designer/delete" data:request.data handler:request success:success failure:failure];
+}
+
++ (void)listFavoriateDesigner:(ListFavoriteDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"favorite/designer/list" data:request.data handler:request success:success failure:failure];
+}
+
 @end
 
 
