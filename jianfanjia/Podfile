@@ -8,4 +8,3 @@ pod 'ReactiveCocoa', '~> 2.5'
 pod 'MBProgressHUD', '~> 0.9.1'
 pod 'GVUserDefaults'
 pod 'FLEX', '~> 2.1', :configurations => ['Debug']
-pod 'SlackTextViewController', '~> 1.7'

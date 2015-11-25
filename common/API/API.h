@@ -36,5 +36,8 @@ extern NSString * const kApiUrl;
 + (void)verifyPhone:(VerifyPhone *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)userSignup:(UserSignup *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)updatePass:(UpdatePass *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)addFavoriateDesigner:(AddFavoriateDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)deleteFavoriateDesigner:(DeleteFavoriteDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)listFavoriateDesigner:(ListFavoriteDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 
 @end

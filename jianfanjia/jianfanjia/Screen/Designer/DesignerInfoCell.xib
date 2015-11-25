@@ -168,6 +168,9 @@
                         <state key="normal" title="添加意向">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="onClickAdd:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yoo-cM-q5H"/>
+                        </connections>
                     </button>
                 </subviews>
                 <animations/>

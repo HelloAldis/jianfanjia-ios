@@ -232,6 +232,16 @@
 		6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E838DB01BEB4FE1000BF5CD /* DesignerProductCell.xib */; };
 		6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DB41BEB5603000BF5CD /* DesignerHomePage.m */; };
 		6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DB71BECA39B000BF5CD /* QueryProduct.m */; };
+		6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4191C05929E00883184 /* AddFavoriateDesigner.m */; };
+		6EE1E41D1C05942600883184 /* DeleteFavoriteDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E41C1C05942600883184 /* DeleteFavoriteDesigner.m */; };
+		6EE1E4201C0594CF00883184 /* ListFavoriteDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E41F1C0594CF00883184 /* ListFavoriteDesigner.m */; };
+		6EE1E4251C0595C600883184 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4221C0595C600883184 /* Aspects.m */; };
+		6EE1E4261C0595C600883184 /* LeakMoniter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4241C0595C600883184 /* LeakMoniter.m */; };
+		6EE1E42B1C059CF400883184 /* FavoriteDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4291C059CF400883184 /* FavoriteDesignerViewController.m */; };
+		6EE1E42C1C059CF400883184 /* FavoriteDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE1E42A1C059CF400883184 /* FavoriteDesignerViewController.xib */; };
+		6EE1E4301C05A0D800883184 /* FavoriteDesignerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E42E1C05A0D800883184 /* FavoriteDesignerCell.m */; };
+		6EE1E4311C05A0D800883184 /* FavoriteDesignerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE1E42F1C05A0D800883184 /* FavoriteDesignerCell.xib */; };
+		6EE1E4341C05A72400883184 /* FavoriteDesignerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4331C05A72400883184 /* FavoriteDesignerData.m */; };
 		6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE299C21BF57C7900A527F6 /* RefreshViewController.m */; };
 		6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */; };
 		6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C61BF5BC6E00A527F6 /* DesignerSection.xib */; };
@@ -636,6 +646,24 @@
 		6E838DB61BECA39B000BF5CD /* QueryProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryProduct.h; sourceTree = "<group>"; };
 		6E838DB71BECA39B000BF5CD /* QueryProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryProduct.m; sourceTree = "<group>"; };
 		6EC3A9961B8AF1D600A62153 /* Pods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
+		6EE1E4181C05929E00883184 /* AddFavoriateDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFavoriateDesigner.h; sourceTree = "<group>"; };
+		6EE1E4191C05929E00883184 /* AddFavoriateDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavoriateDesigner.m; sourceTree = "<group>"; };
+		6EE1E41B1C05942600883184 /* DeleteFavoriteDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteFavoriteDesigner.h; sourceTree = "<group>"; };
+		6EE1E41C1C05942600883184 /* DeleteFavoriteDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteFavoriteDesigner.m; sourceTree = "<group>"; };
+		6EE1E41E1C0594CF00883184 /* ListFavoriteDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFavoriteDesigner.h; sourceTree = "<group>"; };
+		6EE1E41F1C0594CF00883184 /* ListFavoriteDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFavoriteDesigner.m; sourceTree = "<group>"; };
+		6EE1E4211C0595C600883184 /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
+		6EE1E4221C0595C600883184 /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
+		6EE1E4231C0595C600883184 /* LeakMoniter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeakMoniter.h; sourceTree = "<group>"; };
+		6EE1E4241C0595C600883184 /* LeakMoniter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeakMoniter.m; sourceTree = "<group>"; };
+		6EE1E4281C059CF400883184 /* FavoriteDesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerViewController.h; sourceTree = "<group>"; };
+		6EE1E4291C059CF400883184 /* FavoriteDesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerViewController.m; sourceTree = "<group>"; };
+		6EE1E42A1C059CF400883184 /* FavoriteDesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteDesignerViewController.xib; sourceTree = "<group>"; };
+		6EE1E42D1C05A0D800883184 /* FavoriteDesignerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerCell.h; sourceTree = "<group>"; };
+		6EE1E42E1C05A0D800883184 /* FavoriteDesignerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerCell.m; sourceTree = "<group>"; };
+		6EE1E42F1C05A0D800883184 /* FavoriteDesignerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteDesignerCell.xib; sourceTree = "<group>"; };
+		6EE1E4321C05A72400883184 /* FavoriteDesignerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerData.h; sourceTree = "<group>"; };
+		6EE1E4331C05A72400883184 /* FavoriteDesignerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerData.m; sourceTree = "<group>"; };
 		6EE299C11BF57C7900A527F6 /* RefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshViewController.h; sourceTree = "<group>"; };
 		6EE299C21BF57C7900A527F6 /* RefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
 		6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshViewController.xib; sourceTree = "<group>"; };
@@ -887,6 +915,12 @@
 				685CD5DE1C030F1400EC1991 /* LeaveComment.m */,
 				685CD5EA1C031D1C00EC1991 /* GetComments.h */,
 				685CD5EB1C031D1C00EC1991 /* GetComments.m */,
+				6EE1E4181C05929E00883184 /* AddFavoriateDesigner.h */,
+				6EE1E4191C05929E00883184 /* AddFavoriateDesigner.m */,
+				6EE1E41B1C05942600883184 /* DeleteFavoriteDesigner.h */,
+				6EE1E41C1C05942600883184 /* DeleteFavoriteDesigner.m */,
+				6EE1E41E1C0594CF00883184 /* ListFavoriteDesigner.h */,
+				6EE1E41F1C0594CF00883184 /* ListFavoriteDesigner.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -996,6 +1030,10 @@
 		6E07DA9D1BD88DBE001461DD /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6EE1E4211C0595C600883184 /* Aspects.h */,
+				6EE1E4221C0595C600883184 /* Aspects.m */,
+				6EE1E4231C0595C600883184 /* LeakMoniter.h */,
+				6EE1E4241C0595C600883184 /* LeakMoniter.m */,
 				6E07DA9E1BD88DBE001461DD /* BaseDynamicObject.h */,
 				6E07DA9F1BD88DBE001461DD /* BaseDynamicObject.m */,
 				6E07DAA01BD88DBE001461DD /* HUDUtil.h */,
@@ -1168,6 +1206,7 @@
 		6E6D98B21BDF73D300D45F77 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				6EE1E4271C059CD700883184 /* FavoriteDesigner */,
 				6E4496471BFC82E800C90851 /* Info */,
 				6E4496371BFC2D8F00C90851 /* Setting */,
 				6E6D98B31BDF73DE00D45F77 /* MeViewController.h */,
@@ -1324,6 +1363,21 @@
 				6E7E4A611B9A8F6E00503B35 /* Login */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		6EE1E4271C059CD700883184 /* FavoriteDesigner */ = {
+			isa = PBXGroup;
+			children = (
+				6EE1E4281C059CF400883184 /* FavoriteDesignerViewController.h */,
+				6EE1E4291C059CF400883184 /* FavoriteDesignerViewController.m */,
+				6EE1E42A1C059CF400883184 /* FavoriteDesignerViewController.xib */,
+				6EE1E42D1C05A0D800883184 /* FavoriteDesignerCell.h */,
+				6EE1E42E1C05A0D800883184 /* FavoriteDesignerCell.m */,
+				6EE1E42F1C05A0D800883184 /* FavoriteDesignerCell.xib */,
+				6EE1E4321C05A72400883184 /* FavoriteDesignerData.h */,
+				6EE1E4331C05A72400883184 /* FavoriteDesignerData.m */,
+			);
+			path = FavoriteDesigner;
 			sourceTree = "<group>";
 		};
 		6EE299C01BF57C4E00A527F6 /* Refresh */ = {
@@ -1513,10 +1567,12 @@
 				6E7867121BA942C700DE8B1B /* SectionCell.xib in Resources */,
 				684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */,
 				684A37511BFD73DF00F7388C /* SelectDecorationStyleViewController.xib in Resources */,
+				6EE1E4311C05A0D800883184 /* FavoriteDesignerCell.xib in Resources */,
 				6E4496331BFAD68B00C90851 /* ResetPassViewController.xib in Resources */,
 				6E4496581BFEC2BD00C90851 /* ImageBrowerViewController.xib in Resources */,
 				6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */,
 				6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */,
+				6EE1E42C1C059CF400883184 /* FavoriteDesignerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1617,6 +1673,7 @@
 				6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */,
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
+				6EE1E4301C05A0D800883184 /* FavoriteDesignerCell.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */,
 				684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */,
@@ -1666,6 +1723,7 @@
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
 				6E6D98C01BE0637700D45F77 /* Product.m in Sources */,
+				6EE1E4201C0594CF00883184 /* ListFavoriteDesigner.m in Sources */,
 				684A37671BFDE24900F7388C /* EvaluateDesignerViewController.m in Sources */,
 				6E7E4A691B9A90BA00503B35 /* LoginViewController.m in Sources */,
 				6E4496661BFF0B6F00C90851 /* ImageEditorViewController.m in Sources */,
@@ -1676,15 +1734,19 @@
 				68342DF51BFC0F960000EBBE /* Plan.m in Sources */,
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
+				6EE1E4261C0595C600883184 /* LeakMoniter.m in Sources */,
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
+				6EE1E42B1C059CF400883184 /* FavoriteDesignerViewController.m in Sources */,
 				684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */,
 				685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */,
+				6EE1E4341C05A72400883184 /* FavoriteDesignerData.m in Sources */,
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
 				685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */,
 				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
 				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */,
+				6EE1E4251C0595C600883184 /* Aspects.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
 				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
@@ -1706,6 +1768,7 @@
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
 				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
+				6EE1E41D1C05942600883184 /* DeleteFavoriteDesigner.m in Sources */,
 				683669091BFF0C05006A5053 /* PlanCell.m in Sources */,
 				684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
@@ -1715,6 +1778,7 @@
 				685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */,
 				684A37541BFD73DF00F7388C /* SelectHouseTypeViewController.m in Sources */,
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
+				6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
