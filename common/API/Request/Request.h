@@ -23,6 +23,7 @@
 #import "ChoosePlan.h"
 #import "LeaveComment.h"
 #import "GetComments.h"
+#import "StartDecorationProcess.h"
 #import "ProcessList.h"
 #import "GetProcess.h"
 #import "HomePageDesigners.h"

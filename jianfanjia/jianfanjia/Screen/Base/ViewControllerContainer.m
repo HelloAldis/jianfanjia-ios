@@ -124,13 +124,14 @@ static ViewControllerContainer *container;
     [nav pushViewController:v animated:YES];
 }
 
-+ (void)showProcess {
-//    LeftViewController *left = [[LeftViewController alloc] initWithNibName:nil bundle:nil];
-//    ProcessViewController *process = [[ProcessViewController alloc] initWithNibName:nil bundle:nil];
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:process];
-    
-//    RESideMenu *side = [[RESideMenu alloc] initWithContentViewController:nav leftMenuViewController:left rightMenuViewController:nil];
-//    container.window.rootViewController = side;
++ (void)showProcessPreview {
+    ProcessViewController *v = [[ProcessViewController alloc] initWithProcessPreview];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showProcess:(NSString *)processid {
+    ProcessViewController *v = [[ProcessViewController alloc] initWithProcess:processid];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
 + (void)showProduct:(NSString *)productid {
@@ -218,8 +219,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showAgreement {
-    AgreementViewController *v = [[AgreementViewController alloc] init];
++ (void)showAgreement:(Requirement *)requirement {
+    AgreementViewController *v = [[AgreementViewController alloc] initWithRequirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

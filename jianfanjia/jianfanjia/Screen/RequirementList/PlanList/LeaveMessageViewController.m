@@ -165,7 +165,6 @@ static float kKeyboardHeight = 480;
         [self.tableView.header endRefreshing];
         [self.requirementDataManager refreshComments];
         [self.tableView reloadData];
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
     } failure:^{
         
     }];

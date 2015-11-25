@@ -15,5 +15,12 @@
 @dynamic status;
 @dynamic images;
 
+- (void)switchItemCellStatus {
+    if (_itemCellStatus == ItemCellStatusClosed) {
+        _itemCellStatus = ItemCellStatusExpaned;
+    } else {
+        _itemCellStatus = ItemCellStatusClosed;
+    }
+}
 
 @end

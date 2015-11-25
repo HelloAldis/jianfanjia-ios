@@ -17,6 +17,9 @@
 @property(nonatomic, strong) NSString *status;
 @property(nonatomic, strong) NSMutableArray *items;
 
+//辅助属性
+@property(nonatomic, strong) Item *latestItem;
+
 - (Item *)itemAtIndex:(NSInteger )index;
 
 @end

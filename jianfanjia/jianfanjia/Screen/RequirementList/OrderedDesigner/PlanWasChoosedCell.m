@@ -50,7 +50,7 @@
 }
 
 - (void)onClickViewAgreementButton {
-    [ViewControllerContainer showAgreement];
+    [ViewControllerContainer showAgreement:self.requirement];
 }
 
 @end

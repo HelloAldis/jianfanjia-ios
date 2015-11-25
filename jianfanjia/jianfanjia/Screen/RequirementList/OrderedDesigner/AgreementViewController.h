@@ -10,4 +10,6 @@
 
 @interface AgreementViewController : BaseViewController
 
+- (id)initWithRequirement:(Requirement *)requirement;
+
 @end

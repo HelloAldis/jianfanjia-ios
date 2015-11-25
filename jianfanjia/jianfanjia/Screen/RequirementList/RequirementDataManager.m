@@ -15,7 +15,11 @@
     NSMutableArray *requirements = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
-        [requirements addObject:[[Requirement alloc] initWith:dict]];
+        Requirement *requirement = [[Requirement alloc] initWith:dict];
+        Process *process = [[Process alloc] initWith:[requirement.data objectForKey:@"process"]];
+        requirement.process = process;
+        
+        [requirements addObject:requirement];
     }
     
     self.requirements = requirements;

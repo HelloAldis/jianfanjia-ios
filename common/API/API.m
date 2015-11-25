@@ -99,6 +99,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"topic_comments" data:[request data] handler:request success:success failure:failure];
 }
 
++ (void)startDecoration:(StartDecorationProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user/process" data:[request data] handler:request success:success failure:failure];
+}
+
 + (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API GET:@"process/list" handler:request success:success failure:success];
 }

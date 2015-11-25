@@ -10,4 +10,7 @@
 
 @interface ProcessViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
+- (id)initWithProcess:(NSString *)processid;
+- (id)initWithProcessPreview;
+
 @end

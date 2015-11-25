@@ -91,10 +91,10 @@
 }
 
 - (void)onClickGoToWorkSiteButton {
-    if (kRequirementStatusConfiguredWorkSite == self.currentRequirementStatus) {
-        
+    if ([kRequirementStatusConfiguredWorkSite isEqualToString:self.currentRequirementStatus]) {
+        [ViewControllerContainer showProcess:self.requirement.process._id];
     } else {
-        
+        [ViewControllerContainer showProcessPreview];
     }
 }
 
@@ -145,7 +145,7 @@
     } else if ([status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
         self.lblRequirementStatusVal.textColor = PlanChoosedColor;
         self.btnGoToWorkspace.titleLabel.textColor = PlanChoosedColor;
-        self.btnGoToWorkspace.titleLabel.text = @"前往工地";
+        [self.btnGoToWorkspace setTitle:@"前往工地" forState:UIControlStateNormal];
     } else if ([status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
         self.lblRequirementStatusVal.textColor = UnorderColor;
     }

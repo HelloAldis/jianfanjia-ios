@@ -31,5 +31,6 @@
 @dynamic family_description;
 @dynamic create_at;
 @dynamic last_status_update_time;
+@dynamic final_planid;
 
 @end

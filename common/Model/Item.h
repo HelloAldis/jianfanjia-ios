@@ -8,11 +8,20 @@
 
 #import "BaseModel.h"
 
+typedef NS_ENUM(NSInteger, ItemCellStatus) {
+    ItemCellStatusClosed,
+    ItemCellStatusExpaned,
+};
+
 @interface Item : BaseModel
 
 @property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) NSString *date;
 @property(nonatomic, strong) NSString *status;
 @property(nonatomic, strong) NSMutableArray *images;
+
+//辅助属性
+@property(nonatomic, assign) ItemCellStatus itemCellStatus;
+- (void)switchItemCellStatus;
 
 @end

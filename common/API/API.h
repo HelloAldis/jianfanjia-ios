@@ -27,6 +27,7 @@ extern NSString * const kApiUrl;
 + (void)choosePlan:(ChoosePlan *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)leaveComment:(LeaveComment *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)getComments:(GetComments *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)startDecoration:(StartDecorationProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)getProcess:(GetProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)homePageDesigners:(HomePageDesigners *)request success:(void (^)(void))success failure:(void (^)(void))failure;

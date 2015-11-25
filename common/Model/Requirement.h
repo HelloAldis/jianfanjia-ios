@@ -34,6 +34,9 @@
 @property (strong, nonatomic) NSString *communication_type;
 @property (strong, nonatomic) NSNumber *create_at;
 @property (strong, nonatomic) NSNumber *last_status_update_time;
+@property (strong, nonatomic) NSString *final_planid;
 
+//不动态属性
+@property (strong, nonatomic) Process *process;
 
 @end

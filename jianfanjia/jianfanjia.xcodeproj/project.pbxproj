@@ -16,6 +16,10 @@
 		68343A191BF70719004F15C1 /* province2city.js in Resources */ = {isa = PBXBuildFile; fileRef = 68343A161BF70719004F15C1 /* province2city.js */; };
 		683595A81C04565300AD58E7 /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683595A61C04565300AD58E7 /* AgreementViewController.m */; };
 		683595A91C04565300AD58E7 /* AgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683595A71C04565300AD58E7 /* AgreementViewController.xib */; };
+		683626951C05545E005F2C30 /* StartDecorationProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 683626941C05545E005F2C30 /* StartDecorationProcess.m */; };
+		683626991C059C72005F2C30 /* ItemExpandImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683626971C059C72005F2C30 /* ItemExpandImageCell.m */; };
+		6836269A1C059C72005F2C30 /* ItemExpandImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683626981C059C72005F2C30 /* ItemExpandImageCell.xib */; };
+		6836269D1C05B1E9005F2C30 /* ProcessDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6836269C1C05B1E9005F2C30 /* ProcessDataManager.m */; };
 		683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 683668F81BFECEBC006A5053 /* EvaluateDesigner.m */; };
 		683668FC1BFEECC0006A5053 /* Evaluation.m in Sources */ = {isa = PBXBuildFile; fileRef = 683668FB1BFEECC0006A5053 /* Evaluation.m */; };
 		683668FF1BFF055D006A5053 /* ReplaceOrderedDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 683668FE1BFF055D006A5053 /* ReplaceOrderedDesigner.m */; };
@@ -265,6 +269,13 @@
 		683595A51C04565300AD58E7 /* AgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreementViewController.h; sourceTree = "<group>"; };
 		683595A61C04565300AD58E7 /* AgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewController.m; sourceTree = "<group>"; };
 		683595A71C04565300AD58E7 /* AgreementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgreementViewController.xib; sourceTree = "<group>"; };
+		683626931C05545E005F2C30 /* StartDecorationProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartDecorationProcess.h; sourceTree = "<group>"; };
+		683626941C05545E005F2C30 /* StartDecorationProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartDecorationProcess.m; sourceTree = "<group>"; };
+		683626961C059C72005F2C30 /* ItemExpandImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemExpandImageCell.h; sourceTree = "<group>"; };
+		683626971C059C72005F2C30 /* ItemExpandImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemExpandImageCell.m; sourceTree = "<group>"; };
+		683626981C059C72005F2C30 /* ItemExpandImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemExpandImageCell.xib; sourceTree = "<group>"; };
+		6836269B1C05B1E9005F2C30 /* ProcessDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessDataManager.h; sourceTree = "<group>"; };
+		6836269C1C05B1E9005F2C30 /* ProcessDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessDataManager.m; sourceTree = "<group>"; };
 		683668F71BFECEBC006A5053 /* EvaluateDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateDesigner.h; sourceTree = "<group>"; };
 		683668F81BFECEBC006A5053 /* EvaluateDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateDesigner.m; sourceTree = "<group>"; };
 		683668FA1BFEECC0006A5053 /* Evaluation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evaluation.h; sourceTree = "<group>"; };
@@ -887,6 +898,8 @@
 				685CD5DE1C030F1400EC1991 /* LeaveComment.m */,
 				685CD5EA1C031D1C00EC1991 /* GetComments.h */,
 				685CD5EB1C031D1C00EC1991 /* GetComments.m */,
+				683626931C05545E005F2C30 /* StartDecorationProcess.h */,
+				683626941C05545E005F2C30 /* StartDecorationProcess.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1234,9 +1247,14 @@
 				6E7867131BA944AF00DE8B1B /* ItemCell.h */,
 				6E7867141BA944AF00DE8B1B /* ItemCell.m */,
 				6E7867151BA944AF00DE8B1B /* ItemCell.xib */,
+				683626961C059C72005F2C30 /* ItemExpandImageCell.h */,
+				683626971C059C72005F2C30 /* ItemExpandImageCell.m */,
+				683626981C059C72005F2C30 /* ItemExpandImageCell.xib */,
 				6E2DCAAA1BB5207400591A16 /* LeftViewController.h */,
 				6E2DCAAB1BB5207400591A16 /* LeftViewController.m */,
 				6E2DCAAC1BB5207400591A16 /* LeftViewController.xib */,
+				6836269B1C05B1E9005F2C30 /* ProcessDataManager.h */,
+				6836269C1C05B1E9005F2C30 /* ProcessDataManager.m */,
 			);
 			path = Process;
 			sourceTree = "<group>";
@@ -1406,7 +1424,7 @@
 				TargetAttributes = {
 					6E20B2211B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = CSFDRG22AA;
+						DevelopmentTeam = 9N6Y5VRGG7;
 					};
 					6E20B23A1B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
@@ -1440,6 +1458,7 @@
 			files = (
 				684A370D1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.xib in Resources */,
 				6E4496611BFECE0100C90851 /* ThumbnailCell.xib in Resources */,
+				6836269A1C059C72005F2C30 /* ItemExpandImageCell.xib in Resources */,
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */,
 				68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */,
@@ -1613,6 +1632,7 @@
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
 				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,
+				683626991C059C72005F2C30 /* ItemExpandImageCell.m in Sources */,
 				6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */,
 				6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */,
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
@@ -1646,6 +1666,7 @@
 				6E4496251BF9BA2600C90851 /* VerifyPhoneViewController.m in Sources */,
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */,
+				6836269D1C05B1E9005F2C30 /* ProcessDataManager.m in Sources */,
 				684A37521BFD73DF00F7388C /* SelectDecorationTypeViewController.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
@@ -1665,6 +1686,7 @@
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
+				683626951C05545E005F2C30 /* StartDecorationProcess.m in Sources */,
 				6E6D98C01BE0637700D45F77 /* Product.m in Sources */,
 				684A37671BFDE24900F7388C /* EvaluateDesignerViewController.m in Sources */,
 				6E7E4A691B9A90BA00503B35 /* LoginViewController.m in Sources */,
@@ -1841,7 +1863,7 @@
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jianfanjia.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1857,7 +1879,7 @@
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jianfanjia.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

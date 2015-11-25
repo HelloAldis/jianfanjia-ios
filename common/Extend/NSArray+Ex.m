@@ -10,7 +10,7 @@
 
 @implementation NSArray (Ex)
 
-- (NSArray *)map:(id (^)(id obj))fun {
+- (NSMutableArray *)map:(id (^)(id obj))fun {
     NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:self.count];
     for (id obj in self) {
         [array addObject:fun(obj)];

@@ -13,9 +13,19 @@
 @interface AgreementViewController () <WKNavigationDelegate>
 @property (strong, nonatomic) WKWebView *webView;
 
+@property (strong, nonatomic) Requirement *requirement;
+
 @end
 
 @implementation AgreementViewController
+
+- (id)initWithRequirement:(Requirement *)requirement {
+    if (self = [super init]) {
+        _requirement = requirement;
+    }
+    
+    return self;
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -32,7 +42,14 @@
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"合同";
+    
+    if ([kRequirementStatusPlanWasChoosedWithoutAgreement isEqualToString:self.requirement.status]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain target:self action:@selector(onClickConfirm:)];
+        self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
+    
+    self.title = @"施工合同";
 }
 
 #pragma mark - load page
@@ -55,6 +72,7 @@
     self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
     _webView.translatesAutoresizingMaskIntoConstraints = NO;
     _webView.allowsBackForwardNavigationGestures = YES;
+    _webView.navigationDelegate = self;
     [self.view addSubview:_webView];
     // Add the constraints
     NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
@@ -64,6 +82,26 @@
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
     NSString *urlString = [NSString stringWithFormat:@"http://%@/%@", components.host, @"tpl/user/agreement.html"];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
+}
+
+#pragma mark - delegate 
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    if (self.navigationItem.rightBarButtonItem) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    }
+}
+
+#pragma mark - user action
+- (void)onClickConfirm:(id)sender {
+    StartDecorationProcess *request = [[StartDecorationProcess alloc] init];
+    request.requirementid = self.requirement._id;
+    request.final_planid = self.requirement.final_planid;
+    
+    [API startDecoration:request success:^{
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    } failure:^{
+        
+    }];
 }
 
 @end

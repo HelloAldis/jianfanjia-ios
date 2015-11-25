@@ -10,192 +10,137 @@
 #import "BannerCell.h"
 #import "SectionCell.h"
 #import "ItemCell.h"
+#import "ItemExpandImageCell.h"
 #import "API.h"
+#import "ProcessDataManager.h"
 
+typedef NS_ENUM(NSInteger, WorkSiteMode) {
+    WorkSiteModePreview,
+    WorkSiteModeReal,
+};
 
+typedef NS_ENUM(NSInteger, SectionOperationStatus) {
+    SectionOperationStatusRefresh,
+    SectionOperationStatusSwitchItemCell,
+};
+
+static NSString *ItemExpandCellIdentifier = @"ItemExpandImageCell";
+static NSString *ItemCellIdentifier = @"ItemCell";
 
 @interface ProcessViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *WorkProcedureScrollView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (strong, nonatomic) Process *process;
-@property (assign, nonatomic) NSInteger sectionIndex;
+@property (strong, nonatomic) NSString *processid;
+@property (assign, nonatomic) SectionOperationStatus currentSectionOperationStatus;
+@property (assign, nonatomic) WorkSiteMode workSiteMode;
+@property (strong, nonatomic) ProcessDataManager *processDataManager;
 
 @end
 
 @implementation ProcessViewController
 
+#pragma mark - init method
+- (id)initWithProcess:(NSString *)processid withMode:(WorkSiteMode)mode {
+    if (self = [super init]) {
+        _workSiteMode = mode;
+        _processid = processid;
+        _processDataManager = [[ProcessDataManager alloc] init];
+    }
+    
+    return self;
+}
+
+- (id)initWithProcess:(NSString *)processid {
+    return [self initWithProcess:processid withMode:WorkSiteModeReal];
+}
+
+- (id)initWithProcessPreview {
+    return [self initWithProcess:nil withMode:WorkSiteModePreview];
+}
+
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BannerCell" bundle:nil] forCellReuseIdentifier:@"BannerCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"SectionCell" bundle:nil] forCellReuseIdentifier:@"SectionCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"ItemCell" bundle:nil] forCellReuseIdentifier:@"ItemCell"];
-    [self initNav];
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self refresh];
-    }];
     
-    self.sectionIndex = 0;
+    [self initNav];
+    [self initUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.process = [ProcessBusiness defaultProcess];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    //    ProcessCD *processCD = [ProcessCD findFirstByAttribute:@"processid" withValue:[GVUserDefaults standardUserDefaults].processid];
-//    DDLogDebug(@"%@", [Business defaultProcess]);
+    [self refresh];
 }
 
 #pragma mark - UI
-- (UIStatusBarAnimation)preferredStatusBarUpdateAnimation {
-    return UIStatusBarAnimationFade;
-}
-
 - (void)initNav {
-    self.navigationController.navigationBarHidden = NO;
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"translucent"] forBarMetrics:UIBarMetricsDefault];
-    UIButton *left = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    [left setImageWithId:@"55f681f72d78361a6106bc5f" placeholderImage:[AccountBusiness defaultAvatar]];
-    [left addTarget:self action:@selector(onClickMe) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:left];
-    
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"配置工地" style:UIBarButtonItemStylePlain target:self action:@selector(onClickConfig)];
-    self.navigationItem.rightBarButtonItem = item;
+    [self initLeftBackInNav];
     self.title = @"工地管理";
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
 }
 
-
+- (void)initUI {
+    [self.tableView registerNib:[UINib nibWithNibName:ItemCellIdentifier bundle:nil] forCellReuseIdentifier:ItemCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCellIdentifier];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 90;
+    
+    if (self.workSiteMode == WorkSiteModeReal) {
+        self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            [self refresh];
+        }];
+    }
+}
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    } else {
-        if ([ProcessBusiness hasYs:self.sectionIndex]) {
-            return [self.process sectionAtIndex:self.sectionIndex].items.count + 1;
-        } else {
-            return [self.process sectionAtIndex:self.sectionIndex].items.count;
-        }
-    }
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return self.processDataManager.selectedItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        BannerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"BannerCell"];
+    if (self.currentSectionOperationStatus == SectionOperationStatusRefresh) {
+        ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemCellIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else {
-        if ([ProcessBusiness hasYs:self.sectionIndex]) {
-            return nil;
-        } else {
-            
-        }
-        ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ItemCell"];
+        ItemExpandImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCellIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return kBannerCellHeight;
-    } else {
-        return kItemCellHeight;
-    }
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.currentSectionOperationStatus = SectionOperationStatusSwitchItemCell;
+    Item *item = self.processDataManager.selectedItems[indexPath.row];
+    [item switchItemCellStatus];
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    return indexPath;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return 0;
-    } else {
-        return kSectionCellHeight;
-    }
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        return nil;
-    } else {
-        return [self.tableView dequeueReusableCellWithIdentifier:@"SectionCell"];
-    }
-}
-
-#pragma mark - scroll view delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y >= (kBannerCellHeight - 64)) {
-        if (self.navigationController.navigationBar.translucent) {
-            self.navigationController.navigationBar.translucent = NO;
-            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-            self.navigationController.navigationBar.barTintColor = kThemeColor;
-        }
-    } else {
-        if (!self.navigationController.navigationBar.translucent) {
-            self.navigationController.navigationBar.translucent = YES;
-            self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-            self.navigationController.navigationBar.barTintColor = [UIColor clearColor];
-        }
-    }
-    
-    if (scrollView.contentOffset.y < 0) {
-        if (!self.navigationController.navigationBarHidden) {
-            self.navigationController.navigationBarHidden = YES;
-        }
-    } else {
-        if (self.navigationController.navigationBarHidden) {
-            self.navigationController.navigationBarHidden = NO;
-        }
-    }
-}
-
-#pragma mark - actions
-- (void)onClickMe {
-    
-}
-
-- (void)onClickConfig {
-    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Item *item = self.processDataManager.selectedItems[indexPath.row];
+    [item switchItemCellStatus];
+    [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)refresh {
-    GetProcess *request = [[GetProcess alloc] init];
-    request.processid = [GVUserDefaults standardUserDefaults].processid;
-    
-//    [API getProcess:request success:^{
-//        [self.tableView.header endRefreshing];
-//        NSArray *arry = [ProcessCDDao find];
-//        for (ProcessCD *processCD in arry) {
-//            DDLogDebug(@"%@ what 1", processCD.process);
-//            DDLogDebug(@"%@ what 1", processCD.userid);
-//        }
-//        
-//    } failure:^{
-//        
-//    }];
-    
-    
-//    [API getUserRequirement:[[GetUserRequirement alloc] init] success:^{
-//        NSArray *arry = [ProcessCDDao find];
-//        for (ProcessCD *processCD in arry) {
-//            DDLogDebug(@"%@ what 4", processCD.process);
-//        }
-//    } failure:^{
-//        NSArray *arry = [ProcessCDDao find];
-//        for (ProcessCD *processCD in arry) {
-//            DDLogDebug(@"%@ what 5", processCD.process);
-//        }
-//    }];
+    if (self.workSiteMode == WorkSiteModePreview) {
+        [self.processDataManager refreshSections:[ProcessBusiness defaultProcess]];
+        [self.processDataManager switchToSelectedSection:0];
+        [self.tableView reloadData];
+    } else {
+        GetProcess *request = [[GetProcess alloc] init];
+        request.processid = [GVUserDefaults standardUserDefaults].processid;
+        
+        [API getProcess:request success:^{
+            [self.tableView.header endRefreshing];
+            self.currentSectionOperationStatus = SectionOperationStatusRefresh;
+            [self.processDataManager refreshProcess];
+            [self.tableView reloadData];
+        } failure:^{
+            
+        }];
+    }
 }
 
 

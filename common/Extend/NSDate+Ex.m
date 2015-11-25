@@ -29,7 +29,7 @@
 }
 
 + (NSString *)yyyy_MM_dd:(NSNumber *)timeInterval {
-    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longValue / 1000] yyyy_MM_dd];
+    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longLongValue / 1000] yyyy_MM_dd];
 }
 
 - (NSString *)yyyy_MM_dd_HH_mm {
@@ -39,7 +39,7 @@
 }
 
 + (NSString *)yyyy_MM_dd_HH_mm:(NSNumber *)timeInterval {
-    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longValue / 1000] yyyy_MM_dd_HH_mm];
+    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longLongValue / 1000] yyyy_MM_dd_HH_mm];
 }
 
 @end

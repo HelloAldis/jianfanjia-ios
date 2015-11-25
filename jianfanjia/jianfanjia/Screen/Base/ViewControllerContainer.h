@@ -18,14 +18,15 @@
 + (void)showVerifyPhone:(BOOL)isResetPass;
 + (void)showSignupSuccess;
 + (void)showResetPass;
-+ (void)showProcess;
++ (void)showProcessPreview;
++ (void)showProcess:(NSString *)processid;
 + (void)showProduct:(NSString *)productid;
 + (void)showDesigner:(NSString *)designerid;
 + (void)showOrderDesigner:(Requirement *)requirement;
 + (void)showReplaceOrderedDesigner:(NSString *)designerid forRequirement:(Requirement *)requirement;
 + (void)showOrderedDesigner:(Requirement *)requirement;
 + (void)showEvaluateDesigner:(Designer *)designer withRequirement:(NSString *)requirementid;
-+ (void)showAgreement;
++ (void)showAgreement:(Requirement *)requirement;
 + (void)showPlanList:(NSString *)designerid forRequirement:(Requirement *)requirement;
 + (void)leaveMessage:(Plan *)plan;
 + (void)showPlanPerview:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement;

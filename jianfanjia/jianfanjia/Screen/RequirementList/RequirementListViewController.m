@@ -49,6 +49,11 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 #pragma mark - init ui
 - (void)initUI {
     [self.tableView registerNib:[UINib nibWithNibName:@"RequirementCell" bundle:nil] forCellReuseIdentifier:requirementCellId];
+    @weakify(self);
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refreshRequirements];
+    }];
 }
 
 - (void)switchViewToHide {
@@ -159,6 +164,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
     GetUserRequirement *getRequirements = [[GetUserRequirement alloc] init];
     
     [API getUserRequirement:getRequirements success:^{
+        [self.tableView.header endRefreshing];
         [self.requirementDataManager refreshRequirementList];
         [self switchViewToHide];
         [self.tableView reloadData];
