@@ -180,9 +180,21 @@ static float kKeyboardHeight = 480;
     @weakify(self);
     [API getComments:request success:^{
         @strongify(self);
-        [self.requirementDataManager loadMoreComments];
         [self.tableView.footer endRefreshing];
-        [self.tableView reloadData];
+        NSInteger currentCount = self.requirementDataManager.comments.count;
+        [self.requirementDataManager loadMoreComments];
+        NSInteger totalCount = self.requirementDataManager.comments.count;
+        
+        NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:totalCount - currentCount];
+        for (int i = currentCount; i < totalCount; i++) {
+            [insertIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+        }
+        
+        if (totalCount > currentCount) {
+            [self.tableView beginUpdates];
+            [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationRight];
+            [self.tableView endUpdates];
+        }
     } failure:^{
         
     }];
