@@ -12,8 +12,8 @@
 @interface ImageEditorViewController ()
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+@property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) OverlayView *overlayView;
 
 @end
@@ -26,20 +26,32 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self initNav];
-    [self initImageView];
+    self.scrollView.maximumZoomScale = 2;
+    self.scrollView.minimumZoomScale = 1;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
+    CGRect rect = CGRectMake(0, 0, kScreenWidth - 10, kScreenWidth - 10);
+    self.imageView = [[UIImageView alloc] initWithFrame:rect];
+    [self.scrollView addSubview:self.imageView];
+//    self.imageView.center = self.scrollView.center;
+    [self initImageView];
     [self initOverlayView];
 }
 
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:animated];
+//    
+//    [self initOverlayView];
+//}
+
 #pragma mark - UI
 - (void)initOverlayView {
-    
-    self.overlayView = [[OverlayView alloc] initWithFrame:self.scrollView.frame];
+    CGRect frame = CGRectOffset(self.imageView.frame, 0, 64);
+    self.overlayView = [[OverlayView alloc] initWithFrame:frame];
     self.overlayView.gridHidden = NO;
+    self.overlayView.userInteractionEnabled = NO;
     [self.view addSubview:self.overlayView];
 }
 
@@ -61,6 +73,11 @@
             self.imageView.image = result;
         });
     }];
+}
+
+#pragma mark - scroll view delegate
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return  self.imageView;
 }
 
 
