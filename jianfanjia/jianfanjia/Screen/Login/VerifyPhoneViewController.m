@@ -68,7 +68,9 @@
         request.code = [self.fldVerifyCode.text trim];
         
         [HUDUtil showWait];
+        @weakify(self);
         [API updatePass:request success:^{
+            @strongify(self);
             [HUDUtil hideWait];
             [HUDUtil showSuccessText:@"密码更新成功"];
             [self.navigationController popToRootViewControllerAnimated:YES];

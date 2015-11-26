@@ -3,40 +3,25 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageEditorViewController">
             <connections>
-                <outlet property="imageView" destination="BZC-6j-6fo" id="tMQ-fh-Bmn"/>
                 <outlet property="scrollView" destination="JZe-l3-FEa" id="7F7-PO-eX2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZe-l3-FEa">
-                    <rect key="frame" x="0.0" y="64" width="414" height="672"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BZC-6j-6fo">
-                            <rect key="frame" x="10" y="139" width="394" height="394"/>
-                            <animations/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="BZC-6j-6fo" secondAttribute="height" multiplier="1:1" id="Rj7-5u-Oiq"/>
-                            </constraints>
-                        </imageView>
-                    </subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" maximumZoomScale="2" translatesAutoresizingMaskIntoConstraints="NO" id="JZe-l3-FEa">
+                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                     <animations/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="BZC-6j-6fo" secondAttribute="trailing" id="4fE-Eo-ryj"/>
-                        <constraint firstItem="BZC-6j-6fo" firstAttribute="centerY" secondItem="JZe-l3-FEa" secondAttribute="centerY" id="FqT-uW-vDc"/>
-                        <constraint firstItem="BZC-6j-6fo" firstAttribute="centerX" secondItem="JZe-l3-FEa" secondAttribute="centerX" id="Hkv-xc-Q8k"/>
-                        <constraint firstAttribute="bottom" secondItem="BZC-6j-6fo" secondAttribute="bottom" id="Mkw-16-bQF"/>
-                        <constraint firstItem="BZC-6j-6fo" firstAttribute="width" secondItem="JZe-l3-FEa" secondAttribute="width" constant="-20" id="Vbq-q3-1LR"/>
-                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="EsS-i4-mCZ"/>
+                    </connections>
                 </scrollView>
             </subviews>
             <animations/>
@@ -47,7 +32,6 @@
                 <constraint firstItem="JZe-l3-FEa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="OZo-Ed-FHs"/>
                 <constraint firstAttribute="bottom" secondItem="JZe-l3-FEa" secondAttribute="bottom" id="QlE-We-am9"/>
             </constraints>
-            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
         </view>
     </objects>
 </document>

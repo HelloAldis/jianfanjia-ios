@@ -165,7 +165,9 @@
     DesignerHomePage *request = [[DesignerHomePage alloc] init];
     request._id = self.designerid;
     
+    @weakify(self);
     [API designerHomePage:request success:^{
+        @strongify(self);
         [self.designerPageData refreshDesigner];
         self.needRefreshDesignerViewController = NO;
         [self.tableView reloadData];
@@ -180,7 +182,9 @@
     request.from = @0;
     request.limit = @10;
     
+    @weakify(self);
     [API queryProduct:request success:^{
+        @strongify(self);
         [self.designerPageData refreshProduct];
         [self.tableView.footer endRefreshing];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -195,7 +199,9 @@
     request.from = @(self.designerPageData.products.count);
     request.limit = @10;
     
+    @weakify(self);
     [API queryProduct:request success:^{
+        @strongify(self);
         [self.designerPageData loadMoreProduct];
         [self.tableView.footer endRefreshing];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];

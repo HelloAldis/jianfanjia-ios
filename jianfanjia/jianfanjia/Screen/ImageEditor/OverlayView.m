@@ -40,22 +40,22 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
 }
 
 - (void)setup{
-    UIView *(^newLineView)(void) = ^UIView *(void) {
+    UIView *(^newLineView)(UIColor *color) = ^UIView *(UIColor *color) {
         UIView *newLine = [[UIView alloc] initWithFrame:CGRectZero];
-        newLine.backgroundColor = [UIColor whiteColor];
+        newLine.backgroundColor = color;
         [self addSubview:newLine];
         return newLine;
     };
     
-    _outerLineViews     = @[newLineView(), newLineView(), newLineView(), newLineView()];
+    _outerLineViews     = @[newLineView([UIColor greenColor]), newLineView([UIColor greenColor]), newLineView([UIColor greenColor]), newLineView([UIColor greenColor])];
     
-    _topLeftLineViews   = @[newLineView(), newLineView()];
-    _bottomLeftLineViews = @[newLineView(), newLineView()];
-    _topRightLineViews  = @[newLineView(), newLineView()];
-    _bottomRightLineViews = @[newLineView(), newLineView()];
+    _topLeftLineViews   = @[newLineView([UIColor redColor]), newLineView([UIColor redColor])];
+    _bottomLeftLineViews = @[newLineView([UIColor redColor]), newLineView([UIColor redColor])];
+    _topRightLineViews  = @[newLineView([UIColor redColor]), newLineView([UIColor redColor])];
+    _bottomRightLineViews = @[newLineView([UIColor redColor]), newLineView([UIColor redColor])];
     
-    _horizontalGridLines = @[newLineView(), newLineView()];
-    _verticalGridLines = @[newLineView(), newLineView()];
+    _horizontalGridLines = @[newLineView([UIColor blueColor]), newLineView([UIColor blueColor])];
+    _verticalGridLines = @[newLineView([UIColor blueColor]), newLineView([UIColor blueColor])];
 }
 
 - (void)setFrame:(CGRect)frame{

@@ -10,6 +10,7 @@
 #import "ThumbnailCell.h"
 #import "ImageEditorViewController.h"
 #import <Photos/Photos.h>
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface ImageBrowerViewController ()
 
@@ -39,12 +40,29 @@
     self.collectionViewLayout.minimumInteritemSpacing = self.cellSpace;
     self.collectionView.allowsSelection = YES;
     self.collectionView.allowsMultipleSelection = self.allowsMultipleSelection;
-    PHFetchOptions *options = [[PHFetchOptions alloc] init];
-    options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
-    self.result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
     
     [RACObserve(self, selectCount) subscribeNext:^(NSNumber *newValue) {
         [self initTitleAndRight];
+    }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    @weakify(self);
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        @strongify(self);
+        if (PHAuthorizationStatusAuthorized == status) {
+            PHFetchOptions *options = [[PHFetchOptions alloc] init];
+            options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+            self.result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
+            dispatch_async(dispatch_get_main_queue(), ^{
+              [self.collectionView reloadData];
+            });
+            
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.navigationController popViewControllerAnimated:YES];
+            });
+        }
     }];
 }
 

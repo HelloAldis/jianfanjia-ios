@@ -116,7 +116,9 @@
     ProductHomePage *request = [[ProductHomePage alloc] init];
     request._id = self.productid;
     
+    @weakify(self);
     [API productHomePage:request success:^{
+        @strongify(self);
         [self.productPageData refresh];
         self.needRefreshProductViewController = NO;
         [self initUIData];

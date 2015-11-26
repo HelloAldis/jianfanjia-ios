@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) FavoriteDesignerData *favoriateDesignerPageData;
+@property (strong, nonatomic) NSArray *rowAction;
 
 @end
 
@@ -32,6 +33,14 @@
     [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self refreshDesigner];
+    
+    @weakify(self);
+    self.rowAction = @[[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
+                                                        title:@"删除"
+                                                      handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+                                                          @strongify(self);
+                                                          [self deleteFavoriateDesigner:indexPath];
+    }]];
 }
 
 #pragma mark - UI
@@ -55,6 +64,10 @@
     return 80;
 }
 
+- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.rowAction;
+}
+
 #pragma mark - Util
 - (void)refreshDesigner {
     ListFavoriteDesigner *request = [[ListFavoriteDesigner alloc] init];
@@ -75,10 +88,6 @@
     }];
 }
 
-- (void)checkNoMoreData:(ListFavoriteDesigner *)request {
-    
-}
-
 - (void)loadMoreDesigner {
     ListFavoriteDesigner *request = [[ListFavoriteDesigner alloc] init];
     request.from = @(self.favoriateDesignerPageData.designers.count);
@@ -94,6 +103,20 @@
         };
         
         [self.tableView reloadData];
+    } failure:^{
+        
+    }];
+}
+
+- (void)deleteFavoriateDesigner:(NSIndexPath *)index {
+    DeleteFavoriteDesigner *request = [[DeleteFavoriteDesigner alloc] init];
+    request._id = [[self.favoriateDesignerPageData.designers objectAtIndex:index.row] _id];
+    
+    @weakify(self);
+    [API deleteFavoriateDesigner:request success:^{
+        @strongify(self);
+        [self.favoriateDesignerPageData.designers removeObjectAtIndex:index.row];
+        [self.tableView deleteRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
         
     }];
