@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+extern CGFloat const SectionViewWidth;
+extern CGFloat const SectionViewHeight;
+
 @interface SectionView : UIView
 
 @property (weak, nonatomic) IBOutlet UIView *leftLine;

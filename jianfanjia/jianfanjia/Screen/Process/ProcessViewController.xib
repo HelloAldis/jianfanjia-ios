@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProcessViewController">
             <connections>
-                <outlet property="WorkProcedureScrollView" destination="b1d-h0-hUx" id="x8p-IK-Gsd"/>
-                <outlet property="tableView" destination="1xc-GW-Kmv" id="QOg-cJ-ZR9"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,43 +14,10 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-h0-hUx">
-                    <rect key="frame" x="0.0" y="64" width="600" height="128"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="128" id="Dub-n0-rdO"/>
-                    </constraints>
-                </scrollView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="1xc-GW-Kmv">
-                    <rect key="frame" x="0.0" y="192" width="600" height="408"/>
-                    <animations/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="9KW-dH-pbx"/>
-                        <outlet property="delegate" destination="-1" id="rM9-aN-lPm"/>
-                    </connections>
-                </tableView>
-            </subviews>
             <animations/>
             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="1xc-GW-Kmv" secondAttribute="trailing" id="4TM-TR-kIv"/>
-                <constraint firstItem="b1d-h0-hUx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="5fz-ag-USa"/>
-                <constraint firstItem="1xc-GW-Kmv" firstAttribute="top" secondItem="b1d-h0-hUx" secondAttribute="bottom" id="CX9-hQ-jDI"/>
-                <constraint firstItem="1xc-GW-Kmv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="IdU-WY-RNO"/>
-                <constraint firstItem="b1d-h0-hUx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Ozt-9W-Cgj"/>
-                <constraint firstItem="b1d-h0-hUx" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="XPv-Jq-dHi"/>
-                <constraint firstItem="1xc-GW-Kmv" firstAttribute="top" secondItem="b1d-h0-hUx" secondAttribute="bottom" id="fBF-vI-Sjp"/>
-                <constraint firstItem="1xc-GW-Kmv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="gsO-Hr-yWc"/>
-                <constraint firstAttribute="bottom" secondItem="1xc-GW-Kmv" secondAttribute="bottom" id="uo4-88-BCH"/>
-            </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="IdU-WY-RNO"/>
-                    <exclude reference="fBF-vI-Sjp"/>
-                </mask>
-            </variation>
+            <point key="canvasLocation" x="350" y="271"/>
         </view>
     </objects>
 </document>

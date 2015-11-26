@@ -28,18 +28,18 @@
                         <rect key="frame" x="57" y="8" width="373" height="62"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="现场交底" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfC-lp-QFN">
-                                <rect key="frame" x="25" y="16" width="60" height="31"/>
+                                <rect key="frame" x="10" y="15" width="56" height="32"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="AfC-lp-QFN" firstAttribute="top" secondItem="aUu-Au-cqk" secondAttribute="top" constant="16" id="5CX-pM-M4T"/>
-                            <constraint firstItem="AfC-lp-QFN" firstAttribute="leading" secondItem="aUu-Au-cqk" secondAttribute="leading" constant="25" id="YYL-9a-7Hg"/>
+                            <constraint firstItem="AfC-lp-QFN" firstAttribute="top" secondItem="aUu-Au-cqk" secondAttribute="top" constant="15" id="5CX-pM-M4T"/>
+                            <constraint firstItem="AfC-lp-QFN" firstAttribute="leading" secondItem="aUu-Au-cqk" secondAttribute="leading" constant="10" id="YYL-9a-7Hg"/>
                             <constraint firstAttribute="bottom" secondItem="AfC-lp-QFN" secondAttribute="bottom" constant="15" id="reX-eR-SGS"/>
                         </constraints>
                     </view>

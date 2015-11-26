@@ -23,15 +23,14 @@
     }];
     
     self.sections = sectionArr;
-    [self refreshSelectedItems];
 }
 
 - (void)switchToSelectedSection:(NSInteger)index {
     self.selectedSectionIndex = index;
-}
-
-- (Section *)selectedSection {
-    return self.sections[self.selectedSectionIndex];
+    self.selectedSection = self.sections[self.selectedSectionIndex];
+    if (self.selectedSection) {
+        [self refreshSelectedItems];
+    }
 }
 
 - (void)refreshSelectedItems {

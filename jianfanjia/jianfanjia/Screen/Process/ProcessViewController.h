@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface ProcessViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
+@interface ProcessViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 - (id)initWithProcess:(NSString *)processid;
 - (id)initWithProcessPreview;

@@ -8,9 +8,10 @@
 
 #import "SectionView.h"
 
+CGFloat const SectionViewWidth = 86;
+CGFloat const SectionViewHeight = 116;
+
 @interface SectionView()
-
-
 
 @end
 
