@@ -31,6 +31,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 @property (strong, nonatomic) UIScrollView *sectionScrollView;
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *sectionViewArray;
+
 @property (strong, nonatomic) NSArray *scrollViewToSuperTop64Constraint;
 @property (strong, nonatomic) NSArray *scrollViewBottomEqualsSuperBottomConstraint;
 
@@ -87,7 +89,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.sectionScrollView = [[UIScrollView alloc] init];
-    [self.sectionScrollView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanScrollView:)]];
+//    [self.sectionScrollView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanScrollView:)]];
     
     
     self.tableView = [[UITableView alloc] init];
@@ -189,6 +191,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.currentSectionOperationStatus == SectionOperationStatusRefresh) {
         ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemCellIdentifier forIndexPath:indexPath];
+        [cell initWithItem:self.processDataManager.selectedItems[indexPath.row] sectionIndex:self.processDataManager.selectedSectionIndex itemIndex:indexPath.row forProcess:self.processDataManager.process];
         [self configureCellProperties:cell];
         return cell;
     } else {
@@ -196,10 +199,12 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         
         if (item.itemCellStatus == ItemCellStatusClosed) {
             ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemCellIdentifier forIndexPath:indexPath];
+            [cell initWithItem:item sectionIndex:self.processDataManager.selectedSectionIndex itemIndex:indexPath.row forProcess:self.processDataManager.process];
             [self configureCellProperties:cell];
             return cell;
         } else {
             ItemExpandImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCellIdentifier forIndexPath:indexPath];
+            [cell initWithItem:item sectionIndex:self.processDataManager.selectedSectionIndex itemIndex:indexPath.row forProcess:self.processDataManager.process];
             [self configureCellProperties:cell];
             return cell;
         }
@@ -260,9 +265,13 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     UIView *preSection = [[UIView alloc] init];
     
     NSArray *sections = self.processDataManager.sections;
+    self.sectionViewArray = [NSMutableArray arrayWithCapacity:sections.count];
     for (int i = 0; i < sections.count; i++) {
         Section *section = sections[i];
         SectionView *sectionView = [SectionView sectionView];
+        [sectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSectionViewGesture:)]];
+        
+        [self.sectionViewArray addObject:sectionView];
         
         if (i == 0) {
             sectionView.leftLine.hidden = YES;
@@ -298,6 +307,15 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }
     
     self.sectionScrollView.contentOffset = CGPointMake(self.processDataManager.selectedSectionIndex * SectionViewWidth, 0);
+}
+
+#pragma mark - getures 
+- (void)handleTapSectionViewGesture:(UITapGestureRecognizer *)gesture {
+    SectionView *sectionView = (SectionView *)gesture.view;
+    NSInteger index = [self.sectionViewArray indexOfObject:sectionView];
+    [self.processDataManager switchToSelectedSection:index];
+//    self.sectionScrollView.contentOffset = CGPointMake(self.processDataManager.selectedSectionIndex * SectionViewWidth, 0);
+    [self.tableView reloadData];
 }
 
 @end

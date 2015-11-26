@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ItemExpandImageCell : UITableViewCell
+@interface ItemExpandImageCell : UITableViewCell <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+
+- (void)initWithItem:(Item *)item sectionIndex:(NSInteger )sectionIndex itemIndex:(NSInteger)itemIndex forProcess:(Process *)process;
 
 @end

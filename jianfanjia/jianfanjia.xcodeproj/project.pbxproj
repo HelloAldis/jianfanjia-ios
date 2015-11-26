@@ -249,6 +249,8 @@
 		6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE299C21BF57C7900A527F6 /* RefreshViewController.m */; };
 		6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */; };
 		6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C61BF5BC6E00A527F6 /* DesignerSection.xib */; };
+		AB5852531C074252004B054E /* ItemImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5852511C074252004B054E /* ItemImageCollectionCell.m */; };
+		AB5852541C074252004B054E /* ItemImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB5852521C074252004B054E /* ItemImageCollectionCell.xib */; };
 		AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = AD89AE4F1BF4960000B24959 /* NSDate+Ex.m */; };
 		E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44D2BD40530E2CA1D84D921D /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -680,6 +682,9 @@
 		6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshViewController.xib; sourceTree = "<group>"; };
 		6EE299C61BF5BC6E00A527F6 /* DesignerSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerSection.xib; sourceTree = "<group>"; };
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AB5852501C074252004B054E /* ItemImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemImageCollectionCell.h; sourceTree = "<group>"; };
+		AB5852511C074252004B054E /* ItemImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemImageCollectionCell.m; sourceTree = "<group>"; };
+		AB5852521C074252004B054E /* ItemImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemImageCollectionCell.xib; sourceTree = "<group>"; };
 		AD89AE4E1BF4960000B24959 /* NSDate+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ex.h"; sourceTree = "<group>"; };
 		AD89AE4F1BF4960000B24959 /* NSDate+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ex.m"; sourceTree = "<group>"; };
 		BFE23DDA1E815FFFBCFFB23F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1294,6 +1299,9 @@
 				6E2DCAAC1BB5207400591A16 /* LeftViewController.xib */,
 				6836269B1C05B1E9005F2C30 /* ProcessDataManager.h */,
 				6836269C1C05B1E9005F2C30 /* ProcessDataManager.m */,
+				AB5852501C074252004B054E /* ItemImageCollectionCell.h */,
+				AB5852511C074252004B054E /* ItemImageCollectionCell.m */,
+				AB5852521C074252004B054E /* ItemImageCollectionCell.xib */,
 			);
 			path = Process;
 			sourceTree = "<group>";
@@ -1592,6 +1600,7 @@
 				6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */,
 				6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */,
 				6EE1E42C1C059CF400883184 /* FavoriteDesignerViewController.xib in Resources */,
+				AB5852541C074252004B054E /* ItemImageCollectionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1756,6 +1765,7 @@
 				68342DF51BFC0F960000EBBE /* Plan.m in Sources */,
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
+				AB5852531C074252004B054E /* ItemImageCollectionCell.m in Sources */,
 				6EE1E4261C0595C600883184 /* LeakMoniter.m in Sources */,
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
 				6EE1E42B1C059CF400883184 /* FavoriteDesignerViewController.m in Sources */,

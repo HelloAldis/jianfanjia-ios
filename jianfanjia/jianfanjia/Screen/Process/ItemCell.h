@@ -10,4 +10,6 @@
 
 @interface ItemCell : UITableViewCell
 
+- (void)initWithItem:(Item *)item sectionIndex:(NSInteger )sectionIndex itemIndex:(NSInteger)itemIndex forProcess:(Process *)process;
+
 @end
