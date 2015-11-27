@@ -222,12 +222,12 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             [lastItem switchItemCellStatus];
         }
         
-        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:self.lastSelectedIndexPath, indexPath, nil] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:self.lastSelectedIndexPath, indexPath, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
     } else  {
         Item *item = self.processDataManager.selectedItems[indexPath.row];
         [item switchItemCellStatus];
         
-        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     
     self.lastSelectedIndexPath = indexPath;

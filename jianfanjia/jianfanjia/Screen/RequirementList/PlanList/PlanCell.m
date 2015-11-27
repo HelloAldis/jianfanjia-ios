@@ -45,7 +45,7 @@ static const NSInteger imgSpace = 2;
     self.plan = plan;
     self.order = order;
     self.requirement = requirement;
-    self.lblPlanTitleVal.text = [NSString stringWithFormat:@"%@%@期 方案%ld", requirement.cell, requirement.cell_phase, order];
+    self.lblPlanTitleVal.text = [NSString stringWithFormat:@"%@%@期 方案%ld", requirement.cell, requirement.cell_phase, (long)order];
     self.lblPlanTimeVal.text = [NSDate yyyy_MM_dd:plan.last_status_update_time];
     
     if ([plan.status isEqualToString:kPlanStatusPlanWasChoosed] || [plan.status isEqualToString:kPlanStatusPlanWasNotChoosed]) {

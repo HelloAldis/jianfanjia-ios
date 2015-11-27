@@ -102,6 +102,7 @@
 		685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5E61C03178C00EC1991 /* MessageCell.m */; };
 		685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5E71C03178C00EC1991 /* MessageCell.xib */; };
 		685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5EB1C031D1C00EC1991 /* GetComments.m */; };
+		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		68D536A61BFF563800D8F1B2 /* PlanPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */; };
 		68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */; };
 		68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E505641BF0BB0100B0B910 /* SelectCityViewController.m */; };
@@ -419,6 +420,8 @@
 		685CD5E71C03178C00EC1991 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		685CD5EA1C031D1C00EC1991 /* GetComments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetComments.h; sourceTree = "<group>"; };
 		685CD5EB1C031D1C00EC1991 /* GetComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetComments.m; sourceTree = "<group>"; };
+		68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemImageCollectionView.h; sourceTree = "<group>"; };
+		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
 		68D536A31BFF563800D8F1B2 /* PlanPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPreviewViewController.h; sourceTree = "<group>"; };
 		68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPreviewViewController.m; sourceTree = "<group>"; };
 		68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPreviewViewController.xib; sourceTree = "<group>"; };
@@ -1302,6 +1305,8 @@
 				AB5852501C074252004B054E /* ItemImageCollectionCell.h */,
 				AB5852511C074252004B054E /* ItemImageCollectionCell.m */,
 				AB5852521C074252004B054E /* ItemImageCollectionCell.xib */,
+				68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */,
+				68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */,
 			);
 			path = Process;
 			sourceTree = "<group>";
@@ -1652,6 +1657,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E07DAC51BD88DBE001461DD /* Item.m in Sources */,
+				68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */,
 				684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */,
 				685CD5CC1C02DCAA00EC1991 /* PlanPriceDetailViewController.m in Sources */,
 				6E6D98CF1BE0C34000D45F77 /* HomePageRecDesignersCell.m in Sources */,

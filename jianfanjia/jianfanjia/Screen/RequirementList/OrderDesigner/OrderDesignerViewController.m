@@ -80,7 +80,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     
     UIView *customeTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, 44)];
     UILabel *lblCount = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 44)];
-    lblCount.text = [NSString stringWithFormat:@"%ld", self.orderableCount];
+    lblCount.text = [NSString stringWithFormat:@"%ld", (long)self.orderableCount];
     lblCount.textAlignment = NSTextAlignmentRight;
     lblCount.textColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
     lblCount.font = [UIFont systemFontOfSize:17];
