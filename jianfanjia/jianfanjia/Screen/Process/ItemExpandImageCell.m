@@ -40,11 +40,9 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 #pragma mark - life cycle
 - (void)awakeFromNib {
-    
     [self.imgCollection registerNib:[UINib nibWithNibName:ImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:ImageCollectionCellIdentifier];
     self.imgCollectionLayout.minimumLineSpacing = CELL_SPACE;
     self.imgCollectionLayout.minimumInteritemSpacing = CELL_SPACE;
-    DDLogDebug(@"bounds %f %f", self.imgCollection.bounds.size.width, self.imgCollection.bounds.size.height);
 }
 
 #pragma mark - UI
@@ -67,7 +65,6 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         NSString *imgURL = self.item.images[indexPath.row];
         [cell.image setImageWithId:imgURL withWidth:self.imgCollectionLayout.itemSize.width];
     } else {
-//        cell.image.frame = CGRectMake(cell.image.frame.origin.x, cell.image.frame.origin.y, self.imgCollectionLayout.itemSize.width, self.imgCollectionLayout.itemSize.height);
         [cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapAddGesture:)]];
     }
 
@@ -76,22 +73,19 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 #pragma mark - geture 
 - (void)handleTapAddGesture:(UITapGestureRecognizer *)gesture {
-//    self.imgCollection.viewContentSize = CGSizeMake(self.imgCollection.frame.size.width, 500);
-//    [self setNeedsLayout];
-//    [self layoutIfNeeded];
+
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
+    [self.imgCollection setNeedsLayout];
+    [self.imgCollection layoutIfNeeded];
     DDLogDebug(@"bounds %f %f", self.imgCollection.bounds.size.width, self.imgCollection.bounds.size.height);
     CGFloat width = (self.imgCollection.frame.size.width - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
     self.imgCollectionLayout.itemSize = CGSizeMake(width, width);
-    self.imgCollection.viewContentSize = CGSizeMake(self.imgCollection.frame.size.width, width);
+    self.imgCollection.viewContentSize = CGSizeMake(self.imgCollection.frame.size.width,  width * (self.imgCollection.numberOfSections % COUNT_IN_ONE_ROW == 0 ? self.imgCollection.numberOfSections / COUNT_IN_ONE_ROW : (NSInteger)(self.imgCollection.numberOfSections / COUNT_IN_ONE_ROW) + 1));
     [self.imgCollection invalidateIntrinsicContentSize];
-}
-
-- (void)updateConstraints {
-    [super updateConstraints];
 }
 
 @end
