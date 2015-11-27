@@ -8,19 +8,12 @@
 
 #import "OverlayView.h"
 
-static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
-
 @interface OverlayView ()
 
 @property (nonatomic, strong) NSArray *horizontalGridLines;
 @property (nonatomic, strong) NSArray *verticalGridLines;
 
 @property (nonatomic, strong) NSArray *outerLineViews;   //top, right, bottom, left
-
-@property (nonatomic, strong) NSArray *topLeftLineViews; //vertical, horizontal
-@property (nonatomic, strong) NSArray *bottomLeftLineViews;
-@property (nonatomic, strong) NSArray *bottomRightLineViews;
-@property (nonatomic, strong) NSArray *topRightLineViews;
 
 - (void)setup;
 - (void)layoutLines;
@@ -40,22 +33,16 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
 }
 
 - (void)setup{
-    UIView *(^newLineView)(UIColor *color) = ^UIView *(UIColor *color) {
+    UIView *(^newLineView)(void) = ^UIView *(void) {
         UIView *newLine = [[UIView alloc] initWithFrame:CGRectZero];
-        newLine.backgroundColor = color;
+        newLine.backgroundColor = [UIColor whiteColor];
         [self addSubview:newLine];
         return newLine;
     };
     
-    _outerLineViews     = @[newLineView([UIColor greenColor]), newLineView([UIColor greenColor]), newLineView([UIColor greenColor]), newLineView([UIColor greenColor])];
-    
-    _topLeftLineViews   = @[newLineView([UIColor redColor]), newLineView([UIColor redColor])];
-    _bottomLeftLineViews = @[newLineView([UIColor redColor]), newLineView([UIColor redColor])];
-    _topRightLineViews  = @[newLineView([UIColor redColor]), newLineView([UIColor redColor])];
-    _bottomRightLineViews = @[newLineView([UIColor redColor]), newLineView([UIColor redColor])];
-    
-    _horizontalGridLines = @[newLineView([UIColor blueColor]), newLineView([UIColor blueColor])];
-    _verticalGridLines = @[newLineView([UIColor blueColor]), newLineView([UIColor blueColor])];
+    _outerLineViews     = @[newLineView(), newLineView(), newLineView(), newLineView()];
+    _horizontalGridLines = @[newLineView(), newLineView()];
+    _verticalGridLines = @[newLineView(), newLineView()];
 }
 
 - (void)setFrame:(CGRect)frame{
@@ -88,35 +75,6 @@ static const CGFloat kTOCropOverLayerCornerWidth = 20.0f;
         }
         
         lineView.frame = frame;
-    }
-    
-    //corner liness
-    NSArray *cornerLines = @[self.topLeftLineViews, self.topRightLineViews, self.bottomRightLineViews, self.bottomLeftLineViews];
-    for (NSInteger i = 0; i < 4; i++) {
-        NSArray *cornerLine = cornerLines[i];
-        
-        CGRect verticalFrame, horizontalFrame;
-        switch (i) {
-            case 0: //top left
-                verticalFrame = (CGRect){-3.0f,-3.0f,3.0f,kTOCropOverLayerCornerWidth+3.0f};
-                horizontalFrame = (CGRect){0,-3.0f,kTOCropOverLayerCornerWidth,3.0f};
-                break;
-            case 1: //top right
-                verticalFrame = (CGRect){boundsSize.width,-3.0f,3.0f,kTOCropOverLayerCornerWidth+3.0f};
-                horizontalFrame = (CGRect){boundsSize.width-kTOCropOverLayerCornerWidth,-3.0f,kTOCropOverLayerCornerWidth,3.0f};
-                break;
-            case 2: //bottom right
-                verticalFrame = (CGRect){boundsSize.width,boundsSize.height-kTOCropOverLayerCornerWidth,3.0f,kTOCropOverLayerCornerWidth+3.0f};
-                horizontalFrame = (CGRect){boundsSize.width-kTOCropOverLayerCornerWidth,boundsSize.height,kTOCropOverLayerCornerWidth,3.0f};
-                break;
-            case 3: //bottom left
-                verticalFrame = (CGRect){-3.0f,boundsSize.height-kTOCropOverLayerCornerWidth,3.0f,kTOCropOverLayerCornerWidth};
-                horizontalFrame = (CGRect){-3.0f,boundsSize.height,kTOCropOverLayerCornerWidth+3.0f,3.0f};
-                break;
-        }
-        
-        [cornerLine[0] setFrame:verticalFrame];
-        [cornerLine[1] setFrame:horizontalFrame];
     }
     
     //grid lines - horizontal

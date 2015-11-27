@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) UIImageView *imageView;
 @property (strong, nonatomic) OverlayView *overlayView;
+@property (strong, nonatomic) UIImage *image;
 
 @end
 
@@ -32,24 +33,18 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    CGRect rect = CGRectMake(0, 0, kScreenWidth - 10, kScreenWidth - 10);
-    self.imageView = [[UIImageView alloc] initWithFrame:rect];
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.scrollView.frame.size.width, self.scrollView.frame.size.height)];
+    [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.scrollView addSubview:self.imageView];
-//    self.imageView.center = self.scrollView.center;
     [self initImageView];
     [self initOverlayView];
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:animated];
-//    
-//    [self initOverlayView];
-//}
-
 #pragma mark - UI
 - (void)initOverlayView {
-    CGRect frame = CGRectOffset(self.imageView.frame, 0, 64);
+    CGRect frame = CGRectMake(0, 0, kScreenWidth - 10, kScreenWidth - 10);
     self.overlayView = [[OverlayView alloc] initWithFrame:frame];
+    self.overlayView.center = self.scrollView.center;
     self.overlayView.gridHidden = NO;
     self.overlayView.userInteractionEnabled = NO;
     [self.view addSubview:self.overlayView];
@@ -57,6 +52,9 @@
 
 - (void)initNav {
     [self initLeftBackInNav];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"上传" style:UIBarButtonItemStyleDone target:self action:@selector(onClickDone)];
+    item.tintColor = kThemeColor;
+    self.navigationItem.rightBarButtonItem = item;
 }
 
 - (void)initImageView {
@@ -68,7 +66,10 @@
     options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
     options.synchronous = false;
     
-    [imageManager requestImageForAsset:self.asset targetSize:self.imageView.frame.size contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage *result, NSDictionary *info) {
+    [imageManager requestImageForAsset:self.asset targetSize:CGSizeMake(self.imageView.frame.size.width * kScreenScale, self.imageView.frame.size.height * kScreenScale)
+                           contentMode:PHImageContentModeAspectFit
+                               options:options
+                         resultHandler:^(UIImage *result, NSDictionary *info) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.imageView.image = result;
         });
@@ -78,6 +79,25 @@
 #pragma mark - scroll view delegate
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return  self.imageView;
+}
+
+- (void)onClickDone {
+    DDLogDebug(@"--------------");
+    
+    DDLogDebug(@"%@", NSStringFromCGRect(self.overlayView.frame));
+    CGRect o = [self.view convertRect:self.overlayView.frame toView:self.scrollView];
+    DDLogDebug(@"%@", NSStringFromCGRect(o));
+    
+    DDLogDebug(@"%@", NSStringFromCGRect(self.imageView.frame));
+    CGRect rect = [self.scrollView convertRect:o toView:self.imageView];
+    DDLogDebug(@"%@", NSStringFromCGRect(rect));
+    
+    float fx = (rect.origin.x * self.scrollView.zoomScale) / self.imageView.frame.size.width;
+    float fy = (rect.origin.y * self.scrollView.zoomScale) / self.imageView.frame.size.height;
+    float fw = (rect.size.width * self.scrollView.zoomScale) / self.imageView.frame.size.width;
+    float fh = (rect.size.height * self.scrollView.zoomScale) / self.imageView.frame.size.height;
+    
+    DDLogDebug(@"%@", NSStringFromCGRect(CGRectMake(fx, fy, fw, fh)));
 }
 
 

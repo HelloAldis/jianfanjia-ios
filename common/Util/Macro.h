@@ -27,6 +27,7 @@ return shared##className; \
 #define kScreenFullFrame [UIScreen mainScreen].bounds
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenScale  [UIScreen mainScreen].scale
 
 #define kIs35inchScreen (kScreenHeight == 480)
 #define kIs40inchScreen (kScreenHeight == 568)
