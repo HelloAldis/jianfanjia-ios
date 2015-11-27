@@ -32,14 +32,8 @@
     return [NSURL URLWithString:url];
 }
 
-- (NSURL *)imageurl:(NSString *)imageid withWidth:(long)width {
-    static int scale = 2;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        scale = [UIScreen mainScreen].scale;
-    });
-    
-    width = width * scale;
+- (NSURL *)imageurl:(NSString *)imageid withWidth:(long)width {    
+    width = width * kScreenScale;
     NSString *url = [NSString stringWithFormat:@"%@thumbnail/%ld/%@", kApiUrl, width ,imageid];
     return [NSURL URLWithString:url];
 }

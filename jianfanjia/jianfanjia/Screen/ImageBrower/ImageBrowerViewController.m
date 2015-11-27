@@ -102,9 +102,9 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectCount++;
     if (self.allowsMultipleSelection) {
         //Do nothing
+        self.selectCount++;
     } else {
         [self onClickDoneSingle:[self.result objectAtIndex:indexPath.row]];
     }

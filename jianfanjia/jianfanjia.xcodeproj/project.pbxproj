@@ -247,6 +247,7 @@
 		6EE1E4301C05A0D800883184 /* FavoriteDesignerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E42E1C05A0D800883184 /* FavoriteDesignerCell.m */; };
 		6EE1E4311C05A0D800883184 /* FavoriteDesignerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE1E42F1C05A0D800883184 /* FavoriteDesignerCell.xib */; };
 		6EE1E4341C05A72400883184 /* FavoriteDesignerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4331C05A72400883184 /* FavoriteDesignerData.m */; };
+		6EE1E4371C082A8300883184 /* UIImage+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4361C082A8300883184 /* UIImage+Ex.m */; };
 		6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE299C21BF57C7900A527F6 /* RefreshViewController.m */; };
 		6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */; };
 		6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C61BF5BC6E00A527F6 /* DesignerSection.xib */; };
@@ -680,6 +681,8 @@
 		6EE1E42F1C05A0D800883184 /* FavoriteDesignerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteDesignerCell.xib; sourceTree = "<group>"; };
 		6EE1E4321C05A72400883184 /* FavoriteDesignerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerData.h; sourceTree = "<group>"; };
 		6EE1E4331C05A72400883184 /* FavoriteDesignerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerData.m; sourceTree = "<group>"; };
+		6EE1E4351C082A8300883184 /* UIImage+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Ex.h"; sourceTree = "<group>"; };
+		6EE1E4361C082A8300883184 /* UIImage+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Ex.m"; sourceTree = "<group>"; };
 		6EE299C11BF57C7900A527F6 /* RefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshViewController.h; sourceTree = "<group>"; };
 		6EE299C21BF57C7900A527F6 /* RefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
 		6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshViewController.xib; sourceTree = "<group>"; };
@@ -996,6 +999,8 @@
 				685C214A1BF9870B00D5D320 /* RACStream+Ex.m */,
 				685C214C1BF9C7E100D5D320 /* UIScrollView+Ex.h */,
 				685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */,
+				6EE1E4351C082A8300883184 /* UIImage+Ex.h */,
+				6EE1E4361C082A8300883184 /* UIImage+Ex.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -1491,10 +1496,11 @@
 				TargetAttributes = {
 					6E20B2211B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 9N6Y5VRGG7;
+						DevelopmentTeam = CSFDRG22AA;
 					};
 					6E20B23A1B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = CSFDRG22AA;
 						TestTargetID = 6E20B2211B87223600E3A8DA;
 					};
 				};
@@ -1668,6 +1674,7 @@
 				6E07DACA1BD88DBE001461DD /* BaseDynamicObject.m in Sources */,
 				6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */,
 				684A374A1BFD73DF00F7388C /* DecorationStyleCell.m in Sources */,
+				6EE1E4371C082A8300883184 /* UIImage+Ex.m in Sources */,
 				6E44964B1BFC82F500C90851 /* UserInfoViewController.m in Sources */,
 				685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */,
 				684A375E1BFD7D6600F7388C /* GetOrderedDesignder.m in Sources */,
@@ -1943,7 +1950,7 @@
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1959,7 +1966,7 @@
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1969,6 +1976,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -1978,6 +1987,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jianfanjia.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jianfanjia.app/jianfanjia";
 			};
 			name = Debug;
@@ -1986,11 +1996,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = jianfanjiaTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jianfanjia.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jianfanjia.app/jianfanjia";
 			};
 			name = Release;
