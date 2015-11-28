@@ -37,7 +37,10 @@
     options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
     options.synchronous = false;
     
-    [imageManager requestImageForAsset:asset targetSize:self.imageView.frame.size contentMode:PHImageContentModeAspectFit options:options resultHandler:^(UIImage *result, NSDictionary *info) {
+    [imageManager requestImageForAsset:asset targetSize:CGSizeMake(self.imageView.frame.size.width * kScreenScale, self.imageView.frame.size.height * kScreenScale)
+                           contentMode:PHImageContentModeAspectFit
+                               options:options
+                         resultHandler:^(UIImage *result, NSDictionary *info) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.imageView.image = result;
         });

@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initNav];
+    NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    self.lblVersion.text = [NSString stringWithFormat:@"版本号：%@", version];
 }
 
 #pragma mark - UI

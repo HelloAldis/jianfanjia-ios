@@ -78,7 +78,7 @@
     }
     
     //grid lines - horizontal
-    CGFloat thickness = 1.0f / [[UIScreen mainScreen] scale];
+    CGFloat thickness = 1.0f;
     NSInteger numberOfLines = self.horizontalGridLines.count;
     CGFloat padding = (CGRectGetHeight(self.bounds) - (thickness*numberOfLines)) / (numberOfLines + 1);
     for (NSInteger i = 0; i < numberOfLines; i++) {

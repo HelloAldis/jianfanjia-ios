@@ -38,15 +38,28 @@
                                         <outletCollection property="gestureRecognizers" destination="FZ5-Bz-HJu" appends="YES" id="EWk-hK-jiv"/>
                                     </connections>
                                 </imageView>
+                                <visualEffectView opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXj-5l-Vv7">
+                                    <rect key="frame" x="0.0" y="214" width="600" height="60"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sRa-uD-vMy">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <animations/>
+                                    </view>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="j2I-IO-Xo5"/>
+                                    </constraints>
+                                    <blurEffect style="dark"/>
+                                </visualEffectView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aldis Zhan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgH-KV-wJY">
-                                    <rect key="frame" x="40" y="233" width="87" height="21"/>
+                                    <rect key="frame" x="40" y="238" width="87" height="21"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帐号：18107218595" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3D-Md-m3S">
-                                    <rect key="frame" x="147" y="237" width="130" height="17"/>
+                                    <rect key="frame" x="147" y="242" width="130" height="17"/>
                                     <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,7 +149,9 @@
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="uaV-TI-THJ" firstAttribute="width" secondItem="Fq0-hI-rOM" secondAttribute="width" id="00W-kL-5J7"/>
-                                <constraint firstItem="dgH-KV-wJY" firstAttribute="bottom" secondItem="PTZ-eg-d8P" secondAttribute="bottom" constant="-20" id="5kF-MN-zVT"/>
+                                <constraint firstItem="nXj-5l-Vv7" firstAttribute="width" secondItem="PTZ-eg-d8P" secondAttribute="width" id="5Ab-Zh-joN"/>
+                                <constraint firstItem="dgH-KV-wJY" firstAttribute="bottom" secondItem="PTZ-eg-d8P" secondAttribute="bottom" constant="-15" id="5kF-MN-zVT"/>
+                                <constraint firstItem="nXj-5l-Vv7" firstAttribute="bottom" secondItem="PTZ-eg-d8P" secondAttribute="bottom" id="63b-BY-N3x"/>
                                 <constraint firstItem="P4H-M2-NiH" firstAttribute="top" secondItem="itK-t4-gGr" secondAttribute="bottom" id="6Qt-Iu-wzL"/>
                                 <constraint firstItem="Tps-yf-6yL" firstAttribute="leading" secondItem="uaV-TI-THJ" secondAttribute="leading" id="8oL-XE-DrI"/>
                                 <constraint firstItem="s3D-Md-m3S" firstAttribute="bottom" secondItem="dgH-KV-wJY" secondAttribute="bottom" id="HBX-KH-TfW"/>
@@ -150,6 +165,7 @@
                                 <constraint firstItem="P4H-M2-NiH" firstAttribute="leading" secondItem="FzH-qr-hRG" secondAttribute="leading" id="U80-TL-vNE"/>
                                 <constraint firstItem="uaV-TI-THJ" firstAttribute="centerX" secondItem="Fq0-hI-rOM" secondAttribute="centerX" id="cSM-wE-S1B"/>
                                 <constraint firstItem="itK-t4-gGr" firstAttribute="centerX" secondItem="Fq0-hI-rOM" secondAttribute="centerX" id="cfX-W4-pi7"/>
+                                <constraint firstItem="nXj-5l-Vv7" firstAttribute="leading" secondItem="PTZ-eg-d8P" secondAttribute="leading" id="d7z-tE-9rX"/>
                                 <constraint firstItem="Tps-yf-6yL" firstAttribute="width" secondItem="uaV-TI-THJ" secondAttribute="width" id="eAn-zb-fy2"/>
                                 <constraint firstAttribute="trailing" secondItem="lsn-Jn-7gJ" secondAttribute="trailing" constant="30" id="gLF-dn-IhG"/>
                                 <constraint firstItem="PTZ-eg-d8P" firstAttribute="width" secondItem="Fq0-hI-rOM" secondAttribute="width" id="gjE-AK-C1a"/>

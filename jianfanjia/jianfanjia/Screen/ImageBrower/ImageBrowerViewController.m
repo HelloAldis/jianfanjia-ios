@@ -41,12 +41,13 @@
     self.collectionView.allowsSelection = YES;
     self.collectionView.allowsMultipleSelection = self.allowsMultipleSelection;
     
-    [RACObserve(self, selectCount) subscribeNext:^(NSNumber *newValue) {
-        [self initTitleAndRight];
-    }];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
+    
+    if (self.allowsMultipleSelection) {
+        [RACObserve(self, selectCount) subscribeNext:^(NSNumber *newValue) {
+            [self initTitleAndRight];
+        }];
+    }
+    
     @weakify(self);
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
         @strongify(self);
@@ -55,7 +56,7 @@
             options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
             self.result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
             dispatch_async(dispatch_get_main_queue(), ^{
-              [self.collectionView reloadData];
+                [self.collectionView reloadData];
             });
             
         } else {

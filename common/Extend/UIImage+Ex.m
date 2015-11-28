@@ -38,13 +38,13 @@
     //  if (rect.size.width > 640) {
     //    rect = CGRectMake(0, 0, 640, 640);
     //  } else {
-//    rect = CGRectMake(0, 0, rect.size.width, rect.size.height);
+    rect = CGRectMake(0, 0, rect.size.width, rect.size.height);
     //  }
     
-//    UIGraphicsBeginImageContext(rect.size);
-//    [smallImage drawInRect:rect];
-//    smallImage = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
+    UIGraphicsBeginImageContext(rect.size);
+    [smallImage drawInRect:rect];
+    smallImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
     return smallImage;
 }

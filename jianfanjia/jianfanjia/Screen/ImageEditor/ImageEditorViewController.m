@@ -71,7 +71,10 @@
                                options:options
                          resultHandler:^(UIImage *result, NSDictionary *info) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.imageView.image = result;
+            DDLogDebug(@"%@", NSStringFromCGSize(result.size));
+            self.image = [result getCenterSquareImage];
+            DDLogDebug(@"%@", NSStringFromCGSize(self.image.size));
+            self.imageView.image = self.image;
         });
     }];
 }
@@ -84,12 +87,8 @@
 - (void)onClickDone {
     DDLogDebug(@"--------------");
     
-    DDLogDebug(@"%@", NSStringFromCGRect(self.overlayView.frame));
-    CGRect o = [self.view convertRect:self.overlayView.frame toView:self.scrollView];
-    DDLogDebug(@"%@", NSStringFromCGRect(o));
-    
     DDLogDebug(@"%@", NSStringFromCGRect(self.imageView.frame));
-    CGRect rect = [self.scrollView convertRect:o toView:self.imageView];
+    CGRect rect = [self.scrollView convertRect:self.scrollView.bounds toView:self.imageView];
     DDLogDebug(@"%@", NSStringFromCGRect(rect));
     
     float fx = (rect.origin.x * self.scrollView.zoomScale) / self.imageView.frame.size.width;
@@ -98,6 +97,10 @@
     float fh = (rect.size.height * self.scrollView.zoomScale) / self.imageView.frame.size.height;
     
     DDLogDebug(@"%@", NSStringFromCGRect(CGRectMake(fx, fy, fw, fh)));
+    CGRect newImageRect = CGRectMake(self.image.size.width * fx, self.image.size.height * fy, self.image.size.width * fw, self.image.size.width * fh);
+    UIImage *newImage = [self.image getSubImage:newImageRect];
+    self.imageView.image = newImage;
+    self.scrollView.zoomScale = 1;
 }
 
 
