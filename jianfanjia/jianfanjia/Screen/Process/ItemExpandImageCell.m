@@ -34,6 +34,8 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 @property (assign, nonatomic) NSInteger sectionIndex;
 @property (assign, nonatomic) NSInteger itemIndex;
 
+@property (assign, nonatomic) NSInteger numberOfItemsInsection;
+
 @end
 
 @implementation ItemExpandImageCell
@@ -43,6 +45,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     [self.imgCollection registerNib:[UINib nibWithNibName:ImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:ImageCollectionCellIdentifier];
     self.imgCollectionLayout.minimumLineSpacing = CELL_SPACE;
     self.imgCollectionLayout.minimumInteritemSpacing = CELL_SPACE;
+    self.imgCollection.scrollEnabled = NO;
 }
 
 #pragma mark - UI
@@ -52,11 +55,12 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     self.sectionIndex = sectionIndex;
     self.itemIndex = itemIndex;
     self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
+    self.numberOfItemsInsection = self.item.images.count < MAX_IMG_COUNT ? self.item.images.count + 1 : self.item.images.count;
 }
 
 #pragma mark - collection delegate 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.item.images.count < MAX_IMG_COUNT ? self.item.images.count + 1 : self.item.images.count;
+    return self.numberOfItemsInsection;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -66,6 +70,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         [cell.image setImageWithId:imgURL withWidth:self.imgCollectionLayout.itemSize.width];
     } else {
         [cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapAddGesture:)]];
+        [cell enableEditing];
     }
 
     return cell;
@@ -84,7 +89,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     DDLogDebug(@"bounds %f %f", self.imgCollection.bounds.size.width, self.imgCollection.bounds.size.height);
     CGFloat width = (self.imgCollection.frame.size.width - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
     self.imgCollectionLayout.itemSize = CGSizeMake(width, width);
-    self.imgCollection.viewContentSize = CGSizeMake(self.imgCollection.frame.size.width,  width * (self.imgCollection.numberOfSections % COUNT_IN_ONE_ROW == 0 ? self.imgCollection.numberOfSections / COUNT_IN_ONE_ROW : (NSInteger)(self.imgCollection.numberOfSections / COUNT_IN_ONE_ROW) + 1));
+    self.imgCollection.viewContentSize = CGSizeMake(self.imgCollection.frame.size.width,  width * (self.numberOfItemsInsection % COUNT_IN_ONE_ROW == 0 ? self.numberOfItemsInsection / COUNT_IN_ONE_ROW : (NSInteger)(self.numberOfItemsInsection / COUNT_IN_ONE_ROW) + 1));
     [self.imgCollection invalidateIntrinsicContentSize];
 }
 
