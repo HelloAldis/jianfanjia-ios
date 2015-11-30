@@ -12,5 +12,6 @@
 @interface ImageEditorViewController : BaseViewController
 
 @property (strong, nonatomic) PHAsset *asset;
+@property (copy, nonatomic) FinishUploadBlock finishUploadBlock;
 
 @end

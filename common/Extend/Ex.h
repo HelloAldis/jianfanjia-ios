@@ -22,5 +22,6 @@
 #import "RACStream+Ex.h"
 #import "NSNumber+Ex.h"
 #import "UIImage+Ex.h"
+#import "UIImagePickerController+Ex.h"
 
 #endif

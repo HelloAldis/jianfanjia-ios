@@ -18,7 +18,7 @@ typedef void (^FinishUploadBlock)(NSArray *imageIds);
 
 //selection
 @property (assign, nonatomic) BOOL allowsMultipleSelection;
-@property (assign, nonatomic) int maxCount;
+@property (assign, nonatomic) NSInteger maxCount;
 
 @property (copy, nonatomic) FinishUploadBlock finishUploadBlock;
 

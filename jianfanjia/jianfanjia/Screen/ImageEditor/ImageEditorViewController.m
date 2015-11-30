@@ -99,16 +99,32 @@
     DDLogDebug(@"%@", NSStringFromCGRect(CGRectMake(fx, fy, fw, fh)));
     CGRect newImageRect = CGRectMake(self.image.size.width * fx, self.image.size.height * fy, self.image.size.width * fw, self.image.size.width * fh);
     UIImage *newImage = [self.image getSubImage:newImageRect];
-    self.imageView.image = newImage;
-    self.scrollView.zoomScale = 1;
     
     UploadImage *request = [[UploadImage alloc] init];
     request.image = newImage;
+    @weakify(self);
     [API uploadImage:request success:^{
-        
+        @strongify(self);
+        [self navigateToOriginalScreen];
+        if (self.finishUploadBlock) {
+            self.finishUploadBlock(@[[DataManager shared].lastUploadImageid]);
+        }
     } failure:^{
         
     }];
+}
+
+- (void)navigateToOriginalScreen {
+    NSArray *controllers = [[self.navigationController.viewControllers reverseObjectEnumerator] allObjects];
+    UIViewController *purposeController = nil;
+    for (UIViewController *controller in controllers) {
+        if (![controller isKindOfClass:[ImageBrowerViewController class]]) {
+            purposeController = controller;
+            break;
+        }
+    }
+    
+    [self.navigationController popToViewController:purposeController animated:YES];
 }
 
 

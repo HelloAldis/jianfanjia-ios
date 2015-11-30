@@ -7,6 +7,7 @@
 //
 
 #import "ItemCell.h"
+#import "ProcessDataManager.h"
 
 @interface ItemCell ()
 
@@ -16,10 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblItemTitle;
 
 
-@property (weak, nonatomic) Process *process;
+@property (weak, nonatomic) ProcessDataManager *dataManager;
 @property (weak, nonatomic) Item *item;
-@property (assign, nonatomic) NSInteger sectionIndex;
-@property (assign, nonatomic) NSInteger itemIndex;
+
 
 @end
 
@@ -31,11 +31,9 @@
 }
 
 #pragma mark - UI
-- (void)initWithItem:(Item *)item sectionIndex:(NSInteger )sectionIndex itemIndex:(NSInteger)itemIndex forProcess:(Process *)process  {
-    self.process = process;
+- (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager {
+    self.dataManager = dataManager;
     self.item = item;
-    self.sectionIndex = sectionIndex;
-    self.itemIndex = itemIndex;
     self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
     
     

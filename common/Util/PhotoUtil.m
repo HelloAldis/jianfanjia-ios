@@ -42,6 +42,33 @@
             //    imagePickerController.cameraViewTransform = translate;
             //    imagePickerController.showsCameraControls = NO;
             //    imagePickerController.cameraOverlayView = cameraControlView;
+            [imagePickerController useBlocksForDelegate];
+            [imagePickerController onDidFinishPickingMediaWithInfo:^(UIImagePickerController *picker, NSDictionary *info) {
+                UIImage *editedImage = (UIImage *) [info objectForKey:
+                                           UIImagePickerControllerEditedImage];
+                UIImage *originalImage = (UIImage *) [info objectForKey:
+                                             UIImagePickerControllerOriginalImage];
+                UIImage *imageToSave;
+                
+                if (editedImage) {
+                    imageToSave = editedImage;
+                } else {
+                    imageToSave = originalImage;
+                }
+                
+                // Save the new image (original or edited) to the Camera Roll
+                UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
+                
+                UploadImage *request = [[UploadImage alloc] init];
+                request.image = imageToSave;
+                [API uploadImage:request success:^{
+                    if (block) {
+                        block(@[[DataManager shared].lastUploadImageid]);
+                    }
+                } failure:^{
+                    
+                }];
+            }];
             
             [controller presentViewController:imagePickerController animated:YES completion:NULL];
         }

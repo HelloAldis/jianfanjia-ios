@@ -41,8 +41,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 @property (assign, nonatomic) WorkSiteMode workSiteMode;
 @property (strong, nonatomic) ProcessDataManager *processDataManager;
 
-@property (weak, nonatomic) NSIndexPath *lastSelectedIndexPath;
-@property (assign, nonatomic) CGFloat lastTouchPoint;
+@property (strong, nonatomic) NSIndexPath *lastSelectedIndexPath;
 
 @end
 
@@ -154,20 +153,17 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Item *item = self.processDataManager.selectedItems[indexPath.row];
     
-    if ((self.currentSectionOperationStatus == SectionOperationStatusRefresh || item.itemCellStatus == ItemCellStatusClosed) && ![self isItemEquals:self.processDataManager.selectedSection.latestItem other:item]) {
-        item.itemCellStatus = ItemCellStatusClosed;
+    if (self.currentSectionOperationStatus == SectionOperationStatusRefresh || item.itemCellStatus == ItemCellStatusClosed) {
         ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemCellIdentifier forIndexPath:indexPath];
-        [cell initWithItem:item sectionIndex:self.processDataManager.selectedSectionIndex itemIndex:indexPath.row forProcess:self.processDataManager.process];
+        [cell initWithItem:item withDataManager:self.processDataManager];
         [self configureCellProperties:cell];
         return cell;
     } else {
-        item.itemCellStatus = ItemCellStatusExpaned;
         ItemExpandImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCellIdentifier forIndexPath:indexPath];
         @weakify(self);
         [cell initWithItem:item withDataManager:self.processDataManager withBlock:^{
             @strongify(self);
-            self.processDataManager.selectedSection.latestItem = item;
-            [self refreshProcess];
+            [self refreshForIndexPath:indexPath isExpand:YES];
         }];
         [self configureCellProperties:cell];
         return cell;
@@ -178,12 +174,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     self.currentSectionOperationStatus = SectionOperationStatusSwitchItemCell;
     if (self.lastSelectedIndexPath && self.lastSelectedIndexPath.row != indexPath.row) {
         Item *item = self.processDataManager.selectedItems[indexPath.row];
-        [item switchItemCellStatus];
+        item.itemCellStatus = ItemCellStatusExpaned;
         
         Item *lastItem = self.processDataManager.selectedItems[self.lastSelectedIndexPath.row];
-        if (lastItem.itemCellStatus == item.itemCellStatus) {
-            [lastItem switchItemCellStatus];
-        }
+        lastItem.itemCellStatus = ItemCellStatusClosed;
+        
         [tableView beginUpdates];
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:self.lastSelectedIndexPath, indexPath, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
         [tableView endUpdates];
@@ -219,12 +214,37 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             self.currentSectionOperationStatus = SectionOperationStatusRefresh;
             [self.processDataManager refreshProcess];
             [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex];
+            self.lastSelectedIndexPath = nil;
             [self.tableView reloadData];
             [self refreshSections];
         } failure:^{
             
         }];
     }
+}
+
+- (void)refreshForIndexPath:(NSIndexPath *)indexPath isExpand:(BOOL)isExpand {
+    GetProcess *request = [[GetProcess alloc] init];
+    request.processid = self.processid;
+    
+    [API getProcess:request success:^{
+        [self.processDataManager refreshProcess];
+        [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex];
+        self.lastSelectedIndexPath = nil;
+        Item *item = self.processDataManager.selectedItems[indexPath.row];
+        if (isExpand) {
+            item.itemCellStatus = ItemCellStatusExpaned;
+        } else {
+            item.itemCellStatus = ItemCellStatusClosed;
+        }
+        
+        [self.tableView beginUpdates];
+        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
+        [self refreshSections];
+    } failure:^{
+        
+    }];
 }
 
 - (void)refreshSections {
@@ -271,8 +291,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[section]|" options:0 metrics: 0 views:views]];
         }
     }
-    
-    self.sectionScrollView.contentOffset = CGPointMake(MIN(self.processDataManager.selectedSectionIndex, 3) * SectionViewWidth, 0);
 }
 
 #pragma mark - getures 
@@ -280,6 +298,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     SectionView *sectionView = (SectionView *)gesture.view;
     NSInteger index = [self.sectionViewArray indexOfObject:sectionView];
     [self.processDataManager switchToSelectedSection:index];
+    self.lastSelectedIndexPath = nil;
     self.currentSectionOperationStatus = SectionOperationStatusRefresh;
     [self.tableView reloadData];
 }

@@ -55,9 +55,6 @@ static CGFloat imgCellWidth;
 
 #pragma mark - UI
 - (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager withBlock:(void(^)(void))refreshBlock {
-//    self.numberOfItemsInsection = 0;
-//    [self.imgCollection reloadData];
-    
     self.refreshBlock = refreshBlock;
     self.dataManager = dataManager;
     self.item = item;
@@ -91,7 +88,11 @@ static CGFloat imgCellWidth;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ItemImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ImageCollectionCellIdentifier forIndexPath:indexPath];
-    DDLogDebug(@"ItemImageCollectionCell %@ %d", cell, indexPath.row);
+
+    for (UIGestureRecognizer *gesture in cell.gestureRecognizers) {
+        [cell removeGestureRecognizer:gesture];
+    }
+    
     if (indexPath.row < self.item.images.count) {
         NSString *imgURL = self.item.images[indexPath.row];
         [cell.image setImageWithId:imgURL withWidth:self.imgCollectionLayout.itemSize.width];
@@ -116,9 +117,6 @@ static CGFloat imgCellWidth;
         request.item = self.item.name;
         request.images = imageIds;
         [API uploadImageToProcess:request success:^{
-//            [self.item.images addObjectsFromArray:imageIds];
-//            self.numberOfItemsInsection = self.item.images.count < MAX_IMG_COUNT ? self.item.images.count + 1 : self.item.images.count;
-//            [self.imgCollection reloadData];
             if (self.refreshBlock) {
                 self.refreshBlock();
             }

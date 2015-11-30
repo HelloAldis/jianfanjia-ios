@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class ProcessDataManager;
+
 @interface ItemCell : UITableViewCell
 
-- (void)initWithItem:(Item *)item sectionIndex:(NSInteger )sectionIndex itemIndex:(NSInteger)itemIndex forProcess:(Process *)process;
+- (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager;
 
 @end
