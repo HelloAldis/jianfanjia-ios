@@ -13,11 +13,8 @@
 @property(strong, nonatomic) UIImage *normalImage;
 @property(strong, nonatomic) UIImage *editingImage;
 @property(strong, nonatomic) NSString *titleText;
-@property(assign, nonatomic) BOOL isEditing;
-@property(assign, nonatomic) BOOL isRemovable;
 @property(strong, nonatomic) UIButton *deleteButton;
 @property(strong, nonatomic) UIButton *button;
-@property(assign, nonatomic) NSInteger index;
 @property(assign, nonatomic) CGPoint point;//long press point
 
 @end
