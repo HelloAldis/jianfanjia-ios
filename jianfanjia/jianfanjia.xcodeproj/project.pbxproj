@@ -251,6 +251,7 @@
 		6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE299C21BF57C7900A527F6 /* RefreshViewController.m */; };
 		6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */; };
 		6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C61BF5BC6E00A527F6 /* DesignerSection.xib */; };
+		6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D501C0BE65B00C6957E /* UploadImage.m */; };
 		AB5852531C074252004B054E /* ItemImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5852511C074252004B054E /* ItemImageCollectionCell.m */; };
 		AB5852541C074252004B054E /* ItemImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB5852521C074252004B054E /* ItemImageCollectionCell.xib */; };
 		AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = AD89AE4F1BF4960000B24959 /* NSDate+Ex.m */; };
@@ -687,6 +688,8 @@
 		6EE299C21BF57C7900A527F6 /* RefreshViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshViewController.m; sourceTree = "<group>"; };
 		6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshViewController.xib; sourceTree = "<group>"; };
 		6EE299C61BF5BC6E00A527F6 /* DesignerSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerSection.xib; sourceTree = "<group>"; };
+		6EE34D4F1C0BE65B00C6957E /* UploadImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadImage.h; sourceTree = "<group>"; };
+		6EE34D501C0BE65B00C6957E /* UploadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadImage.m; sourceTree = "<group>"; };
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AB5852501C074252004B054E /* ItemImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemImageCollectionCell.h; sourceTree = "<group>"; };
 		AB5852511C074252004B054E /* ItemImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemImageCollectionCell.m; sourceTree = "<group>"; };
@@ -945,6 +948,8 @@
 				6EE1E41C1C05942600883184 /* DeleteFavoriteDesigner.m */,
 				6EE1E41E1C0594CF00883184 /* ListFavoriteDesigner.h */,
 				6EE1E41F1C0594CF00883184 /* ListFavoriteDesigner.m */,
+				6EE34D4F1C0BE65B00C6957E /* UploadImage.h */,
+				6EE34D501C0BE65B00C6957E /* UploadImage.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1817,6 +1822,7 @@
 				683669091BFF0C05006A5053 /* PlanCell.m in Sources */,
 				684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
+				6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */,
 				6E6D98CA1BE0AB7C00D45F77 /* HomePageRequirementCell.m in Sources */,
 				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,
 				6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */,

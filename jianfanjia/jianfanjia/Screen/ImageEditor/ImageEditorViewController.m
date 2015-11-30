@@ -101,6 +101,14 @@
     UIImage *newImage = [self.image getSubImage:newImageRect];
     self.imageView.image = newImage;
     self.scrollView.zoomScale = 1;
+    
+    UploadImage *request = [[UploadImage alloc] init];
+    request.image = newImage;
+    [API uploadImage:request success:^{
+        
+    } failure:^{
+        
+    }];
 }
 
 

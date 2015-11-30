@@ -39,6 +39,10 @@
 @property (nonatomic, strong) NSString *requirementPageSelectedSexType;
 
 
+//For uplpad image
+@property (nonatomic, strong) NSString *lastUploadImageid;
+
+
 kSynthesizeSingletonForHeader(DataManager)
 
 @end
