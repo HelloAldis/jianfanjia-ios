@@ -36,5 +36,6 @@
 #import "AddFavoriateDesigner.h"
 #import "DeleteFavoriteDesigner.h"
 #import "ListFavoriteDesigner.h"
+#import "UploadImage.h"
 
 #endif

@@ -20,6 +20,7 @@ static AFHTTPRequestOperationManager *_manager;
 }
 
 + (void)GET:(NSString *)url handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [request pre];
     [_manager GET:url
        parameters:nil
           success:^(AFHTTPRequestOperation *operation, id responseObject){
@@ -41,6 +42,24 @@ static AFHTTPRequestOperationManager *_manager;
           failure:^(AFHTTPRequestOperation *operation, NSError *error) {
               [request handleHttpError:error failure:failure];
           }];
+}
+
++ (void)uploadImage:(UIImage *)image handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure  {
+    [request pre];
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@", kApiUrl, @"image/upload"];
+    NSMutableURLRequest *mutableRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    mutableRequest.HTTPMethod = @"POST";
+    [mutableRequest setValue:@"image/jpeg" forHTTPHeaderField:@"Content-Type"];
+    [mutableRequest setHTTPBody:[image data]];
+
+    AFHTTPRequestOperation *operation = [_manager HTTPRequestOperationWithRequest:mutableRequest success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
+        [request handle:responseObject success:success failure:failure];
+    } failure:^(AFHTTPRequestOperation * operation, NSError *error) {
+        [request handleHttpError:error failure:failure];
+    }];
+    
+    [_manager.operationQueue addOperation:operation];
 }
 
 + (void)sendVerifyCode:(SendVerifyCode *)request success:(void (^)(void))success failure:(void (^)(void))failure {
@@ -154,6 +173,10 @@ static AFHTTPRequestOperationManager *_manager;
 
 + (void)listFavoriateDesigner:(ListFavoriteDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API POST:@"favorite/designer/list" data:request.data handler:request success:success failure:failure];
+}
+
++ (void)uploadImage:(UploadImage *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API uploadImage:request.image handler:request success:success failure:failure];
 }
 
 @end
