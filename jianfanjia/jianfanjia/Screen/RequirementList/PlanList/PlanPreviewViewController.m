@@ -56,13 +56,13 @@
 - (void)initNav {
     [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"详细报价" style:UIBarButtonItemStylePlain target:self action:@selector(onChoosePriceDetail)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
+    self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     
     self.title = [NSString stringWithFormat:@"方案%ld", (long)self.order];
 }
 
 - (void)initUI {
-    [self.btnPriceDetail setBorder:1 andColor:[UIColor colorWithR:0xFE g:0x70 b:0x04].CGColor];
+    [self.btnPriceDetail setBorder:1 andColor:kFinishedColor.CGColor];
     [self.btnPriceDetail setCornerRadius:5];
     
     @weakify(self);

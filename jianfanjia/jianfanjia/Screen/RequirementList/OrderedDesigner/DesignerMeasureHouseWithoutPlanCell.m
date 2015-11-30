@@ -23,9 +23,9 @@
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
     [self.btnViewPlan setCornerRadius:5];
-    [self.btnViewPlan setBorder:1 andColor:[UIColor colorWithR:0xb5 g:0xb9 b:0xbc].CGColor];
+    [self.btnViewPlan setBorder:1 andColor:kUntriggeredColor.CGColor];
     [self.btnEvaluate setCornerRadius:5];
-    [self.btnEvaluate setBorder:1 andColor:[UIColor colorWithR:0xFE g:0x70 b:0x04].CGColor];
+    [self.btnEvaluate setBorder:1 andColor:kFinishedColor.CGColor];
     
     @weakify(self);
     [[self.btnEvaluate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {

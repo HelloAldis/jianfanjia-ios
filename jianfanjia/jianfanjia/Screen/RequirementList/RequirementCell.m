@@ -118,13 +118,13 @@
         || [status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]
         || [status isEqualToString:kPlanStatusDesignerMeasureHouseWithoutPlan]
         || [status isEqualToString:kPlanStatusDesignerSubmittedPlan]) {
-        lblStatus.textColor = OrderedColor;
+        lblStatus.textColor = kPassStatusColor;
     } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
-        lblStatus.textColor = PlanChoosedColor;
+        lblStatus.textColor = kFinishedColor;
     } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]
                || [status isEqualToString:kPlanStatusPlanWasNotChoosed]
                || [status isEqualToString:kPlanStatusExpiredAsDesignerDidNotRespond]) {
-        lblStatus.textColor = UnorderColor;
+        lblStatus.textColor = kUntriggeredColor;
     }
 }
 
@@ -141,13 +141,13 @@
         || [status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
         || [status isEqualToString:kRequirementStatusDesignerMeasureHouseWithoutPlan]
         || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]) {
-        self.lblRequirementStatusVal.textColor = OrderedColor;
+        self.lblRequirementStatusVal.textColor = kPassStatusColor;
     } else if ([status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
-        self.lblRequirementStatusVal.textColor = PlanChoosedColor;
-        self.btnGoToWorkspace.titleLabel.textColor = PlanChoosedColor;
+        self.lblRequirementStatusVal.textColor = kFinishedColor;
+        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"前往工地" forState:UIControlStateNormal];
     } else if ([status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
-        self.lblRequirementStatusVal.textColor = UnorderColor;
+        self.lblRequirementStatusVal.textColor = kUntriggeredColor;
     }
 }
 

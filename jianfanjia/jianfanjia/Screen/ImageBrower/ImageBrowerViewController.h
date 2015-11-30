@@ -18,7 +18,4 @@
 @property (assign, nonatomic) BOOL allowsMultipleSelection;
 @property (assign, nonatomic) int maxCount;
 
-
-+ (void)imageBrowerForUserImage:(UINavigationController *)nav;
-
 @end

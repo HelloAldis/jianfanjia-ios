@@ -13,5 +13,6 @@
 #import "HUDUtil.h"
 #import "BaseDynamicObject.h"
 #import "Macro.h"
+#import "PhotoUtil.h"
 
 #endif

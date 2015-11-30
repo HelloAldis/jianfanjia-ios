@@ -240,6 +240,10 @@ static ViewControllerContainer *container;
     container.window.rootViewController = container.tab;
 }
 
++ (UIViewController *)getCurrentTapController {
+    return ((UINavigationController *)container.tab.selectedViewController).topViewController;
+}
+
 + (void)logout {
     container.tab = nil;
     container.navTap1 = nil;

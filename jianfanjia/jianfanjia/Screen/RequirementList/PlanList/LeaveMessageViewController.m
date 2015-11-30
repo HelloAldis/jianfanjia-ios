@@ -72,9 +72,9 @@ static float kKeyboardHeight = 480;
 }
 
 - (void)initUI {
-    [self.tvMessage setBorder:1 andColor:[UIColor colorWithR:0xFE g:0x70 b:0x04].CGColor];
+    [self.tvMessage setBorder:1 andColor:kFinishedColor.CGColor];
     [self.tvMessage setCornerRadius:5];
-    [self.footerView setBorder:1 andColor:[UIColor colorWithR:0xb5 g:0xb9 b:0xbc].CGColor];
+    [self.footerView setBorder:1 andColor:kUntriggeredColor.CGColor];
     [self.btnSend setCornerRadius:5];
     
     @weakify(self);

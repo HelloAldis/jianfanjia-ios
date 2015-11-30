@@ -126,15 +126,4 @@
     DDLogDebug(@"onClickDoneMutil");
 }
 
-#pragma mark - Util
-+ (void)imageBrowerForUserImage:(UINavigationController *)nav {
-    ImageBrowerViewController *v = [[ImageBrowerViewController alloc] initWithNibName:nil bundle:nil];
-    v.cellCountInOneRow = 4;
-    v.cellSpace = 1;
-    v.allowsMultipleSelection = NO;
-    v.maxCount = 1;
-    
-    [nav pushViewController:v animated:YES];
-}
-
 @end

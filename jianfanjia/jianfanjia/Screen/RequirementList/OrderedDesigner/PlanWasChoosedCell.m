@@ -23,7 +23,7 @@
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
     [self.btnViewAgreement setCornerRadius:5];
-    [self.btnViewPlan setBorder:1 andColor:[UIColor colorWithR:0xFE g:0x70 b:0x04].CGColor];
+    [self.btnViewPlan setBorder:1 andColor:kFinishedColor.CGColor];
     [self.btnViewPlan setCornerRadius:5];
     
     @weakify(self);

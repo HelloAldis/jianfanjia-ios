@@ -36,7 +36,7 @@
     self.lblMessageVal.text = comment.content;
     
     if ([kUserTypeDesigner isEqualToString:comment.usertype]) {
-        self.lblRoleTypeVal.textColor = [UIColor colorWithR:0x04 g:0xb9 b:0xfe];
+        self.lblRoleTypeVal.textColor = kExcutionStatusColor;
     }
 }
 

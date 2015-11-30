@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define UnorderColor [UIColor colorWithR:0xb5 g:0xb9 b:0xbc]
-#define OrderedColor [UIColor colorWithR:0x11 g:0xbe b:0x62]
-#define PlanChoosedColor [UIColor colorWithR:0xfe g:0x70 b:0x04]
-
 extern int const kWelconeVersion;
 extern int const kPhoneLength;
 extern int const kPasswordLength;
@@ -52,3 +48,10 @@ extern NSString * const kAuthTypeBreakRule;
 
 extern NSString * const kTopicTypePlan;
 extern NSString * const kTopicTypeSection;
+
+extern NSString * const kSectionStatusUnStart;
+extern NSString * const kSectionStatusOnGoing;
+extern NSString * const kSectionStatusAlreadyFinished;
+extern NSString * const kSectionStatusChangeDateRequest;
+extern NSString * const kSectionStatusChangeDateAgree;
+extern NSString * const kSectionStatusChangeDateDecline;

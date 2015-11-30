@@ -89,7 +89,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.sectionScrollView = [[UIScrollView alloc] init];
-//    [self.sectionScrollView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(onPanScrollView:)]];
+    self.sectionScrollView.bounces = NO;
+    self.sectionScrollView.showsHorizontalScrollIndicator = NO;
     
     
     self.tableView = [[UITableView alloc] init];
@@ -131,45 +132,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     //52 = 116(SectionViewHeight) - 64
     self.scrollViewBottomEqualsSuperBottomConstraint = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(-52)-[scrollView]" options:0 metrics: 0 views:views];
     [self.view addConstraints:self.scrollViewToSuperTop64Constraint];
-}
-
-#pragma mark - scroll view gesture
-- (void)onPanScrollView:(UIPanGestureRecognizer *)gesture {
-    switch (gesture.state) {
-        case UIGestureRecognizerStateBegan: {
-            CGPoint point = [gesture translationInView:gesture.view];
-            self.lastTouchPoint = point.x;
-            break;
-        }
-        
-        case UIGestureRecognizerStateEnded: {
-            CGPoint point = [gesture translationInView:gesture.view];
-            if (point.x > self.lastTouchPoint) {
-                self.sectionScrollView.contentOffset = CGPointMake(self.sectionScrollView.contentOffset.x + 86, 0);
-                [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex + 1];
-            } else {
-                self.sectionScrollView.contentOffset = CGPointMake(self.sectionScrollView.contentOffset.x - 86, 0);
-                [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex - 1];
-            }
-
-            break;
-        }
-
-        default:
-            break;
-    }
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (self.processDataManager.selectedSectionIndex < 0) {
-        [self.processDataManager switchToSelectedSection:0];
-    }
-    
-    if (self.processDataManager.selectedSectionIndex >= self.processDataManager.sections.count) {
-        [self.processDataManager switchToSelectedSection:self.processDataManager.sections.count - 1];
-    }
-    
-    
 }
 
 #pragma mark - scroll view move 

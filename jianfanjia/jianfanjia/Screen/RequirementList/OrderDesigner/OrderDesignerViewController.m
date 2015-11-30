@@ -76,17 +76,17 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 - (void)initNav {
     [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"预约" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
+    self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     
     UIView *customeTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, 44)];
     UILabel *lblCount = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 44)];
     lblCount.text = [NSString stringWithFormat:@"%ld", (long)self.orderableCount];
     lblCount.textAlignment = NSTextAlignmentRight;
-    lblCount.textColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
+    lblCount.textColor = kFinishedColor;
     lblCount.font = [UIFont systemFontOfSize:17];
     UILabel *fixedString = [[UILabel alloc] initWithFrame:CGRectMake(lblCount.frame.size.width, 0, 100, 44)];
     fixedString.text = @" 位可预约";
-    fixedString.textColor = [UIColor colorWithR:0x34 g:0x49 b:0x5e];
+    fixedString.textColor = kThemeTextColor;
     fixedString.font = [UIFont systemFontOfSize:17];
     [customeTitleView addSubview:lblCount];
     [customeTitleView addSubview:fixedString];

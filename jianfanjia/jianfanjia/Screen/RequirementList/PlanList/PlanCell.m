@@ -52,9 +52,9 @@ static const NSInteger imgSpace = 2;
         self.lblPlanStatusVal.text = [NameDict nameForPlanStatus:plan.status];
         
         if ([plan.status isEqualToString:kPlanStatusPlanWasChoosed]) {
-            self.lblPlanStatusVal.textColor = [UIColor colorWithR:0xFE g:0x70 b:0x04];
+            self.lblPlanStatusVal.textColor = kFinishedColor;
         } else {
-            self.lblPlanStatusVal.textColor = [UIColor colorWithR:0x7C g:0x83 b:0x89];
+            self.lblPlanStatusVal.textColor = kTextColor;
         }
     }
     

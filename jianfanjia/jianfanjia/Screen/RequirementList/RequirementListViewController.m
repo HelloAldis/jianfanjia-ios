@@ -75,10 +75,10 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 #pragma mark - nav
 - (void)initNav {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate:)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
+    self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     self.title = @"需求列表";
     
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor colorWithR:0x34 g:0x4a b:0x5c] forKey: NSForegroundColorAttributeName];
+    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor colorWithR:0x34 g:0x49 b:0x5e] forKey: NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes = dict;
 }
 

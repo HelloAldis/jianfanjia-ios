@@ -7,7 +7,6 @@
 //
 
 #import "UserInfoViewController.h"
-#import "ImageBrowerViewController.h"
 
 @interface UserInfoViewController ()
 
@@ -38,22 +37,7 @@
 
 #pragma mark - user action
 - (IBAction)onClickImage:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择照片上传" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    UIAlertAction *camera = [UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self showCamera];
-    }];
-    UIAlertAction *photo = [UIAlertAction actionWithTitle:@"从相册中选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [self showPhotoLib];
-    }];
-    
-    [alert addAction:cancel];
-    [alert addAction:camera];
-    [alert addAction:photo];
-    
-    [self presentViewController:alert animated:YES completion:nil];
+    [PhotoUtil showUserAvatarSelector];
 }
 
 - (IBAction)onClickUsername:(id)sender {
@@ -68,35 +52,6 @@
 }
 
 - (IBAction)onClickDetailLocation:(id)sender {
-}
-
-#pragma mark - MWPhotoBrowser delegate
-
-#pragma mark - Util
-- (void)showPhotoLib {
-    if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] == NO))
-        return ;
-    [ImageBrowerViewController imageBrowerForUserImage:self.navigationController];
-}
-
-- (void)showCamera {
-    if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO))
-        return ;
-    
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-//    imagePickerController.view.frame = CGRectMake(0, 0, 320, 320);
-    
-    // Hides the controls for moving & scaling pictures, or for
-    // trimming movies. To instead show the controls, use YES.
-    imagePickerController.allowsEditing = YES;
-//    imagePickerController.delegate = cameraControlView;
-//    CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0, 64);
-//    imagePickerController.cameraViewTransform = translate;
-//    imagePickerController.showsCameraControls = NO;
-//    imagePickerController.cameraOverlayView = cameraControlView;
-    
-    [self presentViewController:imagePickerController animated:YES completion:NULL];
 }
 
 @end

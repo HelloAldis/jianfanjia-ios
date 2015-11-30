@@ -122,4 +122,21 @@ NSString * const kAuthTypeBreakRule  = @"4";
 NSString * const kTopicTypePlan = @"0";
 NSString * const kTopicTypeSection = @"1";
 
+
+/**
+ 流程状态 section status
+ * 0. 未开工
+ * 1. 进行中
+ * 2. 已完成
+ * 3. 改期申请中
+ * 4. 改期同意
+ * 5. 改期拒绝
+**/
+NSString * const kSectionStatusUnStart = @"0";
+NSString * const kSectionStatusOnGoing = @"1";
+NSString * const kSectionStatusAlreadyFinished = @"2";
+NSString * const kSectionStatusChangeDateRequest = @"3";
+NSString * const kSectionStatusChangeDateAgree = @"4";
+NSString * const kSectionStatusChangeDateDecline = @"5";
+
  

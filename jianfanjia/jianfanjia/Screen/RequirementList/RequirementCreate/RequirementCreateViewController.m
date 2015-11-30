@@ -95,7 +95,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 - (void)initNav {
     [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithR:0xfe g:0x70 b:0x04];
+    self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     self.title = @"填写装修需求";
 }
 

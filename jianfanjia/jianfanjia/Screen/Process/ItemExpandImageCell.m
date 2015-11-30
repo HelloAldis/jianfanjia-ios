@@ -9,6 +9,7 @@
 #import "ItemExpandImageCell.h"
 #import "ItemImageCollectionCell.h"
 #import "UIItemImageCollectionView.h"
+#import "ViewControllerContainer.h"
 
 static const NSInteger MAX_IMG_COUNT = 9;
 static const NSInteger COUNT_IN_ONE_ROW = 3;
@@ -55,6 +56,15 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     self.sectionIndex = sectionIndex;
     self.itemIndex = itemIndex;
     self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
+    
+    if ([self.item.status isEqualToString:kSectionStatusOnGoing]) {
+        self.statusImageView.image = [UIImage imageNamed:@"item_status_1"];
+        self.statusLine2.backgroundColor = kFinishedColor;
+    } else if([self.item.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        self.statusImageView.image = [UIImage imageNamed:@"item_status_2"];
+        self.statusLine2.backgroundColor = kFinishedColor;
+    }
+    
     self.numberOfItemsInsection = self.item.images.count < MAX_IMG_COUNT ? self.item.images.count + 1 : self.item.images.count;
 }
 
@@ -70,7 +80,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         [cell.image setImageWithId:imgURL withWidth:self.imgCollectionLayout.itemSize.width];
     } else {
         [cell addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapAddGesture:)]];
-        [cell enableEditing];
+//        [cell enableEditing];
     }
 
     return cell;
@@ -78,7 +88,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 #pragma mark - geture 
 - (void)handleTapAddGesture:(UITapGestureRecognizer *)gesture {
-
+    [PhotoUtil showDecorationNodeImageSelector:9];
 }
 
 - (void)layoutSubviews {

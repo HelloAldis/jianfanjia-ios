@@ -35,6 +35,7 @@
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index;
 + (void)showRefresh;
 + (void)refreshSuccess;
++ (UIViewController *)getCurrentTapController;
 + (void)logout;
 
 @end

@@ -22,7 +22,7 @@
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
     [self.btnReplace setCornerRadius:5];
-    [self.btnReplace setBorder:1 andColor:[UIColor colorWithR:0xFE g:0x70 b:0x04].CGColor];
+    [self.btnReplace setBorder:1 andColor:kFinishedColor.CGColor];
     
     @weakify(self);
     [[self.btnReplace rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
