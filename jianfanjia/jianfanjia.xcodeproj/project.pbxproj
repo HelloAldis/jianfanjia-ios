@@ -87,6 +87,7 @@
 		6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E6311BFAC78A00E789D4 /* RequirementCell.xib */; };
 		685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B51051BE76D45001C8B34 /* UIColor+Ex.m */; };
 		685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 685BF2FD1C0BE3D700ECA4C9 /* PhotoUtil.m */; };
+		685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 685BF3001C0C346600ECA4C9 /* UploadImageToProcess.m */; };
 		685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21471BF9729E00D5D320 /* SendAddRequirement.m */; };
 		685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214A1BF9870B00D5D320 /* RACStream+Ex.m */; };
 		685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */; };
@@ -398,6 +399,8 @@
 		685B51051BE76D45001C8B34 /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
 		685BF2FC1C0BE3D700ECA4C9 /* PhotoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUtil.h; sourceTree = "<group>"; };
 		685BF2FD1C0BE3D700ECA4C9 /* PhotoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUtil.m; sourceTree = "<group>"; };
+		685BF2FF1C0C346600ECA4C9 /* UploadImageToProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadImageToProcess.h; sourceTree = "<group>"; };
+		685BF3001C0C346600ECA4C9 /* UploadImageToProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadImageToProcess.m; sourceTree = "<group>"; };
 		685C21461BF9729E00D5D320 /* SendAddRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendAddRequirement.h; sourceTree = "<group>"; };
 		685C21471BF9729E00D5D320 /* SendAddRequirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendAddRequirement.m; sourceTree = "<group>"; };
 		685C21491BF9870B00D5D320 /* RACStream+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RACStream+Ex.h"; sourceTree = "<group>"; };
@@ -953,6 +956,8 @@
 				6EE1E41F1C0594CF00883184 /* ListFavoriteDesigner.m */,
 				6EE34D4F1C0BE65B00C6957E /* UploadImage.h */,
 				6EE34D501C0BE65B00C6957E /* UploadImage.m */,
+				685BF2FF1C0C346600ECA4C9 /* UploadImageToProcess.h */,
+				685BF3001C0C346600ECA4C9 /* UploadImageToProcess.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1700,6 +1705,7 @@
 				683595A81C04565300AD58E7 /* AgreementViewController.m in Sources */,
 				683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */,
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,
+				685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */,
 				685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,

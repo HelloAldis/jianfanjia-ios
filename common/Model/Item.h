@@ -16,7 +16,7 @@ typedef NS_ENUM(NSInteger, ItemCellStatus) {
 @interface Item : BaseModel
 
 @property(nonatomic, strong) NSString *name;
-@property(nonatomic, strong) NSString *date;
+@property(nonatomic, strong) NSNumber *date;
 @property(nonatomic, strong) NSString *status;
 @property(nonatomic, strong) NSMutableArray *images;
 

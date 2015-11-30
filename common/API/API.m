@@ -175,6 +175,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"favorite/designer/list" data:request.data handler:request success:success failure:failure];
 }
 
++ (void)uploadImageToProcess:(UploadImageToProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"process/add_images" data:request.data handler:request success:success failure:failure];
+}
+
 + (void)uploadImage:(UploadImage *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API uploadImage:request.image handler:request success:success failure:failure];
 }

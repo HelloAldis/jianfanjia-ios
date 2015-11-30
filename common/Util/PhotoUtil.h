@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ImageBrowerViewController.h"
 
 @interface PhotoUtil : NSObject
 
 + (void)showUserAvatarSelector;
-+ (void)showDecorationNodeImageSelector:(NSInteger)count;
++ (void)showDecorationNodeImageSelector:(NSInteger)count withBlock:(FinishUploadBlock)block;
 
 @end

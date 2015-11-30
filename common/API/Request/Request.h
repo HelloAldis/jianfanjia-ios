@@ -37,5 +37,6 @@
 #import "DeleteFavoriteDesigner.h"
 #import "ListFavoriteDesigner.h"
 #import "UploadImage.h"
+#import "UploadImageToProcess.h"
 
 #endif

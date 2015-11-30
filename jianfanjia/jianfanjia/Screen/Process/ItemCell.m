@@ -38,12 +38,16 @@
     self.itemIndex = itemIndex;
     self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
     
+    
     if ([self.item.status isEqualToString:kSectionStatusOnGoing]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_1"];
         self.statusLine2.backgroundColor = kFinishedColor;
     } else if([self.item.status isEqualToString:kSectionStatusAlreadyFinished]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_2"];
         self.statusLine2.backgroundColor = kFinishedColor;
+    } else {
+        self.statusImageView.image = [UIImage imageNamed:@"item_status_0"];
+        self.statusLine2.backgroundColor = kUntriggeredColor;
     }
 }
 

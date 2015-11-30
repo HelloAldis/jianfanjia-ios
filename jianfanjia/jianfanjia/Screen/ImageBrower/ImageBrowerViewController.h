@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
+typedef void (^FinishUploadBlock)(NSArray *imageIds);
+
 @interface ImageBrowerViewController : BaseViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 //UI
@@ -17,5 +19,7 @@
 //selection
 @property (assign, nonatomic) BOOL allowsMultipleSelection;
 @property (assign, nonatomic) int maxCount;
+
+@property (copy, nonatomic) FinishUploadBlock finishUploadBlock;
 
 @end

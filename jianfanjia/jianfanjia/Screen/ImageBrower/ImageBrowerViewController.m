@@ -19,6 +19,10 @@
 
 @property(strong, nonatomic) PHFetchResult<PHAsset *> *result;
 @property(assign, nonatomic) int selectCount;
+@property (strong, nonatomic) NSMutableArray *imageIds;
+@property (strong, nonatomic) MBProgressHUD *progressBar;
+@property (strong, nonatomic) PHImageManager *imageManager;
+@property (strong, nonatomic) PHImageRequestOptions *options;
 
 @end
 
@@ -40,7 +44,14 @@
     self.collectionViewLayout.minimumInteritemSpacing = self.cellSpace;
     self.collectionView.allowsSelection = YES;
     self.collectionView.allowsMultipleSelection = self.allowsMultipleSelection;
+    self.imageIds = [NSMutableArray array];
     
+    self.imageManager = [PHImageManager defaultManager];
+    self.options = [PHImageRequestOptions new];
+    self.options.networkAccessAllowed = YES;
+    self.options.resizeMode = PHImageRequestOptionsResizeModeFast;
+    self.options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+    self.options.synchronous = false;
     
     if (self.allowsMultipleSelection) {
         [RACObserve(self, selectCount) subscribeNext:^(NSNumber *newValue) {
@@ -124,6 +135,68 @@
 
 - (void)onClickDoneMutil {
     DDLogDebug(@"onClickDoneMutil");
+    [self uploadImageForIndex:self.collectionView.indexPathsForSelectedItems[0]];
+}
+
+- (void)uploadImageForIndex:(NSIndexPath *)indexPath {
+    if ([self.collectionView.indexPathsForSelectedItems indexOfObject:indexPath] == 0) {
+        self.progressBar = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.progressBar.mode = MBProgressHUDModeAnnularDeterminate;
+        self.progressBar.labelText = @"上传中";
+    }
+    @weakify(self);
+    [self.imageManager requestImageForAsset:self.result[indexPath.row] targetSize:CGSizeMake(kScreenWidth * kScreenScale, kScreenHeight * kScreenScale)
+                           contentMode:PHImageContentModeAspectFit
+                               options:self.options
+                         resultHandler:^(UIImage *result, NSDictionary *info) {
+                             @strongify(self);
+                             NSInteger index = [self.collectionView.indexPathsForSelectedItems indexOfObject:indexPath];
+                             NSInteger total = self.collectionView.indexPathsForSelectedItems.count;
+                             
+                             UploadImage *request = [[UploadImage alloc] init];
+                             request.image = result;
+                             @weakify(self);
+                             [API uploadImage:request success:^{
+                                 @strongify(self);
+                                 [self.imageIds addObject:[DataManager shared].lastUploadImageid];
+                                 
+                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                     self.progressBar.progress = (index + 1) / total;
+                                     if (index < total - 1) {
+                                         NSIndexPath *nextIndexPath = self.collectionView.indexPathsForSelectedItems[index + 1];
+                                         [self uploadImageForIndex:nextIndexPath];
+                                     } else {
+                                         self.progressBar.labelText = @"上传完成";
+                                         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                             [self.progressBar hide:YES];
+                                             [self.navigationController popViewControllerAnimated:YES];
+                                             if (self.finishUploadBlock) {
+                                                 self.finishUploadBlock(self.imageIds);
+                                             }
+                                         });
+                                     }
+                                 });
+                             } failure:^{
+                                 @strongify(self);
+                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                     if (index == 0) {
+                                         self.progressBar.labelText = @"上传失败";
+                                     } else {
+                                         self.progressBar.labelText = @"上传部分失败";
+                                     }
+                                     
+                                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                         [self.progressBar hide:YES];
+                                         [self.navigationController popViewControllerAnimated:YES];
+                                         if (self.finishUploadBlock) {
+                                             self.finishUploadBlock(self.imageIds);
+                                         }
+                                     });
+                                 });
+                             }];
+                         }];
+
+    
 }
 
 @end

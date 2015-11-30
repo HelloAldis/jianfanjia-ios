@@ -41,5 +41,6 @@ extern NSString * const kApiUrl;
 + (void)deleteFavoriateDesigner:(DeleteFavoriteDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)listFavoriateDesigner:(ListFavoriteDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)uploadImage:(UploadImage *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)uploadImageToProcess:(UploadImageToProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 
 @end
