@@ -29,6 +29,7 @@
 		6836690A1BFF0C05006A5053 /* PlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683669081BFF0C05006A5053 /* PlanCell.xib */; };
 		6836690D1BFF183F006A5053 /* PriceItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6836690C1BFF183F006A5053 /* PriceItem.m */; };
 		683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */ = {isa = PBXBuildFile; fileRef = 6836690F1BFF1A8F006A5053 /* GetRequirementPlans.m */; };
+		684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 684462981C0D68680098F3CB /* DeleteImageFromProcess.m */; };
 		684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */; };
 		684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */; };
 		684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E51BFD733400F7388C /* DesignerMeasureHouseWithoutPlanCell.m */; };
@@ -310,6 +311,8 @@
 		6836690C1BFF183F006A5053 /* PriceItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceItem.m; sourceTree = "<group>"; };
 		6836690E1BFF1A8F006A5053 /* GetRequirementPlans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRequirementPlans.h; sourceTree = "<group>"; };
 		6836690F1BFF1A8F006A5053 /* GetRequirementPlans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRequirementPlans.m; sourceTree = "<group>"; };
+		684462971C0D68680098F3CB /* DeleteImageFromProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteImageFromProcess.h; sourceTree = "<group>"; };
+		684462981C0D68680098F3CB /* DeleteImageFromProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteImageFromProcess.m; sourceTree = "<group>"; };
 		684A36E11BFD733400F7388C /* DesignerDeclineHomeOwnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDeclineHomeOwnerCell.h; sourceTree = "<group>"; };
 		684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDeclineHomeOwnerCell.m; sourceTree = "<group>"; };
 		684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerDeclineHomeOwnerCell.xib; sourceTree = "<group>"; };
@@ -961,6 +964,8 @@
 				6EE34D501C0BE65B00C6957E /* UploadImage.m */,
 				685BF2FF1C0C346600ECA4C9 /* UploadImageToProcess.h */,
 				685BF3001C0C346600ECA4C9 /* UploadImageToProcess.m */,
+				684462971C0D68680098F3CB /* DeleteImageFromProcess.h */,
+				684462981C0D68680098F3CB /* DeleteImageFromProcess.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1788,6 +1793,7 @@
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
+				684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */,
 				683626951C05545E005F2C30 /* StartDecorationProcess.m in Sources */,
 				6E6D98C01BE0637700D45F77 /* Product.m in Sources */,
 				6EE1E4201C0594CF00883184 /* ListFavoriteDesigner.m in Sources */,

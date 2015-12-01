@@ -11,6 +11,8 @@
 @implementation GetComments
 
 @dynamic topicid;
+@dynamic section;
+@dynamic item;
 @dynamic from;
 @dynamic limit;
 

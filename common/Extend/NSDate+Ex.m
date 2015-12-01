@@ -28,18 +28,28 @@
     return [formatter stringFromDate:self];
 }
 
-+ (NSString *)yyyy_MM_dd:(NSNumber *)timeInterval {
-    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longLongValue / 1000] yyyy_MM_dd];
-}
-
 - (NSString *)yyyy_MM_dd_HH_mm {
     NSDateFormatter *formate = [[NSDateFormatter alloc] init];
     [formate setDateFormat:@"yyyy-MM-dd HH:mm"];
     return [formate stringFromDate:self];
 }
 
+- (NSString *)M_dot_dd {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"M.dd"];
+    return [formatter stringFromDate:self];
+}
+
++ (NSString *)yyyy_MM_dd:(NSNumber *)timeInterval {
+    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longLongValue / 1000] yyyy_MM_dd];
+}
+
 + (NSString *)yyyy_MM_dd_HH_mm:(NSNumber *)timeInterval {
     return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longLongValue / 1000] yyyy_MM_dd_HH_mm];
+}
+
++ (NSString *)M_dot_dd:(NSNumber *)timeInterval {
+    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longLongValue / 1000] M_dot_dd];
 }
 
 @end

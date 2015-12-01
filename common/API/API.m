@@ -179,6 +179,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"process/add_images" data:request.data handler:request success:success failure:failure];
 }
 
++ (void)deleteImageFromeProcess:(DeleteImageFromProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"process/delete_image" data:request.data handler:request success:success failure:failure];
+}
+
 + (void)uploadImage:(UploadImage *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API uploadImage:request.image handler:request success:success failure:failure];
 }

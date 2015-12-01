@@ -75,6 +75,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self refreshProcess];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
@@ -86,7 +90,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     self.sectionScrollView = [[UIScrollView alloc] init];
     self.sectionScrollView.bounces = NO;
     self.sectionScrollView.showsHorizontalScrollIndicator = NO;
-    
     
     self.tableView = [[UITableView alloc] init];
     
@@ -171,6 +174,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusUnStart]) {
+        self.lastSelectedIndexPath = indexPath;
+        return;
+    }
+    
     self.currentSectionOperationStatus = SectionOperationStatusSwitchItemCell;
     if (self.lastSelectedIndexPath && self.lastSelectedIndexPath.row != indexPath.row) {
         Item *item = self.processDataManager.selectedItems[indexPath.row];
@@ -199,11 +207,17 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 #pragma mark - refresh
+- (void)refreshLastRow {
+    if (self.lastSelectedIndexPath) {
+        [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
+    }
+}
+
 - (void)refreshProcess {
     if (self.workSiteMode == WorkSiteModePreview) {
         [self.processDataManager refreshSections:[ProcessBusiness defaultProcess]];
         [self.processDataManager switchToSelectedSection:0];
-        [self.tableView reloadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self refreshSections];
     } else {
         GetProcess *request = [[GetProcess alloc] init];
@@ -215,7 +229,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             [self.processDataManager refreshProcess];
             [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex];
             self.lastSelectedIndexPath = nil;
-            [self.tableView reloadData];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
             [self refreshSections];
         } failure:^{
             
@@ -230,7 +244,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [API getProcess:request success:^{
         [self.processDataManager refreshProcess];
         [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex];
-        self.lastSelectedIndexPath = nil;
         Item *item = self.processDataManager.selectedItems[indexPath.row];
         if (isExpand) {
             item.itemCellStatus = ItemCellStatusExpaned;
@@ -267,6 +280,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
         sectionView.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%d_%@", i, section.status]];
         sectionView.nameLabel.text = [ProcessBusiness nameForKey:section.name];
+        sectionView.durationLabel.text = [NSString stringWithFormat:@"%@-%@", [NSDate M_dot_dd:section.start_at], [NSDate M_dot_dd:section.end_at]];
 
         sectionView.translatesAutoresizingMaskIntoConstraints = NO;
         [self.sectionScrollView addSubview:sectionView];
@@ -300,7 +314,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self.processDataManager switchToSelectedSection:index];
     self.lastSelectedIndexPath = nil;
     self.currentSectionOperationStatus = SectionOperationStatusRefresh;
-    [self.tableView reloadData];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

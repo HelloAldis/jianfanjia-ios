@@ -38,5 +38,6 @@
 #import "ListFavoriteDesigner.h"
 #import "UploadImage.h"
 #import "UploadImageToProcess.h"
+#import "DeleteImageFromProcess.h"
 
 #endif

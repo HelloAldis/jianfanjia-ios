@@ -32,5 +32,6 @@
 + (NSString *)nameForAuthType:(NSString *)type;
 + (NSString *)nameForPlanStatus:(NSString *)status;
 + (NSString *)nameForRequirementStatus:(NSString *)status;
++ (NSString *)nameForSectionStatus:(NSString *)status;
 
 @end

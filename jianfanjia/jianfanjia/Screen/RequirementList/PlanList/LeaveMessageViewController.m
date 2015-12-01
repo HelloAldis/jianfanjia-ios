@@ -11,6 +11,11 @@
 #import "RequirementDataManager.h"
 #import "MessageCell.h"
 
+typedef NS_ENUM(NSInteger, CommentType) {
+    CommentTypePlan,
+    CommentTypeProcess,
+};
+
 static NSString *MessageCellIdentifier = @"MessageCell";
 
 static float kKeyboardHeight = 480;
@@ -23,8 +28,16 @@ static float kKeyboardHeight = 480;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopToSuperView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageHeight;
 
+@property (assign, nonatomic) CommentType commentType;
+@property (assign, nonatomic) BOOL hasDataUpdate;
+
 @property (strong, nonatomic) Plan *plan;
 @property (strong, nonatomic) RequirementDataManager *requirementDataManager;
+
+@property (strong, nonatomic) NSString *processid;
+@property (strong, nonatomic) NSString *section;
+@property (strong, nonatomic) NSString *item;
+@property (copy, nonatomic) void(^RefreshBlock)(void);
 
 @end
 
@@ -33,7 +46,21 @@ static float kKeyboardHeight = 480;
 #pragma mark - init method
 - (id)initWithPlan:(Plan *)plan {
     if (self = [super init]) {
+        _commentType = CommentTypePlan;
         _plan = plan;
+        _requirementDataManager = [[RequirementDataManager alloc] init];
+    }
+    
+    return self;
+}
+
+- (id)initWithProcess:(NSString *)processid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
+    if (self = [super init]) {
+        _commentType = CommentTypeProcess;
+        _RefreshBlock = RefreshBlock;
+        _processid = processid;
+        _section = section;
+        _item = item;
         _requirementDataManager = [[RequirementDataManager alloc] init];
     }
     
@@ -133,16 +160,35 @@ static float kKeyboardHeight = 480;
 }
 
 #pragma mark - user action
+- (void)onClickBack {
+    if (self.hasDataUpdate) {
+        if (self.RefreshBlock) {
+            self.RefreshBlock();
+        }
+    }
+    [super onClickBack];
+}
+
 - (void)onSendMessage {
     LeaveComment *request = [[LeaveComment alloc] init];
-    request.topicid = self.plan._id;
-    request.topictype = kTopicTypePlan;
-    request.to = self.plan.designerid;
-    request.content = self.tvMessage.text;
+    
+    if (self.commentType == CommentTypePlan) {
+        request.topicid = self.plan._id;
+        request.topictype = kTopicTypePlan;
+        request.to = self.plan.designerid;
+        request.content = self.tvMessage.text;
+    } else if (self.commentType == CommentTypeProcess) {
+        request.topicid = self.processid;
+        request.topictype = kTopicTypeProcess;
+        request.section = self.section;
+        request.item = self.item;
+        request.content = self.tvMessage.text;
+    }
     
     @weakify(self);
     [API leaveComment:request success:^{
         @strongify(self);
+        self.hasDataUpdate = YES;
         self.tvMessage.text = @"";
         CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
         self.messageHeight.constant = size.height;
@@ -155,7 +201,15 @@ static float kKeyboardHeight = 480;
 
 - (void)refreshMessageList {
     GetComments *request = [[GetComments alloc] init];
-    request.topicid = self.plan._id;
+    
+    if (self.commentType == CommentTypePlan) {
+        request.topicid = self.plan._id;
+    } else if (self.commentType == CommentTypeProcess) {
+        request.topicid = self.processid;
+        request.section = self.section;
+        request.item = self.item;
+    }
+    
     request.from = @0;
     request.limit = @10;
     
@@ -164,7 +218,7 @@ static float kKeyboardHeight = 480;
         @strongify(self);
         [self.tableView.header endRefreshing];
         [self.requirementDataManager refreshComments];
-        [self.tableView reloadData];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
         
     }];
@@ -172,7 +226,15 @@ static float kKeyboardHeight = 480;
 
 - (void)loadMoreMessages {
     GetComments *request = [[GetComments alloc] init];
-    request.topicid = self.plan._id;
+    
+    if (self.commentType == CommentTypePlan) {
+        request.topicid = self.plan._id;
+    } else if (self.commentType == CommentTypeProcess) {
+        request.topicid = self.processid;
+        request.section = self.section;
+        request.item = self.item;
+    }
+    
     request.from = @(self.requirementDataManager.comments.count);
     request.limit = @10;
     

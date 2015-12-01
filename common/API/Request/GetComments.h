@@ -11,6 +11,8 @@
 @interface GetComments : BaseRequest
 
 @property (strong, nonatomic) NSString *topicid;
+@property (strong, nonatomic) NSString *section;
+@property (strong, nonatomic) NSString *item;
 @property (assign, nonatomic) NSNumber *from;
 @property (assign, nonatomic) NSNumber *limit;
 

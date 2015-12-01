@@ -12,6 +12,7 @@
 
 - (void)initLeftBackInNav;
 - (void)initTranslucentNavBar;
+- (void)onClickBack;
 - (void)clickBack;
 
 @end

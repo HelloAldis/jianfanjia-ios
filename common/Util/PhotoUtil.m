@@ -68,6 +68,8 @@
                 } failure:^{
                     
                 }];
+                
+                [controller dismissViewControllerAnimated:YES completion:NO];
             }];
             
             [controller presentViewController:imagePickerController animated:YES completion:NULL];

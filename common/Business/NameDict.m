@@ -22,6 +22,7 @@ static NSDictionary *planStatus = nil;
 static NSDictionary *requirementStatus = nil;
 static NSDictionary *authType = nil;
 static NSDictionary *userType = nil;
+static NSDictionary *sectionStatusDic = nil;
 
 + (void)initialize {
     houseTypeDict = @{@"0":@"一居",
@@ -101,6 +102,14 @@ static NSDictionary *userType = nil;
                  @"2":@"设计师"
                  };
     
+    sectionStatusDic = @{
+                         @"0":@"未开工",
+                         @"1":@"进行中",
+                         @"2":@"已完成",
+                         @"3":@"改期申请中",
+                         @"4":@"改期同意",
+                         @"5":@"改期拒绝",
+                         };
     
 }
 
@@ -186,6 +195,10 @@ static NSDictionary *userType = nil;
 
 + (NSString *)nameForRequirementStatus:(NSString *)status {
     return [requirementStatus objectForKey:status];
+}
+
++ (NSString *)nameForSectionStatus:(NSString *)status {
+    return [sectionStatusDic objectForKey:status];
 }
 
 @end

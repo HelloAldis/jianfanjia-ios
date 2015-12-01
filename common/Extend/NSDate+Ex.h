@@ -17,5 +17,6 @@
 + (NSString *)yyyy_MM_dd:(NSNumber *)timeInterval;
 - (NSString *)yyyy_MM_dd_HH_mm;
 + (NSString *)yyyy_MM_dd_HH_mm:(NSNumber *)timeInterval;
++ (NSString *)M_dot_dd:(NSNumber *)timeInterval;
 
 @end

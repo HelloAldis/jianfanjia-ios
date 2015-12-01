@@ -47,7 +47,7 @@ extern NSString * const kAuthTypeVerifyNotPass;
 extern NSString * const kAuthTypeBreakRule;
 
 extern NSString * const kTopicTypePlan;
-extern NSString * const kTopicTypeSection;
+extern NSString * const kTopicTypeProcess;
 
 extern NSString * const kSectionStatusUnStart;
 extern NSString * const kSectionStatusOnGoing;

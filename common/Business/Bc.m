@@ -120,7 +120,7 @@ NSString * const kAuthTypeBreakRule  = @"4";
  * 1. 装修流程的小点的评论
 **/
 NSString * const kTopicTypePlan = @"0";
-NSString * const kTopicTypeSection = @"1";
+NSString * const kTopicTypeProcess = @"1";
 
 
 /**

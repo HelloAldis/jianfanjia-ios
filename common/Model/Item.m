@@ -14,6 +14,7 @@
 @dynamic date;
 @dynamic status;
 @dynamic images;
+@dynamic comment_count;
 
 - (void)switchItemCellStatus {
     if (_itemCellStatus == ItemCellStatusClosed) {
