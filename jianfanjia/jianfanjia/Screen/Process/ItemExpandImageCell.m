@@ -41,6 +41,7 @@ static CGFloat imgCellWidth;
 
 @property (assign, nonatomic) NSInteger numberOfItemsInsection;
 @property (assign, nonatomic) BOOL isShaking;
+@property (assign, nonatomic) BOOL hasDataUpdate;
 
 @end
 
@@ -64,6 +65,7 @@ static CGFloat imgCellWidth;
 - (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager withBlock:(void(^)(void))refreshBlock {
     self.refreshBlock = refreshBlock;
     self.dataManager = dataManager;
+    self.hasDataUpdate = NO;
     self.item = item;
     self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
     self.lblLastUpdateTime.text = self.item.date.longLongValue > 0 ? [NSDate yyyy_MM_dd_HH_mm:self.item.date] : @"";
@@ -91,11 +93,9 @@ static CGFloat imgCellWidth;
         self.lblItemStatus.textColor = kUntriggeredColor;
     }
     
-    self.numberOfItemsInsection = self.item.images.count < MAX_IMG_COUNT ? self.item.images.count + 1 : self.item.images.count;
+    [self refreshNumberOfItems];
     if (imgCollectionWidth > 0) {
-        self.imgCollectionLayout.itemSize = CGSizeMake(imgCellWidth, imgCellWidth);
-        self.imgCollection.viewContentSize = CGSizeMake(imgCollectionWidth,  imgCellWidth * (self.numberOfItemsInsection % COUNT_IN_ONE_ROW == 0 ? self.numberOfItemsInsection / COUNT_IN_ONE_ROW : (NSInteger)(self.numberOfItemsInsection / COUNT_IN_ONE_ROW) + 1));
-        [self.imgCollection invalidateIntrinsicContentSize];
+        [self refreshViewContentSize];
     }
     [self.imgCollection reloadData];
 }
@@ -125,13 +125,20 @@ static CGFloat imgCellWidth;
 
 #pragma mark - user action
 - (void)deleteImage:(NSInteger)index {
+//    [self.item.images removeObjectAtIndex:index];
+//    [self refreshNumberOfItems];
+//    [self.imgCollection deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]];
+//    
     DeleteImageFromProcess *request = [[DeleteImageFromProcess alloc] init];
     request._id = self.dataManager.process._id;
     request.section = self.dataManager.selectedSection.name;
     request.item = self.item.name;
     request.index = @(index);
     
+    @weakify(self);
     [API deleteImageFromeProcess:request success:^{
+        @strongify(self);
+        self.hasDataUpdate = YES;
         if (self.refreshBlock) {
             self.refreshBlock();
         }
@@ -160,6 +167,12 @@ static CGFloat imgCellWidth;
     [self.imgCollection.visibleCells enumerateObjectsUsingBlock:^(__kindof ItemImageCollectionCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj endShaking];
     }];
+    
+    if (self.hasDataUpdate) {
+//        if (self.refreshBlock) {
+//            self.refreshBlock();
+//        }
+    }
 }
 
 #pragma mark - gesture & user action
@@ -240,9 +253,7 @@ static CGFloat imgCellWidth;
         imgCollectionWidth = self.imgCollection.frame.size.width;
         imgCellWidth = (imgCollectionWidth - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
         DDLogDebug(@"bounds %f %f", imgCollectionWidth, imgCellWidth);
-        self.imgCollectionLayout.itemSize = CGSizeMake(imgCellWidth, imgCellWidth);
-        self.imgCollection.viewContentSize = CGSizeMake(imgCollectionWidth,  imgCellWidth * (self.numberOfItemsInsection % COUNT_IN_ONE_ROW == 0 ? self.numberOfItemsInsection / COUNT_IN_ONE_ROW : (NSInteger)(self.numberOfItemsInsection / COUNT_IN_ONE_ROW) + 1));
-        [self.imgCollection invalidateIntrinsicContentSize];
+        [self refreshViewContentSize];
     });
 }
 
@@ -253,6 +264,17 @@ static CGFloat imgCellWidth;
     if (event) {
         [super touchesBegan:touches withEvent:event];
     }
+}
+
+#pragma mark - other
+- (void)refreshNumberOfItems {
+    self.numberOfItemsInsection = self.item.images.count < MAX_IMG_COUNT ? self.item.images.count + 1 : self.item.images.count;
+}
+
+- (void)refreshViewContentSize {
+    self.imgCollectionLayout.itemSize = CGSizeMake(imgCellWidth, imgCellWidth);
+    self.imgCollection.viewContentSize = CGSizeMake(imgCollectionWidth,  imgCellWidth * (self.numberOfItemsInsection % COUNT_IN_ONE_ROW == 0 ? self.numberOfItemsInsection / COUNT_IN_ONE_ROW : (NSInteger)(self.numberOfItemsInsection / COUNT_IN_ONE_ROW) + 1));
+    [self.imgCollection invalidateIntrinsicContentSize];
 }
 
 @end
