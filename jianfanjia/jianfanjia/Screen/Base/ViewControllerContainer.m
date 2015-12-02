@@ -238,8 +238,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController presentViewController:v animated:YES completion:^{}];
 }
 
-+ (void)showDBYS:(Section *)section {
-    DBYSViewController *v = [[DBYSViewController alloc] initWithSection:section];
++ (void)showDBYS:(Section *)section process:(NSString *)processid {
+    DBYSViewController *v = [[DBYSViewController alloc] initWithSection:section process:processid];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

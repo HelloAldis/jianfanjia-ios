@@ -44,6 +44,9 @@
         item.name = DBYS;
         item.ys = [[Ys alloc] initWith:[self.selectedSection.data objectForKey:@"ys"]];
         [itemArr insertObject:item atIndex:0];
+        self.selectedSection.ys = item.ys;
+    } else {
+        self.selectedSection.ys = nil;
     }
     
     self.selectedItems = itemArr;

@@ -8,6 +8,7 @@
 
 #import "BaseModel.h"
 @class Item;
+@class Ys;
 
 @interface Section : BaseModel
 
@@ -18,6 +19,7 @@
 @property(nonatomic, strong) NSMutableArray *items;
 
 //辅助属性
+@property(nonatomic, strong) Ys *ys;
 @property(nonatomic, strong) Item *latestItem;
 
 - (Item *)itemAtIndex:(NSInteger )index;

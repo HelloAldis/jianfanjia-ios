@@ -37,15 +37,14 @@
     [self.btnChangeDate setCornerRadius:5];
     [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
     
-//    @weakify(self);
+    @weakify(self);
     [[self.btnDBYS rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-//        @strongify(self);
-        [ViewControllerContainer showDBYS:nil];
+        @strongify(self);
+        [ViewControllerContainer showDBYS:self.dataManager.selectedSection process:self.dataManager.process._id];
     }];
 
     [[self.btnChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
 //        @strongify(self);
-        [ViewControllerContainer showDBYS:nil];
     }];
 }
 

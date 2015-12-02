@@ -44,5 +44,10 @@ extern NSString * const kApiUrl;
 + (void)uploadImageToProcess:(UploadImageToProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)deleteImageFromeProcess:(DeleteImageFromProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)userGetInfo:(UserGetInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)sectionDone:(SectionDone *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)getRescheduleNotification:(GetRescheduleNotification *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)reschedule:(Reschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)agreeReschedule:(AgreeReschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)rejectReschedule:(RejectReschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 
 @end

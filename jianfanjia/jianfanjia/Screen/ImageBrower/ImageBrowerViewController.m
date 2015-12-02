@@ -145,7 +145,7 @@
         self.progressBar.labelText = @"上传中";
     }
     @weakify(self);
-    [self.imageManager requestImageForAsset:self.result[indexPath.row] targetSize:CGSizeMake(kScreenWidth * kScreenScale, kScreenHeight * kScreenScale)
+    [self.imageManager requestImageForAsset:self.result[indexPath.row] targetSize:CGSizeMake(kScreenWidth, kScreenHeight)
                            contentMode:PHImageContentModeAspectFit
                                options:self.options
                          resultHandler:^(UIImage *result, NSDictionary *info) {

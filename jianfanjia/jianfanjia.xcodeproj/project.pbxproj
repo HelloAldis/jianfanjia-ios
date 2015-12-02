@@ -274,6 +274,11 @@
 		6EE34D7B1C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D781C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m */; };
 		6EE34D7C1C0EE97D00C6957E /* NotificationCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D7A1C0EE97D00C6957E /* NotificationCD.m */; };
 		6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */; };
+		AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF871C0F2F76003680BA /* SectionDone.m */; };
+		AB4CAF8B1C0F35E8003680BA /* GetRescheduleNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8A1C0F35E8003680BA /* GetRescheduleNotification.m */; };
+		AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8D1C0F361B003680BA /* Reschedule.m */; };
+		AB4CAF911C0F36D2003680BA /* AgreeReschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF901C0F36D2003680BA /* AgreeReschedule.m */; };
+		AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF931C0F3703003680BA /* RejectReschedule.m */; };
 		AB5852531C074252004B054E /* ItemImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5852511C074252004B054E /* ItemImageCollectionCell.m */; };
 		AB5852541C074252004B054E /* ItemImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB5852521C074252004B054E /* ItemImageCollectionCell.xib */; };
 		AB5F1EC61C0C8B32009203DF /* UIImagePickerController+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5F1EC51C0C8B32009203DF /* UIImagePickerController+Ex.m */; };
@@ -752,6 +757,16 @@
 		6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationToData.m; sourceTree = "<group>"; };
 		6EE34D811C0EEAC900C6957E /* CD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CD.h; sourceTree = "<group>"; };
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		AB4CAF861C0F2F76003680BA /* SectionDone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionDone.h; sourceTree = "<group>"; };
+		AB4CAF871C0F2F76003680BA /* SectionDone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionDone.m; sourceTree = "<group>"; };
+		AB4CAF891C0F35E8003680BA /* GetRescheduleNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRescheduleNotification.h; sourceTree = "<group>"; };
+		AB4CAF8A1C0F35E8003680BA /* GetRescheduleNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRescheduleNotification.m; sourceTree = "<group>"; };
+		AB4CAF8C1C0F361B003680BA /* Reschedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reschedule.h; sourceTree = "<group>"; };
+		AB4CAF8D1C0F361B003680BA /* Reschedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reschedule.m; sourceTree = "<group>"; };
+		AB4CAF8F1C0F36D2003680BA /* AgreeReschedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreeReschedule.h; sourceTree = "<group>"; };
+		AB4CAF901C0F36D2003680BA /* AgreeReschedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreeReschedule.m; sourceTree = "<group>"; };
+		AB4CAF921C0F3703003680BA /* RejectReschedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RejectReschedule.h; sourceTree = "<group>"; };
+		AB4CAF931C0F3703003680BA /* RejectReschedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RejectReschedule.m; sourceTree = "<group>"; };
 		AB5852501C074252004B054E /* ItemImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemImageCollectionCell.h; sourceTree = "<group>"; };
 		AB5852511C074252004B054E /* ItemImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemImageCollectionCell.m; sourceTree = "<group>"; };
 		AB5852521C074252004B054E /* ItemImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemImageCollectionCell.xib; sourceTree = "<group>"; };
@@ -1039,6 +1054,16 @@
 				684462981C0D68680098F3CB /* DeleteImageFromProcess.m */,
 				6EE34D521C0EC5C200C6957E /* UserGetInfo.h */,
 				6EE34D531C0EC5C200C6957E /* UserGetInfo.m */,
+				AB4CAF861C0F2F76003680BA /* SectionDone.h */,
+				AB4CAF871C0F2F76003680BA /* SectionDone.m */,
+				AB4CAF891C0F35E8003680BA /* GetRescheduleNotification.h */,
+				AB4CAF8A1C0F35E8003680BA /* GetRescheduleNotification.m */,
+				AB4CAF8C1C0F361B003680BA /* Reschedule.h */,
+				AB4CAF8D1C0F361B003680BA /* Reschedule.m */,
+				AB4CAF8F1C0F36D2003680BA /* AgreeReschedule.h */,
+				AB4CAF901C0F36D2003680BA /* AgreeReschedule.m */,
+				AB4CAF921C0F3703003680BA /* RejectReschedule.h */,
+				AB4CAF931C0F3703003680BA /* RejectReschedule.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1793,6 +1818,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E07DAC51BD88DBE001461DD /* Item.m in Sources */,
+				AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */,
 				68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */,
 				683A6B661C0F01190071DF88 /* PostponeNotificationCell.m in Sources */,
 				684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */,
@@ -1855,6 +1881,7 @@
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				6EE1E4301C05A0D800883184 /* FavoriteDesignerCell.m in Sources */,
+				AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */,
 				684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */,
@@ -1883,6 +1910,7 @@
 				6E6D989E1BDDFF1B00D45F77 /* W4View.m in Sources */,
 				6E07DAA91BD88DBE001461DD /* UserLogin.m in Sources */,
 				AB5F1EC61C0C8B32009203DF /* UIImagePickerController+Ex.m in Sources */,
+				AB4CAF911C0F36D2003680BA /* AgreeReschedule.m in Sources */,
 				6E4496251BF9BA2600C90851 /* VerifyPhoneViewController.m in Sources */,
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */,
@@ -1954,9 +1982,11 @@
 				685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */,
 				6EE34D6C1C0ED49E00C6957E /* CoreDataManager.m in Sources */,
 				6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */,
+				AB4CAF8B1C0F35E8003680BA /* GetRescheduleNotification.m in Sources */,
 				6855E62E1BFAB87A00E789D4 /* RequirementDataManager.m in Sources */,
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
 				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,
+				AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */,
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
 				6EE1E41D1C05942600883184 /* DeleteFavoriteDesigner.m in Sources */,
 				683669091BFF0C05006A5053 /* PlanCell.m in Sources */,

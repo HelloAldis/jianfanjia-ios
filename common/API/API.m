@@ -191,6 +191,26 @@ static AFHTTPRequestOperationManager *_manager;
     [API GET:@"user/info" handler:request success:success failure:failure];
 }
 
++ (void)sectionDone:(SectionDone *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"process/done_section" data:request.data handler:request success:success failure:failure];
+}
+
++ (void)getRescheduleNotification:(GetRescheduleNotification *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API GET:@"process/reschedule/all" handler:request success:success failure:success];
+}
+
++ (void)reschedule:(Reschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"process/reschedule" data:request.data handler:request success:success failure:failure];
+}
+
++ (void)agreeReschedule:(AgreeReschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"process/reschedule/ok" data:request.data handler:request success:success failure:failure];
+}
+
++ (void)rejectReschedule:(RejectReschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"process/reschedule/reject" data:request.data handler:request success:success failure:failure];
+}
+
 @end
 
 

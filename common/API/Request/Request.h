@@ -40,5 +40,10 @@
 #import "UploadImageToProcess.h"
 #import "DeleteImageFromProcess.h"
 #import "UserGetInfo.h"
+#import "SectionDone.h"
+#import "GetRescheduleNotification.h"
+#import "Reschedule.h"
+#import "AgreeReschedule.h"
+#import "RejectReschedule.h"
 
 #endif
