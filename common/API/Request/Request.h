@@ -39,5 +39,6 @@
 #import "UploadImage.h"
 #import "UploadImageToProcess.h"
 #import "DeleteImageFromProcess.h"
+#import "UserGetInfo.h"
 
 #endif

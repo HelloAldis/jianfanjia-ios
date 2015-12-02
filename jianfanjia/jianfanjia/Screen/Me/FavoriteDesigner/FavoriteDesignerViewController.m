@@ -34,13 +34,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self refreshDesigner];
     
-    @weakify(self);
-    self.rowAction = @[[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
-                                                        title:@"删除"
-                                                      handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
-                                                          @strongify(self);
-                                                          [self deleteFavoriateDesigner:indexPath];
-    }]];
 }
 
 #pragma mark - UI
@@ -65,7 +58,21 @@
 }
 
 - (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return self.rowAction;
+    @weakify(self);
+    return @[[UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive
+                                                          title:@"删除"
+                                                        handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
+                                                            @strongify(self);
+                                                            [self deleteFavoriateDesigner:indexPath];
+                                                        }]];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 #pragma mark - Util

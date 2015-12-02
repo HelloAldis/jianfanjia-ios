@@ -87,11 +87,11 @@
                                             <animations/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXg-ap-6V2">
-                                            <rect key="frame" x="410" y="93" width="150" height="21"/>
+                                            <rect key="frame" x="360" y="93" width="200" height="21"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="BwO-qo-pFy"/>
-                                                <constraint firstAttribute="width" constant="150" id="cV7-DA-uA4"/>
+                                                <constraint firstAttribute="width" constant="200" id="cV7-DA-uA4"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -132,7 +132,7 @@
                                             <animations/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBB-M2-hfI">
-                                            <rect key="frame" x="410" y="138" width="150" height="21"/>
+                                            <rect key="frame" x="360" y="138" width="200" height="21"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="ww6-2b-Ecc"/>
@@ -161,7 +161,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wk7-Jk-JUB">
-                                            <rect key="frame" x="410" y="183" width="150" height="21"/>
+                                            <rect key="frame" x="360" y="183" width="200" height="21"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="u04-um-bTg"/>
@@ -193,7 +193,7 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gaf-Lv-qIB">
-                                            <rect key="frame" x="410" y="228" width="150" height="21"/>
+                                            <rect key="frame" x="360" y="228" width="200" height="21"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="G8L-pl-b1K"/>
@@ -221,7 +221,7 @@
                                             </connections>
                                         </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ls-Th-qMJ">
-                                            <rect key="frame" x="410" y="273" width="150" height="21"/>
+                                            <rect key="frame" x="360" y="273" width="200" height="21"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="2gD-am-C2h"/>

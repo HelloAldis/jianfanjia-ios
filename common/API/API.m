@@ -187,6 +187,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API uploadImage:request.image handler:request success:success failure:failure];
 }
 
++ (void)userGetInfo:(UserGetInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API GET:@"user/info" handler:request success:success failure:failure];
+}
+
 @end
 
 

@@ -20,5 +20,6 @@
 #import "UIImageView+WebCache.h"
 #import "GVUserDefaults.h"
 #import "ReactiveCocoa.h"
+#import "MobClick.h"
 
 #endif

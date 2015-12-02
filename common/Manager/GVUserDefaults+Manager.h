@@ -15,6 +15,11 @@
 @property (nonatomic, weak) NSString *userid;
 @property (nonatomic, weak) NSString *imageid;
 @property (nonatomic, weak) NSString *username;
+@property (nonatomic, weak) NSString *sex;
+@property (nonatomic, weak) NSString *province;
+@property (nonatomic, weak) NSString *city;
+@property (nonatomic, weak) NSString *district;
+@property (nonatomic, weak) NSString *address;
 @property (nonatomic, weak) NSString *processid;
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, weak) NSString *x;

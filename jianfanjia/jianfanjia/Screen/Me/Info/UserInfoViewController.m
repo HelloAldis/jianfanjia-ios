@@ -27,12 +27,43 @@
     
     [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.userImageView setCornerRadius:30];
+    [self initUIData];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self initNav];
+    
+    UserGetInfo *request = [[UserGetInfo alloc] init];
+    @weakify(self);
+    [API userGetInfo:request success:^{
+        @strongify(self);
+        [self initUIData];
+    } failure:^{
+        
+    }];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"个人信息";
+}
+
+- (void)initUIData {
+    [self.userImageView setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
+    self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
+    self.lblSex.text = [NameDict nameForSexType:[GVUserDefaults standardUserDefaults].sex];
+    self.lblPhone.text = [GVUserDefaults standardUserDefaults].x;
+    self.lblLocation.text = [@[[GVUserDefaults standardUserDefaults].province,
+                              [GVUserDefaults standardUserDefaults].city,
+                              [GVUserDefaults standardUserDefaults].district] join:@" "];
+    self.lblDetailLocation.text = [GVUserDefaults standardUserDefaults].address;
 }
 
 #pragma mark - user action
@@ -52,6 +83,7 @@
 }
 
 - (IBAction)onClickDetailLocation:(id)sender {
+    
 }
 
 @end

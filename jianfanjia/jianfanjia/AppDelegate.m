@@ -18,19 +18,14 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [MobClick startWithAppkey:@"55ffb334e0f55a84d500247f" reportPolicy:BATCH channelId:@"default"];
+    
     // Override point for customization after application launch.
     [self initLog];
     
     self.window = [[UIWindow alloc] initWithFrame:kScreenFullFrame];
     [ViewControllerContainer showAfterLanching];
     [self.window makeKeyAndVisible];
-//    Login *login = [[Login alloc] init];
-//    [login setPhone:@"18107218595"];
-//    [login setPass:@"654321"];
-//    
-//    DDLogDebug(@"%@", login);
-//    [API login:login success:^{} failure:^{}];
-//    [API getUserRequirementSuccess:nil failure:nil];
     [LeakMoniter start];
     
     return YES;
@@ -53,6 +48,9 @@
     
     [[AFNetworkActivityLogger sharedLogger] startLogging];
     [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+    
+
+    //"oid" : "55ffb334e0f55a84d500247f"
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
