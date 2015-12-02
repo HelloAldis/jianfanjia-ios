@@ -69,7 +69,7 @@
                     
                 }];
                 
-                [controller dismissViewControllerAnimated:YES completion:NO];
+                [controller dismissViewControllerAnimated:YES completion:nil];
             }];
             
             [controller presentViewController:imagePickerController animated:YES completion:NULL];

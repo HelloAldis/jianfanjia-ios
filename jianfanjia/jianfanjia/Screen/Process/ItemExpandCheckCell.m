@@ -6,37 +6,55 @@
 //  Copyright (c) 2015年 JYZ. All rights reserved.
 //
 
-#import "ItemCell.h"
+#import "ItemExpandCheckCell.h"
+#import "ItemImageCollectionCell.h"
+#import "UIItemImageCollectionView.h"
+#import "ViewControllerContainer.h"
 #import "ProcessDataManager.h"
+#import "ImageDetailViewController.h"
 
-@interface ItemCell ()
+@interface ItemExpandCheckCell ()
 
 @property (weak, nonatomic) IBOutlet UIView *statusLine1;
 @property (weak, nonatomic) IBOutlet UIView *statusLine2;
 @property (weak, nonatomic) IBOutlet UIImageView *statusImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblItemTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lblMore;
-
+@property (weak, nonatomic) IBOutlet UILabel *lblItemClose;
+@property (weak, nonatomic) IBOutlet UIButton *btnDBYS;
+@property (weak, nonatomic) IBOutlet UIButton *btnChangeDate;
 
 @property (weak, nonatomic) ProcessDataManager *dataManager;
 @property (weak, nonatomic) Item *item;
-
+@property (copy, nonatomic) void(^refreshBlock)(void);
 
 @end
 
-@implementation ItemCell
+@implementation ItemExpandCheckCell
 
 #pragma mark - life cycle
 - (void)awakeFromNib {
-    // Initialization code
+    [self.btnDBYS setCornerRadius:5];
+    [self.btnChangeDate setCornerRadius:5];
+    [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
+    
+//    @weakify(self);
+    [[self.btnDBYS rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+//        @strongify(self);
+        [ViewControllerContainer showDBYS:nil];
+    }];
+
+    [[self.btnChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+//        @strongify(self);
+        [ViewControllerContainer showDBYS:nil];
+    }];
 }
 
 #pragma mark - UI
-- (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager {
+- (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager withBlock:(void(^)(void))refreshBlock {
+    self.refreshBlock = refreshBlock;
     self.dataManager = dataManager;
     self.item = item;
     self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
-    self.lblMore.hidden = !item.ys;
     
     if ([self.item.status isEqualToString:kSectionStatusOnGoing]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_1"];

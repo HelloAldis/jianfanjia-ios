@@ -11,6 +11,7 @@
 #import "SectionView.h"
 #import "ItemCell.h"
 #import "ItemExpandImageCell.h"
+#import "ItemExpandCheckCell.h"
 #import "API.h"
 #import "ProcessDataManager.h"
 #import "ViewControllerContainer.h"
@@ -26,6 +27,7 @@ typedef NS_ENUM(NSInteger, SectionOperationStatus) {
 };
 
 static NSString *ItemExpandCellIdentifier = @"ItemExpandImageCell";
+static NSString *ItemExpandCheckCellIdentifier = @"ItemExpandCheckCell";
 static NSString *ItemCellIdentifier = @"ItemCell";
 
 @interface ProcessViewController ()
@@ -107,6 +109,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     [self.tableView registerNib:[UINib nibWithNibName:ItemCellIdentifier bundle:nil] forCellReuseIdentifier:ItemCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCheckCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCheckCellIdentifier];
     
     if (self.workSiteMode == WorkSiteModeReal) {
         self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -165,14 +168,21 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [self configureCellProperties:cell];
         return cell;
     } else {
-        ItemExpandImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCellIdentifier forIndexPath:indexPath];
-        @weakify(self);
-        [cell initWithItem:item withDataManager:self.processDataManager withBlock:^{
-            @strongify(self);
-            [self refreshForIndexPath:indexPath isExpand:YES];
-        }];
-        [self configureCellProperties:cell];
-        return cell;
+        if ([item.name isEqualToString:DBYS]) {
+            ItemExpandCheckCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCheckCellIdentifier forIndexPath:indexPath];
+            [cell initWithItem:item withDataManager:self.processDataManager withBlock:nil];
+            [self configureCellProperties:cell];
+            return cell;
+        } else {
+            ItemExpandImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCellIdentifier forIndexPath:indexPath];
+            @weakify(self);
+            [cell initWithItem:item withDataManager:self.processDataManager withBlock:^{
+                @strongify(self);
+                [self refreshForIndexPath:indexPath isExpand:YES];
+            }];
+            [self configureCellProperties:cell];
+            return cell;
+        }
     }
 }
 

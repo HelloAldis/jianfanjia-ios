@@ -247,7 +247,7 @@ static float kKeyboardHeight = 480;
         NSInteger totalCount = self.requirementDataManager.comments.count;
         
         NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:totalCount - currentCount];
-        for (int i = currentCount; i < totalCount; i++) {
+        for (NSInteger i = currentCount; i < totalCount; i++) {
             [insertIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
         }
         

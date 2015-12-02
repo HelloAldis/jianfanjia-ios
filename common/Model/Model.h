@@ -22,5 +22,6 @@
 #import "ProductImage.h"
 #import "Evaluation.h"
 #import "PriceItem.h"
+#import "YsImage.h"
 
 #endif /* Model_h */

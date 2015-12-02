@@ -34,6 +34,7 @@
 + (void)showPlanPriceDetail:(Plan *)plan;
 + (void)showTab;
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index;
++ (void)showDBYS:(Section *)section;
 + (void)showReminder;
 + (void)showRefresh;
 + (void)refreshSuccess;

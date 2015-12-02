@@ -8,10 +8,13 @@
 
 #import "BaseModel.h"
 
+@class YsImage;
+
 @interface Ys : BaseModel
 
 @property(nonatomic, strong) NSString *date;
-@property(nonatomic, strong) NSMutableDictionary *images;
+@property(nonatomic, strong) NSMutableArray *images;
 
+- (YsImage *)ysImageAtIndex:(NSInteger )index;
 
 @end

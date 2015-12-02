@@ -33,6 +33,7 @@
 #import "LeaveMessageViewController.h"
 #import "AgreementViewController.h"
 #import "ReminderViewController.h"
+#import "DBYSViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -235,6 +236,11 @@ static ViewControllerContainer *container;
     v.imageArray = images;
     v.index = index;
     [container.tab.selectedViewController presentViewController:v animated:YES completion:^{}];
+}
+
++ (void)showDBYS:(Section *)section {
+    DBYSViewController *v = [[DBYSViewController alloc] initWithSection:section];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
 + (void)showReminder {

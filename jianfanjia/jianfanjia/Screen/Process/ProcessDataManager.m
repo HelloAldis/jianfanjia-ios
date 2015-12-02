@@ -39,6 +39,13 @@
         return [[Item alloc] initWith:obj];
     }];
     
+    if ([ProcessBusiness hasYs:self.selectedSectionIndex]) {
+        Item *item = [[Item alloc] init];
+        item.name = DBYS;
+        item.ys = [[Ys alloc] initWith:[self.selectedSection.data objectForKey:@"ys"]];
+        [itemArr insertObject:item atIndex:0];
+    }
+    
     self.selectedItems = itemArr;
 }
 

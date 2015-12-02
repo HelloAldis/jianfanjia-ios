@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+
+extern NSString * const DBYS;
+
 @class Process;
 
 @interface ProcessBusiness : NSObject

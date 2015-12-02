@@ -13,6 +13,8 @@ typedef NS_ENUM(NSInteger, ItemCellStatus) {
     ItemCellStatusExpaned,
 };
 
+@class Ys;
+
 @interface Item : BaseModel
 
 @property(nonatomic, strong) NSString *name;
@@ -22,6 +24,7 @@ typedef NS_ENUM(NSInteger, ItemCellStatus) {
 @property(nonatomic, strong) NSNumber *comment_count;
 
 //辅助属性
+@property(nonatomic, strong) Ys *ys;
 @property(nonatomic, assign) ItemCellStatus itemCellStatus;
 - (void)switchItemCellStatus;
 

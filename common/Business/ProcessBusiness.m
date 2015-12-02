@@ -8,6 +8,8 @@
 
 #import "ProcessBusiness.h"
 
+NSString * const DBYS = @"dbys";
+
 static NSDictionary *dictName = nil;
 
 @implementation ProcessBusiness
@@ -55,7 +57,9 @@ static NSDictionary *dictName = nil;
                  @"mbdjaz":@"面板灯具安装",
                  @"snzl":@"室内整理",
                  
-                 @"jun_gong":@"竣工"};
+                 @"jun_gong":@"竣工",
+                 
+                 DBYS:@"对比验收"};
 }
 
 
