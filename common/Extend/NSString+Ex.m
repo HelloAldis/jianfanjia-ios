@@ -65,7 +65,8 @@
 
 - (NSString *)add:(NSInteger)add {
     NSInteger i = [self integerValue];
-    return [NSString stringWithFormat:@"%d", (i + add)];
+    NSNumber *number = @(i + add);
+    return [number stringValue];
 }
 
 - (NSSet *)tags {
