@@ -32,6 +32,7 @@
 #import "PlanPriceDetailViewController.h"
 #import "LeaveMessageViewController.h"
 #import "AgreementViewController.h"
+#import "ReminderViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -234,6 +235,11 @@ static ViewControllerContainer *container;
     v.imageArray = images;
     v.index = index;
     [container.tab.selectedViewController presentViewController:v animated:YES completion:^{}];
+}
+
++ (void)showReminder {
+    ReminderViewController *v = [[ReminderViewController alloc] init];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
 + (void)showRefresh {

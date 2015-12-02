@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="141" id="hTZ-KW-85t" customClass="PostponeNotificationCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="111"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hTZ-KW-85t" id="wl7-l1-OBW">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="110"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalCompressionResistancePriority="751" text="系统提醒您进入建材购买阶段，您需要购买的是" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMr-bX-VbF">
+                        <rect key="frame" x="13" y="8" width="237" height="34"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3S-bY-weO">
+                        <rect key="frame" x="196" y="85" width="116" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="泥木阶段&gt;木地板测量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEE-sg-Fr5">
+                        <rect key="frame" x="13" y="85" width="135" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02t-WK-ukv">
+                        <rect key="frame" x="13" y="52" width="299" height="23"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="待解决" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBt-ht-W0K">
+                        <rect key="frame" x="270" y="8" width="42" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="topMargin" secondItem="MMr-bX-VbF" secondAttribute="top" id="46w-9X-nQl"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="02t-WK-ukv" secondAttribute="trailing" id="AgS-NV-tFZ"/>
+                    <constraint firstItem="kEE-sg-Fr5" firstAttribute="top" secondItem="02t-WK-ukv" secondAttribute="bottom" constant="10" id="Avz-Vb-zwc"/>
+                    <constraint firstItem="MMr-bX-VbF" firstAttribute="leading" secondItem="wl7-l1-OBW" secondAttribute="leadingMargin" constant="5" id="D37-7o-wC4"/>
+                    <constraint firstItem="v3S-bY-weO" firstAttribute="trailing" secondItem="XBt-ht-W0K" secondAttribute="trailing" id="Kg9-sc-RRN"/>
+                    <constraint firstItem="v3S-bY-weO" firstAttribute="centerY" secondItem="kEE-sg-Fr5" secondAttribute="centerY" id="LgF-Xl-FqK"/>
+                    <constraint firstItem="02t-WK-ukv" firstAttribute="top" secondItem="MMr-bX-VbF" secondAttribute="bottom" constant="10" id="TyH-lg-3ah"/>
+                    <constraint firstItem="XBt-ht-W0K" firstAttribute="top" secondItem="MMr-bX-VbF" secondAttribute="top" id="XUx-M0-nmc"/>
+                    <constraint firstItem="XBt-ht-W0K" firstAttribute="leading" secondItem="MMr-bX-VbF" secondAttribute="trailing" constant="20" id="Y6x-dF-8Bv"/>
+                    <constraint firstItem="kEE-sg-Fr5" firstAttribute="leading" secondItem="02t-WK-ukv" secondAttribute="leading" id="cO3-bN-XvX"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="kEE-sg-Fr5" secondAttribute="bottom" id="hcy-bt-NuJ"/>
+                    <constraint firstItem="02t-WK-ukv" firstAttribute="leading" secondItem="MMr-bX-VbF" secondAttribute="leading" id="kkw-E4-tiJ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="XBt-ht-W0K" secondAttribute="trailing" id="xQT-2e-7vc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="179" y="401.5"/>
+        </tableViewCell>
+    </objects>
+</document>
