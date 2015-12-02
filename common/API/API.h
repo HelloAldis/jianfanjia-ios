@@ -43,5 +43,6 @@ extern NSString * const kApiUrl;
 + (void)uploadImage:(UploadImage *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)uploadImageToProcess:(UploadImageToProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)deleteImageFromeProcess:(DeleteImageFromProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)userGetInfo:(UserGetInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 
 @end

@@ -45,7 +45,8 @@ PODS:
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
   - SDWebImage/Core (3.7.3)
-  - SlackTextViewController (1.7)
+  - SSKeychain (1.2.3)
+  - UMengAnalytics (3.6.6)
 
 DEPENDENCIES:
   - AFNetworkActivityLogger (~> 2.0)
@@ -57,7 +58,8 @@ DEPENDENCIES:
   - MJRefresh (~> 2.4.7)
   - ReactiveCocoa (~> 2.5)
   - SDWebImage (~> 3.6)
-  - SlackTextViewController (~> 1.7)
+  - SSKeychain (~> 1.2.3)
+  - UMengAnalytics
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
@@ -69,6 +71,7 @@ SPEC CHECKSUMS:
   MJRefresh: 6eb2f61338f89f64fd628fd43debcf479381ff59
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
-  SlackTextViewController: 57e28248dd38b9753277733544449519842f1ea5
+  SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
+  UMengAnalytics: 4bf831415146b9c57cb10be65fbd43462ef8cf65
 
 COCOAPODS: 0.38.2

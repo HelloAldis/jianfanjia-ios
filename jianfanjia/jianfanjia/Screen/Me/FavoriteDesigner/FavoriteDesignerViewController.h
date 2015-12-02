@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface FavoriteDesignerViewController : BaseViewController
+@interface FavoriteDesignerViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end
