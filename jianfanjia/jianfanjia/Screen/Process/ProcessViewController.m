@@ -13,6 +13,7 @@
 #import "ItemExpandImageCell.h"
 #import "API.h"
 #import "ProcessDataManager.h"
+#import "ViewControllerContainer.h"
 
 typedef NS_ENUM(NSInteger, WorkSiteMode) {
     WorkSiteModePreview,
@@ -82,6 +83,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"notification-bell"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickReminder)];
+    
     self.title = @"工地管理";
 }
 
@@ -315,6 +318,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     self.lastSelectedIndexPath = nil;
     self.currentSectionOperationStatus = SectionOperationStatusRefresh;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+#pragma mark - user action
+- (void)onClickReminder {
+    [ViewControllerContainer showReminder];
 }
 
 @end

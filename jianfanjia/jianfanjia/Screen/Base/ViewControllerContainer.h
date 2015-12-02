@@ -34,6 +34,7 @@
 + (void)showPlanPriceDetail:(Plan *)plan;
 + (void)showTab;
 + (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index;
++ (void)showReminder;
 + (void)showRefresh;
 + (void)refreshSuccess;
 + (UIViewController *)getCurrentTapController;
