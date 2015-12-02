@@ -7,17 +7,16 @@
 //
 
 #import "NSManagedObjectContext+Ex.h"
-//#import "CoreDataManager.h"
+#import "CoreDataManager.h"
 
 @implementation NSManagedObjectContext (Ex)
 
 + (NSManagedObjectContext *)context {
-//    return [[CoreDataManager shared] managedObjectContext];
-    return nil;
+    return [[CoreDataManager shared] managedObjectContext];
 }
 
 + (void)save {
-//    [[CoreDataManager shared] saveContext];
+    [[CoreDataManager shared] saveContext];
 }
 
 @end

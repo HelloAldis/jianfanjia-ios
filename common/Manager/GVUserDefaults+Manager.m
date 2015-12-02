@@ -20,5 +20,11 @@
 @dynamic loginDate;
 @dynamic username;
 @dynamic imageid;
+@dynamic sex;
+@dynamic province;
+@dynamic city;
+@dynamic district;
+@dynamic address;
 
 @end
+

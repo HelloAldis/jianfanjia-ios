@@ -258,6 +258,11 @@
 		6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C61BF5BC6E00A527F6 /* DesignerSection.xib */; };
 		6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D501C0BE65B00C6957E /* UploadImage.m */; };
 		6EE34D541C0EC5C200C6957E /* UserGetInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D531C0EC5C200C6957E /* UserGetInfo.m */; };
+		6EE34D6C1C0ED49E00C6957E /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D571C0ED49E00C6957E /* CoreDataManager.m */; };
+		6EE34D701C0ED49E00C6957E /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D5E1C0ED49E00C6957E /* Model.xcdatamodeld */; };
+		6EE34D7B1C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D781C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m */; };
+		6EE34D7C1C0EE97D00C6957E /* NotificationCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D7A1C0EE97D00C6957E /* NotificationCD.m */; };
+		6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */; };
 		AB5852531C074252004B054E /* ItemImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5852511C074252004B054E /* ItemImageCollectionCell.m */; };
 		AB5852541C074252004B054E /* ItemImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB5852521C074252004B054E /* ItemImageCollectionCell.xib */; };
 		AB5F1EC61C0C8B32009203DF /* UIImagePickerController+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5F1EC51C0C8B32009203DF /* UIImagePickerController+Ex.m */; };
@@ -708,6 +713,16 @@
 		6EE34D501C0BE65B00C6957E /* UploadImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadImage.m; sourceTree = "<group>"; };
 		6EE34D521C0EC5C200C6957E /* UserGetInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserGetInfo.h; sourceTree = "<group>"; };
 		6EE34D531C0EC5C200C6957E /* UserGetInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserGetInfo.m; sourceTree = "<group>"; };
+		6EE34D561C0ED49E00C6957E /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		6EE34D571C0ED49E00C6957E /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		6EE34D5F1C0ED49E00C6957E /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		6EE34D771C0EE97D00C6957E /* NotificationCD+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NotificationCD+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6EE34D781C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NotificationCD+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6EE34D791C0EE97D00C6957E /* NotificationCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCD.h; sourceTree = "<group>"; };
+		6EE34D7A1C0EE97D00C6957E /* NotificationCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCD.m; sourceTree = "<group>"; };
+		6EE34D7D1C0EEA5A00C6957E /* NotificationToData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationToData.h; sourceTree = "<group>"; };
+		6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationToData.m; sourceTree = "<group>"; };
+		6EE34D811C0EEAC900C6957E /* CD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CD.h; sourceTree = "<group>"; };
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AB5852501C074252004B054E /* ItemImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemImageCollectionCell.h; sourceTree = "<group>"; };
 		AB5852511C074252004B054E /* ItemImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemImageCollectionCell.m; sourceTree = "<group>"; };
@@ -897,6 +912,7 @@
 		6E07DA441BD88DBE001461DD /* common */ = {
 			isa = PBXGroup;
 			children = (
+				6EE34D551C0ED49E00C6957E /* CoreData */,
 				6E07DA451BD88DBE001461DD /* API */,
 				6E07DA561BD88DBE001461DD /* Business */,
 				6E07DA751BD88DBE001461DD /* Extend */,
@@ -1472,6 +1488,23 @@
 			path = Refresh;
 			sourceTree = "<group>";
 		};
+		6EE34D551C0ED49E00C6957E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				6EE34D771C0EE97D00C6957E /* NotificationCD+CoreDataProperties.h */,
+				6EE34D781C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m */,
+				6EE34D791C0EE97D00C6957E /* NotificationCD.h */,
+				6EE34D7A1C0EE97D00C6957E /* NotificationCD.m */,
+				6EE34D7D1C0EEA5A00C6957E /* NotificationToData.h */,
+				6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */,
+				6EE34D561C0ED49E00C6957E /* CoreDataManager.h */,
+				6EE34D571C0ED49E00C6957E /* CoreDataManager.m */,
+				6EE34D5E1C0ED49E00C6957E /* Model.xcdatamodeld */,
+				6EE34D811C0EEAC900C6957E /* CD.h */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		94C7F59597BA43E8F719C985 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1738,6 +1771,7 @@
 				683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */,
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,
 				685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */,
+				6EE34D7C1C0EE97D00C6957E /* NotificationCD.m in Sources */,
 				685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
@@ -1757,6 +1791,7 @@
 				6E07DAD81BD8C6AF001461DD /* Bc.m in Sources */,
 				6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */,
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
+				6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */,
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
 				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,
@@ -1861,6 +1896,7 @@
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
 				685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */,
+				6EE34D6C1C0ED49E00C6957E /* CoreDataManager.m in Sources */,
 				6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */,
 				6855E62E1BFAB87A00E789D4 /* RequirementDataManager.m in Sources */,
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
@@ -1873,11 +1909,13 @@
 				6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */,
 				6E6D98CA1BE0AB7C00D45F77 /* HomePageRequirementCell.m in Sources */,
 				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,
+				6EE34D7B1C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m in Sources */,
 				6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */,
 				685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */,
 				684A37541BFD73DF00F7388C /* SelectHouseTypeViewController.m in Sources */,
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
 				6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */,
+				6EE34D701C0ED49E00C6957E /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2097,6 +2135,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6EE34D5E1C0ED49E00C6957E /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6EE34D5F1C0ED49E00C6957E /* Model.xcdatamodel */,
+			);
+			currentVersion = 6EE34D5F1C0ED49E00C6957E /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6E20B21A1B87223600E3A8DA /* Project object */;
 }
