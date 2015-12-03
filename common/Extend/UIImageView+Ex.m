@@ -11,8 +11,19 @@
 
 @implementation UIImageView (Ex)
 
-- (void)setImageWithId:(NSString *)imageid {
-    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
+- (void)setImageWithProgress:(NSString *)imageid placeholderImage:(UIImage *)image {
+    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:nil options:SDWebImageProgressiveDownload];
+    [self sd_setImageWithURL:[self imageurl:imageid]
+            placeholderImage:nil
+                     options:SDWebImageProgressiveDownload
+                    progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+                        DDLogDebug(@"%@/%@", @(receivedSize), @(expectedSize));
+                    }
+                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+                   
+                   }];
+    
+//    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
 }
 
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width {

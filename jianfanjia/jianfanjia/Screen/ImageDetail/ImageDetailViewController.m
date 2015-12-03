@@ -28,7 +28,7 @@
     for (int i = 0; i < self.imageArray.count; i++) {
         UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         [w1 setContentMode:UIViewContentModeScaleAspectFit];
-        [w1 setImageWithId:[self.imageArray objectAtIndex:i]];
+        [w1 setImageWithId:[self.imageArray objectAtIndex:i] withWidth:kScreenWidth];
         UIScrollView *s = [[UIScrollView alloc] initWithFrame:CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenHeight)];
         s.maximumZoomScale = 3;
         s.minimumZoomScale = 1;
