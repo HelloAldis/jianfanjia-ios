@@ -10,6 +10,14 @@
 
 @implementation BaseViewController
 
+#pragma mark - life cycle
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.navigationController) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    }
+}
+
 #pragma mark - UI
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;

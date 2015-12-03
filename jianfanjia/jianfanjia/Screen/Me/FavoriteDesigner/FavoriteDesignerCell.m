@@ -7,6 +7,7 @@
 //
 
 #import "FavoriteDesignerCell.h"
+#import "ViewControllerContainer.h"
 
 @interface FavoriteDesignerCell ()
 
@@ -24,7 +25,7 @@
 - (void)awakeFromNib {
     [self.designerImageView setCornerRadius:30];
     self.tapDesignerImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDesignerImage)];
-    [self.designerImageView addGestureRecognizer:self.tapDesignerImage];
+    [self.contentView addGestureRecognizer:self.tapDesignerImage];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -44,7 +45,7 @@
 
 - (void)onTapDesignerImage {
     if (self.designer) {
-        
+        [ViewControllerContainer showDesigner:self.designer._id];
     }
 }
 
