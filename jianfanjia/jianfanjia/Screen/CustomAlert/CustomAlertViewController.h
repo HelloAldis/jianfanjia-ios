@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
+typedef BOOL(^ButtonBlock)(id);
+
 @interface CustomAlertViewController : BaseViewController
 
 + (void)presentOkAlert:(NSString *)title msg:(NSString *)msg;
