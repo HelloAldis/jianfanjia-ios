@@ -108,9 +108,9 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     
     if ((indexPath.row + 1) % 2 == 0) {
         YsImage *image = self.imgArray[(indexPath.row + 1) / 2 - 1];
-        [cell initWithImage:image.imageid width:self.imgCollectionLayout.itemSize.width deleteBlock:nil];
+        [cell initWithImage:image.imageid width:self.imgCollectionLayout.itemSize.width];
     } else {
-        [cell initWithImage:nil width:0 deleteBlock:nil];
+        [cell initWithImage:nil width:0];
     }
     
     return cell;

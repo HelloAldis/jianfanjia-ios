@@ -12,6 +12,7 @@
 #import "ViewControllerContainer.h"
 #import "ProcessDataManager.h"
 #import "ImageDetailViewController.h"
+#import "CustomAlertViewController.h"
 
 @interface ItemExpandCheckCell ()
 
@@ -22,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblItemClose;
 @property (weak, nonatomic) IBOutlet UIButton *btnDBYS;
 @property (weak, nonatomic) IBOutlet UIButton *btnChangeDate;
+@property (weak, nonatomic) IBOutlet UIButton *btnUnresolvedChangeDate;
 
 @property (weak, nonatomic) ProcessDataManager *dataManager;
 @property (weak, nonatomic) Item *item;
@@ -35,6 +37,7 @@
 - (void)awakeFromNib {
     [self.btnDBYS setCornerRadius:5];
     [self.btnChangeDate setCornerRadius:5];
+    [self.btnUnresolvedChangeDate setCornerRadius:5];
     [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
     
     @weakify(self);
@@ -44,7 +47,61 @@
     }];
 
     [[self.btnChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-//        @strongify(self);
+        @strongify(self);
+        self.btnUnresolvedChangeDate.userInteractionEnabled = NO;
+        UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        [datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
+        
+        
+        Reschedule *request = [[Reschedule alloc] init];
+        
+        [API reschedule:request success:^{
+            self.btnUnresolvedChangeDate.userInteractionEnabled = YES;
+            if (self.refreshBlock) {
+                self.refreshBlock();
+            }
+        } failure:^{
+            self.btnUnresolvedChangeDate.userInteractionEnabled = YES;
+        }];
+    }];
+    
+    [[self.btnUnresolvedChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+//        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"改期提醒"
+//                                                                       message:@"确定要改期吗？"
+//                                                                preferredStyle:UIAlertControllerStyleAlert];
+//        
+//        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"拒绝" style:UIAlertActionStyleDestructive
+//                                                             handler:^(UIAlertAction * action) {
+//                                                                 RejectReschedule *request = [[RejectReschedule alloc] init];
+//                                                                 
+//                                                                 [API rejectReschedule:request success:^{
+//                                                                     if (self.refreshBlock) {
+//                                                                         self.refreshBlock();
+//                                                                     }
+//                                                                 } failure:^{
+//                                                                     
+//                                                                 }];
+//                                                             }];
+//        
+//        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"同意" style:UIAlertActionStyleDefault
+//                                                              handler:^(UIAlertAction * action) {
+//                                                                  AgreeReschedule *request = [[AgreeReschedule alloc] init];
+//                                                                  
+//                                                                  [API agreeReschedule:request success:^{
+//                                                                      if (self.refreshBlock) {
+//                                                                          self.refreshBlock();
+//                                                                      }
+//                                                                  } failure:^{
+//                                                                
+//                                                                  }];
+//                                                              }];
+//        
+//        
+//        [alert addAction:cancelAction];
+//        [alert addAction:okAction];
+        [CustomAlertViewController presentOkAlert:nil msg:nil];
     }];
 }
 
@@ -65,6 +122,17 @@
         self.statusImageView.image = [UIImage imageNamed:@"item_status_0"];
         self.statusLine2.backgroundColor = kUntriggeredColor;
     }
+    
+    if ([self.item.status isEqualToString:kSectionStatusChangeDateRequest]) {
+        self.btnUnresolvedChangeDate.hidden = NO;
+    } else {
+        self.btnUnresolvedChangeDate.hidden = YES;
+    }
+}
+
+#pragma mark - date piker
+- (void)onDatePickerValueChanged:(id)value {
+    
 }
 
 @end

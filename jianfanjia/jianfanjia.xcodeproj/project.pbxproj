@@ -42,6 +42,10 @@
 		683A6B691C0F01190071DF88 /* PurchaseNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683A6B601C0F01190071DF88 /* PurchaseNotificationCell.xib */; };
 		683A6B6A1C0F01190071DF88 /* ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A6B621C0F01190071DF88 /* ReminderViewController.m */; };
 		683A6B6B1C0F01190071DF88 /* ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683A6B631C0F01190071DF88 /* ReminderViewController.xib */; };
+		683B2A781C10162400822715 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B2A771C10162400822715 /* Schedule.m */; };
+		683B2A7B1C101CE900822715 /* ReminderDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B2A7A1C101CE900822715 /* ReminderDataManager.m */; };
+		683B2A801C1046F500822715 /* CustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B2A7E1C1046F500822715 /* CustomAlertViewController.m */; };
+		683B2A811C1046F500822715 /* CustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683B2A7F1C1046F500822715 /* CustomAlertViewController.xib */; };
 		684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 684462981C0D68680098F3CB /* DeleteImageFromProcess.m */; };
 		684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */; };
 		684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */; };
@@ -355,6 +359,13 @@
 		683A6B611C0F01190071DF88 /* ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderViewController.h; sourceTree = "<group>"; };
 		683A6B621C0F01190071DF88 /* ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderViewController.m; sourceTree = "<group>"; };
 		683A6B631C0F01190071DF88 /* ReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReminderViewController.xib; sourceTree = "<group>"; };
+		683B2A761C10162400822715 /* Schedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Schedule.h; sourceTree = "<group>"; };
+		683B2A771C10162400822715 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
+		683B2A791C101CE900822715 /* ReminderDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderDataManager.h; sourceTree = "<group>"; };
+		683B2A7A1C101CE900822715 /* ReminderDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderDataManager.m; sourceTree = "<group>"; };
+		683B2A7D1C1046F500822715 /* CustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAlertViewController.h; sourceTree = "<group>"; };
+		683B2A7E1C1046F500822715 /* CustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAlertViewController.m; sourceTree = "<group>"; };
+		683B2A7F1C1046F500822715 /* CustomAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomAlertViewController.xib; sourceTree = "<group>"; };
 		684462971C0D68680098F3CB /* DeleteImageFromProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteImageFromProcess.h; sourceTree = "<group>"; };
 		684462981C0D68680098F3CB /* DeleteImageFromProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteImageFromProcess.m; sourceTree = "<group>"; };
 		684A36E11BFD733400F7388C /* DesignerDeclineHomeOwnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDeclineHomeOwnerCell.h; sourceTree = "<group>"; };
@@ -843,8 +854,20 @@
 				683A6B5E1C0F01190071DF88 /* PurchaseNotificationCell.h */,
 				683A6B5F1C0F01190071DF88 /* PurchaseNotificationCell.m */,
 				683A6B601C0F01190071DF88 /* PurchaseNotificationCell.xib */,
+				683B2A791C101CE900822715 /* ReminderDataManager.h */,
+				683B2A7A1C101CE900822715 /* ReminderDataManager.m */,
 			);
 			path = Reminder;
+			sourceTree = "<group>";
+		};
+		683B2A7C1C1046D600822715 /* CustomAlert */ = {
+			isa = PBXGroup;
+			children = (
+				683B2A7D1C1046F500822715 /* CustomAlertViewController.h */,
+				683B2A7E1C1046F500822715 /* CustomAlertViewController.m */,
+				683B2A7F1C1046F500822715 /* CustomAlertViewController.xib */,
+			);
+			path = CustomAlert;
 			sourceTree = "<group>";
 		};
 		684A36E01BFD733400F7388C /* OrderedDesigner */ = {
@@ -1172,6 +1195,8 @@
 				6836690C1BFF183F006A5053 /* PriceItem.m */,
 				683A5D6A1C0EFBAE0071DF88 /* YsImage.h */,
 				683A5D6B1C0EFBAE0071DF88 /* YsImage.m */,
+				683B2A761C10162400822715 /* Schedule.h */,
+				683B2A771C10162400822715 /* Schedule.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1515,6 +1540,7 @@
 		6EC3A98B1B8ACFD300A62153 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				683B2A7C1C1046D600822715 /* CustomAlert */,
 				6E4496621BFF0B5300C90851 /* ImageEditor */,
 				6E4496531BFDB6F700C90851 /* ImageBrower */,
 				6EE299C01BF57C4E00A527F6 /* Refresh */,
@@ -1718,6 +1744,7 @@
 				6E6D98AB1BDF733F00D45F77 /* HomePageViewController.xib in Resources */,
 				6E6D98D01BE0C34000D45F77 /* HomePageRecDesignersCell.xib in Resources */,
 				6E4496671BFF0B6F00C90851 /* ImageEditorViewController.xib in Resources */,
+				683B2A811C1046F500822715 /* CustomAlertViewController.xib in Resources */,
 				684A37031BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.xib in Resources */,
 				6E6D98EC1BE345BC00D45F77 /* ProductInfoCell.xib in Resources */,
 				6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */,
@@ -1945,6 +1972,7 @@
 				6E6D98C31BE0665700D45F77 /* Requirement.m in Sources */,
 				685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */,
 				6E07DAC31BD88DBE001461DD /* Comment.m in Sources */,
+				683B2A801C1046F500822715 /* CustomAlertViewController.m in Sources */,
 				6E4496291BF9DF9700C90851 /* UserSignup.m in Sources */,
 				68342DF51BFC0F960000EBBE /* Plan.m in Sources */,
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
@@ -1983,6 +2011,7 @@
 				6EE34D6C1C0ED49E00C6957E /* CoreDataManager.m in Sources */,
 				6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */,
 				AB4CAF8B1C0F35E8003680BA /* GetRescheduleNotification.m in Sources */,
+				683B2A7B1C101CE900822715 /* ReminderDataManager.m in Sources */,
 				6855E62E1BFAB87A00E789D4 /* RequirementDataManager.m in Sources */,
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
 				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,
@@ -2002,6 +2031,7 @@
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
 				6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */,
 				6EE34D701C0ED49E00C6957E /* Model.xcdatamodeld in Sources */,
+				683B2A781C10162400822715 /* Schedule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

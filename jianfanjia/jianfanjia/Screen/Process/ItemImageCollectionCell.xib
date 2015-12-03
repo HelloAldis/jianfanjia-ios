@@ -17,15 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                         <animations/>
                     </imageView>
-                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aou-c4-apF">
+                    <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LQI-Uf-j0n">
                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                         <animations/>
-                    </button>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="删除" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ef9-K0-L7n">
                         <rect key="frame" x="33" y="39" width="34" height="21"/>
                         <animations/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -34,21 +35,21 @@
             </view>
             <animations/>
             <constraints>
-                <constraint firstItem="aou-c4-apF" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="7l3-ne-dVt"/>
+                <constraint firstItem="LQI-Uf-j0n" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="83F-MK-BJa"/>
                 <constraint firstItem="SZa-7M-YIU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GHS-IM-Wsg"/>
-                <constraint firstItem="aou-c4-apF" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="GzA-3C-hkp"/>
                 <constraint firstItem="SZa-7M-YIU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JEl-d5-NFm"/>
                 <constraint firstItem="Ef9-K0-L7n" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Mmt-xb-jWU"/>
-                <constraint firstItem="aou-c4-apF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RyD-5r-opQ"/>
+                <constraint firstItem="LQI-Uf-j0n" firstAttribute="width" secondItem="SZa-7M-YIU" secondAttribute="width" id="OII-AZ-Eo6"/>
                 <constraint firstItem="SZa-7M-YIU" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" id="UFW-Nb-WgH"/>
+                <constraint firstItem="LQI-Uf-j0n" firstAttribute="height" secondItem="SZa-7M-YIU" secondAttribute="height" id="UNz-Uw-ynN"/>
+                <constraint firstItem="LQI-Uf-j0n" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VFn-Wx-2bq"/>
                 <constraint firstItem="SZa-7M-YIU" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" id="bS9-Bl-c1c"/>
-                <constraint firstItem="aou-c4-apF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cYQ-8o-QwO"/>
                 <constraint firstItem="Ef9-K0-L7n" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="vlK-qP-XkQ"/>
             </constraints>
             <connections>
-                <outlet property="btnDelete" destination="aou-c4-apF" id="lu3-Tr-9o5"/>
                 <outlet property="image" destination="SZa-7M-YIU" id="i7X-AD-5f9"/>
                 <outlet property="lblDeleteText" destination="Ef9-K0-L7n" id="ajF-x2-gKF"/>
+                <outlet property="maskBackground" destination="LQI-Uf-j0n" id="YmH-Xw-fwz"/>
             </connections>
         </collectionViewCell>
     </objects>

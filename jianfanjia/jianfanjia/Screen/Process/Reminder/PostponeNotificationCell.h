@@ -10,4 +10,6 @@
 
 @interface PostponeNotificationCell : UITableViewCell
 
+- (void)initWithSchedule:(Schedule *)schedule;
+
 @end

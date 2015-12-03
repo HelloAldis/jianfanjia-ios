@@ -10,31 +10,19 @@
 
 @interface ItemImageCollectionCell ()
 
-@property (weak, nonatomic) IBOutlet UIButton *btnDelete;
+@property (weak, nonatomic) IBOutlet UIView *maskBackground;
 @property (weak, nonatomic) IBOutlet UILabel *lblDeleteText;
 
 @property (assign, nonatomic) BOOL isEditing;
-@property (copy, nonatomic) void(^DeleteBlock)(void);
 @property (strong, nonatomic) NSString *imageid;
 
 @end
 
 @implementation ItemImageCollectionCell
 
-- (void)awakeFromNib {
-    @weakify(self);
-    [[self.btnDelete rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        if (self.DeleteBlock) {
-            self.DeleteBlock();
-        }
-    }];
-}
-
-- (void)initWithImage:(NSString *)imageid width:(CGFloat)width deleteBlock:(void(^)(void))DeleteBlock {
-    self.DeleteBlock = DeleteBlock;
+- (void)initWithImage:(NSString *)imageid width:(CGFloat)width {
     self.imageid = imageid;
-    self.btnDelete.hidden = YES;
+    self.maskBackground.hidden = YES;
     self.lblDeleteText.hidden = YES;
     
     if (imageid) {
@@ -53,10 +41,10 @@
     self.isEditing = YES;
     
     if (self.imageid) {
-        self.btnDelete.hidden = NO;
+        self.maskBackground.hidden = NO;
         self.lblDeleteText.hidden = NO;
     } else {
-        self.btnDelete.hidden = YES;
+        self.maskBackground.hidden = YES;
         self.lblDeleteText.hidden = YES;
     }
     
@@ -75,7 +63,7 @@
 
 - (void)endShaking {
     [self.layer removeAnimationForKey:@"shakeAnimation"];
-    self.btnDelete.hidden = YES;
+    self.maskBackground.hidden = YES;
     self.lblDeleteText.hidden = YES;
     self.isEditing = NO;
 }

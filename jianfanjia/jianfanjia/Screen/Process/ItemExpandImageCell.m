@@ -15,7 +15,7 @@
 
 static const NSInteger MAX_IMG_COUNT = 9;
 static const NSInteger COUNT_IN_ONE_ROW = 3;
-static const NSInteger CELL_SPACE = 1;
+static const NSInteger CELL_SPACE = 3;
 
 static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
@@ -41,7 +41,6 @@ static CGFloat imgCellWidth;
 
 @property (assign, nonatomic) NSInteger numberOfItemsInsection;
 @property (assign, nonatomic) BOOL isShaking;
-@property (assign, nonatomic) BOOL hasDataUpdate;
 
 @end
 
@@ -59,13 +58,14 @@ static CGFloat imgCellWidth;
     UITapGestureRecognizer *tapLeaveMessage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLeaveIconGesture:)];
     [self.imgViewLeaveMessageIcon addGestureRecognizer:tapLeaveMessage];
     [self.lblLeaveMessageTitle addGestureRecognizer:tapLeaveMessage];
+    
+//    [self.imgCollection setBorder:1 andColor:[UIColor redColor].CGColor];
 }
 
 #pragma mark - UI
 - (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager withBlock:(void(^)(void))refreshBlock {
     self.refreshBlock = refreshBlock;
     self.dataManager = dataManager;
-    self.hasDataUpdate = NO;
     self.item = item;
     self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
     self.lblLastUpdateTime.text = self.item.date.longLongValue > 0 ? [NSDate yyyy_MM_dd_HH_mm:self.item.date] : @"";
@@ -110,38 +110,35 @@ static CGFloat imgCellWidth;
 
     if (indexPath.row < self.item.images.count) {
         NSString *imgURL = self.item.images[indexPath.row];
-        
-        @weakify(self);
-        [cell initWithImage:imgURL width:self.imgCollectionLayout.itemSize.width deleteBlock:^{
-            @strongify(self);
-            [self deleteImage:indexPath.row];
-        }];
+        [cell initWithImage:imgURL width:self.imgCollectionLayout.itemSize.width];
     } else {
-        [cell initWithImage:nil width:0 deleteBlock:nil];
+        [cell initWithImage:nil width:0];
     }
 
     return cell;
 }
 
 #pragma mark - user action
-- (void)deleteImage:(NSInteger)index {
-//    [self.item.images removeObjectAtIndex:index];
-//    [self refreshNumberOfItems];
-//    [self.imgCollection deleteItemsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]];
-//    
+- (void)deleteImage:(NSIndexPath *)indexPath {
+    [self.item.images removeObjectAtIndex:indexPath.row];
+    [self refreshNumberOfItems];
+    if (self.numberOfItemsInsection == MAX_IMG_COUNT) {
+        [self.imgCollection performBatchUpdates:^{
+            [self.imgCollection deleteItemsAtIndexPaths:@[indexPath]];
+            [self.imgCollection insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:MAX_IMG_COUNT - 1 inSection:0]]];
+        } completion:nil];
+    } else {
+        [self.imgCollection deleteItemsAtIndexPaths:@[indexPath]];
+    }
+    [self refreshViewContentSize];
+    
     DeleteImageFromProcess *request = [[DeleteImageFromProcess alloc] init];
     request._id = self.dataManager.process._id;
     request.section = self.dataManager.selectedSection.name;
     request.item = self.item.name;
-    request.index = @(index);
+    request.index = @(indexPath.row);
     
-    @weakify(self);
     [API deleteImageFromeProcess:request success:^{
-        @strongify(self);
-        self.hasDataUpdate = YES;
-        if (self.refreshBlock) {
-            self.refreshBlock();
-        }
     } failure:^{
         
     }];
@@ -167,12 +164,6 @@ static CGFloat imgCellWidth;
     [self.imgCollection.visibleCells enumerateObjectsUsingBlock:^(__kindof ItemImageCollectionCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj endShaking];
     }];
-    
-    if (self.hasDataUpdate) {
-//        if (self.refreshBlock) {
-//            self.refreshBlock();
-//        }
-    }
 }
 
 #pragma mark - gesture & user action
@@ -189,6 +180,13 @@ static CGFloat imgCellWidth;
     if (!indexPath) {
         [self endShaking];
         return;
+    }
+    
+    if (self.isShaking ) {
+        if (indexPath.row < self.item.images.count) {
+            [self deleteImage:indexPath];
+            return;
+        }
     }
     
     if (indexPath.row < self.item.images.count) {

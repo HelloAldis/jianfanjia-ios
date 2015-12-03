@@ -11,7 +11,7 @@
 #import "PayNotificationCell.h"
 #import "PostponeNotificationCell.h"
 #import "API.h"
-#import "ProcessDataManager.h"
+#import "ReminderDataManager.h"
 
 typedef NS_ENUM(NSInteger, NotificationType) {
     NotificationTypePurchase,
@@ -31,13 +31,20 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 
 @property (assign, nonatomic) NSInteger selectedButtonIndex;
 @property (assign, nonatomic) NotificationType currentNotificationType;
+@property (strong ,nonatomic) ReminderDataManager *dataManager;
 
 @end
 
 @implementation ReminderViewController
 
 #pragma mark - init method
-
+- (id)init {
+    if (self = [super init]) {
+        _dataManager = [[ReminderDataManager alloc] init];
+    }
+    
+    return self;
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -49,6 +56,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+//    [self refresh];
 }
 
 #pragma mark - UI
@@ -77,12 +85,23 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         [obj addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
     }];
     
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refresh];
+    }];
+    
     [self switchToOtherButton:0];
 }
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    if (self.currentNotificationType == NotificationTypePurchase) {
+        return 6;
+    } else if (self.currentNotificationType == NotificationTypePay) {
+        return 5;
+    } else {
+        return self.dataManager.schedules.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -94,6 +113,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         return cell;
     } else {
         PostponeNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:PostponeNotificationCellIdentifier forIndexPath:indexPath];
+        [cell initWithSchedule:self.dataManager.schedules[indexPath.row]];
         return cell;
     }
 }
@@ -127,7 +147,29 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         @strongify(self);
         self.selectedButtonIndex = buttonIndex;
         self.currentNotificationType = buttonIndex;
+        [self refresh];
+    }];
+}
+
+#pragma mark - refresh notification
+- (void)refresh {
+    if (self.currentNotificationType == NotificationTypePurchase) {
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } else if (self.currentNotificationType == NotificationTypePay) {
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } else {
+        [self refreshReschedules];
+    }
+}
+
+- (void)refreshReschedules {
+    GetRescheduleNotification *request = [[GetRescheduleNotification alloc] init];
+    
+    [API getRescheduleNotification:request success:^{
+        [self.dataManager refreshSchedule];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } failure:^{
+        
     }];
 }
 

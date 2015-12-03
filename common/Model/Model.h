@@ -23,5 +23,6 @@
 #import "Evaluation.h"
 #import "PriceItem.h"
 #import "YsImage.h"
+#import "Schedule.h"
 
 #endif /* Model_h */

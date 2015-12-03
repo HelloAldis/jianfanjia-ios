@@ -11,7 +11,7 @@
 @interface ItemImageCollectionCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 
-- (void)initWithImage:(NSString *)imageid width:(CGFloat)width deleteBlock:(void(^)(void))DeleteBlock;
+- (void)initWithImage:(NSString *)imageid width:(CGFloat)width;
 - (void)startShaking;
 - (void)endShaking;
 

@@ -291,7 +291,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             sectionView.rightLine.hidden = YES;
         }
 
-        sectionView.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%d_%@", i, section.status]];
+        sectionView.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%d_%d", i, section.status.intValue < 3 ? section.status.intValue : 1]];
         sectionView.nameLabel.text = [ProcessBusiness nameForKey:section.name];
         sectionView.durationLabel.text = [NSString stringWithFormat:@"%@-%@", [NSDate M_dot_dd:section.start_at], [NSDate M_dot_dd:section.end_at]];
 

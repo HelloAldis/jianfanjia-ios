@@ -69,11 +69,29 @@
                                     <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEs-by-ucJ">
+                                <rect key="frame" x="10" y="53" width="345" height="40"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="uzR-Qk-KhQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="您有未处理的改期">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="uzR-Qk-KhQ"/>
+                                    </mask>
+                                </variation>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AfC-lp-QFN" firstAttribute="top" secondItem="aUu-Au-cqk" secondAttribute="top" constant="15" id="5CX-pM-M4T"/>
+                            <constraint firstItem="ZEs-by-ucJ" firstAttribute="trailing" secondItem="IAd-mx-iKz" secondAttribute="trailing" id="Aky-f1-61k"/>
                             <constraint firstItem="ske-8B-dpY" firstAttribute="height" secondItem="IAd-mx-iKz" secondAttribute="height" id="HMd-41-jK8"/>
                             <constraint firstAttribute="trailing" secondItem="poH-el-VK9" secondAttribute="trailing" constant="10" id="HhV-An-kap"/>
                             <constraint firstItem="ske-8B-dpY" firstAttribute="leading" secondItem="AfC-lp-QFN" secondAttribute="leading" id="KLY-p2-Bn7"/>
@@ -83,8 +101,11 @@
                             <constraint firstItem="AfC-lp-QFN" firstAttribute="leading" secondItem="aUu-Au-cqk" secondAttribute="leading" constant="10" id="YYL-9a-7Hg"/>
                             <constraint firstItem="IAd-mx-iKz" firstAttribute="centerY" secondItem="ske-8B-dpY" secondAttribute="centerY" id="ZAX-Cd-KV3"/>
                             <constraint firstAttribute="bottom" secondItem="ske-8B-dpY" secondAttribute="bottom" constant="15" id="eW7-iK-bFB"/>
+                            <constraint firstItem="ZEs-by-ucJ" firstAttribute="height" secondItem="ske-8B-dpY" secondAttribute="height" id="ee6-Vq-wKy"/>
                             <constraint firstItem="IAd-mx-iKz" firstAttribute="trailing" secondItem="poH-el-VK9" secondAttribute="trailing" id="xUZ-a1-hpg"/>
+                            <constraint firstItem="ZEs-by-ucJ" firstAttribute="centerY" secondItem="ske-8B-dpY" secondAttribute="centerY" id="y01-DC-3uh"/>
                             <constraint firstItem="IAd-mx-iKz" firstAttribute="width" secondItem="ske-8B-dpY" secondAttribute="width" id="y98-dB-gvD"/>
+                            <constraint firstItem="ZEs-by-ucJ" firstAttribute="leading" secondItem="ske-8B-dpY" secondAttribute="leading" id="ytU-7Q-FYy"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQQ-4g-xdG">
@@ -125,6 +146,7 @@
             <connections>
                 <outlet property="btnChangeDate" destination="ske-8B-dpY" id="kzK-b8-7Qy"/>
                 <outlet property="btnDBYS" destination="IAd-mx-iKz" id="fl1-Dm-5Qq"/>
+                <outlet property="btnUnresolvedChangeDate" destination="ZEs-by-ucJ" id="MkD-uZ-uC5"/>
                 <outlet property="lblItemClose" destination="poH-el-VK9" id="GcK-aZ-t6u"/>
                 <outlet property="lblItemTitle" destination="AfC-lp-QFN" id="xBi-i7-4Zf"/>
                 <outlet property="statusImageView" destination="i3E-BS-wi3" id="yYf-Jj-AKb"/>

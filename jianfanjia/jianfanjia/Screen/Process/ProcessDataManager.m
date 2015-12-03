@@ -42,6 +42,7 @@
     if ([ProcessBusiness hasYs:self.selectedSectionIndex]) {
         Item *item = [[Item alloc] init];
         item.name = DBYS;
+        item.status = self.selectedSection.status;
         item.ys = [[Ys alloc] initWith:[self.selectedSection.data objectForKey:@"ys"]];
         [itemArr insertObject:item atIndex:0];
         self.selectedSection.ys = item.ys;
