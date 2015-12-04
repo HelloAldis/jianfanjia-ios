@@ -7,7 +7,13 @@
 //
 
 #import "ProcessBusiness.h"
-
+NSString * const KAI_GONG = @"kai_gong";
+NSString * const CHAI_GAI = @"chai_gai";
+NSString * const SHUI_DIAN = @"shui_dian";
+NSString * const NI_MU = @"ni_mu";
+NSString * const YOU_QI = @"you_qi";
+NSString * const AN_ZHUANG = @"an_zhuang";
+NSString * const JUN_GONG = @"jun_gong";
 NSString * const DBYS = @"dbys";
 
 static NSDictionary *dictName = nil;
@@ -15,7 +21,7 @@ static NSDictionary *dictName = nil;
 @implementation ProcessBusiness
 
 + (void)initialize {
-    dictName = @{@"kai_gong":@"开工",
+    dictName = @{KAI_GONG:@"开工",
                  @"xcjd":@"现场交底",
                  @"qdzmjcl":@"墙地砖面积测量",
                  @"cgdyccl":@"橱柜第一次测量",
@@ -23,16 +29,16 @@ static NSDictionary *dictName = nil;
                  @"mdbcl":@"木地板测量",
                  @"kgmbslcl":@"开关面板数量核算",
                  
-                 @"chai_gai":@"拆改",
+                 CHAI_GAI:@"拆改",
                  @"cpbh":@"成品保护",
                  @"ztcg":@"主体拆改",
                  @"qpcc":@"墙皮铲除",
                  
-                 @"shui_dian":@"水电",
+                 SHUI_DIAN:@"水电",
                  @"sdsg":@"水电施工",
                  @"ntsg":@"暖通施工",
                  
-                 @"ni_mu":@"泥木",
+                 NI_MU:@"泥木",
                  @"sgxaz":@"石膏线安装",
                  @"cwqfssg":@"厨卫全防水施工",
                  @"cwqdzsg":@"厨卫墙地砖施工",
@@ -41,11 +47,11 @@ static NSDictionary *dictName = nil;
                  @"ddsg":@"吊顶施工",
                  @"gtsg":@"柜体施工",
                  
-                 @"you_qi":@"油漆",
+                 YOU_QI:@"油漆",
                  @"mqqsg":@"木器漆施工",
                  @"qmrjq":@"墙面乳胶漆",
                  
-                 @"an_zhuang":@"安装",
+                 AN_ZHUANG:@"安装",
                  @"scaz":@"石材安装",
                  @"jjaz":@"洁具安装",
                  @"cwddaz":@"厨卫吊顶安装",
@@ -57,7 +63,7 @@ static NSDictionary *dictName = nil;
                  @"mbdjaz":@"面板灯具安装",
                  @"snzl":@"室内整理",
                  
-                 @"jun_gong":@"竣工",
+                 JUN_GONG:@"竣工",
                  
                  DBYS:@"对比验收"};
 }

@@ -8,6 +8,7 @@
 
 #import "ProductImageCell.h"
 #import "ViewControllerContainer.h"
+#import "ImageDetailViewController.h"
 
 @interface ProductImageCell ()
 
@@ -50,7 +51,8 @@
         return [dict objectForKey:@"imageid"];
     }];
     
-    [ViewControllerContainer showImageDetail:imageArray withIndex:self.index];
+    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:imageArray index:self.index];
+    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
 }
 
 @end

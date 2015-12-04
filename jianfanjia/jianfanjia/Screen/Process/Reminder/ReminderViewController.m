@@ -166,6 +166,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     GetRescheduleNotification *request = [[GetRescheduleNotification alloc] init];
     
     [API getRescheduleNotification:request success:^{
+        [self.tableView.header endRefreshing];
         [self.dataManager refreshSchedule];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{

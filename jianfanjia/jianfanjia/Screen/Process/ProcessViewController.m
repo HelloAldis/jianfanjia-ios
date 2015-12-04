@@ -170,7 +170,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     } else {
         if ([item.name isEqualToString:DBYS]) {
             ItemExpandCheckCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCheckCellIdentifier forIndexPath:indexPath];
-            [cell initWithItem:item withDataManager:self.processDataManager withBlock:nil];
+            @weakify(self);
+            [cell initWithItem:item withDataManager:self.processDataManager withBlock:^{
+                @strongify(self);
+                [self refreshForIndexPath:indexPath isExpand:YES];
+            }];
             [self configureCellProperties:cell];
             return cell;
         } else {

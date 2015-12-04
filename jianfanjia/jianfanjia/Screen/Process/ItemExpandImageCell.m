@@ -223,10 +223,7 @@ static CGFloat imgCellWidth;
 }
 
 - (void)showImageDetail:(NSInteger)index{
-    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] init];
-    imgDetail.imageArray = self.item.images;
-    imgDetail.index = index;
-    
+    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:self.item.images index:index];
     [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
 }
 
@@ -243,7 +240,7 @@ static CGFloat imgCellWidth;
 
 #pragma mark - layout
 - (void)layoutSubviews {
-    [super layoutSubviews];
+    
     static dispatch_once_t token;
     dispatch_once(&token, ^{
         [self.imgCollection setNeedsLayout];
@@ -253,6 +250,8 @@ static CGFloat imgCellWidth;
         DDLogDebug(@"bounds %f %f", imgCollectionWidth, imgCellWidth);
         [self refreshViewContentSize];
     });
+    
+    [super layoutSubviews];
 }
 
 #pragma mark - touches
@@ -271,7 +270,7 @@ static CGFloat imgCellWidth;
 
 - (void)refreshViewContentSize {
     self.imgCollectionLayout.itemSize = CGSizeMake(imgCellWidth, imgCellWidth);
-    self.imgCollection.viewContentSize = CGSizeMake(imgCollectionWidth,  imgCellWidth * (self.numberOfItemsInsection % COUNT_IN_ONE_ROW == 0 ? self.numberOfItemsInsection / COUNT_IN_ONE_ROW : (NSInteger)(self.numberOfItemsInsection / COUNT_IN_ONE_ROW) + 1));
+    self.imgCollection.viewContentSize = CGSizeMake(imgCollectionWidth,  (imgCellWidth + CELL_SPACE) * (self.numberOfItemsInsection % COUNT_IN_ONE_ROW == 0 ? self.numberOfItemsInsection / COUNT_IN_ONE_ROW : (NSInteger)(self.numberOfItemsInsection / COUNT_IN_ONE_ROW) + 1));
     [self.imgCollection invalidateIntrinsicContentSize];
 }
 

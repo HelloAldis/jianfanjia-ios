@@ -10,7 +10,8 @@
 
 @interface ImageDetailViewController : BaseViewController<UIScrollViewDelegate>
 
-@property (nonatomic, strong) NSArray *imageArray;
-@property (nonatomic, assign) NSInteger index;
+- (id)initWithOffline:(NSArray *)offlineImages index:(NSInteger)index;
+- (id)initWithOnline:(NSArray *)onlineImages index:(NSInteger)index;
+- (id)initWithOffline:(NSArray *)offlineImages online:(NSArray *)onlineImages index:(NSInteger)index;
 
 @end

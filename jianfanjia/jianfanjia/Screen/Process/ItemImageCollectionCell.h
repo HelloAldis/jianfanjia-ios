@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 
 - (void)initWithImage:(NSString *)imageid width:(CGFloat)width;
+- (void)initWithImage:(UIImage *)image;
 - (void)startShaking;
 - (void)endShaking;
 

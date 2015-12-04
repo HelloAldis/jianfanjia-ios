@@ -12,7 +12,8 @@
 #import "ViewControllerContainer.h"
 #import "ProcessDataManager.h"
 #import "ImageDetailViewController.h"
-#import "CustomAlertViewController.h"
+#import "MessageAlertViewController.h"
+#import "DateAlertViewController.h"
 
 @interface ItemExpandCheckCell ()
 
@@ -48,60 +49,58 @@
 
     [[self.btnChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        self.btnUnresolvedChangeDate.userInteractionEnabled = NO;
-        UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-        datePicker.datePickerMode = UIDatePickerModeDate;
-        [datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-        
-        
-        Reschedule *request = [[Reschedule alloc] init];
-        
-        [API reschedule:request success:^{
-            self.btnUnresolvedChangeDate.userInteractionEnabled = YES;
-            if (self.refreshBlock) {
-                self.refreshBlock();
-            }
-        } failure:^{
-            self.btnUnresolvedChangeDate.userInteractionEnabled = YES;
+        NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:self.dataManager.selectedSection.start_at.longLongValue / 1000];
+        NSCalendar *cal = [NSCalendar autoupdatingCurrentCalendar];
+        NSDate *minDate = [cal dateByAddingUnit:NSCalendarUnitDay value:1 toDate:startDate options:0];
+        NSDate *maxDate = [cal dateByAddingUnit:NSCalendarUnitYear value:1 toDate:minDate options:0];
+
+        [DateAlertViewController presentAlert:@"选择改期时间" min:minDate max:maxDate cancel:^(id obj) {
+            
+        } ok:^(UIDatePicker *obj) {
+            Reschedule *request = [[Reschedule alloc] init];
+            request.processid = self.dataManager.process._id;
+            request.userid = self.dataManager.process.userid;
+            request.designerid = self.dataManager.process.final_designerid;
+            request.section = self.dataManager.selectedSection.name;
+            request.updated_date = @([obj.date timeIntervalSince1970] * 1000);
+            
+            [API reschedule:request success:^{
+                @strongify(self);
+                if (self.refreshBlock) {
+                    self.refreshBlock();
+                }
+            } failure:^{
+            }];
         }];
     }];
     
     [[self.btnUnresolvedChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-//        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"改期提醒"
-//                                                                       message:@"确定要改期吗？"
-//                                                                preferredStyle:UIAlertControllerStyleAlert];
-//        
-//        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"拒绝" style:UIAlertActionStyleDestructive
-//                                                             handler:^(UIAlertAction * action) {
-//                                                                 RejectReschedule *request = [[RejectReschedule alloc] init];
-//                                                                 
-//                                                                 [API rejectReschedule:request success:^{
-//                                                                     if (self.refreshBlock) {
-//                                                                         self.refreshBlock();
-//                                                                     }
-//                                                                 } failure:^{
-//                                                                     
-//                                                                 }];
-//                                                             }];
-//        
-//        UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"同意" style:UIAlertActionStyleDefault
-//                                                              handler:^(UIAlertAction * action) {
-//                                                                  AgreeReschedule *request = [[AgreeReschedule alloc] init];
-//                                                                  
-//                                                                  [API agreeReschedule:request success:^{
-//                                                                      if (self.refreshBlock) {
-//                                                                          self.refreshBlock();
-//                                                                      }
-//                                                                  } failure:^{
-//                                                                
-//                                                                  }];
-//                                                              }];
-//        
-//        
-//        [alert addAction:cancelAction];
-//        [alert addAction:okAction];
-        [CustomAlertViewController presentOkAlert:nil msg:nil];
+        [MessageAlertViewController presentAlert:@"改期提醒" msg:@"对方申请改期至" second:[NSDate yyyy_MM_dd:0] reject:^{
+            RejectReschedule *request = [[RejectReschedule alloc] init];
+            request.processid = self.dataManager.process._id;
+
+            [API rejectReschedule:request success:^{
+                @strongify(self);
+                if (self.refreshBlock) {
+                    self.refreshBlock();
+                }
+             
+            } failure:^{
+
+            }];
+        } agree:^{
+            AgreeReschedule *request = [[AgreeReschedule alloc] init];
+            request.processid = self.dataManager.process._id;
+
+            [API agreeReschedule:request success:^{
+                @strongify(self);
+                if (self.refreshBlock) {
+                    self.refreshBlock();
+                }
+            } failure:^{
+
+            }];
+        }];
     }];
 }
 

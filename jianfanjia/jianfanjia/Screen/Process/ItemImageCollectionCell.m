@@ -32,6 +32,13 @@
     }
 }
 
+- (void)initWithImage:(UIImage *)image {
+    self.maskBackground.hidden = YES;
+    self.lblDeleteText.hidden = YES;
+    
+    self.image.image = image;
+}
+
 #pragma mark - Custom Methods
 
 - (void)startShaking {

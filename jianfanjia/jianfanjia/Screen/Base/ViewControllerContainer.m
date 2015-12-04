@@ -18,7 +18,6 @@
 #import "RequirementListViewController.h"
 #import "MeViewController.h"
 #import "ProductViewController.h"
-#import "ImageDetailViewController.h"
 #import "DesignerViewController.h"
 #import "RefreshViewController.h"
 #import "VerifyPhoneViewController.h"
@@ -229,13 +228,6 @@ static ViewControllerContainer *container;
 + (void)showAgreement:(Requirement *)requirement {
     AgreementViewController *v = [[AgreementViewController alloc] initWithRequirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
-}
-
-+ (void)showImageDetail:(NSArray *)images withIndex:(NSInteger)index {
-    ImageDetailViewController *v = [[ImageDetailViewController alloc] initWithNibName:nil bundle:nil];
-    v.imageArray = images;
-    v.index = index;
-    [container.tab.selectedViewController presentViewController:v animated:YES completion:^{}];
 }
 
 + (void)showDBYS:(Section *)section process:(NSString *)processid {

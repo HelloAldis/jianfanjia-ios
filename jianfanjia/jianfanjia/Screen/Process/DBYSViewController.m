@@ -15,6 +15,12 @@
 static const NSInteger COUNT_IN_ONE_ROW = 2;
 static const NSInteger CELL_SPACE = 10;
 
+static const NSInteger SHUI_DIAN_YS = 5;
+static const NSInteger NI_MU_YS = 7;
+static const NSInteger YOU_QI_YS = 2;
+static const NSInteger AN_ZHUANG_YS = 1;
+static const NSInteger JUN_GONG_YS = 1;
+
 static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 @interface DBYSViewController ()
@@ -100,7 +106,19 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 #pragma mark - collection delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    if ([self.section.name isEqualToString:SHUI_DIAN]) {
+        return SHUI_DIAN_YS * 2;
+    } else if ([self.section.name isEqualToString:NI_MU]) {
+        return NI_MU_YS * 2;
+    } else if ([self.section.name isEqualToString:YOU_QI]) {
+        return YOU_QI_YS * 2;
+    } else if ([self.section.name isEqualToString:AN_ZHUANG]) {
+        return AN_ZHUANG_YS * 2;
+    } else if ([self.section.name isEqualToString:JUN_GONG]) {
+        return JUN_GONG_YS * 2;
+    }
+    
+    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,7 +128,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         YsImage *image = self.imgArray[(indexPath.row + 1) / 2 - 1];
         [cell initWithImage:image.imageid width:self.imgCollectionLayout.itemSize.width];
     } else {
-        [cell initWithImage:nil width:0];
+        [cell initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", self.section.name, @(indexPath.row / 2)]]];
     }
     
     return cell;
@@ -127,6 +145,8 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     
     if ((indexPath.row + 1) % 2 == 0) {
         [self showImageDetail:(indexPath.row + 1) / 2 - 1];
+    } else {
+        
     }
 }
 
@@ -135,10 +155,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         return obj.imageid;
     }];
     
-    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] init];
-    imgDetail.imageArray = images;
-    imgDetail.index = index;
-    
+    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:images index:index];
     [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
 }
 

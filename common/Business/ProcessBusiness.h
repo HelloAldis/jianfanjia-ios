@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const KAI_GONG;
+extern NSString * const CHAI_GAI;
+extern NSString * const SHUI_DIAN;
+extern NSString * const NI_MU;
+extern NSString * const YOU_QI;
+extern NSString * const AN_ZHUANG;
+extern NSString * const JUN_GONG;
 extern NSString * const DBYS;
 
 @class Process;
