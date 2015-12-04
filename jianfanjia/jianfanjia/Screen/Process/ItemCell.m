@@ -36,7 +36,7 @@
     self.dataManager = dataManager;
     self.item = item;
     self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
-    self.lblMore.hidden = !item.ys;
+    self.lblMore.hidden = ![item.name isEqualToString:DBYS];
     
     if ([self.item.status isEqualToString:kSectionStatusOnGoing]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_1"];

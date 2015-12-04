@@ -32,6 +32,7 @@ static CGFloat imgCellWidth;
 @property (weak, nonatomic) IBOutlet UILabel *lblLastUpdateTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblLeaveMessageTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewLeaveMessageIcon;
+@property (weak, nonatomic) IBOutlet UIView *leaveMsgView;
 @property (weak, nonatomic) IBOutlet UIItemImageCollectionView *imgCollection;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *imgCollectionLayout;
 
@@ -55,9 +56,7 @@ static CGFloat imgCellWidth;
     self.imgCollection.scrollEnabled = NO;
     [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
     [self.imgCollection addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)]];
-    UITapGestureRecognizer *tapLeaveMessage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLeaveIconGesture:)];
-    [self.imgViewLeaveMessageIcon addGestureRecognizer:tapLeaveMessage];
-    [self.lblLeaveMessageTitle addGestureRecognizer:tapLeaveMessage];
+    [self.leaveMsgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLeaveIconGesture:)]];
     
 //    [self.imgCollection setBorder:1 andColor:[UIColor redColor].CGColor];
 }

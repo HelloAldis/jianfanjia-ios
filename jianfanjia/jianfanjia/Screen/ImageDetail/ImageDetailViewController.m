@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
 @property (nonatomic, strong) NSArray *onlineImages;
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, assign) ImageDetailViewType type;
+@property (nonatomic, assign) NSInteger imgCount;
 
 @end
 
@@ -59,8 +60,16 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.imageViewArray = [[NSMutableArray alloc] initWithCapacity:self.onlineImages.count];
-    for (int i = 0; i < self.onlineImages.count; i++) {
+    if (self.type == ImageDetailViewTypeOffline) {
+        self.imgCount = self.offlineImages.count;
+    } else if (self.type == ImageDetailViewTypeOnline) {
+        self.imgCount = self.onlineImages.count;
+    } else {
+        
+    }
+    
+    self.imageViewArray = [[NSMutableArray alloc] initWithCapacity:self.imgCount];
+    for (int i = 0; i < self.imgCount; i++) {
         UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         [w1 setContentMode:UIViewContentModeScaleAspectFit];
         if (self.type == ImageDetailViewTypeOffline) {
@@ -84,8 +93,8 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
         [self.scrollView addSubview:s];
         [self.imageViewArray addObject:w1];
     }
-    [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.onlineImages.count, kBannerCellHeight)];
-    self.lblIndex.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.onlineImages.count)];
+    [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.imgCount, kBannerCellHeight)];
+    self.lblIndex.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
     self.scrollView.contentOffset = CGPointMake(self.index * kScreenWidth, 0);
     
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)];
@@ -96,7 +105,7 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.scrollView) {
         self.index = self.scrollView.contentOffset.x/kScreenWidth;
-        self.lblIndex.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.onlineImages.count)];
+        self.lblIndex.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
     }
 }
 

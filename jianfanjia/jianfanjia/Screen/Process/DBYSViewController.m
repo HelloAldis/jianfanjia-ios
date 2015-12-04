@@ -70,7 +70,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     self.imgCollectionLayout.minimumInteritemSpacing = CELL_SPACE;
     CGFloat cellWidth = (kScreenWidth - 20 - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
     self.imgCollectionLayout.itemSize = CGSizeMake(cellWidth, cellWidth);
-    self.imgCollectionLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
+    self.imgCollectionLayout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
     [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
     self.imgArray = [NSMutableArray arrayWithCapacity:self.section.ys.images.count];
     
@@ -144,13 +144,37 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     }
     
     if ((indexPath.row + 1) % 2 == 0) {
-        [self showImageDetail:(indexPath.row + 1) / 2 - 1];
+        [self showScenceImageDetail:(indexPath.row + 1) / 2 - 1];
     } else {
-        
+        [self showStandardImageDetail:indexPath.row / 2];
     }
 }
 
-- (void)showImageDetail:(NSInteger)index {
+- (void)showStandardImageDetail:(NSInteger)index {
+    NSInteger imageCount;
+    if ([self.section.name isEqualToString:SHUI_DIAN]) {
+        imageCount = SHUI_DIAN_YS;
+    } else if ([self.section.name isEqualToString:NI_MU]) {
+        imageCount = NI_MU_YS;
+    } else if ([self.section.name isEqualToString:YOU_QI]) {
+        imageCount = YOU_QI_YS;
+    } else if ([self.section.name isEqualToString:AN_ZHUANG]) {
+        imageCount = AN_ZHUANG_YS;
+    } else if ([self.section.name isEqualToString:JUN_GONG]) {
+        imageCount = JUN_GONG_YS;
+    }
+    
+    NSMutableArray *images = [NSMutableArray arrayWithCapacity:imageCount];
+    for (NSInteger i = 0; i < imageCount; i++) {
+        [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", self.section.name, @(i)]]];
+    }
+    
+    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOffline:images index:index];
+    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+}
+
+- (void)showScenceImageDetail:(NSInteger)index {
     NSArray *images = [self.imgArray map:^id(YsImage *obj) {
         return obj.imageid;
     }];

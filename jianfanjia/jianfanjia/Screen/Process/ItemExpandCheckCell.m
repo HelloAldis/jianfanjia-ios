@@ -75,7 +75,7 @@
     }];
     
     [[self.btnUnresolvedChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        [MessageAlertViewController presentAlert:@"改期提醒" msg:@"对方申请改期至" second:[NSDate yyyy_MM_dd:0] reject:^{
+        [MessageAlertViewController presentAlert:@"改期提醒" msg:@"对方申请改期至" second:[NSDate yyyy_MM_dd:self.dataManager.selectedSection.schedule.updated_date] reject:^{
             RejectReschedule *request = [[RejectReschedule alloc] init];
             request.processid = self.dataManager.process._id;
 
@@ -111,10 +111,10 @@
     self.item = item;
     self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
     
-    if ([self.item.status isEqualToString:kSectionStatusOnGoing]) {
+    if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusOnGoing]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_1"];
         self.statusLine2.backgroundColor = kFinishedColor;
-    } else if([self.item.status isEqualToString:kSectionStatusAlreadyFinished]) {
+    } else if([self.dataManager.selectedSection.status  isEqualToString:kSectionStatusAlreadyFinished]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_2"];
         self.statusLine2.backgroundColor = kFinishedColor;
     } else {
@@ -122,16 +122,24 @@
         self.statusLine2.backgroundColor = kUntriggeredColor;
     }
     
-    if ([self.item.status isEqualToString:kSectionStatusChangeDateRequest]) {
-        self.btnUnresolvedChangeDate.hidden = NO;
+    Schedule *schedule = self.dataManager.selectedSection.schedule;
+    if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateRequest]) {
+        if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:schedule.request_role]
+            && [schedule.status isEqualToString:kSectionStatusChangeDateRequest]) {
+            [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
+            [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+            [self.btnChangeDate setTitle:@"改期申请中" forState:UIControlStateNormal];
+            self.btnChangeDate.userInteractionEnabled = NO;
+            self.btnUnresolvedChangeDate.hidden = YES;
+        } else {
+            self.btnUnresolvedChangeDate.hidden = NO;
+        }
     } else {
-        self.btnUnresolvedChangeDate.hidden = YES;
+        [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
+        [self.btnChangeDate setTitleColor:kFinishedColor forState:UIControlStateNormal];
+        [self.btnChangeDate setTitle:@"申请改期" forState:UIControlStateNormal];
+        self.btnChangeDate.userInteractionEnabled = YES;
     }
-}
-
-#pragma mark - date piker
-- (void)onDatePickerValueChanged:(id)value {
-    
 }
 
 @end
