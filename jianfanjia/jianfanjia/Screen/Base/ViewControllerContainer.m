@@ -235,6 +235,7 @@ static ViewControllerContainer *container;
     ImageDetailViewController *v = [[ImageDetailViewController alloc] initWithNibName:nil bundle:nil];
     v.imageArray = images;
     v.index = index;
+    v.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [container.tab.selectedViewController presentViewController:v animated:YES completion:^{}];
 }
 

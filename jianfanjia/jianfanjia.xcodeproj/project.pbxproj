@@ -278,6 +278,7 @@
 		6EE34D7B1C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D781C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m */; };
 		6EE34D7C1C0EE97D00C6957E /* NotificationCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D7A1C0EE97D00C6957E /* NotificationCD.m */; };
 		6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */; };
+		6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D831C1174DD00C6957E /* StringUtil.m */; };
 		AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF871C0F2F76003680BA /* SectionDone.m */; };
 		AB4CAF8B1C0F35E8003680BA /* GetRescheduleNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8A1C0F35E8003680BA /* GetRescheduleNotification.m */; };
 		AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8D1C0F361B003680BA /* Reschedule.m */; };
@@ -767,6 +768,8 @@
 		6EE34D7D1C0EEA5A00C6957E /* NotificationToData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationToData.h; sourceTree = "<group>"; };
 		6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationToData.m; sourceTree = "<group>"; };
 		6EE34D811C0EEAC900C6957E /* CD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CD.h; sourceTree = "<group>"; };
+		6EE34D821C1174DD00C6957E /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
+		6EE34D831C1174DD00C6957E /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AB4CAF861C0F2F76003680BA /* SectionDone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionDone.h; sourceTree = "<group>"; };
 		AB4CAF871C0F2F76003680BA /* SectionDone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionDone.m; sourceTree = "<group>"; };
@@ -1218,6 +1221,8 @@
 				6E07DAD21BD8BA8B001461DD /* Macro.h */,
 				685BF2FC1C0BE3D700ECA4C9 /* PhotoUtil.h */,
 				685BF2FD1C0BE3D700ECA4C9 /* PhotoUtil.m */,
+				6EE34D821C1174DD00C6957E /* StringUtil.h */,
+				6EE34D831C1174DD00C6957E /* StringUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1671,7 +1676,7 @@
 				TargetAttributes = {
 					6E20B2211B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 9N6Y5VRGG7;
+						DevelopmentTeam = 339GELC5GG;
 					};
 					6E20B23A1B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
@@ -1991,6 +1996,7 @@
 				685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */,
 				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
 				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */,
+				6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */,
 				6EE1E4251C0595C600883184 /* Aspects.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
@@ -2159,7 +2165,7 @@
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2177,7 +2183,7 @@
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
