@@ -25,12 +25,17 @@
     
     [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self updateCache];
 }
 
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"设置";
+}
+
+- (void)updateCache {
+    self.lblCache.text = [@([[SDImageCache sharedImageCache] getSize] / 8) humSizeString];
 }
 
 #pragma mark - user action
@@ -47,8 +52,12 @@
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         //Do nothing
     }];
+    
+    @weakify(self)
     UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //TODO
+        @strongify(self);
+        [[SDImageCache sharedImageCache] clearDisk];
+        [self updateCache];
     }];
     
     [alert addAction:cancel];

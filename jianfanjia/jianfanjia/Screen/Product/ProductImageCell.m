@@ -52,6 +52,7 @@
     }];
     
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:imageArray index:self.index];
+    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
 }
 

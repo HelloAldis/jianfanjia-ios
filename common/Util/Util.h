@@ -14,5 +14,6 @@
 #import "BaseDynamicObject.h"
 #import "Macro.h"
 #import "PhotoUtil.h"
+#import "StringUtil.h"
 
 #endif

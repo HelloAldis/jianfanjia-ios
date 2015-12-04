@@ -25,10 +25,11 @@
     } else {
         NSMutableString *muStr = [[NSMutableString alloc] init];
         for (int i = 0; i < self.count; i++) {
+            NSString *s = [self objectAtIndex:i] ? [self objectAtIndex:i] : @"";
             if (i == self.count - 1) {
-                [muStr appendString:[self objectAtIndex:i]];
+                [muStr appendString:s];
             } else {
-                [muStr appendFormat:@"%@%@", [self objectAtIndex:i], join];
+                [muStr appendFormat:@"%@%@", s, join];
             }
         }
         

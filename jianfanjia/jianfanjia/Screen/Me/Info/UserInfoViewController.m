@@ -60,9 +60,11 @@
     self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
     self.lblSex.text = [NameDict nameForSexType:[GVUserDefaults standardUserDefaults].sex];
     self.lblPhone.text = [GVUserDefaults standardUserDefaults].x;
-    self.lblLocation.text = [@[[GVUserDefaults standardUserDefaults].province,
-                              [GVUserDefaults standardUserDefaults].city,
-                              [GVUserDefaults standardUserDefaults].district] join:@" "];
+    
+    NSArray *arr = @[[StringUtil convertNil2Empty:[GVUserDefaults standardUserDefaults].province],
+                      [StringUtil convertNil2Empty:[GVUserDefaults standardUserDefaults].city],
+                      [StringUtil convertNil2Empty:[GVUserDefaults standardUserDefaults].district]];
+    self.lblLocation.text = [arr join:@" "];
     self.lblDetailLocation.text = [GVUserDefaults standardUserDefaults].address;
 }
 

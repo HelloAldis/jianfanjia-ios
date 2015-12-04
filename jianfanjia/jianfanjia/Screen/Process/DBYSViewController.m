@@ -156,6 +156,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     }];
     
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:images index:index];
+    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
 }
 

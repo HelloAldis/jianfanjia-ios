@@ -19,6 +19,9 @@
 #define kQianWang (10000*1000)
 #define kYi (10000*1000*10)
 
+#define kKB 1024
+#define kMB (1024*1024)
+
 @implementation NSNumber (Ex)
 
 - (NSString *)humDateString {
@@ -47,9 +50,7 @@
 }
 
 - (NSString *)humCountString {
-    if ([self longLongValue]) {
-        return [self stringValue];
-    } else if ([self longLongValue] > kWang) {
+    if ([self longLongValue] > kWang) {
         return [NSString stringWithFormat:@"%.1f万", [self doubleValue]/kWang];
     } else if ([self longLongValue] > kQianWang) {
         return [NSString stringWithFormat:@"%.1f千万", [self doubleValue]/kQianWang];
@@ -58,6 +59,10 @@
     } else {
         return [self stringValue];
     }
+}
+
+- (NSString *)humSizeString {
+    return [NSString stringWithFormat:@"%.2fMB", [self doubleValue]/kMB];
 }
 
 @end
