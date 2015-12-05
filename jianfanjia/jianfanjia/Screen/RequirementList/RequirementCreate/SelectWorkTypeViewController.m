@@ -41,7 +41,15 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [NameDict getAllWorkType].allValues;
+    self.data = [[NameDict getAllWorkType].allKeys sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(NSString*  _Nonnull obj1, NSString*  _Nonnull obj2) {
+        if ([obj1 compare:obj2] == NSOrderedAscending) {
+            return NSOrderedAscending;
+        } else if ([obj1 compare:obj2] == NSOrderedDescending) {
+            return NSOrderedDescending;
+        } else {
+            return NSOrderedSame;
+        }
+    }];
 }
 
 #pragma mark - table view delegate
@@ -51,13 +59,13 @@ static NSString* cellId = @"cityCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    cell.textLabel.text = self.data[indexPath.row];
+    cell.textLabel.text = [NameDict getAllWorkType][self.data[indexPath.row]];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [DataManager shared].requirementPageSelectedWorkType = [NameDict getAllWorkType].allKeys[indexPath.row];
+    [DataManager shared].requirementPageSelectedWorkType = self.data[indexPath.row];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

@@ -10,6 +10,6 @@
 
 @interface DecorationStyleCell : UICollectionViewCell
 
-- (void)initWithImage:(UIImage *)img withTitle:(NSString *)title;
+- (void)initWithImage:(UIImage *)img;
 
 @end

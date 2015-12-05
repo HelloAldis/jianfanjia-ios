@@ -9,12 +9,17 @@
 #import "SelectDecorationStyleViewController.h"
 #import "DecorationStyleCell.h"
 
-static NSString* cellId = @"cityCell";
+static const NSInteger CELL_SPACE = 1;
+static const NSInteger COUNT_IN_ROW = 2;
+static const NSInteger CELL_WIDTH_ASPECT = 4;
+static const NSInteger CELL_HEIGHT_ASPECT = 3;
+
+static NSString* cellId = @"decStyleCell";
 
 @interface SelectDecorationStyleViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSArray *keys;
-@property (strong, nonatomic) NSArray *values;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionFlowLayout;
+@property (strong, nonatomic) NSArray *data;
 
 @end
 
@@ -39,37 +44,43 @@ static NSString* cellId = @"cityCell";
 #pragma mark - UI
 - (void)initUI {
     [self.collectionView registerNib:[UINib nibWithNibName:@"DecorationStyleCell" bundle:nil] forCellWithReuseIdentifier:cellId];
-    
-    
+    CGFloat cellWidth = (kScreenWidth - CELL_SPACE * (COUNT_IN_ROW - 1)) / COUNT_IN_ROW;
+    CGFloat cellHeight = cellWidth / CELL_WIDTH_ASPECT * CELL_HEIGHT_ASPECT;
+    self.collectionFlowLayout.itemSize = CGSizeMake(cellWidth, cellHeight);
+    self.collectionFlowLayout.minimumInteritemSpacing = CELL_SPACE;
+    self.collectionFlowLayout.minimumLineSpacing = CELL_SPACE;
+    self.collectionFlowLayout.sectionInset = UIEdgeInsetsZero;
 }
 
 #pragma mark - init data 
 - (void)initData {
-    self.keys = [NameDict getAllDecorationStyle].allKeys;
-    self.values = [NameDict getAllDecorationStyle].allValues;
+    self.data = [[NameDict getAllDecorationStyle].allKeys sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(NSString*  _Nonnull obj1, NSString*  _Nonnull obj2) {
+        if ([obj1 compare:obj2] == NSOrderedAscending) {
+            return NSOrderedAscending;
+        } else if ([obj1 compare:obj2] == NSOrderedDescending) {
+            return NSOrderedDescending;
+        } else {
+            return NSOrderedSame;
+        }
+    }];
 }
 
 
 #pragma mark - collection view delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.values count];
+    return self.data.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DecorationStyleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    NSString* imageName = [NSString stringWithFormat:@"dec_style_%@", self.keys[indexPath.row]];
-    
-    [cell initWithImage:[UIImage imageNamed:imageName] withTitle:self.values[indexPath.row]];
+    NSString* imageName = [NSString stringWithFormat:@"dec_style_%@", self.data[indexPath.row]];
+    [cell initWithImage:[UIImage imageNamed:imageName]];
     
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(150, 135);
-}
-
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [DataManager shared].requirementPageSelectedDecorationStyle = self.keys[indexPath.row];
+    [DataManager shared].requirementPageSelectedDecorationStyle = self.data[indexPath.row];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

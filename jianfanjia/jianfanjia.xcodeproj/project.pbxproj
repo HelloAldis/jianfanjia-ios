@@ -951,9 +951,6 @@
 		684A37241BFD73DF00F7388C /* RequirementCreate */ = {
 			isa = PBXGroup;
 			children = (
-				684A37251BFD73DF00F7388C /* DecorationStyleCell.h */,
-				684A37261BFD73DF00F7388C /* DecorationStyleCell.m */,
-				684A37271BFD73DF00F7388C /* DecorationStyleCell.xib */,
 				684A37281BFD73DF00F7388C /* RequirementCreateViewController.h */,
 				684A37291BFD73DF00F7388C /* RequirementCreateViewController.m */,
 				684A372A1BFD73DF00F7388C /* RequirementCreateViewController.xib */,
@@ -978,6 +975,9 @@
 				684A373D1BFD73DF00F7388C /* SelectWorkTypeViewController.h */,
 				684A373E1BFD73DF00F7388C /* SelectWorkTypeViewController.m */,
 				684A373F1BFD73DF00F7388C /* SelectWorkTypeViewController.xib */,
+				684A37251BFD73DF00F7388C /* DecorationStyleCell.h */,
+				684A37261BFD73DF00F7388C /* DecorationStyleCell.m */,
+				684A37271BFD73DF00F7388C /* DecorationStyleCell.xib */,
 			);
 			path = RequirementCreate;
 			sourceTree = "<group>";

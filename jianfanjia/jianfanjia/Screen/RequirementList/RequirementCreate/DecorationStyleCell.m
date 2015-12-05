@@ -16,7 +16,7 @@
 
 @implementation DecorationStyleCell
 
-- (void)initWithImage:(UIImage *)img withTitle:(NSString *)title {
+- (void)initWithImage:(UIImage *)img {
     self.imgView.image = img;
 //    self.lblTitle.text = title;
 }

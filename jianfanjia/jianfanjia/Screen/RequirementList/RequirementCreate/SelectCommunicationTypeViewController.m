@@ -41,7 +41,15 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [NameDict getAllCommunicationType].allValues;
+    self.data = [[NameDict getAllCommunicationType].allKeys sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(NSString*  _Nonnull obj1, NSString*  _Nonnull obj2) {
+        if ([obj1 compare:obj2] == NSOrderedAscending) {
+            return NSOrderedAscending;
+        } else if ([obj1 compare:obj2] == NSOrderedDescending) {
+            return NSOrderedDescending;
+        } else {
+            return NSOrderedSame;
+        }
+    }];
 }
 
 
@@ -52,13 +60,13 @@ static NSString* cellId = @"cityCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    cell.textLabel.text = self.data[indexPath.row];
+    cell.textLabel.text = [NameDict getAllCommunicationType][self.data[indexPath.row]];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [DataManager shared].requirementPageSelectedCommunicationType = [NameDict getAllCommunicationType].allKeys[indexPath.row];
+    [DataManager shared].requirementPageSelectedCommunicationType = self.data[indexPath.row];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

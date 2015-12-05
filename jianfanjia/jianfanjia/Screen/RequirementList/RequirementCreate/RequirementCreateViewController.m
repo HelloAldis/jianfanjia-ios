@@ -46,6 +46,15 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 @property (weak, nonatomic) IBOutlet UIButton *btnSelectSexType;
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectSexTypeVal;
 
+@property (weak, nonatomic) IBOutlet UIView *selectCityView;
+@property (weak, nonatomic) IBOutlet UIView *selectHouseTypeView;
+@property (weak, nonatomic) IBOutlet UIView *selectWorkTypeView;
+@property (weak, nonatomic) IBOutlet UIView *selectDecTypeView;
+@property (weak, nonatomic) IBOutlet UIView *selectPopulationView;
+@property (weak, nonatomic) IBOutlet UIView *selectPreferredStyleView;
+@property (weak, nonatomic) IBOutlet UIView *selectCommunicationTypeView;
+@property (weak, nonatomic) IBOutlet UIView *selectSexTypeView;
+
 @property (strong, nonatomic) Requirement *editingRequirement;
 @property (assign, nonatomic) RequirementEditType editType;
 
@@ -100,14 +109,17 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 }
 
 - (void)initUI {
-    @weakify(self);
-    //Select city
-    [[self.btnSelectCity rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
-        @strongify(self);
-        SelectCityViewController *controller = [[SelectCityViewController alloc] init];
-        [self navigateToSelection:controller];
-    }];
+    [self addTapSectionGesture:self.selectCityView];
+    [self addTapSectionGesture:self.selectHouseTypeView];
+    [self addTapSectionGesture:self.selectWorkTypeView];
+    [self addTapSectionGesture:self.selectDecTypeView];
+    [self addTapSectionGesture:self.selectPopulationView];
+    [self addTapSectionGesture:self.selectPreferredStyleView];
+    [self addTapSectionGesture:self.selectCommunicationTypeView];
+    [self addTapSectionGesture:self.selectSexTypeView];
     
+    @weakify(self);
+    //City
     RAC(self.lblSelectCityVal, text) = [RACSignal
                                         combineLatest:@[RACObserve([DataManager shared], requirementPageSelectedProvince), RACObserve([DataManager shared], requirementPageSelectedCity), RACObserve([DataManager shared], requirementPageSelectedArea)]
                                         reduce:^(NSString *province, NSString *city, NSString *area) {
@@ -125,97 +137,54 @@ static NSTimeInterval kKeyboardDuration = 2.0;
                                                     ];
                                         }];
     
-    //Select house type
-    [[self.btnSelectHouseType rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
-        @strongify(self);
-        SelectHouseTypeViewController *controller = [[SelectHouseTypeViewController alloc] init];
-        [self navigateToSelection:controller];
-    }];
-    
+    //House type
     [RACObserve([DataManager shared], requirementPageSelectedHouseType) subscribeNext:^(NSString *value) {
         @strongify(self);
         self.editingRequirement.house_type = value == nil ? @"" : value;
         self.lblSelectHouseTypeVal.text = [NameDict nameForHouseType:value];
     }];
     
-    //Select work type
-    [[self.btnSelectWorkType rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
-        @strongify(self);
-        SelectWorkTypeViewController *controller = [[SelectWorkTypeViewController alloc] init];
-        [self navigateToSelection:controller];
-    }];
-    
+    //Work type
     [RACObserve([DataManager shared], requirementPageSelectedWorkType) subscribeNext:^(NSString *value) {
         @strongify(self);
         self.editingRequirement.work_type = value == nil ? @"" : value;
         self.lblSelectWorkTypeVal.text = [NameDict nameForWorkType:value];
     }];
     
-    //Select decoration type
-    [[self.btnSelectDecorationType rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
-        @strongify(self);
-        SelectDecorationTypeViewController *controller = [[SelectDecorationTypeViewController alloc] init];
-        [self navigateToSelection:controller];
-    }];
-    
+    //Decoration type
     [RACObserve([DataManager shared], requirementPageSelectedDecorationType) subscribeNext:^(NSString *value) {
         @strongify(self);
         self.editingRequirement.dec_type = value == nil ? @"" : value;
         self.lblSelectDecorationTypeVal.text = [NameDict nameForDecType:value];
     }];
     
-    //Select population
-    [[self.btnSelectPopulation rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
-        @strongify(self);
-        SelectPopulationViewController *controller = [[SelectPopulationViewController alloc] init];
-        [self navigateToSelection:controller];
-    }];
-    
+    //Population
     [RACObserve([DataManager shared], requirementPageSelectedPopulationType) subscribeNext:^(NSString *value) {
         @strongify(self);
         self.editingRequirement.family_description = value == nil ? @"" : value;
         self.lblSelectPopulationVal.text = value;
     }];
     
-    //Select decoration style
-    [[self.btnSelectPreferredStyle rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
-        @strongify(self);
-        SelectDecorationStyleViewController *controller = [[SelectDecorationStyleViewController alloc] init];
-        [self navigateToSelection:controller];
-    }];
-    
+    //Decoration style
     [RACObserve([DataManager shared], requirementPageSelectedDecorationStyle) subscribeNext:^(NSString *value) {
         @strongify(self);
         self.editingRequirement.dec_style = value == nil ? @"" : value;
         self.lblSelectPreferredStyleVal.text = [NameDict nameForDecStyle:value];
     }];
     
-    //Select communication type
-    [[self.btnSelectCommunicationType rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
-        @strongify(self);
-        SelectCommunicationTypeViewController *controller = [[SelectCommunicationTypeViewController alloc] init];
-        [self navigateToSelection:controller];
-    }];
-    
+    //Communication type
     [RACObserve([DataManager shared], requirementPageSelectedCommunicationType) subscribeNext:^(NSString *value) {
         @strongify(self);
         self.editingRequirement.communication_type = value == nil ? @"" : value;
         self.lblSelectCommunicationTypeVal.text = [NameDict nameForCommunicationType:value];
     }];
     
-    //Select sex type
-    [[self.btnSelectSexType rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(UIButton *btn) {
-        @strongify(self);
-        SelectSexTypeViewController *controller = [[SelectSexTypeViewController alloc] init];
-        [self navigateToSelection:controller];
-    }];
-    
+    //Sex type
     [RACObserve([DataManager shared], requirementPageSelectedSexType) subscribeNext:^(NSString *value) {
         @strongify(self);
         self.editingRequirement.prefer_sex = value == nil ? @"" : value;
         self.lblSelectSexTypeVal.text = [NameDict nameForSexType:value];
     }];
-    
     
     //Street
     [[self.fldStreetVal rac_textSignal] subscribeNext:^(NSString *value) {
@@ -229,7 +198,6 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         self.editingRequirement.cell = value;
     }];
     
-
     //Phase
     [[[[self.fldPhaseVal rac_textSignal]
         filterNonDigit:^BOOL {
@@ -309,6 +277,38 @@ static NSTimeInterval kKeyboardDuration = 2.0;
             self.editingRequirement.total_price = [NSNumber numberWithInteger:[value integerValue]];
         }];
     
+}
+
+#pragma mark - gestures
+- (void)addTapSectionGesture:(UIView *)view {
+    [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSection:)]];
+}
+
+- (void)onTapSection:(UIGestureRecognizer *)gesture {
+    UIView *tapView = gesture.view;
+    UIViewController *controller;
+    
+    if (tapView == self.selectCityView) {
+        controller = [[SelectCityViewController alloc] init];
+    } else if (tapView == self.selectHouseTypeView) {
+        controller = [[SelectHouseTypeViewController alloc] init];
+    } else if (tapView == self.selectWorkTypeView) {
+        controller = [[SelectWorkTypeViewController alloc] init];
+    } else if (tapView == self.selectDecTypeView) {
+        controller = [[SelectDecorationTypeViewController alloc] init];
+    } else if (tapView == self.selectPopulationView) {
+        controller = [[SelectPopulationViewController alloc] init];
+    } else if (tapView == self.selectPreferredStyleView) {
+        controller = [[SelectDecorationStyleViewController alloc] init];
+    } else if (tapView == self.selectCommunicationTypeView) {
+        controller = [[SelectCommunicationTypeViewController alloc] init];
+    } else if (tapView == self.selectSexTypeView) {
+        controller = [[SelectSexTypeViewController alloc] init];
+    }
+    
+    if (controller) {
+        [self navigateToSelection:controller];
+    }
 }
 
 #pragma mark - navigation
