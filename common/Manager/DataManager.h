@@ -25,20 +25,6 @@
 @property (strong, nonatomic) NSMutableArray *homePageRequirementDesigners;
 @property (strong, nonatomic) NSMutableArray *homePageDesigners;
 
-//For requirement page
-@property (nonatomic, strong) NSString *requirementPageSelectedProvince;
-@property (nonatomic, strong) NSString *requirementPageSelectedCity;
-@property (nonatomic, strong) NSString *requirementPageSelectedArea;
-
-@property (nonatomic, strong) NSString *requirementPageSelectedHouseType;
-@property (nonatomic, strong) NSString *requirementPageSelectedDecorationType;
-@property (nonatomic, strong) NSString *requirementPageSelectedPopulationType;
-@property (nonatomic, strong) NSString *requirementPageSelectedDecorationStyle;
-@property (nonatomic, strong) NSString *requirementPageSelectedWorkType;
-@property (nonatomic, strong) NSString *requirementPageSelectedCommunicationType;
-@property (nonatomic, strong) NSString *requirementPageSelectedSexType;
-
-
 //For uplpad image
 @property (nonatomic, strong) NSString *lastUploadImageid;
 

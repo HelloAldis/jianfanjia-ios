@@ -279,6 +279,7 @@
             <connections>
                 <outlet property="btnEditRequirement" destination="ePb-9A-5wG" id="1oW-rG-7Rd"/>
                 <outlet property="btnGoToWorkspace" destination="3w5-SK-Y4s" id="sPD-I1-oM6"/>
+                <outlet property="headerView" destination="VHe-P5-2In" id="XBD-Rf-BeY"/>
                 <outlet property="imgHomeOwner" destination="2DL-zK-Kuw" id="dyV-eg-n8y"/>
                 <outlet property="lblCellNameVal" destination="MK4-PR-aJY" id="pgM-A5-66L"/>
                 <outlet property="lblPubulishTimeVal" destination="rzO-DD-WYu" id="l9g-3J-ama"/>

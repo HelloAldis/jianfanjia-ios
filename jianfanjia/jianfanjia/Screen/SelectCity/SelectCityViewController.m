@@ -34,8 +34,8 @@ static NSString* cellId = @"cityCell";
 @implementation SelectCityViewController
 
 #pragma mark - init method 
-- (id)initWithAddress:(NSString *)currentAddress {
-    if (self = [super init]) {
+- (id)initWithAddress:(NSString *)currentAddress valueBlock:(ValueBlock)ValueBlock {
+    if (self = [super initWithValueBlock:ValueBlock]) {
         _currentAddress = currentAddress;
     }
     
@@ -97,6 +97,7 @@ static NSString* cellId = @"cityCell";
         
         self.provinces = [NSJSONSerialization JSONObjectWithData:allProvinceData options:NSJSONReadingMutableContainers error:nil];
         if (currentProvince) {
+            [self.provinces removeObject:currentProvince];
             [self.provinces insertObject:currentProvince atIndex:0];
         }
         
@@ -105,7 +106,8 @@ static NSString* cellId = @"cityCell";
         NSDictionary *province2cityDic = [NSJSONSerialization JSONObjectWithData:province2cityData options:NSJSONReadingMutableContainers error:nil];
         
         self.citys = province2cityDic[self.selectedProvince];
-        if (currentCity) {
+        if (currentCity && [self.citys containsObject:currentCity]) {
+            [self.citys removeObject:currentCity];
             [self.citys insertObject:currentCity atIndex:0];
         }
     } else if (self.displayType == kDisplayArea) {
@@ -113,7 +115,8 @@ static NSString* cellId = @"cityCell";
         NSDictionary *city2AreaDic = [NSJSONSerialization JSONObjectWithData:city2AreaData options:NSJSONReadingMutableContainers error:nil];
         
         self.areas = city2AreaDic[self.selectedCity];
-        if (currentArea) {
+        if (currentArea && [self.areas containsObject:currentArea]) {
+            [self.areas removeObject:currentArea];
             [self.areas insertObject:currentArea atIndex:0];
         }
     }
@@ -207,6 +210,11 @@ static NSString* cellId = @"cityCell";
         } else {
             NSString *provinceName = self.provinces[indexPath.row];
             cell.textLabel.text= provinceName;
+//            if (self.currentAddress) {
+//                cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
+//                cell.detailTextLabel.textColor = kTextColor;
+//                cell.detailTextLabel.text = @"已选地区";
+//            }
         }
     } else if (self.displayType == kDisplayCity){
         NSString *cityName = self.citys[indexPath.row];
@@ -232,7 +240,7 @@ static NSString* cellId = @"cityCell";
         } else {
             self.selectedProvince = self.provinces[indexPath.row];
             
-            SelectCityViewController *cityVC = [[SelectCityViewController alloc] initWithAddress:self.currentAddress];
+            SelectCityViewController *cityVC = [[SelectCityViewController alloc] initWithAddress:self.currentAddress valueBlock:self.ValueBlock];
             cityVC.displayType = kDisplayCity;
             cityVC.selectedProvince = self.selectedProvince;
             [self.navigationController pushViewController:cityVC animated:YES];
@@ -240,7 +248,7 @@ static NSString* cellId = @"cityCell";
     } else if (self.displayType == kDisplayCity){
         self.selectedCity = self.citys[indexPath.row];
         
-        SelectCityViewController *areaVC = [[SelectCityViewController alloc] initWithAddress:self.currentAddress];
+        SelectCityViewController *areaVC = [[SelectCityViewController alloc] initWithAddress:self.currentAddress valueBlock:self.ValueBlock];
         areaVC.displayType = kDisplayArea;
         areaVC.selectedCity = self.selectedCity;
         areaVC.selectedProvince = self.selectedProvince;
@@ -254,9 +262,9 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - other
 -(void)submit{
-    [DataManager shared].requirementPageSelectedProvince = self.selectedProvince;
-    [DataManager shared].requirementPageSelectedCity = self.selectedCity;
-    [DataManager shared].requirementPageSelectedArea = self.selectedArea;
+    if (self.ValueBlock) {
+        self.ValueBlock([NSString stringWithFormat:@"%@ %@ %@", self.selectedProvince, self.selectedCity, self.selectedArea]);
+    }
     
     [self navigateToOriginalScreen];
 }

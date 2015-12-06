@@ -33,6 +33,7 @@
 #import "AgreementViewController.h"
 #import "ReminderViewController.h"
 #import "DBYSViewController.h"
+#import "RequirementCreateViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -176,6 +177,16 @@ static ViewControllerContainer *container;
     if (!hasDesigner) {
         DesignerViewController *v = [[DesignerViewController alloc] initWithNibName:nil bundle:nil];
         v.designerid = designerid;
+        [container.tab.selectedViewController pushViewController:v animated:YES];
+    }
+}
+
++ (void)showRequirementCreate:(Requirement *)requirement {
+    if (requirement) {
+        RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToViewRequirement:requirement];
+        [container.tab.selectedViewController pushViewController:v animated:YES];
+    } else {
+        RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToCreateRequirement];
         [container.tab.selectedViewController pushViewController:v animated:YES];
     }
 }

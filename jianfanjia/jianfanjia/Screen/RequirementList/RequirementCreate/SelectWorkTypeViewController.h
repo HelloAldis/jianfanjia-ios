@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
+#import "BaseSelectionViewController.h"
 
-@interface SelectWorkTypeViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SelectWorkTypeViewController : BaseSelectionViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

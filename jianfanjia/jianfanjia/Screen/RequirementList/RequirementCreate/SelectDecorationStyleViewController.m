@@ -80,7 +80,9 @@ static NSString* cellId = @"decStyleCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [DataManager shared].requirementPageSelectedDecorationStyle = self.data[indexPath.row];
+    if (self.ValueBlock) {
+        self.ValueBlock(self.data[indexPath.row]);
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 

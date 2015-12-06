@@ -10,6 +10,7 @@
 #import "RequirementCreateViewController.h"
 #import "RequirementDataManager.h"
 #import "RequirementCell.h"
+#import "ViewControllerContainer.h"
 
 static NSString *requirementCellId = @"PubulishedRequirementCell";
 
@@ -139,8 +140,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 
 #pragma mark - actions
 - (IBAction)onClickCreate:(id)sender {
-    UIViewController *requirementCreateVC = [[RequirementCreateViewController alloc] initToCreateRequirement];
-    [self.navigationController pushViewController:requirementCreateVC animated:YES];
+    [ViewControllerContainer showRequirementCreate:nil];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

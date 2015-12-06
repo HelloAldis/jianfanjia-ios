@@ -21,6 +21,7 @@
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
 + (void)showProduct:(NSString *)productid;
++ (void)showRequirementCreate:(Requirement *)requirement;
 + (void)showDesigner:(NSString *)designerid;
 + (void)showOrderDesigner:(Requirement *)requirement;
 + (void)showReplaceOrderedDesigner:(NSString *)designerid forRequirement:(Requirement *)requirement;

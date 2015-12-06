@@ -16,6 +16,11 @@
 #import "SelectSexTypeViewController.h"
 #import "SelectDecorationStyleViewController.h"
 
+typedef enum {
+    RequirementOperateTypeView,
+    RequirementOperateTypeEdit
+} RequirementOperateType;
+
 static float kKeyboardHeight = 480;
 static NSTimeInterval kKeyboardDuration = 2.0;
 
@@ -56,7 +61,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 @property (weak, nonatomic) IBOutlet UIView *selectSexTypeView;
 
 @property (strong, nonatomic) Requirement *editingRequirement;
-@property (assign, nonatomic) RequirementEditType editType;
+@property (assign, nonatomic) RequirementOperateType editType;
 
 @end
 
@@ -66,11 +71,14 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 - (id)initToCreateRequirement {
     Requirement *newRequirement = [[Requirement alloc] init];
     newRequirement._id = @"";
-    return [self initWithRequirement:newRequirement withType:Create];
+    return [self initWithRequirement:newRequirement withType:RequirementOperateTypeEdit];
 }
 
+- (id)initToViewRequirement:(Requirement *)requirement {
+    return [self initWithRequirement:requirement withType:RequirementOperateTypeView];
+}
 
-- (id)initWithRequirement:(Requirement *)requirement withType:(RequirementEditType) editType {
+- (id)initWithRequirement:(Requirement *)requirement withType:(RequirementOperateType) editType {
     self = [super init];
     if (self) {
         _editingRequirement = requirement;
@@ -103,12 +111,36 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
+    if ([self.editingRequirement.status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
+        if ([@"" isEqualToString:self.editingRequirement._id]) {
+            [self displayDoneButton];
+        } else {
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
+        }
+    }
+
     self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     self.title = @"填写装修需求";
 }
 
+- (void)displayDoneButton {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
+}
+
+- (void)makeViewEnable {
+    [self.view.subviews makeObjectsPerformSelector:@selector(setUserInteractionEnabled:) withObject:@(TRUE)];
+}
+
+- (void)makeViewDisable {
+    [self.view.subviews makeObjectsPerformSelector:@selector(setUserInteractionEnabled:) withObject:@(FALSE)];
+    self.scrollView.userInteractionEnabled = YES;
+}
+
 - (void)initUI {
+    if (self.editType == RequirementOperateTypeView) {
+        [self makeViewDisable];
+    }
+    
     [self addTapSectionGesture:self.selectCityView];
     [self addTapSectionGesture:self.selectHouseTypeView];
     [self addTapSectionGesture:self.selectWorkTypeView];
@@ -119,73 +151,6 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     [self addTapSectionGesture:self.selectSexTypeView];
     
     @weakify(self);
-    //City
-    RAC(self.lblSelectCityVal, text) = [RACSignal
-                                        combineLatest:@[RACObserve([DataManager shared], requirementPageSelectedProvince), RACObserve([DataManager shared], requirementPageSelectedCity), RACObserve([DataManager shared], requirementPageSelectedArea)]
-                                        reduce:^(NSString *province, NSString *city, NSString *area) {
-                                            @strongify(self);
-                                            self.editingRequirement.province = province == nil ? @"" : province;
-                                            self.editingRequirement.city = city == nil ? @"" : city;
-                                            self.editingRequirement.district = area == nil ? @"" : area;
-                                            
-                                            return [NSString stringWithFormat:@"%@ %@ %@",
-                                                    self.editingRequirement.province
-                                                    ,
-                                                    self.editingRequirement.city
-                                                    ,
-                                                    self.editingRequirement.district
-                                                    ];
-                                        }];
-    
-    //House type
-    [RACObserve([DataManager shared], requirementPageSelectedHouseType) subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.house_type = value == nil ? @"" : value;
-        self.lblSelectHouseTypeVal.text = [NameDict nameForHouseType:value];
-    }];
-    
-    //Work type
-    [RACObserve([DataManager shared], requirementPageSelectedWorkType) subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.work_type = value == nil ? @"" : value;
-        self.lblSelectWorkTypeVal.text = [NameDict nameForWorkType:value];
-    }];
-    
-    //Decoration type
-    [RACObserve([DataManager shared], requirementPageSelectedDecorationType) subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.dec_type = value == nil ? @"" : value;
-        self.lblSelectDecorationTypeVal.text = [NameDict nameForDecType:value];
-    }];
-    
-    //Population
-    [RACObserve([DataManager shared], requirementPageSelectedPopulationType) subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.family_description = value == nil ? @"" : value;
-        self.lblSelectPopulationVal.text = value;
-    }];
-    
-    //Decoration style
-    [RACObserve([DataManager shared], requirementPageSelectedDecorationStyle) subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.dec_style = value == nil ? @"" : value;
-        self.lblSelectPreferredStyleVal.text = [NameDict nameForDecStyle:value];
-    }];
-    
-    //Communication type
-    [RACObserve([DataManager shared], requirementPageSelectedCommunicationType) subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.communication_type = value == nil ? @"" : value;
-        self.lblSelectCommunicationTypeVal.text = [NameDict nameForCommunicationType:value];
-    }];
-    
-    //Sex type
-    [RACObserve([DataManager shared], requirementPageSelectedSexType) subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.prefer_sex = value == nil ? @"" : value;
-        self.lblSelectSexTypeVal.text = [NameDict nameForSexType:value];
-    }];
-    
     //Street
     [[self.fldStreetVal rac_textSignal] subscribeNext:^(NSString *value) {
         @strongify(self);
@@ -287,30 +252,59 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 - (void)onTapSection:(UIGestureRecognizer *)gesture {
     UIView *tapView = gesture.view;
     UIViewController *controller;
-    
+
     if (tapView == self.selectCityView) {
-        NSString *currentAddress = self.editingRequirement.province ? [NSString stringWithFormat:@"%@ %@ %@",
-                                    self.editingRequirement.province
-                                    ,
-                                    self.editingRequirement.city
-                                    ,
-                                    self.editingRequirement.district
-                                                                       ] : nil;
-        controller = [[SelectCityViewController alloc] initWithAddress:currentAddress];
+        //City
+        NSString *currentAddress = [self.lblSelectCityVal.text trim].length > 0 ? self.lblSelectCityVal.text : nil;
+        controller = [[SelectCityViewController alloc] initWithAddress:currentAddress valueBlock:^(id value) {
+            self.lblSelectCityVal.text = value;
+            NSArray *addressArr = [value componentsSeparatedByString:@" "];
+            self.editingRequirement.province = addressArr[0];
+            self.editingRequirement.city = addressArr[1];
+            self.editingRequirement.district = addressArr[2];
+        }];
     } else if (tapView == self.selectHouseTypeView) {
-        controller = [[SelectHouseTypeViewController alloc] init];
+        //House type
+        controller = [[SelectHouseTypeViewController alloc] initWithValueBlock:^(id value) {
+            self.editingRequirement.house_type = value == nil ? @"" : value;
+            self.lblSelectHouseTypeVal.text = [NameDict nameForHouseType:value];
+        }];
     } else if (tapView == self.selectWorkTypeView) {
-        controller = [[SelectWorkTypeViewController alloc] init];
+        //Work type
+        controller = [[SelectWorkTypeViewController alloc] initWithValueBlock:^(id value) {
+            self.editingRequirement.work_type = value == nil ? @"" : value;
+            self.lblSelectWorkTypeVal.text = [NameDict nameForWorkType:value];
+        }];
     } else if (tapView == self.selectDecTypeView) {
-        controller = [[SelectDecorationTypeViewController alloc] init];
+        //Decoration type
+        controller = [[SelectDecorationTypeViewController alloc] initWithValueBlock:^(id value) {
+            self.editingRequirement.dec_type = value == nil ? @"" : value;
+            self.lblSelectDecorationTypeVal.text = [NameDict nameForDecType:value];
+        }];
     } else if (tapView == self.selectPopulationView) {
-        controller = [[SelectPopulationViewController alloc] init];
+        //Population
+        controller = [[SelectPopulationViewController alloc] initWithValueBlock:^(id value) {
+            self.editingRequirement.family_description = value == nil ? @"" : value;
+            self.lblSelectPopulationVal.text = value;
+        }];
     } else if (tapView == self.selectPreferredStyleView) {
-        controller = [[SelectDecorationStyleViewController alloc] init];
+        //Decoration style
+        controller = [[SelectDecorationStyleViewController alloc] initWithValueBlock:^(id value) {
+            self.editingRequirement.dec_style = value == nil ? @"" : value;
+            self.lblSelectPreferredStyleVal.text = [NameDict nameForDecStyle:value];
+        }];
     } else if (tapView == self.selectCommunicationTypeView) {
-        controller = [[SelectCommunicationTypeViewController alloc] init];
+        //Communication type
+        controller = [[SelectCommunicationTypeViewController alloc] initWithValueBlock:^(id value) {
+            self.editingRequirement.communication_type = value == nil ? @"" : value;
+            self.lblSelectCommunicationTypeVal.text = [NameDict nameForCommunicationType:value];
+        }];
     } else if (tapView == self.selectSexTypeView) {
-        controller = [[SelectSexTypeViewController alloc] init];
+        //Sex type
+        controller = [[SelectSexTypeViewController alloc] initWithValueBlock:^(id value) {
+            self.editingRequirement.prefer_sex = value == nil ? @"" : value;
+            self.lblSelectSexTypeVal.text = [NameDict nameForSexType:value];
+        }];
     }
     
     if (controller) {
@@ -325,6 +319,12 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 }
 
 #pragma mark - user action
+- (void)onClickEdit {
+    self.editType = RequirementOperateTypeEdit;
+    [self displayDoneButton];
+    [self makeViewEnable];
+}
+
 - (void)onClickDone {
     SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
     
@@ -355,11 +355,6 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     [self.view endEditing:YES];
     self.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, kKeyboardHeight, 0);
-}
-
-#pragma mark - touch
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
 }
 
 @end

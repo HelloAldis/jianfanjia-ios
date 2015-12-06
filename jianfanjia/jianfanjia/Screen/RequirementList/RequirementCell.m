@@ -11,6 +11,7 @@
 #import "RequirementDataManager.h"
 
 @interface RequirementCell ()
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgHomeOwner;
 @property (weak, nonatomic) IBOutlet UILabel *lblCellNameVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblPubulishTimeVal;
@@ -35,6 +36,8 @@
 - (void)awakeFromNib {
     self.requirementDataManager = [[RequirementDataManager alloc] init];
     self.currentPlanStatus = [[NSMutableArray alloc] initWithCapacity:self.designerAvatar.count];
+    
+    [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapHeaderView:)]];
     
     @weakify(self);
     [self.designerStatus enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -69,6 +72,11 @@
     }];
 }
 
+#pragma mark - gestures
+- (void)handleTapHeaderView:(UIGestureRecognizer*)gestureRecognizer {
+    [ViewControllerContainer showRequirementCreate:self.requirement];
+}
+
 - (void)tapDesignerAvatar:(UIGestureRecognizer*)gestureRecognizer {
     NSInteger touchedIndex = -1;
     for (UIImageView *imageView in self.designerAvatar) {
@@ -90,6 +98,7 @@
     }
 }
 
+#pragma mark - user action
 - (void)onClickGoToWorkSiteButton {
     if ([kRequirementStatusConfiguredWorkSite isEqualToString:self.currentRequirementStatus]) {
         [ViewControllerContainer showProcess:self.requirement.process._id];
@@ -98,6 +107,7 @@
     }
 }
 
+#pragma mark - update status
 - (void)updateDesigner:(Designer *)orderedDesigner forIndex:(NSUInteger)idx {
     UIImageView *imgView = self.designerAvatar[idx];
     [imgView setImageWithId:orderedDesigner.imageid withWidth:imgView.bounds.size.width];

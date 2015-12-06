@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
+#import "BaseSelectionViewController.h"
 
-@interface SelectHouseTypeViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
+@interface SelectHouseTypeViewController : BaseSelectionViewController <UITableViewDataSource, UITableViewDelegate>
 
 @end

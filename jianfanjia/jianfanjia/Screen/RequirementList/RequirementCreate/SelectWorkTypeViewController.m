@@ -65,7 +65,9 @@ static NSString* cellId = @"cityCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [DataManager shared].requirementPageSelectedWorkType = self.data[indexPath.row];
+    if (self.ValueBlock) {
+        self.ValueBlock(self.data[indexPath.row]);
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
