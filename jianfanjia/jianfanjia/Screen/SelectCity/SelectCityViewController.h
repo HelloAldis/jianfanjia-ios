@@ -10,4 +10,6 @@
 
 @interface SelectCityViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+- (id)initWithAddress:(NSString *)currentAddress;
+
 @end

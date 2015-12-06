@@ -14,19 +14,33 @@
 
 static NSString* cellId = @"cityCell";
 
-@interface SelectCityViewController ()
+@interface SelectCityViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) int displayType;
-@property (nonatomic, strong) NSArray *provinces;
-@property (nonatomic, strong) NSArray *citys;
-@property (nonatomic, strong) NSArray *areas;
+@property (nonatomic, strong) NSMutableArray *provinces;
+@property (nonatomic, strong) NSMutableArray *citys;
+@property (nonatomic, strong) NSMutableArray *areas;
 @property (nonatomic, strong) NSString *selectedProvince;
 @property (nonatomic, strong) NSString *selectedCity;
 @property (nonatomic, strong) NSString *selectedArea;
 
+@property (strong, nonatomic) CLLocationManager* locationManager;
+@property (strong, nonatomic) NSString *locationAddress;
+
+@property (strong, nonatomic) NSString *currentAddress;
+
 @end
 
 @implementation SelectCityViewController
+
+#pragma mark - init method 
+- (id)initWithAddress:(NSString *)currentAddress {
+    if (self = [super init]) {
+        _currentAddress = currentAddress;
+    }
+    
+    return self;
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -35,6 +49,14 @@ static NSString* cellId = @"cityCell";
     [self initNav];
     [self initUI];
     [self initData];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if (self.displayType == kDisplayProvince) {
+        [self startLocation];
+    }
 }
 
 #pragma mark - init Nav
@@ -54,26 +76,77 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - UI
 - (void)initUI {
+    self.tableView.tableFooterView = [[UIView alloc] init];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
 }
 
 #pragma mark - init data 
 - (void)initData {
+    NSString *currentProvince;
+    NSString *currentCity;
+    NSString *currentArea;
+    if (self.currentAddress) {
+        NSArray *addressArr = [self.currentAddress componentsSeparatedByString:@" "];
+        currentProvince = addressArr[0];
+        currentCity = addressArr[1];
+        currentArea = addressArr[2];
+    }
+    
     if (self.displayType == kDisplayProvince) {
         NSData *allProvinceData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"allprovince" ofType:@"js"]];
         
         self.provinces = [NSJSONSerialization JSONObjectWithData:allProvinceData options:NSJSONReadingMutableContainers error:nil];
+        if (currentProvince) {
+            [self.provinces insertObject:currentProvince atIndex:0];
+        }
+        
     } else if (self.displayType == kDisplayCity) {
         NSData *province2cityData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"province2city" ofType:@"js"]];
         NSDictionary *province2cityDic = [NSJSONSerialization JSONObjectWithData:province2cityData options:NSJSONReadingMutableContainers error:nil];
         
         self.citys = province2cityDic[self.selectedProvince];
+        if (currentCity) {
+            [self.citys insertObject:currentCity atIndex:0];
+        }
     } else if (self.displayType == kDisplayArea) {
         NSData *city2AreaData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"city2area" ofType:@"js"]];
         NSDictionary *city2AreaDic = [NSJSONSerialization JSONObjectWithData:city2AreaData options:NSJSONReadingMutableContainers error:nil];
         
         self.areas = city2AreaDic[self.selectedCity];
+        if (currentArea) {
+            [self.areas insertObject:currentArea atIndex:0];
+        }
     }
+}
+
+#pragma mark - location
+-(void)startLocation{
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    self.locationManager.distanceFilter = 500.0f;
+    [self.locationManager requestWhenInUseAuthorization];//使用程序其间允许访问位置数据
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    [self.locationManager stopUpdatingLocation];
+    NSLog(@"location ok");
+    
+    NSLog(@"%@",[NSString stringWithFormat:@"经度:%3.5f\n纬度:%3.5f",newLocation.coordinate.latitude,newLocation.coordinate.longitude]);
+    
+    CLGeocoder * geoCoder = [[CLGeocoder alloc] init];
+    [geoCoder reverseGeocodeLocation:newLocation completionHandler:^(NSArray *placemarks, NSError *error) {
+        for (CLPlacemark * placemark in placemarks) {
+            
+            NSDictionary *address = [placemark addressDictionary];
+            // State(省) City(城市)  SubLocality(区)
+            self.locationAddress = [NSString stringWithFormat:@"%@ %@ %@", address[@"State"], address[@"City"], address[@"SubLocality"]];
+            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            cell.textLabel.text = self.locationAddress;
+            break;
+        }
+    }];
 }
 
 #pragma mark - user action
@@ -82,9 +155,35 @@ static NSString* cellId = @"cityCell";
 }
 
 #pragma mark - table view delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    if (self.displayType == kDisplayProvince) {
+        return 2;
+    } else {
+        return 1;
+    }
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UITableViewCell *cell = [[UITableViewCell alloc] init];
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    cell.textLabel.textColor = kTextColor;
+    cell.backgroundColor = self.tableView.backgroundColor;
+    if (self.displayType == kDisplayProvince && section == 0) {
+        cell.textLabel.text = @"定位到的位置";
+    } else {
+        cell.textLabel.text = @"全部";
+    }
+    
+    return cell;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.displayType == kDisplayProvince) {
-        return [self.provinces count];
+        if (section == 0) {
+            return 1;
+        } else {
+            return [self.provinces count];
+        }
     } else if (self.displayType == kDisplayCity){
         return [self.citys count];
     } else {
@@ -100,11 +199,15 @@ static NSString* cellId = @"cityCell";
     } else{
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
-
     
     if (self.displayType == kDisplayProvince) {
-        NSString *provinceName = self.provinces[indexPath.row];
-        cell.textLabel.text= provinceName;
+        if (indexPath.section == 0) {
+            cell.textLabel.text= self.locationAddress ? self.locationAddress : @"正在定位中...";
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        } else {
+            NSString *provinceName = self.provinces[indexPath.row];
+            cell.textLabel.text= provinceName;
+        }
     } else if (self.displayType == kDisplayCity){
         NSString *cityName = self.citys[indexPath.row];
         cell.textLabel.text= cityName;
@@ -117,16 +220,27 @@ static NSString* cellId = @"cityCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (self.displayType == kDisplayProvince) {
-        self.selectedProvince = self.provinces[indexPath.row];
-        
-        SelectCityViewController *cityVC = [[SelectCityViewController alloc]init];
-        cityVC.displayType = kDisplayCity;
-        cityVC.selectedProvince = self.selectedProvince;
-        [self.navigationController pushViewController:cityVC animated:YES];
+        if (indexPath.section == 0) {
+            if (self.locationAddress) {
+                NSArray *addressArr = [self.locationAddress componentsSeparatedByString:@" "];
+                self.selectedProvince = addressArr[0];
+                self.selectedCity = addressArr[1];
+                self.selectedArea = addressArr[2];
+                
+                [self submit];
+            }
+        } else {
+            self.selectedProvince = self.provinces[indexPath.row];
+            
+            SelectCityViewController *cityVC = [[SelectCityViewController alloc] initWithAddress:self.currentAddress];
+            cityVC.displayType = kDisplayCity;
+            cityVC.selectedProvince = self.selectedProvince;
+            [self.navigationController pushViewController:cityVC animated:YES];
+        }
     } else if (self.displayType == kDisplayCity){
         self.selectedCity = self.citys[indexPath.row];
         
-        SelectCityViewController *areaVC = [[SelectCityViewController alloc]init];
+        SelectCityViewController *areaVC = [[SelectCityViewController alloc] initWithAddress:self.currentAddress];
         areaVC.displayType = kDisplayArea;
         areaVC.selectedCity = self.selectedCity;
         areaVC.selectedProvince = self.selectedProvince;

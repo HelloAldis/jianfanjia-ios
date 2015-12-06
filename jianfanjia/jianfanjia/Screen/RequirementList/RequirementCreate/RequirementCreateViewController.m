@@ -289,7 +289,14 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     UIViewController *controller;
     
     if (tapView == self.selectCityView) {
-        controller = [[SelectCityViewController alloc] init];
+        NSString *currentAddress = self.editingRequirement.province ? [NSString stringWithFormat:@"%@ %@ %@",
+                                    self.editingRequirement.province
+                                    ,
+                                    self.editingRequirement.city
+                                    ,
+                                    self.editingRequirement.district
+                                                                       ] : nil;
+        controller = [[SelectCityViewController alloc] initWithAddress:currentAddress];
     } else if (tapView == self.selectHouseTypeView) {
         controller = [[SelectHouseTypeViewController alloc] init];
     } else if (tapView == self.selectWorkTypeView) {
