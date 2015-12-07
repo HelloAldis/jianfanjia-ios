@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *fldPhone;
 @property (weak, nonatomic) IBOutlet UITextField *fldPassword;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 
 @end
 
@@ -53,6 +54,15 @@
     self.btnNext.enabled = NO;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    if (kIs35inchScreen) {
+        self.constraint.constant = 84;
+    } else {
+        self.constraint.constant = (kScreenHeight - 400)/2;
+    }
+}
 #pragma mark - UI
 
 #pragma mark - user actions

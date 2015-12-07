@@ -40,6 +40,9 @@
                         <state key="normal" title="发布需求">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <connections>
+                            <action selector="onClickRequirement:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="98f-dT-HLr"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="简繁家无法向你匹配设计师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4Z-us-rTf">
                         <rect key="frame" x="0.0" y="47" width="320" height="17"/>

@@ -182,6 +182,21 @@ static ViewControllerContainer *container;
 }
 
 + (void)showRequirementCreate:(Requirement *)requirement {
+    if (container.tab.selectedViewController != container.navTap2) {
+        container.tab.selectedViewController = container.navTap2;
+    }
+    
+    
+    //if has reqirement create secreen pop to
+    UINavigationController* nav =  container.tab.selectedViewController;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[RequirementCreateViewController class]]) {
+            [nav popToViewController:v animated:YES];
+            return;
+        }
+    }
+    
+    //no reqirement create
     if (requirement) {
         RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToViewRequirement:requirement];
         [container.tab.selectedViewController pushViewController:v animated:YES];
@@ -192,6 +207,20 @@ static ViewControllerContainer *container;
 }
 
 + (void)showOrderDesigner:(Requirement *)requirement {
+    if (container.tab.selectedViewController != container.navTap2) {
+        container.tab.selectedViewController = container.navTap2;
+    }
+    
+    //if has designer order screen pop to
+    UINavigationController* nav =  container.tab.selectedViewController;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[OrderDesignerViewController class]]) {
+            [nav popToViewController:v animated:YES];
+            return;
+        }
+    }
+    
+    //no designer order screen
     OrderDesignerViewController *v = [[OrderDesignerViewController alloc] initWithRequirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
@@ -265,10 +294,6 @@ static ViewControllerContainer *container;
 }
 
 + (void)logout {
-    container.tab = nil;
-    container.navTap1 = nil;
-    container.navTap2 = nil;
-    container.navTap4 = nil;
     [ViewControllerContainer showLogin];
 }
 

@@ -10,4 +10,6 @@
 
 @interface HomePageRecDesignersCell : UITableViewCell
 
+- (void)initWithDesigners:(NSArray *)designers;
+
 @end

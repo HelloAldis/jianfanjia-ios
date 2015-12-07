@@ -51,5 +51,7 @@ extern NSString * const kApiUrl;
 + (void)reschedule:(Reschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)agreeReschedule:(AgreeReschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure;
 + (void)rejectReschedule:(RejectReschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure;
++ (void)feedback:(Feedback *)request success:(void (^)(void))success failure:(void (^)(void))failure;
+
 
 @end

@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSString *signupPagePass;
 
 //For home page
+@property (assign, nonatomic) BOOL homePageNeedRefresh;
 @property (strong, nonatomic) Requirement *homePageRequirement;
 @property (strong, nonatomic) NSMutableArray *homePageRequirementDesigners;
 @property (strong, nonatomic) NSMutableArray *homePageDesigners;

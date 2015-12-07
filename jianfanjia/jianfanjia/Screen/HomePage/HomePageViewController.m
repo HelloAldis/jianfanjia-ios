@@ -53,11 +53,15 @@
     if (self.isTabbarhide) {
         [self showTabbar];
     }
+    
+    if ([DataManager shared].homePageNeedRefresh) {
+        [self refresh];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    if (!self.isTabbarhide && animated) {
+    if (!self.isTabbarhide && self.navigationController.viewControllers.count > 1) {
         [self hideTabbar];
     }
 }
@@ -85,6 +89,7 @@
         if ([self hasRequirement]) {
             if ([self hasRequirementDesigners]) {
                 HomePageRecDesignersCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HomePageRecDesignersCell"];
+                [cell initWithDesigners:[DataManager shared].homePageRequirementDesigners];
                 return cell;
             } else {
                 HomePageDesignerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HomePageDesignerCell"];
@@ -172,6 +177,7 @@
     request.limit = @10;
     
     [API homePageDesigners:request success:^{
+        [DataManager shared].homePageNeedRefresh = NO;
         [self.tableView.header endRefreshing];
         [self.tableView reloadData];
     } failure:^{

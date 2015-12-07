@@ -134,8 +134,35 @@
                                         <constraint firstAttribute="height" constant="90" id="xNH-es-W6C"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HrG-vU-8OW">
+                                    <rect key="frame" x="0.0" y="225" width="600" height="44"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gb-Q6-r0r">
+                                            <rect key="frame" x="20" y="0.0" width="560" height="44"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="goO-Ve-tv8"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <state key="normal" title="退出登录">
+                                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onClickLogout:" destination="-1" eventType="touchUpInside" id="wBz-dR-QjL"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="8gb-Q6-r0r" firstAttribute="leading" secondItem="HrG-vU-8OW" secondAttribute="leading" constant="20" id="HFa-cM-KUk"/>
+                                        <constraint firstAttribute="height" constant="44" id="VfO-JR-nbK"/>
+                                        <constraint firstAttribute="trailing" secondItem="8gb-Q6-r0r" secondAttribute="trailing" constant="20" id="egZ-mq-r6j"/>
+                                        <constraint firstItem="8gb-Q6-r0r" firstAttribute="top" secondItem="HrG-vU-8OW" secondAttribute="top" id="gAv-nU-Q72"/>
+                                    </constraints>
+                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bL-59-b37">
-                                    <rect key="frame" x="0.0" y="120" width="600" height="134"/>
+                                    <rect key="frame" x="0.0" y="120" width="600" height="90"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zow-bo-5hd">
                                             <rect key="frame" x="20" y="0.0" width="560" height="44"/>
@@ -231,35 +258,8 @@
                                         <constraint firstItem="5Xr-ty-1Y3" firstAttribute="centerY" secondItem="Zow-bo-5hd" secondAttribute="centerY" id="hKz-sC-zQ5"/>
                                         <constraint firstItem="qo6-at-Tt9" firstAttribute="centerY" secondItem="w60-x4-fBq" secondAttribute="centerY" id="noe-AW-Upu"/>
                                         <constraint firstItem="LIA-62-aOt" firstAttribute="centerY" secondItem="4jn-pF-FJ7" secondAttribute="centerY" id="qsl-on-hUv"/>
-                                        <constraint firstAttribute="height" constant="134" id="r2s-jN-7WE"/>
+                                        <constraint firstAttribute="height" constant="90" id="r2s-jN-7WE"/>
                                         <constraint firstAttribute="trailing" secondItem="Zow-bo-5hd" secondAttribute="trailing" constant="20" id="uds-FM-9U5"/>
-                                    </constraints>
-                                </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HrG-vU-8OW">
-                                    <rect key="frame" x="0.0" y="269" width="600" height="44"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gb-Q6-r0r">
-                                            <rect key="frame" x="20" y="0.0" width="560" height="44"/>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="goO-Ve-tv8"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <state key="normal" title="退出登录">
-                                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="onClickLogout:" destination="-1" eventType="touchUpInside" id="wBz-dR-QjL"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <animations/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstItem="8gb-Q6-r0r" firstAttribute="leading" secondItem="HrG-vU-8OW" secondAttribute="leading" constant="20" id="HFa-cM-KUk"/>
-                                        <constraint firstAttribute="height" constant="44" id="VfO-JR-nbK"/>
-                                        <constraint firstAttribute="trailing" secondItem="8gb-Q6-r0r" secondAttribute="trailing" constant="20" id="egZ-mq-r6j"/>
-                                        <constraint firstItem="8gb-Q6-r0r" firstAttribute="top" secondItem="HrG-vU-8OW" secondAttribute="top" id="gAv-nU-Q72"/>
                                     </constraints>
                                 </view>
                             </subviews>

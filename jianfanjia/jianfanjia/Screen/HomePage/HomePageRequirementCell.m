@@ -7,6 +7,7 @@
 //
 
 #import "HomePageRequirementCell.h"
+#import "ViewControllerContainer.h"
 
 @interface HomePageRequirementCell ()
 
@@ -24,6 +25,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (IBAction)onClickRequirement:(id)sender {
+    [ViewControllerContainer showRequirementCreate:nil];
 }
 
 @end
