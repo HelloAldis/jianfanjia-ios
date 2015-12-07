@@ -241,12 +241,15 @@
         SendVerifyCode *req = [[SendVerifyCode alloc] init];
         req.phone = [DataManager shared].signupPagePhone;
         [API sendVerifyCode:req success:^{
-            [HUDUtil hideWait];
             [ViewControllerContainer showVerifyPhone:NO];
         } failure:^{
-            [HUDUtil hideWait];
+            
+        } networkError:^{
+            
         }];
     } failure:^{
+        
+    } networkError:^{
         
     }];
 }
@@ -260,11 +263,12 @@
     
     [HUDUtil showWait];
     [API userLogin:login success:^{
-        [HUDUtil hideWait];
         [GVUserDefaults standardUserDefaults].isLogin = YES;
         [ViewControllerContainer showTab];
     } failure:^{
 
+    } networkError:^{
+        
     }];
 }
 

@@ -119,6 +119,8 @@
         [self clickBack];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 

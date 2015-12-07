@@ -173,6 +173,8 @@
         [self.tableView reloadData];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 
@@ -190,6 +192,8 @@
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 
@@ -206,6 +210,8 @@
         [self.tableView.footer endRefreshing];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
+        
+    } networkError:^{
         
     }];
 }

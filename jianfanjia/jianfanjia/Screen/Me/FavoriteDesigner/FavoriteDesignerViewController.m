@@ -92,6 +92,8 @@
         [self.tableView reloadData];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 
@@ -112,6 +114,8 @@
         [self.tableView reloadData];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 
@@ -125,6 +129,8 @@
         [self.favoriateDesignerPageData.designers removeObjectAtIndex:index.row];
         [self.tableView deleteRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
+        
+    } networkError:^{
         
     }];
 }

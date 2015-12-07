@@ -74,6 +74,8 @@
             [self refreshAdd];
         } failure:^{
             
+        } networkError:^{
+            
         }];
     }
 }

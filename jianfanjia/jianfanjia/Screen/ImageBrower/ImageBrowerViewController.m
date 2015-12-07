@@ -193,6 +193,8 @@
                                          [self.navigationController popViewControllerAnimated:YES];
                                      });
                                  });
+                             } networkError:^{
+                                 
                              }];
                          }];
 

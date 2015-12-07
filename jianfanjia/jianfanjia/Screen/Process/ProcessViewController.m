@@ -250,6 +250,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             [self refreshSections];
         } failure:^{
             
+        } networkError:^{
+            
         }];
     }
 }
@@ -273,6 +275,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [self.tableView endUpdates];
         [self refreshSections];
     } failure:^{
+        
+    } networkError:^{
         
     }];
 }

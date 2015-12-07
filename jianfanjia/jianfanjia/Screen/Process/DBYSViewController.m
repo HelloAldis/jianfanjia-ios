@@ -107,6 +107,8 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
             [self clickBack];
         } failure:^{
             
+        } networkError:^{
+            
         }];
     }];
     

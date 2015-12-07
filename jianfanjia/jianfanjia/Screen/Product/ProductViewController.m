@@ -124,6 +124,8 @@
         [self initUIData];
         [self.tableView reloadData];
     } failure:^{
+    } networkError:^{
+        
     }];
 }
 

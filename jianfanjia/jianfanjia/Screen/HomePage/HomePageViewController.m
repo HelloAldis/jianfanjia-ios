@@ -182,6 +182,8 @@
         [self.tableView reloadData];
     } failure:^{
         [self.tableView.header endRefreshing];
+    } networkError:^{
+        
     }];
 }
 
@@ -198,6 +200,8 @@
 //        NSMutableArray *arr = [self generateIndexPaths:0 fromRow:from toRow:to];
 //        [self.tableView reloadRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
+        
+    } networkError:^{
         
     }];
 }

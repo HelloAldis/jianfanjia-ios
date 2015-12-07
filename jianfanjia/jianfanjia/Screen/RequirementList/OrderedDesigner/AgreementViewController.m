@@ -101,6 +101,8 @@
         [self.navigationController popToRootViewControllerAnimated:YES];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 

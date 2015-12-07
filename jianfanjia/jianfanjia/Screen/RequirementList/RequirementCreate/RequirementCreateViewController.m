@@ -480,6 +480,8 @@ static NSTimeInterval kKeyboardDuration = 2.0;
             [self clickBack];
         } failure:^{
             
+        } networkError:^{
+            
         }];
     } else {
         SendUpdateRequirement *sendUpdateRequirement = [[SendUpdateRequirement alloc] initWithRequirement:self.editingRequirement];
@@ -487,6 +489,8 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         [API sendUpdateRequirement:sendUpdateRequirement success:^{
             [self clickBack];
         } failure:^{
+            
+        } networkError:^{
             
         }];
     }

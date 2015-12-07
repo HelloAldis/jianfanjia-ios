@@ -138,6 +138,8 @@
         }
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 

@@ -16,7 +16,7 @@
 }
 
 - (void)all {
-    
+    [HUDUtil hideWait];
 }
 
 - (void)failure {
@@ -48,9 +48,12 @@
     [DataManager shared].data = nil;
 }
 
-- (void)handleHttpError:(NSError *)err failure:(void (^)(void))failure {
+- (void)handleHttpError:(NSError *)err networkError:(void (^)(void))error {
     [HUDUtil hideWait];
-    [HUDUtil showErrText:@"网络故障"];
+    [HUDUtil showErrText:@"网络不给力"];
+    if (error) {
+        error();
+    }
 }
 
 @end

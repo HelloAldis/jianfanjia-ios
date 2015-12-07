@@ -170,6 +170,8 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
         [self.tableView reloadData];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 

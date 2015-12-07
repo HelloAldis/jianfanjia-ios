@@ -67,6 +67,8 @@
                     }
                 } failure:^{
                     
+                } networkError:^{
+                    
                 }];
                 
                 [controller dismissViewControllerAnimated:YES completion:nil];

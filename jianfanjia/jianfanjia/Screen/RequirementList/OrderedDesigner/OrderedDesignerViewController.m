@@ -102,6 +102,8 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
         [self.tableView reloadData];
     } failure:^{
     
+    } networkError:^{
+        
     }];
 }
 

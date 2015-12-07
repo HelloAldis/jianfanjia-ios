@@ -74,11 +74,12 @@
         @weakify(self);
         [API updatePass:request success:^{
             @strongify(self);
-            [HUDUtil hideWait];
             [HUDUtil showSuccessText:@"密码更新成功"];
             [self.navigationController popToRootViewControllerAnimated:YES];
         } failure:^{
-            [HUDUtil hideWait];
+
+        } networkError:^{
+            
         }];
     } else {
         UserSignup *request = [[UserSignup alloc] init];
@@ -88,11 +89,12 @@
         
         [HUDUtil showWait];
         [API userSignup:request success:^{
-            [HUDUtil hideWait];
             [GVUserDefaults standardUserDefaults].isLogin = YES;
             [ViewControllerContainer showSignupSuccess];
         } failure:^{
-            [HUDUtil hideWait];
+            
+        } networkError:^{
+            
         }];
     }
 }
