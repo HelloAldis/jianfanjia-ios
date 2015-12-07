@@ -60,6 +60,15 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 @property (weak, nonatomic) IBOutlet UIView *selectCommunicationTypeView;
 @property (weak, nonatomic) IBOutlet UIView *selectSexTypeView;
 
+@property (strong, nonatomic) UIGestureRecognizer *selectCityGesture;
+@property (strong, nonatomic) UIGestureRecognizer *selectHouseTypeGesture;
+@property (strong, nonatomic) UIGestureRecognizer *selectWorkTypeGesture;
+@property (strong, nonatomic) UIGestureRecognizer *selectDecTypeGesture;
+@property (strong, nonatomic) UIGestureRecognizer *selectPopulationGesture;
+@property (strong, nonatomic) UIGestureRecognizer *selectPreferredStyleGesture;
+@property (strong, nonatomic) UIGestureRecognizer *selectCommunicationTypeGesture;
+@property (strong, nonatomic) UIGestureRecognizer *selectSexTypeGesture;
+
 @property (strong, nonatomic) Requirement *editingRequirement;
 @property (assign, nonatomic) RequirementOperateType editType;
 
@@ -111,44 +120,186 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    if ([self.editingRequirement.status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
-        if ([@"" isEqualToString:self.editingRequirement._id]) {
-            [self displayDoneButton];
-        } else {
+    if ([@"" isEqualToString:self.editingRequirement._id]) {
+        [self displayDefaultValueToUI];
+        [self displayDoneButton];
+    } else {
+        if ([self.editingRequirement.status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
+            self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
         }
     }
-
-    self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
+    
     self.title = @"填写装修需求";
 }
 
 - (void)displayDoneButton {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
+    self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
+    
+    RAC(self.navigationItem.rightBarButtonItem, enabled) = [RACSignal
+                                                                combineLatest:@[
+                                                                                RACObserve(self.lblSelectCityVal, text),
+                                                                                RACObserve(self.lblSelectHouseTypeVal, text),
+                                                                                RACObserve(self.lblSelectWorkTypeVal, text),
+                                                                                RACObserve(self.lblSelectDecorationTypeVal, text),
+                                                                                RACObserve(self.lblSelectPopulationVal, text),
+                                                                                RACObserve(self.lblSelectPreferredStyleVal, text),
+                                                                                self.fldStreetVal.rac_textSignal,
+                                                                                self.fldCommunityVal.rac_textSignal,
+                                                                                self.fldPhaseVal.rac_textSignal,
+                                                                                self.fldBuildingVal.rac_textSignal,
+                                                                                self.fldUnitVal.rac_textSignal,
+                                                                                self.fldRoomVal.rac_textSignal,
+                                                                                self.fldDecorationAreaVal.rac_textSignal,
+                                                                                self.fldDecorationBudgetVal.rac_textSignal]
+                                                            
+                                                                        reduce:^id(
+                                                                                NSString *city,
+                                                                                NSString *houseType,
+                                                                                NSString *workType,
+                                                                                NSString *decType,
+                                                                                NSString *population,
+                                                                                NSString *decStyle,
+                                                                                NSString *street,
+                                                                                NSString *cell,
+                                                                                NSString *phase,
+                                                                                NSString *building,
+                                                                                NSString *unit,
+                                                                                NSString *room,
+                                                                                NSString *decArea,
+                                                                                NSString *decBudget) {
+                                                                         
+                                                                            if (city.length > 0
+                                                                                && houseType.length > 0
+                                                                                && workType.length > 0
+                                                                                && decType.length > 0
+                                                                                && population.length > 0
+                                                                                && decStyle.length > 0
+                                                                                && street.length > 0
+                                                                                && cell.length > 0
+                                                                                && phase.length > 0
+                                                                                && building.length > 0
+                                                                                && unit.length > 0
+                                                                                && room.length > 0
+                                                                                && decArea.length > 0
+                                                                                && decBudget.length > 0) {
+                                                                                return @(YES);
+                                                                            } else {
+                                                                                return @(NO);
+                                                                            }
+                                                                        }];
 }
 
-- (void)makeViewEnable {
-    [self.view.subviews makeObjectsPerformSelector:@selector(setUserInteractionEnabled:) withObject:@(TRUE)];
+- (void)enableSubviews:(BOOL)enable {
+    self.selectCityGesture.enabled = enable;
+    self.selectHouseTypeGesture.enabled = enable;
+    self.selectWorkTypeGesture.enabled = enable;
+    self.selectDecTypeGesture.enabled = enable;
+    self.selectPopulationGesture.enabled = enable;
+    self.selectPreferredStyleGesture.enabled = enable;
+    self.selectCommunicationTypeGesture.enabled = enable;
+    self.selectSexTypeGesture.enabled = enable;
+    self.fldStreetVal.enabled = enable;
+    self.fldCommunityVal.enabled = enable;
+    self.fldPhaseVal.enabled = enable;
+    self.fldBuildingVal.enabled = enable;
+    self.fldUnitVal.enabled = enable;
+    self.fldRoomVal.enabled = enable;
+    self.fldDecorationAreaVal.enabled = enable;
+    self.fldDecorationBudgetVal.enabled = enable;
 }
 
-- (void)makeViewDisable {
-    [self.view.subviews makeObjectsPerformSelector:@selector(setUserInteractionEnabled:) withObject:@(FALSE)];
-    self.scrollView.userInteractionEnabled = YES;
+- (void)displayDefaultValueToUI {
+    //house type @"2":@"三居"
+    self.editingRequirement.house_type = @"2";
+    //work type @"0":@"设计＋施工(半包)
+    self.editingRequirement.work_type = @"0";
+    //decoration type @"0":@"家装"
+    self.editingRequirement.dec_type = @"0";
+    //population 
+    self.editingRequirement.family_description = @"三口之家";
+    //decoration style @"2":@"现代"
+    self.editingRequirement.dec_style = @"2";
+    //communication type @"0":@"不限"
+    self.editingRequirement.communication_type = @"0";
+    //sex type @"2":@"不限"
+    self.editingRequirement.prefer_sex = @"2";
+    
+    //House type
+    self.lblSelectHouseTypeVal.text = [NameDict nameForHouseType:self.editingRequirement.house_type];
+    //Work type
+    self.lblSelectWorkTypeVal.text = [NameDict nameForWorkType:self.editingRequirement.work_type];
+    //Decoration type
+    self.lblSelectDecorationTypeVal.text = [NameDict nameForDecType:self.editingRequirement.dec_type];
+    //Population
+    self.lblSelectPopulationVal.text = self.editingRequirement.family_description;
+    //Decoration style
+    self.lblSelectPreferredStyleVal.text = [NameDict nameForDecStyle:self.editingRequirement.dec_style];
+    //Communication type
+    self.lblSelectCommunicationTypeVal.text = [NameDict nameForCommunicationType:self.editingRequirement.communication_type];
+    //Sex type
+    self.lblSelectSexTypeVal.text = [NameDict nameForSexType:self.editingRequirement.prefer_sex];
+}
+
+- (void)displayValueToUI {
+     //City
+    self.lblSelectCityVal.text = [NSString stringWithFormat:@"%@ %@ %@", self.editingRequirement.province, self.editingRequirement.city, self.editingRequirement.district];
+    //House type
+    self.lblSelectHouseTypeVal.text = [NameDict nameForHouseType:self.editingRequirement.house_type];
+    //Work type
+    self.lblSelectWorkTypeVal.text = [NameDict nameForWorkType:self.editingRequirement.work_type];
+    //Decoration type
+    self.lblSelectDecorationTypeVal.text = [NameDict nameForDecType:self.editingRequirement.dec_type];
+    //Population
+    self.lblSelectPopulationVal.text = self.editingRequirement.family_description;
+    //Decoration style
+    self.lblSelectPreferredStyleVal.text = [NameDict nameForDecStyle:self.editingRequirement.dec_style];
+    //Communication type
+    self.lblSelectCommunicationTypeVal.text = [NameDict nameForCommunicationType:self.editingRequirement.communication_type];
+    //Sex type
+    self.lblSelectSexTypeVal.text = [NameDict nameForSexType:self.editingRequirement.prefer_sex];
+    //Street
+    self.fldStreetVal.text = self.editingRequirement.street;
+    //Cell
+    self.fldCommunityVal.text = self.editingRequirement.cell;
+    //Phase
+    self.fldPhaseVal.text = self.editingRequirement.cell_phase;
+    //Building
+    self.fldBuildingVal.text = self.editingRequirement.cell_building;
+    //Unit
+    self.fldUnitVal.text = self.editingRequirement.cell_unit;
+    //Room number
+    self.fldRoomVal.text = self.editingRequirement.cell_detail_number;
+    //Area
+    self.fldDecorationAreaVal.text = [self.editingRequirement.house_area stringValue];
+    //Budget
+    self.fldDecorationBudgetVal.text = [self.editingRequirement.total_price stringValue];
 }
 
 - (void)initUI {
-    if (self.editType == RequirementOperateTypeView) {
-        [self makeViewDisable];
-    }
+    self.selectCityGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSection:)];
+    self.selectHouseTypeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSection:)];
+    self.selectWorkTypeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSection:)];
+    self.selectDecTypeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSection:)];
+    self.selectPopulationGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSection:)];
+    self.selectPreferredStyleGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSection:)];
+    self.selectCommunicationTypeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSection:)];
+    self.selectSexTypeGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSection:)];
     
-    [self addTapSectionGesture:self.selectCityView];
-    [self addTapSectionGesture:self.selectHouseTypeView];
-    [self addTapSectionGesture:self.selectWorkTypeView];
-    [self addTapSectionGesture:self.selectDecTypeView];
-    [self addTapSectionGesture:self.selectPopulationView];
-    [self addTapSectionGesture:self.selectPreferredStyleView];
-    [self addTapSectionGesture:self.selectCommunicationTypeView];
-    [self addTapSectionGesture:self.selectSexTypeView];
+    [self.selectCityView addGestureRecognizer:self.selectCityGesture];
+    [self.selectHouseTypeView addGestureRecognizer:self.selectHouseTypeGesture];
+    [self.selectWorkTypeView addGestureRecognizer:self.selectWorkTypeGesture];
+    [self.selectDecTypeView addGestureRecognizer:self.selectDecTypeGesture];
+    [self.selectPopulationView addGestureRecognizer:self.selectPopulationGesture];
+    [self.selectPreferredStyleView addGestureRecognizer:self.selectPreferredStyleGesture];
+    [self.selectCommunicationTypeView addGestureRecognizer:self.selectCommunicationTypeGesture];
+    [self.selectSexTypeView addGestureRecognizer:self.selectSexTypeGesture];
+    
+    if (self.editType == RequirementOperateTypeView) {
+        [self enableSubviews:NO];
+        [self displayValueToUI];
+    }
     
     @weakify(self);
     //Street
@@ -217,19 +368,19 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     
     //Area
     [[[[self.fldDecorationAreaVal rac_textSignal]
-       filterNonDigit:^BOOL {
+        filterNonDigit:^BOOL {
            return true;
-       }]
-      length:^NSInteger {
-          return 6;
-      }]
-     subscribeNext:^(NSString *value) {
-         @strongify(self);
-         self.editingRequirement.house_area = [NSNumber numberWithInteger:[value integerValue]];
-     }];
+        }]
+        length:^NSInteger {
+            return 6;
+        }]
+        subscribeNext:^(NSString *value) {
+            @strongify(self);
+            self.editingRequirement.house_area = [NSNumber numberWithInteger:[value integerValue]];
+        }];
     
     //Budget
-    [[[self.fldDecorationBudgetVal.rac_textSignal
+    [[[[self.fldDecorationBudgetVal rac_textSignal]
         filterNonDigit:^BOOL {
             return true;
         }]
@@ -245,10 +396,6 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 }
 
 #pragma mark - gestures
-- (void)addTapSectionGesture:(UIView *)view {
-    [view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSection:)]];
-}
-
 - (void)onTapSection:(UIGestureRecognizer *)gesture {
     UIView *tapView = gesture.view;
     UIViewController *controller;
@@ -322,17 +469,27 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 - (void)onClickEdit {
     self.editType = RequirementOperateTypeEdit;
     [self displayDoneButton];
-    [self makeViewEnable];
+    [self enableSubviews:YES];
 }
 
 - (void)onClickDone {
-    SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
-    
-    [API sendAddRequirement:sendAddRequirement success:^{
-        [self clickBack];
-    } failure:^{
-    
-    }];
+    if ([@"" isEqualToString:self.editingRequirement._id]) {
+        SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
+        
+        [API sendAddRequirement:sendAddRequirement success:^{
+            [self clickBack];
+        } failure:^{
+            
+        }];
+    } else {
+        SendUpdateRequirement *sendUpdateRequirement = [[SendUpdateRequirement alloc] initWithRequirement:self.editingRequirement];
+        
+        [API sendUpdateRequirement:sendUpdateRequirement success:^{
+            [self clickBack];
+        } failure:^{
+            
+        }];
+    }
 }
 
 #pragma mark - keyboard

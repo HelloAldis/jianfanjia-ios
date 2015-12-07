@@ -33,6 +33,12 @@
 		6837996B1C11290E001F24D6 /* MessageAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683799691C11290E001F24D6 /* MessageAlertViewController.xib */; };
 		6837996F1C113E29001F24D6 /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6837996D1C113E29001F24D6 /* DateAlertViewController.m */; };
 		683799701C113E29001F24D6 /* DateAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6837996E1C113E29001F24D6 /* DateAlertViewController.xib */; };
+		683840001C156716004F456E /* SendUpdateRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 68383FFF1C156716004F456E /* SendUpdateRequirement.m */; };
+		683840031C157216004F456E /* UpdateUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 683840021C157216004F456E /* UpdateUserInfo.m */; };
+		683840071C157E21004F456E /* UpdateOneLineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683840051C157E21004F456E /* UpdateOneLineTextViewController.m */; };
+		683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683840061C157E21004F456E /* UpdateOneLineTextViewController.xib */; };
+		6838400C1C158490004F456E /* UpdateMultipleLineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6838400A1C158490004F456E /* UpdateMultipleLineTextViewController.m */; };
+		6838400D1C158490004F456E /* UpdateMultipleLineTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6838400B1C158490004F456E /* UpdateMultipleLineTextViewController.xib */; };
 		683A5D681C0EECD40071DF88 /* ItemExpandCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A5D661C0EECD40071DF88 /* ItemExpandCheckCell.m */; };
 		683A5D691C0EECD40071DF88 /* ItemExpandCheckCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683A5D671C0EECD40071DF88 /* ItemExpandCheckCell.xib */; };
 		683A5D6C1C0EFBAE0071DF88 /* YsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A5D6B1C0EFBAE0071DF88 /* YsImage.m */; };
@@ -349,6 +355,16 @@
 		6837996C1C113E29001F24D6 /* DateAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAlertViewController.h; sourceTree = "<group>"; };
 		6837996D1C113E29001F24D6 /* DateAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAlertViewController.m; sourceTree = "<group>"; };
 		6837996E1C113E29001F24D6 /* DateAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateAlertViewController.xib; sourceTree = "<group>"; };
+		68383FFE1C156716004F456E /* SendUpdateRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendUpdateRequirement.h; sourceTree = "<group>"; };
+		68383FFF1C156716004F456E /* SendUpdateRequirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendUpdateRequirement.m; sourceTree = "<group>"; };
+		683840011C157216004F456E /* UpdateUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateUserInfo.h; sourceTree = "<group>"; };
+		683840021C157216004F456E /* UpdateUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateUserInfo.m; sourceTree = "<group>"; };
+		683840041C157E21004F456E /* UpdateOneLineTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateOneLineTextViewController.h; sourceTree = "<group>"; };
+		683840051C157E21004F456E /* UpdateOneLineTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateOneLineTextViewController.m; sourceTree = "<group>"; };
+		683840061C157E21004F456E /* UpdateOneLineTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateOneLineTextViewController.xib; sourceTree = "<group>"; };
+		683840091C158490004F456E /* UpdateMultipleLineTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateMultipleLineTextViewController.h; sourceTree = "<group>"; };
+		6838400A1C158490004F456E /* UpdateMultipleLineTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMultipleLineTextViewController.m; sourceTree = "<group>"; };
+		6838400B1C158490004F456E /* UpdateMultipleLineTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateMultipleLineTextViewController.xib; sourceTree = "<group>"; };
 		683A5D651C0EECD40071DF88 /* ItemExpandCheckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemExpandCheckCell.h; sourceTree = "<group>"; };
 		683A5D661C0EECD40071DF88 /* ItemExpandCheckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemExpandCheckCell.m; sourceTree = "<group>"; };
 		683A5D671C0EECD40071DF88 /* ItemExpandCheckCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemExpandCheckCell.xib; sourceTree = "<group>"; };
@@ -1051,6 +1067,8 @@
 				6E838DB71BECA39B000BF5CD /* QueryProduct.m */,
 				685C21461BF9729E00D5D320 /* SendAddRequirement.h */,
 				685C21471BF9729E00D5D320 /* SendAddRequirement.m */,
+				68383FFE1C156716004F456E /* SendUpdateRequirement.h */,
+				68383FFF1C156716004F456E /* SendUpdateRequirement.m */,
 				6E44961F1BF9B58800C90851 /* VerifyPhone.h */,
 				6E4496201BF9B58800C90851 /* VerifyPhone.m */,
 				6E4496271BF9DF9700C90851 /* UserSignup.h */,
@@ -1091,6 +1109,8 @@
 				685BF3001C0C346600ECA4C9 /* UploadImageToProcess.m */,
 				684462971C0D68680098F3CB /* DeleteImageFromProcess.h */,
 				684462981C0D68680098F3CB /* DeleteImageFromProcess.m */,
+				683840011C157216004F456E /* UpdateUserInfo.h */,
+				683840021C157216004F456E /* UpdateUserInfo.m */,
 				6EE34D521C0EC5C200C6957E /* UserGetInfo.h */,
 				6EE34D531C0EC5C200C6957E /* UserGetInfo.m */,
 				AB4CAF861C0F2F76003680BA /* SectionDone.h */,
@@ -1327,6 +1347,12 @@
 				6E4496481BFC82F500C90851 /* UserInfoViewController.h */,
 				6E4496491BFC82F500C90851 /* UserInfoViewController.m */,
 				6E44964A1BFC82F500C90851 /* UserInfoViewController.xib */,
+				683840041C157E21004F456E /* UpdateOneLineTextViewController.h */,
+				683840051C157E21004F456E /* UpdateOneLineTextViewController.m */,
+				683840061C157E21004F456E /* UpdateOneLineTextViewController.xib */,
+				683840091C158490004F456E /* UpdateMultipleLineTextViewController.h */,
+				6838400A1C158490004F456E /* UpdateMultipleLineTextViewController.m */,
+				6838400B1C158490004F456E /* UpdateMultipleLineTextViewController.xib */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -1689,7 +1715,7 @@
 				TargetAttributes = {
 					6E20B2211B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 9N6Y5VRGG7;
+						DevelopmentTeam = 339GELC5GG;
 					};
 					6E20B23A1B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
@@ -1770,7 +1796,9 @@
 				6E7867281BAA538E00DE8B1B /* SectionView.xib in Resources */,
 				68E505671BF0BB0100B0B910 /* SelectCityViewController.xib in Resources */,
 				685CD5D21C02DE9300EC1991 /* PlanPriceItemCell.xib in Resources */,
+				6838400D1C158490004F456E /* UpdateMultipleLineTextViewController.xib in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
+				683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */,
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
 				684A37411BFD73DF00F7388C /* IntentDesignerCell.xib in Resources */,
 				6E44963C1BFC2DA900C90851 /* SettingViewController.xib in Resources */,
@@ -1876,7 +1904,9 @@
 				6E7867161BA944AF00DE8B1B /* ItemCell.m in Sources */,
 				6E6D98B01BDF736A00D45F77 /* RequirementListViewController.m in Sources */,
 				6E07DAAC1BD88DBE001461DD /* AccountBusiness.m in Sources */,
+				683840071C157E21004F456E /* UpdateOneLineTextViewController.m in Sources */,
 				684A374C1BFD73DF00F7388C /* RequirementCreateViewController.m in Sources */,
+				683840031C157216004F456E /* UpdateUserInfo.m in Sources */,
 				6E07DACA1BD88DBE001461DD /* BaseDynamicObject.m in Sources */,
 				6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */,
 				684A374A1BFD73DF00F7388C /* DecorationStyleCell.m in Sources */,
@@ -1975,6 +2005,7 @@
 				6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */,
 				6E07DAC41BD88DBE001461DD /* Designer.m in Sources */,
 				6E6D98941BDDFDAB00D45F77 /* W2View.m in Sources */,
+				683840001C156716004F456E /* SendUpdateRequirement.m in Sources */,
 				6E6D98B61BDF73DE00D45F77 /* MeViewController.m in Sources */,
 				6E78670C1BA920D900DE8B1B /* BannerCell.m in Sources */,
 				68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */,
@@ -2017,6 +2048,7 @@
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
 				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
+				6838400C1C158490004F456E /* UpdateMultipleLineTextViewController.m in Sources */,
 				684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
@@ -2181,7 +2213,7 @@
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2199,7 +2231,7 @@
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

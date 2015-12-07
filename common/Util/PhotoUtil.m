@@ -11,8 +11,8 @@
 
 @implementation PhotoUtil
 
-+ (void)showUserAvatarSelector {
-    [self showPhotoSelector:YES isMultiSelection:NO withMaxSelection:1 withBlock:nil];
++ (void)showUserAvatarSelector:(FinishUploadBlock)block {
+    [self showPhotoSelector:YES isMultiSelection:NO withMaxSelection:1 withBlock:block];
 }
 
 + (void)showDecorationNodeImageSelector:(NSInteger)count withBlock:(FinishUploadBlock)block {

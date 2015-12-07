@@ -7,6 +7,10 @@
 //
 
 #import "UserInfoViewController.h"
+#import "UpdateOneLineTextViewController.h"
+#import "UpdateMultipleLineTextViewController.h"
+#import "SelectCityViewController.h"
+#import "SelectSexTypeViewController.h"
 
 @interface UserInfoViewController ()
 
@@ -31,24 +35,6 @@
     [self initUIData];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self initNav];
-    
-    UserGetInfo *request = [[UserGetInfo alloc] init];
-    @weakify(self);
-    [API userGetInfo:request success:^{
-        @strongify(self);
-        [self initUIData];
-    } failure:^{
-        
-    }];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
@@ -70,22 +56,89 @@
 
 #pragma mark - user action
 - (IBAction)onClickImage:(id)sender {
-    [PhotoUtil showUserAvatarSelector];
+    @weakify(self);
+    [PhotoUtil showUserAvatarSelector:^(NSArray *imageIds) {
+        @strongify(self);
+        [self updateUserInfo:@"imageid" value:imageIds[0] success:^{
+            [GVUserDefaults standardUserDefaults].imageid = imageIds[0];
+            [self initUIData];
+        }];
+    }];
 }
 
 - (IBAction)onClickUsername:(id)sender {
-
+    @weakify(self);
+    UpdateOneLineTextViewController *controller = [[UpdateOneLineTextViewController alloc] initWithName:@"姓名" value:self.lblUsername.text done:^(id value) {
+        @strongify(self);
+        [self updateUserInfo:@"username" value:value success:^{
+            [GVUserDefaults standardUserDefaults].username = value;
+            [self initUIData];
+        }];
+    }];
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)onClickSex:(id)sender {
+    @weakify(self);
+    SelectSexTypeViewController *controller = [[SelectSexTypeViewController alloc] initWithValueBlock:^(id value) {
+        @strongify(self);
+        [self updateUserInfo:@"sex" value:value success:^{
+            [GVUserDefaults standardUserDefaults].sex = value;
+            [self initUIData];
+        }];
+    }];
     
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)onClickLocation:(id)sender {
+    @weakify(self);
+    SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:self.lblLocation.text valueBlock:^(id value) {
+        @strongify(self);
+        [self updateUserInfo:@"location" value:value success:^{
+            NSArray *addressArr = [value componentsSeparatedByString:@" "];
+            [GVUserDefaults standardUserDefaults].province = addressArr[0];
+            [GVUserDefaults standardUserDefaults].city = addressArr[1];
+            [GVUserDefaults standardUserDefaults].district = addressArr[2];
+            [self initUIData];
+        }];
+    }];
+    
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (IBAction)onClickDetailLocation:(id)sender {
+    @weakify(self);
+    UpdateMultipleLineTextViewController *controller = [[UpdateMultipleLineTextViewController alloc] initWithName:@"详细地址" value:self.lblDetailLocation.text max:120 done:^(id value) {
+        @strongify(self);
+        [self updateUserInfo:@"address" value:value success:^{
+            [GVUserDefaults standardUserDefaults].address = value;
+            [self initUIData];
+        }];
+    }];
     
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)updateUserInfo:(NSString *)attrName value:(NSString *)attrValue success:(void(^)(void))success {
+    UpdateUserInfo *request = [[UpdateUserInfo alloc] init];
+    if ([attrName isEqualToString:@"location"]) {
+        NSArray *addressArr = [attrValue componentsSeparatedByString:@" "];
+        request.province = addressArr[0];
+        request.city = addressArr[1];
+        request.district = addressArr[2];
+    } else {
+        [request setValue:attrValue forKey:attrName];
+    }
+    
+    [API updateUserInfo:request success:^{
+        if (success) {
+            success();
+        }
+    } failure:^{
+        
+    }];
 }
 
 @end

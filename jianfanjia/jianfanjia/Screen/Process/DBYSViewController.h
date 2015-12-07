@@ -10,6 +10,6 @@
 
 @interface DBYSViewController : BaseViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-- (id)initWithSection:(Section *)section process:(NSString *)processid;
+- (id)initWithSection:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock;
 
 @end

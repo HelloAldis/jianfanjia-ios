@@ -57,7 +57,8 @@
         [self onClickGoToWorkSiteButton];
     }];
     
-    [self.imgHomeOwner setUserImageWithId:nil];
+    [self.imgHomeOwner setCornerRadius:self.imgHomeOwner.bounds.size.width / 2];
+    [self.imgHomeOwner setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
 }
 
 - (void)initWithRequirement:(Requirement *)requirement {
@@ -143,9 +144,9 @@
     self.lblRequirementStatusVal.text = [NameDict nameForRequirementStatus:requirement.status];
     self.lblPubulishTimeVal.text = [NSDate yyyy_MM_dd:requirement.create_at];
     self.lblUpdateTimeVal.text = [NSDate yyyy_MM_dd:requirement.last_status_update_time];
+    self.lblCellNameVal.text = [NSString stringWithFormat:@"%@%@期", requirement.cell, requirement.cell_phase];
     
     NSString *status = requirement.status;
-    
     if ([status isEqualToString:kRequirementStatusOrderedDesignerWithoutAnyResponse]
         || [status isEqualToString:kRequirementStatusDesignerRespondedWithoutMeasureHouse]
         || [status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]

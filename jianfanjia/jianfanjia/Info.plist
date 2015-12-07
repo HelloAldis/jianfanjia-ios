@@ -30,7 +30,7 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>YES</string>
+	<string></string>
 	<key>UILaunchStoryboardName</key>
 	<string>RefreshViewController</string>
 	<key>UIRequiredDeviceCapabilities</key>

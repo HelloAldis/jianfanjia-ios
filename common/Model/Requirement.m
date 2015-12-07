@@ -29,6 +29,7 @@
 @dynamic total_price;
 @dynamic prefer_sex;
 @dynamic family_description;
+@dynamic communication_type;
 @dynamic create_at;
 @dynamic last_status_update_time;
 @dynamic final_planid;

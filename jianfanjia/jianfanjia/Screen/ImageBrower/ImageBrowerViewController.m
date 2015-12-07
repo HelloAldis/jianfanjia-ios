@@ -129,6 +129,7 @@
 #pragma mark - Done
 - (void)onClickDoneSingle:(PHAsset *)asset {
     ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithNibName:nil bundle:nil];
+    v.finishUploadBlock = self.finishUploadBlock;
     v.asset = asset;
     [self.navigationController pushViewController:v animated:YES];
 }
@@ -155,7 +156,6 @@
                              
                              UploadImage *request = [[UploadImage alloc] init];
                              request.image = result;
-                             @weakify(self);
                              [API uploadImage:request success:^{
                                  @strongify(self);
                                  [self.imageIds addObject:[DataManager shared].lastUploadImageid];
@@ -169,10 +169,10 @@
                                          self.progressBar.labelText = @"上传完成";
                                          dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                              [self.progressBar hide:YES];
-                                             [self.navigationController popViewControllerAnimated:YES];
                                              if (self.finishUploadBlock) {
                                                  self.finishUploadBlock(self.imageIds);
                                              }
+                                             [self.navigationController popViewControllerAnimated:YES];
                                          });
                                      }
                                  });
@@ -187,10 +187,10 @@
                                      
                                      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                          [self.progressBar hide:YES];
-                                         [self.navigationController popViewControllerAnimated:YES];
                                          if (self.finishUploadBlock) {
                                              self.finishUploadBlock(self.imageIds);
                                          }
+                                         [self.navigationController popViewControllerAnimated:YES];
                                      });
                                  });
                              }];

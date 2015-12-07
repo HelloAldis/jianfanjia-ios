@@ -30,6 +30,8 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 @property (strong, nonatomic) Section *section;
 @property (strong, nonatomic) NSString *processid;
+@property (copy, nonatomic) void(^refreshBlock)(void);
+
 @property (strong, nonatomic) NSMutableArray *imgArray;
 
 @end
@@ -37,10 +39,11 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 @implementation DBYSViewController
 
 #pragma mark - init method
-- (id)initWithSection:(Section *)section process:(NSString *)processid {
+- (id)initWithSection:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock {
     if (self = [super init]) {
         _section = section;
         _processid = processid;
+        _refreshBlock = refreshBlock;
     }
     
     return self;
@@ -97,11 +100,22 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         request.section = self.section.name;
         
         [API sectionDone:request success:^{
+            @strongify(self);
+            if (self.refreshBlock) {
+                self.refreshBlock();
+            }
             [self clickBack];
         } failure:^{
             
         }];
     }];
+    
+    if ([self.section.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        self.btnConfirmAccept.hidden = YES;
+    } else if ([self.section.status isEqualToString:kSectionStatusChangeDateRequest]) {
+        self.btnConfirmAccept.enabled = NO;
+        self.btnConfirmAccept.alpha = 0.5;
+    }
 }
 
 #pragma mark - collection delegate

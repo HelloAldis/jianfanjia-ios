@@ -105,10 +105,10 @@
     @weakify(self);
     [API uploadImage:request success:^{
         @strongify(self);
-        [self navigateToOriginalScreen];
         if (self.finishUploadBlock) {
             self.finishUploadBlock(@[[DataManager shared].lastUploadImageid]);
         }
+        [self navigateToOriginalScreen];
     } failure:^{
         
     }];
@@ -118,7 +118,7 @@
     NSArray *controllers = [[self.navigationController.viewControllers reverseObjectEnumerator] allObjects];
     UIViewController *purposeController = nil;
     for (UIViewController *controller in controllers) {
-        if (![controller isKindOfClass:[ImageBrowerViewController class]]) {
+        if (![controller isKindOfClass:[ImageBrowerViewController class]] && ![controller isKindOfClass:[ImageEditorViewController class]]) {
             purposeController = controller;
             break;
         }

@@ -78,6 +78,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"user_add_requirement" data:[request data] handler:request success:success failure:failure];
 }
 
++ (void)sendUpdateRequirement:(SendUpdateRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user_update_requirement" data:[request data] handler:request success:success failure:failure];
+}
+
 + (void)getOrderableDesigners:(GetOrderableDesigners *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API POST:@"designers_user_can_order" data:[request data] handler:request success:success failure:failure];
 }
@@ -189,6 +193,10 @@ static AFHTTPRequestOperationManager *_manager;
 
 + (void)userGetInfo:(UserGetInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure {
     [API GET:@"user/info" handler:request success:success failure:failure];
+}
+
++ (void)updateUserInfo:(UpdateUserInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"user/info" data:request.data handler:request success:success failure:failure];
 }
 
 + (void)sectionDone:(SectionDone *)request success:(void (^)(void))success failure:(void (^)(void))failure {

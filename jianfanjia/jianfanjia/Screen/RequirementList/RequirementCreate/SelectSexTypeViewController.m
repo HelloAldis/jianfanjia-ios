@@ -36,6 +36,7 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - UI
 - (void)initUI {
+    self.tableView.tableFooterView = [[UIView alloc] init];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
 }
 

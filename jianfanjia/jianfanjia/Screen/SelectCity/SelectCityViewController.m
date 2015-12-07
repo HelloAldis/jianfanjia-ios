@@ -147,6 +147,7 @@ static NSString* cellId = @"cityCell";
             self.locationAddress = [NSString stringWithFormat:@"%@ %@ %@", address[@"State"], address[@"City"], address[@"SubLocality"]];
             UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
             cell.textLabel.text = self.locationAddress;
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
             break;
         }
     }];
@@ -206,6 +207,7 @@ static NSString* cellId = @"cityCell";
     if (self.displayType == kDisplayProvince) {
         if (indexPath.section == 0) {
             cell.textLabel.text= self.locationAddress ? self.locationAddress : @"正在定位中...";
+            cell.selectionStyle = self.locationAddress ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
             cell.accessoryType = UITableViewCellAccessoryNone;
         } else {
             NSString *provinceName = self.provinces[indexPath.row];

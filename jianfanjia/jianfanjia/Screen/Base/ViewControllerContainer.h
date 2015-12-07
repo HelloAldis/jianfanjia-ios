@@ -34,7 +34,7 @@
 + (void)showPlanPerview:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement;
 + (void)showPlanPriceDetail:(Plan *)plan;
 + (void)showTab;
-+ (void)showDBYS:(Section *)section process:(NSString *)processid;
++ (void)showDBYS:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock;
 + (void)showReminder;
 + (void)showRefresh;
 + (void)refreshSuccess;

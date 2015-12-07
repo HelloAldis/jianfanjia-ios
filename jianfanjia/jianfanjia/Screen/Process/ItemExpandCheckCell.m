@@ -44,35 +44,45 @@
     @weakify(self);
     [[self.btnDBYS rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [ViewControllerContainer showDBYS:self.dataManager.selectedSection process:self.dataManager.process._id];
-    }];
-
-    [[self.btnChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:self.dataManager.selectedSection.start_at.longLongValue / 1000];
-        NSCalendar *cal = [NSCalendar autoupdatingCurrentCalendar];
-        NSDate *minDate = [cal dateByAddingUnit:NSCalendarUnitDay value:1 toDate:startDate options:0];
-        NSDate *maxDate = [cal dateByAddingUnit:NSCalendarUnitYear value:1 toDate:minDate options:0];
-
-        [DateAlertViewController presentAlert:@"选择改期时间" min:minDate max:maxDate cancel:^(id obj) {
-            
-        } ok:^(UIDatePicker *obj) {
-            Reschedule *request = [[Reschedule alloc] init];
-            request.processid = self.dataManager.process._id;
-            request.userid = self.dataManager.process.userid;
-            request.designerid = self.dataManager.process.final_designerid;
-            request.section = self.dataManager.selectedSection.name;
-            request.updated_date = @([obj.date timeIntervalSince1970] * 1000);
-            
-            [API reschedule:request success:^{
-                @strongify(self);
-                if (self.refreshBlock) {
-                    self.refreshBlock();
-                }
-            } failure:^{
-            }];
+        [ViewControllerContainer showDBYS:self.dataManager.selectedSection process:self.dataManager.process._id refresh:^{
+            @strongify(self);
+            if (self.refreshBlock) {
+                self.refreshBlock();
+            }
         }];
     }];
+
+    [[[self.btnChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside]
+        filter:^BOOL(id value) {
+          @strongify(self);
+          return self.btnChangeDate.alpha == 1;
+        }]
+        subscribeNext:^(id x) {
+            @strongify(self);
+            NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:self.dataManager.selectedSection.end_at.longLongValue / 1000];
+            NSCalendar *cal = [NSCalendar autoupdatingCurrentCalendar];
+            NSDate *minDate = [cal dateByAddingUnit:NSCalendarUnitDay value:1 toDate:startDate options:0];
+            NSDate *maxDate = [cal dateByAddingUnit:NSCalendarUnitYear value:1 toDate:minDate options:0];
+
+            [DateAlertViewController presentAlert:@"选择改期时间" min:minDate max:maxDate cancel:^(id obj) {
+                
+            } ok:^(UIDatePicker *obj) {
+                Reschedule *request = [[Reschedule alloc] init];
+                request.processid = self.dataManager.process._id;
+                request.userid = self.dataManager.process.userid;
+                request.designerid = self.dataManager.process.final_designerid;
+                request.section = self.dataManager.selectedSection.name;
+                request.updated_date = @([obj.date timeIntervalSince1970] * 1000);
+                
+                [API reschedule:request success:^{
+                    @strongify(self);
+                    if (self.refreshBlock) {
+                        self.refreshBlock();
+                    }
+                } failure:^{
+                }];
+            }];
+        }];
     
     [[self.btnUnresolvedChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         [MessageAlertViewController presentAlert:@"改期提醒" msg:@"对方申请改期至" second:[NSDate yyyy_MM_dd:self.dataManager.selectedSection.schedule.updated_date] reject:^{
@@ -124,21 +134,25 @@
     
     Schedule *schedule = self.dataManager.selectedSection.schedule;
     if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateRequest]) {
-        if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:schedule.request_role]
-            && [schedule.status isEqualToString:kSectionStatusChangeDateRequest]) {
+        if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:schedule.request_role]) {
             [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
             [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
             [self.btnChangeDate setTitle:@"改期申请中" forState:UIControlStateNormal];
-            self.btnChangeDate.userInteractionEnabled = NO;
+            self.btnChangeDate.alpha = 0.8;
             self.btnUnresolvedChangeDate.hidden = YES;
         } else {
             self.btnUnresolvedChangeDate.hidden = NO;
         }
+    } else if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
+        [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+        [self.btnChangeDate setTitle:@"申请改期" forState:UIControlStateNormal];
+        self.btnChangeDate.alpha = 0.8;
     } else {
         [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
         [self.btnChangeDate setTitleColor:kFinishedColor forState:UIControlStateNormal];
         [self.btnChangeDate setTitle:@"申请改期" forState:UIControlStateNormal];
-        self.btnChangeDate.userInteractionEnabled = YES;
+        self.btnChangeDate.alpha = 1;
     }
 }
 
