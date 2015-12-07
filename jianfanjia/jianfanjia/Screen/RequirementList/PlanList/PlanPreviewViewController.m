@@ -69,13 +69,14 @@
     [self.plan.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         UIImageView *imgView = [[UIImageView alloc] init];
+        imgView.contentMode = UIViewContentModeScaleAspectFill;
         imgView.frame = CGRectMake(idx * kScreenWidth, 0, kScreenWidth, self.imgScrollView.bounds.size.height);
         [imgView setImageWithId:obj withWidth:kScreenWidth];
         [self.imgScrollView addSubview:imgView];
     }];
     
     self.imgScrollView.contentSize = CGSizeMake(kScreenWidth * self.plan.images.count, self.imgScrollView.bounds.size.height);
-    
+    self.pageControl.numberOfPages = self.plan.images.count;
     self.lblPlanTitle.text = [NSString stringWithFormat:@"%@%@期", self.requirement.cell, self.requirement.cell_phase];
     self.lblDecHouseTypeVal.text = [NameDict nameForHouseType:self.requirement.house_type];
     self.lblDecAreaVal.text = [NSString stringWithFormat:@"%@m2", self.requirement.house_area];

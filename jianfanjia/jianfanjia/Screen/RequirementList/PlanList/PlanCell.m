@@ -69,6 +69,7 @@ static const NSInteger imgSpace = 2;
     [plan.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         UIImageView *imgView = [[UIImageView alloc] init];
+        imgView.contentMode = UIViewContentModeScaleAspectFill;
         imgView.frame = CGRectMake(idx * (imgWidth + imgSpace), 0, imgWidth, self.imgScrollView.bounds.size.height);
         [imgView setImageWithId:obj withWidth:imgWidth];
         [self.imgScrollView addSubview:imgView];
