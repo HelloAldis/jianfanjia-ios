@@ -91,6 +91,8 @@ static NSString *PlanCellIdentifier = @"PlanCell";
         [self.tableView reloadData];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 

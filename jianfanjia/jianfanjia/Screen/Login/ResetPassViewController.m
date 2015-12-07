@@ -75,10 +75,11 @@
     
     [HUDUtil showWait];
     [API sendVerifyCode:req success:^{
-        [HUDUtil hideWait];
         [ViewControllerContainer showVerifyPhone:YES];
     } failure:^{
-        [HUDUtil hideWait];
+
+    } networkError:^{
+        
     }];
 }
 

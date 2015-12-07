@@ -38,6 +38,6 @@
 /**
  handle http error here
  */
-- (void)handleHttpError:(NSError *)err failure:(void (^)(void))failure;
+- (void)handleHttpError:(NSError *)err networkError:(void (^)(void))failure;
 
 @end

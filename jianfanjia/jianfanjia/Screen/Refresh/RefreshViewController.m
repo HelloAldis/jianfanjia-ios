@@ -25,6 +25,8 @@
         [ViewControllerContainer refreshSuccess];
     } failure:^{
         [ViewControllerContainer logout];
+    } networkError:^{
+        
     }];
 }
 

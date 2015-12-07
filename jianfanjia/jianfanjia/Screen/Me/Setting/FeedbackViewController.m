@@ -60,6 +60,8 @@
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 

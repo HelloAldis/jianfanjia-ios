@@ -196,6 +196,8 @@ static float kKeyboardHeight = 480;
         [self refreshMessageList];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 
@@ -220,6 +222,8 @@ static float kKeyboardHeight = 480;
         [self.requirementDataManager refreshComments];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
+        
+    } networkError:^{
         
     }];
 }
@@ -257,6 +261,8 @@ static float kKeyboardHeight = 480;
             [self.tableView endUpdates];
         }
     } failure:^{
+        
+    } networkError:^{
         
     }];
 }

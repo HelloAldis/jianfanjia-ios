@@ -140,6 +140,8 @@ static CGFloat imgCellWidth;
     [API deleteImageFromeProcess:request success:^{
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 
@@ -215,6 +217,8 @@ static CGFloat imgCellWidth;
                 self.refreshBlock();
             }
         } failure:^{
+            
+        } networkError:^{
             
         }];
 

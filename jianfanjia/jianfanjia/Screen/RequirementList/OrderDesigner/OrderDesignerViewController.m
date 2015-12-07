@@ -219,6 +219,8 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
             [DataManager shared].homePageNeedRefresh = YES;
         } failure:^{
             
+        } networkError:^{
+            
         }];
     } else {
         ReplaceOrderedDesigner *request = [[ReplaceOrderedDesigner alloc] init];
@@ -229,6 +231,8 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
         [API replaceOrderedDesigner:request success:^{
             [self clickBack];
         } failure:^{
+            
+        } networkError:^{
             
         }];
     }
@@ -244,6 +248,8 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
         [self.tableView reloadData];
     } failure:^{
     
+    } networkError:^{
+        
     }];
 }
 

@@ -56,6 +56,8 @@
         [self refresh];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 

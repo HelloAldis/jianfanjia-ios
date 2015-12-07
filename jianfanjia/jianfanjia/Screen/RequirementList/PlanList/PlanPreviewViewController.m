@@ -120,6 +120,8 @@
         [self clickBack];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 

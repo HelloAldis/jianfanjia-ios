@@ -13,7 +13,6 @@
 @dynamic processid;
 
 - (void)failure {
-    [HUDUtil hideWait];
     [HUDUtil showErrText:[DataManager shared].errMsg];
 }
 

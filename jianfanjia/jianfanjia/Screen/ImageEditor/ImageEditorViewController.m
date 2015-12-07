@@ -111,6 +111,8 @@
         [self navigateToOriginalScreen];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 

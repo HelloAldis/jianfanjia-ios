@@ -142,6 +142,8 @@ static float kKeyboardHeight = 480;
         [self clickBack];
     } failure:^{
     
+    } networkError:^{
+        
     }];
 }
 

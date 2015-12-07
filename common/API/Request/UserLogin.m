@@ -14,7 +14,6 @@
 @dynamic pass;
 
 - (void)failure {
-    [HUDUtil hideWait];
     [HUDUtil showErrText:[DataManager shared].errMsg];
 }
 

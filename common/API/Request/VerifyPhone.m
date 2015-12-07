@@ -13,7 +13,6 @@
 @dynamic phone;
 
 - (void)failure {
-    [HUDUtil hideWait];
     [HUDUtil showErrText:[DataManager shared].errMsg];
 }
 

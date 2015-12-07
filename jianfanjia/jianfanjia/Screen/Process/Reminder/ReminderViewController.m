@@ -171,6 +171,8 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
         
+    } networkError:^{
+        
     }];
 }
 

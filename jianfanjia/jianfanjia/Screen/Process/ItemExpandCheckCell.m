@@ -80,6 +80,8 @@
                         self.refreshBlock();
                     }
                 } failure:^{
+                } networkError:^{
+                    
                 }];
             }];
         }];
@@ -97,6 +99,8 @@
              
             } failure:^{
 
+            } networkError:^{
+                
             }];
         } agree:^{
             AgreeReschedule *request = [[AgreeReschedule alloc] init];
@@ -109,6 +113,8 @@
                 }
             } failure:^{
 
+            } networkError:^{
+                
             }];
         }];
     }];
