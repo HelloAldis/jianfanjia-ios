@@ -96,11 +96,6 @@
     [self.btnNext setCornerRadius:5];
     self.btnNext.enabled = NO;
     self.isUp = NO;
-    
-#ifdef DEBUG
-    self.fldPhone.text = @"18107218595";
-    self.fldPassword.text = @"123456";
-#endif
 }
 
 - (void)viewWillAppear:(BOOL)animated {

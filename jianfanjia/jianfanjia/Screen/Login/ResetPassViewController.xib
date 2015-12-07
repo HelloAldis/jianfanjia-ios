@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResetPassViewController">
             <connections>
                 <outlet property="btnNext" destination="fw0-w5-OxE" id="ju4-fK-0ws"/>
+                <outlet property="constraint" destination="0Nq-IT-xTX" id="GK7-yN-Vt2"/>
                 <outlet property="fldPassword" destination="J2N-KF-gBZ" id="BfK-tV-W94"/>
                 <outlet property="fldPhone" destination="dhU-73-rlb" id="gel-ai-uao"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -32,7 +32,8 @@
 
 #pragma mark - user action
 - (IBAction)onClickRequirement:(id)sender {
-    
+    [ViewControllerContainer showTab];
+    [ViewControllerContainer showRequirementCreate:nil];
 }
 
 - (IBAction)onClickBala:(id)sender {

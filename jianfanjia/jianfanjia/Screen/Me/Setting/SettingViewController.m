@@ -86,10 +86,6 @@
         //Do nothing
     }];
     UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [GVUserDefaults standardUserDefaults].isLogin = NO;
-        [GVUserDefaults standardUserDefaults].userid = nil;
-        [GVUserDefaults standardUserDefaults].imageid = nil;
-        [GVUserDefaults standardUserDefaults].usertype = nil;
         [ViewControllerContainer logout];
     }];
     

@@ -13,6 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *fldVerifyCode;
 @property (weak, nonatomic) IBOutlet UIButton *btnSignup;
+@property (weak, nonatomic) IBOutlet UILabel *lblPhone;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 
 @end
 
@@ -40,15 +42,16 @@
     [self.btnSignup setCornerRadius:5];
     self.btnSignup.enabled = NO;
     [self initLeftBackInNav];
+    self.lblPhone.text = [DataManager shared].signupPagePhone;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     if (kIs35inchScreen) {
-//        self.topConstraint.constant = 10;
+        self.constraint.constant = 84;
     } else {
-//        self.topConstraint.constant = (kScreenHeight - 480)/2;
+        self.constraint.constant = (kScreenHeight - 400)/2;
     }
 }
 

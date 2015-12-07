@@ -211,6 +211,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"process/reschedule/reject" data:request.data handler:request success:success failure:failure];
 }
 
++ (void)feedback:(Feedback *)request success:(void (^)(void))success failure:(void (^)(void))failure {
+    [API POST:@"feedback" data:request.data handler:request success:success failure:failure];
+}
+
 @end
 
 

@@ -523,6 +523,7 @@
 				TargetAttributes = {
 					6E0426681BC757C500F984B8 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 339GELC5GG;
 					};
 					6E0426811BC757C500F984B8 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -794,6 +795,7 @@
 			baseConfigurationReference = 19D4B2E529E31306DF810865 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "jianfanjia-designer/PrefixHeader.pch";
 				INFOPLIST_FILE = "jianfanjia-designer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -807,6 +809,7 @@
 			baseConfigurationReference = BDAF11036A474A85921AB191 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = "jianfanjia-designer/PrefixHeader.pch";
 				INFOPLIST_FILE = "jianfanjia-designer/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

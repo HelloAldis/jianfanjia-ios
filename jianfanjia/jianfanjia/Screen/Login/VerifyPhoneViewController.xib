@@ -8,7 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerifyPhoneViewController">
             <connections>
                 <outlet property="btnSignup" destination="gPc-r4-lH7" id="awn-Cz-NAv"/>
+                <outlet property="constraint" destination="ApL-rs-3yr" id="Yd3-ag-l8U"/>
                 <outlet property="fldVerifyCode" destination="tnH-Zm-uZq" id="dnI-ki-aYa"/>
+                <outlet property="lblPhone" destination="DZo-dq-cGZ" id="LZC-0n-88t"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,7 +41,7 @@
                     <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18107218595" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZo-dq-cGZ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZo-dq-cGZ">
                     <rect key="frame" x="305" y="115" width="160" height="21"/>
                     <animations/>
                     <constraints>
@@ -91,39 +93,23 @@
                 <constraint firstAttribute="trailing" secondItem="tnH-Zm-uZq" secondAttribute="trailing" constant="60" id="2Iw-mg-9mK">
                     <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                 </constraint>
+                <constraint firstItem="gPc-r4-lH7" firstAttribute="leading" secondItem="tnH-Zm-uZq" secondAttribute="leading" id="3gw-j6-ldR"/>
                 <constraint firstItem="gPc-r4-lH7" firstAttribute="top" secondItem="7xH-77-Byu" secondAttribute="bottom" constant="30" id="4JF-6L-ByB"/>
-                <constraint firstItem="gPc-r4-lH7" firstAttribute="width" secondItem="tnH-Zm-uZq" secondAttribute="width" id="9k5-8y-aLN"/>
+                <constraint firstItem="7xH-77-Byu" firstAttribute="leading" secondItem="tnH-Zm-uZq" secondAttribute="leading" id="5XQ-nU-iQ2"/>
                 <constraint firstItem="EgA-g3-f38" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="ApL-rs-3yr"/>
                 <constraint firstItem="EgA-g3-f38" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Dp9-3a-LHY"/>
                 <constraint firstItem="DZo-dq-cGZ" firstAttribute="leading" secondItem="txj-wh-XlE" secondAttribute="trailing" constant="5" id="Hj1-Fy-uXj"/>
-                <constraint firstItem="gPc-r4-lH7" firstAttribute="centerX" secondItem="tnH-Zm-uZq" secondAttribute="centerX" id="IQD-2G-4dT"/>
                 <constraint firstItem="tnH-Zm-uZq" firstAttribute="top" secondItem="DZo-dq-cGZ" secondAttribute="bottom" constant="50" id="JyL-dn-bzI"/>
-                <constraint firstItem="7xH-77-Byu" firstAttribute="centerX" secondItem="tnH-Zm-uZq" secondAttribute="centerX" id="K13-jI-f9b"/>
                 <constraint firstItem="tnH-Zm-uZq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="Kfa-il-qZ4">
                     <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                 </constraint>
+                <constraint firstItem="gPc-r4-lH7" firstAttribute="width" secondItem="tnH-Zm-uZq" secondAttribute="width" id="MUZ-RY-yUr"/>
                 <constraint firstItem="txj-wh-XlE" firstAttribute="top" secondItem="EgA-g3-f38" secondAttribute="bottom" constant="10" id="QUl-8y-80t"/>
-                <constraint firstItem="7xH-77-Byu" firstAttribute="width" secondItem="tnH-Zm-uZq" secondAttribute="width" id="TiV-rP-9ps"/>
                 <constraint firstItem="txj-wh-XlE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-80" id="UbT-ot-ESk"/>
+                <constraint firstItem="7xH-77-Byu" firstAttribute="width" secondItem="tnH-Zm-uZq" secondAttribute="width" id="ZtO-Yz-CWo"/>
                 <constraint firstItem="DZo-dq-cGZ" firstAttribute="baseline" secondItem="txj-wh-XlE" secondAttribute="baseline" id="nSr-dA-rP8"/>
                 <constraint firstItem="7xH-77-Byu" firstAttribute="top" secondItem="tnH-Zm-uZq" secondAttribute="bottom" constant="5" id="zbm-bT-Y8l"/>
             </constraints>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="9k5-8y-aLN"/>
-                    <exclude reference="IQD-2G-4dT"/>
-                    <exclude reference="K13-jI-f9b"/>
-                    <exclude reference="TiV-rP-9ps"/>
-                </mask>
-            </variation>
-            <variation key="heightClass=regular-widthClass=regular">
-                <mask key="constraints">
-                    <include reference="9k5-8y-aLN"/>
-                    <include reference="IQD-2G-4dT"/>
-                    <include reference="K13-jI-f9b"/>
-                    <include reference="TiV-rP-9ps"/>
-                </mask>
-            </variation>
         </view>
     </objects>
 </document>

@@ -259,6 +259,7 @@
 		6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E838DB01BEB4FE1000BF5CD /* DesignerProductCell.xib */; };
 		6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DB41BEB5603000BF5CD /* DesignerHomePage.m */; };
 		6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E838DB71BECA39B000BF5CD /* QueryProduct.m */; };
+		6EBBA15B1C15866200057688 /* Feedback.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EBBA15A1C15866200057688 /* Feedback.m */; };
 		6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4191C05929E00883184 /* AddFavoriateDesigner.m */; };
 		6EE1E41D1C05942600883184 /* DeleteFavoriteDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E41C1C05942600883184 /* DeleteFavoriteDesigner.m */; };
 		6EE1E4201C0594CF00883184 /* ListFavoriteDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E41F1C0594CF00883184 /* ListFavoriteDesigner.m */; };
@@ -735,6 +736,8 @@
 		6E838DB41BEB5603000BF5CD /* DesignerHomePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerHomePage.m; sourceTree = "<group>"; };
 		6E838DB61BECA39B000BF5CD /* QueryProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryProduct.h; sourceTree = "<group>"; };
 		6E838DB71BECA39B000BF5CD /* QueryProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryProduct.m; sourceTree = "<group>"; };
+		6EBBA1591C15866200057688 /* Feedback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Feedback.h; sourceTree = "<group>"; };
+		6EBBA15A1C15866200057688 /* Feedback.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Feedback.m; sourceTree = "<group>"; };
 		6EC3A9961B8AF1D600A62153 /* Pods.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pods.h; sourceTree = "<group>"; };
 		6EE1E4181C05929E00883184 /* AddFavoriateDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFavoriateDesigner.h; sourceTree = "<group>"; };
 		6EE1E4191C05929E00883184 /* AddFavoriateDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavoriateDesigner.m; sourceTree = "<group>"; };
@@ -1103,6 +1106,8 @@
 				AB4CAF901C0F36D2003680BA /* AgreeReschedule.m */,
 				AB4CAF921C0F3703003680BA /* RejectReschedule.h */,
 				AB4CAF931C0F3703003680BA /* RejectReschedule.m */,
+				6EBBA1591C15866200057688 /* Feedback.h */,
+				6EBBA15A1C15866200057688 /* Feedback.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1689,7 +1694,7 @@
 				TargetAttributes = {
 					6E20B2211B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = 9N6Y5VRGG7;
+						DevelopmentTeam = 339GELC5GG;
 					};
 					6E20B23A1B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
@@ -1905,6 +1910,7 @@
 				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
 				6E4496451BFC562900C90851 /* AboutViewController.m in Sources */,
 				684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */,
+				6EBBA15B1C15866200057688 /* Feedback.m in Sources */,
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
 				6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */,
@@ -2181,7 +2187,7 @@
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2199,7 +2205,7 @@
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.jianfanjia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

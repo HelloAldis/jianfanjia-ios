@@ -92,7 +92,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    if (!self.isTabbarhide && animated) {
+    if (!self.isTabbarhide && self.navigationController.viewControllers.count > 1) {
         [self hideTabbar];
     }
 }
