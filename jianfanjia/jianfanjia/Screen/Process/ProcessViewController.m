@@ -45,6 +45,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 @property (strong, nonatomic) ProcessDataManager *processDataManager;
 
 @property (strong, nonatomic) NSIndexPath *lastSelectedIndexPath;
+@property (assign, nonatomic) BOOL isHeaderHidden;
+@property (assign, nonatomic) CGFloat preY;
 
 @end
 
@@ -138,20 +140,55 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self.view addConstraints:self.scrollViewToSuperTop64Constraint];
 }
 
+#pragma mark - scroll view delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView == self.tableView) {
+        if (self.preY > scrollView.contentOffset.y) {
+            //下滑
+            if (!self.tableView.header.isRefreshing) {
+                [self showScrollView];
+            }
+        } else if (self.preY < scrollView.contentOffset.y && scrollView.contentOffset.y > 0) {
+            //上滑
+            [self hideScrollView];
+        }
+        
+        NSInteger maxOffset = scrollView.contentSize.height - scrollView.bounds.size.height;
+        //是否有滑动超过边界
+        if (scrollView.contentOffset.y > 0 && scrollView.contentOffset.y > maxOffset) {
+            self.preY = maxOffset;
+        } else {
+            self.preY = scrollView.contentOffset.y;
+        }
+
+    }
+}
+
 #pragma mark - scroll view move 
 - (void)hideScrollView {
-    [self.view removeConstraints:self.scrollViewToSuperTop64Constraint];
-    [self.view addConstraints:self.scrollViewBottomEqualsSuperBottomConstraint];
+    if (!self.isHeaderHidden) {
+        [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [self.view removeConstraints:self.scrollViewToSuperTop64Constraint];
+            [self.view addConstraints:self.scrollViewBottomEqualsSuperBottomConstraint];
+            [self.view setNeedsLayout];
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            self.isHeaderHidden = YES;
+        }];
+    }
 }
 
 - (void)showScrollView {
-    [self.view removeConstraints:self.scrollViewBottomEqualsSuperBottomConstraint];
-    [self.view addConstraints:self.scrollViewToSuperTop64Constraint];
-}
-
-#pragma mark - util
-- (BOOL)isItemEquals:(Item *)item other:(Item *)other {
-    return [item.name isEqualToString:other.name];
+    if (self.isHeaderHidden) {
+        [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [self.view removeConstraints:self.scrollViewBottomEqualsSuperBottomConstraint];
+            [self.view addConstraints:self.scrollViewToSuperTop64Constraint];
+            [self.view setNeedsLayout];
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            self.isHeaderHidden = NO;
+        }];
+    }
 }
 
 #pragma mark - table view delegate
