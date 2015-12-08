@@ -19,28 +19,28 @@ static NSMutableDictionary *deallocDict = nil;
   deallocDict = [[NSMutableDictionary alloc] init];
   
   NSError *error = nil;
-  [UIViewController aspect_hookSelector:@selector(initWithNibName:bundle:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
-    [self handleAlloc:[[[aspectInfo instance] class] description]];
-  } error:&error];
-  DDLogDebug(@"error: %@", error);
-  
-  error = nil;
-  [UIViewController aspect_hookSelector:NSSelectorFromString(@"dealloc") withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> aspectInfo) {
-    [self handleDealloc:[[[aspectInfo instance] class] description]];
-  } error:&error];
-  DDLogDebug(@"error: %@", error);
-  
-//  error = nil;
-//  [UIView aspect_hookSelector:@selector(awakeFromNib) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
+//  [UIViewController aspect_hookSelector:@selector(initWithNibName:bundle:) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
 //    [self handleAlloc:[[[aspectInfo instance] class] description]];
-//  }  error:&error];
+//  } error:&error];
 //  DDLogDebug(@"error: %@", error);
 //  
 //  error = nil;
-//  [UIView aspect_hookSelector:NSSelectorFromString(@"dealloc") withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> aspectInfo) {
+//  [UIViewController aspect_hookSelector:NSSelectorFromString(@"dealloc") withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> aspectInfo) {
 //    [self handleDealloc:[[[aspectInfo instance] class] description]];
 //  } error:&error];
 //  DDLogDebug(@"error: %@", error);
+  
+  error = nil;
+  [UIView aspect_hookSelector:@selector(awakeFromNib) withOptions:AspectPositionAfter usingBlock:^(id<AspectInfo> aspectInfo) {
+    [self handleAlloc:[[[aspectInfo instance] class] description]];
+  }  error:&error];
+  DDLogDebug(@"error: %@", error);
+  
+  error = nil;
+  [UIView aspect_hookSelector:NSSelectorFromString(@"dealloc") withOptions:AspectPositionBefore usingBlock:^(id<AspectInfo> aspectInfo) {
+    [self handleDealloc:[[[aspectInfo instance] class] description]];
+  } error:&error];
+  DDLogDebug(@"error: %@", error);
 }
 
 + (void)handleAlloc:(NSString *)key {
