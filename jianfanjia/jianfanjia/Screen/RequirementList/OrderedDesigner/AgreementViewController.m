@@ -43,9 +43,12 @@
 - (void)initNav {
     [self initLeftBackInNav];
     
-    if ([kRequirementStatusPlanWasChoosedWithoutAgreement isEqualToString:self.requirement.status]
-        || [kRequirementStatusConfiguredAgreementWithoutWorkSite isEqualToString:self.requirement.status]) {
+    if ([kRequirementStatusConfiguredAgreementWithoutWorkSite isEqualToString:self.requirement.status]) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain target:self action:@selector(onClickConfirm:)];
+        self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    } else if ([kRequirementStatusPlanWasChoosedWithoutAgreement isEqualToString:self.requirement.status]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"等待开工" style:UIBarButtonItemStylePlain target:nil action:nil];
         self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
         self.navigationItem.rightBarButtonItem.enabled = NO;
     }

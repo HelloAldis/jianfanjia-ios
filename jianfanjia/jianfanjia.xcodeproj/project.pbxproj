@@ -241,8 +241,6 @@
 		6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7867061BA9164700DE8B1B /* ProcessViewController.xib */; };
 		6E78670C1BA920D900DE8B1B /* BannerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E78670A1BA920D900DE8B1B /* BannerCell.m */; };
 		6E78670D1BA920D900DE8B1B /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E78670B1BA920D900DE8B1B /* BannerCell.xib */; };
-		6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E78670F1BA942C700DE8B1B /* SectionCell.m */; };
-		6E7867121BA942C700DE8B1B /* SectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7867101BA942C700DE8B1B /* SectionCell.xib */; };
 		6E7867161BA944AF00DE8B1B /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7867141BA944AF00DE8B1B /* ItemCell.m */; };
 		6E7867171BA944AF00DE8B1B /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E7867151BA944AF00DE8B1B /* ItemCell.xib */; };
 		6E7867261BAA534400DE8B1B /* SectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7867251BAA534400DE8B1B /* SectionView.m */; };
@@ -711,9 +709,6 @@
 		6E7867091BA920D900DE8B1B /* BannerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BannerCell.h; path = ../Process/BannerCell.h; sourceTree = "<group>"; };
 		6E78670A1BA920D900DE8B1B /* BannerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BannerCell.m; path = ../Process/BannerCell.m; sourceTree = "<group>"; };
 		6E78670B1BA920D900DE8B1B /* BannerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = BannerCell.xib; path = ../Process/BannerCell.xib; sourceTree = "<group>"; };
-		6E78670E1BA942C700DE8B1B /* SectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionCell.h; sourceTree = "<group>"; };
-		6E78670F1BA942C700DE8B1B /* SectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionCell.m; sourceTree = "<group>"; };
-		6E7867101BA942C700DE8B1B /* SectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionCell.xib; sourceTree = "<group>"; };
 		6E7867131BA944AF00DE8B1B /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		6E7867141BA944AF00DE8B1B /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
 		6E7867151BA944AF00DE8B1B /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
@@ -1493,9 +1488,6 @@
 				683A6B521C0F01130071DF88 /* DBYSViewController.h */,
 				683A6B531C0F01130071DF88 /* DBYSViewController.m */,
 				683A6B541C0F01130071DF88 /* DBYSViewController.xib */,
-				6E78670E1BA942C700DE8B1B /* SectionCell.h */,
-				6E78670F1BA942C700DE8B1B /* SectionCell.m */,
-				6E7867101BA942C700DE8B1B /* SectionCell.xib */,
 				6E7867241BAA534400DE8B1B /* SectionView.h */,
 				6E7867251BAA534400DE8B1B /* SectionView.m */,
 				6E7867271BAA538E00DE8B1B /* SectionView.xib */,
@@ -1832,7 +1824,6 @@
 				684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */,
 				684A374F1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib in Resources */,
 				6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */,
-				6E7867121BA942C700DE8B1B /* SectionCell.xib in Resources */,
 				684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */,
 				684A37511BFD73DF00F7388C /* SelectDecorationStyleViewController.xib in Resources */,
 				6EE1E4311C05A0D800883184 /* FavoriteDesignerCell.xib in Resources */,
@@ -2074,7 +2065,6 @@
 				683B2A7B1C101CE900822715 /* ReminderDataManager.m in Sources */,
 				6855E62E1BFAB87A00E789D4 /* RequirementDataManager.m in Sources */,
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
-				6E7867111BA942C700DE8B1B /* SectionCell.m in Sources */,
 				AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */,
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
 				6EE1E41D1C05942600883184 /* DeleteFavoriteDesigner.m in Sources */,

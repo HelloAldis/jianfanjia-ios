@@ -38,7 +38,7 @@ static CGFloat imgCellWidth;
 
 @property (weak, nonatomic) ProcessDataManager *dataManager;
 @property (weak, nonatomic) Item *item;
-@property (copy, nonatomic) void(^refreshBlock)(void);
+@property (copy, nonatomic) void(^refreshBlock)(BOOL isNeedReload);
 
 @property (assign, nonatomic) NSInteger numberOfItemsInsection;
 @property (assign, nonatomic) BOOL isShaking;
@@ -57,12 +57,10 @@ static CGFloat imgCellWidth;
     [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
     [self.imgCollection addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)]];
     [self.leaveMsgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLeaveIconGesture:)]];
-    
-//    [self.imgCollection setBorder:1 andColor:[UIColor redColor].CGColor];
 }
 
 #pragma mark - UI
-- (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager withBlock:(void(^)(void))refreshBlock {
+- (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager withBlock:(void(^)(BOOL isNeedReload))refreshBlock {
     self.refreshBlock = refreshBlock;
     self.dataManager = dataManager;
     self.item = item;
@@ -130,6 +128,9 @@ static CGFloat imgCellWidth;
         [self.imgCollection deleteItemsAtIndexPaths:@[indexPath]];
     }
     [self refreshViewContentSize];
+    if (self.refreshBlock) {
+        self.refreshBlock(NO);
+    }
     
     DeleteImageFromProcess *request = [[DeleteImageFromProcess alloc] init];
     request._id = self.dataManager.process._id;
@@ -214,7 +215,7 @@ static CGFloat imgCellWidth;
         request.images = imageIds;
         [API uploadImageToProcess:request success:^{
             if (self.refreshBlock) {
-                self.refreshBlock();
+                self.refreshBlock(YES);
             }
         } failure:^{
             
@@ -226,9 +227,7 @@ static CGFloat imgCellWidth;
 }
 
 - (void)showImageDetail:(NSInteger)index{
-    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:self.item.images index:index];
-    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+    [ViewControllerContainer showOnlineImages:self.item.images index:index];
 }
 
 - (void)handleTapLeaveIconGesture:(UITapGestureRecognizer *)gesture {
@@ -237,7 +236,7 @@ static CGFloat imgCellWidth;
     [ViewControllerContainer leaveMessage:self.dataManager.process._id section:self.dataManager.selectedSection.name item:self.item.name block:^{
         @strongify(self);
         if (self.refreshBlock) {
-            self.refreshBlock();
+            self.refreshBlock(YES);
         }
     }];
 }

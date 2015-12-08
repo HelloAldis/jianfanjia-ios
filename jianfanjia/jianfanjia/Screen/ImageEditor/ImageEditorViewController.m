@@ -17,9 +17,32 @@
 @property (strong, nonatomic) OverlayView *overlayView;
 @property (strong, nonatomic) UIImage *image;
 
+@property (strong, nonatomic) PHAsset *asset;
+@property (strong, nonatomic) UIImage *sourceImage;
+@property (copy, nonatomic) FinishUploadBlock finishUploadBlock;
+
 @end
 
 @implementation ImageEditorViewController
+
+#pragma mark - init method
+- (id)initWithAsset:(PHAsset *)asset finishBlock:(FinishUploadBlock)finishUploadBlock {
+    if (self = [super init]) {
+        _asset = asset;
+        _finishUploadBlock = finishUploadBlock;
+    }
+    
+    return self;
+}
+
+- (id)initWithImage:(UIImage *)sourceImage finishBlock:(FinishUploadBlock)finishUploadBlock {
+    if (self = [super init]) {
+        _sourceImage = sourceImage;
+        _finishUploadBlock = finishUploadBlock;
+    }
+    
+    return self;
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -52,31 +75,39 @@
 
 - (void)initNav {
     [self initLeftBackInNav];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"上传" style:UIBarButtonItemStyleDone target:self action:@selector(onClickDone)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(onClickDone)];
     item.tintColor = kThemeColor;
     self.navigationItem.rightBarButtonItem = item;
 }
 
 - (void)initImageView {
-    PHImageManager *imageManager = [PHImageManager defaultManager];
-    
-    PHImageRequestOptions *options = [PHImageRequestOptions new];
-    options.networkAccessAllowed = YES;
-    options.resizeMode = PHImageRequestOptionsResizeModeFast;
-    options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
-    options.synchronous = false;
-    
-    [imageManager requestImageForAsset:self.asset targetSize:CGSizeMake(self.imageView.frame.size.width * kScreenScale, self.imageView.frame.size.height * kScreenScale)
-                           contentMode:PHImageContentModeAspectFit
-                               options:options
-                         resultHandler:^(UIImage *result, NSDictionary *info) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            DDLogDebug(@"%@", NSStringFromCGSize(result.size));
-            self.image = [result getCenterSquareImage];
-            DDLogDebug(@"%@", NSStringFromCGSize(self.image.size));
-            self.imageView.image = self.image;
-        });
-    }];
+    if (self.asset) {
+        PHImageManager *imageManager = [PHImageManager defaultManager];
+        
+        PHImageRequestOptions *options = [PHImageRequestOptions new];
+        options.networkAccessAllowed = YES;
+        options.resizeMode = PHImageRequestOptionsResizeModeFast;
+        options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
+        options.synchronous = false;
+        
+        [imageManager requestImageForAsset:self.asset targetSize:CGSizeMake(self.imageView.frame.size.width * kScreenScale, self.imageView.frame.size.height * kScreenScale)
+                               contentMode:PHImageContentModeAspectFit
+                                   options:options
+                             resultHandler:^(UIImage *result, NSDictionary *info) {
+                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                     DDLogDebug(@"%@", NSStringFromCGSize(result.size));
+                                     self.image = result;
+                                     self.image = [result getCenterSquareImage];
+                                     DDLogDebug(@"%@", NSStringFromCGSize(self.image.size));
+                                     self.imageView.image = self.image;
+                                 });
+                             }];
+
+    } else if (self.sourceImage) {
+        self.image = [self.sourceImage aspectToScale:self.imageView.frame.size.width * kScreenScale];
+        self.image = [self.image getCenterSquareImage];
+        self.imageView.image = self.image;
+    }
 }
 
 #pragma mark - scroll view delegate
@@ -85,6 +116,7 @@
 }
 
 - (void)onClickDone {
+    UIImage *newImage;
     DDLogDebug(@"--------------");
     
     DDLogDebug(@"%@", NSStringFromCGRect(self.imageView.frame));
@@ -98,7 +130,7 @@
     
     DDLogDebug(@"%@", NSStringFromCGRect(CGRectMake(fx, fy, fw, fh)));
     CGRect newImageRect = CGRectMake(self.image.size.width * fx, self.image.size.height * fy, self.image.size.width * fw, self.image.size.width * fh);
-    UIImage *newImage = [self.image getSubImage:newImageRect];
+    newImage = [self.image getSubImage:newImageRect];
     
     UploadImage *request = [[UploadImage alloc] init];
     request.image = newImage;

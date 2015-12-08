@@ -9,6 +9,8 @@
 #import "ImageBrowerViewController.h"
 #import "ThumbnailCell.h"
 #import "ImageEditorViewController.h"
+#import "ImageDetailViewController.h"
+#import "ViewControllerContainer.h"
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
@@ -18,11 +20,12 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property(strong, nonatomic) PHFetchResult<PHAsset *> *result;
-@property(assign, nonatomic) int selectCount;
 @property (strong, nonatomic) NSMutableArray *imageIds;
 @property (strong, nonatomic) MBProgressHUD *progressBar;
 @property (strong, nonatomic) PHImageManager *imageManager;
 @property (strong, nonatomic) PHImageRequestOptions *options;
+
+@property (assign, nonatomic) NSInteger selectingCount;
 
 @end
 
@@ -56,7 +59,7 @@
     
     if (self.allowsMultipleSelection) {
         @weakify(self);
-        [RACObserve(self, selectCount) subscribeNext:^(NSNumber *newValue) {
+        [RACObserve(self, selectingCount) subscribeNext:^(id x) {
             @strongify(self);
             [self initTitleAndRight];
         }];
@@ -92,8 +95,8 @@
 }
 
 - (void)initTitleAndRight {
-    self.title = [NSString stringWithFormat:@"还可以选%@张", @(self.maxCount - self.selectCount)];
-    self.navigationItem.rightBarButtonItem.enabled = self.selectCount > 0;
+    self.title = [NSString stringWithFormat:@"还可以选%ld张", self.maxCount - self.selectingCount];
+    self.navigationItem.rightBarButtonItem.enabled = self.selectingCount > 0;
 }
 
 #pragma mark - collection view delegate
@@ -104,37 +107,40 @@
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ThumbnailCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ThumbnailCell" forIndexPath:indexPath];
-    [cell initWithPHAsset:[self.result objectAtIndex:indexPath.row]];
-    return cell;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.allowsMultipleSelection && self.selectCount >= self.maxCount) {
-        return NO;
-    } else {
-        return YES;
-    }
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.allowsMultipleSelection) {
-        //Do nothing
-        self.selectCount++;
-    } else {
+    [cell initWithPHAsset:[self.result objectAtIndex:indexPath.row] hidden:!self.allowsMultipleSelection checked:^void(BOOL currentSelect){
+        if (!currentSelect && self.allowsMultipleSelection && self.selectingCount >= self.maxCount) {
+            return;
+        }
+        
+        if (currentSelect) {
+            self.selectingCount--;
+            [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+        } else {
+            self.selectingCount++;
+            [self.collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+        }
+    } detail:^{
         [self onClickDoneSingle:[self.result objectAtIndex:indexPath.row]];
-    }
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectCount--;
+    }];
+    return cell;
 }
 
 #pragma mark - Done
 - (void)onClickDoneSingle:(PHAsset *)asset {
-    ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithNibName:nil bundle:nil];
-    v.finishUploadBlock = self.finishUploadBlock;
-    v.asset = asset;
-    [self.navigationController pushViewController:v animated:YES];
+    if (self.allowsEdit) {
+        ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithAsset:asset finishBlock:self.finishUploadBlock];
+        [self.navigationController pushViewController:v animated:YES];
+    } else {
+        [self.imageManager requestImageForAsset:asset targetSize:CGSizeMake(kScreenWidth * kScreenScale, kScreenHeight * kScreenScale)
+                                    contentMode:PHImageContentModeAspectFit
+                                        options:self.options
+                                  resultHandler:^(UIImage *result, NSDictionary *info) {
+                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                          [ViewControllerContainer showOfflineImages:@[result] index:0];
+                                      });
+                                  }];
+
+    }
 }
 
 - (void)onClickDoneMutil {
@@ -149,7 +155,7 @@
         self.progressBar.labelText = @"上传中";
     }
     @weakify(self);
-    [self.imageManager requestImageForAsset:self.result[indexPath.row] targetSize:CGSizeMake(kScreenWidth, kScreenHeight)
+    [self.imageManager requestImageForAsset:self.result[indexPath.row] targetSize:CGSizeMake(kScreenWidth * kScreenScale, kScreenHeight * kScreenScale)
                            contentMode:PHImageContentModeAspectFit
                                options:self.options
                          resultHandler:^(UIImage *result, NSDictionary *info) {

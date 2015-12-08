@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -13,12 +13,12 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VKl-wk-2KD">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VKl-wk-2KD">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                         <animations/>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="izl-e8-WTs">
-                        <rect key="frame" x="50" y="50" width="25" height="25"/>
+                    <imageView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked_1" translatesAutoresizingMaskIntoConstraints="NO" id="izl-e8-WTs">
+                        <rect key="frame" x="50" y="5" width="25" height="25"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="G8q-8e-Jz7"/>
@@ -33,10 +33,10 @@
             <constraints>
                 <constraint firstItem="VKl-wk-2KD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7oA-FS-gDb"/>
                 <constraint firstItem="izl-e8-WTs" firstAttribute="trailing" secondItem="VKl-wk-2KD" secondAttribute="trailing" constant="-5" id="C0a-uG-mOv"/>
-                <constraint firstItem="izl-e8-WTs" firstAttribute="bottom" secondItem="VKl-wk-2KD" secondAttribute="bottom" constant="-5" id="D27-MI-Mtz"/>
                 <constraint firstAttribute="bottom" secondItem="VKl-wk-2KD" secondAttribute="bottom" id="Zx7-QC-Lsb"/>
                 <constraint firstItem="VKl-wk-2KD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="d01-Js-P0f"/>
                 <constraint firstAttribute="trailing" secondItem="VKl-wk-2KD" secondAttribute="trailing" id="hWT-5M-8HY"/>
+                <constraint firstItem="izl-e8-WTs" firstAttribute="top" secondItem="VKl-wk-2KD" secondAttribute="top" constant="5" id="qx3-bb-yBF"/>
             </constraints>
             <size key="customSize" width="100" height="89"/>
             <connections>
@@ -47,6 +47,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="checked" width="25" height="25"/>
+        <image name="unchecked_1" width="16" height="16"/>
     </resources>
 </document>

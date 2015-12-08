@@ -95,6 +95,7 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
     }
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.imgCount, kBannerCellHeight)];
     self.lblIndex.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
+    self.lblIndex.hidden = self.imgCount <= 1;
     self.scrollView.contentOffset = CGPointMake(self.index * kScreenWidth, 0);
     
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)];
