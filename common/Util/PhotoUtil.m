@@ -34,8 +34,23 @@
             [imagePickerController onDidFinishPickingMediaWithInfo:^(UIImagePickerController *picker, NSDictionary *info) {
                 UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
                 
-                ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithImage:originalImage allowCut:allowsEditing finishBlock:block];
-                [controller.navigationController pushViewController:v animated:YES];
+                if (allowsEditing) {
+                    ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithImage:originalImage finishBlock:block];
+                    [controller.navigationController pushViewController:v animated:YES];
+                } else {
+                    UploadImage *request = [[UploadImage alloc] init];
+                    request.image = [originalImage aspectToScale:kScreenWidth];
+                    [API uploadImage:request success:^{
+                        if (block) {
+                            block(@[[DataManager shared].lastUploadImageid]);
+                        }
+                    } failure:^{
+                        
+                    } networkError:^{
+                        
+                    }];
+                }
+                
                 [controller dismissViewControllerAnimated:YES completion:^{
                     // Save the new image (original or edited) to the Camera Roll
                     UIImageWriteToSavedPhotosAlbum(originalImage, nil, nil , nil);
@@ -54,7 +69,13 @@
             v.finishUploadBlock = block;
             v.allowsMultipleSelection = allowsMultiSection;
             v.allowsEdit = allowsEditing;
-
+            
+            if (allowsMultiSection) {
+                v.allowsMultipleSelection = YES;
+            } else {
+                v.allowsMultipleSelection = NO;
+            }
+            
             [controller.navigationController pushViewController:v animated:YES];
         }
     }];

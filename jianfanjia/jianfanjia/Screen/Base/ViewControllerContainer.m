@@ -34,6 +34,7 @@
 #import "ReminderViewController.h"
 #import "DBYSViewController.h"
 #import "RequirementCreateViewController.h"
+#import "ImageDetailViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -283,6 +284,18 @@ static ViewControllerContainer *container;
 + (void)showRefresh {
     RefreshViewController *refresh = [[RefreshViewController alloc] initWithNibName:nil bundle:nil];
     container.window.rootViewController = refresh;
+}
+
++ (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index {
+    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOffline:offlineImages index:index];
+    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+}
+
++ (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index {
+    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:onlineImages index:index];
+    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
 }
 
 + (void)refreshSuccess {

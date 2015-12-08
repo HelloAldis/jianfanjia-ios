@@ -19,7 +19,6 @@
 
 @property (strong, nonatomic) PHAsset *asset;
 @property (strong, nonatomic) UIImage *sourceImage;
-@property (assign, nonatomic) BOOL allowCut;
 @property (copy, nonatomic) FinishUploadBlock finishUploadBlock;
 
 @end
@@ -27,20 +26,18 @@
 @implementation ImageEditorViewController
 
 #pragma mark - init method
-- (id)initWithAsset:(PHAsset *)asset allowCut:(BOOL)allowCut finishBlock:(FinishUploadBlock)finishUploadBlock {
+- (id)initWithAsset:(PHAsset *)asset finishBlock:(FinishUploadBlock)finishUploadBlock {
     if (self = [super init]) {
         _asset = asset;
-        _allowCut = allowCut;
         _finishUploadBlock = finishUploadBlock;
     }
     
     return self;
 }
 
-- (id)initWithImage:(UIImage *)sourceImage allowCut:(BOOL)allowCut finishBlock:(FinishUploadBlock)finishUploadBlock {
+- (id)initWithImage:(UIImage *)sourceImage finishBlock:(FinishUploadBlock)finishUploadBlock {
     if (self = [super init]) {
         _sourceImage = sourceImage;
-        _allowCut = allowCut;
         _finishUploadBlock = finishUploadBlock;
     }
     
@@ -63,10 +60,7 @@
     [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
     [self.scrollView addSubview:self.imageView];
     [self initImageView];
-    
-    if (self.allowCut) {
-        [self initOverlayView];
-    }
+    [self initOverlayView];
 }
 
 #pragma mark - UI
@@ -81,11 +75,9 @@
 
 - (void)initNav {
     [self initLeftBackInNav];
-    if (self.allowCut) {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"上传" style:UIBarButtonItemStyleDone target:self action:@selector(onClickDone)];
-        item.tintColor = kThemeColor;
-        self.navigationItem.rightBarButtonItem = item;
-    }
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(onClickDone)];
+    item.tintColor = kThemeColor;
+    self.navigationItem.rightBarButtonItem = item;
 }
 
 - (void)initImageView {

@@ -9,6 +9,8 @@
 #import "ImageBrowerViewController.h"
 #import "ThumbnailCell.h"
 #import "ImageEditorViewController.h"
+#import "ImageDetailViewController.h"
+#import "ViewControllerContainer.h"
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
@@ -22,6 +24,8 @@
 @property (strong, nonatomic) MBProgressHUD *progressBar;
 @property (strong, nonatomic) PHImageManager *imageManager;
 @property (strong, nonatomic) PHImageRequestOptions *options;
+
+@property (assign, nonatomic) NSInteger selectingCount;
 
 @end
 
@@ -51,6 +55,12 @@
     self.options.resizeMode = PHImageRequestOptionsResizeModeFast;
     self.options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
     self.options.synchronous = false;
+    
+    if (self.allowsMultipleSelection) {
+        [RACObserve(self, selectingCount) subscribeNext:^(id x) {
+            [self initTitleAndRight];
+        }];
+    }
     
     @weakify(self);
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
@@ -82,8 +92,8 @@
 }
 
 - (void)initTitleAndRight {
-    self.title = [NSString stringWithFormat:@"还可以选%ld张", self.maxCount - self.collectionView.indexPathsForSelectedItems.count];
-    self.navigationItem.rightBarButtonItem.enabled = self.collectionView.indexPathsForSelectedItems.count > 0;
+    self.title = [NSString stringWithFormat:@"还可以选%ld张", self.maxCount - self.selectingCount];
+    self.navigationItem.rightBarButtonItem.enabled = self.selectingCount > 0;
 }
 
 #pragma mark - collection view delegate
@@ -94,28 +104,40 @@
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ThumbnailCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ThumbnailCell" forIndexPath:indexPath];
-    [cell initWithPHAsset:[self.result objectAtIndex:indexPath.row] detailBlock:^{
+    [cell initWithPHAsset:[self.result objectAtIndex:indexPath.row] hidden:!self.allowsMultipleSelection checked:^void(BOOL currentSelect){
+        if (!currentSelect && self.allowsMultipleSelection && self.selectingCount >= self.maxCount) {
+            return;
+        }
+        
+        if (currentSelect) {
+            self.selectingCount--;
+            [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+        } else {
+            self.selectingCount++;
+            [self.collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+        }
+    } detail:^{
         [self onClickDoneSingle:[self.result objectAtIndex:indexPath.row]];
     }];
     return cell;
 }
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.allowsMultipleSelection) {
-        [self initTitleAndRight];
-    }
-    
-    if (self.allowsMultipleSelection && self.collectionView.indexPathsForSelectedItems.count >= self.maxCount) {
-        return NO;
-    } else {
-        return YES;
-    }
-}
-
 #pragma mark - Done
 - (void)onClickDoneSingle:(PHAsset *)asset {
-    ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithAsset:asset allowCut:self.allowsEdit finishBlock:self.finishUploadBlock];
-    [self.navigationController pushViewController:v animated:YES];
+    if (self.allowsEdit) {
+        ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithAsset:asset finishBlock:self.finishUploadBlock];
+        [self.navigationController pushViewController:v animated:YES];
+    } else {
+        [self.imageManager requestImageForAsset:asset targetSize:CGSizeMake(kScreenWidth * kScreenScale, kScreenHeight * kScreenScale)
+                                    contentMode:PHImageContentModeAspectFit
+                                        options:self.options
+                                  resultHandler:^(UIImage *result, NSDictionary *info) {
+                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                          [ViewControllerContainer showOfflineImages:@[result] index:0];
+                                      });
+                                  }];
+
+    }
 }
 
 - (void)onClickDoneMutil {

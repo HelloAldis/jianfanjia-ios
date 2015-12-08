@@ -227,9 +227,7 @@ static CGFloat imgCellWidth;
 }
 
 - (void)showImageDetail:(NSInteger)index{
-    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:self.item.images index:index];
-    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+    [ViewControllerContainer showOnlineImages:self.item.images index:index];
 }
 
 - (void)handleTapLeaveIconGesture:(UITapGestureRecognizer *)gesture {

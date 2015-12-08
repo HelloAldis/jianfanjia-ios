@@ -184,10 +184,8 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     for (NSInteger i = 0; i < imageCount; i++) {
         [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", self.section.name, @(i)]]];
     }
-    
-    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOffline:images index:index];
-    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+
+    [ViewControllerContainer showOfflineImages:images index:index];
 }
 
 - (void)showScenceImageDetail:(NSInteger)index {
@@ -195,9 +193,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         return obj.imageid;
     }];
     
-    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:images index:index];
-    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+    [ViewControllerContainer showOnlineImages:images index:index];
 }
 
 @end

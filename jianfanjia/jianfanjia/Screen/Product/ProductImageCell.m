@@ -51,9 +51,7 @@
         return [dict objectForKey:@"imageid"];
     }];
     
-    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:imageArray index:self.index];
-    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+    [ViewControllerContainer showOnlineImages:imageArray index:self.index];
 }
 
 @end

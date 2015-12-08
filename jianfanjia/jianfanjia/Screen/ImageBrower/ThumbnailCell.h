@@ -11,6 +11,6 @@
 
 @interface ThumbnailCell : UICollectionViewCell
 
-- (void)initWithPHAsset:(PHAsset *)asset detailBlock:(void(^)(void))DetailBlock;
+- (void)initWithPHAsset:(PHAsset *)asset hidden:(BOOL)hideCheckmark checked:(void(^)(BOOL currentSelect))CheckBlock detail:(void(^)(void))DetailBlock;
 
 @end
