@@ -148,7 +148,10 @@
         self.isShowProductList = YES;
         [self.section.btnProduct setTitleColor:[UIColor colorWithR:52 g:74 b:93] forState:UIControlStateNormal];
         [self.section.btnDetail setTitleColor:[UIColor colorWithR:170 g:177 b:182] forState:UIControlStateNormal];
+        
+        @weakify(self);
         self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            @strongify(self);
             [self loadMoreProduct];
         }];
         

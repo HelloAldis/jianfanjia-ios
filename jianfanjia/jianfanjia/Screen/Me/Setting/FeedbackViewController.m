@@ -25,7 +25,9 @@
     [self initNav];
     
     
+    @weakify(self);
     [RACObserve(self.btnDone, enabled) subscribeNext:^(NSNumber *newValue) {
+        @strongify(self);
         if (newValue.boolValue) {
             [self.btnDone setEnableAlpha];
         } else {
@@ -63,6 +65,10 @@
     } networkError:^{
         
     }];
+}
+
+- (void)dealloc {
+    DDLogDebug(@"dealloc");
 }
 
 @end

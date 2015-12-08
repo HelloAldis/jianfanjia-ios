@@ -112,7 +112,9 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCheckCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCheckCellIdentifier];
     
     if (self.workSiteMode == WorkSiteModeReal) {
+        @weakify(self);
         self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            @strongify(self);
             [self refreshProcess];
         }];
     }

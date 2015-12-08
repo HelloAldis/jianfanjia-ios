@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.btnSignup setCornerRadius:5];
-    [self.btnSignup setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
+    [self.btnSignup setBorder:1 andColor:[kThemeColor CGColor]];
     [self.btnLogin setCornerRadius:5];
     
     self.w1 = [W1View w1View];
@@ -44,8 +44,8 @@
     [self.scrollView addSubview:self.w3];
     [self.scrollView addSubview:self.w4];
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth *4, kScreenHeight)];
-    
-    [GVUserDefaults standardUserDefaults].welcomeVersion  = kWelconeVersion;
+
+     [GVUserDefaults standardUserDefaults].welcomeVersion  = kWelconeVersion;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

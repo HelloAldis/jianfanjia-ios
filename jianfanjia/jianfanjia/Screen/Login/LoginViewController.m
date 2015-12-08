@@ -39,7 +39,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    @weakify(self);
     [RACObserve(self.btnLogin, enabled) subscribeNext:^(NSNumber *newValue) {
+        @strongify(self);
         if (newValue.boolValue) {
             [self.btnLogin setEnableAlpha];
         } else {
@@ -48,6 +50,7 @@
     }];
     
     [RACObserve(self.btnNext, enabled) subscribeNext:^(NSNumber *newValue) {
+        @strongify(self);
         if (newValue.boolValue) {
             [self.btnNext setEnableAlpha];
         } else {
@@ -185,47 +188,47 @@
 
 
 
-- (void)keyboardWillShow:(NSNotification *)notification {
-    if (!self.isUp) {
-        NSDictionary *userInfo = [notification userInfo];
-        
-        // get keyboard rect in windwo coordinate
-    DDLogDebug(@"%@", [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey]);
-        
-        // get keybord anmation duration
-        NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        
-        [UIView animateWithDuration:animationDuration
-                              delay:0 usingSpringWithDamping:1.0
-              initialSpringVelocity:1.0
-                            options:UIViewAnimationOptionCurveLinear animations:^{
-                                [self.view layoutIfNeeded];
-                            } completion:nil];
-        
-        self.isUp = YES;
-    }
-
-}
-
-- (void) keyboardWillHide:(NSNotification *)notification {
-    if (self.isUp) {
-        NSDictionary *userInfo = [notification userInfo];
-        
-        // get keyboard rect in windwo coordinate
-        
-        // get keybord anmation duration
-        NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-        
-        [UIView animateWithDuration:animationDuration
-                              delay:0 usingSpringWithDamping:1.0
-              initialSpringVelocity:1.0
-                            options:UIViewAnimationOptionCurveLinear animations:^{
-                                [self.view layoutIfNeeded];
-                            } completion:nil];
-
-        self.isUp = NO;
-    }
-}
+//- (void)keyboardWillShow:(NSNotification *)notification {
+//    if (!self.isUp) {
+//        NSDictionary *userInfo = [notification userInfo];
+//        
+//        // get keyboard rect in windwo coordinate
+//    DDLogDebug(@"%@", [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey]);
+//        
+//        // get keybord anmation duration
+//        NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+//        
+//        [UIView animateWithDuration:animationDuration
+//                              delay:0 usingSpringWithDamping:1.0
+//              initialSpringVelocity:1.0
+//                            options:UIViewAnimationOptionCurveLinear animations:^{
+//                                [self.view layoutIfNeeded];
+//                            } completion:nil];
+//        
+//        self.isUp = YES;
+//    }
+//
+//}
+//
+//- (void) keyboardWillHide:(NSNotification *)notification {
+//    if (self.isUp) {
+//        NSDictionary *userInfo = [notification userInfo];
+//        
+//        // get keyboard rect in windwo coordinate
+//        
+//        // get keybord anmation duration
+//        NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+//        
+//        [UIView animateWithDuration:animationDuration
+//                              delay:0 usingSpringWithDamping:1.0
+//              initialSpringVelocity:1.0
+//                            options:UIViewAnimationOptionCurveLinear animations:^{
+//                                [self.view layoutIfNeeded];
+//                            } completion:nil];
+//
+//        self.isUp = NO;
+//    }
+//}
 
 - (IBAction)onClickForgetPass:(id)sender {
     [ViewControllerContainer showResetPass];
