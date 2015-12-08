@@ -18,7 +18,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property(strong, nonatomic) PHFetchResult<PHAsset *> *result;
-@property(assign, nonatomic) int selectCount;
 @property (strong, nonatomic) NSMutableArray *imageIds;
 @property (strong, nonatomic) MBProgressHUD *progressBar;
 @property (strong, nonatomic) PHImageManager *imageManager;
@@ -53,12 +52,6 @@
     self.options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
     self.options.synchronous = false;
     
-    if (self.allowsMultipleSelection) {
-        [RACObserve(self, selectCount) subscribeNext:^(NSNumber *newValue) {
-            [self initTitleAndRight];
-        }];
-    }
-    
     @weakify(self);
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
         @strongify(self);
@@ -89,8 +82,8 @@
 }
 
 - (void)initTitleAndRight {
-    self.title = [NSString stringWithFormat:@"还可以选%ld张", self.maxCount - self.selectCount];
-    self.navigationItem.rightBarButtonItem.enabled = self.selectCount > 0;
+    self.title = [NSString stringWithFormat:@"还可以选%ld张", self.maxCount - self.collectionView.indexPathsForSelectedItems.count];
+    self.navigationItem.rightBarButtonItem.enabled = self.collectionView.indexPathsForSelectedItems.count > 0;
 }
 
 #pragma mark - collection view delegate
@@ -101,36 +94,27 @@
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ThumbnailCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ThumbnailCell" forIndexPath:indexPath];
-    [cell initWithPHAsset:[self.result objectAtIndex:indexPath.row]];
+    [cell initWithPHAsset:[self.result objectAtIndex:indexPath.row] detailBlock:^{
+        [self onClickDoneSingle:[self.result objectAtIndex:indexPath.row]];
+    }];
     return cell;
 }
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.allowsMultipleSelection && self.selectCount >= self.maxCount) {
+    if (self.allowsMultipleSelection) {
+        [self initTitleAndRight];
+    }
+    
+    if (self.allowsMultipleSelection && self.collectionView.indexPathsForSelectedItems.count >= self.maxCount) {
         return NO;
     } else {
         return YES;
     }
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.allowsMultipleSelection) {
-        //Do nothing
-        self.selectCount++;
-    } else {
-        [self onClickDoneSingle:[self.result objectAtIndex:indexPath.row]];
-    }
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectCount--;
-}
-
 #pragma mark - Done
 - (void)onClickDoneSingle:(PHAsset *)asset {
-    ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithNibName:nil bundle:nil];
-    v.finishUploadBlock = self.finishUploadBlock;
-    v.asset = asset;
+    ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithAsset:asset allowCut:self.allowsEdit finishBlock:self.finishUploadBlock];
     [self.navigationController pushViewController:v animated:YES];
 }
 
@@ -146,7 +130,7 @@
         self.progressBar.labelText = @"上传中";
     }
     @weakify(self);
-    [self.imageManager requestImageForAsset:self.result[indexPath.row] targetSize:CGSizeMake(kScreenWidth, kScreenHeight)
+    [self.imageManager requestImageForAsset:self.result[indexPath.row] targetSize:CGSizeMake(kScreenWidth * kScreenScale, kScreenHeight * kScreenScale)
                            contentMode:PHImageContentModeAspectFit
                                options:self.options
                          resultHandler:^(UIImage *result, NSDictionary *info) {

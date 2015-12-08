@@ -11,6 +11,6 @@
 
 @interface ThumbnailCell : UICollectionViewCell
 
-- (void)initWithPHAsset:(PHAsset *)asset;
+- (void)initWithPHAsset:(PHAsset *)asset detailBlock:(void(^)(void))DetailBlock;
 
 @end

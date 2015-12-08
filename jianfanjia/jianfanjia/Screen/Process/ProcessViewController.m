@@ -180,9 +180,14 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         } else {
             ItemExpandImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCellIdentifier forIndexPath:indexPath];
             @weakify(self);
-            [cell initWithItem:item withDataManager:self.processDataManager withBlock:^{
+            [cell initWithItem:item withDataManager:self.processDataManager withBlock:^(BOOL isNeedReload) {
                 @strongify(self);
-                [self refreshForIndexPath:indexPath isExpand:YES];
+                if (isNeedReload) {
+                    [self refreshForIndexPath:indexPath isExpand:YES];
+                } else {
+                    [self.tableView beginUpdates];
+                    [self.tableView endUpdates];
+                }
             }];
             [self configureCellProperties:cell];
             return cell;

@@ -71,6 +71,20 @@
     }
 }
 
+- (UIImage *)aspectToScale:(CGFloat)scaleWidth {
+    CGFloat oldWidth = self.size.width;
+    CGFloat scaleFactor = scaleWidth / oldWidth;
+    
+    CGFloat newWidth = oldWidth * scaleFactor;
+    CGFloat newHeight = self.size.height * scaleFactor;
+    
+    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
+    [self drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 - (UIImage *)fixOrientation {
     
     // No-op if the orientation is already correct

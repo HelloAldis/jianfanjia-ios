@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *checkImageView;
 
+@property (copy, nonatomic) void (^DetailBlock)();
 @end
 
 @implementation ThumbnailCell
@@ -20,15 +21,18 @@
 - (void)awakeFromNib {
     [RACObserve(self, selected) subscribeNext:^(NSNumber *newValue) {
         if (newValue.boolValue) {
-            self.checkImageView.hidden = NO;
+            self.checkImageView.image = [UIImage imageNamed:@"checked"];
         } else {
-            self.checkImageView.hidden = YES;
+            self.checkImageView.image = [UIImage imageNamed:@"unchecked_1"];;
         }
     }];
+    
+    [self.checkImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapCheckImage:)]];
+    [self.imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapThumbnailImage:)]];
 }
 
-
-- (void)initWithPHAsset:(PHAsset *)asset {
+- (void)initWithPHAsset:(PHAsset *)asset detailBlock:(void(^)(void))DetailBlock {
+    self.DetailBlock = DetailBlock;
     PHImageManager *imageManager = [PHImageManager defaultManager];
     
     PHImageRequestOptions *options = [PHImageRequestOptions new];
@@ -46,5 +50,17 @@
         });
     }];
 }
+
+#pragma mark - gesture
+- (void)handleTapCheckImage:(UIGestureRecognizer *)gesture {
+    self.selected = !self.selected;
+}
+
+- (void)handleTapThumbnailImage:(UIGestureRecognizer *)gesture {
+    if (self.DetailBlock) {
+        self.DetailBlock();
+    }
+}
+
 
 @end

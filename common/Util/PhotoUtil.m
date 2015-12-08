@@ -8,6 +8,7 @@
 
 #import "PhotoUtil.h"
 #import "ViewControllerContainer.h"
+#import "ImageEditorViewController.h"
 
 @implementation PhotoUtil
 
@@ -29,49 +30,16 @@
         if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == YES)) {
             UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
             imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-            //    imagePickerController.view.frame = CGRectMake(0, 0, 320, 320);
-            
-            // Hides the controls for moving & scaling pictures, or for
-            // trimming movies. To instead show the controls, use YES.
-            if (allowsEditing) {
-                imagePickerController.allowsEditing = YES;
-            }
-
-            //    imagePickerController.delegate = cameraControlView;
-            //    CGAffineTransform translate = CGAffineTransformMakeTranslation(0.0, 64);
-            //    imagePickerController.cameraViewTransform = translate;
-            //    imagePickerController.showsCameraControls = NO;
-            //    imagePickerController.cameraOverlayView = cameraControlView;
             [imagePickerController useBlocksForDelegate];
             [imagePickerController onDidFinishPickingMediaWithInfo:^(UIImagePickerController *picker, NSDictionary *info) {
-                UIImage *editedImage = (UIImage *) [info objectForKey:
-                                           UIImagePickerControllerEditedImage];
-                UIImage *originalImage = (UIImage *) [info objectForKey:
-                                             UIImagePickerControllerOriginalImage];
-                UIImage *imageToSave;
+                UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
                 
-                if (editedImage) {
-                    imageToSave = editedImage;
-                } else {
-                    imageToSave = originalImage;
-                }
-                
-                // Save the new image (original or edited) to the Camera Roll
-                UIImageWriteToSavedPhotosAlbum (imageToSave, nil, nil , nil);
-                
-                UploadImage *request = [[UploadImage alloc] init];
-                request.image = imageToSave;
-                [API uploadImage:request success:^{
-                    if (block) {
-                        block(@[[DataManager shared].lastUploadImageid]);
-                    }
-                } failure:^{
-                    
-                } networkError:^{
-                    
+                ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithImage:originalImage allowCut:allowsEditing finishBlock:block];
+                [controller.navigationController pushViewController:v animated:YES];
+                [controller dismissViewControllerAnimated:YES completion:^{
+                    // Save the new image (original or edited) to the Camera Roll
+                    UIImageWriteToSavedPhotosAlbum(originalImage, nil, nil , nil);
                 }];
-                
-                [controller dismissViewControllerAnimated:YES completion:nil];
             }];
             
             [controller presentViewController:imagePickerController animated:YES completion:NULL];
@@ -84,13 +52,9 @@
             v.cellSpace = 1;
             v.maxCount = maxCount;
             v.finishUploadBlock = block;
-            
-            if (allowsMultiSection) {
-                v.allowsMultipleSelection = YES;
-            } else {
-                v.allowsMultipleSelection = NO;
-            }
-            
+            v.allowsMultipleSelection = allowsMultiSection;
+            v.allowsEdit = allowsEditing;
+
             [controller.navigationController pushViewController:v animated:YES];
         }
     }];

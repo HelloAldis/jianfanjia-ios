@@ -11,7 +11,7 @@
 
 @interface ImageEditorViewController : BaseViewController
 
-@property (strong, nonatomic) PHAsset *asset;
-@property (copy, nonatomic) FinishUploadBlock finishUploadBlock;
+- (id)initWithAsset:(PHAsset *)asset allowCut:(BOOL)allowCut finishBlock:(FinishUploadBlock)finishUploadBlock;
+- (id)initWithImage:(UIImage *)sourceImage allowCut:(BOOL)allowCut finishBlock:(FinishUploadBlock)finishUploadBlock;
 
 @end
