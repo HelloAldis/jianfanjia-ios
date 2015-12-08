@@ -478,6 +478,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         
         [API sendAddRequirement:sendAddRequirement success:^{
             [self clickBack];
+            [DataManager shared].homePageNeedRefresh = YES;
         } failure:^{
             
         } networkError:^{

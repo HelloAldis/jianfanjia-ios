@@ -56,8 +56,11 @@
     self.options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
     self.options.synchronous = false;
     
+    
     if (self.allowsMultipleSelection) {
+        @weakify(self);
         [RACObserve(self, selectingCount) subscribeNext:^(id x) {
+            @strongify(self);
             [self initTitleAndRight];
         }];
     }

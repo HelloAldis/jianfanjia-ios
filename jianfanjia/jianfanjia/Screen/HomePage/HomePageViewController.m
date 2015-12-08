@@ -30,11 +30,14 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"HomePageRecDesignersCell" bundle:nil] forCellReuseIdentifier:@"HomePageRecDesignersCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"HomePageDesignerCell" bundle:nil] forCellReuseIdentifier:@"HomePageDesignerCell"];
     
+    @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
         [self refresh];
     }];
     
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        @strongify(self);
         [self loadMore];
     }];
     
@@ -176,7 +179,9 @@
     request.from = @0;
     request.limit = @10;
     
+    @weakify(self);
     [API homePageDesigners:request success:^{
+        @strongify(self);
         [DataManager shared].homePageNeedRefresh = NO;
         [self.tableView.header endRefreshing];
         [self.tableView reloadData];
@@ -192,8 +197,10 @@
     request.from = @([DataManager shared].homePageDesigners.count);
     request.limit = @10;
     
+    @weakify(self);
     [API homePageDesigners:request success:^{
-         [self.tableView.footer endRefreshing];
+        @strongify(self);
+        [self.tableView.footer endRefreshing];
         [self.tableView reloadData];
 //        NSInteger from = [self hasRequirement] && ![self hasRequirementDesigners] ? request.from.integerValue + 1 : request.from.integerValue + 2;
 //        NSInteger to = from + request.limit.integerValue;

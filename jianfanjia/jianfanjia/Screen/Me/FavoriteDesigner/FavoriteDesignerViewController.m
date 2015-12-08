@@ -25,7 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"FavoriteDesignerCell" bundle:nil] forCellReuseIdentifier:@"FavoriteDesignerCell"];
+    
+    @weakify(self);
     self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        @strongify(self);
         [self loadMoreDesigner];
     }];
     self.favoriateDesignerPageData = [[FavoriteDesignerData alloc] init];

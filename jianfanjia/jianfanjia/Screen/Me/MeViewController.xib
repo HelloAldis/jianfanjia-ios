@@ -38,7 +38,7 @@
                                         <outletCollection property="gestureRecognizers" destination="FZ5-Bz-HJu" appends="YES" id="EWk-hK-jiv"/>
                                     </connections>
                                 </imageView>
-                                <visualEffectView opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXj-5l-Vv7">
+                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nXj-5l-Vv7">
                                     <rect key="frame" x="0.0" y="214" width="600" height="60"/>
                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="sRa-uD-vMy">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -90,6 +90,10 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="lsn-Jn-7gJ">
                                     <rect key="frame" x="563" y="289" width="7" height="13"/>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="13" id="4Zq-1B-3JW"/>
+                                        <constraint firstAttribute="width" constant="7" id="894-ao-cLh"/>
+                                    </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="itK-t4-gGr">
                                     <rect key="frame" x="0.0" y="318" width="600" height="1"/>
@@ -163,6 +167,7 @@
                                 <constraint firstItem="itK-t4-gGr" firstAttribute="top" secondItem="FzH-qr-hRG" secondAttribute="bottom" id="Oek-DD-BHm"/>
                                 <constraint firstItem="dgH-KV-wJY" firstAttribute="leading" secondItem="PTZ-eg-d8P" secondAttribute="leading" constant="40" id="SRv-cm-JR1"/>
                                 <constraint firstItem="P4H-M2-NiH" firstAttribute="leading" secondItem="FzH-qr-hRG" secondAttribute="leading" id="U80-TL-vNE"/>
+                                <constraint firstItem="ONG-aJ-7xX" firstAttribute="height" secondItem="lsn-Jn-7gJ" secondAttribute="height" id="ULm-NC-9wr"/>
                                 <constraint firstItem="uaV-TI-THJ" firstAttribute="centerX" secondItem="Fq0-hI-rOM" secondAttribute="centerX" id="cSM-wE-S1B"/>
                                 <constraint firstItem="itK-t4-gGr" firstAttribute="centerX" secondItem="Fq0-hI-rOM" secondAttribute="centerX" id="cfX-W4-pi7"/>
                                 <constraint firstItem="nXj-5l-Vv7" firstAttribute="leading" secondItem="PTZ-eg-d8P" secondAttribute="leading" id="d7z-tE-9rX"/>
@@ -170,6 +175,7 @@
                                 <constraint firstAttribute="trailing" secondItem="lsn-Jn-7gJ" secondAttribute="trailing" constant="30" id="gLF-dn-IhG"/>
                                 <constraint firstItem="PTZ-eg-d8P" firstAttribute="width" secondItem="Fq0-hI-rOM" secondAttribute="width" id="gjE-AK-C1a"/>
                                 <constraint firstItem="ONG-aJ-7xX" firstAttribute="centerY" secondItem="P4H-M2-NiH" secondAttribute="centerY" id="gwR-7E-UB4"/>
+                                <constraint firstItem="ONG-aJ-7xX" firstAttribute="width" secondItem="lsn-Jn-7gJ" secondAttribute="width" id="h2n-4W-VgK"/>
                                 <constraint firstAttribute="trailing" secondItem="FzH-qr-hRG" secondAttribute="trailing" constant="20" id="h8W-RF-dE0"/>
                                 <constraint firstItem="uaV-TI-THJ" firstAttribute="top" secondItem="Fq0-hI-rOM" secondAttribute="top" constant="274" id="hFJ-7G-daw"/>
                                 <constraint firstItem="itK-t4-gGr" firstAttribute="width" secondItem="Fq0-hI-rOM" secondAttribute="width" id="nRA-cc-KHo"/>

@@ -36,7 +36,9 @@
         return kPasswordLength;
     }];
     
+    @weakify(self);
     [RACObserve(self.btnNext, enabled) subscribeNext:^(NSNumber *newValue) {
+        @strongify(self);
         if (newValue.boolValue) {
             [self.btnNext setEnableAlpha];
         } else {

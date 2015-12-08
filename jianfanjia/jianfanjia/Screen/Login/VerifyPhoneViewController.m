@@ -24,7 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    @weakify(self)
     [RACObserve(self.btnSignup, enabled) subscribeNext:^(NSNumber *newValue) {
+        @strongify(self);
         if (newValue.boolValue) {
             [self.btnSignup setEnableAlpha];
         } else {

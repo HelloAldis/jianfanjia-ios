@@ -21,7 +21,9 @@
 @implementation ThumbnailCell
 
 - (void)awakeFromNib {
+    @weakify(self);
     [RACObserve(self, selected) subscribeNext:^(NSNumber *newValue) {
+        @strongify(self);
         if (newValue.boolValue) {
             self.checkImageView.image = [UIImage imageNamed:@"checked"];
         } else {

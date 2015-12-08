@@ -45,7 +45,6 @@
     [[self.btnDBYS rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [ViewControllerContainer showDBYS:self.dataManager.selectedSection process:self.dataManager.process._id refresh:^{
-            @strongify(self);
             if (self.refreshBlock) {
                 self.refreshBlock();
             }
@@ -75,7 +74,6 @@
                 request.updated_date = @([obj.date timeIntervalSince1970] * 1000);
                 
                 [API reschedule:request success:^{
-                    @strongify(self);
                     if (self.refreshBlock) {
                         self.refreshBlock();
                     }
@@ -87,12 +85,13 @@
         }];
     
     [[self.btnUnresolvedChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
         [MessageAlertViewController presentAlert:@"改期提醒" msg:@"对方申请改期至" second:[NSDate yyyy_MM_dd:self.dataManager.selectedSection.schedule.updated_date] reject:^{
+            
             RejectReschedule *request = [[RejectReschedule alloc] init];
             request.processid = self.dataManager.process._id;
 
             [API rejectReschedule:request success:^{
-                @strongify(self);
                 if (self.refreshBlock) {
                     self.refreshBlock();
                 }
@@ -107,7 +106,6 @@
             request.processid = self.dataManager.process._id;
 
             [API agreeReschedule:request success:^{
-                @strongify(self);
                 if (self.refreshBlock) {
                     self.refreshBlock();
                 }
