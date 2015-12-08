@@ -45,7 +45,7 @@
     [self.userImageView setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
     self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
     self.lblSex.text = [NameDict nameForSexType:[GVUserDefaults standardUserDefaults].sex];
-    self.lblPhone.text = [GVUserDefaults standardUserDefaults].x;
+    self.lblPhone.text = [GVUserDefaults standardUserDefaults].phone;
     
     NSArray *arr = @[[StringUtil convertNil2Empty:[GVUserDefaults standardUserDefaults].province],
                       [StringUtil convertNil2Empty:[GVUserDefaults standardUserDefaults].city],

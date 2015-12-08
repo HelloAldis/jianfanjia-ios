@@ -15,8 +15,7 @@
 @dynamic userid;
 @dynamic isLogin;
 @dynamic processid;
-@dynamic x;
-@dynamic xx;
+@dynamic phone;
 @dynamic loginDate;
 @dynamic username;
 @dynamic imageid;

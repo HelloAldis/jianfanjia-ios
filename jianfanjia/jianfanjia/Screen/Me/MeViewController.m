@@ -60,7 +60,7 @@
 
 - (void)initUIData {
     self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
-    self.lblPhone.text = [NSString stringWithFormat:@"帐号：%@", [GVUserDefaults standardUserDefaults].x];
+    self.lblPhone.text = [NSString stringWithFormat:@"帐号：%@", [GVUserDefaults standardUserDefaults].phone];
     [self.userImageView setImageWithId:[GVUserDefaults standardUserDefaults].imageid placeholderImage:[UIImage imageNamed:@"image_place_holder_3"]];
 }
 
