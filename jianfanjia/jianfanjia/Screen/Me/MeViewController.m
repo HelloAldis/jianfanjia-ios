@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnNotification;
 @property (weak, nonatomic) IBOutlet UIButton *btnFavoriateDesigner;
 @property (weak, nonatomic) IBOutlet UIButton *btnSetting;
+@property (weak, nonatomic) IBOutlet UIImageView *userThumnail;
 
 @property (assign, nonatomic) BOOL isTabbarhide;
 
@@ -30,6 +31,8 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.userThumnail setCornerRadius:50];
+    [self.userThumnail setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -62,6 +65,7 @@
     self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
     self.lblPhone.text = [NSString stringWithFormat:@"帐号：%@", [GVUserDefaults standardUserDefaults].phone];
     [self.userImageView setImageWithId:[GVUserDefaults standardUserDefaults].imageid placeholderImage:[UIImage imageNamed:@"image_place_holder_3"]];
+    [self.userThumnail setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
 }
 
 #pragma mark - user action

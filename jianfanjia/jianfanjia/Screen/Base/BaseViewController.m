@@ -18,6 +18,11 @@
     }
 }
 
+- (void)didReceiveMemoryWarning {
+    DDLogError(@"didReceiveMemoryWarning");
+    [[SDImageCache sharedImageCache] clearMemory];
+}
+
 #pragma mark - UI
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;
