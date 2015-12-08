@@ -21,5 +21,6 @@
 #import "GVUserDefaults.h"
 #import "ReactiveCocoa.h"
 #import "MobClick.h"
+#import "SSKeychain.h"
 
 #endif

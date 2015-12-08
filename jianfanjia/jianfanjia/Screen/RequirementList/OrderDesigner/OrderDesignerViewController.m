@@ -49,7 +49,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 }
 
 - (id)initWithRequirement:(Requirement *)requirement withToBeReplacedDesigner:(NSString *)designerid {
-    if ([self initWithRequirement:requirement withOrderType:ReplaceOrder]) {
+    if (self = [self initWithRequirement:requirement withOrderType:ReplaceOrder]) {
         _toBeReplacedDesignerId = designerid;
     }
     

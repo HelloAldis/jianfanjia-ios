@@ -112,6 +112,7 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     if (self.showSignup) {
         [self swipeLeft:nil];
     }

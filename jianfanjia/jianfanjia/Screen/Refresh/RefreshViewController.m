@@ -19,8 +19,8 @@
     [super viewDidAppear:animated];
     
     UserLogin *request = [[UserLogin alloc] init];
-    request.phone = [GVUserDefaults standardUserDefaults].x;
-    request.pass = [GVUserDefaults standardUserDefaults].xx;
+    request.phone = [GVUserDefaults standardUserDefaults].phone;
+    request.pass = [SSKeychain passwordForService:kKeychainService account:[GVUserDefaults standardUserDefaults].phone];;
     [API userLogin:request success:^{
         [ViewControllerContainer refreshSuccess];
     } failure:^{

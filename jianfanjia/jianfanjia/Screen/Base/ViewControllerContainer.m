@@ -294,8 +294,18 @@ static ViewControllerContainer *container;
 }
 
 + (void)logout {
+    container.tab = nil;
+    container.navTap1 = nil;
+    container.navTap2 = nil;
+    container.navTap4 = nil;
+    [GVUserDefaults standardUserDefaults].isLogin = NO;
+    [GVUserDefaults standardUserDefaults].phone = nil;
+    [GVUserDefaults standardUserDefaults].usertype = nil;
+    [GVUserDefaults standardUserDefaults].userid = nil;
+    [DataManager shared].homePageDesigners = nil;
+    [DataManager shared].homePageRequirement = nil;
+    [DataManager shared].homePageRequirementDesigners = nil;
     [ViewControllerContainer showLogin];
 }
-
 
 @end

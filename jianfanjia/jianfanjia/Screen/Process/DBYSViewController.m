@@ -167,7 +167,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 }
 
 - (void)showStandardImageDetail:(NSInteger)index {
-    NSInteger imageCount;
+    NSInteger imageCount = 0;
     if ([self.section.name isEqualToString:SHUI_DIAN]) {
         imageCount = SHUI_DIAN_YS;
     } else if ([self.section.name isEqualToString:NI_MU]) {
