@@ -47,6 +47,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 @property (strong, nonatomic) NSIndexPath *lastSelectedIndexPath;
 @property (assign, nonatomic) BOOL isHeaderHidden;
 @property (assign, nonatomic) CGFloat preY;
+@property (assign, nonatomic) CGFloat preX;
 
 @end
 
@@ -97,7 +98,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     self.sectionScrollView = [[UIScrollView alloc] init];
     self.sectionScrollView.bounces = NO;
     self.sectionScrollView.showsHorizontalScrollIndicator = NO;
-    
+//    self.sectionScrollView.panGestureRecognizer.enabled = NO;
     self.tableView = [[UITableView alloc] init];
     
     self.sectionScrollView.delegate = self;
@@ -143,6 +144,31 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 #pragma mark - scroll view delegate
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+//    CGFloat kMaxIndex = self.processDataManager.sections.count - 1;
+//    CGFloat targetX = scrollView.contentOffset.x + velocity.x * 60;
+//    CGFloat targetIndex = round(targetX / SectionViewWidth);
+//    if (targetIndex < 0)
+//        targetIndex = 0;
+//    if (targetIndex > kMaxIndex)
+//        targetIndex = kMaxIndex;
+//    targetContentOffset->x = targetIndex * SectionViewWidth;
+////    [scrollView setContentOffset:CGPointMake(targetIndex * SectionViewWidth, 0) animated:YES];
+//}
+
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+////    CGFloat kMaxIndex = self.processDataManager.sections.count - 1;
+////    CGFloat targetX = scrollView.contentOffset.x;
+////    CGFloat targetIndex = round(targetX / SectionViewWidth);
+////    if (targetIndex < 0)
+////        targetIndex = 0;
+////    if (targetIndex > kMaxIndex)
+////        targetIndex = kMaxIndex;
+////    [scrollView setContentOffset:CGPointMake(targetIndex * SectionViewWidth, 0) animated:YES];
+//    
+//    [scrollView setContentOffset:CGPointMake(500, 0) animated:YES];
+//}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.tableView) {
         if (self.preY > scrollView.contentOffset.y) {
@@ -154,15 +180,13 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             //上滑
             [self hideScrollView];
         }
+    } else if (scrollView == self.sectionScrollView) {
+        CGFloat currentX = self.sectionScrollView.contentOffset.x;
+        CGFloat indexF = currentX / SectionViewWidth;
+        CGFloat index = round(indexF);
         
-        NSInteger maxOffset = scrollView.contentSize.height - scrollView.bounds.size.height;
-        //是否有滑动超过边界
-        if (scrollView.contentOffset.y > 0 && scrollView.contentOffset.y > maxOffset) {
-            self.preY = maxOffset;
-        } else {
-            self.preY = scrollView.contentOffset.y;
-        }
-
+//        [scrollView setContentOffset:CGPointMake(index * SectionViewWidth, 0) animated:YES];
+        scrollView.contentOffset = CGPointMake(index * SectionViewWidth, 0);
     }
 }
 
