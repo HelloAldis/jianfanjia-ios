@@ -38,7 +38,7 @@
     [[DDTTYLogger sharedInstance] setLogFormatter:formatter];
     
     DDFileLogger *fileLogger = [[DDFileLogger alloc] init];
-    fileLogger.rollingFrequency = 5*60;
+    fileLogger.rollingFrequency = 60*60*24;
     fileLogger.logFileManager.maximumNumberOfLogFiles = 4;
     [fileLogger setLogFormatter:formatter];
     
