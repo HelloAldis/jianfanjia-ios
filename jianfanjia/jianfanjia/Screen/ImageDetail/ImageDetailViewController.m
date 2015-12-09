@@ -98,8 +98,13 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
     self.lblIndex.hidden = self.imgCount <= 1;
     self.scrollView.contentOffset = CGPointMake(self.index * kScreenWidth, 0);
     
-    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)];
+    self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap)];
     [self.scrollView addGestureRecognizer:self.tap];
+    
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDoubleTap)];
+    doubleTap.numberOfTapsRequired = 2;
+    [self.scrollView addGestureRecognizer:doubleTap];
+    [self.tap requireGestureRecognizerToFail:doubleTap];
 }
 
 #pragma mark - scroll view deleaget
@@ -118,17 +123,19 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
     }
 }
 
-//- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
-//    [self.view setNeedsLayout];
-//    [self.view layoutIfNeeded];
-//}
-
 #pragma mark - user action 
-- (void)onTap {
+- (void)onSingleTap {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^{}];
 }
 
-
-
+- (void)onDoubleTap {
+    UIScrollView *subscrollView = self.scrollView.subviews[self.index];
+    
+    if (subscrollView.zoomScale > 1) {
+        [subscrollView setZoomScale:1.0 animated:YES];
+    } else {
+        [subscrollView setZoomScale:2.0 animated:YES];
+    }
+}
 
 @end
