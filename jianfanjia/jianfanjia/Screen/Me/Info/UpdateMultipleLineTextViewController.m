@@ -9,6 +9,8 @@
 #import "UpdateMultipleLineTextViewController.h"
 #import "ViewControllerContainer.h"
 
+static const CGFloat kMaxMessageHeight = 300;
+
 @interface UpdateMultipleLineTextViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *tvMultipleLine;
 @property (weak, nonatomic) IBOutlet UILabel *lblLeftCharCount;
@@ -65,7 +67,7 @@
             self.tvMultipleLine.text = value;
             self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(self.maxCount - self.tvMultipleLine.text.length)];
             CGSize size = [self.tvMultipleLine sizeThatFits:CGSizeMake(self.tvMultipleLine.bounds.size.width, CGFLOAT_MAX)];
-            self.tvHeightConstraint.constant = self.lblLeftCharCount.bounds.size.height + size.height;
+            self.tvHeightConstraint.constant = MIN(kMaxMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height);
         }];
 }
 

@@ -39,6 +39,8 @@ static const NSInteger imgSpace = 2;
         @strongify(self);
         [self onClickPlanPreviewButton];
     }];
+    
+    [self.imgScrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickPlanPreviewButton)]];
 }
 
 - (void)initWithPlan:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement  {

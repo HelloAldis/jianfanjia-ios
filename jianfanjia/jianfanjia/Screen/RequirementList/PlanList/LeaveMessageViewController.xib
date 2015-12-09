@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="btnSend" destination="wq2-j6-1np" id="gUN-TQ-BBW"/>
                 <outlet property="footerView" destination="dIW-xe-lFN" id="Cec-Dc-05h"/>
+                <outlet property="lblLeftCharCount" destination="hnx-In-Wno" id="SmM-XL-xcn"/>
                 <outlet property="messageHeight" destination="WIP-cX-jpP" id="gw9-XQ-fNB"/>
                 <outlet property="tableView" destination="f3S-Fo-1xM" id="Gf8-V5-yB0"/>
                 <outlet property="tableViewTopToSuperView" destination="of5-m0-N2b" id="hW9-Up-U6k"/>
@@ -22,7 +23,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dIW-xe-lFN">
-                    <rect key="frame" x="0.0" y="746" width="600" height="55"/>
+                    <rect key="frame" x="0.0" y="731" width="600" height="70"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wq2-j6-1np">
                             <rect key="frame" x="504" y="10" width="76" height="35"/>
@@ -37,20 +38,29 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JEK-E5-uXx">
-                            <rect key="frame" x="20" y="10" width="464" height="35"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEK-E5-uXx">
+                            <rect key="frame" x="20" y="10" width="464" height="50"/>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="35" id="WIP-cX-jpP"/>
+                                <constraint firstAttribute="height" constant="50" id="WIP-cX-jpP"/>
                             </constraints>
+                            <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnx-In-Wno">
+                            <rect key="frame" x="463" y="41" width="16" height="16"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="hnx-In-Wno" firstAttribute="bottom" secondItem="JEK-E5-uXx" secondAttribute="bottom" constant="-3" id="308-wY-1UM"/>
                         <constraint firstItem="JEK-E5-uXx" firstAttribute="leading" secondItem="dIW-xe-lFN" secondAttribute="leading" constant="20" id="Hik-I9-uzD"/>
                         <constraint firstAttribute="trailing" secondItem="wq2-j6-1np" secondAttribute="trailing" constant="20" id="Kww-BN-kTQ"/>
                         <constraint firstItem="JEK-E5-uXx" firstAttribute="top" secondItem="dIW-xe-lFN" secondAttribute="top" constant="10" id="NZg-EC-AsR"/>
@@ -58,10 +68,11 @@
                         <constraint firstAttribute="bottom" secondItem="JEK-E5-uXx" secondAttribute="bottom" constant="10" id="ddS-F4-wa5"/>
                         <constraint firstItem="wq2-j6-1np" firstAttribute="leading" secondItem="JEK-E5-uXx" secondAttribute="trailing" constant="20" id="hYB-rL-nWh"/>
                         <constraint firstItem="wq2-j6-1np" firstAttribute="top" secondItem="JEK-E5-uXx" secondAttribute="top" id="jIR-vS-jag"/>
+                        <constraint firstItem="hnx-In-Wno" firstAttribute="trailing" secondItem="JEK-E5-uXx" secondAttribute="trailing" constant="-5" id="vfo-SS-Rra"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="f3S-Fo-1xM">
-                    <rect key="frame" x="0.0" y="64" width="600" height="682"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="667"/>
                     <animations/>
                     <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>

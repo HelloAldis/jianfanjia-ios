@@ -65,6 +65,11 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
     [self.tableView registerNib:[UINib nibWithNibName:HomeOwnerOrderedWithoutResponse bundle:nil] forCellReuseIdentifier:HomeOwnerOrderedWithoutResponse];
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosed bundle:nil] forCellReuseIdentifier:PlanWasChoosed];
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasNotChoosed bundle:nil] forCellReuseIdentifier:PlanWasNotChoosed];
+    @weakify(self);
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refreshOrderedList];
+    }];
     
     [self initNav];
 }
@@ -98,6 +103,7 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
     request.requirementid = self.requirement._id;
     
     [API getOrderedDesigner:request success:^{
+        [self.tableView.header endRefreshing];
         [self.requirementDataManager refreshOrderedDesigners];
         [self.tableView reloadData];
     } failure:^{

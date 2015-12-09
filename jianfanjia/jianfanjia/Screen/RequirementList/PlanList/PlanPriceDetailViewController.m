@@ -16,7 +16,9 @@ static NSString *PlanCellIdentifier = @"PlanPriceItemCell";
 @interface PlanPriceDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *lblProjectTotalPriceVal;
-@property (weak, nonatomic) IBOutlet UILabel *lblProgramTotalPriceVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblProjectDiscountPriceVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblDesignFeeVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblDiscountTotalPriceVal;
 @property (strong, nonatomic) Plan *plan;
 @property (strong, nonatomic) RequirementDataManager *requirementDataManager;
 
@@ -78,8 +80,10 @@ static NSString *PlanCellIdentifier = @"PlanPriceItemCell";
 - (void)loadData {
     [self.requirementDataManager refreshPlanPriceItems:self.plan];
     [self.tableView reloadData];
-    self.lblProjectTotalPriceVal.text = [NSString stringWithFormat:@"%@", self.plan.project_price_after_discount];
-    self.lblProgramTotalPriceVal.text = [NSString stringWithFormat:@"%@", self.plan.total_price];
+    self.lblProjectTotalPriceVal.text = [NSString stringWithFormat:@"%@", [self.plan.project_price_before_discount humCountString]];
+    self.lblProjectDiscountPriceVal.text = [NSString stringWithFormat:@"%@", [self.plan.project_price_after_discount humCountString]];
+    self.lblDesignFeeVal.text = [NSString stringWithFormat:@"%@", [self.plan.total_design_fee humCountString]];
+    self.lblDiscountTotalPriceVal.text = [NSString stringWithFormat:@"%@", [self.plan.total_price humCountString]];
 }
 
 @end

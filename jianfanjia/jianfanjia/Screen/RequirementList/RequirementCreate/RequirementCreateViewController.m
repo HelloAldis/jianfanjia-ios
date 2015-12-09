@@ -50,6 +50,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectCommunicationTypeVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnSelectSexType;
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectSexTypeVal;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectCityTrailingConstriant;
 
 @property (weak, nonatomic) IBOutlet UIView *selectCityView;
 @property (weak, nonatomic) IBOutlet UIView *selectHouseTypeView;
@@ -208,6 +209,19 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     self.fldRoomVal.enabled = enable;
     self.fldDecorationAreaVal.enabled = enable;
     self.fldDecorationBudgetVal.enabled = enable;
+    self.btnSelectCity.hidden = !enable;
+    self.btnSelectHouseType.hidden = !enable;
+    self.btnSelectWorkType.hidden = !enable;
+    self.btnSelectDecorationType.hidden = !enable;
+    self.btnSelectPopulation.hidden = !enable;
+    self.btnSelectPreferredStyle.hidden = !enable;
+    self.btnSelectCommunicationType.hidden = !enable;
+    self.btnSelectSexType.hidden = !enable;
+    if (enable) {
+        self.selectCityTrailingConstriant.constant = 15;
+    } else {
+        self.selectCityTrailingConstriant.constant = 0;
+    }
 }
 
 - (void)displayDefaultValueToUI {

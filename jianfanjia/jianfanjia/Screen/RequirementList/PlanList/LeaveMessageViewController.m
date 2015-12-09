@@ -18,13 +18,15 @@ typedef NS_ENUM(NSInteger, CommentType) {
 
 static NSString *MessageCellIdentifier = @"MessageCell";
 
-static float kKeyboardHeight = 480;
+static CGFloat kKeyboardHeight = 480;
+static const CGFloat kMaxMessageHeight = 100;
 
 @interface LeaveMessageViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *footerView;
 @property (weak, nonatomic) IBOutlet UITextView *tvMessage;
 @property (weak, nonatomic) IBOutlet UIButton *btnSend;
+@property (weak, nonatomic) IBOutlet UILabel *lblLeftCharCount;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopToSuperView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageHeight;
 
@@ -38,6 +40,7 @@ static float kKeyboardHeight = 480;
 @property (strong, nonatomic) NSString *section;
 @property (strong, nonatomic) NSString *item;
 @property (copy, nonatomic) void(^RefreshBlock)(void);
+@property (assign, nonatomic) NSUInteger maxCount;
 
 @end
 
@@ -49,6 +52,7 @@ static float kKeyboardHeight = 480;
         _commentType = CommentTypePlan;
         _plan = plan;
         _requirementDataManager = [[RequirementDataManager alloc] init];
+        _maxCount = 120;
     }
     
     return self;
@@ -62,6 +66,7 @@ static float kKeyboardHeight = 480;
         _section = section;
         _item = item;
         _requirementDataManager = [[RequirementDataManager alloc] init];
+        _maxCount = 120;
     }
     
     return self;
@@ -109,11 +114,8 @@ static float kKeyboardHeight = 480;
         @strongify(self);
         [self onSendMessage];
     }];
-    
-    [[[[self.tvMessage.rac_textSignal
-        filterNonSpace:^BOOL{
-            return YES;
-        }]
+
+    [[[self.tvMessage.rac_textSignal
         doNext:^(NSString *value) {
             if (value.length > 0) {
                 self.btnSend.enabled = YES;
@@ -124,13 +126,14 @@ static float kKeyboardHeight = 480;
             }
         }]
         length:^NSInteger{
-            return 120;
+            return self.maxCount;
         }]
         subscribeNext:^(NSString *value) {
             @strongify(self);
             self.tvMessage.text = value;
+            self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(self.maxCount - self.tvMessage.text.length)];
             CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
-            self.messageHeight.constant = size.height;
+            self.messageHeight.constant = MIN(kMaxMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height);
         }];
     
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -170,6 +173,7 @@ static float kKeyboardHeight = 480;
 }
 
 - (void)onSendMessage {
+    [self.view endEditing:YES];
     LeaveComment *request = [[LeaveComment alloc] init];
     
     if (self.commentType == CommentTypePlan) {
@@ -192,7 +196,6 @@ static float kKeyboardHeight = 480;
         self.tvMessage.text = @"";
         CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
         self.messageHeight.constant = size.height;
-        [self.view endEditing:YES];
         [self refreshMessageList];
     } failure:^{
         

@@ -154,8 +154,10 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 #pragma mark - refresh notification
 - (void)refresh {
     if (self.currentNotificationType == NotificationTypePurchase) {
+        [self.tableView.header endRefreshing];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     } else if (self.currentNotificationType == NotificationTypePay) {
+        [self.tableView.header endRefreshing];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     } else {
         [self refreshReschedules];
