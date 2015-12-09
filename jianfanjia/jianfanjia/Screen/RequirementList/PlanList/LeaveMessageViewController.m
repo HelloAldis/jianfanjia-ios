@@ -100,7 +100,11 @@ static const CGFloat kMaxMessageHeight = 100;
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"留言";
+    if (self.commentType == CommentTypeProcess) {
+        self.title = @"评论";
+    } else {
+        self.title = @"留言";
+    }
 }
 
 - (void)initUI {
