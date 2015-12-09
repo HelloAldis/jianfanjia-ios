@@ -58,44 +58,52 @@
         }
     }]; 
     
-//    [[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
-//        return YES;
-//    }] length:^NSInteger{
-//        return kPhoneLength;
-//    }];
-//    
-//    [[self.fldSignupPhone.rac_textSignal filterNonDigit:^BOOL{
-//        return YES;
-//    }] length:^NSInteger{
-//        return kPhoneLength;
-//    }];
-//    
-//    [[self.fldPassword.rac_textSignal filterNonSpace:^BOOL{
-//        return YES;
-//    }] length:^NSInteger{
-//        return kPasswordLength;
-//    }];
-//    
-//    [[self.fldSignupPassword.rac_textSignal filterNonSpace:^BOOL{
-//        return YES;
-//    }] length:^NSInteger{
-//        return kPasswordLength;
-//    }];
+    [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
+        return YES;
+    }] length:^NSInteger{
+        return kPhoneLength;
+    }] subscribeNext:^(id x) {
+        self.fldPhone.text = x;
+    }];
     
-//    RAC(self.btnLogin, enabled) = [RACSignal
-//                                   combineLatest:@[self.fldPhone.rac_textSignal, self.fldPassword.rac_textSignal]
-//                                   reduce:^(NSString *phone, NSString *password) {
-//                                       return @([AccountBusiness validateLogin:phone pass:password]);
-//                                   }];
-//    
-//    RAC(self.btnNext, enabled) = [RACSignal
-//                                   combineLatest:@[self.fldSignupPhone.rac_textSignal, self.fldSignupPassword.rac_textSignal]
-//                                   reduce:^(NSString *phone, NSString *password) {
-//                                       return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
-//                                   }];
+    [[[self.fldSignupPhone.rac_textSignal filterNonDigit:^BOOL{
+        return YES;
+    }] length:^NSInteger{
+        return kPhoneLength;
+    }] subscribeNext:^(id x) {
+        self.fldSignupPhone.text = x;
+    }];;
+    
+    [[[self.fldPassword.rac_textSignal filterNonSpace:^BOOL{
+        return YES;
+    }] length:^NSInteger{
+        return kPasswordLength;
+    }] subscribeNext:^(id x) {
+        self.fldPassword.text = x;
+    }];
+    
+    [[[self.fldSignupPassword.rac_textSignal filterNonSpace:^BOOL{
+        return YES;
+    }] length:^NSInteger{
+        return kPasswordLength;
+    }] subscribeNext:^(id x) {
+        self.fldSignupPassword.text = x;
+    }];
+    
+    RAC(self.btnLogin, enabled) = [RACSignal
+                                   combineLatest:@[self.fldPhone.rac_textSignal, self.fldPassword.rac_textSignal]
+                                   reduce:^(NSString *phone, NSString *password) {
+                                       return @([AccountBusiness validateLogin:phone pass:password]);
+                                   }];
+    
+    RAC(self.btnNext, enabled) = [RACSignal
+                                   combineLatest:@[self.fldSignupPhone.rac_textSignal, self.fldSignupPassword.rac_textSignal]
+                                   reduce:^(NSString *phone, NSString *password) {
+                                       return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
+                                   }];
     
     [self.btnLogin setCornerRadius:5];
-    self.btnLogin.enabled = YES;
+    self.btnLogin.enabled = NO;
     [self.btnNext setCornerRadius:5];
     self.btnNext.enabled = NO;
     self.isUp = NO;

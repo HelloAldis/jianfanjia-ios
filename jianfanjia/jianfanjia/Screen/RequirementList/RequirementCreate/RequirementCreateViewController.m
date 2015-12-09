@@ -324,6 +324,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         }]
         subscribeNext:^(NSString *value) {
             @strongify(self);
+            self.fldPhaseVal.text = value;
             self.editingRequirement.cell_phase = value;
         }];
     
@@ -337,6 +338,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         }]
         subscribeNext:^(NSString *value) {
             @strongify(self);
+            self.fldBuildingVal.text = value;
             self.editingRequirement.cell_building = value;
         }];
     
@@ -350,6 +352,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         }]
         subscribeNext:^(NSString *value) {
             @strongify(self);
+            self.fldUnitVal.text = value;
             self.editingRequirement.cell_unit = value;
         }];
     
@@ -363,6 +366,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         }]
         subscribeNext:^(NSString *value) {
             @strongify(self);
+            self.fldRoomVal.text = value;
             self.editingRequirement.cell_detail_number = value;
         }];
     
@@ -376,6 +380,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         }]
         subscribeNext:^(NSString *value) {
             @strongify(self);
+            self.fldDecorationAreaVal.text = value;
             self.editingRequirement.house_area = [NSNumber numberWithInteger:[value integerValue]];
         }];
     

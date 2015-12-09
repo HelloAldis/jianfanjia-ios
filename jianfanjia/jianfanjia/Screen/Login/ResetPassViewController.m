@@ -24,16 +24,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
+    [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
         return YES;
     }] length:^NSInteger{
         return kPhoneLength;
+    }] subscribeNext:^(id x) {
+        self.fldPhone.text = x;
     }];
     
-    [[self.fldPassword.rac_textSignal filterNonSpace:^BOOL{
+    [[[self.fldPassword.rac_textSignal filterNonSpace:^BOOL{
         return YES;
     }] length:^NSInteger{
         return kPasswordLength;
+    }] subscribeNext:^(id x) {
+        self.fldPassword.text = x;
     }];
     
     @weakify(self);
