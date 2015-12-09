@@ -173,6 +173,7 @@
 		6E20B2421B87223600E3A8DA /* jianfanjiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B2411B87223600E3A8DA /* jianfanjiaTests.m */; };
 		6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2DCAAB1BB5207400591A16 /* LeftViewController.m */; };
 		6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2DCAAC1BB5207400591A16 /* LeftViewController.xib */; };
+		6E3361D31C181E07006D6868 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 6E3361D21C181E07006D6868 /* iTunesArtwork */; };
 		6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496171BF717B100C90851 /* DesignerBusiness.m */; };
 		6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44961A1BF72F3600C90851 /* ProductPageData.m */; };
 		6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44961D1BF7368900C90851 /* DesignerPageData.m */; };
@@ -599,6 +600,7 @@
 		6E2DCAAA1BB5207400591A16 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		6E2DCAAB1BB5207400591A16 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		6E2DCAAC1BB5207400591A16 /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewController.xib; sourceTree = "<group>"; };
+		6E3361D21C181E07006D6868 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		6E4496161BF717B100C90851 /* DesignerBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerBusiness.h; sourceTree = "<group>"; };
 		6E4496171BF717B100C90851 /* DesignerBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerBusiness.m; sourceTree = "<group>"; };
 		6E4496191BF72F3600C90851 /* ProductPageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductPageData.h; sourceTree = "<group>"; };
@@ -1263,6 +1265,7 @@
 		6E20B2191B87223600E3A8DA = {
 			isa = PBXGroup;
 			children = (
+				6E3361D21C181E07006D6868 /* iTunesArtwork */,
 				6E20B2241B87223600E3A8DA /* jianfanjia */,
 				6E20B23E1B87223600E3A8DA /* jianfanjiaTests */,
 				6E20B2231B87223600E3A8DA /* Products */,
@@ -1808,6 +1811,7 @@
 				684A37111BFD733500F7388C /* PlanWasChoosedCell.xib in Resources */,
 				6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */,
 				685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */,
+				6E3361D31C181E07006D6868 /* iTunesArtwork in Resources */,
 				684A37131BFD733500F7388C /* PlanWasNotChoosedCell.xib in Resources */,
 				683A6B6B1C0F01190071DF88 /* ReminderViewController.xib in Resources */,
 				6E4496411BFC53CE00C90851 /* FeedbackViewController.xib in Resources */,

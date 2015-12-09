@@ -9,6 +9,8 @@
 #import "API.h"
 
 NSString * const kApiUrl = @"http://101.200.191.159/api/v2/app/";
+//NSString * const kApiUrl = @"http://101.200.191.159:8888/api/v2/app/";
+//NSString * const kApiUrl = @"http://101.200.191.159/api/v2/app/";
 static AFHTTPRequestOperationManager *_manager;
 
 @implementation API
