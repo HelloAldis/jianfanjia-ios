@@ -77,10 +77,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 - (void)initNav {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate:)];
     self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
-    self.title = @"需求列表";
-    
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor colorWithR:0x34 g:0x49 b:0x5e] forKey: NSForegroundColorAttributeName];
-    self.navigationController.navigationBar.titleTextAttributes = dict;
+    self.title = @"装修需求";
 }
 
 - (void)viewDidAppear:(BOOL)animated {

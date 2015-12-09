@@ -82,6 +82,7 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
+    self.title = @"我的设计师";
 }
 
 #pragma mark - table view delegate
