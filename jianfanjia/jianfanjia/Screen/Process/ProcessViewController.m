@@ -46,8 +46,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 @property (strong, nonatomic) NSIndexPath *lastSelectedIndexPath;
 @property (assign, nonatomic) BOOL isHeaderHidden;
-@property (assign, nonatomic) CGFloat preY;
-@property (assign, nonatomic) CGFloat preX;
+@property (assign, nonatomic) BOOL isFirstEnter;
 
 @end
 
@@ -98,7 +97,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     self.sectionScrollView = [[UIScrollView alloc] init];
     self.sectionScrollView.bounces = NO;
     self.sectionScrollView.showsHorizontalScrollIndicator = NO;
-//    self.sectionScrollView.panGestureRecognizer.enabled = NO;
+    self.sectionScrollView.backgroundColor = [UIColor whiteColor];
+    
     self.tableView = [[UITableView alloc] init];
     
     self.sectionScrollView.delegate = self;
@@ -141,52 +141,41 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     //52 = 116(SectionViewHeight) - 64
     self.scrollViewBottomEqualsSuperBottomConstraint = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(-52)-[scrollView]" options:0 metrics: 0 views:views];
     [self.view addConstraints:self.scrollViewToSuperTop64Constraint];
+    self.isFirstEnter = YES;
 }
 
 #pragma mark - scroll view delegate
-//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-//    CGFloat kMaxIndex = self.processDataManager.sections.count - 1;
-//    CGFloat targetX = scrollView.contentOffset.x + velocity.x * 60;
-//    CGFloat targetIndex = round(targetX / SectionViewWidth);
-//    if (targetIndex < 0)
-//        targetIndex = 0;
-//    if (targetIndex > kMaxIndex)
-//        targetIndex = kMaxIndex;
-//    targetContentOffset->x = targetIndex * SectionViewWidth;
-////    [scrollView setContentOffset:CGPointMake(targetIndex * SectionViewWidth, 0) animated:YES];
-//}
+- (CGPoint)nearestTargetOffsetForOffset:(CGPoint)offset {
+    CGFloat pageSize = SectionViewWidth;
+    NSInteger page = roundf(offset.x / pageSize);
+    CGFloat targetX = pageSize * page;
+    return CGPointMake(targetX, offset.y);
+}
 
-//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-////    CGFloat kMaxIndex = self.processDataManager.sections.count - 1;
-////    CGFloat targetX = scrollView.contentOffset.x;
-////    CGFloat targetIndex = round(targetX / SectionViewWidth);
-////    if (targetIndex < 0)
-////        targetIndex = 0;
-////    if (targetIndex > kMaxIndex)
-////        targetIndex = kMaxIndex;
-////    [scrollView setContentOffset:CGPointMake(targetIndex * SectionViewWidth, 0) animated:YES];
-//    
-//    [scrollView setContentOffset:CGPointMake(500, 0) animated:YES];
-//}
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    CGPoint targetOffset = [self nearestTargetOffsetForOffset:*targetContentOffset];
+    targetContentOffset->x = targetOffset.x;
+    targetContentOffset->y = targetOffset.y;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (scrollView == self.sectionScrollView) {
+        NSInteger page = roundf(scrollView.contentOffset.x / SectionViewWidth);
+        [self switchSection:page];
+    }
+}
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.tableView) {
-        if (self.preY > scrollView.contentOffset.y) {
+        if (scrollView.contentOffset.y < 0) {
             //下滑
             if (!self.tableView.header.isRefreshing) {
                 [self showScrollView];
             }
-        } else if (self.preY < scrollView.contentOffset.y && scrollView.contentOffset.y > 0) {
+        } else if (scrollView.contentOffset.y > 0) {
             //上滑
             [self hideScrollView];
         }
-    } else if (scrollView == self.sectionScrollView) {
-        CGFloat currentX = self.sectionScrollView.contentOffset.x;
-        CGFloat indexF = currentX / SectionViewWidth;
-        CGFloat index = round(indexF);
-        
-//        [scrollView setContentOffset:CGPointMake(index * SectionViewWidth, 0) animated:YES];
-        scrollView.contentOffset = CGPointMake(index * SectionViewWidth, 0);
     }
 }
 
@@ -350,65 +339,86 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 - (void)refreshSections {
-    UIView *preSection = [[UIView alloc] init];
-    
     NSArray *sections = self.processDataManager.sections;
-    self.sectionViewArray = [NSMutableArray arrayWithCapacity:sections.count];
-    for (int i = 0; i < sections.count; i++) {
-        Section *section = sections[i];
-        SectionView *sectionView = [SectionView sectionView];
-        [sectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSectionViewGesture:)]];
+    if (self.isFirstEnter) {
+        self.isFirstEnter = NO;
+        UIView *preSection = [[UIView alloc] init];
         
-        [self.sectionViewArray addObject:sectionView];
-        
-        if (i == 0) {
-            sectionView.leftLine.hidden = YES;
-        } else if (i == (sections.count - 1)) {
-            sectionView.rightLine.hidden = YES;
-        }
-
-        sectionView.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%d_%d", i, section.status.intValue < 3 ? section.status.intValue : 1]];
-        sectionView.nameLabel.text = [ProcessBusiness nameForKey:section.name];
-        sectionView.durationLabel.text = [NSString stringWithFormat:@"%@-%@", [NSDate M_dot_dd:section.start_at], [NSDate M_dot_dd:section.end_at]];
-
-        sectionView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.sectionScrollView addSubview:sectionView];
-        
-        NSDictionary *views = @{
-                                @"preSection":preSection,
-                                @"section":sectionView,
-                                @"scrollView":self.sectionScrollView,
-                                };
-        
-        if (i == 0){
-            [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|[section(==%f)]", SectionViewWidth] options:0 metrics: 0 views:views]];
-            preSection = sectionView;
-        } else{
-            [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[preSection][section(==preSection)]" options:0 metrics: 0 views:views]];
-            preSection = sectionView;
-        }
-        
-        [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|[section(==%f)]", SectionViewHeight] options:0 metrics: 0 views:views]];
-        
-        if (i == sections.count - 1){
-            [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[section]|" options:0 metrics: 0 views:views]];
+        self.sectionViewArray = [NSMutableArray arrayWithCapacity:sections.count];
+        for (int i = 0; i < sections.count; i++) {
+            Section *section = sections[i];
+            SectionView *sectionView = [SectionView sectionView];
+            [sectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSectionViewGesture:)]];
+            
+            [self updateSection:section for:sectionView index:i total:sections.count];
+            [self.sectionViewArray addObject:sectionView];
+            
+            sectionView.translatesAutoresizingMaskIntoConstraints = NO;
+            [self.sectionScrollView addSubview:sectionView];
+            
+            NSDictionary *views = @{
+                                    @"preSection":preSection,
+                                    @"section":sectionView,
+                                    @"scrollView":self.sectionScrollView,
+                                    };
+            
+            if (i == 0){
+                [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|[section(==%f)]", SectionViewWidth] options:0 metrics: 0 views:views]];
+                preSection = sectionView;
+            } else{
+                [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[preSection][section(==preSection)]" options:0 metrics: 0 views:views]];
+                preSection = sectionView;
+            }
+            
+            [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|[section(==%f)]", SectionViewHeight] options:0 metrics: 0 views:views]];
+            
+            if (i == sections.count - 1){
+                CGFloat moreContentX = kScreenWidth - SectionViewWidth;
+                [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:[section]-%f-|", moreContentX] options:0 metrics: 0 views:views]];
+            }
         }
     }
+    
+    if (!self.isFirstEnter) {
+        for (int i = 0; i < sections.count; i++) {
+            Section *section = sections[i];
+            [self updateSection:section for:self.sectionViewArray[i] index:i total:sections.count];
+        }
+    }
+    self.isFirstEnter = NO;
+    [self switchSection:self.processDataManager.selectedSectionIndex];
 }
 
-#pragma mark - getures 
+- (void)updateSection:(Section *)section for:(SectionView *)sectionView index:(NSInteger)index total:(NSInteger)total {
+    if (index == 0) {
+        sectionView.leftLine.hidden = YES;
+    } else if (index == (total - 1)) {
+        sectionView.rightLine.hidden = YES;
+    }
+    
+    sectionView.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%@_%d", @(index), section.status.intValue < 3 ? section.status.intValue : 1]];
+    sectionView.nameLabel.text = [ProcessBusiness nameForKey:section.name];
+    sectionView.durationLabel.text = [NSString stringWithFormat:@"%@-%@", [NSDate M_dot_dd:section.start_at], [NSDate M_dot_dd:section.end_at]];
+}
+
+#pragma mark - getures
 - (void)handleTapSectionViewGesture:(UITapGestureRecognizer *)gesture {
     SectionView *sectionView = (SectionView *)gesture.view;
     NSInteger index = [self.sectionViewArray indexOfObject:sectionView];
-    [self.processDataManager switchToSelectedSection:index];
-    self.lastSelectedIndexPath = nil;
-    self.currentSectionOperationStatus = SectionOperationStatusRefresh;
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.sectionScrollView setContentOffset:CGPointMake(index * SectionViewWidth, 0) animated:YES];
+    [self switchSection:index];
 }
 
 #pragma mark - user action
 - (void)onClickReminder {
     [ViewControllerContainer showReminder];
+}
+
+- (void)switchSection:(NSInteger)page {
+    [self.processDataManager switchToSelectedSection:page];
+    self.lastSelectedIndexPath = nil;
+    self.currentSectionOperationStatus = SectionOperationStatusRefresh;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

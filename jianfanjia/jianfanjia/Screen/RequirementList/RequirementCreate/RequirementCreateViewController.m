@@ -402,8 +402,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 
     if (tapView == self.selectCityView) {
         //City
-        NSString *currentAddress = [self.lblSelectCityVal.text trim].length > 0 ? self.lblSelectCityVal.text : nil;
-        controller = [[SelectCityViewController alloc] initWithAddress:currentAddress valueBlock:^(id value) {
+        controller = [[SelectCityViewController alloc] initWithAddress:self.lblSelectCityVal.text valueBlock:^(id value) {
             self.lblSelectCityVal.text = value;
             NSArray *addressArr = [value componentsSeparatedByString:@" "];
             self.editingRequirement.province = addressArr[0];

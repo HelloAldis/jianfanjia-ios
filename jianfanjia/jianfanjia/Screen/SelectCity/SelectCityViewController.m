@@ -36,7 +36,7 @@ static NSString* cellId = @"cityCell";
 #pragma mark - init method 
 - (id)initWithAddress:(NSString *)currentAddress valueBlock:(ValueBlock)ValueBlock {
     if (self = [super initWithValueBlock:ValueBlock]) {
-        _currentAddress = currentAddress;
+        _currentAddress = [currentAddress trim].length > 0 ? currentAddress : nil;
     }
     
     return self;
