@@ -84,14 +84,18 @@ static ViewControllerContainer *container;
     HomePageViewController *designerlist = [[HomePageViewController alloc] initWithNibName:nil bundle:nil];
     container.navTap1 = [[UINavigationController alloc] initWithRootViewController:designerlist];
     container.navTap1.hidesBottomBarWhenPushed = YES;
+    NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
+    container.navTap1.navigationBar.titleTextAttributes = dict;
     
     RequirementListViewController *requirementList = [[RequirementListViewController alloc] initWithNibName:nil bundle:nil];
     container.navTap2 = [[UINavigationController alloc] initWithRootViewController:requirementList];
     container.navTap2.hidesBottomBarWhenPushed = YES;
+    container.navTap2.navigationBar.titleTextAttributes = dict;
     
     MeViewController *me = [[MeViewController alloc] initWithNibName:nil bundle:nil];
     container.navTap4 = [[UINavigationController alloc] initWithRootViewController:me];
     container.navTap4.hidesBottomBarWhenPushed = YES;
+    container.navTap4.navigationBar.titleTextAttributes = dict;
     
     container.tab.viewControllers = @[container.navTap1, container.navTap2, container.navTap4];
     container.window.rootViewController = container.tab;

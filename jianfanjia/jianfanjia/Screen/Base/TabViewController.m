@@ -23,7 +23,7 @@
     item1.titlePositionAdjustment = UIOffsetMake(0, -2);
     
     UITabBarItem *item2 = [self.tabBar.items objectAtIndex:1];
-     item2 = [item2 initWithTitle:@"工地管理" image:[UIImage imageNamed:@"tab_2_default"] selectedImage:[UIImage imageNamed:@"tab_2_selected"]];
+     item2 = [item2 initWithTitle:@"装修需求" image:[UIImage imageNamed:@"tab_2_default"] selectedImage:[UIImage imageNamed:@"tab_2_selected"]];
     item2.titlePositionAdjustment = UIOffsetMake(0, -2);
     
     UITabBarItem *item4 = [self.tabBar.items objectAtIndex:2];
