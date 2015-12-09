@@ -10,6 +10,7 @@
 #import "SettingViewController.h"
 #import "UserInfoViewController.h"
 #import "FavoriteDesignerViewController.h"
+#import "ViewControllerContainer.h"
 
 @interface MeViewController ()
 
@@ -70,7 +71,7 @@
 
 #pragma mark - user action
 - (IBAction)onClickNotification:(id)sender {
-    
+    [ViewControllerContainer showReminder];
 }
 
 - (IBAction)onClickFavoriateDesigner:(id)sender {
