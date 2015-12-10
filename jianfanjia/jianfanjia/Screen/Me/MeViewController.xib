@@ -38,7 +38,7 @@
                                 </imageView>
                                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yO7-FM-HGG">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="274"/>
-                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0GR-Kp-g33">
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.20000000000000001" contentMode="center" id="0GR-Kp-g33">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="274"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
@@ -54,9 +54,10 @@
                                             </visualEffectView>
                                         </subviews>
                                         <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <animations/>
-                                    <blurEffect style="dark"/>
+                                    <blurEffect style="light"/>
                                 </visualEffectView>
                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9cg-x6-dc0">
                                     <rect key="frame" x="250" y="60" width="100" height="100"/>
