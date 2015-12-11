@@ -13,9 +13,12 @@
 #pragma mark - life cycle
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.navigationController) {
-        self.navigationController.interactivePopGestureRecognizer.delegate = self;
-    }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (self.navigationController) {
+            self.navigationController.interactivePopGestureRecognizer.delegate = self;
+        }
+    });
 }
 
 - (void)didReceiveMemoryWarning {

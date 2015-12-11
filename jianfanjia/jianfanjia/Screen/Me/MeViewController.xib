@@ -73,6 +73,7 @@
                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aldis Zhan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgH-KV-wJY">
                                     <rect key="frame" x="0.0" y="170" width="600" height="21"/>
                                     <animations/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="21" id="H0o-i0-mw6"/>
                                     </constraints>
@@ -80,17 +81,18 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                     <connections>
-                                        <outletCollection property="gestureRecognizers" destination="FZ5-Bz-HJu" appends="YES" id="dSa-Tk-uES"/>
+                                        <outletCollection property="gestureRecognizers" destination="fXy-TV-M3e" appends="YES" id="Qeh-Qd-aBd"/>
                                     </connections>
                                 </label>
                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帐号：18107218595" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3D-Md-m3S">
                                     <rect key="frame" x="0.0" y="201" width="600" height="21"/>
                                     <animations/>
+                                    <gestureRecognizers/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                     <connections>
-                                        <outletCollection property="gestureRecognizers" destination="FZ5-Bz-HJu" appends="YES" id="nv2-4A-ph8"/>
+                                        <outletCollection property="gestureRecognizers" destination="H3v-Lp-ryO" appends="YES" id="HOm-Lh-HgD"/>
                                     </connections>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaV-TI-THJ">
@@ -250,7 +252,17 @@
         </view>
         <tapGestureRecognizer id="FZ5-Bz-HJu">
             <connections>
-                <action selector="onTapUserImageView:" destination="-1" id="Mal-om-0dl"/>
+                <action selector="onTapUserImageView:" destination="-1" id="bYj-J9-zsN"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="fXy-TV-M3e">
+            <connections>
+                <action selector="onTapUserImageView:" destination="-1" id="G4h-mw-9N2"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="H3v-Lp-ryO">
+            <connections>
+                <action selector="onTapUserImageView:" destination="-1" id="3Da-4H-4L3"/>
             </connections>
         </tapGestureRecognizer>
     </objects>

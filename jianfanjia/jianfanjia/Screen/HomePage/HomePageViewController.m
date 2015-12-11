@@ -186,9 +186,11 @@
         [self.tableView.header endRefreshing];
         [self.tableView reloadData];
     } failure:^{
-        [self.tableView.header endRefreshing];
+        @strongify(self);
+        [self hanldeFailure];
     } networkError:^{
-        
+        @strongify(self);
+        [self hanldeNetworkError];
     }];
 }
 
@@ -202,24 +204,33 @@
         @strongify(self);
         [self.tableView.footer endRefreshing];
         [self.tableView reloadData];
-//        NSInteger from = [self hasRequirement] && ![self hasRequirementDesigners] ? request.from.integerValue + 1 : request.from.integerValue + 2;
-//        NSInteger to = from + request.limit.integerValue;
-//        NSMutableArray *arr = [self generateIndexPaths:0 fromRow:from toRow:to];
-//        [self.tableView reloadRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
-        
+        @strongify(self);
+        [self hanldeFailure];
     } networkError:^{
-        
+        @strongify(self);
+        [self hanldeNetworkError];
     }];
 }
 
-- (NSMutableArray *)generateIndexPaths:(NSInteger )section fromRow:(NSInteger)from toRow:(NSInteger )to {
-    NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:to-from];
-    for (NSInteger row = from; row < to; row++) {
-        [arr addObject:[NSIndexPath indexPathForRow:row inSection:section]];
+- (void)hanldeFailure {
+    if (self.tableView.header.isRefreshing) {
+        [self.tableView.header endRefreshing];
     }
     
-    return arr;
+    if (self.tableView.footer.isRefreshing) {
+        [self.tableView.footer endRefreshing];
+    }
+}
+
+- (void)hanldeNetworkError {
+    if (self.tableView.header.isRefreshing) {
+        [self.tableView.header endRefreshing];
+    }
+    
+    if (self.tableView.footer.isRefreshing) {
+        [self.tableView.footer endRefreshing];
+    }
 }
 
 

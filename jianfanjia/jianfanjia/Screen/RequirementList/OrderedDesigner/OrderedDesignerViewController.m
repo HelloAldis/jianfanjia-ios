@@ -108,9 +108,9 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
         [self.requirementDataManager refreshOrderedDesigners];
         [self.tableView reloadData];
     } failure:^{
-    
+        [self.tableView.header endRefreshing];
     } networkError:^{
-        
+        [self.tableView.header endRefreshing];
     }];
 }
 

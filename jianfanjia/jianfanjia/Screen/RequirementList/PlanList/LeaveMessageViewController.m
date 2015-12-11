@@ -229,9 +229,9 @@ static const CGFloat kMaxMessageHeight = 100;
         [self.requirementDataManager refreshComments];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
-        
+        [self.tableView.header endRefreshing];
     } networkError:^{
-        
+        [self.tableView.header endRefreshing];
     }];
 }
 
@@ -268,9 +268,9 @@ static const CGFloat kMaxMessageHeight = 100;
             [self.tableView endUpdates];
         }
     } failure:^{
-        
+        [self.tableView.footer endRefreshing];
     } networkError:^{
-        
+        [self.tableView.footer endRefreshing];
     }];
 }
 
