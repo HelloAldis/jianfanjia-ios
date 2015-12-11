@@ -24,5 +24,6 @@
 #import "PriceItem.h"
 #import "YsImage.h"
 #import "Schedule.h"
+#import "Notification.h"
 
 #endif /* Model_h */

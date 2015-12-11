@@ -36,6 +36,7 @@
         Designer *designer = [[Designer alloc] initWith:dict];
         [GVUserDefaults standardUserDefaults].userid = [designer _id];
     }
+    [GeTuiSdk bindAlias:[GVUserDefaults standardUserDefaults].userid];
 }
 
 @end

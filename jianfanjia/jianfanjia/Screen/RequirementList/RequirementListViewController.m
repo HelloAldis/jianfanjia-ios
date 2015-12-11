@@ -44,7 +44,14 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    
+    [[NotificationDataManager shared] observePurchaseUnreadCount:^(id value) {
+        DDLogDebug(@"============== %@ ", value);
+    } process:@"565522a171b1ff7478fbe922"];
+    
     [self refreshRequirements];
+    
+    NSLog(@"%@", [GVUserDefaults standardUserDefaults].userid);
 }
 
 #pragma mark - init ui

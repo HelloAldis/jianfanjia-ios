@@ -10,7 +10,10 @@
 
 @interface NSManagedObject (Ex)
 
-+ (instancetype) findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue;
++ (instancetype)findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue;
++ (NSFetchRequest *)requestAllWhere:(NSString *)where args:(NSArray *)args;
++ (NSArray *)executeFetchRequest:(NSFetchRequest *)request;
++ (NSUInteger)executeCountForFetchRequest:(NSFetchRequest *)request;
 + (instancetype)insertOne;
 
 @end

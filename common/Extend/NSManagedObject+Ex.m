@@ -11,11 +11,11 @@
 
 @implementation NSManagedObject (Ex)
 
-#pragma mark - public
+#pragma mark + public
 + (instancetype) findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue
 {
 #pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "+Wdeprecated+declarations"
     return [self findFirstByAttribute:attribute
                             withValue:searchValue
                             inContext:[NSManagedObjectContext context]];
@@ -27,7 +27,7 @@
                                          inManagedObjectContext:[NSManagedObjectContext context]];
 }
 
-#pragma mark - find util
+#pragma mark + find util
 
 + (instancetype) findFirstByAttribute:(NSString *)attribute withValue:(id)searchValue inContext:(NSManagedObjectContext *)context
 {
@@ -35,7 +35,7 @@
     return [self executeFetchRequestAndReturnFirstObject:request inContext:context];
 }
 
-#pragma mark - request util
+#pragma mark + request util
 
 + (NSFetchRequest *) requestFirstByAttribute:(NSString *)attribute withValue:(id)searchValue inContext:(NSManagedObjectContext *)context;
 {
@@ -45,11 +45,29 @@
     return request;
 }
 
++ (NSFetchRequest *) requestAllWhere:(NSString *)property isEqualTo:(id)value
+{
+    return [self requestAllWhere:property isEqualTo:value inContext:[NSManagedObjectContext context]];
+}
+
 
 + (NSFetchRequest *) requestAllWhere:(NSString *)property isEqualTo:(id)value inContext:(NSManagedObjectContext *)context
 {
     NSFetchRequest *request = [self createFetchRequestInContext:context];
     [request setPredicate:[NSPredicate predicateWithFormat:@"%K = %@", property, value]];
+    
+    return request;
+}
+
++ (NSFetchRequest *) requestAllWhere:(NSString *)where args:(NSArray *)args
+{
+    return [self requestAllWhere:where args:args inContext:[NSManagedObjectContext context]];
+}
+
++ (NSFetchRequest *) requestAllWhere:(NSString *)where args:(NSArray *)args inContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *request = [self createFetchRequestInContext:context];
+    [request setPredicate:[NSPredicate predicateWithFormat:where argumentArray:args]];
     
     return request;
 }
@@ -62,7 +80,7 @@
     return request;
 }
 
-#pragma mark - entity util
+#pragma mark + entity util
 + (NSEntityDescription *) entityDescriptionInContext:(NSManagedObjectContext *)context
 {
     NSString *entityName = [self entityName];
@@ -71,10 +89,10 @@
 
 + (NSString *) entityName;
 {
-    return [NSStringFromClass(self) componentsSeparatedByString:@"."].lastObject;
+    return [NSStringFromClass(self.class) componentsSeparatedByString:@"."].lastObject;
 }
 
-#pragma mark - execute request util
+#pragma mark + execute request util
 + (id) executeFetchRequestAndReturnFirstObject:(NSFetchRequest *)request inContext:(NSManagedObjectContext *)context
 {
     [request setFetchLimit:1];
@@ -85,6 +103,11 @@
         return nil;
     }
     return [results firstObject];
+}
+
++ (NSArray *) executeFetchRequest:(NSFetchRequest *)request
+{
+    return [self executeFetchRequest:request inContext:[NSManagedObjectContext context]];
 }
 
 + (NSArray *) executeFetchRequest:(NSFetchRequest *)request inContext:(NSManagedObjectContext *)context
@@ -103,5 +126,25 @@
     return results;
 }
 
++ (NSUInteger) executeCountForFetchRequest:(NSFetchRequest *)request
+{
+    return [self executeCountForFetchRequest:request inContext:[NSManagedObjectContext context]];
+}
+
++ (NSUInteger) executeCountForFetchRequest:(NSFetchRequest *)request inContext:(NSManagedObjectContext *)context
+{
+    __block NSUInteger resultCount;
+    [context performBlockAndWait:^{
+        NSError *error = nil;
+        
+        resultCount = [context countForFetchRequest:request error:&error];
+        
+        if (!error)
+        {
+            DDLogError(@"fetch core data error %@", error);
+        }
+    }];
+    return resultCount;
+}
 
 @end

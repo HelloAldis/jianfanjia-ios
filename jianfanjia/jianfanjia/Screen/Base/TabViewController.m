@@ -29,6 +29,10 @@
     UITabBarItem *item4 = [self.tabBar.items objectAtIndex:2];
     item4 = [item4 initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_4_default"] selectedImage:[UIImage imageNamed:@"tab_4_selected"]];
     item4.titlePositionAdjustment = UIOffsetMake(0, -2);
+    
+    [[NotificationDataManager shared] observeAllUnreadCount:^(id value) {
+        item4.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
+    }];
 }
 
 @end

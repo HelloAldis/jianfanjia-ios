@@ -311,6 +311,7 @@ static ViewControllerContainer *container;
 }
 
 + (void)logout {
+    [GeTuiSdk unbindAlias:[GVUserDefaults standardUserDefaults].userid];
     container.tab = nil;
     container.navTap1 = nil;
     container.navTap2 = nil;

@@ -131,6 +131,8 @@
 		685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5E71C03178C00EC1991 /* MessageCell.xib */; };
 		685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5EB1C031D1C00EC1991 /* GetComments.m */; };
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
+		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
+		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
 		68D536A61BFF563800D8F1B2 /* PlanPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */; };
 		68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */; };
 		68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E505641BF0BB0100B0B910 /* SelectCityViewController.m */; };
@@ -512,6 +514,10 @@
 		685CD5EB1C031D1C00EC1991 /* GetComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetComments.m; sourceTree = "<group>"; };
 		68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemImageCollectionView.h; sourceTree = "<group>"; };
 		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
+		689485CE1C1A6A05002310FC /* NotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDataManager.h; sourceTree = "<group>"; };
+		689485CF1C1A6A05002310FC /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
+		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		689485D21C1A70A7002310FC /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		68D536A31BFF563800D8F1B2 /* PlanPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPreviewViewController.h; sourceTree = "<group>"; };
 		68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPreviewViewController.m; sourceTree = "<group>"; };
 		68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPreviewViewController.xib; sourceTree = "<group>"; };
@@ -1194,6 +1200,8 @@
 				6E07DA871BD88DBE001461DD /* DataManager.m */,
 				6E07DA881BD88DBE001461DD /* GVUserDefaults+Manager.h */,
 				6E07DA891BD88DBE001461DD /* GVUserDefaults+Manager.m */,
+				689485CE1C1A6A05002310FC /* NotificationDataManager.h */,
+				689485CF1C1A6A05002310FC /* NotificationDataManager.m */,
 				6E07DA8A1BD88DBE001461DD /* Manager.h */,
 			);
 			path = Manager;
@@ -1235,6 +1243,8 @@
 				683A5D6B1C0EFBAE0071DF88 /* YsImage.m */,
 				683B2A761C10162400822715 /* Schedule.h */,
 				683B2A771C10162400822715 /* Schedule.m */,
+				689485D11C1A70A7002310FC /* Notification.h */,
+				689485D21C1A70A7002310FC /* Notification.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1983,6 +1993,7 @@
 				684A37401BFD73DF00F7388C /* IntentDesignerCell.m in Sources */,
 				6E6D98AA1BDF733F00D45F77 /* HomePageViewController.m in Sources */,
 				6E07DABF1BD88DBE001461DD /* UIView+Ex.m in Sources */,
+				689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */,
 				6EE34D541C0EC5C200C6957E /* UserGetInfo.m in Sources */,
 				6E07DAC91BD88DBE001461DD /* Ys.m in Sources */,
 				6E07DAAA1BD88DBE001461DD /* ProcessList.m in Sources */,
@@ -2031,6 +2042,7 @@
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
 				AB5852531C074252004B054E /* ItemImageCollectionCell.m in Sources */,
+				689485D31C1A70A7002310FC /* Notification.m in Sources */,
 				6EE1E4261C0595C600883184 /* LeakMoniter.m in Sources */,
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
 				6EE1E42B1C059CF400883184 /* FavoriteDesignerViewController.m in Sources */,
@@ -2225,7 +2237,7 @@
 			baseConfigurationReference = 87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PREFIX_HEADER = jianfanjia/PrefixHeader.pch;
 				INFOPLIST_FILE = jianfanjia/Info.plist;

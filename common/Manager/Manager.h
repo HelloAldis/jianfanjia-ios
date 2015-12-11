@@ -11,5 +11,6 @@
 
 #import "DataManager.h"
 #import "GVUserDefaults+Manager.h"
+#import "NotificationDataManager.h"
 
 #endif /* Manager_h */

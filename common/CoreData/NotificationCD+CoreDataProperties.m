@@ -13,6 +13,8 @@
 
 @implementation NotificationCD (CoreDataProperties)
 
+@dynamic userid;
+@dynamic processid;
 @dynamic type;
 @dynamic time;
 @dynamic info;

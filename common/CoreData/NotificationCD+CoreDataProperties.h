@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NotificationCD (CoreDataProperties)
 
+@property (nullable, nonatomic, retain) NSString *userid;
+@property (nullable, nonatomic, retain) NSString *processid;
 @property (nullable, nonatomic, retain) NSString *type;
 @property (nullable, nonatomic, retain) NSNumber *time;
 @property (nullable, nonatomic, retain) id info;

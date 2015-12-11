@@ -20,7 +20,7 @@
 
 - (id)transformedValue:(id)value {
     NSError *error = nil;
-    id data = [NSJSONSerialization dataWithJSONObject:[value data] options:0 error:&error];
+    id data = [NSJSONSerialization dataWithJSONObject:value options:0 error:&error];
     if (error) {
         DDLogError(@"notification error %@", error);
     }
