@@ -88,7 +88,7 @@
             [self initUIData];
         }];
     }];
-    
+    controller.selectSexType = SelectSexTypeUserSex;
     [self.navigationController pushViewController:controller animated:YES];
 }
 

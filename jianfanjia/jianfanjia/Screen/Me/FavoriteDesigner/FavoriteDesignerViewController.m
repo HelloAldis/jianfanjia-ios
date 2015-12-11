@@ -116,9 +116,9 @@
         
         [self.tableView reloadData];
     } failure:^{
-        
+        [self.tableView.footer endRefreshing];
     } networkError:^{
-        
+        [self.tableView.footer endRefreshing];
     }];
 }
 

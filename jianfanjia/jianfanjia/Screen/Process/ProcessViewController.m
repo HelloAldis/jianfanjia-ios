@@ -306,9 +306,9 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
             [self refreshSections];
         } failure:^{
-            
+            [self.tableView.header endRefreshing];
         } networkError:^{
-            
+            [self.tableView.header endRefreshing];
         }];
     }
 }

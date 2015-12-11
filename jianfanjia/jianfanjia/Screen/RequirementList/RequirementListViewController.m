@@ -166,9 +166,9 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
         [self switchViewToHide];
         [self.tableView reloadData];
     } failure:^{
-        
+        [self.tableView.header endRefreshing];
     } networkError:^{
-        
+        [self.tableView.header endRefreshing];
     }];
 }
 

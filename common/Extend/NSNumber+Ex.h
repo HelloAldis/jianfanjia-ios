@@ -13,5 +13,6 @@
 - (NSString *)humDateString;
 - (NSString *)humCountString;
 - (NSString *)humSizeString;
+- (NSString *)humRmbString;
 
 @end

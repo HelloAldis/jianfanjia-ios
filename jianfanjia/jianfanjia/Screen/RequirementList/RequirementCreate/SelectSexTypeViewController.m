@@ -31,7 +31,11 @@ static NSString* cellId = @"cityCell";
 - (void)initNav {
     [self initLeftBackInNav];
     
-    self.title = @"偏好设计师性别";
+    if (self.selectSexType == SelectSexTypeRequirementPrefer) {
+        self.title = @"偏好设计师性别";
+    } else if (self.selectSexType == SelectSexTypeUserSex) {
+        self.title = @"性别";
+    }
 }
 
 #pragma mark - UI
@@ -55,13 +59,17 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.data.count;
+    if (self.selectSexType == SelectSexTypeUserSex) {
+        return 2;
+    } else {
+        return self.data.count;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     cell.textLabel.text = [NameDict getAllSexType][self.data[indexPath.row]];
-    
+
     return cell;
 }
 

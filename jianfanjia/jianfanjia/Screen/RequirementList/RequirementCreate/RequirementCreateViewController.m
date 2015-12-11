@@ -376,7 +376,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
             return true;
         }]
         length:^NSInteger {
-            return 3;
+            return 4;
         }]
         subscribeNext:^(NSString *value) {
             @strongify(self);
@@ -470,6 +470,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
             self.editingRequirement.prefer_sex = value == nil ? @"" : value;
             self.lblSelectSexTypeVal.text = [NameDict nameForSexType:value];
         }];
+        [(SelectSexTypeViewController *)controller setSelectSexType:SelectSexTypeRequirementPrefer];
     }
     
     if (controller) {

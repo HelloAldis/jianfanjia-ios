@@ -213,9 +213,9 @@
         [self.tableView.footer endRefreshing];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
-        
+        [self.tableView.footer endRefreshing];
     } networkError:^{
-        
+        [self.tableView.footer endRefreshing];
     }];
 }
 

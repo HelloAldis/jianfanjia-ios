@@ -61,6 +61,10 @@
     }
 }
 
+- (NSString *)humRmbString {
+    return [NSString stringWithFormat:@"￥%@", self];
+}
+
 - (NSString *)humSizeString {
     return [NSString stringWithFormat:@"%.2fMB", [self doubleValue]/kMB];
 }
