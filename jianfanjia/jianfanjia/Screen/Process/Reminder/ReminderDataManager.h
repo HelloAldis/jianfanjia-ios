@@ -11,7 +11,11 @@
 @interface ReminderDataManager : NSObject
 
 @property (strong, nonatomic) NSMutableArray *schedules;
+@property (strong, nonatomic) NSArray *notifications;
 
-- (void)refreshSchedule;
+- (void)refreshSchedule:(NSString *)processid;
+- (void)refreshNotificationWithProcess:(NSString *)processid type:(NSString *)type;
+- (void)refreshNotificationWithProcess:(NSString *)processid type:(NSString *)type status:(NSString *)status;
+- (void)markToReadForProcess:(NSString *)processid type:(NSString *)type;
 
 @end

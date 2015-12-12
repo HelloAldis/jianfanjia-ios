@@ -84,12 +84,22 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [super viewWillAppear:animated];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    @weakify(self);
+    [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid observer:^(id value) {
+        @strongify(self);
+        DDLogDebug(@"subscribeUnreadCountForProcess");
+        self.navigationItem.rightBarButtonItem.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
+    }];
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"notification-bell"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickReminder)];
-    
     self.title = @"工地管理";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"notification-bell"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickReminder)];
 }
 
 - (void)initUI {
@@ -411,7 +421,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 #pragma mark - user action
 - (void)onClickReminder {
-    [ViewControllerContainer showReminder];
+    [ViewControllerContainer showReminder:self.processid];
 }
 
 - (void)switchSection:(NSInteger)page {

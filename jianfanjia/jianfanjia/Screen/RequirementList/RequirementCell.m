@@ -153,12 +153,23 @@
         || [status isEqualToString:kRequirementStatusDesignerMeasureHouseWithoutPlan]
         || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]) {
         self.lblRequirementStatusVal.textColor = kPassStatusColor;
+        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
+        [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
     } else if ([status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
         self.lblRequirementStatusVal.textColor = kFinishedColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"前往工地" forState:UIControlStateNormal];
+        
+        @weakify(self);
+        [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.requirement.process._id observer:^(id value) {
+            @strongify(self);
+            self.btnGoToWorkspace.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
+            self.btnGoToWorkspace.badgeOriginX = kScreenWidth / 2 + 15;
+        }];
     } else if ([status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
         self.lblRequirementStatusVal.textColor = kUntriggeredColor;
+        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
+        [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
     }
 }
 

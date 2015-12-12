@@ -21,18 +21,13 @@ typedef void (^NotificationUnreadUpdateBlock)(id value);
 
 - (void)receiveNotification:(NSData *)payload;
 - (void)refreshUnreadCount;
-- (void)observePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block;
-- (void)observePayUnreadCount:(NotificationUnreadUpdateBlock)block;
-- (void)observeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block;
-- (void)observeAllUnreadCount:(NotificationUnreadUpdateBlock)block;
+- (void)subscribePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block;
+- (void)subscribePayUnreadCount:(NotificationUnreadUpdateBlock)block;
+- (void)subscribeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block;
+- (void)subscribeAllUnreadCount:(NotificationUnreadUpdateBlock)block;
 
-- (void)observePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid;
-- (void)observePayUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid;
-- (void)observeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid;
-
-- (void)observePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid type:(NSString *)type;
-- (void)observePayUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid type:(NSString *)type;
-- (void)observeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid type:(NSString *)type;
+- (void)subscribeUnreadCountForProcess:(NSString *)processid observer:(NotificationUnreadUpdateBlock)block;
+- (void)subscribeUnreadCountForProcess:(NSString *)processid type:(NSString *)type observer:(NotificationUnreadUpdateBlock)block;
 
 - (void)markNotificationToRead:(NotificationCD *)notification;
 

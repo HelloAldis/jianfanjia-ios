@@ -13,10 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NotificationCD : NSManagedObject
 
+- (Notification *)notification;
 + (void)insert:(Notification *)notification;
 
++ (NSArray *)getNotifications;
 + (NSArray *)getNotificationsWithStatus:(NSString *)status;
 + (NSArray *)getNotificationsWithType:(NSString *)type status:(NSString *)status;
++ (NSArray *)getNotificationsWithProcess:(NSString *)processid type:(NSString *)type;
 + (NSArray *)getNotificationsWithProcess:(NSString *)processid type:(NSString *)type status:(NSString *)status;
 + (NSArray *)getNotificationsWithUser:(NSString *)userid process:(nullable NSString *)processid type:(nullable NSString *)type status:(nullable NSString *)status;
 

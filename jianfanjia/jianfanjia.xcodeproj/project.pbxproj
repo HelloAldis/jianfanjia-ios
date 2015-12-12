@@ -290,6 +290,8 @@
 		6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */; };
 		6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D831C1174DD00C6957E /* StringUtil.m */; };
 		AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */; };
+		AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */; };
+		AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = AB489B851C1B085E00E1BA4B /* UIButton+Badge.m */; };
 		AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF871C0F2F76003680BA /* SectionDone.m */; };
 		AB4CAF8B1C0F35E8003680BA /* GetRescheduleNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8A1C0F35E8003680BA /* GetRescheduleNotification.m */; };
 		AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8D1C0F361B003680BA /* Reschedule.m */; };
@@ -801,6 +803,10 @@
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AB0084E51C146E0C00B23C7D /* BaseSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectionViewController.h; sourceTree = "<group>"; };
 		AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectionViewController.m; sourceTree = "<group>"; };
+		AB489B821C1B085E00E1BA4B /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
+		AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
+		AB489B841C1B085E00E1BA4B /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
+		AB489B851C1B085E00E1BA4B /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		AB4CAF861C0F2F76003680BA /* SectionDone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionDone.h; sourceTree = "<group>"; };
 		AB4CAF871C0F2F76003680BA /* SectionDone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionDone.m; sourceTree = "<group>"; };
 		AB4CAF891C0F35E8003680BA /* GetRescheduleNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRescheduleNotification.h; sourceTree = "<group>"; };
@@ -1158,6 +1164,10 @@
 		6E07DA751BD88DBE001461DD /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				AB489B821C1B085E00E1BA4B /* UIBarButtonItem+Badge.h */,
+				AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */,
+				AB489B841C1B085E00E1BA4B /* UIButton+Badge.h */,
+				AB489B851C1B085E00E1BA4B /* UIButton+Badge.m */,
 				6E4496501BFD7DDE00C90851 /* NSNumber+Ex.h */,
 				6E4496511BFD7DDE00C90851 /* NSNumber+Ex.m */,
 				6E07DA761BD88DBE001461DD /* Ex.h */,
@@ -2051,6 +2061,7 @@
 				685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */,
 				6EE1E4341C05A72400883184 /* FavoriteDesignerData.m in Sources */,
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
+				AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
 				685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */,
@@ -2062,6 +2073,7 @@
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
 				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
 				6838400C1C158490004F456E /* UpdateMultipleLineTextViewController.m in Sources */,
+				AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */,
 				684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
@@ -2227,7 +2239,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.user;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d71d4100-c170-4afc-b214-ab6cbed055ae";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -2237,15 +2249,15 @@
 			baseConfigurationReference = 87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = jianfanjia/PrefixHeader.pch;
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.user;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "bd5dd8dc-789d-4fdd-858d-50aa3f2a5e37";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

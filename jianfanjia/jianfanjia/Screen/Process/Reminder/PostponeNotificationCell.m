@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblContent;
 @property (weak, nonatomic) IBOutlet UILabel *lblRequestTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblStatus;
+@property (weak, nonatomic) IBOutlet UIView *reminderIcon;
 
 @property (strong, nonatomic) Schedule *schedule;
 
@@ -22,10 +23,10 @@
 @implementation PostponeNotificationCell
 
 - (void)awakeFromNib {
-    
+    [self.reminderIcon setCornerRadius:self.reminderIcon.bounds.size.width / 2];
 }
 
-- (void)initWithSchedule:(Schedule *)schedule {
+- (void)initWithSchedule:(Schedule *)schedule notification:(Notification *)notification {
     self.schedule = schedule;
     self.lblCell.text = schedule.process.cell;
     self.lblWorkingPhase.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:schedule.section]];
@@ -41,6 +42,12 @@
         self.lblContent.text = [NSString stringWithFormat:@"对方已申请改期验收至%@", [NSDate yyyy_MM_dd:schedule.updated_date]];
     } else {
         self.lblContent.text = [NSString stringWithFormat:@"您已申请改期验收至%@", [NSDate yyyy_MM_dd:schedule.updated_date]];
+    }
+    
+    if ([notification.status isEqualToString:kNotificationStatusUnread]) {
+        self.reminderIcon.alpha = 1.0;
+    } else {
+        self.reminderIcon.alpha = 0;
     }
 }
 

@@ -9,6 +9,15 @@
 //
 // Notification Data structure
 // {"content":"测试一下离线的","section":"section","type":"type","time":1449800214981,"cell":"cell","processid":"566798dab6c449fd05969fef"}
+//
+// Purchase notification
+// {"content":"水电材料","section":"shui_dian","cell":"复古","type":"1","time":1449881177142,"processid":"566b6dd2e1029ffe2f0b1d24"}
+//
+// Reschedule notification
+// {"content":"设计师唐冕向您提出了改期, 希望可以将验收改期到2015-12-23","type":"0","time":1449900703466,"section":"shui_dian","status":"3","cell":"复古","processid":"566b6dd2e1029ffe2f0b1d24"}
+//
+// Info notification
+// {"content":"设计师已经上传所有验收图片，您可以前往对比验收","type":"3","time":1449902755533,"section":"shui_dian","cell":"复古","processid":"566b6dd2e1029ffe2f0b1d24"}
 
 #import "NotificationDataManager.h"
 
@@ -51,8 +60,8 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
         self.rescheduleUnreadCount = [NotificationCD getNotificationsCountWithType:kNotificationTypeReschedule status:kNotificationStatusUnread];
         self.totalUnreadCount = self.purchaseUnreadCount + self.payUnreadCount + self.rescheduleUnreadCount;
         
-        NSArray *allProcessUnreadNotifications = [NotificationCD getNotificationsWithStatus:kNotificationStatusUnread];
-        for (id notification in allProcessUnreadNotifications) {
+        NSArray *allProcessNotifications = [NotificationCD getNotifications];
+        for (id notification in allProcessNotifications) {
             NSString *processid = [notification processid];
             NSUInteger process_purchase_unread_count = [NotificationCD getNotificationsCountWithProcess:processid type:kNotificationTypePurchase status:kNotificationStatusUnread];
             NSUInteger process_pay_unread_count = [NotificationCD getNotificationsCountWithProcess:processid type:kNotificationTypePay status:kNotificationStatusUnread];
@@ -77,43 +86,27 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
     [NSManagedObjectContext save];
 }
 
-- (void)observePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block {
+- (void)subscribePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block {
     [RACObserve(self, purchaseUnreadCount) subscribeNext:block];
 }
 
-- (void)observePayUnreadCount:(NotificationUnreadUpdateBlock)block {
+- (void)subscribePayUnreadCount:(NotificationUnreadUpdateBlock)block {
     [RACObserve(self, payUnreadCount) subscribeNext:block];
 }
 
-- (void)observeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block {
+- (void)subscribeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block {
     [RACObserve(self, rescheduleUnreadCount) subscribeNext:block];
 }
 
-- (void)observeAllUnreadCount:(NotificationUnreadUpdateBlock)block {
+- (void)subscribeAllUnreadCount:(NotificationUnreadUpdateBlock)block {
     [RACObserve(self, totalUnreadCount) subscribeNext:block];
 }
 
-- (void)observePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid {
+- (void)subscribeUnreadCountForProcess:(NSString *)processid observer:(NotificationUnreadUpdateBlock)block  {
     [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data] subscribeNext:block];
 }
 
-- (void)observePayUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid {
-    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data] subscribeNext:block];
-}
-
-- (void)observeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid {
-    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data] subscribeNext:block];
-}
-
-- (void)observePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid type:(NSString *)type {
-    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid type:type] observer:self.data] subscribeNext:block];
-}
-
-- (void)observePayUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid type:(NSString *)type {
-    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid type:type] observer:self.data] subscribeNext:block];
-}
-
-- (void)observeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block process:(NSString *)processid type:(NSString *)type {
+- (void)subscribeUnreadCountForProcess:(NSString *)processid type:(NSString *)type observer:(NotificationUnreadUpdateBlock)block  {
     [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid type:type] observer:self.data] subscribeNext:block];
 }
 

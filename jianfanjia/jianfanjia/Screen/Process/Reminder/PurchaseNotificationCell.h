@@ -10,4 +10,6 @@
 
 @interface PurchaseNotificationCell : UITableViewCell
 
+- (void)initWithNotification:(Notification *)notification;
+
 @end

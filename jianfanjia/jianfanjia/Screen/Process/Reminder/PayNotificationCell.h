@@ -10,4 +10,6 @@
 
 @interface PayNotificationCell : UITableViewCell
 
+- (void)initWithNotification:(Notification *)notification;
+
 @end

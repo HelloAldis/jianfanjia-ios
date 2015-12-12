@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="130" id="KGk-i7-Jjw" customClass="PurchaseNotificationCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="133" id="KGk-i7-Jjw" customClass="PurchaseNotificationCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="102"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="系统提醒您进入建材购买阶段，您需要购买的是" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnh-le-axa">
@@ -23,45 +24,75 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSs-L3-ozW">
-                        <rect key="frame" x="196" y="74" width="116" height="17"/>
+                        <rect key="frame" x="196" y="77" width="116" height="17"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="泥木阶段&gt;木地板测量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1t-oL-hgU">
-                        <rect key="frame" x="13" y="74" width="135" height="17"/>
+                        <rect key="frame" x="13" y="77" width="135" height="17"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="US1-pw-A9h">
-                        <rect key="frame" x="13" y="35" width="299" height="29"/>
+                        <rect key="frame" x="13" y="35" width="299" height="32"/>
                         <animations/>
                         <string key="text">复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板</string>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9p7-Wx-Zlh" userLabel="Reminder">
+                        <rect key="frame" x="306" y="4" width="10" height="10"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.2666666667" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="9p7-Wx-Zlh" secondAttribute="height" multiplier="1:1" id="gKa-7m-3TZ"/>
+                            <constraint firstAttribute="width" constant="10" id="wnI-e9-nKY"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="gKa-7m-3TZ"/>
+                            </mask>
+                        </variation>
+                    </view>
                 </subviews>
                 <animations/>
                 <constraints>
+                    <constraint firstItem="9p7-Wx-Zlh" firstAttribute="top" secondItem="Mnh-le-axa" secondAttribute="top" constant="-4" id="0k1-ZN-eOv"/>
                     <constraint firstItem="e1t-oL-hgU" firstAttribute="top" secondItem="US1-pw-A9h" secondAttribute="bottom" constant="10" id="GbB-nQ-qBo"/>
                     <constraint firstItem="US1-pw-A9h" firstAttribute="top" secondItem="Mnh-le-axa" secondAttribute="bottom" constant="10" id="JX1-TI-7ch"/>
                     <constraint firstAttribute="bottomMargin" secondItem="e1t-oL-hgU" secondAttribute="bottom" id="MxE-ZF-aAW"/>
                     <constraint firstAttribute="trailingMargin" secondItem="JSs-L3-ozW" secondAttribute="trailing" id="N4A-Sp-r3f"/>
+                    <constraint firstItem="9p7-Wx-Zlh" firstAttribute="width" secondItem="9p7-Wx-Zlh" secondAttribute="height" multiplier="1:1" id="Qwi-Rb-QEQ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Mnh-le-axa" secondAttribute="trailing" id="Ut2-cb-hES"/>
+                    <constraint firstItem="9p7-Wx-Zlh" firstAttribute="trailing" secondItem="Mnh-le-axa" secondAttribute="trailing" constant="4" id="aD6-NN-Ssq"/>
                     <constraint firstItem="US1-pw-A9h" firstAttribute="leading" secondItem="Mnh-le-axa" secondAttribute="leading" id="c12-3j-pWa"/>
                     <constraint firstItem="e1t-oL-hgU" firstAttribute="leading" secondItem="US1-pw-A9h" secondAttribute="leading" id="dt5-Gd-HAG"/>
                     <constraint firstItem="Mnh-le-axa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="iwE-qg-oTJ"/>
                     <constraint firstAttribute="topMargin" secondItem="Mnh-le-axa" secondAttribute="top" id="jbN-pE-xSI"/>
+                    <constraint firstItem="9p7-Wx-Zlh" firstAttribute="leading" secondItem="Mnh-le-axa" secondAttribute="leading" constant="-4" id="pea-Zb-vXj"/>
                     <constraint firstItem="JSs-L3-ozW" firstAttribute="centerY" secondItem="e1t-oL-hgU" secondAttribute="centerY" id="uq5-V4-7h8"/>
                     <constraint firstAttribute="trailingMargin" secondItem="US1-pw-A9h" secondAttribute="trailing" id="yPd-yg-1q3"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="pea-Zb-vXj"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <animations/>
-            <point key="canvasLocation" x="179" y="396"/>
+            <connections>
+                <outlet property="lblContent" destination="US1-pw-A9h" id="moe-T6-Ptu"/>
+                <outlet property="lblRequestTime" destination="JSs-L3-ozW" id="gnH-6A-TEs"/>
+                <outlet property="lblTitle" destination="Mnh-le-axa" id="PLy-HA-jkk"/>
+                <outlet property="lblWorkingPhase" destination="e1t-oL-hgU" id="IAE-Yl-Dqb"/>
+                <outlet property="reminderIcon" destination="9p7-Wx-Zlh" id="Bl6-Mx-wyX"/>
+            </connections>
+            <point key="canvasLocation" x="179" y="397.5"/>
         </tableViewCell>
     </objects>
 </document>

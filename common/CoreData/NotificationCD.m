@@ -28,13 +28,32 @@
     [NSManagedObjectContext save];
 }
 
+- (Notification *)notification {
+    Notification *notification = [[Notification alloc] initWith:self.info];
+    notification.userid = self.userid;
+    notification.processid = self.processid;
+    notification.type = self.type;
+    notification.time = self.time;
+    notification.status = self.status;
+    
+    return notification;
+}
+
 #pragma mark - get notification
++ (NSArray *)getNotifications {
+    return [self getNotificationsWithUser:[GVUserDefaults standardUserDefaults].userid process:nil type:nil status:nil];
+}
+
 + (NSArray *)getNotificationsWithStatus:(NSString *)status {
     return [self getNotificationsWithUser:[GVUserDefaults standardUserDefaults].userid process:nil type:nil status:status];
 }
 
 + (NSArray *)getNotificationsWithType:(NSString *)type status:(NSString *)status {
     return [self getNotificationsWithUser:[GVUserDefaults standardUserDefaults].userid process:nil type:type status:status];
+}
+
++ (NSArray *)getNotificationsWithProcess:(NSString *)processid type:(NSString *)type {
+    return [self getNotificationsWithUser:[GVUserDefaults standardUserDefaults].userid process:processid type:type status:nil];
 }
 
 + (NSArray *)getNotificationsWithProcess:(NSString *)processid type:(NSString *)type status:(NSString *)status {

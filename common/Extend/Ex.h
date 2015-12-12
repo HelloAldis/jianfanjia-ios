@@ -23,5 +23,7 @@
 #import "NSNumber+Ex.h"
 #import "UIImage+Ex.h"
 #import "UIImagePickerController+Ex.h"
+#import "UIButton+Badge.h"
+#import "UIBarButtonItem+Badge.h"
 
 #endif

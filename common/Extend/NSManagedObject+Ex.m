@@ -139,7 +139,7 @@
         
         resultCount = [context countForFetchRequest:request error:&error];
         
-        if (!error)
+        if (error)
         {
             DDLogError(@"fetch core data error %@", error);
         }

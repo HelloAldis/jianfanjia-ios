@@ -155,7 +155,7 @@ NSString * const kNotificationStatusUnread = @"0";
 NSString * const kNotificationStatusReaded = @"1";
 
 NSString * const kNotificationTypeReschedule = @"0";
-NSString * const kNotificationTypePurchase = @"type"; //1
+NSString * const kNotificationTypePurchase = @"1"; 
 NSString * const kNotificationTypePay = @"2";
 
  

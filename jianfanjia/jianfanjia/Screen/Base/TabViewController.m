@@ -30,7 +30,11 @@
     item4 = [item4 initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_4_default"] selectedImage:[UIImage imageNamed:@"tab_4_selected"]];
     item4.titlePositionAdjustment = UIOffsetMake(0, -2);
     
-    [[NotificationDataManager shared] observeAllUnreadCount:^(id value) {
+    [[NotificationDataManager shared] subscribeAllUnreadCount:^(id value) {
+        item2.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
+    }];
+    
+    [[NotificationDataManager shared] subscribeAllUnreadCount:^(id value) {
         item4.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
     }];
 }
