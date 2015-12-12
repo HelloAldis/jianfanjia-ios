@@ -222,10 +222,10 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     }];
 }
 
-- (void)clickBack {
+- (void)onClickBack {
     NSString *badgeValue = [self.btnNotifications[self.selectedButtonIndex] badgeValue];
     [self markToReadForNotificationType:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)] unreadCount:badgeValue];
-    [super clickBack];
+    [super onClickBack];
 }
 
 #pragma mark - refresh notification
@@ -241,11 +241,13 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 
 - (void)refreshPurchases {
     [self.dataManager refreshNotificationWithProcess:self.processid type:kNotificationTypePurchase];
+    self.dataManager.notifications = [self descendNotifications:self.dataManager.notifications];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 - (void)refreshPays {
     [self.dataManager refreshNotificationWithProcess:self.processid type:kNotificationTypePay];
+    self.dataManager.notifications = [self descendNotifications:self.dataManager.notifications];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
@@ -269,6 +271,18 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         [self.dataManager markToReadForProcess:self.processid type:type];
         [[NotificationDataManager shared] refreshUnreadCount];
     }
+}
+
+- (NSArray *)descendNotifications:(NSArray *)notifications {
+    return [notifications sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(NotificationCD*  _Nonnull obj1, NotificationCD*  _Nonnull obj2) {
+        if ([obj1.time compare:obj2.time] == NSOrderedAscending) {
+            return NSOrderedDescending;
+        } else if ([obj1.time compare:obj2.time] == NSOrderedDescending) {
+            return NSOrderedAscending;
+        } else {
+            return NSOrderedSame;
+        }
+    }];
 }
 
 @end
