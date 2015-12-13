@@ -27,6 +27,9 @@
 @property (strong, nonatomic) NSString *alertMessage;
 @property (strong, nonatomic) NSString *alertSecondMsg;
 @property (strong, nonatomic) NSString *alertThirdMsg;
+@property (strong, nonatomic) NSString *rejectTitle;
+@property (strong, nonatomic) NSString *agreeTitle;
+@property (strong, nonatomic) NSString *okTitle;
 
 @property (assign, nonatomic) BOOL allowIgnore;
 
@@ -35,7 +38,11 @@
 @implementation MessageAlertViewController
 
 + (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second ok:(MessageButtonBlock)okBlock {
-    MessageAlertViewController *alert = [[MessageAlertViewController alloc] initWithTitle:title message:msg secondMsg:second thirdMsg:nil allowIgnore:NO reject:nil agree:nil ok:okBlock];
+    [self presentAlert:title msg:msg second:second okTitle:nil ok:okBlock];
+}
+
++ (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second okTitle:(NSString *)okTitle ok:(MessageButtonBlock)okBlock {
+    MessageAlertViewController *alert = [[MessageAlertViewController alloc] initWithTitle:title message:msg secondMsg:second thirdMsg:nil allowIgnore:NO rejectTitle:nil reject:nil agreeTitle:nil agree:nil okTitle:okTitle ok:okBlock];
     alert.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
     alert.modalPresentationStyle = UIModalPresentationOverFullScreen;
     alert.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -44,7 +51,11 @@
 }
 
 + (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second reject:(MessageButtonBlock)rejectBlock agree:(MessageButtonBlock)agreeBlock {
-    MessageAlertViewController *alert = [[MessageAlertViewController alloc] initWithTitle:title message:msg secondMsg:second thirdMsg:nil allowIgnore:YES reject:rejectBlock agree:agreeBlock ok:nil];
+    [self presentAlert:title msg:msg second:second rejectTitle:nil reject:rejectBlock agreeTitle:nil agree:agreeBlock];
+}
+
++ (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second rejectTitle:(NSString *)rejectTitle reject:(MessageButtonBlock)rejectBlock agreeTitle:(NSString *)agreeTitle agree:(MessageButtonBlock)agreeBlock {
+    MessageAlertViewController *alert = [[MessageAlertViewController alloc] initWithTitle:title message:msg secondMsg:second thirdMsg:nil allowIgnore:YES rejectTitle:rejectTitle reject:rejectBlock agreeTitle:agreeTitle agree:agreeBlock okTitle:nil ok:nil];
     alert.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
     alert.modalPresentationStyle = UIModalPresentationOverFullScreen;
     alert.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -52,15 +63,18 @@
     [[ViewControllerContainer getCurrentTapController] presentViewController:alert animated:YES completion:nil];
 }
 
-- (id)initWithTitle:(NSString *)title message:(NSString *)message secondMsg:(NSString *)secondMsg thirdMsg:(NSString *)thirdMsg allowIgnore:(BOOL)allowIgnore reject:(MessageButtonBlock)rejectBlock agree:(MessageButtonBlock)agreeBlock ok:(MessageButtonBlock)okBlock {
+- (id)initWithTitle:(NSString *)title message:(NSString *)message secondMsg:(NSString *)secondMsg thirdMsg:(NSString *)thirdMsg allowIgnore:(BOOL)allowIgnore rejectTitle:(NSString *)rejectTitle reject:(MessageButtonBlock)rejectBlock agreeTitle:(NSString *)agreeTitle agree:(MessageButtonBlock)agreeBlock okTitle:(NSString *)okTitle ok:(MessageButtonBlock)okBlock {
     if (self = [super init]) {
         _alertTitle = title;
         _alertMessage = message;
         _alertSecondMsg = secondMsg;
         _alertThirdMsg = thirdMsg;
         _allowIgnore = allowIgnore;
+        _rejectTitle = rejectTitle;
         _rejectBlock = rejectBlock;
+        _agreeTitle = agreeTitle;
         _agreeBlock = agreeBlock;
+        _okTitle = okTitle;
         _okBlock = okBlock;
     }
     
@@ -86,6 +100,10 @@
     [self.btnReject setBorder:1 andColor:kFinishedColor.CGColor];
     [self.btnAgree setCornerRadius:5];
     [self.btnOk setCornerRadius:5];
+    
+    [self.btnReject setTitle:self.rejectTitle ? self.rejectTitle : @"取消" forState:UIControlStateNormal];
+    [self.btnAgree setTitle:self.agreeTitle ? self.agreeTitle : @"确定" forState:UIControlStateNormal];
+    [self.btnOk setTitle:self.okTitle ? self.okTitle : @"好的，知道了" forState:UIControlStateNormal];
     
     if (self.rejectBlock || self.agreeBlock) {
         self.btnReject.hidden = NO;

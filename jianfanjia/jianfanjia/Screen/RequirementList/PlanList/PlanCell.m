@@ -10,7 +10,7 @@
 #import "ViewControllerContainer.h"
 
 static const NSInteger imgWidth = 170;
-static const NSInteger imgSpace = 5;
+static const NSInteger imgSpace = 0;
 
 @interface PlanCell ()
 @property (weak, nonatomic) IBOutlet UILabel *lblPlanTitleVal;
@@ -58,6 +58,9 @@ static const NSInteger imgSpace = 5;
         } else {
             self.lblPlanStatusVal.textColor = kTextColor;
         }
+    } else {
+        self.lblPlanStatusVal.text = @"沟通中";
+        self.lblPlanStatusVal.textColor = kExcutionStatusColor;
     }
     
     if (plan.comment_count.intValue > 0) {
@@ -71,14 +74,17 @@ static const NSInteger imgSpace = 5;
     [plan.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         UIImageView *imgView = [[UIImageView alloc] init];
+        imgView.clipsToBounds = YES;
         imgView.contentMode = UIViewContentModeScaleAspectFill;
         imgView.frame = CGRectMake(idx * (imgWidth + imgSpace), 0, imgWidth, self.imgScrollView.bounds.size.height);
         [imgView setImageWithId:obj withWidth:imgWidth];
         [self.imgScrollView addSubview:imgView];
         
-        UIView *space = [[UIView alloc] init];
-        space.frame = CGRectMake(idx * imgWidth, 0, imgSpace, self.imgScrollView.bounds.size.height);
-        [self.imgScrollView addSubview:space];
+        if (imgSpace > 0) {
+            UIView *space = [[UIView alloc] init];
+            space.frame = CGRectMake(idx * imgWidth, 0, imgSpace, self.imgScrollView.bounds.size.height);
+            [self.imgScrollView addSubview:space];
+        }
     }];
     
     self.imgScrollView.contentSize = CGSizeMake((imgWidth + imgSpace) * plan.images.count, self.imgScrollView.bounds.size.height);

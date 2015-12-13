@@ -36,11 +36,23 @@
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
     [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
+    
+    NSString *status = self.requirement.status;
+    if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
+        || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
+        || [status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
+        self.btnReplace.enabled = NO;
+        [self.btnReplace setBorder:1 andColor:kUntriggeredColor.CGColor];
+        [self.btnReplace setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+    } else {
+        self.btnReplace.enabled = YES;
+        [self.btnReplace setBorder:1 andColor:kFinishedColor.CGColor];
+        [self.btnReplace setTitleColor:kFinishedColor forState:UIControlStateNormal];
+    }
 }
 
 - (void)onClickButton {
     [ViewControllerContainer showReplaceOrderedDesigner:self.designer._id forRequirement:self.requirement];
 }
-
 
 @end

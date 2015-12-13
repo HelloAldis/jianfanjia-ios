@@ -92,8 +92,16 @@
     }
     
     NSString *status = self.currentPlanStatus[touchedIndex];
+
     if ([status isEqualToString:kPlanStatusUnorder]) {
-        [ViewControllerContainer showOrderDesigner:self.requirement];
+        NSString *status = self.requirement.status;
+        if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
+            || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
+            || [status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
+            // Nothing
+        } else {
+            [ViewControllerContainer showOrderDesigner:self.requirement];
+        }
     } else {
         [ViewControllerContainer showOrderedDesigner:self.requirement];
     }

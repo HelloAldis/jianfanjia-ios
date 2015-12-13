@@ -37,11 +37,14 @@
     self.lblUserNameVal.text = designer.username;
     [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
     self.lblMeasureHouseTimeVal.text = [NSDate yyyy_MM_dd_HH_mm:designer.plan.house_check_time];
-    
-    if ([[NSDate date] timeIntervalSince1970] > designer.plan.house_check_time.longValue / 1000) {
+    if ([[NSDate date] timeIntervalSince1970] > designer.plan.house_check_time.longLongValue / 1000) {
         self.btnConfirmMeasureHouse.hidden = NO;
         self.lblMeasureHouseTime.hidden = YES;
         self.lblMeasureHouseTimeVal.hidden = YES;
+    } else {
+        self.btnConfirmMeasureHouse.hidden = YES;
+        self.lblMeasureHouseTime.hidden = NO;
+        self.lblMeasureHouseTimeVal.hidden = NO;
     }
 }
 

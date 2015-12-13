@@ -8,6 +8,7 @@
 
 #import "PlanPreviewViewController.h"
 #import "ViewControllerContainer.h"
+#import "MessageAlertViewController.h"
 
 @interface PlanPreviewViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -69,6 +70,7 @@
     [self.plan.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         UIImageView *imgView = [[UIImageView alloc] init];
+        imgView.clipsToBounds = YES;
         imgView.contentMode = UIViewContentModeScaleAspectFill;
         imgView.frame = CGRectMake(idx * kScreenWidth, 0, kScreenWidth, self.imgScrollView.bounds.size.height);
         [imgView setImageWithId:obj withWidth:kScreenWidth];
@@ -76,6 +78,7 @@
     }];
     
     self.imgScrollView.contentSize = CGSizeMake(kScreenWidth * self.plan.images.count, self.imgScrollView.bounds.size.height);
+    self.imgScrollView.showsHorizontalScrollIndicator = NO;
     self.pageControl.numberOfPages = self.plan.images.count;
     self.pageControl.hidden = self.plan.images.count <= 1;
     self.lblPlanTitle.text = [NSString stringWithFormat:@"%@%@期", self.requirement.cell, self.requirement.cell_phase];
@@ -96,6 +99,17 @@
         @strongify(self);
         [self onChoosePlan];
     }];
+    
+    NSString *status = self.requirement.status;
+    if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
+        || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
+        || [status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
+        self.btnChoosePlan.enabled = NO;
+        self.btnChoosePlan.backgroundColor = kUntriggeredColor;
+    } else {
+        self.btnChoosePlan.enabled = YES;
+        self.btnChoosePlan.backgroundColor = kFinishedColor;
+    }
 }
 
 #pragma mark - scroll view deleaget
@@ -112,17 +126,21 @@
 }
 
 - (void)onChoosePlan {
-    ChoosePlan *request = [[ChoosePlan alloc] init];
-    request.planid = self.plan._id;
-    request.designerid = self.plan.designerid;
-    request.requirementid = self.plan.requirementid;
-    
-    [API choosePlan:request success:^{
-        [self clickBack];
-    } failure:^{
+    @weakify(self);
+    [MessageAlertViewController presentAlert:@"选定方案" msg:@"您确定要选定此方案吗？" second:nil rejectTitle:@"取消" reject:nil agreeTitle:@"确定" agree:^{
+        @strongify(self);
+        ChoosePlan *request = [[ChoosePlan alloc] init];
+        request.planid = self.plan._id;
+        request.designerid = self.plan.designerid;
+        request.requirementid = self.plan.requirementid;
         
-    } networkError:^{
-        
+        [API choosePlan:request success:^{
+            [self clickBack];
+        } failure:^{
+            
+        } networkError:^{
+            
+        }];
     }];
 }
 

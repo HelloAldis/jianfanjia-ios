@@ -47,6 +47,8 @@
     
     if (self.designer.evaluation._id) {
         [self.btnEvaluate setTitle:@"已评价" forState:UIControlStateNormal];
+    } else {
+        [self.btnEvaluate setTitle:@"评价" forState:UIControlStateNormal];
     }
 }
 
