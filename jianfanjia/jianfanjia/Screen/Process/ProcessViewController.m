@@ -315,6 +315,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             self.lastSelectedIndexPath = nil;
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
             [self refreshSections];
+            [self switchSection:self.processDataManager.selectedSectionIndex];
         } failure:^{
             [self.tableView.header endRefreshing];
         } networkError:^{
@@ -396,7 +397,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         }
     }
     self.isFirstEnter = NO;
-    [self switchSection:self.processDataManager.selectedSectionIndex];
 }
 
 - (void)updateSection:(Section *)section for:(SectionView *)sectionView index:(NSInteger)index total:(NSInteger)total {

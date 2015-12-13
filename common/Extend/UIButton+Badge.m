@@ -44,6 +44,10 @@ NSString const *UIButton_badgeValueKey = @"UIButton_badgeValueKey";
 }
 
 #pragma mark - Utility methods
+- (void)adjustBadgeToCloseText {
+    self.badgeOriginX = self.titleLabel.frame.origin.x + (self.titleLabel.frame.size.width - self.badge.frame.size.width / 2) + 7;
+    self.badgeOriginY = self.titleLabel.frame.origin.y - self.badge.frame.size.height / 2;
+}
 
 // Handle badge display when its properties have been changed (color, font, ...)
 - (void)refreshBadge

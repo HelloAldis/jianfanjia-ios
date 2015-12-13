@@ -134,7 +134,8 @@
         lblStatus.textColor = kFinishedColor;
     } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]
                || [status isEqualToString:kPlanStatusPlanWasNotChoosed]
-               || [status isEqualToString:kPlanStatusExpiredAsDesignerDidNotRespond]) {
+               || [status isEqualToString:kPlanStatusExpiredAsDesignerDidNotRespond]
+               || [status isEqualToString:kPlanStatusExpiredAsDesignerDidProvidePlanInSpecifiedTime]) {
         lblStatus.textColor = kUntriggeredColor;
     }
 }
@@ -151,6 +152,7 @@
         || [status isEqualToString:kRequirementStatusDesignerRespondedWithoutMeasureHouse]
         || [status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
         || [status isEqualToString:kRequirementStatusDesignerMeasureHouseWithoutPlan]
+        || [status isEqualToString:kRequirementStatusDesignerSubmittedPlanWithoutResponse]
         || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]) {
         self.lblRequirementStatusVal.textColor = kPassStatusColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
@@ -164,7 +166,7 @@
         [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.requirement.process._id observer:^(id value) {
             @strongify(self);
             self.btnGoToWorkspace.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
-            self.btnGoToWorkspace.badgeOriginX = kScreenWidth / 2 + 15;
+            self.btnGoToWorkspace.badgeOriginX = kScreenWidth / 2 + 17;
         }];
     } else if ([status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
         self.lblRequirementStatusVal.textColor = kUntriggeredColor;

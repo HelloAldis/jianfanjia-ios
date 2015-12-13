@@ -157,6 +157,7 @@
         [self.btnChangeDate setTitleColor:kFinishedColor forState:UIControlStateNormal];
         [self.btnChangeDate setTitle:@"申请改期" forState:UIControlStateNormal];
         self.btnChangeDate.alpha = 1;
+        self.btnUnresolvedChangeDate.hidden = YES;
     }
 }
 

@@ -48,6 +48,20 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
     NSLog(@"%@", [GVUserDefaults standardUserDefaults].userid);
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.isTabbarhide) {
+        [self showTabbar];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if (!self.isTabbarhide && self.navigationController.viewControllers.count > 1) {
+        [self hideTabbar];
+    }
+}
+
 #pragma mark - init ui
 - (void)initUI {
     [self.tableView registerNib:[UINib nibWithNibName:@"RequirementCell" bundle:nil] forCellReuseIdentifier:requirementCellId];
@@ -72,27 +86,20 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
         
         self.tableView.hidden = YES;
     }
+    
+    if ([self.requirementDataManager.requirements count] < 3) {
+        self.navigationItem.rightBarButtonItem.enabled = YES;
+    } else {
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
 }
 
 #pragma mark - nav
 - (void)initNav {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate:)];
     self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     self.title = @"装修需求";
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (self.isTabbarhide) {
-        [self showTabbar];
-    }
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if (!self.isTabbarhide && self.navigationController.viewControllers.count > 1) {
-        [self hideTabbar];
-    }
 }
 
 #pragma mark - scroll view delegate
@@ -165,6 +172,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
         [self.tableView.header endRefreshing];
         [self.requirementDataManager refreshRequirementList];
         [self switchViewToHide];
+        
         [self.tableView reloadData];
     } failure:^{
         [self.tableView.header endRefreshing];

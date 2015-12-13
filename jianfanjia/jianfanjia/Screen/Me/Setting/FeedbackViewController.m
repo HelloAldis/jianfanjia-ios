@@ -58,7 +58,7 @@
     @weakify(self);
     [API feedback:request success:^{
         @strongify(self);
-        [HUDUtil showSuccessText:@"感谢你的宝贵建议！"];
+        [HUDUtil showSuccessText:@"感谢您的宝贵建议！"];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^{
         

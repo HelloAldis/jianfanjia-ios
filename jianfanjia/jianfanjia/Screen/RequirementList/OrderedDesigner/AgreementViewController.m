@@ -91,7 +91,11 @@
 #pragma mark - delegate 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     if (self.navigationItem.rightBarButtonItem) {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
+        if ([kRequirementStatusConfiguredAgreementWithoutWorkSite isEqualToString:self.requirement.status]) {
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        } else if ([kRequirementStatusPlanWasChoosedWithoutAgreement isEqualToString:self.requirement.status]) {
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+        }
     }
 }
 

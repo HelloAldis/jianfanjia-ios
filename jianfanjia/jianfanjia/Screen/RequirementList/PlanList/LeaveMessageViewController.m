@@ -119,23 +119,14 @@ static const CGFloat kMaxMessageHeight = 100;
         [self onSendMessage];
     }];
 
-    [[[self.tvMessage.rac_textSignal
-        doNext:^(NSString *value) {
-            if (value.length > 0) {
-                self.btnSend.enabled = YES;
-                self.btnSend.alpha = 1.0;
-            } else {
-                self.btnSend.enabled = NO;
-                self.btnSend.alpha = 0.5;
-            }
-        }]
+    [[self.tvMessage.rac_textSignal
         length:^NSInteger{
             return self.maxCount;
         }]
         subscribeNext:^(NSString *value) {
             @strongify(self);
             self.tvMessage.text = value;
-            self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(self.maxCount - self.tvMessage.text.length)];
+            [self refreshUI:value];
             CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
             self.messageHeight.constant = MIN(kMaxMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height);
         }];
@@ -167,6 +158,17 @@ static const CGFloat kMaxMessageHeight = 100;
 }
 
 #pragma mark - user action
+- (void)refreshUI:(NSString *)msg {
+    self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(self.maxCount - msg.length)];
+    if (msg.length > 0) {
+        self.btnSend.enabled = YES;
+        self.btnSend.alpha = 1.0;
+    } else {
+        self.btnSend.enabled = NO;
+        self.btnSend.alpha = 0.5;
+    }
+}
+
 - (void)onClickBack {
     if (self.hasDataUpdate) {
         if (self.RefreshBlock) {
@@ -198,6 +200,7 @@ static const CGFloat kMaxMessageHeight = 100;
         @strongify(self);
         self.hasDataUpdate = YES;
         self.tvMessage.text = @"";
+        [self refreshUI:@""];
         CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
         self.messageHeight.constant = size.height;
         [self refreshMessageList];
