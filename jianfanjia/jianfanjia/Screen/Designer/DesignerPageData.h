@@ -15,7 +15,7 @@
 @property (strong, nonatomic) NSMutableArray *products;
 
 - (DesignerPageData *)refreshDesigner;
-- (DesignerPageData *)refreshProduct;
-- (DesignerPageData *)loadMoreProduct;
+- (NSInteger)refreshProduct;
+- (NSInteger)loadMoreProduct;
 
 @end

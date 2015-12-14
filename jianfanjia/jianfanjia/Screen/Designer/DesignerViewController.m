@@ -190,8 +190,12 @@
     @weakify(self);
     [API queryProduct:request success:^{
         @strongify(self);
-        [self.designerPageData refreshProduct];
+        NSInteger count = [self.designerPageData refreshProduct];
         [self.tableView.footer endRefreshing];
+        if (request.limit.integerValue > count) {
+            [self.tableView.footer noticeNoMoreData];
+        };
+        
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
         
@@ -209,8 +213,12 @@
     @weakify(self);
     [API queryProduct:request success:^{
         @strongify(self);
-        [self.designerPageData loadMoreProduct];
+        NSInteger count = [self.designerPageData loadMoreProduct];
         [self.tableView.footer endRefreshing];
+        if (request.limit.integerValue > count) {
+            [self.tableView.footer noticeNoMoreData];
+        };
+        
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
         [self.tableView.footer endRefreshing];

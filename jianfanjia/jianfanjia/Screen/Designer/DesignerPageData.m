@@ -16,7 +16,7 @@
     return self;
 }
 
-- (DesignerPageData *)refreshProduct {
+- (NSInteger)refreshProduct {
     NSArray* arr = [[DataManager shared].data objectForKey:@"products"];
     NSMutableArray *products = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
@@ -25,10 +25,10 @@
     }
     
     self.products = products;
-    return self;
+    return products.count;
 }
 
-- (DesignerPageData *)loadMoreProduct {
+- (NSInteger)loadMoreProduct {
     NSArray* arr = [[DataManager shared].data objectForKey:@"products"];
     NSMutableArray *products = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
@@ -37,7 +37,7 @@
     }
     
     [self.products addObjectsFromArray:products];
-    return self;
+    return products.count;
 }
 
 @end
