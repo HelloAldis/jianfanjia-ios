@@ -141,8 +141,13 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     ItemImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ImageCollectionCellIdentifier forIndexPath:indexPath];
     
     if ((indexPath.row + 1) % 2 == 0) {
-        YsImage *image = self.imgArray[(indexPath.row + 1) / 2 - 1];
-        [cell initWithImage:image.imageid width:self.imgCollectionLayout.itemSize.width];
+        NSInteger scenceImageIndex = (indexPath.row + 1) / 2 - 1;
+        if (scenceImageIndex < self.imgArray.count) {
+            YsImage *image = self.imgArray[scenceImageIndex];
+            [cell initWithImage:image.imageid width:self.imgCollectionLayout.itemSize.width];
+        } else {
+            [cell initWithImage:nil width:self.imgCollectionLayout.itemSize.width];
+        }
     } else {
         [cell initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", self.section.name, @(indexPath.row / 2)]]];
     }
@@ -189,11 +194,13 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 }
 
 - (void)showScenceImageDetail:(NSInteger)index {
-    NSArray *images = [self.imgArray map:^id(YsImage *obj) {
-        return obj.imageid;
-    }];
-    
-    [ViewControllerContainer showOnlineImages:images index:index];
+    if (index < self.imgArray.count) {
+        NSArray *images = [self.imgArray map:^id(YsImage *obj) {
+            return obj.imageid;
+        }];
+        
+        [ViewControllerContainer showOnlineImages:images index:index];
+    }
 }
 
 @end
