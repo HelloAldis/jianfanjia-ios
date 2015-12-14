@@ -9,6 +9,7 @@
 #import "PlanPreviewViewController.h"
 #import "ViewControllerContainer.h"
 #import "MessageAlertViewController.h"
+#import "OrderedDesignerViewController.h"
 
 @interface PlanPreviewViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -100,7 +101,7 @@
         [self onChoosePlan];
     }];
     
-    NSString *status = self.requirement.status;
+    NSString *status = self.plan.status;
     if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
         || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
         || [status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
@@ -135,13 +136,26 @@
         request.requirementid = self.plan.requirementid;
         
         [API choosePlan:request success:^{
-            [self clickBack];
+            [self navigateToOrderedDesignerScreen];
         } failure:^{
             
         } networkError:^{
             
         }];
     }];
+}
+
+- (void)navigateToOrderedDesignerScreen {
+    NSArray *controllers = [[self.navigationController.viewControllers reverseObjectEnumerator] allObjects];
+    UIViewController *purposeController = nil;
+    for (UIViewController *controller in controllers) {
+        if ([controller isKindOfClass:[OrderedDesignerViewController class]]) {
+            purposeController = controller;
+            break;
+        }
+    }
+    
+    [self.navigationController popToViewController:purposeController animated:YES];
 }
 
 @end

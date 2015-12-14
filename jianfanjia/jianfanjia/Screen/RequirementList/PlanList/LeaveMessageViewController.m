@@ -19,6 +19,7 @@ typedef NS_ENUM(NSInteger, CommentType) {
 static NSString *MessageCellIdentifier = @"MessageCell";
 
 static CGFloat kKeyboardHeight = 480;
+static const CGFloat kMinMessageHeight = 50;
 static const CGFloat kMaxMessageHeight = 100;
 
 @interface LeaveMessageViewController ()
@@ -125,10 +126,16 @@ static const CGFloat kMaxMessageHeight = 100;
         }]
         subscribeNext:^(NSString *value) {
             @strongify(self);
+            if ([value trim].length == 0) {
+                self.tvMessage.text = [value trim];
+                [self refreshUI:[value trim]];
+                return;
+            }
+            
             self.tvMessage.text = value;
             [self refreshUI:value];
             CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
-            self.messageHeight.constant = MIN(kMaxMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height);
+            self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height));
         }];
     
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -202,7 +209,7 @@ static const CGFloat kMaxMessageHeight = 100;
         self.tvMessage.text = @"";
         [self refreshUI:@""];
         CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
-        self.messageHeight.constant = size.height;
+        self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height));
         [self refreshMessageList];
     } failure:^{
         

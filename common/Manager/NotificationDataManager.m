@@ -36,45 +36,47 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 @implementation NotificationDataManager
 
 - (void)receiveNotification:(NSData *)payload {
-    NSError *error = nil;
-    NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:payload options:NSJSONReadingMutableContainers error:&error];
-    
-    if (error) {
-        DDLogError(@"notification error %@", error);
-        return;
-    }
-    
-    if ([GVUserDefaults standardUserDefaults].isLogin) {
-        Notification *notification = [[Notification alloc] initWith:json];
-        notification.userid = [GVUserDefaults standardUserDefaults].userid;
-        notification.status = kNotificationStatusUnread;
-        [self insertNotification:notification];
-        [self refreshUnreadCount];
-    }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSError *error = nil;
+        NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:payload options:NSJSONReadingMutableContainers error:&error];
+        
+        if (error) {
+            DDLogError(@"notification error %@", error);
+            return;
+        }
+        
+        if ([GVUserDefaults standardUserDefaults].isLogin) {
+            Notification *notification = [[Notification alloc] initWith:json];
+            notification.userid = [GVUserDefaults standardUserDefaults].userid;
+            notification.status = kNotificationStatusUnread;
+            [self insertNotification:notification];
+            [self refreshUnreadCount];
+        }
+    });
 }
 
 - (void)refreshUnreadCount {
-    if ([GVUserDefaults standardUserDefaults].isLogin) {
-        self.purchaseUnreadCount = [NotificationCD getNotificationsCountWithType:kNotificationTypePurchase status:kNotificationStatusUnread];
-        self.payUnreadCount = [NotificationCD getNotificationsCountWithType:kNotificationTypePay status:kNotificationStatusUnread];
-        self.rescheduleUnreadCount = [NotificationCD getNotificationsCountWithType:kNotificationTypeReschedule status:kNotificationStatusUnread];
-        self.totalUnreadCount = self.purchaseUnreadCount + self.payUnreadCount + self.rescheduleUnreadCount;
-        
-        NSArray *allProcessNotifications = [NotificationCD getNotifications];
-        for (id notification in allProcessNotifications) {
-            NSString *processid = [notification processid];
-            NSUInteger process_purchase_unread_count = [NotificationCD getNotificationsCountWithProcess:processid type:kNotificationTypePurchase status:kNotificationStatusUnread];
-            NSUInteger process_pay_unread_count = [NotificationCD getNotificationsCountWithProcess:processid type:kNotificationTypePay status:kNotificationStatusUnread];
-            NSUInteger process_reschedule_unread_count = [NotificationCD getNotificationsCountWithProcess:processid type:kNotificationTypeReschedule status:kNotificationStatusUnread];
-            NSUInteger total_type_unread_count = process_purchase_unread_count + process_pay_unread_count + process_reschedule_unread_count;
-            [self setValue:@(process_purchase_unread_count) forProperty:[self setSelStrWithProcess:processid type:kNotificationTypePurchase]];
-            [self setValue:@(process_pay_unread_count) forProperty:[self setSelStrWithProcess:processid type:kNotificationTypePay]];
-            [self setValue:@(process_reschedule_unread_count) forProperty:[self setSelStrWithProcess:processid type:kNotificationTypeReschedule]];
-            [self setValue:@(total_type_unread_count) forProperty:[self setSelStrWithProcess:processid]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        if ([GVUserDefaults standardUserDefaults].isLogin) {
+            self.purchaseUnreadCount = [NotificationCD getNotificationsCountWithType:kNotificationTypePurchase status:kNotificationStatusUnread];
+            self.payUnreadCount = [NotificationCD getNotificationsCountWithType:kNotificationTypePay status:kNotificationStatusUnread];
+            self.rescheduleUnreadCount = [NotificationCD getNotificationsCountWithType:kNotificationTypeReschedule status:kNotificationStatusUnread];
+            self.totalUnreadCount = self.purchaseUnreadCount + self.payUnreadCount + self.rescheduleUnreadCount;
+            
+            NSArray *allProcessNotifications = [NotificationCD getNotifications];
+            for (id notification in allProcessNotifications) {
+                NSString *processid = [notification processid];
+                NSUInteger process_purchase_unread_count = [NotificationCD getNotificationsCountWithProcess:processid type:kNotificationTypePurchase status:kNotificationStatusUnread];
+                NSUInteger process_pay_unread_count = [NotificationCD getNotificationsCountWithProcess:processid type:kNotificationTypePay status:kNotificationStatusUnread];
+                NSUInteger process_reschedule_unread_count = [NotificationCD getNotificationsCountWithProcess:processid type:kNotificationTypeReschedule status:kNotificationStatusUnread];
+                NSUInteger total_type_unread_count = process_purchase_unread_count + process_pay_unread_count + process_reschedule_unread_count;
+                [self setValue:@(process_purchase_unread_count) forProperty:[self setSelStrWithProcess:processid type:kNotificationTypePurchase]];
+                [self setValue:@(process_pay_unread_count) forProperty:[self setSelStrWithProcess:processid type:kNotificationTypePay]];
+                [self setValue:@(process_reschedule_unread_count) forProperty:[self setSelStrWithProcess:processid type:kNotificationTypeReschedule]];
+                [self setValue:@(total_type_unread_count) forProperty:[self setSelStrWithProcess:processid]];
+            }
         }
-    }
-    
-//    [self setValue:@(9) forProperty:[self setSelStrWithProcess:@"565522a171b1ff7478fbe922"]];
+    });
 }
 
 - (void)insertNotification:(Notification *)notification {
@@ -87,27 +89,64 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 }
 
 - (void)subscribePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, purchaseUnreadCount) subscribeNext:block];
+    [RACObserve(self, purchaseUnreadCount) subscribeNext:^(id x) {
+        if (block) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(x);
+            });
+        }
+    }];
 }
 
 - (void)subscribePayUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, payUnreadCount) subscribeNext:block];
+    [RACObserve(self, payUnreadCount) subscribeNext:^(id x) {
+        if (block) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(x);
+            });
+        }
+    }];
 }
 
 - (void)subscribeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, rescheduleUnreadCount) subscribeNext:block];
+    [RACObserve(self, rescheduleUnreadCount) subscribeNext:^(id x) {
+        if (block) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(x);
+            });
+        }
+    }];
 }
 
 - (void)subscribeAllUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, totalUnreadCount) subscribeNext:block];
+    [RACObserve(self, totalUnreadCount) subscribeNext:^(id x) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [UIApplication sharedApplication].applicationIconBadgeNumber = [x integerValue];
+            if (block) {
+                block(x);
+            }
+        });
+    }];
 }
 
 - (void)subscribeUnreadCountForProcess:(NSString *)processid observer:(NotificationUnreadUpdateBlock)block  {
-    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data] subscribeNext:block];
+    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data] subscribeNext:^(id x) {
+        if (block) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(x);
+            });
+        }
+    }];
 }
 
 - (void)subscribeUnreadCountForProcess:(NSString *)processid type:(NSString *)type observer:(NotificationUnreadUpdateBlock)block  {
-    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid type:type] observer:self.data] subscribeNext:block];
+    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid type:type] observer:self.data] subscribeNext:^(id x) {
+        if (block) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                block(x);
+            });
+        }
+    }];
 }
 
 #pragma mark - Getters and Setters for dynamic properties

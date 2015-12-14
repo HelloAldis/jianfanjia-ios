@@ -116,6 +116,7 @@
 }
 
 - (void)onClickDone {
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     UIImage *newImage;
     DDLogDebug(@"--------------");
     

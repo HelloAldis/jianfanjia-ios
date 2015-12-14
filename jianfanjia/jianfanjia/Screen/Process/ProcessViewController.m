@@ -77,7 +77,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     [self initNav];
     [self initUI];
-    [self refreshProcess];
+    [self refreshProcess:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -128,7 +128,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         @weakify(self);
         self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             @strongify(self);
-            [self refreshProcess];
+            [self refreshProcess:NO];
         }];
     }
 
@@ -171,7 +171,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.sectionScrollView) {
         NSInteger page = roundf(scrollView.contentOffset.x / SectionViewWidth);
-        [self switchSection:page];
+        [self reloadItemsForSection:page];
     }
 }
 
@@ -297,28 +297,37 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }
 }
 
-- (void)refreshProcess {
+- (void)refreshProcess:(BOOL)showPlsWait {
     if (self.workSiteMode == WorkSiteModePreview) {
         [self.processDataManager refreshSections:[ProcessBusiness defaultProcess]];
-        [self.processDataManager switchToSelectedSection:0];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self refreshSections];
+        [self reloadItemsForSection:0];
     } else {
+        if (showPlsWait) {
+            [HUDUtil showWait];
+        }
         GetProcess *request = [[GetProcess alloc] init];
         request.processid = self.processid;
         
         [API getProcess:request success:^{
+            [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
             self.currentSectionOperationStatus = SectionOperationStatusRefresh;
             [self.processDataManager refreshProcess];
-            [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex];
-            self.lastSelectedIndexPath = nil;
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            if (self.isFirstEnter) {
+                [self.processDataManager switchToSelectedSection:self.processDataManager.ongoingSectionIndex];
+            }
             [self refreshSections];
-            [self switchSection:self.processDataManager.selectedSectionIndex];
+            [self reloadItemsForSection:self.processDataManager.selectedSectionIndex];
+            self.lastSelectedIndexPath = nil;
+            [self.tableView beginUpdates];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView endUpdates];
         } failure:^{
+            [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
         } networkError:^{
+            [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
         }];
     }
@@ -338,10 +347,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             item.itemCellStatus = ItemCellStatusClosed;
         }
         
+        [self refreshSections];
         [self.tableView beginUpdates];
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView endUpdates];
-        [self refreshSections];
     } failure:^{
         
     } networkError:^{
@@ -397,6 +406,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         }
     }
     self.isFirstEnter = NO;
+    
+    [self.sectionScrollView setContentOffset:CGPointMake(self.processDataManager.selectedSectionIndex * SectionViewWidth, 0) animated:YES];
 }
 
 - (void)updateSection:(Section *)section for:(SectionView *)sectionView index:(NSInteger)index total:(NSInteger)total {
@@ -416,7 +427,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     SectionView *sectionView = (SectionView *)gesture.view;
     NSInteger index = [self.sectionViewArray indexOfObject:sectionView];
     [self.sectionScrollView setContentOffset:CGPointMake(index * SectionViewWidth, 0) animated:YES];
-    [self switchSection:index];
+    [self reloadItemsForSection:index];
 }
 
 #pragma mark - user action
@@ -424,7 +435,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [ViewControllerContainer showReminder:self.processid];
 }
 
-- (void)switchSection:(NSInteger)page {
+- (void)reloadItemsForSection:(NSInteger)page {
     [self.processDataManager switchToSelectedSection:page];
     self.lastSelectedIndexPath = nil;
     self.currentSectionOperationStatus = SectionOperationStatusRefresh;

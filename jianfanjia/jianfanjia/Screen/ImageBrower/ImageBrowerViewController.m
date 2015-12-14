@@ -145,6 +145,7 @@
 
 - (void)onClickDoneMutil {
     DDLogDebug(@"onClickDoneMutil");
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     [self uploadImageForIndex:self.collectionView.indexPathsForSelectedItems[0]];
 }
 

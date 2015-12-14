@@ -57,6 +57,8 @@ static CGFloat imgCellWidth;
     [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
     [self.imgCollection addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)]];
     [self.leaveMsgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLeaveIconGesture:)]];
+    imgCollectionWidth = kScreenWidth - 85;
+    imgCellWidth = (imgCollectionWidth - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
 }
 
 #pragma mark - UI
@@ -244,15 +246,15 @@ static CGFloat imgCellWidth;
 #pragma mark - layout
 - (void)layoutSubviews {
     
-    static dispatch_once_t token;
-    dispatch_once(&token, ^{
-        [self.imgCollection setNeedsLayout];
-        [self.imgCollection layoutIfNeeded];
-        imgCollectionWidth = self.imgCollection.frame.size.width;
-        imgCellWidth = (imgCollectionWidth - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
-        DDLogDebug(@"bounds %f %f", imgCollectionWidth, imgCellWidth);
-        [self refreshViewContentSize];
-    });
+//    static dispatch_once_t token;
+//    dispatch_once(&token, ^{
+//        [self.imgCollection setNeedsLayout];
+//        [self.imgCollection layoutIfNeeded];
+//        imgCollectionWidth = self.imgCollection.frame.size.width;
+//        imgCellWidth = (imgCollectionWidth - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
+//        DDLogDebug(@"bounds %f %f", imgCollectionWidth, imgCellWidth);
+//        [self refreshViewContentSize];
+//    });
     
     [super layoutSubviews];
 }

@@ -1736,6 +1736,11 @@
 					6E20B2211B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 339GELC5GG;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					6E20B23A1B87223600E3A8DA = {
 						CreatedOnToolsVersion = 6.4;

@@ -18,8 +18,15 @@
 
 - (void)refreshSections:(Process *)process {
     NSArray *arr = [process.data objectForKey:@"sections"];
-    NSMutableArray *sectionArr = [arr map:^id(id obj) {
-        return [[Section alloc] initWith:obj];
+    NSMutableArray *sectionArr = [NSMutableArray arrayWithCapacity:arr.count];
+    
+    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        Section *section = [[Section alloc] initWith:obj];
+        [sectionArr addObject:section];
+        
+        if ([self.process.going_on isEqualToString:section.name]) {
+            self.ongoingSectionIndex = idx;
+        }
     }];
     
     self.sections = sectionArr;

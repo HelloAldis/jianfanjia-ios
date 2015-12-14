@@ -86,35 +86,38 @@
     
     [[self.btnUnresolvedChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [MessageAlertViewController presentAlert:@"改期提醒" msg:@"对方申请改期至" second:[NSDate yyyy_MM_dd:self.dataManager.selectedSection.schedule.updated_date] reject:^{
-            
-            RejectReschedule *request = [[RejectReschedule alloc] init];
-            request.processid = self.dataManager.process._id;
+        [MessageAlertViewController presentAlert:@"改期提醒" msg:@"对方申请改期至" second:[NSDate yyyy_MM_dd:self.dataManager.selectedSection.schedule.updated_date]
+            rejectTitle:@"拒绝"
+            reject:^{
+                RejectReschedule *request = [[RejectReschedule alloc] init];
+                request.processid = self.dataManager.process._id;
 
-            [API rejectReschedule:request success:^{
-                if (self.refreshBlock) {
-                    self.refreshBlock();
-                }
-             
-            } failure:^{
+                [API rejectReschedule:request success:^{
+                    if (self.refreshBlock) {
+                        self.refreshBlock();
+                    }
+                 
+                } failure:^{
 
-            } networkError:^{
-                
+                } networkError:^{
+                    
+                }];
+            }
+            agreeTitle:@"同意"
+            agree:^{
+                AgreeReschedule *request = [[AgreeReschedule alloc] init];
+                request.processid = self.dataManager.process._id;
+
+                [API agreeReschedule:request success:^{
+                    if (self.refreshBlock) {
+                        self.refreshBlock();
+                    }
+                } failure:^{
+
+                } networkError:^{
+                    
+                }];
             }];
-        } agree:^{
-            AgreeReschedule *request = [[AgreeReschedule alloc] init];
-            request.processid = self.dataManager.process._id;
-
-            [API agreeReschedule:request success:^{
-                if (self.refreshBlock) {
-                    self.refreshBlock();
-                }
-            } failure:^{
-
-            } networkError:^{
-                
-            }];
-        }];
     }];
 }
 

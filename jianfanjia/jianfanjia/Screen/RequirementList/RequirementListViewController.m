@@ -43,7 +43,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];    
-    [self refreshRequirements];
+    [self refreshRequirements:YES];
     
     NSLog(@"%@", [GVUserDefaults standardUserDefaults].userid);
 }
@@ -68,7 +68,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
     @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
-        [self refreshRequirements];
+        [self refreshRequirements:NO];
     }];
 }
 
@@ -165,18 +165,25 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 }
 
 #pragma mark - send request 
-- (void)refreshRequirements {
+- (void)refreshRequirements:(BOOL)showPlsWait {
+    if (showPlsWait) {
+        [HUDUtil showWait];
+    }
+
     GetUserRequirement *getRequirements = [[GetUserRequirement alloc] init];
     
     [API getUserRequirement:getRequirements success:^{
+        [HUDUtil hideWait];
         [self.tableView.header endRefreshing];
         [self.requirementDataManager refreshRequirementList];
         [self switchViewToHide];
         
         [self.tableView reloadData];
     } failure:^{
+        [HUDUtil hideWait];
         [self.tableView.header endRefreshing];
     } networkError:^{
+        [HUDUtil hideWait];
         [self.tableView.header endRefreshing];
     }];
 }

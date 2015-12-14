@@ -49,6 +49,7 @@ static const CGFloat kMaxMessageHeight = 300;
     [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
     self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     
     self.title = self.name;
 }
@@ -64,8 +65,14 @@ static const CGFloat kMaxMessageHeight = 300;
         }]
         subscribeNext:^(NSString *value) {
             @strongify(self);
+            if ([value trim].length == 0) {
+                self.tvMultipleLine.text = [value trim];
+                [self refreshUI:[value trim]];
+                return;
+            }
+            
             self.tvMultipleLine.text = value;
-            self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(self.maxCount - self.tvMultipleLine.text.length)];
+            [self refreshUI:value];
             CGSize size = [self.tvMultipleLine sizeThatFits:CGSizeMake(self.tvMultipleLine.bounds.size.width, CGFLOAT_MAX)];
             self.tvHeightConstraint.constant = MIN(kMaxMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height);
         }];
@@ -77,6 +84,11 @@ static const CGFloat kMaxMessageHeight = 300;
         self.DoneBlock(self.tvMultipleLine.text);
     }
     [self clickBack];
+}
+
+- (void)refreshUI:(NSString *)msg {
+    self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(self.maxCount - msg.length)];
+    self.navigationItem.rightBarButtonItem.enabled = msg.length > 0 ? YES : NO;
 }
 
 @end

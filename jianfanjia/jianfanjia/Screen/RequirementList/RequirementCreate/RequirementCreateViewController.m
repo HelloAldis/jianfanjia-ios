@@ -492,6 +492,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 }
 
 - (void)onClickDone {
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     if ([@"" isEqualToString:self.editingRequirement._id]) {
         SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
         
@@ -499,9 +500,9 @@ static NSTimeInterval kKeyboardDuration = 2.0;
             [self clickBack];
             [DataManager shared].homePageNeedRefresh = YES;
         } failure:^{
-            
+            self.navigationItem.rightBarButtonItem.enabled = YES;
         } networkError:^{
-            
+            self.navigationItem.rightBarButtonItem.enabled = YES;
         }];
     } else {
         SendUpdateRequirement *sendUpdateRequirement = [[SendUpdateRequirement alloc] initWithRequirement:self.editingRequirement];
@@ -509,9 +510,9 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         [API sendUpdateRequirement:sendUpdateRequirement success:^{
             [self clickBack];
         } failure:^{
-            
+            self.navigationItem.rightBarButtonItem.enabled = YES;
         } networkError:^{
-            
+            self.navigationItem.rightBarButtonItem.enabled = YES;
         }];
     }
 }
