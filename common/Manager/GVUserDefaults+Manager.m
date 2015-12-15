@@ -14,7 +14,6 @@
 @dynamic usertype;
 @dynamic userid;
 @dynamic isLogin;
-@dynamic processid;
 @dynamic phone;
 @dynamic loginDate;
 @dynamic username;

@@ -20,7 +20,6 @@
 @property (nonatomic, weak) NSString *city;
 @property (nonatomic, weak) NSString *district;
 @property (nonatomic, weak) NSString *address;
-@property (nonatomic, weak) NSString *processid;
 @property (nonatomic, assign) BOOL isLogin;
 @property (nonatomic, weak) NSString *phone;
 @property (nonatomic, weak) NSString *loginDate;

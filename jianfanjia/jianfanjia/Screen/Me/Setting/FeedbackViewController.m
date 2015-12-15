@@ -35,8 +35,11 @@
         }
     }];
     
-    
-    
+    RAC(self.btnDone, enabled) = [RACSignal
+                                  combineLatest:@[self.textView.rac_textSignal]
+                                  reduce:^(NSString *text) {
+                                      return @([text trim].length > 0);
+                                  }];
 }
 
 #pragma mark - UI

@@ -320,6 +320,15 @@ static ViewControllerContainer *container;
     [GVUserDefaults standardUserDefaults].phone = nil;
     [GVUserDefaults standardUserDefaults].usertype = nil;
     [GVUserDefaults standardUserDefaults].userid = nil;
+    [GVUserDefaults standardUserDefaults].imageid = nil;
+    [GVUserDefaults standardUserDefaults].username = nil;
+    [GVUserDefaults standardUserDefaults].loginDate = nil;
+    [GVUserDefaults standardUserDefaults].sex = nil;
+    [GVUserDefaults standardUserDefaults].province = nil;
+    [GVUserDefaults standardUserDefaults].city = nil;
+    [GVUserDefaults standardUserDefaults].district = nil;
+    [GVUserDefaults standardUserDefaults].address = nil;
+    
     [DataManager shared].homePageDesigners = nil;
     [DataManager shared].homePageRequirement = nil;
     [DataManager shared].homePageRequirementDesigners = nil;

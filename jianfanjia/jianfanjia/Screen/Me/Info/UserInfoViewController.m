@@ -32,7 +32,15 @@
     [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.userImageView setCornerRadius:30];
-    [self initUIData];
+    
+    UserGetInfo *request = [[UserGetInfo alloc] init];
+    @weakify(self);
+    [API userGetInfo:request success:^{
+        @strongify(self);
+        [self initUIData];
+    } failure:^{
+    } networkError:^{
+    }];
 }
 
 #pragma mark - UI

@@ -11,31 +11,31 @@
 
 @implementation UIImageView (Ex)
 
-- (void)setImageWithProgress:(NSString *)imageid placeholderImage:(UIImage *)image {
-    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:nil options:SDWebImageProgressiveDownload];
-    [self sd_setImageWithURL:[self imageurl:imageid]
-            placeholderImage:nil
-                     options:SDWebImageProgressiveDownload
-                    progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-                        DDLogDebug(@"%@/%@", @(receivedSize), @(expectedSize));
-                    }
-                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
-                   
-                   }];
-    
-//    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
-}
+//- (void)setImageWithProgress:(NSString *)imageid placeholderImage:(UIImage *)image {
+//    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:nil options:SDWebImageProgressiveDownload];
+//    [self sd_setImageWithURL:[self imageurl:imageid]
+//            placeholderImage:nil
+//                     options:SDWebImageProgressiveDownload
+//                    progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//                        DDLogDebug(@"%@/%@", @(receivedSize), @(expectedSize));
+//                    }
+//                   completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+//                   
+//                   }];
+//    
+////    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
+//}
 
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width {
-    [self sd_setImageWithURL:[self imageurl:imageid withWidth:width] placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
+    [self sd_setImageWithURL:[self imageurl:imageid withWidth:width] placeholderImage:[UIImage imageNamed:@"image_place_holder"] options:SDWebImageRetryFailed];
 }
 
 - (void)setUserImageWithId:(NSString *)imageid {
-    [self sd_setImageWithURL:[self imageurl:imageid withWidth:60] placeholderImage:[UIImage imageNamed:@"image_place_holder_2"]];
+    [self sd_setImageWithURL:[self imageurl:imageid withWidth:60] placeholderImage:[UIImage imageNamed:@"image_place_holder_2"] options:SDWebImageRetryFailed];
 }
 
 - (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image {
-    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:image];
+    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:image options:SDWebImageRetryFailed];
 }
 
 - (NSURL *)imageurl:(NSString *)imageid {
