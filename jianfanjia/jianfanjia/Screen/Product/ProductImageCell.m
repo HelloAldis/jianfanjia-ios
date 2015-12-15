@@ -43,7 +43,7 @@
     
     [self.productImageView setImageWithId:self.productImage.imageid withWidth:kScreenWidth];
     self.lblSection.text = self.productImage.section;
-    self.lblDescribtion.text = self.productImage.description;
+    self.lblDescribtion.text = self.productImage.productImage_description;
 }
 
 - (void)onTap {

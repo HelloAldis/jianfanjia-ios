@@ -21,6 +21,16 @@
     });
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:NSStringFromClass(self.class)];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [MobClick endLogPageView:NSStringFromClass(self.class)];
+}
+
 - (void)didReceiveMemoryWarning {
     DDLogError(@"didReceiveMemoryWarning");
     [[SDImageCache sharedImageCache] clearMemory];

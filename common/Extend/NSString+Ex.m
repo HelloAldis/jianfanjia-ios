@@ -92,4 +92,8 @@
     return [emailTest evaluateWithObject:self];
 }
 
++ (BOOL)compareStrWithIgnoreNil:(NSString *)aString other:(NSString *)bString {
+    return [aString ? aString : @"" isEqualToString:bString ? bString : @""];
+}
+
 @end

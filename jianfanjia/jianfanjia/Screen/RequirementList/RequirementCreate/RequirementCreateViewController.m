@@ -15,6 +15,7 @@
 #import "SelectDecorationTypeViewController.h"
 #import "SelectSexTypeViewController.h"
 #import "SelectDecorationStyleViewController.h"
+#import "MessageAlertViewController.h"
 
 typedef enum {
     RequirementOperateTypeView,
@@ -70,6 +71,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 @property (strong, nonatomic) UIGestureRecognizer *selectCommunicationTypeGesture;
 @property (strong, nonatomic) UIGestureRecognizer *selectSexTypeGesture;
 
+@property (strong, nonatomic) Requirement *originRequirement;
 @property (strong, nonatomic) Requirement *editingRequirement;
 @property (assign, nonatomic) RequirementOperateType editType;
 
@@ -93,6 +95,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     if (self) {
         _editingRequirement = requirement;
         _editType = editType;
+        _originRequirement = [[Requirement alloc] init];
     }
     
     return self;
@@ -108,7 +111,6 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
@@ -315,6 +317,8 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         [self displayValueToUI];
     }
     
+    [self.originRequirement merge:self.editingRequirement];
+    
     @weakify(self);
     //Street
     [[self.fldStreetVal rac_textSignal] subscribeNext:^(NSString *value) {
@@ -414,6 +418,36 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     
 }
 
+#pragma mark - util
+- (BOOL)hasDataChanged {
+    if (self.editType == RequirementOperateTypeView) {
+        return NO;
+    }
+
+    if (![NSString compareStrWithIgnoreNil:self.originRequirement.province other:self.editingRequirement.province]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.city other:self.editingRequirement.city]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.district other:self.editingRequirement.district]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.street other:self.editingRequirement.street]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell other:self.editingRequirement.cell]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell_phase other:self.editingRequirement.cell_phase]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell_building other:self.editingRequirement.cell_building]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell_unit other:self.editingRequirement.cell_unit]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell_detail_number other:self.editingRequirement.cell_detail_number]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.house_type other:self.editingRequirement.house_type]
+        || ![NSNumber compareNumWithIgnoreNil:self.originRequirement.house_area other:self.editingRequirement.house_area]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.work_type other:self.editingRequirement.work_type]
+        || ![NSNumber compareNumWithIgnoreNil:self.originRequirement.total_price other:self.editingRequirement.total_price]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.dec_type other:self.editingRequirement.dec_type]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.family_description other:self.editingRequirement.family_description]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.dec_style other:self.editingRequirement.dec_style]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.communication_type other:self.editingRequirement.communication_type]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.prefer_sex other:self.editingRequirement.prefer_sex]) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 #pragma mark - gestures
 - (void)onTapSection:(UIGestureRecognizer *)gesture {
     UIView *tapView = gesture.view;
@@ -484,6 +518,19 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+- (void)onClickBack {
+    [self.view endEditing:YES];
+    if ([self hasDataChanged]) {
+        [MessageAlertViewController presentAlert:@"提醒" msg:@"您有未保存的内容，您确定要退出吗？" second:nil reject:nil agree:^{
+            [super onClickBack];
+        }];
+        
+        return;
+    }
+    
+    [super onClickBack];
+}
+
 #pragma mark - user action
 - (void)onClickEdit {
     self.editType = RequirementOperateTypeEdit;
@@ -497,7 +544,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
         
         [API sendAddRequirement:sendAddRequirement success:^{
-            [self clickBack];
+            [self.navigationController popViewControllerAnimated:YES];
             [DataManager shared].homePageNeedRefresh = YES;
         } failure:^{
             self.navigationItem.rightBarButtonItem.enabled = YES;
@@ -508,7 +555,7 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         SendUpdateRequirement *sendUpdateRequirement = [[SendUpdateRequirement alloc] initWithRequirement:self.editingRequirement];
         
         [API sendUpdateRequirement:sendUpdateRequirement success:^{
-            [self clickBack];
+            [self.navigationController popViewControllerAnimated:YES];
         } failure:^{
             self.navigationItem.rightBarButtonItem.enabled = YES;
         } networkError:^{

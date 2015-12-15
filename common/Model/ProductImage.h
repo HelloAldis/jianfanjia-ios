@@ -12,6 +12,6 @@
 
 @property (strong, nonatomic) NSString *imageid;
 @property (strong, nonatomic) NSString *section;
-@property (strong, nonatomic) NSString *description;
+@property (strong, nonatomic) NSString *productImage_description;
 
 @end

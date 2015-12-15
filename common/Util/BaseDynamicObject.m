@@ -121,10 +121,4 @@ NSObject* objGetterImp(id self, SEL _cmd) {
     return [super resolveInstanceMethod:aSEL];
 }
 
-#pragma mark - Override description method
--(NSString *)description{
-    return [self objectForKey:@"description"];
-}
-
-
 @end

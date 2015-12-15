@@ -47,8 +47,8 @@
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     [DDLog addLogger:fileLogger];
     
-//    [[AFNetworkActivityLogger sharedLogger] startLogging];
-//    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+    [[AFNetworkActivityLogger sharedLogger] startLogging];
+    [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

@@ -84,8 +84,10 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 }
 
 - (void)markNotificationToRead:(NotificationCD *)notification {
-    notification.status = kNotificationStatusReaded;
-    [NSManagedObjectContext save];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        notification.status = kNotificationStatusReaded;
+        [NSManagedObjectContext save];
+    });
 }
 
 - (void)subscribePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block {

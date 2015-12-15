@@ -15,5 +15,6 @@
 - (NSString *)substringWithoutLast:(NSUInteger)last;
 - (BOOL)isEmpty;
 - (NSString *)trim;
++ (BOOL)compareStrWithIgnoreNil:(NSString *)aString other:(NSString *)bString;
 
 @end

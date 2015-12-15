@@ -74,7 +74,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="i60-kI-vLX">
-                    <rect key="frame" x="0.0" y="109" width="493" height="499"/>
+                    <rect key="frame" x="0.0" y="109" width="493" height="489"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b6f-uA-k7R">
@@ -89,11 +89,11 @@
                     </connections>
                 </collectionView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpY-6b-aPt">
-                    <rect key="frame" x="0.0" y="608" width="493" height="40"/>
+                    <rect key="frame" x="0.0" y="598" width="493" height="50"/>
                     <animations/>
                     <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="fkx-cc-6iP"/>
+                        <constraint firstAttribute="height" constant="50" id="fkx-cc-6iP"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <state key="normal" title="确认验收">
@@ -102,7 +102,7 @@
                 </button>
             </subviews>
             <animations/>
-            <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7iY-bI-1ad"/>
                 <constraint firstItem="i60-kI-vLX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="8Jo-O5-072"/>

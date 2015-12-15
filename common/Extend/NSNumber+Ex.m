@@ -69,4 +69,8 @@
     return [NSString stringWithFormat:@"%.2fMB", [self doubleValue]/kMB];
 }
 
++ (BOOL)compareNumWithIgnoreNil:(NSNumber *)aNumber other:(NSNumber *)bNumber {
+    return [aNumber ? aNumber : @(0) isEqualToNumber:bNumber ? bNumber : @(0)];
+}
+
 @end

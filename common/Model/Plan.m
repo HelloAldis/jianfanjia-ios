@@ -24,8 +24,24 @@
 @dynamic total_price;
 @dynamic duration;
 @dynamic manager;
-@dynamic description;
+@dynamic plan_description;
 @dynamic comment_count;
 @dynamic images;
+
+- (void)setObject:(id)o forKey:(NSString *)key {
+    if ([@"plan_description" isEqualToString:key]) {
+        [[self data] setObject:o forKey:@"description"];
+    } else {
+        [[self data] setObject:o forKey:key];
+    }
+}
+
+- (id)objectForKey:(NSString *)key {
+    if ([@"plan_description" isEqualToString:key]) {
+        return [[self data] objectForKey:@"description"];
+    } else {
+        return [[self data] objectForKey:key];
+    }
+}
 
 @end

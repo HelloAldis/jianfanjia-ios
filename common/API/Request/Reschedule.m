@@ -24,5 +24,8 @@
     }
 }
 
+- (void)failure {
+    [HUDUtil showErrText:[DataManager shared].errMsg];
+}
 
 @end
