@@ -16,20 +16,6 @@
 }
 
 - (void)success {
-    NSArray * array = [DataManager shared].data;
-    for (NSMutableDictionary *dict in array) {
-        Process *process = [[Process alloc] initWith:dict];
-        
-
-        [dict removeObjectForKey:@"user"];
-        
-        if (![GVUserDefaults standardUserDefaults].processid) {
-            [GVUserDefaults standardUserDefaults].processid = process._id;
-        }
-        
-//        NSMutableDictionary *userDict = [dict objectForKey:@"user"];
-//        User *user = [[User alloc] initWith:userDict];
-    }
 }
 
 @end

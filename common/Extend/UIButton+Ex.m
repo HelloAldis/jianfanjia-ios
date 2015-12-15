@@ -12,15 +12,6 @@
 
 @implementation UIButton (Ex)
 
-- (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image {
-    [self sd_setImageWithURL:[self imageurl:imageid] forState:UIControlStateNormal placeholderImage:image];
-}
-
-- (NSURL *)imageurl:(NSString *)imageid {
-    NSString *url = [NSString stringWithFormat:@"%@image/%@", kApiUrl, imageid];
-    return [NSURL URLWithString:url];
-}
-
 - (void)setDisableAlpha {
     self.alpha = 0.4;
 }

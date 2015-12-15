@@ -10,7 +10,6 @@
 
 @interface UIButton (Ex)
 
-- (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image;
 - (void)setDisableAlpha;
 - (void)setEnableAlpha;
 
