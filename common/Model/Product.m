@@ -21,8 +21,24 @@
 @dynamic dec_style;
 @dynamic work_type;
 @dynamic total_price;
-@dynamic description;
+@dynamic product_description;
 @dynamic images;
+
+- (void)setObject:(id)o forKey:(NSString *)key {
+    if ([@"product_description" isEqualToString:key]) {
+        [[self data] setObject:o forKey:@"description"];
+    } else {
+        [[self data] setObject:o forKey:key];
+    }
+}
+
+- (id)objectForKey:(NSString *)key {
+    if ([@"product_description" isEqualToString:key]) {
+        return [[self data] objectForKey:@"description"];
+    } else {
+        return [[self data] objectForKey:key];
+    }
+}
 
 - (ProductImage *)imageAtIndex:(NSInteger )index {
     if (index >= 0 && index < self.images.count) {

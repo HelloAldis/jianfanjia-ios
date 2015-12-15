@@ -71,7 +71,7 @@
                             <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="装修户型：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arx-ZG-E2K">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="装修户型：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arx-ZG-E2K">
                             <rect key="frame" x="34" y="407" width="70" height="17"/>
                             <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -148,24 +148,12 @@
                             <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="如果你无法简洁的表达你的想法，那只说明你还不够了解它。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8v-tz-aUy">
-                            <rect key="frame" x="124" y="629" width="456" height="17"/>
-                            <animations/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="200" id="lTT-RY-fNw"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="lTT-RY-fNw"/>
-                                </mask>
-                            </variation>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计说明：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59H-b6-00j">
                             <rect key="frame" x="34" y="629" width="70" height="17"/>
                             <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="Ewz-J1-z69"/>
+                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -182,6 +170,21 @@
                                 <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="如果你无法简洁的表达你的想法，那只说明你还不够了解它。" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8v-tz-aUy">
+                            <rect key="frame" x="34" y="656" width="546" height="17"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="200" id="lTT-RY-fNw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="lTT-RY-fNw"/>
+                                </mask>
+                            </variation>
+                        </label>
                     </subviews>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -197,7 +200,9 @@
                         <constraint firstItem="Arx-ZG-E2K" firstAttribute="top" secondItem="eI2-NE-Bbz" secondAttribute="bottom" constant="23" id="Bqt-jZ-HNU"/>
                         <constraint firstItem="8Zf-SL-kRf" firstAttribute="centerY" secondItem="crZ-7k-wUw" secondAttribute="centerY" constant="11.5" id="DIc-ZB-BNc"/>
                         <constraint firstItem="Gxd-fh-7jA" firstAttribute="centerX" secondItem="sso-u0-dQO" secondAttribute="centerX" id="E34-Yt-Xqx"/>
+                        <constraint firstItem="59H-b6-00j" firstAttribute="trailing" secondItem="zN0-yv-FRF" secondAttribute="trailing" id="ElM-ij-eGT"/>
                         <constraint firstItem="BRk-ki-tUj" firstAttribute="leading" secondItem="60K-NQ-0hV" secondAttribute="leading" id="Evh-sV-m0v"/>
+                        <constraint firstItem="l8v-tz-aUy" firstAttribute="top" secondItem="59H-b6-00j" secondAttribute="bottom" constant="10" id="GWX-jd-VtV"/>
                         <constraint firstItem="uNa-mC-mk2" firstAttribute="top" secondItem="sso-u0-dQO" secondAttribute="top" id="LIu-Ox-ZA9"/>
                         <constraint firstItem="crZ-7k-wUw" firstAttribute="centerY" secondItem="zN0-yv-FRF" secondAttribute="centerY" id="M5L-C8-hH8"/>
                         <constraint firstItem="nhf-hP-PyZ" firstAttribute="top" secondItem="azx-zK-KXZ" secondAttribute="bottom" constant="20" id="MKC-di-be3"/>
@@ -216,11 +221,13 @@
                         <constraint firstItem="ejT-gN-py9" firstAttribute="leading" secondItem="60K-NQ-0hV" secondAttribute="leading" id="jD0-hg-hbf"/>
                         <constraint firstItem="azx-zK-KXZ" firstAttribute="trailing" secondItem="Arx-ZG-E2K" secondAttribute="trailing" id="jfg-zK-JJA"/>
                         <constraint firstItem="uNa-mC-mk2" firstAttribute="leading" secondItem="sso-u0-dQO" secondAttribute="leading" id="nBZ-81-FGu"/>
+                        <constraint firstItem="l8v-tz-aUy" firstAttribute="leading" secondItem="59H-b6-00j" secondAttribute="leading" id="pUW-dQ-UIN"/>
                         <constraint firstItem="ejT-gN-py9" firstAttribute="centerY" secondItem="nhf-hP-PyZ" secondAttribute="centerY" id="phB-HA-UQW"/>
                         <constraint firstAttribute="bottom" secondItem="l8v-tz-aUy" secondAttribute="bottom" constant="30" id="pjf-jk-vQq"/>
                         <constraint firstItem="zll-Xc-avr" firstAttribute="top" secondItem="nhf-hP-PyZ" secondAttribute="bottom" constant="20" id="pk0-98-I1M"/>
                         <constraint firstItem="60K-NQ-0hV" firstAttribute="leading" secondItem="Arx-ZG-E2K" secondAttribute="trailing" constant="20" id="rBc-dC-8BT"/>
                         <constraint firstItem="Gxd-fh-7jA" firstAttribute="top" secondItem="sso-u0-dQO" secondAttribute="top" constant="288" id="rq1-EQ-cOc"/>
+                        <constraint firstItem="59H-b6-00j" firstAttribute="leading" secondItem="zN0-yv-FRF" secondAttribute="leading" id="rzK-Ki-IlG"/>
                         <constraint firstItem="zll-Xc-avr" firstAttribute="trailing" secondItem="nhf-hP-PyZ" secondAttribute="trailing" id="sC3-ZT-b9x"/>
                         <constraint firstItem="eI2-NE-Bbz" firstAttribute="leading" secondItem="Arx-ZG-E2K" secondAttribute="leading" id="sOv-Hu-IS3"/>
                         <constraint firstItem="59H-b6-00j" firstAttribute="top" secondItem="zN0-yv-FRF" secondAttribute="bottom" constant="20" id="tMd-8u-0Y6"/>
@@ -232,7 +239,11 @@
                     <variation key="default">
                         <mask key="constraints">
                             <exclude reference="DIc-ZB-BNc"/>
+                            <exclude reference="BPy-Gk-bwf"/>
+                            <exclude reference="rzK-Ki-IlG"/>
                             <exclude reference="Yvr-Pp-lod"/>
+                            <exclude reference="gEf-8i-8U5"/>
+                            <exclude reference="hF5-4a-1KB"/>
                         </mask>
                     </variation>
                     <connections>

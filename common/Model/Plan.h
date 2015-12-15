@@ -24,7 +24,7 @@
 @property(nonatomic, strong) NSNumber *total_price;
 @property(nonatomic, strong) NSNumber *duration;
 @property(nonatomic, strong) NSString *manager;
-@property(nonatomic, strong) NSString *description;
+@property(nonatomic, strong) NSString *plan_description;
 @property(nonatomic, strong) NSNumber *comment_count;
 @property(nonatomic, strong) NSArray *images;
 

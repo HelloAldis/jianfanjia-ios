@@ -50,6 +50,7 @@ static NSString *PlanCellIdentifier = @"PlanCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
+    self.title = @"方案列表";
 }
 
 #pragma mark - table view delegate

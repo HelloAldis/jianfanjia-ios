@@ -146,16 +146,25 @@ NSString * const kSectionStatusChangeDateAgree = @"4";
 NSString * const kSectionStatusChangeDateDecline = @"5";
 
 /*
+ 推送消息类型 message_status
+ * 0. 未读
+ * 1. 已读
+ **/
+NSString * const kNotificationStatusUnread = @"0";
+NSString * const kNotificationStatusReaded = @"1";
+
+/*
  推送消息类型 message_type
  * 0. 延期提醒
  * 1. 采购提醒
  * 2. 付款提醒
- */
-NSString * const kNotificationStatusUnread = @"0";
-NSString * const kNotificationStatusReaded = @"1";
-
+ * 3. 对比验收
+ **/
 NSString * const kNotificationTypeReschedule = @"0";
 NSString * const kNotificationTypePurchase = @"1"; 
 NSString * const kNotificationTypePay = @"2";
+NSString * const kNotificationTypeDBYS = @"3";
+
+NSString * const kNotificationTypeReminder = @"reminder";
 
  

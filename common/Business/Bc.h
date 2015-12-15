@@ -63,3 +63,5 @@ extern NSString * const kNotificationStatusReaded;
 extern NSString * const kNotificationTypePurchase;
 extern NSString * const kNotificationTypePay;
 extern NSString * const kNotificationTypeReschedule;
+extern NSString * const kNotificationTypeDBYS;
+extern NSString * const kNotificationTypeReminder;

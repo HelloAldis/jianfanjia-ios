@@ -46,7 +46,7 @@
                            [NameDict nameForHouseType:self.product.house_type],
                            [NameDict nameForDecStyle:self.product.dec_style]];
     [self.designerImageView setUserImageWithId:self.product.designer.imageid];
-    self.lblDescription.text = self.product.description;
+    self.lblDescription.text = self.product.product_description;
 }
 
 #pragma mark - user action

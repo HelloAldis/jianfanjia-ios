@@ -14,5 +14,6 @@
 - (NSString *)humCountString;
 - (NSString *)humSizeString;
 - (NSString *)humRmbString;
++ (BOOL)compareNumWithIgnoreNil:(NSNumber *)aNumber other:(NSNumber *)bNumber;
 
 @end

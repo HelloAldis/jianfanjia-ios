@@ -58,7 +58,7 @@
         }]
         subscribeNext:^(id x) {
             @strongify(self);
-            NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:self.dataManager.selectedSection.end_at.longLongValue / 1000];
+            NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:self.dataManager.selectedSection.start_at.longLongValue / 1000];
             NSCalendar *cal = [NSCalendar autoupdatingCurrentCalendar];
             NSDate *minDate = [cal dateByAddingUnit:NSCalendarUnitDay value:1 toDate:startDate options:0];
             NSDate *maxDate = [cal dateByAddingUnit:NSCalendarUnitYear value:1 toDate:minDate options:0];
@@ -78,6 +78,11 @@
                         self.refreshBlock();
                     }
                 } failure:^{
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        if (self.refreshBlock) {
+                            self.refreshBlock();
+                        }
+                    });
                 } networkError:^{
                     
                 }];
@@ -145,7 +150,6 @@
             [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
             [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
             [self.btnChangeDate setTitle:@"改期申请中" forState:UIControlStateNormal];
-            self.btnChangeDate.alpha = 0.8;
             self.btnUnresolvedChangeDate.hidden = YES;
         } else {
             self.btnUnresolvedChangeDate.hidden = NO;
@@ -153,8 +157,7 @@
     } else if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
         [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
         [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
-        [self.btnChangeDate setTitle:@"申请改期" forState:UIControlStateNormal];
-        self.btnChangeDate.alpha = 0.8;
+        [self.btnChangeDate setTitle:@"工序已完工" forState:UIControlStateNormal];
     } else {
         [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
         [self.btnChangeDate setTitleColor:kFinishedColor forState:UIControlStateNormal];

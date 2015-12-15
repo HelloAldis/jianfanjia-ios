@@ -10,6 +10,7 @@
 #import "ItemImageCollectionCell.h"
 #import "ImageDetailViewController.h"
 #import "ViewControllerContainer.h"
+#import "MessageAlertViewController.h"
 #import "API.h"
 
 static const NSInteger COUNT_IN_ONE_ROW = 2;
@@ -94,47 +95,58 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     }];
     
     [[self.btnConfirmAccept rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        SectionDone *request = [[SectionDone alloc] init];
-        request._id = self.processid;
-        request.section = self.section.name;
-        
-        [API sectionDone:request success:^{
+        [MessageAlertViewController presentAlert:@"对比验收" msg:@"您确定要对比验收吗？" second:nil reject:nil agree:^{
             @strongify(self);
-            if (self.refreshBlock) {
-                self.refreshBlock();
-            }
-            [self clickBack];
-        } failure:^{
+            SectionDone *request = [[SectionDone alloc] init];
+            request._id = self.processid;
+            request.section = self.section.name;
             
-        } networkError:^{
-            
+            [API sectionDone:request success:^{
+                if (self.refreshBlock) {
+                    self.refreshBlock();
+                }
+                [self clickBack];
+            } failure:^{
+                
+            } networkError:^{
+                
+            }];
         }];
     }];
     
     if ([self.section.status isEqualToString:kSectionStatusAlreadyFinished]) {
-        self.btnConfirmAccept.hidden = YES;
-    } else if ([self.section.status isEqualToString:kSectionStatusChangeDateRequest]) {
         self.btnConfirmAccept.enabled = NO;
-        self.btnConfirmAccept.alpha = 0.5;
+        self.btnConfirmAccept.backgroundColor = kUntriggeredColor;
+        [self.btnConfirmAccept setTitle:@"已确认对比验收" forState:UIControlStateNormal];
+    } else if ([self getDBYSImageCount:self.section] == self.imgArray.count) {
+        self.btnConfirmAccept.enabled = YES;
+        self.btnConfirmAccept.backgroundColor = kFinishedColor;
+    } else {
+        self.btnConfirmAccept.enabled = NO;
+        self.btnConfirmAccept.backgroundColor = kUntriggeredColor;
     }
+}
+
+#pragma mark - util 
+- (NSInteger)getDBYSImageCount:(Section *)section {
+    if ([section.name isEqualToString:SHUI_DIAN]) {
+        return SHUI_DIAN_YS;
+    } else if ([section.name isEqualToString:NI_MU]) {
+        return NI_MU_YS;
+    } else if ([section.name isEqualToString:YOU_QI]) {
+        return YOU_QI_YS;
+    } else if ([section.name isEqualToString:AN_ZHUANG]) {
+        return AN_ZHUANG_YS;
+    } else if ([section.name isEqualToString:JUN_GONG]) {
+        return JUN_GONG_YS;
+    }
+    
+    return 0;
 }
 
 #pragma mark - collection delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if ([self.section.name isEqualToString:SHUI_DIAN]) {
-        return SHUI_DIAN_YS * 2;
-    } else if ([self.section.name isEqualToString:NI_MU]) {
-        return NI_MU_YS * 2;
-    } else if ([self.section.name isEqualToString:YOU_QI]) {
-        return YOU_QI_YS * 2;
-    } else if ([self.section.name isEqualToString:AN_ZHUANG]) {
-        return AN_ZHUANG_YS * 2;
-    } else if ([self.section.name isEqualToString:JUN_GONG]) {
-        return JUN_GONG_YS * 2;
-    }
-    
-    return 0;
+    return [self getDBYSImageCount:self.section] * 2;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -146,7 +158,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
             YsImage *image = self.imgArray[scenceImageIndex];
             [cell initWithImage:image.imageid width:self.imgCollectionLayout.itemSize.width];
         } else {
-            [cell initWithImage:nil width:self.imgCollectionLayout.itemSize.width];
+            [cell initWithImage:[UIImage imageNamed:@"waitToUpload"]];
         }
     } else {
         [cell initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", self.section.name, @(indexPath.row / 2)]]];
@@ -172,18 +184,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 }
 
 - (void)showStandardImageDetail:(NSInteger)index {
-    NSInteger imageCount = 0;
-    if ([self.section.name isEqualToString:SHUI_DIAN]) {
-        imageCount = SHUI_DIAN_YS;
-    } else if ([self.section.name isEqualToString:NI_MU]) {
-        imageCount = NI_MU_YS;
-    } else if ([self.section.name isEqualToString:YOU_QI]) {
-        imageCount = YOU_QI_YS;
-    } else if ([self.section.name isEqualToString:AN_ZHUANG]) {
-        imageCount = AN_ZHUANG_YS;
-    } else if ([self.section.name isEqualToString:JUN_GONG]) {
-        imageCount = JUN_GONG_YS;
-    }
+    NSInteger imageCount = [self getDBYSImageCount:self.section];
     
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:imageCount];
     for (NSInteger i = 0; i < imageCount; i++) {

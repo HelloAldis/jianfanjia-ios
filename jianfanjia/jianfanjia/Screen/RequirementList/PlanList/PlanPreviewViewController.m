@@ -89,7 +89,7 @@
     self.lblWorkTypeVal.text = [NameDict nameForWorkType:self.requirement.work_type];
     self.lblDurationVal.text = [NSString stringWithFormat:@"%@天", self.plan.duration];
     self.lblProjectPriceVal.text = [NSString stringWithFormat:@"%@元", self.plan.total_price];
-    self.lblDesignDescriptionVal.text = self.plan.description;
+    self.lblDesignDescriptionVal.text = self.plan.plan_description;
     
     [[self.btnPriceDetail rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);

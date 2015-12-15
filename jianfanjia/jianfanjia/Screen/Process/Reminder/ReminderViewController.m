@@ -212,7 +212,9 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
             self.tableView.header = nil;
         } else {
             if (!self.tableView.header) {
+                @weakify(self);
                 self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+                    @strongify(self);
                     [self refresh];
                 }];
             }
