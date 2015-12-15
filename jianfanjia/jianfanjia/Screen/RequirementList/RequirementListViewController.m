@@ -64,6 +64,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 
 #pragma mark - init ui
 - (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tableView registerNib:[UINib nibWithNibName:@"RequirementCell" bundle:nil] forCellReuseIdentifier:requirementCellId];
     @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

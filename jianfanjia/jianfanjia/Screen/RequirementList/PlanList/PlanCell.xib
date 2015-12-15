@@ -43,7 +43,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TH9-CQ-KVe">
-                        <rect key="frame" x="530" y="175" width="30" height="29"/>
+                        <rect key="frame" x="520" y="175" width="30" height="29"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="留言">
@@ -72,7 +72,7 @@
                     <constraint firstItem="y2d-qc-TR8" firstAttribute="leading" secondItem="VGR-gY-nnY" secondAttribute="leading" id="gjU-4P-4cA"/>
                     <constraint firstItem="Hwn-lK-o3E" firstAttribute="trailing" secondItem="1Bo-w2-tcS" secondAttribute="trailing" id="lsw-1V-w82"/>
                     <constraint firstItem="TH9-CQ-KVe" firstAttribute="centerY" secondItem="Hwn-lK-o3E" secondAttribute="centerY" id="pe1-Lb-WdO"/>
-                    <constraint firstItem="Hwn-lK-o3E" firstAttribute="leading" secondItem="TH9-CQ-KVe" secondAttribute="trailing" constant="10" id="xJY-Lw-zuZ"/>
+                    <constraint firstItem="Hwn-lK-o3E" firstAttribute="leading" secondItem="TH9-CQ-KVe" secondAttribute="trailing" constant="20" id="xJY-Lw-zuZ"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
