@@ -38,12 +38,4 @@
     self.notifications = [NotificationCD getNotificationsWithProcess:processid type:type];
 }
 
-- (void)markToReadForProcess:(NSString *)processid type:(NSString *)type {
-    NSArray *notifications = [NotificationCD getNotificationsWithProcess:processid type:type status:kNotificationStatusUnread];
-    
-    for (NotificationCD *notification in notifications) {
-        [[NotificationDataManager shared] markNotificationToRead:notification];
-    }
-}
-
 @end

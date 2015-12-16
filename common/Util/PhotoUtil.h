@@ -11,7 +11,7 @@
 
 @interface PhotoUtil : NSObject
 
-+ (void)showUserAvatarSelector:(FinishUploadBlock)block;
-+ (void)showDecorationNodeImageSelector:(NSInteger)count withBlock:(FinishUploadBlock)block;
++ (void)showUserAvatarSelectorInView:(UIView *)sourceView withBlock:(FinishUploadBlock)block;
++ (void)showDecorationNodeImageSelectorInView:(UIView *)sourceView max:(NSInteger)count withBlock:(FinishUploadBlock)block;
 
 @end

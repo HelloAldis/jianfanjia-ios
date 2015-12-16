@@ -275,7 +275,6 @@
     
     [HUDUtil showWait];
     [API userLogin:login success:^{
-        [GVUserDefaults standardUserDefaults].isLogin = YES;
         [ViewControllerContainer showTab];
     } failure:^{
 

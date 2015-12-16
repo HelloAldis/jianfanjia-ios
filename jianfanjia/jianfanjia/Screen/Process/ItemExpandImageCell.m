@@ -196,20 +196,20 @@ static CGFloat imgCellWidth;
     if (indexPath.row < self.item.images.count) {
         [self showImageDetail:indexPath.row];
     } else {
-        [self showPhotoSelector];
+        [self showPhotoSelector:[self.imgCollection cellForItemAtIndexPath:indexPath]];
     }
 }
 
-- (void)showPhotoSelector {
+- (void)showPhotoSelector:(UIView *)view {
     if (self.isShaking) {
         [self endShaking];
         return;
     }
     
     @weakify(self);
-    [PhotoUtil showDecorationNodeImageSelector:MAX_IMG_COUNT - self.item.images.count withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showDecorationNodeImageSelectorInView:view max:MAX_IMG_COUNT - self.item.images.count withBlock:^(NSArray *imageIds) {
         @strongify(self);
-        DDLogDebug(@"%@", imageIds);
+//        DDLogDebug(@"%@", imageIds);
         UploadImageToProcess *request = [[UploadImageToProcess alloc] init];
         request._id = self.dataManager.process._id;
         request.section = self.dataManager.selectedSection.name;

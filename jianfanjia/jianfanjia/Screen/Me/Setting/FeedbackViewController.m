@@ -26,20 +26,10 @@
     
     
     @weakify(self);
-    [RACObserve(self.btnDone, enabled) subscribeNext:^(NSNumber *newValue) {
+    [self.textView.rac_textSignal subscribeNext:^(id text) {
         @strongify(self);
-        if (newValue.boolValue) {
-            [self.btnDone setEnableAlpha];
-        } else {
-            [self.btnDone setDisableAlpha];
-        }
+        [self enableDoneButton:[text trim].length > 0];
     }];
-    
-    RAC(self.btnDone, enabled) = [RACSignal
-                                  combineLatest:@[self.textView.rac_textSignal]
-                                  reduce:^(NSString *text) {
-                                      return @([text trim].length > 0);
-                                  }];
 }
 
 #pragma mark - UI
@@ -49,25 +39,37 @@
 }
 
 - (IBAction)onClickDone:(id)sender {
+    [self enableDoneButton:NO];
     Feedback *request = [[Feedback alloc] init];
     request.content = [self.textView.text trim];
     request.platform = @"1";
     request.version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     
+    self.textView.text = nil;
     @weakify(self);
     [API feedback:request success:^{
         @strongify(self);
         [HUDUtil showSuccessText:@"感谢您的宝贵建议！"];
         [self.navigationController popViewControllerAnimated:YES];
     } failure:^{
-        
+        [self enableDoneButton:YES];
     } networkError:^{
-        
+        [self enableDoneButton:YES];
     }];
 }
 
 - (void)dealloc {
     DDLogDebug(@"dealloc");
+}
+
+- (void)enableDoneButton:(BOOL)enable {
+    if (enable) {
+        self.btnDone.enabled = YES;
+        [self.btnDone setEnableAlpha];
+    } else {
+        self.btnDone.enabled = NO;
+        [self.btnDone setDisableAlpha];
+    }
 }
 
 @end

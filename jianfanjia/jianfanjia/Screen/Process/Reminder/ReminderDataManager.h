@@ -16,6 +16,5 @@
 - (void)refreshSchedule:(NSString *)processid;
 - (void)refreshNotificationWithProcess:(NSString *)processid type:(NSString *)type;
 - (void)refreshNotificationWithProcess:(NSString *)processid type:(NSString *)type status:(NSString *)status;
-- (void)markToReadForProcess:(NSString *)processid type:(NSString *)type;
 
 @end

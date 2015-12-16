@@ -280,8 +280,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showReminder:(NSString *)processid {
-    ReminderViewController *v = [[ReminderViewController alloc] initWithProcess:processid];
++ (void)showReminder:(NSString *)processid refreshBlock:(void(^)(void))RefreshBlock {
+    ReminderViewController *v = [[ReminderViewController alloc] initWithProcess:processid refreshBlock:RefreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

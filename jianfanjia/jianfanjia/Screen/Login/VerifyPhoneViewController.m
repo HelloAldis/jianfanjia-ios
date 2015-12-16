@@ -91,7 +91,6 @@
         
         [HUDUtil showWait];
         [API userSignup:request success:^{
-            [GVUserDefaults standardUserDefaults].isLogin = YES;
             [ViewControllerContainer showSignupSuccess];
         } failure:^{
             

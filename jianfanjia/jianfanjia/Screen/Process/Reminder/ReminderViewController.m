@@ -10,8 +10,9 @@
 #import "PurchaseNotificationCell.h"
 #import "PayNotificationCell.h"
 #import "PostponeNotificationCell.h"
-#import "API.h"
 #import "ReminderDataManager.h"
+#import "MessageAlertViewController.h"
+#import "API.h"
 
 typedef NS_ENUM(NSInteger, NotificationType) {
     NotificationTypePostpone,
@@ -35,14 +36,18 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 @property (strong ,nonatomic) ReminderDataManager *dataManager;
 @property (strong ,nonatomic) NSString *processid;
 
+@property (assign, nonatomic) BOOL isNeedToRefresh;
+@property (copy ,nonatomic) void (^RefreshBlock)(void);
+
 @end
 
 @implementation ReminderViewController
 
 #pragma mark - init method
-- (id)initWithProcess:(NSString *)processid {
+- (id)initWithProcess:(NSString *)processid refreshBlock:(void(^)(void))RefreshBlock {
     if (self = [super init]) {
         _processid = processid;
+        _RefreshBlock = RefreshBlock;
         _dataManager = [[ReminderDataManager alloc] init];
     }
     
@@ -142,16 +147,19 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.currentNotificationType == NotificationTypePurchase) {
         PurchaseNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:PurchaseNotificationCellIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         NotificationCD *notification = self.dataManager.notifications[indexPath.row];
         [cell initWithNotification:[notification notification]];
         return cell;
     } else if (self.currentNotificationType == NotificationTypePay) {
         PayNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:PayNotificationCellIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         NotificationCD *notification = self.dataManager.notifications[indexPath.row];
         [cell initWithNotification:[notification notification]];
         return cell;
     } else {
         PostponeNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:PostponeNotificationCellIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         Notification *notification;
         if (indexPath.row < self.dataManager.notifications.count) {
             NotificationCD *notificationCD = self.dataManager.notifications[indexPath.row];
@@ -163,20 +171,54 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.currentNotificationType == NotificationTypePostpone) {
+        Schedule *schedule = self.dataManager.schedules[indexPath.row];
+        if (![schedule.status isEqualToString:kSectionStatusChangeDateRequest]) {
+            return;
+        }
+        @weakify(self);
+        [MessageAlertViewController presentAlert:@"改期提醒" msg:@"对方申请改期至" second:[NSDate yyyy_MM_dd:schedule.updated_date]
+                                     rejectTitle:@"拒绝"
+                                          reject:^{
+                                              @strongify(self);
+                                              RejectReschedule *request = [[RejectReschedule alloc] init];
+                                              request.processid = schedule.process._id;
+                                              
+                                              [API rejectReschedule:request success:^{
+                                                  [self refresh];
+                                                  [self markToReadForProcess:schedule.process._id type:kNotificationTypeReschedule];
+                                              } failure:^{
+                                                  
+                                              } networkError:^{
+                                                  
+                                              }];
+                                          }
+                                      agreeTitle:@"同意"
+                                           agree:^{
+                                               @strongify(self);
+                                               AgreeReschedule *request = [[AgreeReschedule alloc] init];
+                                               request.processid = schedule.process._id;
+                                               
+                                               [API agreeReschedule:request success:^{
+                                                   [self refresh];
+                                                   [self markToReadForProcess:schedule.process._id type:kNotificationTypeReschedule];
+                                               } failure:^{
+                                                   
+                                               } networkError:^{
+                                                   
+                                               }];
+                                           }];
+
+    }
+}
+
 #pragma mark - user actions
 - (void)onClickButton:(UIButton *)button {
     [self switchToOtherButton:[self.btnNotifications indexOfObject:button]];
 }
 
 - (void)switchToOtherButton:(NSInteger)buttonIndex {
-//    if (self.selectedButtonIndex == buttonIndex) {
-//        UIButton *selectedButton = self.btnNotifications[buttonIndex];
-//        selectedButton.alpha = 1;
-//        UIView *selectedLine = self.selectedLines[buttonIndex];
-//        selectedLine.alpha = 1;
-//        return;
-//    }
-//    
     @weakify(self);
     [UIView animateWithDuration:0.3 animations:^{
         @strongify(self);
@@ -195,7 +237,9 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         
         if (self.preSelectedButtonIndex != self.selectedButtonIndex) {
             NSString *badgeValue = [self.btnNotifications[self.preSelectedButtonIndex] badgeValue];
-            [self markToReadForNotificationType:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)] unreadCount:badgeValue];
+            if ([badgeValue intValue] > 0) {
+                [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)]];
+            }
         }
         
         if (buttonIndex == 0) {
@@ -226,7 +270,13 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 
 - (void)onClickBack {
     NSString *badgeValue = [self.btnNotifications[self.selectedButtonIndex] badgeValue];
-    [self markToReadForNotificationType:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)] unreadCount:badgeValue];
+    if ([badgeValue intValue] > 0) {
+        [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)]];
+    }
+    
+    if (self.isNeedToRefresh && self.RefreshBlock) {
+        self.RefreshBlock();
+    }
     [super onClickBack];
 }
 
@@ -268,10 +318,15 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     }];
 }
 
-- (void)markToReadForNotificationType:(NSString *)type unreadCount:(NSString *)badgeValue {
-    if ([badgeValue intValue] > 0) {
-        [self.dataManager markToReadForProcess:self.processid type:type];
-        [[NotificationDataManager shared] refreshUnreadCount];
+- (void)markToReadForProcess:(NSString *)processid type:(NSString *)type {
+    if (processid) {
+        [[NotificationDataManager shared] markToReadForProcess:processid type:type];
+    } else {
+        [[NotificationDataManager shared] markToReadForType:type];
+    }
+
+    if ([type isEqualToString:kNotificationTypeReschedule]) {
+        self.isNeedToRefresh = YES;
     }
 }
 

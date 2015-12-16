@@ -12,15 +12,15 @@
 
 @implementation PhotoUtil
 
-+ (void)showUserAvatarSelector:(FinishUploadBlock)block {
-    [self showPhotoSelector:YES isMultiSelection:NO withMaxSelection:1 withBlock:block];
++ (void)showUserAvatarSelectorInView:(UIView *)sourceView withBlock:(FinishUploadBlock)block {
+    [self showPhotoSelectorInView:sourceView allowsEditing:YES isMultiSelection:NO withMaxSelection:1 withBlock:block];
 }
 
-+ (void)showDecorationNodeImageSelector:(NSInteger)count withBlock:(FinishUploadBlock)block {
-    [self showPhotoSelector:NO isMultiSelection:YES withMaxSelection:count withBlock:block];
++ (void)showDecorationNodeImageSelectorInView:(UIView *)sourceView max:(NSInteger)count withBlock:(FinishUploadBlock)block {
+    [self showPhotoSelectorInView:sourceView allowsEditing:NO isMultiSelection:YES withMaxSelection:count withBlock:block];
 }
 
-+ (void)showPhotoSelector:(BOOL)allowsEditing isMultiSelection:(BOOL)allowsMultiSection withMaxSelection:(NSInteger)maxCount withBlock:(FinishUploadBlock)block {
++ (void)showPhotoSelectorInView:(UIView *)sourceView allowsEditing:(BOOL)allowsEditing isMultiSelection:(BOOL)allowsMultiSection withMaxSelection:(NSInteger)maxCount withBlock:(FinishUploadBlock)block {
     UIViewController *controller = [ViewControllerContainer getCurrentTapController];
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择照片上传" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -84,7 +84,14 @@
     [alert addAction:camera];
     [alert addAction:photo];
     
-    [controller presentViewController:alert animated:YES completion:nil];
+    if(kIsPad) {
+        UIPopoverPresentationController *popPresenter = [alert popoverPresentationController];
+        popPresenter.sourceView = sourceView;
+        popPresenter.sourceRect = sourceView.bounds;
+        [controller presentViewController:alert animated:YES completion:nil];
+    } else {
+        [controller presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 @end

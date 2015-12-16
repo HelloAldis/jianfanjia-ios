@@ -315,6 +315,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             self.currentSectionOperationStatus = SectionOperationStatusRefresh;
             [self.processDataManager refreshProcess];
             if (self.isFirstEnter) {
+                self.title = self.processDataManager.process.cell;
                 [self.processDataManager switchToSelectedSection:self.processDataManager.ongoingSectionIndex];
             }
             [self refreshSections];
@@ -334,6 +335,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 - (void)refreshForIndexPath:(NSIndexPath *)indexPath isExpand:(BOOL)isExpand {
+    if (!indexPath) {
+        return;
+    }
+    
     GetProcess *request = [[GetProcess alloc] init];
     request.processid = self.processid;
     
@@ -432,7 +437,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 #pragma mark - user action
 - (void)onClickReminder {
-    [ViewControllerContainer showReminder:self.processid];
+    @weakify(self);
+    [ViewControllerContainer showReminder:self.processid refreshBlock:^{
+        @strongify(self);
+        [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
+    }];
 }
 
 - (void)reloadItemsForSection:(NSInteger)page {

@@ -37,6 +37,8 @@
         Designer *designer = [[Designer alloc] initWith:dict];
         [GVUserDefaults standardUserDefaults].userid = [designer _id];
     }
+    [GVUserDefaults standardUserDefaults].isLogin = YES;
+    [[NotificationDataManager shared] refreshUnreadCount];
     [GeTuiSdk bindAlias:[GVUserDefaults standardUserDefaults].userid];
 }
 

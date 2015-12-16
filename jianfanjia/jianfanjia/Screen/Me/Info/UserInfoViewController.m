@@ -65,7 +65,7 @@
 #pragma mark - user action
 - (IBAction)onClickImage:(id)sender {
     @weakify(self);
-    [PhotoUtil showUserAvatarSelector:^(NSArray *imageIds) {
+    [PhotoUtil showUserAvatarSelectorInView:sender withBlock:^(NSArray *imageIds) {
         @strongify(self);
         [self updateUserInfo:@"imageid" value:imageIds[0] success:^{
             [GVUserDefaults standardUserDefaults].imageid = imageIds[0];

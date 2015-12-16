@@ -29,7 +29,8 @@ typedef void (^NotificationUnreadUpdateBlock)(id value);
 - (void)subscribeUnreadCountForProcess:(NSString *)processid observer:(NotificationUnreadUpdateBlock)block;
 - (void)subscribeUnreadCountForProcess:(NSString *)processid type:(NSString *)type observer:(NotificationUnreadUpdateBlock)block;
 
-- (void)markNotificationToRead:(NotificationCD *)notification;
+- (void)markToReadForType:(NSString *)type;
+- (void)markToReadForProcess:(NSString *)processid type:(NSString *)type;
 
 kSynthesizeSingletonForHeader(NotificationDataManager)
 

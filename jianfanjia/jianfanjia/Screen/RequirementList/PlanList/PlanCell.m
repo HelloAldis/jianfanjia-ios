@@ -10,7 +10,7 @@
 #import "ViewControllerContainer.h"
 
 static const NSInteger imgWidth = 170;
-static const NSInteger imgSpace = 0;
+static const NSInteger imgSpace = 2;
 
 @interface PlanCell ()
 @property (weak, nonatomic) IBOutlet UILabel *lblPlanTitleVal;

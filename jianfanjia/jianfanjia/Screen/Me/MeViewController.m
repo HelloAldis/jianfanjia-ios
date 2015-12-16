@@ -78,7 +78,7 @@
 
 #pragma mark - user action
 - (IBAction)onClickNotification:(id)sender {
-    [ViewControllerContainer showReminder:nil];
+    [ViewControllerContainer showReminder:nil refreshBlock:nil];
 }
 
 - (IBAction)onClickFavoriateDesigner:(id)sender {

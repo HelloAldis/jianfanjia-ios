@@ -10,6 +10,6 @@
 
 @interface ReminderViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
-- (id)initWithProcess:(NSString *)processid;
+- (id)initWithProcess:(NSString *)processid refreshBlock:(void(^)(void))RefreshBlock;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "PlanWasNotChoosedCell.h"
+#import "ViewControllerContainer.h"
 
 @interface PlanWasNotChoosedCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
@@ -38,7 +39,7 @@
 }
 
 - (void)onClickButton {
-    
+    [ViewControllerContainer showPlanList:self.designer._id forRequirement:self.requirement];
 }
 
 @end

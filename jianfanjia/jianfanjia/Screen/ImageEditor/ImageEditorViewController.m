@@ -143,9 +143,9 @@
         }
         [self navigateToOriginalScreen];
     } failure:^{
-        
+        self.navigationItem.rightBarButtonItem.enabled = YES;
     } networkError:^{
-        
+        self.navigationItem.rightBarButtonItem.enabled = YES;
     }];
 }
 
