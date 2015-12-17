@@ -48,6 +48,12 @@
         self.statusImageView.image = [UIImage imageNamed:@"item_status_0"];
         self.statusLine2.backgroundColor = kUntriggeredColor;
     }
+    
+    if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        self.statusLine1.backgroundColor = kFinishedColor;
+    } else {
+        self.statusLine1.backgroundColor = kUntriggeredColor;
+    }
 }
 
 @end

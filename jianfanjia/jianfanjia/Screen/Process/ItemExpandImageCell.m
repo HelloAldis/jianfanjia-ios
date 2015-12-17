@@ -92,6 +92,12 @@ static CGFloat imgCellWidth;
         self.lblItemStatus.textColor = kUntriggeredColor;
     }
     
+    if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        self.statusLine1.backgroundColor = kFinishedColor;
+    } else {
+        self.statusLine1.backgroundColor = kUntriggeredColor;
+    }
+    
     [self refreshNumberOfItems];
     if (imgCollectionWidth > 0) {
         [self refreshViewContentSize];

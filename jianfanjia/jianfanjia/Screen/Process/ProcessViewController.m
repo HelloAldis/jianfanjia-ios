@@ -22,11 +22,6 @@ typedef NS_ENUM(NSInteger, WorkSiteMode) {
     WorkSiteModeReal,
 };
 
-typedef NS_ENUM(NSInteger, SectionOperationStatus) {
-    SectionOperationStatusRefresh,
-    SectionOperationStatusSwitchItemCell,
-};
-
 static NSString *ItemExpandCellIdentifier = @"ItemExpandImageCell";
 static NSString *ItemExpandCheckCellIdentifier = @"ItemExpandCheckCell";
 static NSString *ItemCellIdentifier = @"ItemCell";
@@ -41,7 +36,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 @property (strong, nonatomic) NSArray *scrollViewBottomEqualsSuperBottomConstraint;
 
 @property (strong, nonatomic) NSString *processid;
-@property (assign, nonatomic) SectionOperationStatus currentSectionOperationStatus;
 @property (assign, nonatomic) WorkSiteMode workSiteMode;
 @property (strong, nonatomic) ProcessDataManager *processDataManager;
 
@@ -106,7 +100,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.sectionScrollView = [[UIScrollView alloc] init];
-    self.sectionScrollView.bounces = NO;
+//    self.sectionScrollView.bounces = NO;
     self.sectionScrollView.showsHorizontalScrollIndicator = NO;
     self.sectionScrollView.backgroundColor = [UIColor whiteColor];
     
@@ -126,13 +120,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCheckCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCheckCellIdentifier];
     
-    if (self.workSiteMode == WorkSiteModeReal) {
-        @weakify(self);
-        self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            @strongify(self);
-            [self refreshProcess:NO];
-        }];
-    }
+    [self configureHeaderToTableView:YES];
 
     [self.view addSubview:self.sectionScrollView];
     [self.view addSubview:self.tableView];
@@ -179,12 +167,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.tableView) {
-        if (scrollView.contentOffset.y < 0) {
+        static CGFloat minScroll = 30;
+        if (scrollView.contentOffset.y < -minScroll) {
             //下滑
-            if (!self.tableView.header.isRefreshing) {
-                [self showScrollView];
-            }
-        } else if (scrollView.contentOffset.y > 0) {
+            [self showScrollView];
+        } else if (scrollView.contentOffset.y > minScroll) {
             //上滑
             [self hideScrollView];
         }
@@ -194,9 +181,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 #pragma mark - scroll view move 
 - (void)hideScrollView {
     if (!self.isHeaderHidden) {
-        [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [self.view removeConstraints:self.scrollViewToSuperTop64Constraint];
             [self.view addConstraints:self.scrollViewBottomEqualsSuperBottomConstraint];
+            [self configureHeaderToTableView:NO];
             [self.view setNeedsLayout];
             [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
@@ -207,9 +195,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)showScrollView {
     if (self.isHeaderHidden) {
-        [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [self.view removeConstraints:self.scrollViewBottomEqualsSuperBottomConstraint];
             [self.view addConstraints:self.scrollViewToSuperTop64Constraint];
+            [self configureHeaderToTableView:YES];
             [self.view setNeedsLayout];
             [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
@@ -226,7 +215,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Item *item = self.processDataManager.selectedItems[indexPath.row];
     
-    if (self.currentSectionOperationStatus == SectionOperationStatusRefresh || item.itemCellStatus == ItemCellStatusClosed) {
+    if (item.itemCellStatus == ItemCellStatusClosed) {
         ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemCellIdentifier forIndexPath:indexPath];
         [cell initWithItem:item withDataManager:self.processDataManager];
         [self configureCellProperties:cell];
@@ -265,7 +254,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         return;
     }
     
-    self.currentSectionOperationStatus = SectionOperationStatusSwitchItemCell;
     if (self.lastSelectedIndexPath && self.lastSelectedIndexPath.row != indexPath.row) {
         Item *item = self.processDataManager.selectedItems[indexPath.row];
         item.itemCellStatus = ItemCellStatusExpaned;
@@ -293,16 +281,24 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 #pragma mark - refresh
-- (void)refreshLastRow {
-    if (self.lastSelectedIndexPath) {
-        [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
+- (void)configureHeaderToTableView:(BOOL)needConfigure {
+    if (self.workSiteMode == WorkSiteModeReal && needConfigure) {
+        if (!self.tableView.header) {
+            @weakify(self);
+            self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+                @strongify(self);
+                [self refreshProcess:NO];
+            }];
+        }
+    } else {
+        self.tableView.header = nil;
     }
 }
 
 - (void)refreshProcess:(BOOL)showPlsWait {
     if (self.workSiteMode == WorkSiteModePreview) {
         [self.processDataManager refreshSections:[ProcessBusiness defaultProcess]];
-        [self refreshSections];
+        [self refreshSectionView];
         [self reloadItemsForSection:0];
     } else {
         if (showPlsWait) {
@@ -314,18 +310,13 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [API getProcess:request success:^{
             [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
-            self.currentSectionOperationStatus = SectionOperationStatusRefresh;
             [self.processDataManager refreshProcess];
             if (self.isFirstEnter) {
                 self.title = self.processDataManager.process.cell;
                 [self.processDataManager switchToSelectedSection:self.processDataManager.ongoingSectionIndex];
             }
-            [self refreshSections];
+            [self refreshSectionView];
             [self reloadItemsForSection:self.processDataManager.selectedSectionIndex];
-            self.lastSelectedIndexPath = nil;
-            [self.tableView beginUpdates];
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView endUpdates];
         } failure:^{
             [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
@@ -354,7 +345,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             item.itemCellStatus = ItemCellStatusClosed;
         }
         
-        [self refreshSections];
+        [self refreshSectionView];
         [self.tableView beginUpdates];
         [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView endUpdates];
@@ -365,7 +356,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }];
 }
 
-- (void)refreshSections {
+- (void)refreshSectionView {
     NSArray *sections = self.processDataManager.sections;
     if (self.isFirstEnter) {
         self.isFirstEnter = NO;
@@ -414,7 +405,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }
     self.isFirstEnter = NO;
     
-    [self.sectionScrollView setContentOffset:CGPointMake(self.processDataManager.selectedSectionIndex * SectionViewWidth, 0) animated:YES];
+    CGFloat purposeX = self.processDataManager.selectedSectionIndex * SectionViewWidth;
+    if (self.sectionScrollView.contentOffset.x != purposeX) {
+        [self.sectionScrollView setContentOffset:CGPointMake(purposeX, 0) animated:YES];
+    }
 }
 
 - (void)updateSection:(Section *)section for:(SectionView *)sectionView index:(NSInteger)index total:(NSInteger)total {
@@ -427,6 +421,41 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     sectionView.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%@_%d", @(index), section.status.intValue < 3 ? section.status.intValue : 1]];
     sectionView.nameLabel.text = [ProcessBusiness nameForKey:section.name];
     sectionView.durationLabel.text = [NSString stringWithFormat:@"%@-%@", [NSDate M_dot_dd:section.start_at], [NSDate M_dot_dd:section.end_at]];
+}
+
+- (void)reloadItemsForSection:(NSInteger)sectionIndex {
+    [self.processDataManager switchToSelectedSection:sectionIndex];
+    [self initItemsStatus];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)initItemsStatus {
+    __block NSTimeInterval latestUpdateTime;
+    __block NSInteger latestUpdateItem;
+    [self.processDataManager.selectedItems enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Item *  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSTimeInterval itemTime = item.date.doubleValue;
+        if (itemTime > latestUpdateTime) {
+            latestUpdateTime = itemTime;
+            latestUpdateItem = idx;
+        }
+    }];
+    
+    [self.processDataManager.selectedItems enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Item *  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (latestUpdateItem == idx) {
+            item.itemCellStatus = ItemCellStatusExpaned;
+        } else {
+            item.itemCellStatus = ItemCellStatusClosed;
+        }
+    }];
+    
+    self.lastSelectedIndexPath = [NSIndexPath indexPathForRow:latestUpdateItem inSection:0];
+    
+    id backgroundView = self.tableView.backgroundView;
+    if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        [backgroundView statusLine].backgroundColor = kFinishedColor;
+    } else {
+        [backgroundView statusLine].backgroundColor = kUntriggeredColor;
+    }
 }
 
 #pragma mark - getures
@@ -444,13 +473,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         @strongify(self);
         [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
     }];
-}
-
-- (void)reloadItemsForSection:(NSInteger)page {
-    [self.processDataManager switchToSelectedSection:page];
-    self.lastSelectedIndexPath = nil;
-    self.currentSectionOperationStatus = SectionOperationStatusRefresh;
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 @end

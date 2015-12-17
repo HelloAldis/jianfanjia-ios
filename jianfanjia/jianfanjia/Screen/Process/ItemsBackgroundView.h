@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ItemsBackgroundView : UIView
+@property (weak, nonatomic) IBOutlet UIView *statusLine;
 
 + (ItemsBackgroundView *)itemsBackgroundView;
 

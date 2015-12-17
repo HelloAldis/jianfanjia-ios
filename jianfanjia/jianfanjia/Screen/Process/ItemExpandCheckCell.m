@@ -143,6 +143,12 @@
         self.statusLine2.backgroundColor = kUntriggeredColor;
     }
     
+    if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        self.statusLine1.backgroundColor = kFinishedColor;
+    } else {
+        self.statusLine1.backgroundColor = kUntriggeredColor;
+    }
+    
     Schedule *schedule = self.dataManager.selectedSection.schedule;
     if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateRequest]) {
         if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:schedule.request_role]) {

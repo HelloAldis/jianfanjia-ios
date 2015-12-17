@@ -28,6 +28,9 @@
                 <constraint firstItem="cuo-cv-PbE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hdb-Kh-VZJ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="statusLine" destination="cuo-cv-PbE" id="qZX-NC-d4W"/>
+            </connections>
             <point key="canvasLocation" x="365.5" y="329.5"/>
         </view>
     </objects>
