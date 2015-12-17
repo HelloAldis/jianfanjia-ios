@@ -63,15 +63,13 @@
             NSDate *minDate = [cal dateByAddingUnit:NSCalendarUnitDay value:1 toDate:startDate options:0];
             NSDate *maxDate = [cal dateByAddingUnit:NSCalendarUnitYear value:1 toDate:minDate options:0];
 
-            [DateAlertViewController presentAlert:@"选择改期时间" min:minDate max:maxDate cancel:^(id obj) {
-                
-            } ok:^(UIDatePicker *obj) {
+            [DateAlertViewController presentAlert:@"选择改期时间" min:minDate max:maxDate cancel:nil ok:^(id date) {
                 Reschedule *request = [[Reschedule alloc] init];
                 request.processid = self.dataManager.process._id;
                 request.userid = self.dataManager.process.userid;
                 request.designerid = self.dataManager.process.final_designerid;
                 request.section = self.dataManager.selectedSection.name;
-                request.updated_date = @([obj.date timeIntervalSince1970] * 1000);
+                request.updated_date = @([date timeIntervalSince1970] * 1000);
                 
                 [API reschedule:request success:^{
                     if (self.refreshBlock) {

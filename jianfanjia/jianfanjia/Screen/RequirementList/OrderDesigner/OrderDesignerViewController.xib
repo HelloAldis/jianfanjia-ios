@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderDesignerViewController">
             <connections>
+                <outlet property="lblUnavailableDesigner" destination="TId-4d-NtH" id="VI1-tT-oee"/>
                 <outlet property="tableView" destination="OAx-rI-b8d" id="c9U-fb-b3T"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,6 +19,7 @@
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OAx-rI-b8d">
                     <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexBackgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
@@ -25,9 +27,19 @@
                         <outlet property="delegate" destination="-1" id="G1p-7x-l1y"/>
                     </connections>
                 </tableView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="没有可用的设计师，请添加意向设计师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TId-4d-NtH">
+                    <rect key="frame" x="156" y="290" width="289" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
+            <animations/>
             <color key="backgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="TId-4d-NtH" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Adg-8i-RGh"/>
+                <constraint firstItem="TId-4d-NtH" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="D3R-95-oEp"/>
                 <constraint firstItem="OAx-rI-b8d" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="YBS-I7-wLH"/>
                 <constraint firstItem="OAx-rI-b8d" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="YyD-Mk-eYD"/>
                 <constraint firstItem="OAx-rI-b8d" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="iPp-sR-4GT"/>

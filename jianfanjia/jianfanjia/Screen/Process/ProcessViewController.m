@@ -15,6 +15,7 @@
 #import "API.h"
 #import "ProcessDataManager.h"
 #import "ViewControllerContainer.h"
+#import "ItemsBackgroundView.h"
 
 typedef NS_ENUM(NSInteger, WorkSiteMode) {
     WorkSiteModePreview,
@@ -110,6 +111,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     self.sectionScrollView.backgroundColor = [UIColor whiteColor];
     
     self.tableView = [[UITableView alloc] init];
+    self.tableView.backgroundView = [ItemsBackgroundView itemsBackgroundView];
     
     self.sectionScrollView.delegate = self;
     self.tableView.delegate = self;

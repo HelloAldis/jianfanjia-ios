@@ -18,6 +18,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    
     // 个推推送注册
     [self initNotification:launchOptions];
     // 友盟日志统计

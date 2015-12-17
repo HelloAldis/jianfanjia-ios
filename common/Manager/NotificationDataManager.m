@@ -49,8 +49,12 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
             Notification *notification = [[Notification alloc] initWith:json];
             notification.userid = [GVUserDefaults standardUserDefaults].userid;
             notification.status = kNotificationStatusUnread;
-            [self insertNotification:notification];
-            [self refreshUnreadCount];
+            if ([notification.type isEqualToString:kNotificationTypeDBYS]) {
+                [self showLocalNotification:notification];
+            } else {
+                [self insertNotification:notification];
+                [self refreshUnreadCount];
+            }
         }
     });
 }
@@ -84,16 +88,18 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 }
 
 - (void)markToReadForType:(NSString *)type {
-    NSArray *notifications = [NotificationCD getNotificationsWithType:type status:kNotificationStatusUnread];
-    for (NotificationCD *notification in notifications) {
-        notification.status = kNotificationStatusReaded;
-    }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [NSManagedObjectContext save];
-        if (notifications.count > 0) {
-            [self refreshUnreadCount];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSArray *notifications = [NotificationCD getNotificationsWithType:type status:kNotificationStatusUnread];
+        for (NotificationCD *notification in notifications) {
+            notification.status = kNotificationStatusReaded;
         }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (notifications.count > 0) {
+                [NSManagedObjectContext save];
+                [self refreshUnreadCount];
+            }
+        });
     });
 }
 
@@ -104,8 +110,8 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [NSManagedObjectContext save];
         if (notifications.count > 0) {
+            [NSManagedObjectContext save];
             [self refreshUnreadCount];
         }
     });
@@ -170,6 +176,32 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
             });
         }
     }];
+}
+
+- (void)showLocalNotification:(Notification *)noti {
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    // 设置触发通知的时间
+    NSDate *fireDate = [NSDate date];
+    notification.fireDate = fireDate;
+    // 时区
+    notification.timeZone = [NSTimeZone defaultTimeZone];
+    // 设置重复的间隔
+    notification.repeatInterval = 0;
+    // 通知内容
+    notification.alertBody = noti.content;
+//    notification.applicationIconBadgeNumber = 1;
+    // 通知被触发时播放的声音
+    notification.soundName = UILocalNotificationDefaultSoundName;
+//    // 通知参数
+    NSDictionary *userDict = [NSDictionary dictionaryWithObject:noti.content forKey:[self generateNotificationKey:noti]];
+    notification.userInfo = userDict;
+//
+    // 执行通知注册
+    [[UIApplication sharedApplication] scheduleLocalNotification:notification];
+}
+
+- (NSString *)generateNotificationKey:(Notification *)notification {
+    return [NSString stringWithFormat:@"%@_%@", notification.userid, notification.type];
 }
 
 #pragma mark - Getters and Setters for dynamic properties

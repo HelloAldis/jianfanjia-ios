@@ -22,7 +22,6 @@
 @property (strong, nonatomic) NSString *alertTitle;
 @property (strong, nonatomic) NSDate *minDate;
 @property (strong, nonatomic) NSDate *maxDate;
-@property (strong, nonatomic) NSDate *selectedDate;
 
 @property (assign, nonatomic) BOOL allowIgnore;
 
@@ -62,8 +61,8 @@
 #pragma mark - init UI
 - (void)initUI {
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapParentView:)]];
-    [self.datePicker addTarget:self action:@selector(datePickerDateChanged:) forControlEvents:UIControlEventValueChanged];
     self.lblTitle.text = self.alertTitle;
+    self.datePicker.date = self.minDate;
     self.datePicker.minimumDate = self.minDate;
     self.datePicker.maximumDate = self.maxDate;
     
@@ -85,7 +84,7 @@
     [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         if (self.okBlock) {
-            self.okBlock(self.selectedDate);
+            self.okBlock(self.datePicker.date);
         }
         
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -100,11 +99,6 @@
     if (!CGRectContainsPoint(self.alertView.bounds, pointForTargetView) && self.allowIgnore) {
         [self dismissViewControllerAnimated:YES completion:nil];
     }
-}
-
-#pragma mark - date picker 
-- (void)datePickerDateChanged:(NSDate *)date {
-    self.selectedDate = date;
 }
 
 @end

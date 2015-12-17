@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-typedef void(^DateButtonBlock)(id obj);
+typedef void(^DateButtonBlock)(id date);
 
 @interface DateAlertViewController : BaseViewController
 

@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 
 @interface OrderDesignerViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *lblUnavailableDesigner;
 @property (strong, nonatomic) NSArray *orderableDesigners;
 @property (strong, nonatomic) Requirement *requirement;
 @property (strong, nonatomic) NSString *toBeReplacedDesignerId;
@@ -254,7 +255,15 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     
     [API getOrderableDesigners:request success:^{
         [self.requirementDataManager refreshOrderableDesigners];
-        [self.tableView reloadData];
+        if (self.requirementDataManager.recommendedDesigners.count == 0
+            && self.requirementDataManager.favoriteDesigners.count == 0) {
+            self.lblUnavailableDesigner.hidden = NO;
+            self.tableView.hidden = YES;
+        } else {
+            self.lblUnavailableDesigner.hidden = YES;
+            self.tableView.hidden = NO;
+            [self.tableView reloadData];
+        }
     } failure:^{
     
     } networkError:^{

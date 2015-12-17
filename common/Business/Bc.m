@@ -165,6 +165,4 @@ NSString * const kNotificationTypePurchase = @"1";
 NSString * const kNotificationTypePay = @"2";
 NSString * const kNotificationTypeDBYS = @"3";
 
-NSString * const kNotificationTypeReminder = @"reminder";
-
  
