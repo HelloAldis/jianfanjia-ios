@@ -13,6 +13,7 @@
 @interface FavoriteDesignerViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *lblUnavailableDesigner;
 
 @property (strong, nonatomic) FavoriteDesignerData *favoriateDesignerPageData;
 @property (strong, nonatomic) NSArray *rowAction;
@@ -88,11 +89,18 @@
     [API listFavoriateDesigner:request success:^{
         @strongify(self);
         NSInteger count = [self.favoriateDesignerPageData refreshDesigner];
-        if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
-        };
-        
-        [self.tableView reloadData];
+        if (self.favoriateDesignerPageData.designers.count == 0) {
+            self.lblUnavailableDesigner.hidden = NO;
+            self.tableView.hidden = YES;
+        } else {
+            self.lblUnavailableDesigner.hidden = YES;
+            self.tableView.hidden = NO;
+            if (request.limit.integerValue > count) {
+                [self.tableView.footer noticeNoMoreData];
+            }
+            
+            [self.tableView reloadData];
+        }
     } failure:^{
         
     } networkError:^{
@@ -112,7 +120,7 @@
         [self.tableView.footer endRefreshing];
         if (request.limit.integerValue > count) {
             [self.tableView.footer noticeNoMoreData];
-        };
+        }
         
         [self.tableView reloadData];
     } failure:^{
