@@ -430,8 +430,20 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 - (void)initItemsStatus {
-    __block NSTimeInterval latestUpdateTime;
-    __block NSInteger latestUpdateItem;
+    id backgroundView = self.tableView.backgroundView;
+    if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        [backgroundView statusLine].backgroundColor = kFinishedColor;
+    } else {
+        [backgroundView statusLine].backgroundColor = kUntriggeredColor;
+    }
+    
+    self.lastSelectedIndexPath = nil;
+    if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusUnStart]) {
+        return;
+    }
+    
+    __block NSTimeInterval latestUpdateTime = 0;
+    __block NSInteger latestUpdateItem = -1;
     [self.processDataManager.selectedItems enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Item *  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
         NSTimeInterval itemTime = item.date.doubleValue;
         if (itemTime > latestUpdateTime) {
@@ -448,13 +460,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         }
     }];
     
-    self.lastSelectedIndexPath = [NSIndexPath indexPathForRow:latestUpdateItem inSection:0];
-    
-    id backgroundView = self.tableView.backgroundView;
-    if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
-        [backgroundView statusLine].backgroundColor = kFinishedColor;
-    } else {
-        [backgroundView statusLine].backgroundColor = kUntriggeredColor;
+    if (latestUpdateItem > -1) {
+        self.lastSelectedIndexPath = [NSIndexPath indexPathForRow:latestUpdateItem inSection:0];
     }
 }
 
