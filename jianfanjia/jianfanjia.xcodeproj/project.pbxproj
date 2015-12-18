@@ -272,8 +272,6 @@
 		6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4191C05929E00883184 /* AddFavoriateDesigner.m */; };
 		6EE1E41D1C05942600883184 /* DeleteFavoriteDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E41C1C05942600883184 /* DeleteFavoriteDesigner.m */; };
 		6EE1E4201C0594CF00883184 /* ListFavoriteDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E41F1C0594CF00883184 /* ListFavoriteDesigner.m */; };
-		6EE1E4251C0595C600883184 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4221C0595C600883184 /* Aspects.m */; };
-		6EE1E4261C0595C600883184 /* LeakMoniter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4241C0595C600883184 /* LeakMoniter.m */; };
 		6EE1E42B1C059CF400883184 /* FavoriteDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4291C059CF400883184 /* FavoriteDesignerViewController.m */; };
 		6EE1E42C1C059CF400883184 /* FavoriteDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE1E42A1C059CF400883184 /* FavoriteDesignerViewController.xib */; };
 		6EE1E4301C05A0D800883184 /* FavoriteDesignerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E42E1C05A0D800883184 /* FavoriteDesignerCell.m */; };
@@ -771,10 +769,6 @@
 		6EE1E41C1C05942600883184 /* DeleteFavoriteDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteFavoriteDesigner.m; sourceTree = "<group>"; };
 		6EE1E41E1C0594CF00883184 /* ListFavoriteDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFavoriteDesigner.h; sourceTree = "<group>"; };
 		6EE1E41F1C0594CF00883184 /* ListFavoriteDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFavoriteDesigner.m; sourceTree = "<group>"; };
-		6EE1E4211C0595C600883184 /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
-		6EE1E4221C0595C600883184 /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
-		6EE1E4231C0595C600883184 /* LeakMoniter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeakMoniter.h; sourceTree = "<group>"; };
-		6EE1E4241C0595C600883184 /* LeakMoniter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeakMoniter.m; sourceTree = "<group>"; };
 		6EE1E4281C059CF400883184 /* FavoriteDesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerViewController.h; sourceTree = "<group>"; };
 		6EE1E4291C059CF400883184 /* FavoriteDesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerViewController.m; sourceTree = "<group>"; };
 		6EE1E42A1C059CF400883184 /* FavoriteDesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteDesignerViewController.xib; sourceTree = "<group>"; };
@@ -1267,10 +1261,6 @@
 		6E07DA9D1BD88DBE001461DD /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				6EE1E4211C0595C600883184 /* Aspects.h */,
-				6EE1E4221C0595C600883184 /* Aspects.m */,
-				6EE1E4231C0595C600883184 /* LeakMoniter.h */,
-				6EE1E4241C0595C600883184 /* LeakMoniter.m */,
 				6E07DA9E1BD88DBE001461DD /* BaseDynamicObject.h */,
 				6E07DA9F1BD88DBE001461DD /* BaseDynamicObject.m */,
 				6E07DAA01BD88DBE001461DD /* HUDUtil.h */,
@@ -2068,7 +2058,6 @@
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
 				AB5852531C074252004B054E /* ItemImageCollectionCell.m in Sources */,
 				689485D31C1A70A7002310FC /* Notification.m in Sources */,
-				6EE1E4261C0595C600883184 /* LeakMoniter.m in Sources */,
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
 				6EE1E42B1C059CF400883184 /* FavoriteDesignerViewController.m in Sources */,
 				683A5D6C1C0EFBAE0071DF88 /* YsImage.m in Sources */,
@@ -2083,7 +2072,6 @@
 				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
 				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */,
 				6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */,
-				6EE1E4251C0595C600883184 /* Aspects.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
 				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
