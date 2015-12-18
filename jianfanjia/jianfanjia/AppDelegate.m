@@ -184,6 +184,7 @@
         //Show an in-app banner
         completionHandler(UIBackgroundFetchResultNewData);
     }
+    [[NotificationDataManager shared] refreshUnreadCount];
 }
 
 #pragma mark - GeTuiSdkDelegate

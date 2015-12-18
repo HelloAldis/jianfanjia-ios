@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -203,11 +203,13 @@
                     <constraint firstItem="CYy-TQ-OFB" firstAttribute="width" secondItem="hl6-9h-8CQ" secondAttribute="width" id="bLL-qc-mXr"/>
                     <constraint firstAttribute="bottomMargin" secondItem="2j2-Zi-RyX" secondAttribute="bottom" constant="10" id="buQ-hC-Hup"/>
                     <constraint firstItem="TUP-pj-qDe" firstAttribute="top" secondItem="lcs-IN-5uf" secondAttribute="top" id="dBZ-y5-yLM"/>
+                    <constraint firstItem="2j2-Zi-RyX" firstAttribute="top" secondItem="ckb-R1-5OW" secondAttribute="bottom" constant="19" id="g6Z-U5-XPA"/>
                     <constraint firstItem="lfI-S9-rNX" firstAttribute="top" secondItem="CYy-TQ-OFB" secondAttribute="top" id="ghm-c6-vlZ"/>
                     <constraint firstItem="klb-Hh-jFa" firstAttribute="baseline" secondItem="APo-Do-Qtc" secondAttribute="baseline" id="gwb-pp-6rH"/>
                     <constraint firstItem="klb-Hh-jFa" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="top" id="hNV-Kw-evt"/>
                     <constraint firstItem="YVX-LH-45b" firstAttribute="top" secondItem="hl6-9h-8CQ" secondAttribute="bottom" constant="1" id="jSM-3D-9qw"/>
                     <constraint firstItem="APo-Do-Qtc" firstAttribute="top" secondItem="CmF-aq-MHT" secondAttribute="bottom" constant="8" id="kNC-Np-hOY"/>
+                    <constraint firstItem="ckb-R1-5OW" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="bottom" constant="33" id="kO0-hS-Fvn"/>
                     <constraint firstItem="2j2-Zi-RyX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="m7U-bP-rq5"/>
                     <constraint firstItem="lfI-S9-rNX" firstAttribute="leading" secondItem="CYy-TQ-OFB" secondAttribute="trailing" constant="-1" id="mjL-Wg-PYE"/>
                     <constraint firstItem="ckb-R1-5OW" firstAttribute="width" secondItem="CYy-TQ-OFB" secondAttribute="width" id="nkD-2Z-VlT"/>

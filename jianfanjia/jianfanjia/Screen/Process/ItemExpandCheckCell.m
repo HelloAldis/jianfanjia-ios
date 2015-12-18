@@ -155,18 +155,22 @@
             [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
             [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
             [self.btnChangeDate setTitle:@"改期申请中" forState:UIControlStateNormal];
+            [self.btnChangeDate setEnabled:NO];
             self.btnUnresolvedChangeDate.hidden = YES;
         } else {
+            [self.btnChangeDate setEnabled:NO];
             self.btnUnresolvedChangeDate.hidden = NO;
         }
     } else if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
         [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
         [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
         [self.btnChangeDate setTitle:@"工序已完工" forState:UIControlStateNormal];
+        [self.btnChangeDate setEnabled:NO];
     } else {
         [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
         [self.btnChangeDate setTitleColor:kFinishedColor forState:UIControlStateNormal];
         [self.btnChangeDate setTitle:@"申请改期" forState:UIControlStateNormal];
+        [self.btnChangeDate setEnabled:YES];
         self.btnChangeDate.alpha = 1;
         self.btnUnresolvedChangeDate.hidden = YES;
     }

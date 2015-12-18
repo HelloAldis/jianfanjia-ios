@@ -32,6 +32,9 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerInfoCell" bundle:nil] forCellReuseIdentifier:@"DesignerInfoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerDetailCell" bundle:nil] forCellReuseIdentifier:@"DesignerDetailCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerProductCell" bundle:nil] forCellReuseIdentifier:@"DesignerProductCell"];
+    self.tableView.estimatedRowHeight = 260;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.needRefreshDesignerViewController = YES;
@@ -91,18 +94,6 @@
             DesignerDetailCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerDetailCell"];
             [cell initWithDesigner:self.designerPageData.designer];
             return cell;
-        }
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return 260;
-    } else {
-        if (self.isShowProductList) {
-            return 284;
-        } else {
-            return 310;
         }
     }
 }

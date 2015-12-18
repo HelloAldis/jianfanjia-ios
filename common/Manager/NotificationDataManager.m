@@ -84,7 +84,9 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 }
 
 - (void)insertNotification:(Notification *)notification {
+//    dispatch_async(dispatch_get_main_queue(), ^{
     [NotificationCD insert:notification];
+//    });
 }
 
 - (void)markToReadForType:(NSString *)type {
@@ -189,13 +191,11 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
     notification.repeatInterval = 0;
     // 通知内容
     notification.alertBody = noti.content;
-//    notification.applicationIconBadgeNumber = 1;
     // 通知被触发时播放的声音
     notification.soundName = UILocalNotificationDefaultSoundName;
-//    // 通知参数
+    // 通知参数
     NSDictionary *userDict = [NSDictionary dictionaryWithObject:noti.content forKey:[self generateNotificationKey:noti]];
     notification.userInfo = userDict;
-//
     // 执行通知注册
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
