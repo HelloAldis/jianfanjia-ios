@@ -51,6 +51,8 @@
     
     [[AFNetworkActivityLogger sharedLogger] startLogging];
     [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+    
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

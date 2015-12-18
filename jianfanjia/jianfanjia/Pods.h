@@ -23,5 +23,6 @@
 #import "MobClick.h"
 #import "SSKeychain.h"
 #import "GeTuiSDK.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 #endif

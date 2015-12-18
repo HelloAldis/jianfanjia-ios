@@ -135,7 +135,9 @@
 }
 
 #pragma mark - UI
-
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
 
 #pragma mark - user actions
 - (IBAction)swipeRight:(id)sender {
