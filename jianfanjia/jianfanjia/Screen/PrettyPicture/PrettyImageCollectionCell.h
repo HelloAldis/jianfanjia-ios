@@ -13,8 +13,6 @@
 
 - (void)initWithImage:(NSString *)imageid width:(CGFloat)width;
 - (void)initWithImage:(UIImage *)image;
-- (void)startShaking;
-- (void)endShaking;
 
 @end
 

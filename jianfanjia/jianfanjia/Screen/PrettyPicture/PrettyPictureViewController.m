@@ -7,10 +7,11 @@
 //
 
 #import "PrettyPictureViewController.h"
-#import "ItemImageCollectionCell.h"
+#import "PrettyImageCollectionCell.h"
 #import "ImageDetailViewController.h"
 #import "ViewControllerContainer.h"
 #import "MessageAlertViewController.h"
+#import "PrettyPictureDataManager.h"
 #import "API.h"
 
 static const NSInteger COUNT_IN_ONE_ROW = 2;
@@ -27,7 +28,7 @@ static NSString *PrettyImageCollectionCellIdentifier = @"PrettyImageCollectionCe
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnChooseTypes;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *angleImages;
 
-@property (strong, nonatomic) NSMutableArray *imgArray;
+@property (strong, nonatomic) PrettyPictureDataManager *dataManager;
 
 @property (assign, nonatomic) CGFloat preY;
 @property (assign, nonatomic) BOOL isTabbarhide;
@@ -46,6 +47,7 @@ static NSString *PrettyImageCollectionCellIdentifier = @"PrettyImageCollectionCe
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self refreshPrettyPicture];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -70,6 +72,7 @@ static NSString *PrettyImageCollectionCellIdentifier = @"PrettyImageCollectionCe
 - (void)initUI {
     self.preY = 0;
     self.isTabbarhide = NO;
+    self.dataManager = [[PrettyPictureDataManager alloc] init];
     [self.imgCollection registerNib:[UINib nibWithNibName:PrettyImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:PrettyImageCollectionCellIdentifier];
     self.imgCollectionLayout.minimumLineSpacing = CELL_SPACE;
     self.imgCollectionLayout.minimumInteritemSpacing = CELL_SPACE;
@@ -80,6 +83,17 @@ static NSString *PrettyImageCollectionCellIdentifier = @"PrettyImageCollectionCe
     dispatch_once(&onceToken, ^{
         cellWidth = (kScreenWidth - SECTION_EDGE * 2 - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
     });
+    
+    @weakify(self);
+    self.imgCollection.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refreshPrettyPicture];
+    }];
+    
+    self.imgCollection.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        @strongify(self);
+        [self loadMorePrettyPicture];
+    }];
 }
 
 #pragma mark - scroll view delegate
@@ -125,13 +139,31 @@ static NSString *PrettyImageCollectionCellIdentifier = @"PrettyImageCollectionCe
 
 #pragma mark - collection delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.dataManager.prettyPictures.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ItemImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PrettyImageCollectionCellIdentifier forIndexPath:indexPath];
-    [cell initWithImage:[UIImage imageNamed:@"waitToUpload"]];
+    PrettyImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:PrettyImageCollectionCellIdentifier forIndexPath:indexPath];
+    
+    BeautifulImage *beauitifulImage = self.dataManager.prettyPictures[indexPath.row];
+    LeafImage *leafImage = [beauitifulImage leafImageAtIndex:0];
+    
+    [cell initWithImage:leafImage.imageid width:cellWidth];
     return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    BeautifulImage *beauitifulImage = self.dataManager.prettyPictures[indexPath.row];
+    LeafImage *leafImage = [beauitifulImage leafImageAtIndex:0];
+    
+    CGFloat widthHeightFactor = [leafImage.width floatValue] / [leafImage.height floatValue];
+    CGFloat cellHeight = cellWidth / widthHeightFactor;
+    
+    if (indexPath.row == 0 || indexPath.row == 3) {
+        cellHeight += 200;
+    }
+    
+    return CGSizeMake(cellWidth, cellHeight);
 }
 
 #pragma mark - gesture
@@ -144,6 +176,58 @@ static NSString *PrettyImageCollectionCellIdentifier = @"PrettyImageCollectionCe
     }
     
     
+}
+
+#pragma mark - refresh
+- (void)refreshPrettyPicture {
+    SearchPrettyImage *request = [[SearchPrettyImage alloc] init];
+    request.from = @0;
+    request.limit = @10;
+    
+    [API searchPrettyImage:request success:^{
+        [self.imgCollection.header endRefreshing];
+        [self.dataManager refreshPrettyPicture];
+        if (request.limit.integerValue > self.dataManager.prettyPictures.count) {
+            [self.imgCollection.footer noticeNoMoreData];
+        }
+        
+        [self.imgCollection reloadData];
+    } failure:^{
+        [self.imgCollection.header endRefreshing];
+    } networkError:^{
+        [self.imgCollection.header endRefreshing];
+    }];
+}
+
+- (void)loadMorePrettyPicture {
+    SearchPrettyImage *request = [[SearchPrettyImage alloc] init];
+    request.from = @(self.dataManager.prettyPictures.count);
+    request.limit = @10;
+    
+    [API searchPrettyImage:request success:^{
+        [self.imgCollection.footer endRefreshing];
+        NSInteger currentCount = self.dataManager.prettyPictures.count;
+        [self.dataManager loadMorePrettyPicture];
+        NSInteger totalCount = self.dataManager.prettyPictures.count;
+        
+        NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:totalCount - currentCount];
+        for (NSInteger i = currentCount; i < totalCount; i++) {
+            [insertIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+        }
+        
+        NSInteger moreCount = totalCount - currentCount;
+        if (moreCount > 0) {
+            [self.imgCollection insertItemsAtIndexPaths:insertIndexPaths];
+        }
+        
+        if (moreCount == 0) {
+            [self.imgCollection.footer noticeNoMoreData];
+        }
+    } failure:^{
+        [self.imgCollection.footer endRefreshing];
+    } networkError:^{
+        [self.imgCollection.footer endRefreshing];
+    }];
 }
 
 @end

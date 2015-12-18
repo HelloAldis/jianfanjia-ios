@@ -25,5 +25,7 @@
 #import "YsImage.h"
 #import "Schedule.h"
 #import "Notification.h"
+#import "BeautifulImage.h"
+#import "LeafImage.h"
 
 #endif /* Model_h */

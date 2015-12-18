@@ -13,6 +13,10 @@
 		680F491C1C23E5CD0055C16C /* PrettyPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F491B1C23E5CD0055C16C /* PrettyPictureViewController.xib */; };
 		680F49201C23EE8B0055C16C /* PrettyImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F491E1C23EE8B0055C16C /* PrettyImageCollectionCell.m */; };
 		680F49211C23EE8B0055C16C /* PrettyImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F491F1C23EE8B0055C16C /* PrettyImageCollectionCell.xib */; };
+		680F49241C2408130055C16C /* SearchPrettyImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchPrettyImage.m */; };
+		680F49271C240E400055C16C /* BeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49261C240E400055C16C /* BeautifulImage.m */; };
+		680F492A1C240F910055C16C /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49291C240F910055C16C /* LeafImage.m */; };
+		680F492D1C2410E90055C16C /* PrettyPictureDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F492C1C2410E90055C16C /* PrettyPictureDataManager.m */; };
 		68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */; };
 		68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEE1BFC06CB0000EBBE /* OrderDesignder.m */; };
 		68342DF51BFC0F960000EBBE /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DF41BFC0F960000EBBE /* Plan.m */; };
@@ -329,6 +333,14 @@
 		680F491D1C23EE8B0055C16C /* PrettyImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrettyImageCollectionCell.h; sourceTree = "<group>"; };
 		680F491E1C23EE8B0055C16C /* PrettyImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrettyImageCollectionCell.m; sourceTree = "<group>"; };
 		680F491F1C23EE8B0055C16C /* PrettyImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrettyImageCollectionCell.xib; sourceTree = "<group>"; };
+		680F49221C2408130055C16C /* SearchPrettyImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPrettyImage.h; sourceTree = "<group>"; };
+		680F49231C2408130055C16C /* SearchPrettyImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPrettyImage.m; sourceTree = "<group>"; };
+		680F49251C240E400055C16C /* BeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImage.h; sourceTree = "<group>"; };
+		680F49261C240E400055C16C /* BeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImage.m; sourceTree = "<group>"; };
+		680F49281C240F910055C16C /* LeafImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafImage.h; sourceTree = "<group>"; };
+		680F49291C240F910055C16C /* LeafImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeafImage.m; sourceTree = "<group>"; };
+		680F492B1C2410E90055C16C /* PrettyPictureDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrettyPictureDataManager.h; sourceTree = "<group>"; };
+		680F492C1C2410E90055C16C /* PrettyPictureDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrettyPictureDataManager.m; sourceTree = "<group>"; };
 		68342DEA1BFC057C0000EBBE /* GetOrderableDesigners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetOrderableDesigners.h; sourceTree = "<group>"; };
 		68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetOrderableDesigners.m; sourceTree = "<group>"; };
 		68342DED1BFC06CB0000EBBE /* OrderDesignder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignder.h; sourceTree = "<group>"; };
@@ -865,6 +877,8 @@
 				680F491D1C23EE8B0055C16C /* PrettyImageCollectionCell.h */,
 				680F491E1C23EE8B0055C16C /* PrettyImageCollectionCell.m */,
 				680F491F1C23EE8B0055C16C /* PrettyImageCollectionCell.xib */,
+				680F492B1C2410E90055C16C /* PrettyPictureDataManager.h */,
+				680F492C1C2410E90055C16C /* PrettyPictureDataManager.m */,
 			);
 			path = PrettyPicture;
 			sourceTree = "<group>";
@@ -1159,6 +1173,8 @@
 				AB4CAF931C0F3703003680BA /* RejectReschedule.m */,
 				6EBBA1591C15866200057688 /* Feedback.h */,
 				6EBBA15A1C15866200057688 /* Feedback.m */,
+				680F49221C2408130055C16C /* SearchPrettyImage.h */,
+				680F49231C2408130055C16C /* SearchPrettyImage.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1277,6 +1293,10 @@
 				683B2A771C10162400822715 /* Schedule.m */,
 				689485D11C1A70A7002310FC /* Notification.h */,
 				689485D21C1A70A7002310FC /* Notification.m */,
+				680F49251C240E400055C16C /* BeautifulImage.h */,
+				680F49261C240E400055C16C /* BeautifulImage.m */,
+				680F49281C240F910055C16C /* LeafImage.h */,
+				680F49291C240F910055C16C /* LeafImage.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2058,6 +2078,7 @@
 				6855E6321BFAC78A00E789D4 /* RequirementCell.m in Sources */,
 				684A37611BFD80E800F7388C /* DesignerPlanStatusBaseCell.m in Sources */,
 				6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */,
+				680F49271C240E400055C16C /* BeautifulImage.m in Sources */,
 				6E07DAC41BD88DBE001461DD /* Designer.m in Sources */,
 				6E6D98941BDDFDAB00D45F77 /* W2View.m in Sources */,
 				683840001C156716004F456E /* SendUpdateRequirement.m in Sources */,
@@ -2068,6 +2089,7 @@
 				683668FC1BFEECC0006A5053 /* Evaluation.m in Sources */,
 				684A37441BFD73DF00F7388C /* MatchDesignerCell.m in Sources */,
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
+				680F49241C2408130055C16C /* SearchPrettyImage.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
 				684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */,
@@ -2096,6 +2118,7 @@
 				AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
+				680F492A1C240F910055C16C /* LeafImage.m in Sources */,
 				685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */,
 				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
 				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */,
@@ -2104,6 +2127,7 @@
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
 				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
 				6838400C1C158490004F456E /* UpdateMultipleLineTextViewController.m in Sources */,
+				680F492D1C2410E90055C16C /* PrettyPictureDataManager.m in Sources */,
 				AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */,
 				684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,

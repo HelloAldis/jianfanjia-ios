@@ -225,6 +225,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"feedback" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)searchPrettyImage:(SearchPrettyImage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"search_beautiful_image" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 
