@@ -18,24 +18,28 @@
     [super viewWillAppear:animated];
     
     self.tabBar.tintColor = kThemeColor;
-    UITabBarItem *item1 = [self.tabBar.items objectAtIndex:0];
-    item1 = [item1 initWithTitle:@"首页" image:[UIImage imageNamed:@"tab_1_default"] selectedImage:[UIImage imageNamed:@"tab_1_selected"]];
-    item1.titlePositionAdjustment = UIOffsetMake(0, -2);
+    UITabBarItem *home = [self.tabBar.items objectAtIndex:0];
+    home = [home initWithTitle:@"首页" image:[UIImage imageNamed:@"tab_home_default"] selectedImage:[UIImage imageNamed:@"tab_home_selected"]];
+    home.titlePositionAdjustment = UIOffsetMake(0, -2);
     
-    UITabBarItem *item2 = [self.tabBar.items objectAtIndex:1];
-     item2 = [item2 initWithTitle:@"装修需求" image:[UIImage imageNamed:@"tab_2_default"] selectedImage:[UIImage imageNamed:@"tab_2_selected"]];
-    item2.titlePositionAdjustment = UIOffsetMake(0, -2);
+    UITabBarItem *pretty_img = [self.tabBar.items objectAtIndex:1];
+    pretty_img = [pretty_img initWithTitle:@"装修美图" image:[UIImage imageNamed:@"tab_pretty_img_default"] selectedImage:[UIImage imageNamed:@"tab_pretty_img_selected"]];
+    pretty_img.titlePositionAdjustment = UIOffsetMake(0, -2);
     
-    UITabBarItem *item4 = [self.tabBar.items objectAtIndex:2];
-    item4 = [item4 initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_4_default"] selectedImage:[UIImage imageNamed:@"tab_4_selected"]];
-    item4.titlePositionAdjustment = UIOffsetMake(0, -2);
+    UITabBarItem *requirement = [self.tabBar.items objectAtIndex:2];
+     requirement = [requirement initWithTitle:@"装修需求" image:[UIImage imageNamed:@"tab_requirement_default"] selectedImage:[UIImage imageNamed:@"tab_requirement_selected"]];
+    requirement.titlePositionAdjustment = UIOffsetMake(0, -2);
+    
+    UITabBarItem *my = [self.tabBar.items objectAtIndex:3];
+    my = [my initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_my_default"] selectedImage:[UIImage imageNamed:@"tab_my_selected"]];
+    my.titlePositionAdjustment = UIOffsetMake(0, -2);
     
     [[NotificationDataManager shared] subscribeAllUnreadCount:^(id value) {
-        item2.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
+        requirement.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
     }];
     
     [[NotificationDataManager shared] subscribeAllUnreadCount:^(id value) {
-        item4.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
+        my.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
     }];
 }
 
