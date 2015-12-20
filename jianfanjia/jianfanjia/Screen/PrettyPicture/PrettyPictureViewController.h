@@ -7,7 +7,8 @@
 //
 
 #import "BaseViewController.h"
+#import "PrettyPictureFallsLayout.h"
 
-@interface PrettyPictureViewController : BaseViewController<UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface PrettyPictureViewController : BaseViewController<UICollectionViewDataSource, PrettyPictureFallsLayoutProtocol>
 
 @end

@@ -298,6 +298,7 @@
 		6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */; };
 		6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D831C1174DD00C6957E /* StringUtil.m */; };
 		AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */; };
+		AB1AB6611C24F9D5001E4068 /* PrettyPictureFallsLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1AB6601C24F9D5001E4068 /* PrettyPictureFallsLayout.m */; };
 		AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */; };
 		AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = AB489B851C1B085E00E1BA4B /* UIButton+Badge.m */; };
 		AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF871C0F2F76003680BA /* SectionDone.m */; };
@@ -824,6 +825,8 @@
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AB0084E51C146E0C00B23C7D /* BaseSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectionViewController.h; sourceTree = "<group>"; };
 		AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectionViewController.m; sourceTree = "<group>"; };
+		AB1AB65F1C24F9D5001E4068 /* PrettyPictureFallsLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrettyPictureFallsLayout.h; sourceTree = "<group>"; };
+		AB1AB6601C24F9D5001E4068 /* PrettyPictureFallsLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrettyPictureFallsLayout.m; sourceTree = "<group>"; };
 		AB489B821C1B085E00E1BA4B /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
 		AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		AB489B841C1B085E00E1BA4B /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -879,6 +882,8 @@
 				680F491F1C23EE8B0055C16C /* PrettyImageCollectionCell.xib */,
 				680F492B1C2410E90055C16C /* PrettyPictureDataManager.h */,
 				680F492C1C2410E90055C16C /* PrettyPictureDataManager.m */,
+				AB1AB65F1C24F9D5001E4068 /* PrettyPictureFallsLayout.h */,
+				AB1AB6601C24F9D5001E4068 /* PrettyPictureFallsLayout.m */,
 			);
 			path = PrettyPicture;
 			sourceTree = "<group>";
@@ -2001,6 +2006,7 @@
 				680F49201C23EE8B0055C16C /* PrettyImageCollectionCell.m in Sources */,
 				6EE34D7C1C0EE97D00C6957E /* NotificationCD.m in Sources */,
 				685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */,
+				AB1AB6611C24F9D5001E4068 /* PrettyPictureFallsLayout.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,

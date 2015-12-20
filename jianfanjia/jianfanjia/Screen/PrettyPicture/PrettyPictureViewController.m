@@ -14,17 +14,11 @@
 #import "PrettyPictureDataManager.h"
 #import "API.h"
 
-static const NSInteger COUNT_IN_ONE_ROW = 2;
-static const NSInteger CELL_SPACE = 10;
-static const NSInteger SECTION_EDGE = 10;
-
-static CGFloat cellWidth;
-
 static NSString *PrettyImageCollectionCellIdentifier = @"PrettyImageCollectionCell";
 
 @interface PrettyPictureViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *imgCollection;
-@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *imgCollectionLayout;
+@property (weak, nonatomic) IBOutlet PrettyPictureFallsLayout *imgCollectionLayout;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnChooseTypes;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *angleImages;
 
@@ -74,15 +68,8 @@ static NSString *PrettyImageCollectionCellIdentifier = @"PrettyImageCollectionCe
     self.isTabbarhide = NO;
     self.dataManager = [[PrettyPictureDataManager alloc] init];
     [self.imgCollection registerNib:[UINib nibWithNibName:PrettyImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:PrettyImageCollectionCellIdentifier];
-    self.imgCollectionLayout.minimumLineSpacing = CELL_SPACE;
-    self.imgCollectionLayout.minimumInteritemSpacing = CELL_SPACE;
-    self.imgCollectionLayout.sectionInset = UIEdgeInsetsMake(SECTION_EDGE, SECTION_EDGE, SECTION_EDGE, SECTION_EDGE);
     [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        cellWidth = (kScreenWidth - SECTION_EDGE * 2 - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
-    });
+    self.imgCollectionLayout.delegate = self;
     
     @weakify(self);
     self.imgCollection.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -148,22 +135,22 @@ static NSString *PrettyImageCollectionCellIdentifier = @"PrettyImageCollectionCe
     BeautifulImage *beauitifulImage = self.dataManager.prettyPictures[indexPath.row];
     LeafImage *leafImage = [beauitifulImage leafImageAtIndex:0];
     
-    [cell initWithImage:leafImage.imageid width:cellWidth];
+    [cell initWithImage:leafImage.imageid width:cell.bounds.size.width];
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (CGFloat)fallFlowLayout:(PrettyPictureFallsLayout *)layout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath {
     BeautifulImage *beauitifulImage = self.dataManager.prettyPictures[indexPath.row];
     LeafImage *leafImage = [beauitifulImage leafImageAtIndex:0];
     
     CGFloat widthHeightFactor = [leafImage.width floatValue] / [leafImage.height floatValue];
-    CGFloat cellHeight = cellWidth / widthHeightFactor;
+    CGFloat cellHeight = width / widthHeightFactor;
     
     if (indexPath.row == 0 || indexPath.row == 3) {
         cellHeight += 200;
     }
     
-    return CGSizeMake(cellWidth, cellHeight);
+    return cellHeight;
 }
 
 #pragma mark - gesture
