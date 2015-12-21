@@ -164,8 +164,8 @@
 - (void)onSingleTap {
     BOOL isHidden = self.navigationController.navigationBarHidden;
     
-    [UIView animateWithDuration:0.6 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
-        self.navigationController.navigationBarHidden = !isHidden;
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+        [self.navigationController setNavigationBarHidden:!isHidden animated:YES];
         self.textViewBottomToSuper.constant = !isHidden ? 0 : 45;
         [self.view layoutIfNeeded];
     } completion:nil];
