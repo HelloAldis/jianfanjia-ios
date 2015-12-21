@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface PrettyPictureDataManager : NSObject
+@interface BeautifulImageDataManager : NSObject
 
-@property (nonatomic, strong) NSMutableArray *prettyPictures;
+@property (nonatomic, strong) NSMutableArray *beautifulImages;
 
-- (void)refreshPrettyPicture;
-- (void)loadMorePrettyPicture;
+- (void)refreshBeautifulImage;
+- (void)loadMoreBeautifulImage;
 
 @end

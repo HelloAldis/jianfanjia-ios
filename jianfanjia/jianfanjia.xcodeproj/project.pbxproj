@@ -9,14 +9,14 @@
 /* Begin PBXBuildFile section */
 		680F490D1C2160990055C16C /* ItemsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F490C1C2160990055C16C /* ItemsBackgroundView.m */; };
 		680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F490E1C2160BF0055C16C /* ItemsBackgroundView.xib */; };
-		680F49191C23E4270055C16C /* PrettyPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49171C23E4270055C16C /* PrettyPictureViewController.m */; };
-		680F491C1C23E5CD0055C16C /* PrettyPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F491B1C23E5CD0055C16C /* PrettyPictureViewController.xib */; };
-		680F49201C23EE8B0055C16C /* PrettyImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F491E1C23EE8B0055C16C /* PrettyImageCollectionCell.m */; };
-		680F49211C23EE8B0055C16C /* PrettyImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F491F1C23EE8B0055C16C /* PrettyImageCollectionCell.xib */; };
-		680F49241C2408130055C16C /* SearchPrettyImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchPrettyImage.m */; };
+		680F49191C23E4270055C16C /* BeautifulImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49171C23E4270055C16C /* BeautifulImageViewController.m */; };
+		680F491C1C23E5CD0055C16C /* BeautifulImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F491B1C23E5CD0055C16C /* BeautifulImageViewController.xib */; };
+		680F49201C23EE8B0055C16C /* BeautifulImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F491E1C23EE8B0055C16C /* BeautifulImageCollectionCell.m */; };
+		680F49211C23EE8B0055C16C /* BeautifulImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F491F1C23EE8B0055C16C /* BeautifulImageCollectionCell.xib */; };
+		680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchBeautifulImage.m */; };
 		680F49271C240E400055C16C /* BeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49261C240E400055C16C /* BeautifulImage.m */; };
 		680F492A1C240F910055C16C /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49291C240F910055C16C /* LeafImage.m */; };
-		680F492D1C2410E90055C16C /* PrettyPictureDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F492C1C2410E90055C16C /* PrettyPictureDataManager.m */; };
+		680F492D1C2410E90055C16C /* BeautifulImageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F492C1C2410E90055C16C /* BeautifulImageDataManager.m */; };
 		68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */; };
 		68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEE1BFC06CB0000EBBE /* OrderDesignder.m */; };
 		68342DF51BFC0F960000EBBE /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DF41BFC0F960000EBBE /* Plan.m */; };
@@ -64,6 +64,11 @@
 		683A6B6B1C0F01190071DF88 /* ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683A6B631C0F01190071DF88 /* ReminderViewController.xib */; };
 		683B2A781C10162400822715 /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B2A771C10162400822715 /* Schedule.m */; };
 		683B2A7B1C101CE900822715 /* ReminderDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 683B2A7A1C101CE900822715 /* ReminderDataManager.m */; };
+		683FFB151C27A4A2002A1AFE /* BeautifulImageHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB131C27A4A2002A1AFE /* BeautifulImageHomePageViewController.m */; };
+		683FFB161C27A4A2002A1AFE /* BeautifulImageHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB141C27A4A2002A1AFE /* BeautifulImageHomePageViewController.xib */; };
+		683FFB191C280681002A1AFE /* GetBeautifulImageHomepage.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB181C280681002A1AFE /* GetBeautifulImageHomepage.m */; };
+		683FFB1C1C280E9D002A1AFE /* FavoriteBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB1B1C280E9D002A1AFE /* FavoriteBeautifulImage.m */; };
+		683FFB1F1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB1E1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m */; };
 		684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 684462981C0D68680098F3CB /* DeleteImageFromProcess.m */; };
 		684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */; };
 		684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */; };
@@ -298,7 +303,7 @@
 		6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */; };
 		6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D831C1174DD00C6957E /* StringUtil.m */; };
 		AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */; };
-		AB1AB6611C24F9D5001E4068 /* PrettyPictureFallsLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1AB6601C24F9D5001E4068 /* PrettyPictureFallsLayout.m */; };
+		AB1AB6611C24F9D5001E4068 /* CollectionFallsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1AB6601C24F9D5001E4068 /* CollectionFallsFlowLayout.m */; };
 		AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */; };
 		AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = AB489B851C1B085E00E1BA4B /* UIButton+Badge.m */; };
 		AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF871C0F2F76003680BA /* SectionDone.m */; };
@@ -328,20 +333,20 @@
 		680F490B1C2160990055C16C /* ItemsBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsBackgroundView.h; sourceTree = "<group>"; };
 		680F490C1C2160990055C16C /* ItemsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsBackgroundView.m; sourceTree = "<group>"; };
 		680F490E1C2160BF0055C16C /* ItemsBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsBackgroundView.xib; sourceTree = "<group>"; };
-		680F49161C23E4270055C16C /* PrettyPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrettyPictureViewController.h; sourceTree = "<group>"; };
-		680F49171C23E4270055C16C /* PrettyPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrettyPictureViewController.m; sourceTree = "<group>"; };
-		680F491B1C23E5CD0055C16C /* PrettyPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrettyPictureViewController.xib; sourceTree = "<group>"; };
-		680F491D1C23EE8B0055C16C /* PrettyImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrettyImageCollectionCell.h; sourceTree = "<group>"; };
-		680F491E1C23EE8B0055C16C /* PrettyImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrettyImageCollectionCell.m; sourceTree = "<group>"; };
-		680F491F1C23EE8B0055C16C /* PrettyImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrettyImageCollectionCell.xib; sourceTree = "<group>"; };
-		680F49221C2408130055C16C /* SearchPrettyImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPrettyImage.h; sourceTree = "<group>"; };
-		680F49231C2408130055C16C /* SearchPrettyImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPrettyImage.m; sourceTree = "<group>"; };
+		680F49161C23E4270055C16C /* BeautifulImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImageViewController.h; sourceTree = "<group>"; };
+		680F49171C23E4270055C16C /* BeautifulImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImageViewController.m; sourceTree = "<group>"; };
+		680F491B1C23E5CD0055C16C /* BeautifulImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulImageViewController.xib; sourceTree = "<group>"; };
+		680F491D1C23EE8B0055C16C /* BeautifulImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImageCollectionCell.h; sourceTree = "<group>"; };
+		680F491E1C23EE8B0055C16C /* BeautifulImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImageCollectionCell.m; sourceTree = "<group>"; };
+		680F491F1C23EE8B0055C16C /* BeautifulImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulImageCollectionCell.xib; sourceTree = "<group>"; };
+		680F49221C2408130055C16C /* SearchBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBeautifulImage.h; sourceTree = "<group>"; };
+		680F49231C2408130055C16C /* SearchBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBeautifulImage.m; sourceTree = "<group>"; };
 		680F49251C240E400055C16C /* BeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImage.h; sourceTree = "<group>"; };
 		680F49261C240E400055C16C /* BeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImage.m; sourceTree = "<group>"; };
 		680F49281C240F910055C16C /* LeafImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafImage.h; sourceTree = "<group>"; };
 		680F49291C240F910055C16C /* LeafImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeafImage.m; sourceTree = "<group>"; };
-		680F492B1C2410E90055C16C /* PrettyPictureDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrettyPictureDataManager.h; sourceTree = "<group>"; };
-		680F492C1C2410E90055C16C /* PrettyPictureDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrettyPictureDataManager.m; sourceTree = "<group>"; };
+		680F492B1C2410E90055C16C /* BeautifulImageDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImageDataManager.h; sourceTree = "<group>"; };
+		680F492C1C2410E90055C16C /* BeautifulImageDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImageDataManager.m; sourceTree = "<group>"; };
 		68342DEA1BFC057C0000EBBE /* GetOrderableDesigners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetOrderableDesigners.h; sourceTree = "<group>"; };
 		68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetOrderableDesigners.m; sourceTree = "<group>"; };
 		68342DED1BFC06CB0000EBBE /* OrderDesignder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignder.h; sourceTree = "<group>"; };
@@ -419,6 +424,15 @@
 		683B2A771C10162400822715 /* Schedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Schedule.m; sourceTree = "<group>"; };
 		683B2A791C101CE900822715 /* ReminderDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderDataManager.h; sourceTree = "<group>"; };
 		683B2A7A1C101CE900822715 /* ReminderDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderDataManager.m; sourceTree = "<group>"; };
+		683FFB121C27A4A2002A1AFE /* BeautifulImageHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImageHomePageViewController.h; sourceTree = "<group>"; };
+		683FFB131C27A4A2002A1AFE /* BeautifulImageHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImageHomePageViewController.m; sourceTree = "<group>"; };
+		683FFB141C27A4A2002A1AFE /* BeautifulImageHomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulImageHomePageViewController.xib; sourceTree = "<group>"; };
+		683FFB171C280681002A1AFE /* GetBeautifulImageHomepage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetBeautifulImageHomepage.h; sourceTree = "<group>"; };
+		683FFB181C280681002A1AFE /* GetBeautifulImageHomepage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetBeautifulImageHomepage.m; sourceTree = "<group>"; };
+		683FFB1A1C280E9D002A1AFE /* FavoriteBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteBeautifulImage.h; sourceTree = "<group>"; };
+		683FFB1B1C280E9D002A1AFE /* FavoriteBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteBeautifulImage.m; sourceTree = "<group>"; };
+		683FFB1D1C280FD1002A1AFE /* UnfavoriteBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnfavoriteBeautifulImage.h; sourceTree = "<group>"; };
+		683FFB1E1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnfavoriteBeautifulImage.m; sourceTree = "<group>"; };
 		684462971C0D68680098F3CB /* DeleteImageFromProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteImageFromProcess.h; sourceTree = "<group>"; };
 		684462981C0D68680098F3CB /* DeleteImageFromProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteImageFromProcess.m; sourceTree = "<group>"; };
 		684A36E11BFD733400F7388C /* DesignerDeclineHomeOwnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDeclineHomeOwnerCell.h; sourceTree = "<group>"; };
@@ -825,8 +839,8 @@
 		87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		AB0084E51C146E0C00B23C7D /* BaseSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectionViewController.h; sourceTree = "<group>"; };
 		AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectionViewController.m; sourceTree = "<group>"; };
-		AB1AB65F1C24F9D5001E4068 /* PrettyPictureFallsLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrettyPictureFallsLayout.h; sourceTree = "<group>"; };
-		AB1AB6601C24F9D5001E4068 /* PrettyPictureFallsLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrettyPictureFallsLayout.m; sourceTree = "<group>"; };
+		AB1AB65F1C24F9D5001E4068 /* CollectionFallsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionFallsFlowLayout.h; sourceTree = "<group>"; };
+		AB1AB6601C24F9D5001E4068 /* CollectionFallsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionFallsFlowLayout.m; sourceTree = "<group>"; };
 		AB489B821C1B085E00E1BA4B /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
 		AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		AB489B841C1B085E00E1BA4B /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
@@ -874,16 +888,17 @@
 		680F49151C23E3DB0055C16C /* PrettyPicture */ = {
 			isa = PBXGroup;
 			children = (
-				680F49161C23E4270055C16C /* PrettyPictureViewController.h */,
-				680F49171C23E4270055C16C /* PrettyPictureViewController.m */,
-				680F491B1C23E5CD0055C16C /* PrettyPictureViewController.xib */,
-				680F491D1C23EE8B0055C16C /* PrettyImageCollectionCell.h */,
-				680F491E1C23EE8B0055C16C /* PrettyImageCollectionCell.m */,
-				680F491F1C23EE8B0055C16C /* PrettyImageCollectionCell.xib */,
-				680F492B1C2410E90055C16C /* PrettyPictureDataManager.h */,
-				680F492C1C2410E90055C16C /* PrettyPictureDataManager.m */,
-				AB1AB65F1C24F9D5001E4068 /* PrettyPictureFallsLayout.h */,
-				AB1AB6601C24F9D5001E4068 /* PrettyPictureFallsLayout.m */,
+				683FFB111C27A4A2002A1AFE /* HomePage */,
+				680F49161C23E4270055C16C /* BeautifulImageViewController.h */,
+				680F49171C23E4270055C16C /* BeautifulImageViewController.m */,
+				680F491B1C23E5CD0055C16C /* BeautifulImageViewController.xib */,
+				680F491D1C23EE8B0055C16C /* BeautifulImageCollectionCell.h */,
+				680F491E1C23EE8B0055C16C /* BeautifulImageCollectionCell.m */,
+				680F491F1C23EE8B0055C16C /* BeautifulImageCollectionCell.xib */,
+				680F492B1C2410E90055C16C /* BeautifulImageDataManager.h */,
+				680F492C1C2410E90055C16C /* BeautifulImageDataManager.m */,
+				AB1AB65F1C24F9D5001E4068 /* CollectionFallsFlowLayout.h */,
+				AB1AB6601C24F9D5001E4068 /* CollectionFallsFlowLayout.m */,
 			);
 			path = PrettyPicture;
 			sourceTree = "<group>";
@@ -951,6 +966,17 @@
 				683799691C11290E001F24D6 /* MessageAlertViewController.xib */,
 			);
 			path = CustomAlert;
+			sourceTree = "<group>";
+		};
+		683FFB111C27A4A2002A1AFE /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				683FFB121C27A4A2002A1AFE /* BeautifulImageHomePageViewController.h */,
+				683FFB131C27A4A2002A1AFE /* BeautifulImageHomePageViewController.m */,
+				683FFB141C27A4A2002A1AFE /* BeautifulImageHomePageViewController.xib */,
+			);
+			name = HomePage;
+			path = CollectImage;
 			sourceTree = "<group>";
 		};
 		684A36E01BFD733400F7388C /* OrderedDesigner */ = {
@@ -1178,8 +1204,14 @@
 				AB4CAF931C0F3703003680BA /* RejectReschedule.m */,
 				6EBBA1591C15866200057688 /* Feedback.h */,
 				6EBBA15A1C15866200057688 /* Feedback.m */,
-				680F49221C2408130055C16C /* SearchPrettyImage.h */,
-				680F49231C2408130055C16C /* SearchPrettyImage.m */,
+				680F49221C2408130055C16C /* SearchBeautifulImage.h */,
+				680F49231C2408130055C16C /* SearchBeautifulImage.m */,
+				683FFB171C280681002A1AFE /* GetBeautifulImageHomepage.h */,
+				683FFB181C280681002A1AFE /* GetBeautifulImageHomepage.m */,
+				683FFB1A1C280E9D002A1AFE /* FavoriteBeautifulImage.h */,
+				683FFB1B1C280E9D002A1AFE /* FavoriteBeautifulImage.m */,
+				683FFB1D1C280FD1002A1AFE /* UnfavoriteBeautifulImage.h */,
+				683FFB1E1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1889,7 +1921,7 @@
 				6E4496411BFC53CE00C90851 /* FeedbackViewController.xib in Resources */,
 				68343A181BF70719004F15C1 /* city2area.js in Resources */,
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
-				680F49211C23EE8B0055C16C /* PrettyImageCollectionCell.xib in Resources */,
+				680F49211C23EE8B0055C16C /* BeautifulImageCollectionCell.xib in Resources */,
 				685CD5CD1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */,
@@ -1901,7 +1933,7 @@
 				6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */,
 				684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */,
 				684A374F1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib in Resources */,
-				680F491C1C23E5CD0055C16C /* PrettyPictureViewController.xib in Resources */,
+				680F491C1C23E5CD0055C16C /* BeautifulImageViewController.xib in Resources */,
 				6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */,
 				684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */,
 				684A37511BFD73DF00F7388C /* SelectDecorationStyleViewController.xib in Resources */,
@@ -1913,6 +1945,7 @@
 				6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */,
 				683A6B651C0F01190071DF88 /* PayNotificationCell.xib in Resources */,
 				6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */,
+				683FFB161C27A4A2002A1AFE /* BeautifulImageHomePageViewController.xib in Resources */,
 				6EE1E42C1C059CF400883184 /* FavoriteDesignerViewController.xib in Resources */,
 				683A6B561C0F01130071DF88 /* DBYSViewController.xib in Resources */,
 				AB5852541C074252004B054E /* ItemImageCollectionCell.xib in Resources */,
@@ -2003,10 +2036,10 @@
 				683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */,
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,
 				685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */,
-				680F49201C23EE8B0055C16C /* PrettyImageCollectionCell.m in Sources */,
+				680F49201C23EE8B0055C16C /* BeautifulImageCollectionCell.m in Sources */,
 				6EE34D7C1C0EE97D00C6957E /* NotificationCD.m in Sources */,
 				685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */,
-				AB1AB6611C24F9D5001E4068 /* PrettyPictureFallsLayout.m in Sources */,
+				AB1AB6611C24F9D5001E4068 /* CollectionFallsFlowLayout.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,
@@ -2015,6 +2048,7 @@
 				684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */,
 				6EBBA15B1C15866200057688 /* Feedback.m in Sources */,
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
+				683FFB1F1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
 				6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */,
 				AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */,
@@ -2033,7 +2067,7 @@
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,
 				683626991C059C72005F2C30 /* ItemExpandImageCell.m in Sources */,
 				6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */,
-				680F49191C23E4270055C16C /* PrettyPictureViewController.m in Sources */,
+				680F49191C23E4270055C16C /* BeautifulImageViewController.m in Sources */,
 				683A6B641C0F01190071DF88 /* PayNotificationCell.m in Sources */,
 				6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */,
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
@@ -2043,6 +2077,7 @@
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */,
 				684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */,
+				683FFB191C280681002A1AFE /* GetBeautifulImageHomepage.m in Sources */,
 				684A370E1BFD733500F7388C /* OrderedDesignerViewController.m in Sources */,
 				6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */,
 				684A37581BFD73DF00F7388C /* SelectSexTypeViewController.m in Sources */,
@@ -2083,6 +2118,7 @@
 				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
 				6855E6321BFAC78A00E789D4 /* RequirementCell.m in Sources */,
 				684A37611BFD80E800F7388C /* DesignerPlanStatusBaseCell.m in Sources */,
+				683FFB151C27A4A2002A1AFE /* BeautifulImageHomePageViewController.m in Sources */,
 				6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */,
 				680F49271C240E400055C16C /* BeautifulImage.m in Sources */,
 				6E07DAC41BD88DBE001461DD /* Designer.m in Sources */,
@@ -2095,7 +2131,7 @@
 				683668FC1BFEECC0006A5053 /* Evaluation.m in Sources */,
 				684A37441BFD73DF00F7388C /* MatchDesignerCell.m in Sources */,
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
-				680F49241C2408130055C16C /* SearchPrettyImage.m in Sources */,
+				680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
 				684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */,
@@ -2133,7 +2169,7 @@
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
 				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
 				6838400C1C158490004F456E /* UpdateMultipleLineTextViewController.m in Sources */,
-				680F492D1C2410E90055C16C /* PrettyPictureDataManager.m in Sources */,
+				680F492D1C2410E90055C16C /* BeautifulImageDataManager.m in Sources */,
 				AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */,
 				684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
@@ -2163,6 +2199,7 @@
 				6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */,
 				6E6D98CA1BE0AB7C00D45F77 /* HomePageRequirementCell.m in Sources */,
 				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,
+				683FFB1C1C280E9D002A1AFE /* FavoriteBeautifulImage.m in Sources */,
 				6EE34D7B1C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m in Sources */,
 				6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */,
 				685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */,

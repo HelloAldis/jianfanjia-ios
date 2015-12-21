@@ -12,10 +12,37 @@
 @implementation BeautifulImage
 
 @dynamic _id;
+@dynamic create_at;
+@dynamic lastupdate;
 @dynamic title;
+@dynamic keywords;
+@dynamic beautiful_image_description;
+@dynamic status;
 @dynamic house_type;
 @dynamic dec_style;
+@dynamic dec_type;
 @dynamic images;
+@dynamic authorid;
+@dynamic usertype;
+@dynamic favorite_count;
+@dynamic view_count;
+@dynamic is_my_favorite;
+
+- (void)setObject:(id)o forKey:(NSString *)key {
+    if ([@"beautiful_image_description" isEqualToString:key]) {
+        [[self data] setObject:o forKey:@"description"];
+    } else {
+        [[self data] setObject:o forKey:key];
+    }
+}
+
+- (id)objectForKey:(NSString *)key {
+    if ([@"beautiful_image_description" isEqualToString:key]) {
+        return [[self data] objectForKey:@"description"];
+    } else {
+        return [[self data] objectForKey:key];
+    }
+}
 
 - (LeafImage *)leafImageAtIndex:(NSInteger )index {
     if (index >= 0 && index < self.images.count) {

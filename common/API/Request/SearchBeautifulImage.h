@@ -8,7 +8,7 @@
 
 #import "BaseRequest.h"
 
-@interface SearchPrettyImage : BaseRequest
+@interface SearchBeautifulImage : BaseRequest
 
 @property (nonatomic, strong) NSDictionary *query;
 @property (nonatomic, strong) NSDictionary *sort;

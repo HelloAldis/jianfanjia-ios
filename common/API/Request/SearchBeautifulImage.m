@@ -6,9 +6,9 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "SearchPrettyImage.h"
+#import "SearchBeautifulImage.h"
 
-@implementation SearchPrettyImage
+@implementation SearchBeautifulImage
 
 @dynamic query;
 @dynamic sort;

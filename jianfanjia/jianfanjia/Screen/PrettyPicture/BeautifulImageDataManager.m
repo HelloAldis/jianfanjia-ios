@@ -6,32 +6,32 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "PrettyPictureDataManager.h"
+#import "BeautifulImageDataManager.h"
 
-@implementation PrettyPictureDataManager
+@implementation BeautifulImageDataManager
 
-- (void)refreshPrettyPicture {
+- (void)refreshBeautifulImage {
     NSArray* arr = [[DataManager shared].data objectForKey:@"beautiful_images"];
-    NSMutableArray *prettyPictures = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    NSMutableArray *beautifulImages = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
         BeautifulImage *beautifulImage = [[BeautifulImage alloc] initWith:dict];
-        [prettyPictures addObject:beautifulImage];
+        [beautifulImages addObject:beautifulImage];
     }
     
-    self.prettyPictures = prettyPictures;
+    self.beautifulImages = beautifulImages;
 }
 
-- (void)loadMorePrettyPicture {
+- (void)loadMoreBeautifulImage {
     NSArray* arr = [[DataManager shared].data objectForKey:@"beautiful_images"];
-    NSMutableArray *prettyPictures = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    NSMutableArray *beautifulImages = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
         BeautifulImage *beautifulImage = [[BeautifulImage alloc] initWith:dict];
-        [prettyPictures addObject:beautifulImage];
+        [beautifulImages addObject:beautifulImage];
     }
     
-    [self.prettyPictures addObjectsFromArray:prettyPictures];
+    [self.beautifulImages addObjectsFromArray:beautifulImages];
 }
 
 @end
