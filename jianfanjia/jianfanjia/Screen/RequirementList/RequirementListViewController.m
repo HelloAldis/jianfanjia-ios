@@ -45,7 +45,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
     [super viewWillAppear:animated];    
     [self refreshRequirements:YES];
     
-    NSLog(@"%@", [GVUserDefaults standardUserDefaults].userid);
+//    NSLog(@"%@", [GVUserDefaults standardUserDefaults].userid);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
