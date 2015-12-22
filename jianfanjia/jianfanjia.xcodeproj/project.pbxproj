@@ -885,7 +885,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		680F49151C23E3DB0055C16C /* PrettyPicture */ = {
+		680F49151C23E3DB0055C16C /* BeautifulImage */ = {
 			isa = PBXGroup;
 			children = (
 				683FFB111C27A4A2002A1AFE /* HomePage */,
@@ -900,6 +900,7 @@
 				AB1AB65F1C24F9D5001E4068 /* CollectionFallsFlowLayout.h */,
 				AB1AB6601C24F9D5001E4068 /* CollectionFallsFlowLayout.m */,
 			);
+			name = BeautifulImage;
 			path = PrettyPicture;
 			sourceTree = "<group>";
 		};
@@ -1691,7 +1692,7 @@
 				6E6D98E21BE343B600D45F77 /* Designer */,
 				6E6D98D91BE2039800D45F77 /* Product */,
 				6E6D98B21BDF73D300D45F77 /* Me */,
-				680F49151C23E3DB0055C16C /* PrettyPicture */,
+				680F49151C23E3DB0055C16C /* BeautifulImage */,
 				6E6D98AC1BDF735C00D45F77 /* RequirementList */,
 				6E6D98A61BDF732A00D45F77 /* HomePage */,
 				6E7867001BA9143A00DE8B1B /* Process */,

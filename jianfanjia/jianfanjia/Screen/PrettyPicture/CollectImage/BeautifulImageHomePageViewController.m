@@ -129,7 +129,7 @@
 
 #pragma mark - user action
 - (void)onClickFavoriteButton {
-    if ([self.beautifulImage.is_my_favorite boolValue]) {
+    if (![self.beautifulImage.is_my_favorite boolValue]) {
         FavoriteBeautifulImage *request = [[FavoriteBeautifulImage alloc] init];
         request._id = self.beautifulImage._id;
         
