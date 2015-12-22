@@ -20,6 +20,7 @@
 + (NSDictionary *)getAllAuthType;
 + (NSDictionary *)getAllPlanStatus;
 + (NSDictionary *)getAllRequirementStatus;
++ (NSArray *)getAllBeautifulImageType;
 
 + (NSString *)nameForUserType:(NSString *)type;
 + (NSString *)nameForHouseType:(NSString *)type;

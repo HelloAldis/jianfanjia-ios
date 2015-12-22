@@ -10,6 +10,7 @@
 
 @interface UIImageView (Ex)
 
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width completed:(SDWebImageCompletionBlock)completeBlock;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width;
 - (void)setUserImageWithId:(NSString *)imageid;
 - (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image;

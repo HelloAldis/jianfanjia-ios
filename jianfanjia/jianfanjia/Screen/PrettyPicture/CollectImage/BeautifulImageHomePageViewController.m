@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) UIBarButtonItem *favoriteButton;
 @property (nonatomic, strong) NSMutableArray *imageViewArray;
+@property (nonatomic, strong) NSMutableArray *imageViewStatus;
 @property (nonatomic, assign) NSInteger imgCount;
 
 @property (nonatomic, strong) BeautifulImage *beautifulImage;
@@ -73,7 +74,9 @@
 
 - (void)initUI {
     self.imgCount = self.beautifulImage.images.count;
-    self.imageViewArray = [[NSMutableArray alloc] initWithCapacity:self.imgCount];
+    self.imageViewStatus = [NSMutableArray arrayWithCapacity:self.imgCount];
+    self.imageViewArray = [NSMutableArray arrayWithCapacity:self.imgCount];
+    @weakify(self);
     for (int i = 0; i < self.imgCount; i++) {
         UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         [w1 setContentMode:UIViewContentModeScaleAspectFit];
@@ -91,16 +94,17 @@
         [self.imageViewArray addObject:w1];
         
         LeafImage *leafImage = [self.beautifulImage leafImageAtIndex:i];
-        [w1 setImageWithId:leafImage.imageid withWidth:kScreenWidth];
+        [self.imageViewStatus addObject:@0];
+        [w1 setImageWithId:leafImage.imageid withWidth:kScreenWidth completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            @strongify(self);
+            if (error == nil) {
+                self.imageViewStatus[i] = @1;
+            }
+        }];
     }
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.imgCount, kBannerCellHeight)];
     self.title = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
     self.scrollView.contentOffset = CGPointMake(self.index * kScreenWidth, 0);
-    
-    self.imgDescription.text = self.beautifulImage.beautiful_image_description;
-    self.imgTag.text = [[[self.beautifulImage.keywords componentsSeparatedByString:@","] map:^id(NSString *obj) {
-        return [NSString stringWithFormat:@"#%@", obj];
-    }] join:@" "];
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap)];
     [self.scrollView addGestureRecognizer:singleTap];
@@ -109,6 +113,16 @@
     doubleTap.numberOfTapsRequired = 2;
     [self.scrollView addGestureRecognizer:doubleTap];
     [singleTap requireGestureRecognizerToFail:doubleTap];
+    
+    self.imgDescription.text = self.beautifulImage.beautiful_image_description;
+    self.imgTag.text = [[[self.beautifulImage.keywords componentsSeparatedByString:@","] map:^id(NSString *obj) {
+        return [NSString stringWithFormat:@"#%@", obj];
+    }] join:@" "];
+    
+    [[self.btnDownload rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickDownloadButton];
+    }];
 }
 
 #pragma mark - scroll view deleaget
@@ -157,7 +171,25 @@
 }
 
 - (void)onClickShareButton {
+    [HUDUtil showSuccessText:@"分享功能还没开放，敬请期待"];
+}
 
+- (void)onClickDownloadButton {
+    NSNumber *status = self.imageViewStatus[self.index];
+    if ([status boolValue]) {
+        UIImageView *imgView = self.imageViewArray[self.index];
+        UIImageWriteToSavedPhotosAlbum(imgView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    } else {
+        [HUDUtil showErrText:@"美图正在准备中，请耐心等待"];
+    }
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if (error == nil) {
+        [HUDUtil showSuccessText:@"保存成功"];
+    } else {
+        [HUDUtil showSuccessText:@"保存失败"];
+    }
 }
 
 #pragma mark - gesture

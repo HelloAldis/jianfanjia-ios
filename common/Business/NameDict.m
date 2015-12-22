@@ -23,6 +23,7 @@ static NSDictionary *requirementStatus = nil;
 static NSDictionary *authType = nil;
 static NSDictionary *userType = nil;
 static NSDictionary *sectionStatusDic = nil;
+static NSArray *beautifulTypeArr = nil;
 
 + (void)initialize {
     houseTypeDict = @{@"0":@"一居",
@@ -111,6 +112,18 @@ static NSDictionary *sectionStatusDic = nil;
                          @"5":@"改期拒绝",
                          };
     
+    beautifulTypeArr = @[@"厨房",
+                         @"客厅",
+                         @"卫生间",
+                         @"卧室",
+                         @"餐厅",
+                         @"书房",
+                         @"玄关",
+                         @"阳台",
+                         @"儿童房",
+                         @"走廊",
+                         @"储物间",];
+
 }
 
 + (NSDictionary *)getAllHouseType {
@@ -151,6 +164,10 @@ static NSDictionary *sectionStatusDic = nil;
 
 + (NSDictionary *)getAllCommunicationType {
     return communication_type;
+}
+
++ (NSArray *)getAllBeautifulImageType {
+    return beautifulTypeArr;
 }
 
 + (NSString *)nameForUserType:(NSString *)type {
@@ -202,4 +219,3 @@ static NSDictionary *sectionStatusDic = nil;
 }
 
 @end
-

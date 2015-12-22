@@ -69,6 +69,10 @@
 		683FFB191C280681002A1AFE /* GetBeautifulImageHomepage.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB181C280681002A1AFE /* GetBeautifulImageHomepage.m */; };
 		683FFB1C1C280E9D002A1AFE /* FavoriteBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB1B1C280E9D002A1AFE /* FavoriteBeautifulImage.m */; };
 		683FFB1F1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB1E1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m */; };
+		683FFB211C290025002A1AFE /* DropdownMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB201C290025002A1AFE /* DropdownMenuView.xib */; };
+		683FFB241C29006C002A1AFE /* DropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB231C29006C002A1AFE /* DropdownMenuView.m */; };
+		683FFB291C2901F4002A1AFE /* DropdownMenuCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB271C2901F4002A1AFE /* DropdownMenuCollectionCell.m */; };
+		683FFB2A1C2901F4002A1AFE /* DropdownMenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB281C2901F4002A1AFE /* DropdownMenuCollectionCell.xib */; };
 		684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 684462981C0D68680098F3CB /* DeleteImageFromProcess.m */; };
 		684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */; };
 		684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */; };
@@ -433,6 +437,12 @@
 		683FFB1B1C280E9D002A1AFE /* FavoriteBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteBeautifulImage.m; sourceTree = "<group>"; };
 		683FFB1D1C280FD1002A1AFE /* UnfavoriteBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnfavoriteBeautifulImage.h; sourceTree = "<group>"; };
 		683FFB1E1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnfavoriteBeautifulImage.m; sourceTree = "<group>"; };
+		683FFB201C290025002A1AFE /* DropdownMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DropdownMenuView.xib; path = jianfanjia/Screen/PrettyPicture/DropdownMenuView.xib; sourceTree = SOURCE_ROOT; };
+		683FFB221C29006C002A1AFE /* DropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropdownMenuView.h; path = jianfanjia/Screen/PrettyPicture/DropdownMenuView.h; sourceTree = SOURCE_ROOT; };
+		683FFB231C29006C002A1AFE /* DropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropdownMenuView.m; path = jianfanjia/Screen/PrettyPicture/DropdownMenuView.m; sourceTree = SOURCE_ROOT; };
+		683FFB261C2901F4002A1AFE /* DropdownMenuCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenuCollectionCell.h; sourceTree = "<group>"; };
+		683FFB271C2901F4002A1AFE /* DropdownMenuCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenuCollectionCell.m; sourceTree = "<group>"; };
+		683FFB281C2901F4002A1AFE /* DropdownMenuCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownMenuCollectionCell.xib; sourceTree = "<group>"; };
 		684462971C0D68680098F3CB /* DeleteImageFromProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteImageFromProcess.h; sourceTree = "<group>"; };
 		684462981C0D68680098F3CB /* DeleteImageFromProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteImageFromProcess.m; sourceTree = "<group>"; };
 		684A36E11BFD733400F7388C /* DesignerDeclineHomeOwnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDeclineHomeOwnerCell.h; sourceTree = "<group>"; };
@@ -889,6 +899,7 @@
 			isa = PBXGroup;
 			children = (
 				683FFB111C27A4A2002A1AFE /* HomePage */,
+				683FFB251C290195002A1AFE /* DropdownMenu */,
 				680F49161C23E4270055C16C /* BeautifulImageViewController.h */,
 				680F49171C23E4270055C16C /* BeautifulImageViewController.m */,
 				680F491B1C23E5CD0055C16C /* BeautifulImageViewController.xib */,
@@ -978,6 +989,19 @@
 			);
 			name = HomePage;
 			path = CollectImage;
+			sourceTree = "<group>";
+		};
+		683FFB251C290195002A1AFE /* DropdownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				683FFB221C29006C002A1AFE /* DropdownMenuView.h */,
+				683FFB231C29006C002A1AFE /* DropdownMenuView.m */,
+				683FFB201C290025002A1AFE /* DropdownMenuView.xib */,
+				683FFB261C2901F4002A1AFE /* DropdownMenuCollectionCell.h */,
+				683FFB271C2901F4002A1AFE /* DropdownMenuCollectionCell.m */,
+				683FFB281C2901F4002A1AFE /* DropdownMenuCollectionCell.xib */,
+			);
+			path = DropdownMenu;
 			sourceTree = "<group>";
 		};
 		684A36E01BFD733400F7388C /* OrderedDesigner */ = {
@@ -1909,6 +1933,7 @@
 				6E44963C1BFC2DA900C90851 /* SettingViewController.xib in Resources */,
 				683A5D691C0EECD40071DF88 /* ItemExpandCheckCell.xib in Resources */,
 				684A37531BFD73DF00F7388C /* SelectDecorationTypeViewController.xib in Resources */,
+				683FFB2A1C2901F4002A1AFE /* DropdownMenuCollectionCell.xib in Resources */,
 				68343A171BF70719004F15C1 /* allprovince.js in Resources */,
 				6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */,
 				684A374B1BFD73DF00F7388C /* DecorationStyleCell.xib in Resources */,
@@ -1935,6 +1960,7 @@
 				684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */,
 				684A374F1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib in Resources */,
 				680F491C1C23E5CD0055C16C /* BeautifulImageViewController.xib in Resources */,
+				683FFB211C290025002A1AFE /* DropdownMenuView.xib in Resources */,
 				6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */,
 				684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */,
 				684A37511BFD73DF00F7388C /* SelectDecorationStyleViewController.xib in Resources */,
@@ -2030,6 +2056,7 @@
 				AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */,
 				6E44963B1BFC2DA900C90851 /* SettingViewController.m in Sources */,
 				680F490D1C2160990055C16C /* ItemsBackgroundView.m in Sources */,
+				683FFB241C29006C002A1AFE /* DropdownMenuView.m in Sources */,
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
 				684A374E1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m in Sources */,
 				6E07DAC61BD88DBE001461DD /* Process.m in Sources */,
@@ -2063,6 +2090,7 @@
 				6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */,
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
 				6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */,
+				683FFB291C2901F4002A1AFE /* DropdownMenuCollectionCell.m in Sources */,
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
 				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,

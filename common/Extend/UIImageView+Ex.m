@@ -26,6 +26,10 @@
 ////    [self sd_setImageWithURL:[self imageurl:imageid] placeholderImage:[UIImage imageNamed:@"image_place_holder"]];
 //}
 
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width completed:(SDWebImageCompletionBlock)completeBlock {
+    [self sd_setImageWithURL:[self imageurl:imageid withWidth:width] placeholderImage:[UIImage imageNamed:@"image_place_holder"] options:SDWebImageRetryFailed completed:completeBlock];
+}
+
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width {
     [self sd_setImageWithURL:[self imageurl:imageid withWidth:width] placeholderImage:[UIImage imageNamed:@"image_place_holder"] options:SDWebImageRetryFailed];
 }
