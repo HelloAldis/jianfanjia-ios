@@ -448,9 +448,9 @@
 		683FFB371C296288002A1AFE /* DropdownMenuCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenuCollectionCell.h; sourceTree = "<group>"; };
 		683FFB381C296288002A1AFE /* DropdownMenuCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenuCollectionCell.m; sourceTree = "<group>"; };
 		683FFB391C296288002A1AFE /* DropdownMenuCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownMenuCollectionCell.xib; sourceTree = "<group>"; };
-		683FFB3A1C296288002A1AFE /* DropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenuView.h; sourceTree = "<group>"; };
-		683FFB3B1C296288002A1AFE /* DropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenuView.m; sourceTree = "<group>"; };
-		683FFB3C1C296288002A1AFE /* DropdownMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownMenuView.xib; sourceTree = "<group>"; };
+		683FFB3A1C296288002A1AFE /* DropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropdownMenuView.h; path = jianfanjia/Screen/BeautifulImage/DropdownMenuView.h; sourceTree = SOURCE_ROOT; };
+		683FFB3B1C296288002A1AFE /* DropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropdownMenuView.m; path = jianfanjia/Screen/BeautifulImage/DropdownMenuView.m; sourceTree = SOURCE_ROOT; };
+		683FFB3C1C296288002A1AFE /* DropdownMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DropdownMenuView.xib; path = jianfanjia/Screen/BeautifulImage/DropdownMenuView.xib; sourceTree = SOURCE_ROOT; };
 		683FFB3E1C296288002A1AFE /* BeautifulImageHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImageHomePageViewController.h; sourceTree = "<group>"; };
 		683FFB3F1C296288002A1AFE /* BeautifulImageHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImageHomePageViewController.m; sourceTree = "<group>"; };
 		683FFB401C296288002A1AFE /* BeautifulImageHomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulImageHomePageViewController.xib; sourceTree = "<group>"; };
@@ -999,9 +999,6 @@
 				683FFB341C296288002A1AFE /* CollectionFallsFlowLayout.h */,
 				683FFB351C296288002A1AFE /* CollectionFallsFlowLayout.m */,
 				683FFB361C296288002A1AFE /* DropdownMenu */,
-				683FFB3A1C296288002A1AFE /* DropdownMenuView.h */,
-				683FFB3B1C296288002A1AFE /* DropdownMenuView.m */,
-				683FFB3C1C296288002A1AFE /* DropdownMenuView.xib */,
 				683FFB3D1C296288002A1AFE /* HomePage */,
 			);
 			path = BeautifulImage;
@@ -1010,6 +1007,9 @@
 		683FFB361C296288002A1AFE /* DropdownMenu */ = {
 			isa = PBXGroup;
 			children = (
+				683FFB3A1C296288002A1AFE /* DropdownMenuView.h */,
+				683FFB3B1C296288002A1AFE /* DropdownMenuView.m */,
+				683FFB3C1C296288002A1AFE /* DropdownMenuView.xib */,
 				683FFB371C296288002A1AFE /* DropdownMenuCollectionCell.h */,
 				683FFB381C296288002A1AFE /* DropdownMenuCollectionCell.m */,
 				683FFB391C296288002A1AFE /* DropdownMenuCollectionCell.xib */,
