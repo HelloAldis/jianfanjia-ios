@@ -43,7 +43,7 @@
 #import "UserGetInfo.h"
 #import "UpdateUserInfo.h"
 #import "SectionDone.h"
-#import "GetRescheduleNotification.h"A
+#import "GetRescheduleNotification.h"
 #import "Reschedule.h"
 #import "AgreeReschedule.h"
 #import "RejectReschedule.h"
