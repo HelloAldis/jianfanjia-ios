@@ -6,9 +6,9 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "PrettyPictureFallsLayout.h"
+#import "CollectionFallsFlowLayout.h"
 
-@interface PrettyPictureFallsLayout ()
+@interface CollectionFallsFlowLayout ()
 
 /// Array to store height for each column
 @property (nonatomic, strong) NSMutableArray *columnHeights;
@@ -19,14 +19,14 @@
 
 @end
 
-@implementation PrettyPictureFallsLayout
+@implementation CollectionFallsFlowLayout
 
 static const NSInteger COUNT_IN_ONE_ROW = 2;
 static const NSInteger CELL_SPACE = 10;
 static const NSInteger SECTION_EDGE = 10;
 
 /// How many items to be union into a single rectangle
-static NSInteger unionSize = 5;
+static NSInteger unionSize = 20;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
@@ -66,7 +66,7 @@ static NSInteger unionSize = 5;
         return;
     }
     
-    NSAssert([self.delegate conformsToProtocol:@protocol(PrettyPictureFallsLayoutProtocol)], @"UICollectionView's delegate should conform to PrettyPictureFallsLayoutProtocol protocol");
+    NSAssert([self.delegate conformsToProtocol:@protocol(CollectionFallsFlowLayoutProtocol)], @"UICollectionView's delegate should conform to PrettyPictureFallsLayoutProtocol protocol");
     
     NSInteger idx;
     for (idx = 0; idx < self.columnCount; idx++) {
@@ -82,18 +82,22 @@ static NSInteger unionSize = 5;
         CGFloat itemWidth = (self.collectionView.frame.size.width - self.insets.left - self.insets.right - (self.columnCount - 1) * self.columnSpace) / self.columnCount;
         itemWidth = floor(itemWidth);
         CGFloat height = [self.delegate fallFlowLayout:self heightForWidth:itemWidth atIndexPath:indexPath];
+        if (isnan(height)) {
+            height = itemWidth;
+        }
+        
         height = floor(height);
         CGFloat x = self.insets.left + (itemWidth + self.columnSpace) * shortestColIndex;
-        CGFloat y = [self.columnHeights[shortestColIndex] floatValue] + self.rowSpace;
-        
+        CGFloat y = [self.columnHeights[shortestColIndex] floatValue];
+
         // 创建属性
         UICollectionViewLayoutAttributes *attrs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
         attrs.frame = CGRectMake(x, y, itemWidth, height);
-        self.columnHeights[shortestColIndex] = @(y + height);
+        self.columnHeights[shortestColIndex] = @(CGRectGetMaxY(attrs.frame) + self.rowSpace);
         [self.allItemAttributes addObject:attrs];
     }
     
-    /// Build union rects
+    // Build union rects
     idx = 0;
     NSInteger itemCounts = [self.allItemAttributes count];
     while (idx < itemCounts) {
@@ -146,12 +150,6 @@ static NSInteger unionSize = 5;
 - (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
     CGRect oldBounds = self.collectionView.bounds;
     if (CGRectGetWidth(newBounds) != CGRectGetWidth(oldBounds)) {
-        if (kIsPad) {
-            unionSize = 20;
-        } else {
-            unionSize = 5;
-        }
-        
         return YES;
     }
     return NO;

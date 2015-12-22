@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@class PrettyPictureFallsLayout;
+@class CollectionFallsFlowLayout;
 
-@protocol PrettyPictureFallsLayoutProtocol <NSObject>
+@protocol CollectionFallsFlowLayoutProtocol <NSObject>
 
 @required
-- (CGFloat)fallFlowLayout:(PrettyPictureFallsLayout *)layout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath;
+- (CGFloat)fallFlowLayout:(CollectionFallsFlowLayout *)layout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath;
 
 @end
 
-@interface PrettyPictureFallsLayout : UICollectionViewLayout
+@interface CollectionFallsFlowLayout : UICollectionViewLayout
 
 /*cell的列间距*/
 @property (nonatomic,assign) CGFloat columnSpace;
@@ -28,6 +28,6 @@
 /*显示多少列*/
 @property (nonatomic,assign) NSInteger columnCount;
 
-@property (nonatomic, weak) id<PrettyPictureFallsLayoutProtocol> delegate;
+@property (nonatomic, weak) id<CollectionFallsFlowLayoutProtocol> delegate;
 
 @end

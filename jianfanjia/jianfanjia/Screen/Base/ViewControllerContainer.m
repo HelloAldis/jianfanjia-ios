@@ -35,7 +35,7 @@
 #import "DBYSViewController.h"
 #import "RequirementCreateViewController.h"
 #import "ImageDetailViewController.h"
-#import "PrettyPictureViewController.h"
+#import "BeautifulImageViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -89,8 +89,8 @@ static ViewControllerContainer *container;
     NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
     container.navTapHome.navigationBar.titleTextAttributes = dict;
     
-    PrettyPictureViewController *prettyPicture = [[PrettyPictureViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTapPrettyImg = [[UINavigationController alloc] initWithRootViewController:prettyPicture];
+    BeautifulImageViewController *beatifulImage = [[BeautifulImageViewController alloc] initWithNibName:nil bundle:nil];
+    container.navTapPrettyImg = [[UINavigationController alloc] initWithRootViewController:beatifulImage];
     container.navTapPrettyImg.hidesBottomBarWhenPushed = YES;
     container.navTapPrettyImg.navigationBar.titleTextAttributes = dict;
     

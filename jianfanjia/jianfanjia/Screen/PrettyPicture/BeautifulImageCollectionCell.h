@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PrettyImageCollectionCell : UICollectionViewCell
+@interface BeautifulImageCollectionCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 
 - (void)initWithImage:(NSString *)imageid width:(CGFloat)width;

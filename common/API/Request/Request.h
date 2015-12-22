@@ -43,7 +43,7 @@
 #import "UserGetInfo.h"
 #import "UpdateUserInfo.h"
 #import "SectionDone.h"
-#import "GetRescheduleNotification.h"
+#import "GetRescheduleNotification.h"A
 #import "Reschedule.h"
 #import "AgreeReschedule.h"
 #import "RejectReschedule.h"
@@ -53,6 +53,9 @@
 #import "ListFavoriateBeautifulImage.h"
 #import "DeleteFavoriateProduct.h"
 #import "AddFavoriateProduct.h"
-
+#import "SearchBeautifulImage.h"
+#import "GetBeautifulImageHomepage.h"
+#import "FavoriteBeautifulImage.h"
+#import "UnfavoriteBeautifulImage.h"
 
 #endif

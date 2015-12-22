@@ -225,7 +225,7 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"feedback" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
-+ (void)searchPrettyImage:(SearchPrettyImage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
++ (void)searchBeautifulImage:(SearchBeautifulImage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"search_beautiful_image" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
@@ -243,6 +243,17 @@ static AFHTTPRequestOperationManager *_manager;
 
 + (void)addFavoriateProduct:(AddFavoriateProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"" data:request.data handler:request success:success failure:failure networkError:error];
+}
+    + (void)getBeautifulImageHomepage:(GetBeautifulImageHomepage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"beautiful_image_homepage" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)favoriteBeautifulImage:(FavoriteBeautifulImage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"favorite/beautiful_image/add" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)unfavoriteBeautifulImage:(UnfavoriteBeautifulImage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"favorite/beautiful_image/delete" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
 @end
