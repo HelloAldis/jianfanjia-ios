@@ -147,6 +147,15 @@
 		68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */; };
 		68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E505641BF0BB0100B0B910 /* SelectCityViewController.m */; };
 		68E505671BF0BB0100B0B910 /* SelectCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */; };
+		6E06CC071C29235500A08D15 /* MyFavoriateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */; };
+		6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */; };
+		6E06CC0B1C29447E00A08D15 /* ListFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC0A1C29447E00A08D15 /* ListFavoriateProduct.m */; };
+		6E06CC0E1C29453000A08D15 /* ListFavoriateBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC0D1C29453000A08D15 /* ListFavoriateBeautifulImage.m */; };
+		6E06CC121C29466700A08D15 /* FavoriateProductCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC101C29466700A08D15 /* FavoriateProductCell.m */; };
+		6E06CC131C29466700A08D15 /* FavoriateProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E06CC111C29466700A08D15 /* FavoriateProductCell.xib */; };
+		6E06CC161C294AB600A08D15 /* FavoriateProductData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC151C294AB600A08D15 /* FavoriateProductData.m */; };
+		6E06CC191C294DBF00A08D15 /* DeleteFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC181C294DBF00A08D15 /* DeleteFavoriateProduct.m */; };
+		6E06CC1C1C294EE800A08D15 /* AddFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC1B1C294EE800A08D15 /* AddFavoriateProduct.m */; };
 		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; };
 		6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4A1BD88DBE001461DD /* BaseRequest.m */; };
 		6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4C1BD88DBE001461DD /* GetProcess.m */; };
@@ -552,6 +561,22 @@
 		68E505631BF0BB0100B0B910 /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
 		68E505641BF0BB0100B0B910 /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		68E505651BF0BB0100B0B910 /* SelectCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCityViewController.xib; sourceTree = "<group>"; };
+		6E06CC041C29235500A08D15 /* MyFavoriateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoriateViewController.h; sourceTree = "<group>"; };
+		6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoriateViewController.m; sourceTree = "<group>"; };
+		6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavoriateViewController.xib; sourceTree = "<group>"; };
+		6E06CC091C29447E00A08D15 /* ListFavoriateProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFavoriateProduct.h; sourceTree = "<group>"; };
+		6E06CC0A1C29447E00A08D15 /* ListFavoriateProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFavoriateProduct.m; sourceTree = "<group>"; };
+		6E06CC0C1C29453000A08D15 /* ListFavoriateBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFavoriateBeautifulImage.h; sourceTree = "<group>"; };
+		6E06CC0D1C29453000A08D15 /* ListFavoriateBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFavoriateBeautifulImage.m; sourceTree = "<group>"; };
+		6E06CC0F1C29466700A08D15 /* FavoriateProductCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriateProductCell.h; sourceTree = "<group>"; };
+		6E06CC101C29466700A08D15 /* FavoriateProductCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriateProductCell.m; sourceTree = "<group>"; };
+		6E06CC111C29466700A08D15 /* FavoriateProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriateProductCell.xib; sourceTree = "<group>"; };
+		6E06CC141C294AB600A08D15 /* FavoriateProductData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriateProductData.h; sourceTree = "<group>"; };
+		6E06CC151C294AB600A08D15 /* FavoriateProductData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriateProductData.m; sourceTree = "<group>"; };
+		6E06CC171C294DBF00A08D15 /* DeleteFavoriateProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteFavoriateProduct.h; sourceTree = "<group>"; };
+		6E06CC181C294DBF00A08D15 /* DeleteFavoriateProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteFavoriateProduct.m; sourceTree = "<group>"; };
+		6E06CC1A1C294EE800A08D15 /* AddFavoriateProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFavoriateProduct.h; sourceTree = "<group>"; };
+		6E06CC1B1C294EE800A08D15 /* AddFavoriateProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavoriateProduct.m; sourceTree = "<group>"; };
 		6E07DA461BD88DBE001461DD /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		6E07DA471BD88DBE001461DD /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		6E07DA491BD88DBE001461DD /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
@@ -1069,6 +1094,21 @@
 			path = SelectCity;
 			sourceTree = "<group>";
 		};
+		6E06CC031C29231A00A08D15 /* MyFavoriate */ = {
+			isa = PBXGroup;
+			children = (
+				6E06CC041C29235500A08D15 /* MyFavoriateViewController.h */,
+				6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */,
+				6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */,
+				6E06CC0F1C29466700A08D15 /* FavoriateProductCell.h */,
+				6E06CC101C29466700A08D15 /* FavoriateProductCell.m */,
+				6E06CC111C29466700A08D15 /* FavoriateProductCell.xib */,
+				6E06CC141C294AB600A08D15 /* FavoriateProductData.h */,
+				6E06CC151C294AB600A08D15 /* FavoriateProductData.m */,
+			);
+			path = MyFavoriate;
+			sourceTree = "<group>";
+		};
 		6E07DA441BD88DBE001461DD /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -1180,6 +1220,14 @@
 				6EBBA15A1C15866200057688 /* Feedback.m */,
 				680F49221C2408130055C16C /* SearchPrettyImage.h */,
 				680F49231C2408130055C16C /* SearchPrettyImage.m */,
+				6E06CC091C29447E00A08D15 /* ListFavoriateProduct.h */,
+				6E06CC0A1C29447E00A08D15 /* ListFavoriateProduct.m */,
+				6E06CC0C1C29453000A08D15 /* ListFavoriateBeautifulImage.h */,
+				6E06CC0D1C29453000A08D15 /* ListFavoriateBeautifulImage.m */,
+				6E06CC171C294DBF00A08D15 /* DeleteFavoriateProduct.h */,
+				6E06CC181C294DBF00A08D15 /* DeleteFavoriateProduct.m */,
+				6E06CC1A1C294EE800A08D15 /* AddFavoriateProduct.h */,
+				6E06CC1B1C294EE800A08D15 /* AddFavoriateProduct.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1492,6 +1540,7 @@
 		6E6D98B21BDF73D300D45F77 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				6E06CC031C29231A00A08D15 /* MyFavoriate */,
 				6EE1E4271C059CD700883184 /* FavoriteDesigner */,
 				6E4496471BFC82E800C90851 /* Info */,
 				6E4496371BFC2D8F00C90851 /* Setting */,
@@ -1833,6 +1882,7 @@
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
 				6E4496461BFC562900C90851 /* AboutViewController.xib in Resources */,
 				684A375B1BFD73DF00F7388C /* SelectWorkTypeViewController.xib in Resources */,
+				6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */,
 				683595A91C04565300AD58E7 /* AgreementViewController.xib in Resources */,
 				683A6B671C0F01190071DF88 /* PostponeNotificationCell.xib in Resources */,
 				6E78670D1BA920D900DE8B1B /* BannerCell.xib in Resources */,
@@ -1860,6 +1910,7 @@
 				6E6D98AB1BDF733F00D45F77 /* HomePageViewController.xib in Resources */,
 				6E6D98D01BE0C34000D45F77 /* HomePageRecDesignersCell.xib in Resources */,
 				6E4496671BFF0B6F00C90851 /* ImageEditorViewController.xib in Resources */,
+				6E06CC131C29466700A08D15 /* FavoriateProductCell.xib in Resources */,
 				684A37031BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.xib in Resources */,
 				6E6D98EC1BE345BC00D45F77 /* ProductInfoCell.xib in Resources */,
 				683799701C113E29001F24D6 /* DateAlertViewController.xib in Resources */,
@@ -1992,6 +2043,8 @@
 				6E44966A1BFF1AC700C90851 /* OverlayView.m in Sources */,
 				684A37481BFD73DF00F7388C /* OrderDesignerViewController.m in Sources */,
 				68342DF91BFC45EE0000EBBE /* RequirementBusiness.m in Sources */,
+				6E06CC121C29466700A08D15 /* FavoriateProductCell.m in Sources */,
+				6E06CC161C294AB600A08D15 /* FavoriateProductData.m in Sources */,
 				6E07DABC1BD88DBE001461DD /* NSString+Ex.m in Sources */,
 				AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */,
 				6E44963B1BFC2DA900C90851 /* SettingViewController.m in Sources */,
@@ -2032,6 +2085,7 @@
 				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,
 				683626991C059C72005F2C30 /* ItemExpandImageCell.m in Sources */,
+				6E06CC071C29235500A08D15 /* MyFavoriateViewController.m in Sources */,
 				6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */,
 				680F49191C23E4270055C16C /* PrettyPictureViewController.m in Sources */,
 				683A6B641C0F01190071DF88 /* PayNotificationCell.m in Sources */,
@@ -2058,6 +2112,7 @@
 				6E07DAB91BD88DBE001461DD /* NSManagedObject+Ex.m in Sources */,
 				685CD5E31C0310CA00EC1991 /* LeaveMessageViewController.m in Sources */,
 				6E4496211BF9B58800C90851 /* VerifyPhone.m in Sources */,
+				6E06CC1C1C294EE800A08D15 /* AddFavoriateProduct.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
 				684A37401BFD73DF00F7388C /* IntentDesignerCell.m in Sources */,
 				6E6D98AA1BDF733F00D45F77 /* HomePageViewController.m in Sources */,
@@ -2121,6 +2176,7 @@
 				685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */,
 				6EE1E4341C05A72400883184 /* FavoriteDesignerData.m in Sources */,
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
+				6E06CC0E1C29453000A08D15 /* ListFavoriateBeautifulImage.m in Sources */,
 				AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
@@ -2148,6 +2204,8 @@
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
 				685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */,
+				6E06CC191C294DBF00A08D15 /* DeleteFavoriateProduct.m in Sources */,
+				6E06CC0B1C29447E00A08D15 /* ListFavoriateProduct.m in Sources */,
 				6EE34D6C1C0ED49E00C6957E /* CoreDataManager.m in Sources */,
 				6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */,
 				AB4CAF8B1C0F35E8003680BA /* GetRescheduleNotification.m in Sources */,

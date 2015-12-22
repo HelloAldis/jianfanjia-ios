@@ -229,6 +229,22 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"search_beautiful_image" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)listFavoriateProduct:(ListFavoriateProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"favorite/product/list" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)listFavoriateBeautifulImage:(ListFavoriateBeautifulImage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"favorite/beautiful_image/list" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)deleteFavoriateProduct:(DeleteFavoriateProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"favorite/product/delete" data:request.data handler:request success:success failure:failure networkError:success];
+}
+
++ (void)addFavoriateProduct:(AddFavoriateProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 
