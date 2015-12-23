@@ -37,7 +37,7 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
         _columnCount = 3;
         _columnSpace = 3;
         _rowSpace = 3;
-        _insets = UIEdgeInsetsMake(0, 0, 0, 0);
+        _insets = UIEdgeInsetsMake(0, 0, 10, 0);
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapParentView:)];
         [self addGestureRecognizer:tapGesture];
@@ -68,6 +68,12 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
     self.heightConstraint.constant = self.rowSpace * (rowCount - 1) + height * rowCount + self.insets.top + self.insets.bottom;
     [self.collectionView reloadData];
     [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:[self.datasoure indexOfObject:self.defaultValue] inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+}
+
+- (void)layoutSubviews {
+//    if (CGRectGetHeight(self.frame) == 0) {
+//        self.heightConstraint.constant = 0;
+//    }
 }
 
 #pragma mark - collection delegate

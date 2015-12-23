@@ -80,6 +80,7 @@ static NSString *UnlimitedValue = @"不限";
 }
 
 - (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.preY = 0;
     self.isTabbarhide = NO;
     self.dataManager = [[BeautifulImageDataManager alloc] init];
@@ -236,7 +237,8 @@ static NSString *UnlimitedValue = @"不限";
         //dismiss
         if (self.isShowDropdown) {
             [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
-                self.dropdownMenu.frame = CGRectMake(0, -CGRectGetHeight(self.dropdownMenu.collectionView.frame), CGRectGetWidth(self.view.frame), 0);
+                self.dropdownMenu.frame = CGRectMake(0, -CGRectGetMaxY(self.dropdownMenu.collectionView.frame), CGRectGetWidth(self.view.frame), 0);
+                [self.view layoutIfNeeded];
             } completion:^(BOOL finished) {
                 if (finished) {
                     self.isShowDropdown = NO;
@@ -260,7 +262,8 @@ static NSString *UnlimitedValue = @"不限";
     
     if (!self.isShowDropdown) {
         [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
-            self.dropdownMenu.frame = CGRectMake(0, CGRectGetMinY(self.imgCollection.frame), CGRectGetWidth(self.view.frame), CGRectGetHeight(self.imgCollection.frame));
+            self.dropdownMenu.frame = CGRectMake(0, CGRectGetMaxY(self.headerView.frame), CGRectGetWidth(self.view.frame), CGRectGetHeight(self.imgCollection.frame));
+            [self.view layoutIfNeeded];
         } completion:^(BOOL finished) {
             if (finished) {
                 self.isShowDropdown = YES;
