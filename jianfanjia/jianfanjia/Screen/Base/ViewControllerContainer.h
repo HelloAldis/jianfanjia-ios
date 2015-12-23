@@ -18,6 +18,9 @@
 + (void)showVerifyPhone:(BOOL)isResetPass;
 + (void)showSignupSuccess;
 + (void)showResetPass;
++ (void)showCollectDecPhase;
++ (void)showCollectDecStyle;
++ (void)showCollectFamilyInfo;
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
 + (void)showProduct:(NSString *)productid;

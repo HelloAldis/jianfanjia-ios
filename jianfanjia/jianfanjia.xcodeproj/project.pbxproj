@@ -74,6 +74,12 @@
 		683FFB4A1C296288002A1AFE /* DropdownMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB3C1C296288002A1AFE /* DropdownMenuView.xib */; };
 		683FFB4B1C296288002A1AFE /* BeautifulImageHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB3F1C296288002A1AFE /* BeautifulImageHomePageViewController.m */; };
 		683FFB4C1C296288002A1AFE /* BeautifulImageHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB401C296288002A1AFE /* BeautifulImageHomePageViewController.xib */; };
+		683FFB591C2A4135002A1AFE /* CollectDecPhaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB571C2A4135002A1AFE /* CollectDecPhaseViewController.m */; };
+		683FFB5A1C2A4135002A1AFE /* CollectDecPhaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB581C2A4135002A1AFE /* CollectDecPhaseViewController.xib */; };
+		683FFB5E1C2A4144002A1AFE /* CollectDecStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB5C1C2A4144002A1AFE /* CollectDecStyleViewController.m */; };
+		683FFB5F1C2A4144002A1AFE /* CollectDecStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB5D1C2A4144002A1AFE /* CollectDecStyleViewController.xib */; };
+		683FFB681C2A8FBD002A1AFE /* CollectFamilyInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB661C2A8FBD002A1AFE /* CollectFamilyInfoViewController.m */; };
+		683FFB691C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB671C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib */; };
 		684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 684462981C0D68680098F3CB /* DeleteImageFromProcess.m */; };
 		684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36E21BFD733400F7388C /* DesignerDeclineHomeOwnerCell.m */; };
 		684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36E31BFD733400F7388C /* DesignerDeclineHomeOwnerCell.xib */; };
@@ -454,6 +460,15 @@
 		683FFB3E1C296288002A1AFE /* BeautifulImageHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImageHomePageViewController.h; sourceTree = "<group>"; };
 		683FFB3F1C296288002A1AFE /* BeautifulImageHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImageHomePageViewController.m; sourceTree = "<group>"; };
 		683FFB401C296288002A1AFE /* BeautifulImageHomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulImageHomePageViewController.xib; sourceTree = "<group>"; };
+		683FFB561C2A4135002A1AFE /* CollectDecPhaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectDecPhaseViewController.h; sourceTree = "<group>"; };
+		683FFB571C2A4135002A1AFE /* CollectDecPhaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectDecPhaseViewController.m; sourceTree = "<group>"; };
+		683FFB581C2A4135002A1AFE /* CollectDecPhaseViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectDecPhaseViewController.xib; sourceTree = "<group>"; };
+		683FFB5B1C2A4144002A1AFE /* CollectDecStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectDecStyleViewController.h; sourceTree = "<group>"; };
+		683FFB5C1C2A4144002A1AFE /* CollectDecStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectDecStyleViewController.m; sourceTree = "<group>"; };
+		683FFB5D1C2A4144002A1AFE /* CollectDecStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectDecStyleViewController.xib; sourceTree = "<group>"; };
+		683FFB651C2A8FBD002A1AFE /* CollectFamilyInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectFamilyInfoViewController.h; sourceTree = "<group>"; };
+		683FFB661C2A8FBD002A1AFE /* CollectFamilyInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectFamilyInfoViewController.m; sourceTree = "<group>"; };
+		683FFB671C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectFamilyInfoViewController.xib; sourceTree = "<group>"; };
 		684462971C0D68680098F3CB /* DeleteImageFromProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteImageFromProcess.h; sourceTree = "<group>"; };
 		684462981C0D68680098F3CB /* DeleteImageFromProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteImageFromProcess.m; sourceTree = "<group>"; };
 		684A36E11BFD733400F7388C /* DesignerDeclineHomeOwnerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDeclineHomeOwnerCell.h; sourceTree = "<group>"; };
@@ -1027,6 +1042,22 @@
 			path = HomePage;
 			sourceTree = "<group>";
 		};
+		683FFB4D1C2A408A002A1AFE /* CollectRequirement */ = {
+			isa = PBXGroup;
+			children = (
+				683FFB561C2A4135002A1AFE /* CollectDecPhaseViewController.h */,
+				683FFB571C2A4135002A1AFE /* CollectDecPhaseViewController.m */,
+				683FFB581C2A4135002A1AFE /* CollectDecPhaseViewController.xib */,
+				683FFB5B1C2A4144002A1AFE /* CollectDecStyleViewController.h */,
+				683FFB5C1C2A4144002A1AFE /* CollectDecStyleViewController.m */,
+				683FFB5D1C2A4144002A1AFE /* CollectDecStyleViewController.xib */,
+				683FFB651C2A8FBD002A1AFE /* CollectFamilyInfoViewController.h */,
+				683FFB661C2A8FBD002A1AFE /* CollectFamilyInfoViewController.m */,
+				683FFB671C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib */,
+			);
+			path = CollectRequirement;
+			sourceTree = "<group>";
+		};
 		684A36E01BFD733400F7388C /* OrderedDesigner */ = {
 			isa = PBXGroup;
 			children = (
@@ -1576,6 +1607,7 @@
 		6E6D98AC1BDF735C00D45F77 /* RequirementList */ = {
 			isa = PBXGroup;
 			children = (
+				683FFB4D1C2A408A002A1AFE /* CollectRequirement */,
 				683669001BFF0AF4006A5053 /* PlanList */,
 				684A37141BFD73DE00F7388C /* OrderDesigner */,
 				684A37241BFD73DF00F7388C /* RequirementCreate */,
@@ -1936,8 +1968,10 @@
 				6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */,
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
 				6E4496461BFC562900C90851 /* AboutViewController.xib in Resources */,
+				683FFB5F1C2A4144002A1AFE /* CollectDecStyleViewController.xib in Resources */,
 				684A375B1BFD73DF00F7388C /* SelectWorkTypeViewController.xib in Resources */,
 				6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */,
+				683FFB5A1C2A4135002A1AFE /* CollectDecPhaseViewController.xib in Resources */,
 				683595A91C04565300AD58E7 /* AgreementViewController.xib in Resources */,
 				683A6B671C0F01190071DF88 /* PostponeNotificationCell.xib in Resources */,
 				6E78670D1BA920D900DE8B1B /* BannerCell.xib in Resources */,
@@ -2001,6 +2035,7 @@
 				683FFB4A1C296288002A1AFE /* DropdownMenuView.xib in Resources */,
 				685CD5CD1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
+				683FFB691C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib in Resources */,
 				680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */,
 				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
@@ -2092,6 +2127,7 @@
 				683840071C157E21004F456E /* UpdateOneLineTextViewController.m in Sources */,
 				684A374C1BFD73DF00F7388C /* RequirementCreateViewController.m in Sources */,
 				683840031C157216004F456E /* UpdateUserInfo.m in Sources */,
+				683FFB591C2A4135002A1AFE /* CollectDecPhaseViewController.m in Sources */,
 				6E07DACA1BD88DBE001461DD /* BaseDynamicObject.m in Sources */,
 				6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */,
 				684A374A1BFD73DF00F7388C /* DecorationStyleCell.m in Sources */,
@@ -2162,6 +2198,7 @@
 				684A37581BFD73DF00F7388C /* SelectSexTypeViewController.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
 				6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */,
+				683FFB5E1C2A4144002A1AFE /* CollectDecStyleViewController.m in Sources */,
 				6E07DAC11BD88DBE001461DD /* GVUserDefaults+Manager.m in Sources */,
 				684A37081BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.m in Sources */,
 				6E07DABA1BD88DBE001461DD /* NSManagedObjectContext+Ex.m in Sources */,
@@ -2245,6 +2282,7 @@
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
 				680F492A1C240F910055C16C /* LeafImage.m in Sources */,
+				683FFB681C2A8FBD002A1AFE /* CollectFamilyInfoViewController.m in Sources */,
 				685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */,
 				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
 				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */,

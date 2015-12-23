@@ -36,6 +36,9 @@
 #import "RequirementCreateViewController.h"
 #import "ImageDetailViewController.h"
 #import "BeautifulImageViewController.h"
+#import "CollectDecPhaseViewController.h"
+#import "CollectDecStyleViewController.h"
+#import "CollectFamilyInfoViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -74,7 +77,10 @@ static ViewControllerContainer *container;
         container.window.rootViewController = pages;
     } else if ([GVUserDefaults standardUserDefaults].isLogin) {
         //显示首页
-        [self showTab];
+//        [self showTab];
+
+        CollectDecPhaseViewController *v = [[CollectDecPhaseViewController alloc] init];
+        container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:v];
     } else {
         //显示登录
         [self showLogin];
@@ -134,6 +140,24 @@ static ViewControllerContainer *container;
 
 + (void)showResetPass {
     ResetPassViewController *v = [[ResetPassViewController alloc] init];
+    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+    [nav pushViewController:v animated:YES];
+}
+
++ (void)showCollectDecPhase {
+    CollectDecPhaseViewController *v = [[CollectDecPhaseViewController alloc] init];
+    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+    [nav pushViewController:v animated:YES];
+}
+
++ (void)showCollectDecStyle {
+    CollectDecStyleViewController *v = [[CollectDecStyleViewController alloc] init];
+    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+    [nav pushViewController:v animated:YES];
+}
+
++ (void)showCollectFamilyInfo {
+    CollectFamilyInfoViewController *v = [[CollectFamilyInfoViewController alloc] init];
     UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
     [nav pushViewController:v animated:YES];
 }

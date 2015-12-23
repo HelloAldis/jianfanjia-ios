@@ -29,6 +29,10 @@
 //For uplpad image
 @property (nonatomic, strong) NSString *lastUploadImageid;
 
+//For collect requirement
+@property (nonatomic, strong) NSString *collectedDecPhase;
+@property (nonatomic, strong) NSArray *collectedDecStyle;
+@property (nonatomic, strong) NSString *collectedFamilyInfo;
 
 kSynthesizeSingletonForHeader(DataManager)
 

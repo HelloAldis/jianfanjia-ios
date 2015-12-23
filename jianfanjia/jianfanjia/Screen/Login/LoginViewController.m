@@ -277,7 +277,8 @@
     
     [HUDUtil showWait];
     [API userLogin:login success:^{
-        [ViewControllerContainer showTab];
+        [ViewControllerContainer showCollectDecPhase];
+//        [ViewControllerContainer showTab];
     } failure:^{
 
     } networkError:^{
