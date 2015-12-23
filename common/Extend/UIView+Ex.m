@@ -39,6 +39,20 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
 
 #pragma mark - tap animation
 
++ (void)playBounceAnimationFor:(UIView *)view completion:(void(^)(void))completion {
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:completion];
+    
+    CAKeyframeAnimation *bounceAnimation = [[CAKeyframeAnimation alloc] init];
+    bounceAnimation.keyPath = @"transform.scale";
+    bounceAnimation.values = @[@1.0 ,@1.4, @0.9, @1.15, @0.95, @1.02, @1.0];
+    bounceAnimation.duration = 0.5;
+    bounceAnimation.calculationMode = kCAAnimationCubic;
+    [view.layer addAnimation:bounceAnimation forKey:@"BounceAnimation"];
+    
+    [CATransaction commit];
+}
+
 - (void)addTapBounceAnimation:(TapBlock)tapBlock {
     self.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playBounceAnimation)];
@@ -47,12 +61,7 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
 }
 
 - (void)playBounceAnimation {
-    CAKeyframeAnimation *bounceAnimation = [[CAKeyframeAnimation alloc] init];
-    bounceAnimation.keyPath = @"transform.scale";
-    bounceAnimation.values = @[@1.0 ,@1.4, @0.9, @1.15, @0.95, @1.02, @1.0];
-    bounceAnimation.duration = 0.5;
-    bounceAnimation.calculationMode = kCAAnimationCubic;
-    [self.layer addAnimation:bounceAnimation forKey:@"BounceAnimation"];
+    [UIView playBounceAnimationFor:self completion:nil];
     
     if (self.tapBlock) {
         self.tapBlock();

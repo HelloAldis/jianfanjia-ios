@@ -77,10 +77,7 @@ static ViewControllerContainer *container;
         container.window.rootViewController = pages;
     } else if ([GVUserDefaults standardUserDefaults].isLogin) {
         //显示首页
-//        [self showTab];
-
-        CollectDecPhaseViewController *v = [[CollectDecPhaseViewController alloc] init];
-        container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:v];
+        [self showTab];
     } else {
         //显示登录
         [self showLogin];

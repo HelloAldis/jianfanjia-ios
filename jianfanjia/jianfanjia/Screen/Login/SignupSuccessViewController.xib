@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="btnAddRequirement" destination="22H-Of-bMg" id="ugI-sz-WXJ"/>
                 <outlet property="btnBala" destination="Wht-ks-fLf" id="Iwa-YW-Qet"/>
+                <outlet property="lblDetailMessage" destination="OAN-fv-qzd" id="f3Y-1c-6SX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,12 +18,12 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="signup_success" translatesAutoresizingMaskIntoConstraints="NO" id="chj-zS-gWg">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signup_success" translatesAutoresizingMaskIntoConstraints="NO" id="chj-zS-gWg">
                     <rect key="frame" x="267" y="100" width="66" height="66"/>
                     <animations/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22H-Of-bMg">
-                    <rect key="frame" x="60" y="258" width="480" height="48"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22H-Of-bMg">
+                    <rect key="frame" x="60" y="290" width="480" height="48"/>
                     <animations/>
                     <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -30,7 +31,7 @@
                             <variation key="widthClass=compact" constant="40"/>
                         </constraint>
                     </constraints>
-                    <state key="normal" title="发布需求">
+                    <state key="normal" title="免费获取三套方案">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -38,7 +39,7 @@
                         <action selector="onClickRequirement:" destination="-1" eventType="touchUpInside" id="Unb-Wg-Agq"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="注册成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAg-Qs-5ku">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注册成功" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAg-Qs-5ku">
                     <rect key="frame" x="188" y="186" width="224" height="21"/>
                     <animations/>
                     <constraints>
@@ -49,7 +50,7 @@
                     <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="欢迎使用简繁家" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBY-0L-TCG">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎使用简繁家" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBY-0L-TCG">
                     <rect key="frame" x="188" y="217" width="224" height="21"/>
                     <animations/>
                     <constraints>
@@ -60,8 +61,8 @@
                     <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wht-ks-fLf">
-                    <rect key="frame" x="60" y="316" width="480" height="48"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wht-ks-fLf">
+                    <rect key="frame" x="60" y="348" width="480" height="48"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="dBK-za-i0l">
@@ -76,6 +77,13 @@
                         <action selector="onClickBala:" destination="-1" eventType="touchUpInside" id="VAE-bA-mqq"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可以前往免费获取三套方案我们将为您匹配最合适您的设计师" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAN-fv-qzd">
+                    <rect key="frame" x="80" y="258" width="440" height="17"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -86,13 +94,25 @@
                 <constraint firstItem="DAg-Qs-5ku" firstAttribute="top" secondItem="chj-zS-gWg" secondAttribute="bottom" constant="20" id="I6Z-Vx-ZZd"/>
                 <constraint firstItem="chj-zS-gWg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="Kg1-zo-tuT"/>
                 <constraint firstItem="DAg-Qs-5ku" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="NpZ-ix-YAq"/>
+                <constraint firstItem="OAN-fv-qzd" firstAttribute="leading" secondItem="22H-Of-bMg" secondAttribute="leading" constant="20" id="QJb-Vb-HqJ"/>
                 <constraint firstItem="Wht-ks-fLf" firstAttribute="top" secondItem="22H-Of-bMg" secondAttribute="bottom" constant="10" id="S6T-1r-GGc"/>
+                <constraint firstItem="KBY-0L-TCG" firstAttribute="top" secondItem="OAN-fv-qzd" secondAttribute="bottom" constant="-10" id="S6Y-uF-jvl"/>
                 <constraint firstItem="Wht-ks-fLf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="b7O-J3-L2S"/>
+                <constraint firstItem="OAN-fv-qzd" firstAttribute="trailing" secondItem="22H-Of-bMg" secondAttribute="trailing" constant="-20" id="dUz-lm-nJv"/>
                 <constraint firstItem="Wht-ks-fLf" firstAttribute="width" secondItem="22H-Of-bMg" secondAttribute="width" id="eEr-Qg-I6t"/>
                 <constraint firstItem="22H-Of-bMg" firstAttribute="top" secondItem="KBY-0L-TCG" secondAttribute="bottom" constant="20" id="hSo-RX-0er"/>
+                <constraint firstItem="22H-Of-bMg" firstAttribute="top" secondItem="OAN-fv-qzd" secondAttribute="bottom" constant="15" id="ioS-YR-vCd"/>
+                <constraint firstItem="OAN-fv-qzd" firstAttribute="top" secondItem="KBY-0L-TCG" secondAttribute="bottom" constant="20" id="r0e-YN-F2Z"/>
                 <constraint firstItem="22H-Of-bMg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="xyH-lL-cb7"/>
+                <constraint firstItem="OAN-fv-qzd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="yIx-8H-gR4"/>
                 <constraint firstItem="KBY-0L-TCG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zJd-s0-gHR"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="S6Y-uF-jvl"/>
+                    <exclude reference="hSo-RX-0er"/>
+                </mask>
+            </variation>
         </view>
     </objects>
     <resources>

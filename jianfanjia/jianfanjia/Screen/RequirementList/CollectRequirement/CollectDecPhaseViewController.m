@@ -42,7 +42,9 @@
 #pragma mark - user action
 - (void)onClickButton:(UIButton *)button {
     [DataManager shared].collectedDecPhase = button.titleLabel.text;
-    [ViewControllerContainer showCollectDecStyle];
+    [UIView playBounceAnimationFor:button completion:^{
+        [ViewControllerContainer showCollectDecStyle];
+    }];
 }
 
 @end

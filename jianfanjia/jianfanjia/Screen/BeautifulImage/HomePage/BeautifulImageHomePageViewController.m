@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewBottomToSuper;
 
 @property (nonatomic, strong) UIBarButtonItem *favoriteButton;
+@property (nonatomic, strong) UIBarButtonItem *shareButton;
 @property (nonatomic, strong) NSMutableArray *imageViewArray;
 @property (nonatomic, strong) NSMutableArray *imageViewStatus;
 @property (nonatomic, assign) NSInteger imgCount;
@@ -43,7 +44,8 @@
     [super viewDidLoad];
     
     [self initNav];
-    [self initUI];
+    [self initDefaultUI];
+    [self getHomepage:self.beautifulImage._id];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -58,12 +60,7 @@
 - (void)initNav {
     [self initLeftBackInNav];
     self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"white_back"];
-    
-    self.favoriteButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:[self.beautifulImage.is_my_favorite boolValue]? @"collected" : @"collect"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickFavoriteButton)];
-    UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShareButton)];
-    
-    self.navigationItem.rightBarButtonItems = @[shareButton, self.favoriteButton];
-    
+
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes = dict;
@@ -72,7 +69,22 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
+- (void)initRightNaviBarItems {
+    self.favoriteButton = [[UIBarButtonItem alloc] initWithImage:[self.beautifulImage.is_my_favorite boolValue] ? [UIImage imageNamed:@"collected"] : [UIImage imageNamed:@"collect"]style:UIBarButtonItemStylePlain target:self action:@selector(onClickFavoriteButton)];
+    self.shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShareButton)];
+    
+    self.navigationItem.rightBarButtonItems = @[self.shareButton, self.favoriteButton];
+}
+
+- (void)initDefaultUI {
+    self.imgDescription.text = nil;
+    self.imgTag.text = nil;
+    self.btnDownload.hidden = YES;
+}
+
 - (void)initUI {
+    [self initRightNaviBarItems];
+    
     self.imgCount = self.beautifulImage.images.count;
     self.imageViewStatus = [NSMutableArray arrayWithCapacity:self.imgCount];
     self.imageViewArray = [NSMutableArray arrayWithCapacity:self.imgCount];
@@ -98,6 +110,9 @@
         [w1 setImageWithId:leafImage.imageid withWidth:kScreenWidth completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             @strongify(self);
             if (error == nil) {
+                if (self.index == i) {
+                    self.btnDownload.hidden = NO;
+                }
                 self.imageViewStatus[i] = @1;
             }
         }];
@@ -130,6 +145,13 @@
     if (scrollView == self.scrollView) {
         self.index = self.scrollView.contentOffset.x/kScreenWidth;
         self.title = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
+        
+        NSNumber *status = self.imageViewStatus[self.index];
+        if ([status boolValue]) {
+            self.btnDownload.hidden = NO;
+        } else {
+            self.btnDownload.hidden = YES;
+        }
     }
 }
 
@@ -175,13 +197,8 @@
 }
 
 - (void)onClickDownloadButton {
-    NSNumber *status = self.imageViewStatus[self.index];
-    if ([status boolValue]) {
-        UIImageView *imgView = self.imageViewArray[self.index];
-        UIImageWriteToSavedPhotosAlbum(imgView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-    } else {
-        [HUDUtil showErrText:@"美图正在准备中，请耐心等待"];
-    }
+    UIImageView *imgView = self.imageViewArray[self.index];
+    UIImageWriteToSavedPhotosAlbum(imgView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
@@ -211,6 +228,25 @@
     } else {
         [subscrollView setZoomScale:2.0 animated:YES];
     }
+}
+
+#pragma mark - api request 
+- (void)getHomepage:(NSString *)beautifulId {
+    [HUDUtil showWait];
+    GetBeautifulImageHomepage *request = [[GetBeautifulImageHomepage alloc] init];
+    request._id = beautifulId;
+    
+    @weakify(self);
+    [API getBeautifulImageHomepage:request success:^{
+        @strongify(self);
+        self.beautifulImage = [[BeautifulImage alloc] initWith:[DataManager shared].data];;
+        [self initUI];
+        [HUDUtil hideWait];
+    } failure:^{
+        [HUDUtil hideWait];
+    } networkError:^{
+        [HUDUtil hideWait];
+    }];
 }
 
 @end

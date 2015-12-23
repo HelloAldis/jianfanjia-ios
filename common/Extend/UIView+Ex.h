@@ -17,6 +17,6 @@ typedef void(^TapBlock)(void);
 - (void)setBorder:(CGFloat)width andColor:(CGColorRef)color;
 - (UIView *)getFirstResponder;
 - (void)addTapBounceAnimation:(TapBlock)tapBlock;
-
++ (void)playBounceAnimationFor:(UIView *)view completion:(void(^)(void))completion;
 
 @end

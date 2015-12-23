@@ -28,7 +28,7 @@
                         <outlet property="delegate" destination="-1" id="Gqh-gB-mbl"/>
                     </connections>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8H-PR-avr">
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8H-PR-avr">
                     <rect key="frame" x="379" y="701" width="25" height="25"/>
                     <animations/>
                     <state key="normal" image="download"/>

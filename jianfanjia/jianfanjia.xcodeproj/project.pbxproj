@@ -1006,14 +1006,14 @@
 		683FFB2B1C296288002A1AFE /* BeautifulImage */ = {
 			isa = PBXGroup;
 			children = (
+				683FFB311C296288002A1AFE /* BeautifulImageViewController.h */,
+				683FFB321C296288002A1AFE /* BeautifulImageViewController.m */,
+				683FFB331C296288002A1AFE /* BeautifulImageViewController.xib */,
 				683FFB2C1C296288002A1AFE /* BeautifulImageCollectionCell.h */,
 				683FFB2D1C296288002A1AFE /* BeautifulImageCollectionCell.m */,
 				683FFB2E1C296288002A1AFE /* BeautifulImageCollectionCell.xib */,
 				683FFB2F1C296288002A1AFE /* BeautifulImageDataManager.h */,
 				683FFB301C296288002A1AFE /* BeautifulImageDataManager.m */,
-				683FFB311C296288002A1AFE /* BeautifulImageViewController.h */,
-				683FFB321C296288002A1AFE /* BeautifulImageViewController.m */,
-				683FFB331C296288002A1AFE /* BeautifulImageViewController.xib */,
 				683FFB341C296288002A1AFE /* CollectionFallsFlowLayout.h */,
 				683FFB351C296288002A1AFE /* CollectionFallsFlowLayout.m */,
 				683FFB361C296288002A1AFE /* DropdownMenu */,

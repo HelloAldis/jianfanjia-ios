@@ -85,7 +85,6 @@ static NSString *UnlimitedValue = @"不限";
     self.isTabbarhide = NO;
     self.dataManager = [[BeautifulImageDataManager alloc] init];
     [self.imgCollection registerNib:[UINib nibWithNibName:BeautifulImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:BeautifulImageCollectionCellIdentifier];
-    [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
     self.imgCollectionLayout.delegate = self;
     
     @weakify(self);
@@ -165,6 +164,12 @@ static NSString *UnlimitedValue = @"不限";
     return cell;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    BeautifulImage *beauitifulImage = self.dataManager.beautifulImages[indexPath.row];
+    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithBeautifulImage:beauitifulImage index:0];
+    [self.navigationController pushViewController:controller animated:YES];
+}
+
 - (CGFloat)fallFlowLayout:(CollectionFallsFlowLayout *)layout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath {
     BeautifulImage *beauitifulImage = self.dataManager.beautifulImages[indexPath.row];
     LeafImage *leafImage = [beauitifulImage leafImageAtIndex:0];
@@ -173,19 +178,6 @@ static NSString *UnlimitedValue = @"不限";
     CGFloat cellHeight = width / widthHeightFactor;
     
     return cellHeight;
-}
-
-#pragma mark - gesture
-- (void)handleTapImageGesture:(UITapGestureRecognizer *)gesture {
-    CGPoint point = [gesture locationInView:self.imgCollection];
-    NSIndexPath *indexPath = [self.imgCollection indexPathForItemAtPoint:point];
-    
-    if (!indexPath) {
-        return;
-    }
-    
-    BeautifulImage *beauitifulImage = self.dataManager.beautifulImages[indexPath.row];
-    [self getPrettyPictureHomepage:beauitifulImage._id index:0];
 }
 
 #pragma mark - user action
@@ -296,7 +288,7 @@ static NSString *UnlimitedValue = @"不限";
     SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
     request.query = [self getQueryDic];
     request.from = @0;
-    request.limit = @10;
+    request.limit = @20;
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.header endRefreshing];
@@ -317,7 +309,7 @@ static NSString *UnlimitedValue = @"不限";
     SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
     request.query = [self getQueryDic];
     request.from = @(self.dataManager.beautifulImages.count);
-    request.limit = @10;
+    request.limit = @20;
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.footer endRefreshing];
@@ -353,32 +345,13 @@ static NSString *UnlimitedValue = @"不限";
         [dic setObject:self.curBeautifulImageTypeSpace forKey:@"section"];
     }
     if (![self.curBeautifulImageTypeHouse isEqualToString:UnlimitedValue]) {
-        [dic setObject:self.curBeautifulImageTypeHouse forKey:@"section"];
+        [dic setObject:self.curBeautifulImageTypeHouse forKey:@"house_type"];
     }
     if (![self.curBeautifulImageTypeStyle isEqualToString:UnlimitedValue]) {
-        [dic setObject:self.curBeautifulImageTypeStyle forKey:@"section"];
+        [dic setObject:self.curBeautifulImageTypeStyle forKey:@"dec_style"];
     }
     
     return dic;
-}
-
-- (void)getPrettyPictureHomepage:(NSString *)beautifulId index:(NSInteger)index {
-    [HUDUtil showWait];
-    GetBeautifulImageHomepage *request = [[GetBeautifulImageHomepage alloc] init];
-    request._id = beautifulId;
-    
-    @weakify(self);
-    [API getBeautifulImageHomepage:request success:^{
-        @strongify(self);
-        BeautifulImage *beauitifulImage = [[BeautifulImage alloc] initWith:[DataManager shared].data];
-        BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithBeautifulImage:beauitifulImage index:index];
-        [self.navigationController pushViewController:controller animated:YES];
-        [HUDUtil hideWait];
-    } failure:^{
-        [HUDUtil hideWait];
-    } networkError:^{
-        [HUDUtil hideWait];
-    }];
 }
 
 @end
