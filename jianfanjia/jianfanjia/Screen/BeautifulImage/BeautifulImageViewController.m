@@ -26,6 +26,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
 static NSString *UnlimitedValue = @"不限";
 
 @interface BeautifulImageViewController ()
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UICollectionView *imgCollection;
 @property (weak, nonatomic) IBOutlet CollectionFallsFlowLayout *imgCollectionLayout;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnChooseTypes;
@@ -226,7 +227,7 @@ static NSString *UnlimitedValue = @"不限";
     
     if (!self.dropdownMenu) {
         self.dropdownMenu = [[DropdownMenuView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 0)];
-        [self.view insertSubview:self.dropdownMenu belowSubview:button];
+        [self.view insertSubview:self.dropdownMenu belowSubview:self.headerView];
     }
     
     @weakify(self);
