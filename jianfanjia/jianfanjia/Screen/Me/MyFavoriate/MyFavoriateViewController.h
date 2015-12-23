@@ -8,6 +8,9 @@
 
 #import "BaseViewController.h"
 
-@interface MyFavoriateViewController : BaseViewController
+typedef void(^DeleteFavoriateProductBlock)(NSIndexPath *indexPath);
+typedef void(^DeleteFavoriateBeautifulImageBlock)(NSIndexPath *indexPath);
+
+@interface MyFavoriateViewController : BaseViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @end

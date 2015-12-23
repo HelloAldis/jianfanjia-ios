@@ -242,7 +242,7 @@ static AFHTTPRequestOperationManager *_manager;
 }
 
 + (void)addFavoriateProduct:(AddFavoriateProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"" data:request.data handler:request success:success failure:failure networkError:error];
+    [API POST:@"favorite/product/add" data:request.data handler:request success:success failure:failure networkError:error];
 }
     + (void)getBeautifulImageHomepage:(GetBeautifulImageHomepage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"beautiful_image_homepage" data:request.data handler:request success:success failure:failure networkError:error];

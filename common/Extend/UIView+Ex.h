@@ -9,10 +9,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef void(^TapBlock)(void);
+
 @interface UIView (Ex)
 
 - (void)setCornerRadius:(CGFloat)radius;
 - (void)setBorder:(CGFloat)width andColor:(CGColorRef)color;
 - (UIView *)getFirstResponder;
+- (void)addTapBounceAnimation:(TapBlock)tapBlock;
+
 
 @end

@@ -23,6 +23,8 @@
 @dynamic total_price;
 @dynamic product_description;
 @dynamic images;
+@dynamic is_my_favorite;
+@dynamic is_deleted;
 
 - (void)setObject:(id)o forKey:(NSString *)key {
     if ([@"product_description" isEqualToString:key]) {

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyFavoriateViewController.h"
 
 @interface FavoriateProductCell : UITableViewCell
 
-- (void)initWithProduct:(Product *)product;
+- (void)initWithProduct:(Product *)product andIndexPath:(NSIndexPath *)indexPath andDeleteFavoriateBlock:(DeleteFavoriateProductBlock)block;
 
 @end
