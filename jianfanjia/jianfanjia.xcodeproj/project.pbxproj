@@ -172,6 +172,7 @@
 		6E06CC161C294AB600A08D15 /* FavoriateProductData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC151C294AB600A08D15 /* FavoriateProductData.m */; };
 		6E06CC191C294DBF00A08D15 /* DeleteFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC181C294DBF00A08D15 /* DeleteFavoriateProduct.m */; };
 		6E06CC1C1C294EE800A08D15 /* AddFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC1B1C294EE800A08D15 /* AddFavoriateProduct.m */; };
+		6E06CC221C2A936500A08D15 /* FavoriateBeautifulImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC211C2A936500A08D15 /* FavoriateBeautifulImageData.m */; };
 		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; };
 		6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4A1BD88DBE001461DD /* BaseRequest.m */; };
 		6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4C1BD88DBE001461DD /* GetProcess.m */; };
@@ -618,6 +619,8 @@
 		6E06CC181C294DBF00A08D15 /* DeleteFavoriateProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteFavoriateProduct.m; sourceTree = "<group>"; };
 		6E06CC1A1C294EE800A08D15 /* AddFavoriateProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFavoriateProduct.h; sourceTree = "<group>"; };
 		6E06CC1B1C294EE800A08D15 /* AddFavoriateProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavoriateProduct.m; sourceTree = "<group>"; };
+		6E06CC201C2A936500A08D15 /* FavoriateBeautifulImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriateBeautifulImageData.h; sourceTree = "<group>"; };
+		6E06CC211C2A936500A08D15 /* FavoriateBeautifulImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriateBeautifulImageData.m; sourceTree = "<group>"; };
 		6E07DA461BD88DBE001461DD /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		6E07DA471BD88DBE001461DD /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		6E07DA491BD88DBE001461DD /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
@@ -1185,6 +1188,8 @@
 				6E06CC111C29466700A08D15 /* FavoriateProductCell.xib */,
 				6E06CC141C294AB600A08D15 /* FavoriateProductData.h */,
 				6E06CC151C294AB600A08D15 /* FavoriateProductData.m */,
+				6E06CC201C2A936500A08D15 /* FavoriateBeautifulImageData.h */,
+				6E06CC211C2A936500A08D15 /* FavoriateBeautifulImageData.m */,
 			);
 			path = MyFavoriate;
 			sourceTree = "<group>";
@@ -2245,6 +2250,7 @@
 				683FFB441C296288002A1AFE /* BeautifulImageViewController.m in Sources */,
 				68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */,
 				683668FF1BFF055D006A5053 /* ReplaceOrderedDesigner.m in Sources */,
+				6E06CC221C2A936500A08D15 /* FavoriateBeautifulImageData.m in Sources */,
 				683668FC1BFEECC0006A5053 /* Evaluation.m in Sources */,
 				684A37441BFD73DF00F7388C /* MatchDesignerCell.m in Sources */,
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,

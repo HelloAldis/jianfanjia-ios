@@ -11,6 +11,7 @@
 #import "FavoriteDesignerCell.h"
 #import "FavoriateProductData.h"
 #import "FavoriateProductCell.h"
+#import "FavoriateBeautifulImageData.h"
 
 typedef NS_ENUM(NSInteger, FavoriateType) {
     FavoriateTypeDesigner,
@@ -29,8 +30,10 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 
 @property (strong, nonatomic) FavoriteDesignerData *favoriateDesignerPageData;
 @property (strong, nonatomic) FavoriateProductData *favoriateProductPageData;
+@property (strong, nonatomic) FavoriateBeautifulImageData *favoriateBeautifulImageData;
 @property (assign, nonatomic) FavoriateType favoriateType;
-
+@property (copy, nonatomic) DeleteFavoriateProductBlock deleteFavoriateProductBlock;
+@property (copy, nonatomic) DeleteFavoriateBeautifulImageBlock deleteFavoriateBeautifulImageBlock;
 @end
 
 @implementation MyFavoriateViewController
@@ -70,10 +73,23 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         }
     }];
     
+    self.deleteFavoriateProductBlock = ^(NSIndexPath *indexPath) {
+        @strongify(self);
+        [self handleAfterDeleteFavoriateProduct:indexPath];
+    };
+    
     
     self.designerTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreDesigner];
+    }];
+    self.productTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        @strongify(self);
+        [self loadMoreFavoriateProduct];
+    }];
+    self.beautifulImageCollectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        @strongify(self);
+
     }];
     
     self.designerTableView.hidden = NO;
@@ -82,6 +98,8 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     
     self.favoriateType = FavoriateTypeDesigner;
     self.favoriateDesignerPageData = [[FavoriteDesignerData alloc] init];
+    self.favoriateProductPageData = [[FavoriateProductData alloc] init];
+    self.favoriateBeautifulImageData = [[FavoriateBeautifulImageData alloc] init];
     [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
@@ -105,7 +123,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             [self refreshDesigner];
             break;
         case FavoriateTypeProduct:
-            [self refreshDesigner];
+            [self refreshFavoriateProduct];
             break;
         case FavoriateTypeBeautifulImage:
             [self refreshDesigner];
@@ -118,31 +136,31 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 #pragma mark - user action
 - (IBAction)onClickDesigner:(id)sender {
     if (self.favoriateType != FavoriateTypeDesigner) {
+        self.favoriateType = FavoriateTypeDesigner;
         self.designerTableView.hidden = NO;
         self.productTableView.hidden = YES;
         self.beautifulImageCollectionView.hidden = YES;
         
-        [self.btnDesigner setTitleColor:[UIColor colorWithR:52 g:74 b:93] forState:UIControlStateNormal];
-        [self.btnProduct setTitleColor:[UIColor colorWithR:170 g:177 b:182] forState:UIControlStateNormal];
-        [self.btnProduct setTitleColor:[UIColor colorWithR:170 g:177 b:182] forState:UIControlStateNormal];
+        //刷新数据
+        [self refreshDesigner];
     }
 }
 
 - (IBAction)onClickProduct:(id)sender {
     if (self.favoriateType != FavoriateTypeProduct) {
+        self.favoriateType = FavoriateTypeProduct;
         self.designerTableView.hidden = YES;
         self.productTableView.hidden = NO;
         self.beautifulImageCollectionView.hidden = YES;
         
-        //判断是否加载过favoriate product
-        if (!self.favoriateProductPageData) {
-            self.favoriateProductPageData = [[FavoriateProductData alloc] init];
-            [self refreshFavoriateProduct];
-        }
+        //刷新数据
+        [self refreshFavoriateProduct];
+
     }
 }
 - (IBAction)onClickBeautifulImage:(id)sender {
     if (self.favoriateType != FavoriateTypeBeautifulImage) {
+        self.favoriateType = FavoriateTypeBeautifulImage;
         self.designerTableView.hidden = YES;
         self.productTableView.hidden = YES;
         self.beautifulImageCollectionView.hidden = NO;
@@ -170,8 +188,10 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             return cell;
         }
         case FavoriateTypeProduct: {
-            FavoriateProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriteProductCell"];
-            [cell initWithProduct:[self.favoriateProductPageData.products objectAtIndex:indexPath.row]];
+            FavoriateProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriateProductCell"];
+            [cell initWithProduct:[self.favoriateProductPageData.products objectAtIndex:indexPath.row]
+                     andIndexPath:indexPath
+          andDeleteFavoriateBlock:self.deleteFavoriateProductBlock];
             return cell;
         }
         default:
@@ -190,6 +210,9 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             return 0;
     }
 }
+
+#pragma mark - collection view delegate
+
 
 #pragma mark - favoriate designer
 - (void)refreshDesigner {
@@ -242,20 +265,9 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     }];
 }
 
-- (void)deleteFavoriateDesigner:(NSIndexPath *)index {
-    DeleteFavoriteDesigner *request = [[DeleteFavoriteDesigner alloc] init];
-    request._id = [[self.favoriateDesignerPageData.designers objectAtIndex:index.row] _id];
-    
-    @weakify(self);
-    [API deleteFavoriateDesigner:request success:^{
-        @strongify(self);
-        [self.favoriateDesignerPageData.designers removeObjectAtIndex:index.row];
-        [self.designerTableView deleteRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
-    } failure:^{
-        
-    } networkError:^{
-        
-    }];
+- (void)handleAfterDeleteFavoriateDesigner:(NSIndexPath *)index {
+    [self.favoriateDesignerPageData.designers removeObjectAtIndex:index.row];
+    [self.designerTableView deleteRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - favoriate product
@@ -309,20 +321,69 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     }];
 }
 
-- (void)deleteFavoriateProduct:(NSIndexPath *)index {
-    DeleteFavoriateProduct *request = [[DeleteFavoriateProduct alloc] init];
-    request._id = [[self.favoriateProductPageData.products objectAtIndex:index.row] _id];
+- (void)handleAfterDeleteFavoriateProduct:(NSIndexPath *)index {
+    [self.favoriateProductPageData.products removeObjectAtIndex:index.row];
+    [self.productTableView deleteRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+#pragma mark - favoriate beautiful image
+- (void)refreshFavoriateBeautifulImage {
+    ListFavoriateBeautifulImage *request = [[ListFavoriateBeautifulImage alloc] init];
+    request.from = @0;
+    request.limit = @20;
     
     @weakify(self);
-    [API deleteFavoriateProduct:request success:^{
+    [API listFavoriateBeautifulImage:request success:^{
         @strongify(self);
-        [self.favoriateProductPageData.products removeObjectAtIndex:index.row];
-        [self.productTableView deleteRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
+        NSInteger count = [self.favoriateBeautifulImageData refreshBeautifulImages];
+        if (self.favoriateBeautifulImageData.beautifulImages.count == 0) {
+            //            self.lblUnavailableDesigner.hidden = NO;
+            self.beautifulImageCollectionView.hidden = YES;
+        } else {
+            //            self.lblUnavailableDesigner.hidden = YES;
+            self.beautifulImageCollectionView.hidden = NO;
+            if (request.limit.integerValue > count) {
+                [self.beautifulImageCollectionView.footer noticeNoMoreData];
+            }
+            
+            [self.beautifulImageCollectionView reloadData];
+        }
     } failure:^{
         
     } networkError:^{
         
     }];
+}
+
+- (void)loadMoreFavoriateBeautifulImage {
+    ListFavoriateBeautifulImage *request = [[ListFavoriateBeautifulImage alloc] init];
+    request.from = @(self.favoriateBeautifulImageData.beautifulImages.count);
+    request.limit = @20;
+    
+    @weakify(self);
+    [API listFavoriateBeautifulImage:request success:^{
+        @strongify(self);
+        NSInteger count = [self.favoriateBeautifulImageData loadMoreBeautifulImages];
+        [self.beautifulImageCollectionView.footer endRefreshing];
+        if (request.limit.integerValue > count) {
+            [self.beautifulImageCollectionView.footer noticeNoMoreData];
+        }
+        
+        [self.beautifulImageCollectionView reloadData];
+    } failure:^{
+        [self.beautifulImageCollectionView.footer endRefreshing];
+    } networkError:^{
+        [self.beautifulImageCollectionView.footer endRefreshing];
+    }];
+}
+
+- (void)handleAfterDeleteFavoriateBeautifulImage:(NSIndexPath *)index {
+    [self.favoriateBeautifulImageData.beautifulImages removeObjectAtIndex:index.row];
+    [self.beautifulImageCollectionView deleteItemsAtIndexPaths:@[index]];
+}
+
+- (void)dealloc {
+    DDLogDebug(@"dealloc");
 }
 
 

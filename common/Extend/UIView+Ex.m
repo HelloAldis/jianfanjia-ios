@@ -8,6 +8,8 @@
 
 #import "UIView+Ex.h"
 
+NSString const *UIView_TapBlock = @"UIView_TapBlock";
+
 @implementation UIView (Ex)
 
 - (void)setCornerRadius:(CGFloat)radius {
@@ -34,5 +36,36 @@
     
     return nil;
 }
+
+#pragma mark - tap animation
+
+- (void)addTapBounceAnimation:(TapBlock)tapBlock {
+    self.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(playBounceAnimation)];
+    [self addGestureRecognizer:tap];
+    self.tapBlock = tapBlock;
+}
+
+- (void)playBounceAnimation {
+    CAKeyframeAnimation *bounceAnimation = [[CAKeyframeAnimation alloc] init];
+    bounceAnimation.keyPath = @"transform.scale";
+    bounceAnimation.values = @[@1.0 ,@1.4, @0.9, @1.15, @0.95, @1.02, @1.0];
+    bounceAnimation.duration = 0.5;
+    bounceAnimation.calculationMode = kCAAnimationCubic;
+    [self.layer addAnimation:bounceAnimation forKey:@"BounceAnimation"];
+    
+    if (self.tapBlock) {
+        self.tapBlock();
+    }
+}
+
+- (TapBlock)tapBlock {
+    return objc_getAssociatedObject(self, &UIView_TapBlock);
+}
+
+- (void)setTapBlock:(TapBlock)tapBlock {
+    objc_setAssociatedObject(self, &UIView_TapBlock, tapBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
 
 @end
