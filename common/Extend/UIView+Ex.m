@@ -40,8 +40,18 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
 #pragma mark - tap animation
 
 + (void)playBounceAnimationFor:(UIView *)view completion:(void(^)(void))completion {
+    [self playBounceAnimationFor:view isWaiteDone:YES block:completion];
+}
+
++ (void)playBounceAnimationFor:(UIView *)view block:(void(^)(void))block {
+    [self playBounceAnimationFor:view isWaiteDone:YES block:block];
+}
+
++ (void)playBounceAnimationFor:(UIView *)view isWaiteDone:(BOOL)isWaiteDone block:(void(^)(void))block {
     [CATransaction begin];
-    [CATransaction setCompletionBlock:completion];
+    if (isWaiteDone) {
+        [CATransaction setCompletionBlock:block];
+    }
     
     CAKeyframeAnimation *bounceAnimation = [[CAKeyframeAnimation alloc] init];
     bounceAnimation.keyPath = @"transform.scale";
@@ -51,6 +61,12 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
     [view.layer addAnimation:bounceAnimation forKey:@"BounceAnimation"];
     
     [CATransaction commit];
+    
+    if (!isWaiteDone) {
+        if (block) {
+            block();
+        }
+    }
 }
 
 - (void)addTapBounceAnimation:(TapBlock)tapBlock {
@@ -61,11 +77,7 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
 }
 
 - (void)playBounceAnimation {
-    [UIView playBounceAnimationFor:self completion:nil];
-    
-    if (self.tapBlock) {
-        self.tapBlock();
-    }
+    [UIView playBounceAnimationFor:self block:self.tapBlock];
 }
 
 - (TapBlock)tapBlock {

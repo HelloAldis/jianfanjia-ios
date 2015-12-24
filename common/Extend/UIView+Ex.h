@@ -18,5 +18,6 @@ typedef void(^TapBlock)(void);
 - (UIView *)getFirstResponder;
 - (void)addTapBounceAnimation:(TapBlock)tapBlock;
 + (void)playBounceAnimationFor:(UIView *)view completion:(void(^)(void))completion;
++ (void)playBounceAnimationFor:(UIView *)view block:(void(^)(void))block;
 
 @end

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewBottomToSuper;
 
 @property (nonatomic, strong) UIBarButtonItem *favoriteButton;
+@property (nonatomic, strong) UIBarButtonItem *unfavoriteButton;
 @property (nonatomic, strong) UIBarButtonItem *shareButton;
 @property (nonatomic, strong) NSMutableArray *imageViewArray;
 @property (nonatomic, strong) NSMutableArray *imageViewStatus;
@@ -60,6 +61,15 @@
 - (void)initNav {
     [self initLeftBackInNav];
     self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"white_back"];
+    
+    @weakify(self);
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
+    [imageView addTapBounceAnimation:^{
+        @strongify(self);
+        [self onClickFavoriteButton];
+    }];
+    self.favoriteButton = [[UIBarButtonItem alloc] initWithCustomView:imageView];
+    self.shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShareButton)];
 
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
@@ -70,8 +80,11 @@
 }
 
 - (void)initRightNaviBarItems {
-    self.favoriteButton = [[UIBarButtonItem alloc] initWithImage:[self.beautifulImage.is_my_favorite boolValue] ? [UIImage imageNamed:@"collected"] : [UIImage imageNamed:@"collect"]style:UIBarButtonItemStylePlain target:self action:@selector(onClickFavoriteButton)];
-    self.shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShareButton)];
+    if ([self.beautifulImage.is_my_favorite boolValue]) {
+        [self.favoriteButton.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
+    } else {
+        [self.favoriteButton.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
+    }
     
     self.navigationItem.rightBarButtonItems = @[self.shareButton, self.favoriteButton];
 }
@@ -171,7 +184,7 @@
         
         [API favoriteBeautifulImage:request success:^{
             self.beautifulImage.is_my_favorite = @1;
-            [self.favoriteButton setImage:[UIImage imageNamed:@"collected"]];
+            [self.favoriteButton.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
         } failure:^{
             
         } networkError:^{
@@ -183,7 +196,7 @@
         
         [API unfavoriteBeautifulImage:request success:^{
             self.beautifulImage.is_my_favorite = @0;
-            [self.favoriteButton setImage:[UIImage imageNamed:@"collect"]];
+            [self.favoriteButton.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
         } failure:^{
             
         } networkError:^{
@@ -197,8 +210,10 @@
 }
 
 - (void)onClickDownloadButton {
-    UIImageView *imgView = self.imageViewArray[self.index];
-    UIImageWriteToSavedPhotosAlbum(imgView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    [UIView playBounceAnimationFor:self.btnDownload block:^{
+        UIImageView *imgView = self.imageViewArray[self.index];
+        UIImageWriteToSavedPhotosAlbum(imgView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+    }];
 }
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {

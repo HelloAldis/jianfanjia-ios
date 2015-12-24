@@ -20,8 +20,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initNav];
     [self initUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self initNav];
+    [self enableButtons:YES];
 }
 
 #pragma mark - init UI
@@ -41,9 +47,16 @@
 
 #pragma mark - user action
 - (void)onClickButton:(UIButton *)button {
+    [self enableButtons:NO];
     [DataManager shared].collectedDecPhase = button.titleLabel.text;
     [UIView playBounceAnimationFor:button completion:^{
         [ViewControllerContainer showCollectDecStyle];
+    }];
+}
+
+- (void)enableButtons:(BOOL)enable {
+    [self.btnDecPhases enumerateObjectsUsingBlock:^(UIButton*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj setEnabled:enable];
     }];
 }
 
