@@ -173,6 +173,11 @@
 		6E06CC191C294DBF00A08D15 /* DeleteFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC181C294DBF00A08D15 /* DeleteFavoriateProduct.m */; };
 		6E06CC1C1C294EE800A08D15 /* AddFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC1B1C294EE800A08D15 /* AddFavoriateProduct.m */; };
 		6E06CC221C2A936500A08D15 /* FavoriateBeautifulImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC211C2A936500A08D15 /* FavoriateBeautifulImageData.m */; };
+		6E06CC261C2BA51800A08D15 /* FavoriateBeautifulImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC241C2BA51800A08D15 /* FavoriateBeautifulImageCell.m */; };
+		6E06CC271C2BA51800A08D15 /* FavoriateBeautifulImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E06CC251C2BA51800A08D15 /* FavoriateBeautifulImageCell.xib */; };
+		6E06CC2D1C2BF97800A08D15 /* FavoriteDesignerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC291C2BF97800A08D15 /* FavoriteDesignerCell.m */; };
+		6E06CC2E1C2BF97800A08D15 /* FavoriteDesignerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E06CC2A1C2BF97800A08D15 /* FavoriteDesignerCell.xib */; };
+		6E06CC2F1C2BF97800A08D15 /* FavoriteDesignerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC2C1C2BF97800A08D15 /* FavoriteDesignerData.m */; };
 		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; };
 		6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4A1BD88DBE001461DD /* BaseRequest.m */; };
 		6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4C1BD88DBE001461DD /* GetProcess.m */; };
@@ -306,11 +311,6 @@
 		6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4191C05929E00883184 /* AddFavoriateDesigner.m */; };
 		6EE1E41D1C05942600883184 /* DeleteFavoriteDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E41C1C05942600883184 /* DeleteFavoriteDesigner.m */; };
 		6EE1E4201C0594CF00883184 /* ListFavoriteDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E41F1C0594CF00883184 /* ListFavoriteDesigner.m */; };
-		6EE1E42B1C059CF400883184 /* FavoriteDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4291C059CF400883184 /* FavoriteDesignerViewController.m */; };
-		6EE1E42C1C059CF400883184 /* FavoriteDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE1E42A1C059CF400883184 /* FavoriteDesignerViewController.xib */; };
-		6EE1E4301C05A0D800883184 /* FavoriteDesignerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E42E1C05A0D800883184 /* FavoriteDesignerCell.m */; };
-		6EE1E4311C05A0D800883184 /* FavoriteDesignerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE1E42F1C05A0D800883184 /* FavoriteDesignerCell.xib */; };
-		6EE1E4341C05A72400883184 /* FavoriteDesignerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4331C05A72400883184 /* FavoriteDesignerData.m */; };
 		6EE1E4371C082A8300883184 /* UIImage+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE1E4361C082A8300883184 /* UIImage+Ex.m */; };
 		6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE299C21BF57C7900A527F6 /* RefreshViewController.m */; };
 		6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EE299C31BF57C7900A527F6 /* RefreshViewController.xib */; };
@@ -621,6 +621,14 @@
 		6E06CC1B1C294EE800A08D15 /* AddFavoriateProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFavoriateProduct.m; sourceTree = "<group>"; };
 		6E06CC201C2A936500A08D15 /* FavoriateBeautifulImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriateBeautifulImageData.h; sourceTree = "<group>"; };
 		6E06CC211C2A936500A08D15 /* FavoriateBeautifulImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriateBeautifulImageData.m; sourceTree = "<group>"; };
+		6E06CC231C2BA51800A08D15 /* FavoriateBeautifulImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriateBeautifulImageCell.h; sourceTree = "<group>"; };
+		6E06CC241C2BA51800A08D15 /* FavoriateBeautifulImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriateBeautifulImageCell.m; sourceTree = "<group>"; };
+		6E06CC251C2BA51800A08D15 /* FavoriateBeautifulImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriateBeautifulImageCell.xib; sourceTree = "<group>"; };
+		6E06CC281C2BF97800A08D15 /* FavoriteDesignerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerCell.h; sourceTree = "<group>"; };
+		6E06CC291C2BF97800A08D15 /* FavoriteDesignerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerCell.m; sourceTree = "<group>"; };
+		6E06CC2A1C2BF97800A08D15 /* FavoriteDesignerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteDesignerCell.xib; sourceTree = "<group>"; };
+		6E06CC2B1C2BF97800A08D15 /* FavoriteDesignerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerData.h; sourceTree = "<group>"; };
+		6E06CC2C1C2BF97800A08D15 /* FavoriteDesignerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerData.m; sourceTree = "<group>"; };
 		6E07DA461BD88DBE001461DD /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		6E07DA471BD88DBE001461DD /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		6E07DA491BD88DBE001461DD /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
@@ -861,14 +869,6 @@
 		6EE1E41C1C05942600883184 /* DeleteFavoriteDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteFavoriteDesigner.m; sourceTree = "<group>"; };
 		6EE1E41E1C0594CF00883184 /* ListFavoriteDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFavoriteDesigner.h; sourceTree = "<group>"; };
 		6EE1E41F1C0594CF00883184 /* ListFavoriteDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFavoriteDesigner.m; sourceTree = "<group>"; };
-		6EE1E4281C059CF400883184 /* FavoriteDesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerViewController.h; sourceTree = "<group>"; };
-		6EE1E4291C059CF400883184 /* FavoriteDesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerViewController.m; sourceTree = "<group>"; };
-		6EE1E42A1C059CF400883184 /* FavoriteDesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteDesignerViewController.xib; sourceTree = "<group>"; };
-		6EE1E42D1C05A0D800883184 /* FavoriteDesignerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerCell.h; sourceTree = "<group>"; };
-		6EE1E42E1C05A0D800883184 /* FavoriteDesignerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerCell.m; sourceTree = "<group>"; };
-		6EE1E42F1C05A0D800883184 /* FavoriteDesignerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteDesignerCell.xib; sourceTree = "<group>"; };
-		6EE1E4321C05A72400883184 /* FavoriteDesignerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerData.h; sourceTree = "<group>"; };
-		6EE1E4331C05A72400883184 /* FavoriteDesignerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerData.m; sourceTree = "<group>"; };
 		6EE1E4351C082A8300883184 /* UIImage+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Ex.h"; sourceTree = "<group>"; };
 		6EE1E4361C082A8300883184 /* UIImage+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Ex.m"; sourceTree = "<group>"; };
 		6EE299C11BF57C7900A527F6 /* RefreshViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshViewController.h; sourceTree = "<group>"; };
@@ -1190,6 +1190,14 @@
 				6E06CC151C294AB600A08D15 /* FavoriateProductData.m */,
 				6E06CC201C2A936500A08D15 /* FavoriateBeautifulImageData.h */,
 				6E06CC211C2A936500A08D15 /* FavoriateBeautifulImageData.m */,
+				6E06CC231C2BA51800A08D15 /* FavoriateBeautifulImageCell.h */,
+				6E06CC241C2BA51800A08D15 /* FavoriateBeautifulImageCell.m */,
+				6E06CC251C2BA51800A08D15 /* FavoriateBeautifulImageCell.xib */,
+				6E06CC281C2BF97800A08D15 /* FavoriteDesignerCell.h */,
+				6E06CC291C2BF97800A08D15 /* FavoriteDesignerCell.m */,
+				6E06CC2A1C2BF97800A08D15 /* FavoriteDesignerCell.xib */,
+				6E06CC2B1C2BF97800A08D15 /* FavoriteDesignerData.h */,
+				6E06CC2C1C2BF97800A08D15 /* FavoriteDesignerData.m */,
 			);
 			path = MyFavoriate;
 			sourceTree = "<group>";
@@ -1633,7 +1641,6 @@
 			isa = PBXGroup;
 			children = (
 				6E06CC031C29231A00A08D15 /* MyFavoriate */,
-				6EE1E4271C059CD700883184 /* FavoriteDesigner */,
 				6E4496471BFC82E800C90851 /* Info */,
 				6E4496371BFC2D8F00C90851 /* Setting */,
 				6E6D98B31BDF73DE00D45F77 /* MeViewController.h */,
@@ -1809,21 +1816,6 @@
 				6E7E4A611B9A8F6E00503B35 /* Login */,
 			);
 			path = Screen;
-			sourceTree = "<group>";
-		};
-		6EE1E4271C059CD700883184 /* FavoriteDesigner */ = {
-			isa = PBXGroup;
-			children = (
-				6EE1E4281C059CF400883184 /* FavoriteDesignerViewController.h */,
-				6EE1E4291C059CF400883184 /* FavoriteDesignerViewController.m */,
-				6EE1E42A1C059CF400883184 /* FavoriteDesignerViewController.xib */,
-				6EE1E42D1C05A0D800883184 /* FavoriteDesignerCell.h */,
-				6EE1E42E1C05A0D800883184 /* FavoriteDesignerCell.m */,
-				6EE1E42F1C05A0D800883184 /* FavoriteDesignerCell.xib */,
-				6EE1E4321C05A72400883184 /* FavoriteDesignerData.h */,
-				6EE1E4331C05A72400883184 /* FavoriteDesignerData.m */,
-			);
-			path = FavoriteDesigner;
 			sourceTree = "<group>";
 		};
 		6EE299C01BF57C4E00A527F6 /* Refresh */ = {
@@ -2033,6 +2025,7 @@
 				6E3361D31C181E07006D6868 /* iTunesArtwork in Resources */,
 				684A37131BFD733500F7388C /* PlanWasNotChoosedCell.xib in Resources */,
 				683A6B6B1C0F01190071DF88 /* ReminderViewController.xib in Resources */,
+				6E06CC271C2BA51800A08D15 /* FavoriateBeautifulImageCell.xib in Resources */,
 				6E4496411BFC53CE00C90851 /* FeedbackViewController.xib in Resources */,
 				68343A181BF70719004F15C1 /* city2area.js in Resources */,
 				683FFB421C296288002A1AFE /* BeautifulImageCollectionCell.xib in Resources */,
@@ -2050,10 +2043,10 @@
 				6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */,
 				684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */,
 				684A374F1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib in Resources */,
+				6E06CC2E1C2BF97800A08D15 /* FavoriteDesignerCell.xib in Resources */,
 				6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */,
 				684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */,
 				684A37511BFD73DF00F7388C /* SelectDecorationStyleViewController.xib in Resources */,
-				6EE1E4311C05A0D800883184 /* FavoriteDesignerCell.xib in Resources */,
 				6837996B1C11290E001F24D6 /* MessageAlertViewController.xib in Resources */,
 				683FFB4C1C296288002A1AFE /* BeautifulImageHomePageViewController.xib in Resources */,
 				683A6B691C0F01190071DF88 /* PurchaseNotificationCell.xib in Resources */,
@@ -2062,7 +2055,6 @@
 				6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */,
 				683A6B651C0F01190071DF88 /* PayNotificationCell.xib in Resources */,
 				6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */,
-				6EE1E42C1C059CF400883184 /* FavoriteDesignerViewController.xib in Resources */,
 				683A6B561C0F01130071DF88 /* DBYSViewController.xib in Resources */,
 				AB5852541C074252004B054E /* ItemImageCollectionCell.xib in Resources */,
 			);
@@ -2118,6 +2110,7 @@
 				6837996A1C11290E001F24D6 /* MessageAlertViewController.m in Sources */,
 				6E07DAC51BD88DBE001461DD /* Item.m in Sources */,
 				AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */,
+				6E06CC2D1C2BF97800A08D15 /* FavoriteDesignerCell.m in Sources */,
 				68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */,
 				683A6B661C0F01190071DF88 /* PostponeNotificationCell.m in Sources */,
 				683FFB471C296288002A1AFE /* DropdownMenuCollectionCell.m in Sources */,
@@ -2182,6 +2175,7 @@
 				6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */,
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
 				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
+				6E06CC2F1C2BF97800A08D15 /* FavoriteDesignerData.m in Sources */,
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,
 				683626991C059C72005F2C30 /* ItemExpandImageCell.m in Sources */,
 				6E06CC071C29235500A08D15 /* MyFavoriateViewController.m in Sources */,
@@ -2190,7 +2184,6 @@
 				6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */,
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
-				6EE1E4301C05A0D800883184 /* FavoriteDesignerCell.m in Sources */,
 				AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */,
@@ -2277,11 +2270,9 @@
 				689485D31C1A70A7002310FC /* Notification.m in Sources */,
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
 				683FFB461C296288002A1AFE /* CollectionFallsFlowLayout.m in Sources */,
-				6EE1E42B1C059CF400883184 /* FavoriteDesignerViewController.m in Sources */,
 				683A5D6C1C0EFBAE0071DF88 /* YsImage.m in Sources */,
 				684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */,
 				685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */,
-				6EE1E4341C05A72400883184 /* FavoriteDesignerData.m in Sources */,
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
 				6E06CC0E1C29453000A08D15 /* ListFavoriateBeautifulImage.m in Sources */,
 				AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */,
@@ -2289,6 +2280,7 @@
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
 				680F492A1C240F910055C16C /* LeafImage.m in Sources */,
 				683FFB681C2A8FBD002A1AFE /* CollectFamilyInfoViewController.m in Sources */,
+				6E06CC261C2BA51800A08D15 /* FavoriateBeautifulImageCell.m in Sources */,
 				685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */,
 				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
 				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */,

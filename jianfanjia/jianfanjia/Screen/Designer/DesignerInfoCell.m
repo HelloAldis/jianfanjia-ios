@@ -27,7 +27,7 @@
 
 - (void)awakeFromNib {
     [self.btnAdd setCornerRadius:5];
-    [self.btnAdd setBorder:1 andColor:[kThemeColor CGColor]];
+    [self.btnAdd setBorder:2 andColor:[kThemeColor CGColor]];
     [self.designerImageView setCornerRadius:30];
 }
 

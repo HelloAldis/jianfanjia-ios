@@ -28,6 +28,7 @@
 @property (nonatomic, strong) NSNumber *favorite_count;
 @property (nonatomic, strong) NSNumber *view_count;
 @property (nonatomic, assign) NSNumber *is_my_favorite;
+@property (nonatomic, assign) NSNumber *is_deleted;
 
 - (LeafImage *)leafImageAtIndex:(NSInteger )index;
 

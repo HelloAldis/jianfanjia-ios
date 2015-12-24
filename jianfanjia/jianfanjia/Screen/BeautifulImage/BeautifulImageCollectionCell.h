@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MyFavoriateViewController.h"
 
 @interface BeautifulImageCollectionCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *image;
 
-- (void)initWithImage:(NSString *)imageid width:(CGFloat)width;
-- (void)initWithImage:(UIImage *)image;
+
+- (void)initWithImage:(BeautifulImage *)beautifulImage;
 
 @end
 

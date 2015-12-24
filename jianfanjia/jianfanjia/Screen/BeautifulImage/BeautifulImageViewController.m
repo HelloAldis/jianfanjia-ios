@@ -159,8 +159,7 @@ static NSString *UnlimitedValue = @"不限";
     BeautifulImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:BeautifulImageCollectionCellIdentifier forIndexPath:indexPath];
     
     BeautifulImage *beauitifulImage = self.dataManager.beautifulImages[indexPath.row];
-    LeafImage *leafImage = [beauitifulImage leafImageAtIndex:0];
-    [cell initWithImage:leafImage.imageid width:cell.bounds.size.width];
+    [cell initWithImage:beauitifulImage];
     return cell;
 }
 

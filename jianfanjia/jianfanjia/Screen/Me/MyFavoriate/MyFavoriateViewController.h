@@ -7,10 +7,14 @@
 //
 
 #import "BaseViewController.h"
+#import "CollectionFallsFlowLayout.h"
 
-typedef void(^DeleteFavoriateProductBlock)(NSIndexPath *indexPath);
-typedef void(^DeleteFavoriateBeautifulImageBlock)(NSIndexPath *indexPath);
+@class FavoriateBeautifulImageCell;
+@class FavoriateProductCell;
 
-@interface MyFavoriateViewController : BaseViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+typedef void(^DeleteFavoriateProductBlock)(FavoriateProductCell *indexPath);
+typedef void(^DeleteFavoriateBeautifulImageBlock)(FavoriateBeautifulImageCell *indexPath);
+
+@interface MyFavoriateViewController : BaseViewController<UICollectionViewDataSource, UICollectionViewDelegate, CollectionFallsFlowLayoutProtocol>
 
 @end

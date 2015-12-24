@@ -12,6 +12,8 @@
 #import "FavoriateProductData.h"
 #import "FavoriateProductCell.h"
 #import "FavoriateBeautifulImageData.h"
+#import "FavoriateBeautifulImageCell.h"
+
 
 typedef NS_ENUM(NSInteger, FavoriateType) {
     FavoriateTypeDesigner,
@@ -27,6 +29,9 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 @property (weak, nonatomic) IBOutlet UIButton *btnDesigner;
 @property (weak, nonatomic) IBOutlet UIButton *btnProduct;
 @property (weak, nonatomic) IBOutlet UIButton *btnBeautifulImage;
+@property (weak, nonatomic) IBOutlet CollectionFallsFlowLayout *flowLayout;
+@property (weak, nonatomic) IBOutlet UILabel *lblNoData;
+@property (weak, nonatomic) IBOutlet UIImageView *noDataImageView;
 
 @property (strong, nonatomic) FavoriteDesignerData *favoriateDesignerPageData;
 @property (strong, nonatomic) FavoriateProductData *favoriateProductPageData;
@@ -43,8 +48,9 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     [super viewDidLoad];
     [self.designerTableView registerNib:[UINib nibWithNibName:@"FavoriteDesignerCell" bundle:nil] forCellReuseIdentifier:@"FavoriteDesignerCell"];
     [self.productTableView registerNib:[UINib nibWithNibName:@"FavoriateProductCell" bundle:nil] forCellReuseIdentifier:@"FavoriateProductCell"];
+    [self.beautifulImageCollectionView registerNib:[UINib nibWithNibName:@"FavoriateBeautifulImageCell"bundle:nil] forCellWithReuseIdentifier:@"FavoriateBeautifulImageCell"];
     self.designerTableView.contentInset = UIEdgeInsetsMake(9, 0, 0, 0);
-   
+    
     @weakify(self);
     [RACObserve(self.designerTableView, hidden) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
@@ -73,9 +79,13 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         }
     }];
     
-    self.deleteFavoriateProductBlock = ^(NSIndexPath *indexPath) {
+    self.deleteFavoriateProductBlock = ^(FavoriateProductCell *cell) {
         @strongify(self);
-        [self handleAfterDeleteFavoriateProduct:indexPath];
+        [self handleAfterDeleteFavoriateProduct:cell];
+    };
+    self.deleteFavoriateBeautifulImageBlock = ^(FavoriateBeautifulImageCell *cell) {
+        @strongify(self);
+        [self handleAfterDeleteFavoriateBeautifulImage:cell];
     };
     
     
@@ -83,18 +93,21 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         @strongify(self);
         [self loadMoreDesigner];
     }];
+    
     self.productTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreFavoriateProduct];
     }];
+    
     self.beautifulImageCollectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         @strongify(self);
-
+        [self loadMoreFavoriateBeautifulImage];
     }];
     
     self.designerTableView.hidden = NO;
     self.productTableView.hidden = YES;
     self.beautifulImageCollectionView.hidden = YES;
+    self.flowLayout.delegate = self;
     
     self.favoriateType = FavoriateTypeDesigner;
     self.favoriateDesignerPageData = [[FavoriteDesignerData alloc] init];
@@ -164,58 +177,86 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         self.designerTableView.hidden = YES;
         self.productTableView.hidden = YES;
         self.beautifulImageCollectionView.hidden = NO;
+        
+        //刷新数据
+        [self refreshFavoriateBeautifulImage];
     }
 }
+
+//- (IBAction)panGesture:(UIPanGestureRecognizer *)gesture {
+//    CGPoint p = [gesture translationInView:self.view];
+//    CGPoint p2 = [gesture velocityInView:self.view];
+//    self.designerTableView.frame = CGRectOffset(self.designerTableView.frame, p.x, 0);
+//    
+//    DDLogDebug(@"translation %@", NSStringFromCGPoint(p));
+//    DDLogDebug(@"velocity %@", NSStringFromCGPoint(p));
+//    [gesture setTranslation:CGPointMake(0,0) inView:self.view];
+//}
 
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    switch (self.favoriateType) {
-        case FavoriateTypeDesigner:
-            return [self.favoriateDesignerPageData.designers count];
-        case FavoriateTypeProduct:
-            return [self.favoriateProductPageData.products count];
-        default:
-            return 0;
+    if (tableView == self.designerTableView) {
+        return [self.favoriateDesignerPageData.designers count];
+    } else if (tableView == self.productTableView) {
+        return [self.favoriateProductPageData.products count];
+    } else {
+        return 0;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (self.favoriateType) {
-        case FavoriateTypeDesigner:{
-            FavoriteDesignerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriteDesignerCell"];
-            [cell initWithDesigner:[self.favoriateDesignerPageData.designers objectAtIndex:indexPath.row]];
-            return cell;
-        }
-        case FavoriateTypeProduct: {
-            FavoriateProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriateProductCell"];
-            [cell initWithProduct:[self.favoriateProductPageData.products objectAtIndex:indexPath.row]
-                     andIndexPath:indexPath
-          andDeleteFavoriateBlock:self.deleteFavoriateProductBlock];
-            return cell;
-        }
-        default:
-            return nil;
+    if (tableView == self.designerTableView) {
+        FavoriteDesignerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriteDesignerCell"];
+        [cell initWithDesigner:[self.favoriateDesignerPageData.designers objectAtIndex:indexPath.row]];
+        return cell;
+    } else if (tableView == self.productTableView) {
+        FavoriateProductCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriateProductCell"];
+        [cell initWithProduct:[self.favoriateProductPageData.products objectAtIndex:indexPath.row]
+      andDeleteFavoriateBlock:self.deleteFavoriateProductBlock];
+        return cell;
+    } else {
+        return nil;
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    switch (self.favoriateType) {
-        case FavoriateTypeDesigner:
-            return 80;
-        case FavoriateTypeProduct:
-            return 280;
-        default:
-            return 0;
+    if (tableView == self.designerTableView) {
+        return 80;
+    } else if (tableView == self.productTableView) {
+        return 280;
+    } else {
+        return 0;
     }
 }
 
 #pragma mark - collection view delegate
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.favoriateBeautifulImageData.beautifulImages.count;
+}
 
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    FavoriateBeautifulImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"FavoriateBeautifulImageCell" forIndexPath:indexPath];
+    BeautifulImage *beauitifulImage = self.favoriateBeautifulImageData.beautifulImages[indexPath.item];
+    [cell initWithImage:beauitifulImage withDeleteBlock:self.deleteFavoriateBeautifulImageBlock];
+    return cell;
+}
+
+- (CGFloat)fallFlowLayout:(CollectionFallsFlowLayout *)layout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath {
+    BeautifulImage *beauitifulImage = self.favoriateBeautifulImageData.beautifulImages[indexPath.item];
+    LeafImage *leafImage = [beauitifulImage leafImageAtIndex:0];
+    
+    CGFloat widthHeightFactor = [leafImage.width floatValue] / [leafImage.height floatValue];
+    CGFloat cellHeight = width / widthHeightFactor;
+    
+    return cellHeight;
+}
 
 #pragma mark - favoriate designer
 - (void)refreshDesigner {
+    [self.designerTableView.footer resetNoMoreData];
+    [self resetNoDataTip];
+    
     ListFavoriteDesigner *request = [[ListFavoriteDesigner alloc] init];
     request.from = @0;
     request.limit = @20;
@@ -225,11 +266,8 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         @strongify(self);
         NSInteger count = [self.favoriateDesignerPageData refreshDesigner];
         if (self.favoriateDesignerPageData.designers.count == 0) {
-//            self.lblUnavailableDesigner.hidden = NO;
-            self.designerTableView.hidden = YES;
+            [self handleNoFavoriateDesigner];
         } else {
-//            self.lblUnavailableDesigner.hidden = YES;
-            self.designerTableView.hidden = NO;
             if (request.limit.integerValue > count) {
                 [self.designerTableView.footer noticeNoMoreData];
             }
@@ -270,8 +308,23 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     [self.designerTableView deleteRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
+- (void)resetNoDataTip {
+    self.lblNoData.hidden = YES;
+    self.noDataImageView.hidden = YES;
+}
+
+- (void)handleNoFavoriateDesigner {
+    self.lblNoData.text = @"您还没有收藏任何设计师";
+    self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_designer"];
+    self.lblNoData.hidden = NO;
+    self.noDataImageView.hidden = NO;
+}
+
 #pragma mark - favoriate product
 - (void)refreshFavoriateProduct {
+    [self.productTableView.footer resetNoMoreData];
+    [self resetNoDataTip];
+    
     ListFavoriateProduct *request = [[ListFavoriateProduct alloc] init];
     request.from = @0;
     request.limit = @20;
@@ -281,11 +334,8 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         @strongify(self);
         NSInteger count = [self.favoriateProductPageData refreshProduct];
         if (self.favoriateProductPageData.products.count == 0) {
-            //            self.lblUnavailableDesigner.hidden = NO;
-            self.productTableView.hidden = YES;
+            [self handleNoFavoriateProduct];
         } else {
-            //            self.lblUnavailableDesigner.hidden = YES;
-            self.productTableView.hidden = NO;
             if (request.limit.integerValue > count) {
                 [self.productTableView.footer noticeNoMoreData];
             }
@@ -321,13 +371,24 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     }];
 }
 
-- (void)handleAfterDeleteFavoriateProduct:(NSIndexPath *)index {
-    [self.favoriateProductPageData.products removeObjectAtIndex:index.row];
-    [self.productTableView deleteRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationAutomatic];
+- (void)handleAfterDeleteFavoriateProduct:(FavoriateProductCell *)cell {
+    NSIndexPath *indexPath = [self.productTableView indexPathForCell:cell];
+    [self.favoriateProductPageData.products removeObjectAtIndex:indexPath.row];
+    [self.productTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)handleNoFavoriateProduct {
+    self.lblNoData.text = @"您还没有收藏任何作品";
+    self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_product"];
+    self.lblNoData.hidden = NO;
+    self.noDataImageView.hidden = NO;
 }
 
 #pragma mark - favoriate beautiful image
 - (void)refreshFavoriateBeautifulImage {
+    [self.beautifulImageCollectionView.footer resetNoMoreData];
+    [self resetNoDataTip];
+    
     ListFavoriateBeautifulImage *request = [[ListFavoriateBeautifulImage alloc] init];
     request.from = @0;
     request.limit = @20;
@@ -337,11 +398,8 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         @strongify(self);
         NSInteger count = [self.favoriateBeautifulImageData refreshBeautifulImages];
         if (self.favoriateBeautifulImageData.beautifulImages.count == 0) {
-            //            self.lblUnavailableDesigner.hidden = NO;
-            self.beautifulImageCollectionView.hidden = YES;
+            [self handleNoFavoriateBeautifulImage];
         } else {
-            //            self.lblUnavailableDesigner.hidden = YES;
-            self.beautifulImageCollectionView.hidden = NO;
             if (request.limit.integerValue > count) {
                 [self.beautifulImageCollectionView.footer noticeNoMoreData];
             }
@@ -377,10 +435,19 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     }];
 }
 
-- (void)handleAfterDeleteFavoriateBeautifulImage:(NSIndexPath *)index {
-    [self.favoriateBeautifulImageData.beautifulImages removeObjectAtIndex:index.row];
-    [self.beautifulImageCollectionView deleteItemsAtIndexPaths:@[index]];
+- (void)handleAfterDeleteFavoriateBeautifulImage:(FavoriateBeautifulImageCell *)cell {
+    NSIndexPath *indexPath = [self.beautifulImageCollectionView indexPathForCell:cell];
+    [self.favoriateBeautifulImageData.beautifulImages removeObjectAtIndex:indexPath.item];
+    [self.beautifulImageCollectionView deleteItemsAtIndexPaths:@[indexPath]];
 }
+
+- (void)handleNoFavoriateBeautifulImage {
+    self.lblNoData.text = @"您还没有收藏任何美图";
+    self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_beautiful_image"];
+    self.lblNoData.hidden = NO;
+    self.noDataImageView.hidden = NO;
+}
+
 
 - (void)dealloc {
     DDLogDebug(@"dealloc");
