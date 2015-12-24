@@ -8,8 +8,6 @@
 
 #import "BaseModel.h"
 
-@class MatchedDesigner;
-
 @interface Requirement : BaseModel
 
 @property (strong, nonatomic) NSString *_id;

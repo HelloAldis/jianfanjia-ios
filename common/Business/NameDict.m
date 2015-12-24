@@ -43,8 +43,8 @@ static NSArray *beautifulTypeArr = nil;
                      @"5":@"东南亚",
                      @"6":@"田园",};
     
-    decTypeDict = @{@"0":@"家装",
-                    @"1":@"商装",
+    decTypeDict = @{kDecTypeHouse:@"家装",
+                    kDecTypeBusiness:@"商装",
                     @"2":@"软装"};
     
     work_type = @{@"0":@"设计＋施工(半包)",

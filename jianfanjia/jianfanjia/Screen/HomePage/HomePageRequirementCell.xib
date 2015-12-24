@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -30,16 +30,22 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="egw-3X-uSB">
-                        <rect key="frame" x="100" y="101" width="120" height="40"/>
+                        <rect key="frame" x="75" y="101" width="170" height="40"/>
                         <animations/>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="DOt-pE-L7f"/>
                             <constraint firstAttribute="width" constant="120" id="j0m-M4-SOq"/>
+                            <constraint firstAttribute="width" constant="170" id="pza-93-5iC"/>
                         </constraints>
-                        <state key="normal" title="发布需求">
+                        <state key="normal" title="免费获取三套方案 &gt;">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="j0m-M4-SOq"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <action selector="onClickRequirement:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="98f-dT-HLr"/>
                         </connections>
@@ -71,7 +77,7 @@
             <connections>
                 <outlet property="btnRequirement" destination="egw-3X-uSB" id="J6M-o0-i5F"/>
             </connections>
-            <point key="canvasLocation" x="403" y="384"/>
+            <point key="canvasLocation" x="403" y="383.5"/>
         </tableViewCell>
     </objects>
 </document>

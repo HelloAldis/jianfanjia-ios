@@ -54,6 +54,7 @@
     NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes = dict;
     [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = nil;
 }
 
@@ -86,7 +87,8 @@
         [self.favoriteButton.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
     }
     
-    self.navigationItem.rightBarButtonItems = @[self.shareButton, self.favoriteButton];
+    self.navigationItem.rightBarButtonItems = @[//self.shareButton,
+                                                self.favoriteButton];
 }
 
 - (void)initDefaultUI {
