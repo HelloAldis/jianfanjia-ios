@@ -137,13 +137,20 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
 - (void)updateUserInfo {
     [HUDUtil showWait];
     UpdateUserInfo *request = [[UpdateUserInfo alloc] init];
-    request.dec_process = [DataManager shared].collectedDecPhase;
+    request.dec_progress = [DataManager shared].collectedDecPhase;
     request.dec_styles = [DataManager shared].collectedDecStyle;
     request.family_description = [DataManager shared].collectedFamilyInfo;
     
     [API updateUserInfo:request success:^{
-        [HUDUtil hideWait];
-        [ViewControllerContainer showSignupSuccess];
+        UserGetInfo *getUser = [[UserGetInfo alloc] init];
+        [API userGetInfo:getUser success:^{
+            [HUDUtil hideWait];
+            [ViewControllerContainer showSignupSuccess];
+        } failure:^{
+            [HUDUtil hideWait];
+        } networkError:^{
+            [HUDUtil hideWait];
+        }];
     } failure:^{
         [HUDUtil hideWait];
     } networkError:^{

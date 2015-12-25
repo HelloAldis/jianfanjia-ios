@@ -277,7 +277,12 @@
     
     [HUDUtil showWait];
     [API userLogin:login success:^{
-        [ViewControllerContainer showTab];
+        UserGetInfo *getUser = [[UserGetInfo alloc] init];
+        [API userGetInfo:getUser success:^{
+            [ViewControllerContainer showTab];
+        } failure:^{
+        } networkError:^{
+        }];
     } failure:^{
 
     } networkError:^{

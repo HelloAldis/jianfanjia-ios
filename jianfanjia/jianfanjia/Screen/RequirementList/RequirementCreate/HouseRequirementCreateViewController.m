@@ -192,9 +192,9 @@
     //decoration type @"0":@"家装"
     self.editingRequirement.dec_type = @"0";
     //population
-    self.editingRequirement.family_description = @"三口之家";
+    self.editingRequirement.family_description = [GVUserDefaults standardUserDefaults].family_description.length > 0 ? [GVUserDefaults standardUserDefaults].family_description : @"三口之家";
     //decoration style @"2":@"现代"
-    self.editingRequirement.dec_style = @"2";
+    self.editingRequirement.dec_style = [GVUserDefaults standardUserDefaults].dec_styles.count > 0 ? [GVUserDefaults standardUserDefaults].dec_styles[0] : @"2";
     //communication type @"0":@"不限"
     self.editingRequirement.communication_type = @"0";
     //sex type @"2":@"不限"

@@ -128,7 +128,7 @@ static const NSInteger MaxCollectedStyleCount = 3;
 - (void)onClickNext {
     [DataManager shared].collectedDecStyle = [self.curCollectedStyles map:^id(id obj) {
         NSInteger index = [self.buttonArray indexOfObject:obj];
-        return [NameDict nameForDecStyle:[@(index) stringValue]];
+        return [@(index) stringValue];
     }];
     [ViewControllerContainer showCollectFamilyInfo];
 }
