@@ -21,7 +21,6 @@
 
 @property (weak, nonatomic) Product *product;
 @property (weak, nonatomic) DeleteFavoriateProductBlock block;
-@property (strong, nonatomic) NSIndexPath *indexPath;
 
 @end
 
@@ -42,9 +41,8 @@
     // Configure the view for the selected state
 }
 
-- (void)initWithProduct:(Product *)product andIndexPath:(NSIndexPath *)indexPath andDeleteFavoriateBlock:(DeleteFavoriateProductBlock)block {
+- (void)initWithProduct:(Product *)product andDeleteFavoriateBlock:(DeleteFavoriateProductBlock)block {
     self.product = product;
-    self.indexPath = indexPath;
     self.block = block;
     
     if ([self.product.is_deleted boolValue]) {
@@ -53,7 +51,7 @@
         self.lblDeleteMessage.hidden = NO;
         [self.productImageView setImage:[UIImage imageNamed:@"image_place_holder"]];
         self.lblDetail.text = @"原内容已被作者删除";
-        
+        self.lblCell.text = @"";
     } else {
         self.coverView.hidden = YES;
         self.trashImageView.hidden = YES;
@@ -74,7 +72,7 @@
     @weakify(self);
     [API deleteFavoriateProduct:request success:^{
         @strongify(self);
-        self.block(self.indexPath);
+        self.block(self);
     } failure:^{
         
     } networkError:^{

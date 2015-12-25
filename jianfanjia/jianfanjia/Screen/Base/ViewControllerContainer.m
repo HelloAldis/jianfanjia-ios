@@ -39,6 +39,7 @@
 #import "CollectDecPhaseViewController.h"
 #import "CollectDecStyleViewController.h"
 #import "CollectFamilyInfoViewController.h"
+#import "BeautifulImageHomePageViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -328,6 +329,11 @@ static ViewControllerContainer *container;
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:onlineImages index:index];
     imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+}
+
++ (void)showBeautifulImageHomePage:(BeautifulImage *)beautifulImage {
+    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithBeautifulImage:beautifulImage index:0];
+    [container.tab.selectedViewController pushViewController:controller animated:YES];
 }
 
 + (void)refreshSuccess {

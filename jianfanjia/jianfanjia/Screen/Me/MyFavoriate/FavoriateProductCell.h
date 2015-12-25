@@ -11,6 +11,6 @@
 
 @interface FavoriateProductCell : UITableViewCell
 
-- (void)initWithProduct:(Product *)product andIndexPath:(NSIndexPath *)indexPath andDeleteFavoriateBlock:(DeleteFavoriateProductBlock)block;
+- (void)initWithProduct:(Product *)product andDeleteFavoriateBlock:(DeleteFavoriateProductBlock)block;
 
 @end
