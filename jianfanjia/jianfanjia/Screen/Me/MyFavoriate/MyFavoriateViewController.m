@@ -89,16 +89,27 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     };
     
     
+    self.designerTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+         @strongify(self);
+        [self refreshDesigner];
+    }];
+    self.designerTableView.header.ignoredScrollViewContentInsetTop = 9;
     self.designerTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreDesigner];
     }];
-    
+    self.productTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refreshFavoriateProduct];
+    }];
     self.productTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreFavoriateProduct];
     }];
-    
+    self.beautifulImageCollectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refreshFavoriateBeautifulImage];
+    }];
     self.beautifulImageCollectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreFavoriateBeautifulImage];
@@ -133,13 +144,25 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 - (void)initUIData {
     switch (self.favoriateType) {
         case FavoriateTypeDesigner:
-            [self refreshDesigner];
+            if ([self.favoriateDesignerPageData.designers count] == 0) {
+                [self.designerTableView.header beginRefreshing];
+            } else {
+                [self refreshDesigner];
+            }
             break;
         case FavoriateTypeProduct:
-            [self refreshFavoriateProduct];
+            if ([self.favoriateProductPageData.products count] == 0) {
+                [self.productTableView.header beginRefreshing];
+            } else {
+                [self refreshFavoriateProduct];
+            }
             break;
         case FavoriateTypeBeautifulImage:
-            [self refreshDesigner];
+            if ([self.favoriateBeautifulImageData.beautifulImages count] == 0) {
+                [self.beautifulImageCollectionView.header beginRefreshing];
+            } else {
+                [self refreshFavoriateBeautifulImage];
+            }
             break;
         default:
             break;
@@ -155,7 +178,11 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         self.beautifulImageCollectionView.hidden = YES;
         
         //刷新数据
-        [self refreshDesigner];
+        if ([self.favoriateDesignerPageData.designers count] == 0) {
+            [self.designerTableView.header beginRefreshing];
+        } else {
+            [self refreshDesigner];
+        }
     }
 }
 
@@ -167,8 +194,11 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         self.beautifulImageCollectionView.hidden = YES;
         
         //刷新数据
-        [self refreshFavoriateProduct];
-
+        if ([self.favoriateProductPageData.products count] == 0) {
+            [self.productTableView.header beginRefreshing];
+        } else {
+            [self refreshFavoriateProduct];
+        }
     }
 }
 - (IBAction)onClickBeautifulImage:(id)sender {
@@ -179,7 +209,11 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         self.beautifulImageCollectionView.hidden = NO;
         
         //刷新数据
-        [self refreshFavoriateBeautifulImage];
+        if ([self.favoriateBeautifulImageData.beautifulImages count] == 0) {
+            [self.beautifulImageCollectionView.header beginRefreshing];
+        } else {
+            [self refreshFavoriateBeautifulImage];
+        }
     }
 }
 
@@ -264,6 +298,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     @weakify(self);
     [API listFavoriateDesigner:request success:^{
         @strongify(self);
+        [self.designerTableView.header endRefreshing];
         NSInteger count = [self.favoriateDesignerPageData refreshDesigner];
         if (self.favoriateDesignerPageData.designers.count == 0) {
             [self handleNoFavoriateDesigner];
@@ -275,9 +310,11 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             [self.designerTableView reloadData];
         }
     } failure:^{
-        
+        @strongify(self);
+        [self.designerTableView.header endRefreshing];
     } networkError:^{
-        
+        @strongify(self);
+        [self.designerTableView.header endRefreshing];
     }];
 }
 
@@ -297,8 +334,10 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         
         [self.designerTableView reloadData];
     } failure:^{
+         @strongify(self);
         [self.designerTableView.footer endRefreshing];
     } networkError:^{
+         @strongify(self);
         [self.designerTableView.footer endRefreshing];
     }];
 }
@@ -332,6 +371,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     @weakify(self);
     [API listFavoriateProduct:request success:^{
         @strongify(self);
+        [self.productTableView.header endRefreshing];
         NSInteger count = [self.favoriateProductPageData refreshProduct];
         if (self.favoriateProductPageData.products.count == 0) {
             [self handleNoFavoriateProduct];
@@ -343,9 +383,11 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             [self.productTableView reloadData];
         }
     } failure:^{
-        
+        @strongify(self);
+        [self.productTableView.header endRefreshing];
     } networkError:^{
-        
+        @strongify(self);
+        [self.productTableView.header endRefreshing];
     }];
 }
 
@@ -357,8 +399,8 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     @weakify(self);
     [API listFavoriateProduct:request success:^{
         @strongify(self);
-        NSInteger count = [self.favoriateProductPageData loadMoreProduct];
         [self.productTableView.footer endRefreshing];
+        NSInteger count = [self.favoriateProductPageData loadMoreProduct];
         if (request.limit.integerValue > count) {
             [self.productTableView.footer noticeNoMoreData];
         }
@@ -396,6 +438,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     @weakify(self);
     [API listFavoriateBeautifulImage:request success:^{
         @strongify(self);
+        [self.beautifulImageCollectionView.header endRefreshing];
         NSInteger count = [self.favoriateBeautifulImageData refreshBeautifulImages];
         if (self.favoriateBeautifulImageData.beautifulImages.count == 0) {
             [self handleNoFavoriateBeautifulImage];
@@ -407,9 +450,11 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             [self.beautifulImageCollectionView reloadData];
         }
     } failure:^{
-        
+        @strongify(self);
+        [self.beautifulImageCollectionView.header endRefreshing];
     } networkError:^{
-        
+        @strongify(self);
+        [self.beautifulImageCollectionView.header endRefreshing];
     }];
 }
 
