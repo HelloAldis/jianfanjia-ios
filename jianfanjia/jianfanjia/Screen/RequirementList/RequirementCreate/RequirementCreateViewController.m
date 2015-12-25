@@ -231,17 +231,14 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         // get keybord anmation duration
         kKeyboardDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
     });
-    
-//    self.containerView.contentInset = UIEdgeInsetsMake(0, 0, kKeyboardHeight, 0);
-//    self.containerView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, kKeyboardHeight, 0);
-//    
-//    self.currentDisplayController.view.frame =
+
+    CGRect frame = self.currentDisplayController.view.frame;
+    self.currentDisplayController.view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height - kKeyboardHeight);
 }
 
 - (void) keyboardWillHide:(NSNotification *)notification {
     [self.view endEditing:YES];
-//    self.containerView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-//    self.containerView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, kKeyboardHeight, 0);
+    self.currentDisplayController.view.frame = self.containerView.bounds;
 }
 
 @end
