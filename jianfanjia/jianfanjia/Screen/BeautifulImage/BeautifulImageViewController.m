@@ -246,6 +246,31 @@ static NSString *UnlimitedValue = @"不限";
                 self.curBeautifulImageTypeStyle = value;
             }
             
+            if ([value isEqualToString:UnlimitedValue]) {
+                NSString *buttonTitle;
+                NSInteger index = [self.btnChooseTypes indexOfObject:button];
+                switch (index) {
+                    case 0:
+                        buttonTitle = @"空间";
+                        break;
+                    case 1:
+                        buttonTitle = @"户型";
+                        break;
+                    case 2:
+                        buttonTitle = @"风格";
+                        break;
+                        
+                    default:
+                        break;
+                }
+                
+                [button setTitle:buttonTitle forState:UIControlStateNormal];
+                [button setTitleColor:kThemeTextColor forState:UIControlStateNormal];
+            } else {
+                [button setTitle:value forState:UIControlStateNormal];
+                [button setTitleColor:kFinishedColor forState:UIControlStateNormal];
+            }
+
             //update fall flow data
             [self refreshBeautifulImage];
         }
