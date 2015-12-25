@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeautifulImageHomePageViewController">
@@ -22,55 +22,57 @@
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nR9-Us-fow">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                    <animations/>
                     <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Gqh-gB-mbl"/>
                     </connections>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8H-PR-avr">
-                    <rect key="frame" x="379" y="701" width="25" height="25"/>
-                    <animations/>
-                    <state key="normal" image="download"/>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-B3-NTB">
-                    <rect key="frame" x="0.0" y="633" width="414" height="58"/>
+                    <rect key="frame" x="0.0" y="643" width="414" height="93"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#卫生间 #卧室" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anZ-3W-hZM">
-                            <rect key="frame" x="10" y="31" width="92" height="17"/>
-                            <animations/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#卫生间 #卧室" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="anZ-3W-hZM">
+                            <rect key="frame" x="10" y="31" width="394" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="装修美图" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okj-ek-3Xn">
-                            <rect key="frame" x="10" y="5" width="60" height="18"/>
-                            <animations/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="装修美图" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okj-ek-3Xn">
+                            <rect key="frame" x="10" y="5" width="394" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8H-PR-avr">
+                            <rect key="frame" x="374" y="58" width="25" height="25"/>
+                            <state key="normal" image="download"/>
+                        </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="anZ-3W-hZM" firstAttribute="leading" secondItem="Okj-ek-3Xn" secondAttribute="leading" id="9dq-Ft-hUA"/>
                         <constraint firstAttribute="bottom" secondItem="anZ-3W-hZM" secondAttribute="bottom" constant="10" id="CVV-BT-ERq"/>
                         <constraint firstItem="Okj-ek-3Xn" firstAttribute="leading" secondItem="lfV-B3-NTB" secondAttribute="leading" constant="10" id="DEO-Bq-9rf"/>
                         <constraint firstItem="Okj-ek-3Xn" firstAttribute="top" secondItem="lfV-B3-NTB" secondAttribute="top" constant="5" id="Hf3-kd-t6e"/>
+                        <constraint firstItem="anZ-3W-hZM" firstAttribute="centerX" secondItem="lfV-B3-NTB" secondAttribute="centerX" id="U6O-cF-PDx"/>
+                        <constraint firstAttribute="trailing" secondItem="l8H-PR-avr" secondAttribute="trailing" constant="15" id="VQs-Ph-30B"/>
+                        <constraint firstAttribute="bottom" secondItem="l8H-PR-avr" secondAttribute="bottom" constant="10" id="e9E-98-1uk"/>
                         <constraint firstItem="anZ-3W-hZM" firstAttribute="top" secondItem="Okj-ek-3Xn" secondAttribute="bottom" constant="8" id="gre-Vf-BxH"/>
+                        <constraint firstItem="Okj-ek-3Xn" firstAttribute="centerX" secondItem="lfV-B3-NTB" secondAttribute="centerX" id="hd1-eq-RYC"/>
+                        <constraint firstItem="l8H-PR-avr" firstAttribute="top" secondItem="anZ-3W-hZM" secondAttribute="bottom" constant="10" id="q8g-OA-X7r"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="CVV-BT-ERq"/>
+                        </mask>
+                    </variation>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="l8H-PR-avr" secondAttribute="trailing" constant="10" id="4FA-eH-ybD"/>
                 <constraint firstItem="nR9-Us-fow" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BSI-VW-xXO"/>
-                <constraint firstItem="l8H-PR-avr" firstAttribute="top" secondItem="lfV-B3-NTB" secondAttribute="bottom" constant="10" id="QAl-F6-Ws5"/>
                 <constraint firstItem="lfV-B3-NTB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="T9n-r4-UDO"/>
                 <constraint firstAttribute="bottom" secondItem="nR9-Us-fow" secondAttribute="bottom" id="Yab-T7-Zqu"/>
-                <constraint firstAttribute="bottom" secondItem="lfV-B3-NTB" secondAttribute="bottom" constant="45" id="b3M-bk-PDN"/>
+                <constraint firstAttribute="bottom" secondItem="lfV-B3-NTB" secondAttribute="bottom" id="b3M-bk-PDN"/>
                 <constraint firstItem="lfV-B3-NTB" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="eRE-GQ-QGA"/>
                 <constraint firstItem="nR9-Us-fow" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gUs-mq-K1Z"/>
                 <constraint firstAttribute="trailing" secondItem="nR9-Us-fow" secondAttribute="trailing" id="kHk-VD-0SA"/>

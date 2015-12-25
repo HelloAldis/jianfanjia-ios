@@ -21,6 +21,7 @@
 @property (strong, nonatomic) NSString *cell_unit;
 @property (strong, nonatomic) NSString *cell_detail_number;
 @property (strong, nonatomic) NSString *house_type;
+@property (strong, nonatomic) NSString *business_house_type;
 @property (strong, nonatomic) NSString *dec_type;
 @property (strong, nonatomic) NSNumber *house_area;
 @property (strong, nonatomic) NSString *status;

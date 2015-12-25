@@ -9,13 +9,22 @@
 #ifndef RequirementCreateProtocol_h
 #define RequirementCreateProtocol_h
 
+static NSString *kTipsForSelectCity = @"（目前仅支持湖北省武汉市）";
+
+typedef enum {
+    RequirementOperateTypeView,
+    RequirementOperateTypeEdit
+} RequirementOperateType;
+
 @protocol RequirementCreateProtocol <NSObject>
 
 @required
+- (id)initToCreateRequirement;
+- (id)initToViewRequirement:(Requirement *)requirement;
+
 - (void)triggerEditEvent;
 - (void)triggerDoneEvent;
 - (BOOL)hasDataChanged;
-- (BOOL)allowsSubmit;
 
 @end
 

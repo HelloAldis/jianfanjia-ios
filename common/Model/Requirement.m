@@ -21,6 +21,7 @@
 @dynamic cell_unit;
 @dynamic cell_detail_number;
 @dynamic house_type;
+@dynamic business_house_type;
 @dynamic dec_type;
 @dynamic house_area;
 @dynamic status;

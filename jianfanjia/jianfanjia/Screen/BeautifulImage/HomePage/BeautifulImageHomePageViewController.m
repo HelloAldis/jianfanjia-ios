@@ -144,11 +144,8 @@
     [self.scrollView addGestureRecognizer:doubleTap];
     [singleTap requireGestureRecognizerToFail:doubleTap];
     
-    self.imgDescription.text = self.beautifulImage.beautiful_image_description;
-    self.imgTag.text = [[[self.beautifulImage.keywords componentsSeparatedByString:@","] map:^id(NSString *obj) {
-        return [NSString stringWithFormat:@"#%@", obj];
-    }] join:@" "];
-    
+    self.imgDescription.text = self.beautifulImage.title;
+    self.imgTag.text = [self.beautifulImage.keywords stringByReplacingOccurrencesOfString:@"," withString:@"# "];
     [[self.btnDownload rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [self onClickDownloadButton];
@@ -232,7 +229,7 @@
     
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
         [self.navigationController setNavigationBarHidden:!isHidden animated:YES];
-        self.textViewBottomToSuper.constant = !isHidden ? 0 : 45;
+        self.textViewBottomToSuper.constant = !isHidden ? -35 : 0;
         [self.view layoutIfNeeded];
     } completion:nil];
 }

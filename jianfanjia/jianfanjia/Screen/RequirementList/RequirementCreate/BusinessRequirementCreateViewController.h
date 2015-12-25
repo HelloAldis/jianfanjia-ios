@@ -18,6 +18,5 @@
 - (void)triggerEditEvent;
 - (void)triggerDoneEvent;
 - (BOOL)hasDataChanged;
-- (BOOL)allowsSubmit;
 
 @end

@@ -11,11 +11,6 @@
 #import "HouseRequirementCreateViewController.h"
 #import "BusinessRequirementCreateViewController.h"
 
-typedef enum {
-    RequirementOperateTypeView,
-    RequirementOperateTypeEdit
-} RequirementOperateType;
-
 static float kKeyboardHeight = 480;
 static NSTimeInterval kKeyboardDuration = 2.0;
 
@@ -27,7 +22,6 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 @property (strong, nonatomic) BusinessRequirementCreateViewController *businessRequirementController;
 
 @property (strong, nonatomic) Requirement *editingRequirement;
-@property (assign, nonatomic) RequirementOperateType editType;
 
 @property (strong, nonatomic) UIButton *houseBtn;
 @property (strong, nonatomic) UIButton *businessBtn;
@@ -43,18 +37,16 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 - (id)initToCreateRequirement {
     Requirement *newRequirement = [[Requirement alloc] init];
     newRequirement._id = @"";
-    return [self initWithRequirement:newRequirement withType:RequirementOperateTypeEdit];
+    return [self initWithRequirement:newRequirement];
 }
 
 - (id)initToViewRequirement:(Requirement *)requirement {
-    return [self initWithRequirement:requirement withType:RequirementOperateTypeView];
+    return [self initWithRequirement:requirement];
 }
 
-- (id)initWithRequirement:(Requirement *)requirement withType:(RequirementOperateType)editType {
-    self = [super init];
-    if (self) {
+- (id)initWithRequirement:(Requirement *)requirement {
+    if (self = [super init]) {
         _editingRequirement = requirement;
-        _editType = editType;
     }
     
     return self;
@@ -82,7 +74,14 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 #pragma mark - Nav
 - (void)initNav {
     [self initLeftBackInNav];
-    
+    if ([self isCreateRequirement]) {
+        [self displayDoneButton];
+    } else {
+        if ([self.editingRequirement.status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
+            self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
+        }
+    }
     
     if ([self isCreateRequirement] ) {
         self.houseBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 37)];
@@ -98,9 +97,9 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         [titleView addSubview:_businessBtn];
         self.navigationItem.titleView = titleView;
     } else {
-        if ([self.editingRequirement.dec_style isEqualToString:kDecTypeHouse]) {
+        if ([self.editingRequirement.dec_type isEqualToString:kDecTypeHouse]) {
             self.title = @"家装";
-        } else if ([self.editingRequirement.dec_style isEqualToString:kDecTypeBusiness]) {
+        } else if ([self.editingRequirement.dec_type isEqualToString:kDecTypeBusiness]) {
             self.title = @"商装";
         }
     }
@@ -112,25 +111,11 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
     self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    
-    [self listenDoneStatusWithRecreate:NO];
-}
-
-- (void)refreshRightNaviBarItem {
-    if ([self isCreateRequirement]) {
-        [self displayDoneButton];
-    } else {
-        if ([self.editingRequirement.status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
-            self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
-        }
-    }
 }
 
 #pragma mark - UI
 - (void)initUI {
     [self initChildView];
-    [self refreshRightNaviBarItem];
 }
 
 #pragma mark - user action
@@ -151,20 +136,19 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 }
 
 - (void)onClickEdit {
-    self.editType = RequirementOperateTypeEdit;
     [self displayDoneButton];
-//    [self enableSubviews:YES];
+    [self.currentDisplayController triggerEditEvent];
 }
 
 - (void)onClickDone {
-    
+    [self.currentDisplayController triggerDoneEvent];
 }
 
 - (BOOL)hasDataChanged {
-    if (self.editType == RequirementOperateTypeView) {
-        return NO;
+    if ([self.houseRequirementController hasDataChanged]
+        || [self.businessRequirementController hasDataChanged]) {
+        return YES;
     }
-    
     
     return NO;
 }
@@ -182,42 +166,6 @@ static NSTimeInterval kKeyboardDuration = 2.0;
     [super onClickBack];
 }
 
-#pragma mark - listen properties
-- (void)listenDoneStatusWithRecreate:(BOOL)recreateObserver {
-    if (recreateObserver) {
-        [self.houseDisposable dispose];
-        [self.businessDisposable dispose];
-    }
-    
-    if ([self isCreateRequirement]) {
-        self.houseDisposable = [RACObserve(self.houseRequirementController, allowsSubmit) subscribeNext:^(id x) {
-            if (self.currentDisplayController == self.houseRequirementController) {
-                self.navigationItem.rightBarButtonItem.enabled = [x boolValue];
-            }
-        }];
-        
-        self.businessDisposable = [RACObserve(self.businessRequirementController, allowsSubmit) subscribeNext:^(id x) {
-            if (self.currentDisplayController == self.businessRequirementController) {
-                self.navigationItem.rightBarButtonItem.enabled = [x boolValue];
-            }
-        }];
-    } else {
-        if ([self.editingRequirement.dec_style isEqualToString:kDecTypeHouse]) {
-            self.houseDisposable = [RACObserve(self.houseRequirementController, allowsSubmit) subscribeNext:^(id x) {
-                if (self.currentDisplayController == self.houseRequirementController) {
-                    self.navigationItem.rightBarButtonItem.enabled = [x boolValue];
-                }
-            }];
-        } else if ([self.editingRequirement.dec_style isEqualToString:kDecTypeBusiness]) {
-            self.businessDisposable = [RACObserve(self.businessRequirementController, allowsSubmit) subscribeNext:^(id x) {
-                if (self.currentDisplayController == self.businessRequirementController) {
-                    self.navigationItem.rightBarButtonItem.enabled = [x boolValue];
-                }
-            }];
-        }
-    }
-}
-
 #pragma mark - child controller 
 - (void)initChildView {
     if ([self isCreateRequirement]) {
@@ -226,33 +174,33 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         [self addChildViewController:self.houseRequirementController];
         [self addChildViewController:self.businessRequirementController];
         self.currentDisplayController = self.houseRequirementController;
-        [self.containerView addSubview:self.houseRequirementController.view];
+        [self.containerView addSubview:self.currentDisplayController.view];
         [self highlightButton:self.houseBtn high:YES];
         [self highlightButton:self.businessBtn high:NO];
     } else {
-        if ([self.editingRequirement.dec_style isEqualToString:kDecTypeHouse]) {
+        if ([self.editingRequirement.dec_type isEqualToString:kDecTypeHouse]) {
             self.houseRequirementController = [[HouseRequirementCreateViewController alloc] initToViewRequirement:self.editingRequirement];
             [self addChildViewController:self.houseRequirementController];
             self.currentDisplayController = self.houseRequirementController;
-            [self.containerView addSubview:self.houseRequirementController.view];
-        } else if ([self.editingRequirement.dec_style isEqualToString:kDecTypeBusiness]) {
+            [self.containerView addSubview:self.currentDisplayController.view];
+        } else if ([self.editingRequirement.dec_type isEqualToString:kDecTypeBusiness]) {
             self.businessRequirementController = [[BusinessRequirementCreateViewController alloc] initToViewRequirement:self.editingRequirement];
             [self addChildViewController:self.businessRequirementController];
             self.currentDisplayController = self.businessRequirementController;
-            [self.containerView addSubview:self.businessRequirementController.view];
+            [self.containerView addSubview:self.currentDisplayController.view];
         }
     }
+    self.currentDisplayController.view.frame = self.containerView.bounds;
 }
 
 - (void)switchControllerFrom:(UIViewController<RequirementCreateProtocol> *)fromViewController to:(UIViewController<RequirementCreateProtocol> *)toViewController {
-    [self transitionFromViewController:fromViewController toViewController:toViewController duration:0.5 options:UIViewAnimationOptionTransitionCrossDissolve
+    [self transitionFromViewController:fromViewController toViewController:toViewController duration:0.5 options:UIViewAnimationOptionTransitionNone
     animations:^{
         toViewController.view.frame = self.containerView.bounds;
     } completion:^(BOOL finished) {
         if (finished) {
             self.currentDisplayController = toViewController;
             [toViewController didMoveToParentViewController:self];
-            [self listenDoneStatusWithRecreate:YES];
         }
     }];
 }
@@ -284,14 +232,16 @@ static NSTimeInterval kKeyboardDuration = 2.0;
         kKeyboardDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
     });
     
-//    self.scrollView.contentInset = UIEdgeInsetsMake(64, 0, kKeyboardHeight, 0);
-//    self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, kKeyboardHeight, 0);
+//    self.containerView.contentInset = UIEdgeInsetsMake(0, 0, kKeyboardHeight, 0);
+//    self.containerView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, kKeyboardHeight, 0);
+//    
+//    self.currentDisplayController.view.frame =
 }
 
 - (void) keyboardWillHide:(NSNotification *)notification {
     [self.view endEditing:YES];
-//    self.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-//    self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, kKeyboardHeight, 0);
+//    self.containerView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+//    self.containerView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, kKeyboardHeight, 0);
 }
 
 @end

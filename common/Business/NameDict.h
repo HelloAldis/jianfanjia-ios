@@ -21,6 +21,7 @@
 + (NSDictionary *)getAllPlanStatus;
 + (NSDictionary *)getAllRequirementStatus;
 + (NSArray *)getAllBeautifulImageType;
++ (NSDictionary *)getAllBusinessType;
 
 + (NSString *)nameForUserType:(NSString *)type;
 + (NSString *)nameForHouseType:(NSString *)type;
@@ -34,5 +35,6 @@
 + (NSString *)nameForPlanStatus:(NSString *)status;
 + (NSString *)nameForRequirementStatus:(NSString *)status;
 + (NSString *)nameForSectionStatus:(NSString *)status;
++ (NSString *)nameForBusinessType:(NSString *)status;
 
 @end

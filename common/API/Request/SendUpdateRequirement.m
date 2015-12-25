@@ -55,24 +55,7 @@
 
 - (id)initWithRequirement:(Requirement *)requirement {
     if (self = [super init]) {
-        self._id = requirement._id;
-        self.province = requirement.province;
-        self.city = requirement.city;
-        self.district = requirement.district;
-        self.street = requirement.street;
-        self.cell = requirement.cell;
-        self.cell_phase = requirement.cell_phase;
-        self.cell_building = requirement.cell_building;
-        self.cell_unit = requirement.cell_unit;
-        self.cell_detail_number = requirement.cell_detail_number;
-        self.house_type = requirement.house_type;
-        self.dec_type = requirement.dec_type;
-        self.house_area = requirement.house_area;
-        self.dec_style = requirement.dec_style;
-        self.work_type = requirement.work_type;
-        self.total_price = requirement.total_price;
-        self.prefer_sex = requirement.prefer_sex;
-        self.family_description = requirement.family_description;
+        [self merge:requirement];
     }
     
     return self;
