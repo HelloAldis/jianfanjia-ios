@@ -54,7 +54,7 @@ static NSString* cellId = @"decStyleCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [[[NameDict getAllDecorationStyle] sortedWithOrder:YES] allValues];
+    self.data = [[NameDict getAllDecorationStyle] sortedKeyWithOrder:YES];
 }
 
 #pragma mark - collection view delegate

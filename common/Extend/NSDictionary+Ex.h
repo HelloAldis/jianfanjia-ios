@@ -10,6 +10,7 @@
 
 @interface NSDictionary (Ex)
 
-- (NSMutableDictionary *)sortedWithOrder:(BOOL)ascend;
+- (NSMutableArray *)sortedKeyWithOrder:(BOOL)ascend;
+- (NSMutableArray *)sortedValueWithOrder:(BOOL)ascend;
 
 @end

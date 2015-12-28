@@ -69,7 +69,9 @@
     @weakify(self);
     [self.requirementDataManager.orderedDesigners enumerateObjectsUsingBlock:^(Designer*  _Nonnull orderedDesigner, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
-        [self updateDesigner:orderedDesigner forIndex:idx];
+        if (idx < self.designerAvatar.count) {
+            [self updateDesigner:orderedDesigner forIndex:idx];
+        }
     }];
 }
 

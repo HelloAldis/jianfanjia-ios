@@ -42,7 +42,7 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [[[NameDict getAllHouseType] sortedWithOrder:YES] allValues];
+    self.data = [[NameDict getAllHouseType] sortedKeyWithOrder:YES];
 }
 
 #pragma mark - table view delegate

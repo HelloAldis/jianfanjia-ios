@@ -57,8 +57,8 @@ static NSMutableArray *decStyleDS;
 + (void)initialize {
     if ([self class] == [BeautifulImageViewController class]) {
         beautifulImageDS = [[NameDict getAllBeautifulImageType] mutableCopy];
-        houseTypeDS = [[[[NameDict getAllHouseType] sortedWithOrder:YES] allValues] mutableCopy];
-        decStyleDS = [[[[NameDict getAllDecorationStyle] sortedWithOrder:YES] allValues] mutableCopy];
+        houseTypeDS = [[NameDict getAllHouseType] sortedValueWithOrder:YES];
+        decStyleDS = [[NameDict getAllDecorationStyle] sortedValueWithOrder:YES];
         
         [beautifulImageDS insertObject:UnlimitedValue atIndex:0];
         [houseTypeDS insertObject:UnlimitedValue atIndex:0];

@@ -42,7 +42,7 @@ static NSString* cellId = @"businessCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [[[NameDict getAllBusinessType] sortedWithOrder:YES] allValues];
+    self.data = [[NameDict getAllBusinessType] sortedKeyWithOrder:YES];
 }
 
 #pragma mark - table view delegate
