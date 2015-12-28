@@ -144,25 +144,25 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 - (void)initUIData {
     switch (self.favoriateType) {
         case FavoriateTypeDesigner:
-            if ([self.favoriateDesignerPageData.designers count] == 0) {
-                [self.designerTableView.header beginRefreshing];
-            } else {
+//            if ([self.favoriateDesignerPageData.designers count] == 0) {
+//                [self.designerTableView.header beginRefreshing];
+//            } else {
                 [self refreshDesigner];
-            }
+//            }
             break;
         case FavoriateTypeProduct:
-            if ([self.favoriateProductPageData.products count] == 0) {
-                [self.productTableView.header beginRefreshing];
-            } else {
+//            if ([self.favoriateProductPageData.products count] == 0) {
+//                [self.productTableView.header beginRefreshing];
+//            } else {
                 [self refreshFavoriateProduct];
-            }
+//            }
             break;
         case FavoriateTypeBeautifulImage:
-            if ([self.favoriateBeautifulImageData.beautifulImages count] == 0) {
-                [self.beautifulImageCollectionView.header beginRefreshing];
-            } else {
+//            if ([self.favoriateBeautifulImageData.beautifulImages count] == 0) {
+//                [self.beautifulImageCollectionView.header beginRefreshing];
+//            } else {
                 [self refreshFavoriateBeautifulImage];
-            }
+//            }
             break;
         default:
             break;
@@ -306,9 +306,9 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             if (request.limit.integerValue > count) {
                 [self.designerTableView.footer noticeNoMoreData];
             }
-            
-            [self.designerTableView reloadData];
         }
+        
+        [self.designerTableView reloadData];
     } failure:^{
         @strongify(self);
         [self.designerTableView.header endRefreshing];
@@ -379,9 +379,9 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             if (request.limit.integerValue > count) {
                 [self.productTableView.footer noticeNoMoreData];
             }
-            
-            [self.productTableView reloadData];
         }
+        
+        [self.productTableView reloadData];
     } failure:^{
         @strongify(self);
         [self.productTableView.header endRefreshing];
@@ -446,9 +446,9 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             if (request.limit.integerValue > count) {
                 [self.beautifulImageCollectionView.footer noticeNoMoreData];
             }
-            
-            [self.beautifulImageCollectionView reloadData];
         }
+        
+        [self.beautifulImageCollectionView reloadData];
     } failure:^{
         @strongify(self);
         [self.beautifulImageCollectionView.header endRefreshing];
