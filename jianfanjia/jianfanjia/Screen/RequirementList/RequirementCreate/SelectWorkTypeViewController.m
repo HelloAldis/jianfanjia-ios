@@ -42,15 +42,7 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [[NameDict getAllWorkType].allKeys sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(NSString*  _Nonnull obj1, NSString*  _Nonnull obj2) {
-        if ([obj1 compare:obj2] == NSOrderedAscending) {
-            return NSOrderedAscending;
-        } else if ([obj1 compare:obj2] == NSOrderedDescending) {
-            return NSOrderedDescending;
-        } else {
-            return NSOrderedSame;
-        }
-    }];
+    self.data = [[[NameDict getAllWorkType] sortedWithOrder:YES] allValues];
 }
 
 #pragma mark - table view delegate

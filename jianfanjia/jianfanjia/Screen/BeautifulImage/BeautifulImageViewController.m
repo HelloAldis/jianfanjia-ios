@@ -24,6 +24,9 @@ typedef NS_ENUM(NSInteger, BeautifulImageType) {
 
 static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollectionCell";
 static NSString *UnlimitedValue = @"不限";
+static NSMutableArray *beautifulImageDS;
+static NSMutableArray *houseTypeDS;
+static NSMutableArray *decStyleDS;
 
 @interface BeautifulImageViewController ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -31,6 +34,8 @@ static NSString *UnlimitedValue = @"不限";
 @property (weak, nonatomic) IBOutlet CollectionFallsFlowLayout *imgCollectionLayout;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnChooseTypes;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *angleImages;
+@property (weak, nonatomic) IBOutlet UIImageView *noDataImageView;
+@property (weak, nonatomic) IBOutlet UILabel *lblNoData;
 
 @property (strong, nonatomic) DropdownMenuView *dropdownMenu;
 @property (assign, nonatomic) BOOL isShowDropdown;
@@ -47,6 +52,19 @@ static NSString *UnlimitedValue = @"不限";
 @end
 
 @implementation BeautifulImageViewController
+
+#pragma mark - init
++ (void)initialize {
+    if ([self class] == [BeautifulImageViewController class]) {
+        beautifulImageDS = [[NameDict getAllBeautifulImageType] mutableCopy];
+        houseTypeDS = [[[[NameDict getAllHouseType] sortedWithOrder:YES] allValues] mutableCopy];
+        decStyleDS = [[[[NameDict getAllDecorationStyle] sortedWithOrder:YES] allValues] mutableCopy];
+        
+        [beautifulImageDS insertObject:UnlimitedValue atIndex:0];
+        [houseTypeDS insertObject:UnlimitedValue atIndex:0];
+        [decStyleDS insertObject:UnlimitedValue atIndex:0];
+    }
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -181,41 +199,37 @@ static NSString *UnlimitedValue = @"不限";
 
 #pragma mark - user action
 - (void)onClickButton:(UIButton *)button {
-    NSInteger buttonIndex = [self.btnChooseTypes indexOfObject:button];
-    self.beautifulImageType = buttonIndex;
-
     @weakify(self);
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        [self.btnChooseTypes enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            @strongify(self);
-            if (idx == buttonIndex) {
-                [obj setTitleColor:kThemeTextColor forState:UIControlStateNormal];
-                [self.angleImages[idx] setImage:[UIImage imageNamed:@"angle_expand"]];
-            } else {
-                [obj setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
-                [self.angleImages[idx] setImage:[UIImage imageNamed:@"angle_unexpand"]];
-            }
-        }];
-    } completion:nil];
+    [self.btnChooseTypes enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        [self highlightTypeButton:idx highlight:obj == button title:nil];
+    }];
     
     [self showDropdown:button];
 }
 
 - (void)showDropdown:(UIButton *)button {
+    NSInteger buttonIndex = [self.btnChooseTypes indexOfObject:button];
+    if (self.beautifulImageType == buttonIndex && self.isShowDropdown) {
+        [self highlightTypeButton:self.beautifulImageType highlight:NO title:nil];
+        [self hideDropdownMenu];
+        return;
+    }
+    
+    self.beautifulImageType = buttonIndex;
+    
     NSMutableArray *datasource = nil;
     NSString *defaultValue = nil;
     if (self.beautifulImageType == BeautifulImageTypeSpace) {
-        datasource = [[NameDict getAllBeautifulImageType] mutableCopy];
+        datasource = beautifulImageDS;
         defaultValue = self.curBeautifulImageTypeSpace;
     } else if (self.beautifulImageType == BeautifulImageTypeHouse) {
-        datasource = [self getAllOrderedArray:[NameDict getAllHouseType]];
+        datasource = houseTypeDS;
         defaultValue = self.curBeautifulImageTypeHouse;
     } else if (self.beautifulImageType == BeautifulImageTypeStyle) {
-        datasource = [self getAllOrderedArray:[NameDict getAllDecorationStyle]];
+        datasource = decStyleDS;
         defaultValue = self.curBeautifulImageTypeStyle;
     }
-    
-    [datasource insertObject:UnlimitedValue atIndex:0];
     
     if (!self.dropdownMenu) {
         self.dropdownMenu = [[DropdownMenuView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 0)];
@@ -225,18 +239,6 @@ static NSString *UnlimitedValue = @"不限";
     @weakify(self);
     [self.dropdownMenu initWithDataSource:datasource defaultValue:defaultValue block:^(id value) {
         @strongify(self);
-        //dismiss
-        if (self.isShowDropdown) {
-            [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
-                self.dropdownMenu.frame = CGRectMake(0, -CGRectGetMaxY(self.dropdownMenu.collectionView.frame), CGRectGetWidth(self.view.frame), 0);
-                [self.view layoutIfNeeded];
-            } completion:^(BOOL finished) {
-                if (finished) {
-                    self.isShowDropdown = NO;
-                }
-            }];
-        }
-        
         if (value) {
             if (self.beautifulImageType == BeautifulImageTypeSpace) {
                 self.curBeautifulImageTypeSpace = value;
@@ -245,37 +247,56 @@ static NSString *UnlimitedValue = @"不限";
             } else if (self.beautifulImageType == BeautifulImageTypeStyle) {
                 self.curBeautifulImageTypeStyle = value;
             }
-            
-            if ([value isEqualToString:UnlimitedValue]) {
-                NSString *buttonTitle;
-                NSInteger index = [self.btnChooseTypes indexOfObject:button];
-                switch (index) {
-                    case 0:
-                        buttonTitle = @"空间";
-                        break;
-                    case 1:
-                        buttonTitle = @"户型";
-                        break;
-                    case 2:
-                        buttonTitle = @"风格";
-                        break;
-                        
-                    default:
-                        break;
-                }
-                
-                [button setTitle:buttonTitle forState:UIControlStateNormal];
-                [button setTitleColor:kThemeTextColor forState:UIControlStateNormal];
-            } else {
-                [button setTitle:value forState:UIControlStateNormal];
-                [button setTitleColor:kFinishedColor forState:UIControlStateNormal];
-            }
 
             //update fall flow data
             [self refreshBeautifulImage];
         }
+        
+        if ([value isEqualToString:UnlimitedValue]) {
+            [self highlightTypeButton:buttonIndex highlight:NO title:[self getDefaultTypeButtonTitle]];
+        } else {
+            [self highlightTypeButton:buttonIndex highlight:NO title:value];
+        }
+        
+        //dismiss
+        [self hideDropdownMenu];
     }];
     
+    [self showDropdownMenu];
+}
+
+- (NSString *)getDefaultTypeButtonTitle {
+    NSString *buttonTitle;
+    switch (self.beautifulImageType) {
+        case BeautifulImageTypeSpace:
+            buttonTitle = @"空间";
+            break;
+        case BeautifulImageTypeHouse:
+            buttonTitle = @"户型";
+            break;
+        case BeautifulImageTypeStyle:
+            buttonTitle = @"风格";
+            break;
+            
+        default:
+            break;
+    }
+    
+    return buttonTitle;
+}
+
+- (void)highlightTypeButton:(NSInteger)idx highlight:(BOOL)highlight title:(NSString *)title {
+    UIButton *button = self.btnChooseTypes[idx];
+    UIImageView *imgView = self.angleImages[idx];
+    if (title) {
+        [button setTitle:title forState:UIControlStateNormal];
+    }
+    
+    [button setTitleColor:highlight ? kThemeTextColor : kUntriggeredColor forState:UIControlStateNormal];
+    [imgView setImage:[UIImage imageNamed:highlight ? @"angle_expand" : @"angle_unexpand" ]];
+}
+
+- (void)showDropdownMenu {
     if (!self.isShowDropdown) {
         [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
             self.dropdownMenu.frame = CGRectMake(0, CGRectGetMaxY(self.headerView.frame), CGRectGetWidth(self.view.frame), CGRectGetHeight(self.imgCollection.frame));
@@ -288,27 +309,24 @@ static NSString *UnlimitedValue = @"不限";
     }
 }
 
-- (NSMutableArray *)getAllOrderedArray:(NSDictionary *)dictionary {
-    NSArray *orderedKeys = [dictionary.allKeys sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(NSString*  _Nonnull obj1, NSString*  _Nonnull obj2) {
-        if ([obj1 compare:obj2] == NSOrderedAscending) {
-            return NSOrderedAscending;
-        } else if ([obj1 compare:obj2] == NSOrderedDescending) {
-            return NSOrderedDescending;
-        } else {
-            return NSOrderedSame;
-        }
-    }];
-    
-    NSMutableArray *array = [orderedKeys map:^id(id obj) {
-        return [dictionary valueForKey:obj];
-    }];
-    
-    return array;
+- (void)hideDropdownMenu {
+    if (self.isShowDropdown) {
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
+            self.dropdownMenu.frame = CGRectMake(0, -CGRectGetMaxY(self.dropdownMenu.collectionView.frame), CGRectGetWidth(self.view.frame), 0);
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            if (finished) {
+                self.isShowDropdown = NO;
+            }
+        }];
+    }
 }
 
 #pragma mark - api request
 - (void)refreshBeautifulImage {
+    [self resetNoDataTip];
     [self.imgCollection.footer resetNoMoreData];
+    
     SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
     request.query = [self getQueryDic];
     request.from = @0;
@@ -316,8 +334,11 @@ static NSString *UnlimitedValue = @"不限";
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.header endRefreshing];
-        [self.dataManager refreshBeautifulImage];
-        if (request.limit.integerValue > self.dataManager.beautifulImages.count) {
+        NSInteger count = [self.dataManager refreshBeautifulImage];
+        
+        if (count == 0) {
+            [self handleNoFavoriateBeautifulImage];
+        } else if (request.limit.integerValue > count) {
             [self.imgCollection.footer noticeNoMoreData];
         }
         
@@ -337,21 +358,8 @@ static NSString *UnlimitedValue = @"不限";
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.footer endRefreshing];
-        NSInteger currentCount = self.dataManager.beautifulImages.count;
-        [self.dataManager loadMoreBeautifulImage];
-        NSInteger totalCount = self.dataManager.beautifulImages.count;
-        
-//        NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:totalCount - currentCount];
-//        for (NSInteger i = currentCount; i < totalCount; i++) {
-//            [insertIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-//        }
-//        
-        NSInteger moreCount = totalCount - currentCount;
-//        if (moreCount > 0) {
-//            [self.imgCollection insertItemsAtIndexPaths:insertIndexPaths];
-//        }
-        
-        if (request.limit.integerValue > moreCount) {
+        NSInteger count = [self.dataManager loadMoreBeautifulImage];
+        if (request.limit.integerValue > count) {
             [self.imgCollection.footer noticeNoMoreData];
         }
         
@@ -369,13 +377,25 @@ static NSString *UnlimitedValue = @"不限";
         [dic setObject:self.curBeautifulImageTypeSpace forKey:@"section"];
     }
     if (![self.curBeautifulImageTypeHouse isEqualToString:UnlimitedValue]) {
-        [dic setObject:self.curBeautifulImageTypeHouse forKey:@"house_type"];
+        [dic setObject:[[[NameDict getAllHouseType] allKeysForObject:self.curBeautifulImageTypeHouse] lastObject] forKey:@"house_type"];
     }
     if (![self.curBeautifulImageTypeStyle isEqualToString:UnlimitedValue]) {
-        [dic setObject:self.curBeautifulImageTypeStyle forKey:@"dec_style"];
+        [dic setObject:[[[NameDict getAllDecorationStyle] allKeysForObject:self.curBeautifulImageTypeStyle] lastObject] forKey:@"dec_style"];
     }
     
     return dic;
+}
+
+- (void)resetNoDataTip {
+    self.lblNoData.hidden = YES;
+    self.noDataImageView.hidden = YES;
+}
+
+- (void)handleNoFavoriateBeautifulImage {
+    self.lblNoData.text = @"您还没有收藏任何美图";
+    self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_beautiful_image"];
+    self.lblNoData.hidden = NO;
+    self.noDataImageView.hidden = NO;
 }
 
 @end

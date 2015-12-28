@@ -143,6 +143,7 @@
 		6855E62E1BFAB87A00E789D4 /* RequirementDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E62D1BFAB87A00E789D4 /* RequirementDataManager.m */; };
 		6855E6321BFAC78A00E789D4 /* RequirementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E6301BFAC78A00E789D4 /* RequirementCell.m */; };
 		6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E6311BFAC78A00E789D4 /* RequirementCell.xib */; };
+		6857265D1C30E472006F6188 /* NSDictionary+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6857265C1C30E472006F6188 /* NSDictionary+Ex.m */; };
 		685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B51051BE76D45001C8B34 /* UIColor+Ex.m */; };
 		685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 685BF2FD1C0BE3D700ECA4C9 /* PhotoUtil.m */; };
 		685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 685BF3001C0C346600ECA4C9 /* UploadImageToProcess.m */; };
@@ -574,6 +575,8 @@
 		6855E62F1BFAC78A00E789D4 /* RequirementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementCell.h; sourceTree = "<group>"; };
 		6855E6301BFAC78A00E789D4 /* RequirementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementCell.m; sourceTree = "<group>"; };
 		6855E6311BFAC78A00E789D4 /* RequirementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementCell.xib; sourceTree = "<group>"; };
+		6857265B1C30E472006F6188 /* NSDictionary+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Ex.h"; sourceTree = "<group>"; };
+		6857265C1C30E472006F6188 /* NSDictionary+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Ex.m"; sourceTree = "<group>"; };
 		685B51041BE76D45001C8B34 /* UIColor+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ex.h"; sourceTree = "<group>"; };
 		685B51051BE76D45001C8B34 /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
 		685BF2FC1C0BE3D700ECA4C9 /* PhotoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUtil.h; sourceTree = "<group>"; };
@@ -1415,6 +1418,8 @@
 				6EE1E4361C082A8300883184 /* UIImage+Ex.m */,
 				AB5F1EC41C0C8B32009203DF /* UIImagePickerController+Ex.h */,
 				AB5F1EC51C0C8B32009203DF /* UIImagePickerController+Ex.m */,
+				6857265B1C30E472006F6188 /* NSDictionary+Ex.h */,
+				6857265C1C30E472006F6188 /* NSDictionary+Ex.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -2223,6 +2228,7 @@
 				684A370E1BFD733500F7388C /* OrderedDesignerViewController.m in Sources */,
 				6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */,
 				683FFB411C296288002A1AFE /* BeautifulImageCollectionCell.m in Sources */,
+				6857265D1C30E472006F6188 /* NSDictionary+Ex.m in Sources */,
 				684A37581BFD73DF00F7388C /* SelectSexTypeViewController.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
 				6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */,

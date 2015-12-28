@@ -42,11 +42,6 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
     [self initUI];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    self.navigationController.navigationBar.shadowImage = nil;
-}
-
 #pragma mark - init UI
 - (void)initNav {
     self.navigationController.navigationBarHidden = NO;
@@ -57,9 +52,7 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
-}
-
-- (void)initUI {
+    
     [self.btnNext setCornerRadius:5];
     [self.btnNext setBackgroundColor:kUntriggeredColor];
     self.btnNext.enabled = NO;
@@ -70,11 +63,18 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
         [self onClickNext];
     }];
     
+    self.curCollectedFamilys = [NSMutableArray array];
+}
+
+- (void)initUI {
+    if (self.scrollView.contentSize.width != 0)
+        return;
+    
     CGFloat scrollWidth = CGRectGetWidth(self.scrollView.frame);
     CGFloat firstItemX = (scrollWidth - FamilyInfoWidth) / 2;
     CGFloat space = [self getBestSpace];
     self.itemSpace = space;
-    self.curCollectedFamilys = [NSMutableArray array];
+    
     self.buttonArray = [NSMutableArray arrayWithCapacity:FamilyInfoCount];
     for (NSInteger i = 0; i < FamilyInfoCount; i++) {
         CGFloat itemX = (FamilyInfoWidth + space) * i + (kIsPad ? 0 : firstItemX);
@@ -118,7 +118,7 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
         [self.btnNext setBackgroundColor:kFinishedColor];
         self.btnNext.enabled = YES;
     } else {
-        self.lblDecStyleVal.text = @"常驻人口";
+        self.lblDecStyleVal.text = @"常住人口";
         self.lblDecStyleVal.textColor = kThemeTextColor;
         [self.btnNext setBackgroundColor:kUntriggeredColor];
         self.btnNext.enabled = NO;

@@ -42,11 +42,6 @@ static const NSInteger MaxCollectedStyleCount = 3;
     [self initUI];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    self.navigationController.navigationBar.shadowImage = nil;
-}
-
 #pragma mark - init UI
 - (void)initNav {
     self.navigationController.navigationBarHidden = NO;
@@ -57,9 +52,7 @@ static const NSInteger MaxCollectedStyleCount = 3;
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
-}
-
-- (void)initUI {
+    
     [self.btnNext setCornerRadius:5];
     [self.btnNext setBackgroundColor:kUntriggeredColor];
     self.btnNext.enabled = NO;
@@ -69,12 +62,17 @@ static const NSInteger MaxCollectedStyleCount = 3;
         @strongify(self);
         [self onClickNext];
     }];
+    self.curCollectedStyles = [NSMutableArray array];
+}
+
+- (void)initUI {
+    if (self.scrollView.contentSize.width != 0)
+        return;
     
     CGFloat scrollWidth = CGRectGetWidth(self.scrollView.frame);
     CGFloat firstItemX = (scrollWidth - DecStyleWidth) / 2;
     CGFloat space = [self getBestSpace];
     self.itemSpace = space;
-    self.curCollectedStyles = [NSMutableArray array];
     self.buttonArray = [NSMutableArray arrayWithCapacity:DecStyleCount];
     for (NSInteger i = 0; i < DecStyleCount; i++) {
         CGFloat itemX = (DecStyleWidth + space) * i + (kIsPad ? 0 : firstItemX);

@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSMutableArray *beautifulImages;
 
-- (void)refreshBeautifulImage;
-- (void)loadMoreBeautifulImage;
+- (NSInteger)refreshBeautifulImage;
+- (NSInteger)loadMoreBeautifulImage;
 
 @end

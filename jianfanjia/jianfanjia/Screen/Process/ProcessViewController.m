@@ -77,6 +77,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:NotificationDBYS object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -88,6 +90,12 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         DDLogDebug(@"subscribeUnreadCountForProcess");
         self.navigationItem.rightBarButtonItem.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
     }];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UI
@@ -480,6 +488,14 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         @strongify(self);
         [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
     }];
+}
+
+#pragma mark - notification 
+- (void)receiveNotification:(NSNotification *)notification {
+    Notification *noti = notification.object;
+    if ([noti.processid isEqualToString:self.processid]) {
+        [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
+    }
 }
 
 @end

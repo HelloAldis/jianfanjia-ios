@@ -279,7 +279,8 @@
     [API userLogin:login success:^{
         UserGetInfo *getUser = [[UserGetInfo alloc] init];
         [API userGetInfo:getUser success:^{
-            [ViewControllerContainer showTab];
+//            [ViewControllerContainer showTab];
+            [ViewControllerContainer showCollectDecPhase];
         } failure:^{
         } networkError:^{
         }];

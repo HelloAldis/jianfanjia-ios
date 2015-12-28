@@ -145,7 +145,9 @@
     [singleTap requireGestureRecognizerToFail:doubleTap];
     
     self.imgDescription.text = self.beautifulImage.title;
-    self.imgTag.text = [self.beautifulImage.keywords stringByReplacingOccurrencesOfString:@"," withString:@"# "];
+    self.imgTag.text = [[[self.beautifulImage.keywords componentsSeparatedByString:@","] map:^id(id obj) {
+        return [NSString stringWithFormat:@"#%@", obj];
+    }] join:@" "];
     [[self.btnDownload rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [self onClickDownloadButton];

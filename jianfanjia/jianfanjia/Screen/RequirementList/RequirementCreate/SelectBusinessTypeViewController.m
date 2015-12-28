@@ -42,15 +42,7 @@ static NSString* cellId = @"businessCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [[NameDict getAllBusinessType].allKeys sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(NSString*  _Nonnull obj1, NSString*  _Nonnull obj2) {
-        if ([obj1 compare:obj2] == NSOrderedAscending) {
-            return NSOrderedAscending;
-        } else if ([obj1 compare:obj2] == NSOrderedDescending) {
-            return NSOrderedDescending;
-        } else {
-            return NSOrderedSame;
-        }
-    }];
+    self.data = [[[NameDict getAllBusinessType] sortedWithOrder:YES] allValues];
 }
 
 #pragma mark - table view delegate
