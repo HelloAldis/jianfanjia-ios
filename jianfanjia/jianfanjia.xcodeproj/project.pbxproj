@@ -144,6 +144,7 @@
 		6855E6321BFAC78A00E789D4 /* RequirementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E6301BFAC78A00E789D4 /* RequirementCell.m */; };
 		6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E6311BFAC78A00E789D4 /* RequirementCell.xib */; };
 		6857265D1C30E472006F6188 /* NSDictionary+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6857265C1C30E472006F6188 /* NSDictionary+Ex.m */; };
+		685726611C327E38006F6188 /* InfiniteScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685726601C327E38006F6188 /* InfiniteScrollView.m */; };
 		685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B51051BE76D45001C8B34 /* UIColor+Ex.m */; };
 		685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 685BF2FD1C0BE3D700ECA4C9 /* PhotoUtil.m */; };
 		685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 685BF3001C0C346600ECA4C9 /* UploadImageToProcess.m */; };
@@ -577,6 +578,8 @@
 		6855E6311BFAC78A00E789D4 /* RequirementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementCell.xib; sourceTree = "<group>"; };
 		6857265B1C30E472006F6188 /* NSDictionary+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Ex.h"; sourceTree = "<group>"; };
 		6857265C1C30E472006F6188 /* NSDictionary+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Ex.m"; sourceTree = "<group>"; };
+		6857265F1C327E38006F6188 /* InfiniteScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollView.h; sourceTree = "<group>"; };
+		685726601C327E38006F6188 /* InfiniteScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfiniteScrollView.m; sourceTree = "<group>"; };
 		685B51041BE76D45001C8B34 /* UIColor+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ex.h"; sourceTree = "<group>"; };
 		685B51051BE76D45001C8B34 /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
 		685BF2FC1C0BE3D700ECA4C9 /* PhotoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUtil.h; sourceTree = "<group>"; };
@@ -1191,6 +1194,15 @@
 				AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */,
 			);
 			path = RequirementCreate;
+			sourceTree = "<group>";
+		};
+		6857265E1C327E38006F6188 /* CustomScroll */ = {
+			isa = PBXGroup;
+			children = (
+				6857265F1C327E38006F6188 /* InfiniteScrollView.h */,
+				685726601C327E38006F6188 /* InfiniteScrollView.m */,
+			);
+			path = CustomScroll;
 			sourceTree = "<group>";
 		};
 		68E505621BF0BA3000B0B910 /* SelectCity */ = {
@@ -1829,6 +1841,7 @@
 		6EC3A98B1B8ACFD300A62153 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				6857265E1C327E38006F6188 /* CustomScroll */,
 				683B2A7C1C1046D600822715 /* CustomAlert */,
 				6E4496621BFF0B5300C90851 /* ImageEditor */,
 				6E4496531BFDB6F700C90851 /* ImageBrower */,
@@ -2220,6 +2233,7 @@
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */,
+				685726611C327E38006F6188 /* InfiniteScrollView.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */,
 				684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */,
