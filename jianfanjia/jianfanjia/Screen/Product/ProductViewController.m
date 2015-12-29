@@ -118,8 +118,12 @@
 
 #pragma mark - scroll view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y >= -64 && scrollView.contentOffset.y <= 200) {
-        CGFloat dy = scrollView.contentOffset.y - 39;
+    [self adjustTopView];
+}
+
+- (void)adjustTopView {
+    if (self.tableView.contentOffset.y >= -64 && self.tableView.contentOffset.y <= 200) {
+        CGFloat dy = self.tableView.contentOffset.y - 39;
         if (dy < 0) {
             dy = 0;
             self.title = nil;
@@ -131,7 +135,6 @@
         self.topConstraint.constant = 20 + dy;
     }
 }
-
 
 #pragma mark - user action
 - (IBAction)onTapDesigner:(id)sender {
@@ -176,6 +179,7 @@
         self.needRefreshProductViewController = NO;
         [self initUIData];
         [self.tableView reloadData];
+        [self adjustTopView];
     } failure:^{
     } networkError:^{
         

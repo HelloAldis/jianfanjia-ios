@@ -33,6 +33,7 @@ static NSMutableArray *decStyleDS;
 @property (weak, nonatomic) IBOutlet UICollectionView *imgCollection;
 @property (weak, nonatomic) IBOutlet CollectionFallsFlowLayout *imgCollectionLayout;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnChooseTypes;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *lblChooseTypes;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *angleImages;
 @property (weak, nonatomic) IBOutlet UIImageView *noDataImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblNoData;
@@ -286,13 +287,13 @@ static NSMutableArray *decStyleDS;
 }
 
 - (void)highlightTypeButton:(NSInteger)idx highlight:(BOOL)highlight title:(NSString *)title {
-    UIButton *button = self.btnChooseTypes[idx];
+    UILabel *label = self.lblChooseTypes[idx];
     UIImageView *imgView = self.angleImages[idx];
     if (title) {
-        [button setTitle:title forState:UIControlStateNormal];
+        [label setText:title];
     }
     
-    [button setTitleColor:highlight ? kThemeTextColor : kUntriggeredColor forState:UIControlStateNormal];
+    [label setTextColor:highlight ? kThemeTextColor : kUntriggeredColor];
     [imgView setImage:[UIImage imageNamed:highlight ? @"angle_expand" : @"angle_unexpand" ]];
 }
 
@@ -392,7 +393,7 @@ static NSMutableArray *decStyleDS;
 }
 
 - (void)handleNoFavoriateBeautifulImage {
-    self.lblNoData.text = @"您还没有收藏任何美图";
+    self.lblNoData.text = @"没有找到任何匹配的美图";
     self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_beautiful_image"];
     self.lblNoData.hidden = NO;
     self.noDataImageView.hidden = NO;

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,22 +17,19 @@
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1d7-V1-in0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="169"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="5sM-Aa-OBb"/>
                         </connections>
                     </scrollView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_cover" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-qu-xm5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="169"/>
-                        <animations/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_cover" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-qu-xm5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="161"/>
                     </imageView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="izJ-MJ-YtU">
                         <rect key="frame" x="273" y="132" width="55" height="37"/>
-                        <animations/>
                     </pageControl>
                 </subviews>
-                <animations/>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="izJ-MJ-YtU" secondAttribute="bottom" constant="-8" id="0GP-P2-Zef"/>
                     <constraint firstAttribute="trailing" secondItem="1d7-V1-in0" secondAttribute="trailing" id="0Nn-Du-obc"/>
@@ -45,7 +42,7 @@
                     <constraint firstItem="1d7-V1-in0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="iUW-KV-QmC"/>
                     <constraint firstItem="aHH-qu-xm5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kMc-BI-2m8"/>
                     <constraint firstItem="aHH-qu-xm5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pIU-Sj-Aqf"/>
-                    <constraint firstAttribute="bottom" secondItem="aHH-qu-xm5" secondAttribute="bottom" id="wbF-Wh-vcq"/>
+                    <constraint firstAttribute="bottom" secondItem="aHH-qu-xm5" secondAttribute="bottom" constant="8" id="wbF-Wh-vcq"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
@@ -54,7 +51,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
                 <outlet property="pageControl" destination="izJ-MJ-YtU" id="xbZ-se-bnb"/>
                 <outlet property="scrollView" destination="1d7-V1-in0" id="WT5-sU-HEp"/>

@@ -52,8 +52,17 @@
     }
 }
 
-#pragma mark - UI
+#pragma mark - scroll view delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self adjustTopView];
+}
 
+- (void)adjustTopView {
+    if (self.tableView.contentOffset.y >= -64 && self.tableView.contentOffset.y <= 200) {
+        CGFloat dy = self.tableView.contentOffset.y - 110;
+        self.title = dy > 0 ? self.designerPageData.designer.username : nil;
+    }
+}
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

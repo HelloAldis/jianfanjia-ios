@@ -8,7 +8,7 @@
 
 #import "Constant.h"
 
-CGFloat const kBannerCellHeight = 170;
+CGFloat const kBannerCellHeight = 178;
 CGFloat const kHomePageRequirementCellHeight = 165;
 CGFloat const kHomePageDesignerCellHeight = 376;
 CGFloat const kSectionCellHeight = 115;
