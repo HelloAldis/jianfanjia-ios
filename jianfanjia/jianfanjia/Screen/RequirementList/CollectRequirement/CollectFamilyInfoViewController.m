@@ -64,6 +64,7 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
     }];
     
     self.curCollectedFamilys = [NSMutableArray array];
+    self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
 }
 
 - (void)initUI {

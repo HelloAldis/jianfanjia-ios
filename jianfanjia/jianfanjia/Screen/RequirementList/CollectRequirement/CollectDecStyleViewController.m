@@ -63,6 +63,7 @@ static const NSInteger MaxCollectedStyleCount = 3;
         [self onClickNext];
     }];
     self.curCollectedStyles = [NSMutableArray array];
+    self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
 }
 
 - (void)initUI {
