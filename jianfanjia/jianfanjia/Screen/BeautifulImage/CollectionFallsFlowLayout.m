@@ -21,12 +21,19 @@
 
 @implementation CollectionFallsFlowLayout
 
-static const NSInteger COUNT_IN_ONE_ROW = 2;
-static const NSInteger CELL_SPACE = 10;
-static const NSInteger SECTION_EDGE = 10;
+static NSInteger COUNT_IN_ONE_ROW;
+static NSInteger CELL_SPACE;
+static NSInteger SECTION_EDGE;
 
 /// How many items to be union into a single rectangle
-static NSInteger unionSize = 20;
+static NSInteger unionSize;
+
++ (void)initialize {
+    COUNT_IN_ONE_ROW = kIsPad ? 3 : 2;
+    CELL_SPACE = 10;
+    SECTION_EDGE = 10;
+    unionSize = 20;
+}
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {

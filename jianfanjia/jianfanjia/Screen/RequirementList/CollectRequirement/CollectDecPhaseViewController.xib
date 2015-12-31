@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -21,14 +21,12 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collect_dec_phase_top" translatesAutoresizingMaskIntoConstraints="NO" id="nIo-zt-LIC">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="338"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nIo-zt-LIC" secondAttribute="height" multiplier="414:233.5" id="8f8-A4-X4T"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您现在的装修阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLq-Kf-zJy">
                     <rect key="frame" x="244" y="358" width="112" height="17"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -38,7 +36,6 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP7-BA-aTN">
                             <rect key="frame" x="245" y="10" width="110" height="110"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="wP7-BA-aTN" secondAttribute="height" multiplier="1:1" id="jaE-0s-NeM"/>
                                 <constraint firstAttribute="width" constant="110" id="yOc-Z1-b4n"/>
@@ -54,7 +51,6 @@
                             </state>
                         </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="wP7-BA-aTN" firstAttribute="centerX" secondItem="bCy-l4-9VI" secondAttribute="centerX" id="7kg-EM-OqC"/>
@@ -66,7 +62,6 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-70-eUs">
                             <rect key="frame" x="245" y="11" width="110" height="110"/>
-                            <animations/>
                             <state key="normal" title="正在做准备">
                                 <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -78,7 +73,6 @@
                             </state>
                         </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="iqh-70-eUs" firstAttribute="centerY" secondItem="wmv-EH-6YC" secondAttribute="centerY" id="Gks-er-yrW"/>
@@ -90,7 +84,6 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aD-1d-Vuj">
                             <rect key="frame" x="245" y="10" width="110" height="110"/>
-                            <animations/>
                             <state key="normal" title="已经开始装修">
                                 <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -102,7 +95,6 @@
                             </state>
                         </button>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="6aD-1d-Vuj" firstAttribute="centerX" secondItem="Taa-PJ-EGa" secondAttribute="centerX" id="bS9-5A-ava"/>
@@ -110,7 +102,6 @@
                     </constraints>
                 </view>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="wmv-EH-6YC" firstAttribute="centerX" secondItem="bCy-l4-9VI" secondAttribute="centerX" id="17c-4I-M7Q"/>

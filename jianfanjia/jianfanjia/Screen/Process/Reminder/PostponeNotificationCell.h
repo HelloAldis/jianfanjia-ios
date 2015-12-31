@@ -10,6 +10,6 @@
 
 @interface PostponeNotificationCell : UITableViewCell
 
-- (void)initWithSchedule:(Schedule *)schedule notification:(Notification *)notification;
+- (void)initWithSchedule:(Schedule *)schedule notification:(Notification *)notification refreshBlock:(void(^)(NSString *processid))Block;
 
 @end

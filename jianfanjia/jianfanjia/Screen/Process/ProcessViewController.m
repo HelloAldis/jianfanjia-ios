@@ -40,9 +40,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 @property (assign, nonatomic) BOOL isHeaderHidden;
 @property (assign, nonatomic) BOOL isFirstEnter;
 
-@property (assign, nonatomic) CGPoint lastSwipePoint;
-@property (assign, nonatomic) CGPoint lastPanPoint;
-@property (assign, nonatomic) BOOL isSwipe;
+@property (strong, nonatomic) UIView *minDistanceFromLeftEdgeView;
 
 @end
 
@@ -111,25 +109,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     self.sectionScrollView.showsHorizontalScrollIndicator = NO;
     self.sectionScrollView.delegate = self;
     self.sectionScrollView.infiniteDelegate = self;
-    self.sectionScrollView.scrollEnabled = NO;
-    self.sectionScrollView.decelerationRate = UIScrollViewDecelerationRateFast;
-    
-//    UISwipeGestureRecognizer *leftSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewSwipe:)];
-//    leftSwipe.direction = UISwipeGestureRecognizerDirectionLeft;
-//    leftSwipe.delegate = self;
-//    UISwipeGestureRecognizer *rightSwipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewSwipe:)];
-//    rightSwipe.direction = UISwipeGestureRecognizerDirectionRight;
-//    rightSwipe.delegate = self;
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(scrollViewPan:)];
-//    [leftSwipe requireGestureRecognizerToFail:pan];
-//    [rightSwipe requireGestureRecognizerToFail:pan];
-//
-//    [pan requireGestureRecognizerToFail:leftSwipe];
-//    [pan requireGestureRecognizerToFail:rightSwipe];
-//    pan.delegate = self;
-//    [self.sectionScrollView addGestureRecognizer:leftSwipe];
-//    [self.sectionScrollView addGestureRecognizer:rightSwipe];
-    [self.sectionScrollView addGestureRecognizer:pan];
+//    self.sectionScrollView.decelerationRate = UIScrollViewDecelerationRateFast;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -148,17 +128,26 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 #pragma mark - scroll view delegate
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    CGPoint targetOffset = [self getLeftestViewToLeftEdge];
+    
+    targetContentOffset->x = targetOffset.x;
+    targetContentOffset->y = targetOffset.y;
+}
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (scrollView == self.sectionScrollView) {
         if (!decelerate) {
-            [self scrollToFirstSubview:YES];
+            NSInteger index = [self getIndexInScrollViewForSubview:self.minDistanceFromLeftEdgeView];
+            [self reloadItemsForSection:index];
         }
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.sectionScrollView) {
-        [self scrollToFirstSubview:YES];
+        NSInteger index = [self getIndexInScrollViewForSubview:self.minDistanceFromLeftEdgeView];
+        [self reloadItemsForSection:index];
     }
 }
 
@@ -176,7 +165,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 #pragma mark - scroll view operation
-- (void)scrollToFirstSubview:(BOOL)animate {
+- (CGPoint)getLeftestViewToLeftEdge {
     CGPoint offset = self.sectionScrollView.contentOffset;
     
     CGFloat minDistanceFromLeftEdge = MAXFLOAT;
@@ -189,13 +178,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         }
     }
     
+    self.minDistanceFromLeftEdgeView = minDistanceFromLeftEdgeView;
     CGFloat targetX = offset.x + minDistanceFromLeftEdge;
     CGPoint targetOffset = CGPointMake(targetX, offset.y);
     
-    [self.sectionScrollView setContentOffset:targetOffset animated:animate];
-    
-    NSInteger index = [self getIndexInScrollViewForSubview:minDistanceFromLeftEdgeView];
-    [self reloadItemsForSection:index];
+    return targetOffset;
 }
 
 - (void)hideScrollView {
@@ -225,10 +212,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 #pragma mark - getures
-//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
-//    return YES;
-//}
-
 - (void)handleTapSectionViewGesture:(UITapGestureRecognizer *)gesture {
     SectionView *sectionView = (SectionView *)gesture.view;
     NSInteger index = [self getIndexInScrollViewForSubview:sectionView];
@@ -237,64 +220,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + distanceFromLeftEdge, 0) animated:YES];
     [self reloadItemsForSection:index];
-}
-
-- (void)scrollViewSwipe:(UISwipeGestureRecognizer *)gesture {
-    CGPoint point = [gesture locationInView:self.sectionScrollView];
-    CGPoint currentOffset = self.sectionScrollView.contentOffset;
-    CGFloat offset = point.x - self.lastSwipePoint.x;
-    if (gesture.direction == UISwipeGestureRecognizerDirectionLeft) {
-        CGFloat pages = roundf(offset / SectionViewWidth);
-        
-        [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + pages * SectionViewWidth, 0) animated:YES];
-    } else if (gesture.direction == UISwipeGestureRecognizerDirectionRight) {
-        CGFloat pages = -roundf(offset / SectionViewWidth);
-        
-        [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + pages * SectionViewWidth, 0) animated:YES];
-    }
-    
-    self.lastSwipePoint = point;
-}
-
-- (void)scrollViewPan:(UIPanGestureRecognizer *)gesture {
-    CGPoint point = [gesture translationInView:self.sectionScrollView];
-    CGPoint velocity = [gesture velocityInView:self.sectionScrollView];
-    CGPoint currentOffset = self.sectionScrollView.contentOffset;
-    CGFloat offset = point.x - self.lastPanPoint.x;
-//    DDLogDebug(@"velocity %f", velocity.x);
-    switch (gesture.state) {
-        case UIGestureRecognizerStateBegan:
-//            DDLogDebug(@"UIGestureRecognizerStateBegan point %@", NSStringFromCGPoint(point));
-//            self.isSwipe = fabs(velocity.x) > 200;
-            
-            break;
-        case UIGestureRecognizerStateChanged:
-//            DDLogDebug(@"UIGestureRecognizerStateChanged point %@", NSStringFromCGPoint(point));
-            
-//            if (!self.isSwipe) {
-                [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + (-offset), 0) animated:NO];
-//            }
-            
-            break;
-
-        case UIGestureRecognizerStateEnded:
-//            DDLogDebug(@"UIGestureRecognizerStateEnded point %@", NSStringFromCGPoint(point));
-            
-//            if (self.isSwipe) {
-//                CGFloat pages = -roundf(point.x / SectionViewWidth);
-//                
-//                [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + pages * SectionViewWidth, 0) animated:YES];
-//            } else {
-                [self scrollToFirstSubview:fabs(velocity.x) < 1000];
-//            }
-            
-            break;
-            
-        default:
-            break;
-    }
-
-    self.lastPanPoint = point;
 }
 
 #pragma mark - util
@@ -378,7 +303,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)configureCellProperties:(UITableViewCell *)cell {
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
-
 
 #pragma mark - infiniteScrollView delegate
 /*
