@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString *NotificationDBYS = @"NotificationDBYS";
+
 @class NotificationCD;
 
 typedef void (^NotificationUnreadUpdateBlock)(id value);

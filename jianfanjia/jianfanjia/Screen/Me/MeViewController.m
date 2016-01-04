@@ -9,8 +9,8 @@
 #import "MeViewController.h"
 #import "SettingViewController.h"
 #import "UserInfoViewController.h"
-#import "FavoriteDesignerViewController.h"
 #import "ViewControllerContainer.h"
+#import "MyFavoriateViewController.h"
 
 @interface MeViewController ()
 
@@ -82,7 +82,7 @@
 }
 
 - (IBAction)onClickFavoriateDesigner:(id)sender {
-    FavoriteDesignerViewController *v = [[FavoriteDesignerViewController alloc] initWithNibName:nil bundle:nil];
+    MyFavoriateViewController *v = [[MyFavoriateViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:v animated:YES];
 }
 

@@ -165,4 +165,11 @@ NSString * const kNotificationTypePurchase = @"1";
 NSString * const kNotificationTypePay = @"2";
 NSString * const kNotificationTypeDBYS = @"3";
 
- 
+/*
+ 装修类型 dec_type
+ * 0. 家装
+ * 1. 商装
+ **/
+NSString * const kDecTypeHouse = @"0";
+NSString * const kDecTypeBusiness = @"1";
+

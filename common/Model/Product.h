@@ -26,6 +26,8 @@
 @property (strong, nonatomic) NSNumber *total_price;
 @property (strong, nonatomic) NSString *product_description;
 @property (strong, nonatomic) NSMutableArray *images;
+@property (strong, nonatomic) NSNumber *is_my_favorite;
+@property (strong, nonatomic) NSNumber *is_deleted;
 
 
 //不动态的属性

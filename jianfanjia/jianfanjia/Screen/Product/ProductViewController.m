@@ -22,6 +22,9 @@
 
 @property (strong, nonatomic) ProductPageData *productPageData;
 
+@property (strong, nonatomic) UIBarButtonItem *favoriateBarButton;
+@property (strong, nonatomic) UIBarButtonItem *unfavoriateBarButton;
+
 @end
 
 @implementation ProductViewController
@@ -34,7 +37,7 @@
     
     self.needRefreshProductViewController = YES;
     self.productPageData = [[ProductPageData alloc] init];
-    [self initLeftBackInNav];
+    [self initNav];
     [self initUI];
 }
 
@@ -46,6 +49,25 @@
 }
 
 #pragma mark - UI
+- (void)initNav {
+    [self initLeftBackInNav];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"product_favoriate_no"]];
+    @weakify(self);
+    [imageView addTapBounceAnimation:^{
+        @strongify(self);
+        [self onClickFavoriate];
+    }];
+    self.favoriateBarButton = [[UIBarButtonItem alloc] initWithCustomView:imageView];
+    
+    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"product_favoriate_yes"]];
+    [imageView addTapBounceAnimation:^{
+        @strongify(self);
+        [self onClickUnfavoriate];
+    }];
+    self.unfavoriateBarButton = [[UIBarButtonItem alloc] initWithCustomView:imageView];
+}
+
 - (void)initUI {
     [self.designerImageView setCornerRadius:15];
     [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
@@ -55,6 +77,11 @@
 - (void)initUIData {
     [self.designerImageView setUserImageWithId:self.productPageData.product.designer.imageid];
     self.lblName.text = self.productPageData.product.designer.username;
+    if ([self.productPageData.product.is_my_favorite boolValue]) {
+        [self.navigationItem setRightBarButtonItem:self.unfavoriateBarButton animated:YES];
+    } else {
+        [self.navigationItem setRightBarButtonItem:self.favoriateBarButton animated:YES];
+    }
 }
 
 
@@ -91,8 +118,12 @@
 
 #pragma mark - scroll view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView.contentOffset.y >= -64 && scrollView.contentOffset.y <= 200) {
-        CGFloat dy = scrollView.contentOffset.y - 39;
+    [self adjustTopView];
+}
+
+- (void)adjustTopView {
+    if (self.tableView.contentOffset.y >= -64 && self.tableView.contentOffset.y <= 200) {
+        CGFloat dy = self.tableView.contentOffset.y - 39;
         if (dy < 0) {
             dy = 0;
             self.title = nil;
@@ -105,10 +136,35 @@
     }
 }
 
-
 #pragma mark - user action
 - (IBAction)onTapDesigner:(id)sender {
     [ViewControllerContainer showDesigner:self.productPageData.product.designer._id];
+}
+
+- (void)onClickFavoriate {
+    AddFavoriateProduct *request = [[AddFavoriateProduct alloc] init];
+    request._id = self.productPageData.product._id;
+    
+    @weakify(self);
+    [API addFavoriateProduct:request success:^{
+        @strongify(self);
+        [self.navigationItem setRightBarButtonItem:self.unfavoriateBarButton animated:YES];
+    } failure:^{
+    } networkError:^{
+    }];
+}
+
+- (void)onClickUnfavoriate {
+    DeleteFavoriateProduct *request = [[DeleteFavoriateProduct alloc] init];
+    request._id = self.productPageData.product._id;
+    
+    @weakify(self);
+    [API deleteFavoriateProduct:request success:^{
+        @strongify(self);
+        [self.navigationItem setRightBarButtonItem:self.favoriateBarButton animated:YES];
+    } failure:^{
+    } networkError:^{
+    }];
 }
 
 #pragma mark - Util
@@ -123,11 +179,11 @@
         self.needRefreshProductViewController = NO;
         [self initUIData];
         [self.tableView reloadData];
+        [self adjustTopView];
     } failure:^{
     } networkError:^{
         
     }];
 }
-
 
 @end

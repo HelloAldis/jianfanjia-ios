@@ -54,17 +54,8 @@ static NSString* cellId = @"decStyleCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [[NameDict getAllDecorationStyle].allKeys sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(NSString*  _Nonnull obj1, NSString*  _Nonnull obj2) {
-        if ([obj1 compare:obj2] == NSOrderedAscending) {
-            return NSOrderedAscending;
-        } else if ([obj1 compare:obj2] == NSOrderedDescending) {
-            return NSOrderedDescending;
-        } else {
-            return NSOrderedSame;
-        }
-    }];
+    self.data = [[NameDict getAllDecorationStyle] sortedKeyWithOrder:YES];
 }
-
 
 #pragma mark - collection view delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

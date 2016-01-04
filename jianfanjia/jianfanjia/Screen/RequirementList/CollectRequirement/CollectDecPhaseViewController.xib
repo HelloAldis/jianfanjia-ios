@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CollectDecPhaseViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outletCollection property="btnDecPhases" destination="wP7-BA-aTN" id="eK0-dY-tjE"/>
+                <outletCollection property="btnDecPhases" destination="iqh-70-eUs" id="Aow-yd-MY3"/>
+                <outletCollection property="btnDecPhases" destination="6aD-1d-Vuj" id="sow-1m-Aoo"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="806"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collect_dec_phase_top" translatesAutoresizingMaskIntoConstraints="NO" id="nIo-zt-LIC">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="338"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="nIo-zt-LIC" secondAttribute="height" multiplier="414:233.5" id="8f8-A4-X4T"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您现在的装修阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLq-Kf-zJy">
+                    <rect key="frame" x="244" y="358" width="112" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCy-l4-9VI" userLabel="View1">
+                    <rect key="frame" x="0.0" y="395" width="600" height="130"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP7-BA-aTN">
+                            <rect key="frame" x="245" y="10" width="110" height="110"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="wP7-BA-aTN" secondAttribute="height" multiplier="1:1" id="jaE-0s-NeM"/>
+                                <constraint firstAttribute="width" constant="110" id="yOc-Z1-b4n"/>
+                            </constraints>
+                            <state key="normal" title="我想看一看">
+                                <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="wP7-BA-aTN" firstAttribute="centerX" secondItem="bCy-l4-9VI" secondAttribute="centerX" id="7kg-EM-OqC"/>
+                        <constraint firstItem="wP7-BA-aTN" firstAttribute="centerY" secondItem="bCy-l4-9VI" secondAttribute="centerY" id="Qf0-ZF-tzu"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmv-EH-6YC" userLabel="View2">
+                    <rect key="frame" x="0.0" y="525" width="600" height="131"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-70-eUs">
+                            <rect key="frame" x="245" y="11" width="110" height="110"/>
+                            <state key="normal" title="正在做准备">
+                                <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="iqh-70-eUs" firstAttribute="centerY" secondItem="wmv-EH-6YC" secondAttribute="centerY" id="Gks-er-yrW"/>
+                        <constraint firstItem="iqh-70-eUs" firstAttribute="centerX" secondItem="wmv-EH-6YC" secondAttribute="centerX" id="V06-Sh-rxW"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-PJ-EGa" userLabel="View3">
+                    <rect key="frame" x="0.0" y="656" width="600" height="130"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aD-1d-Vuj">
+                            <rect key="frame" x="245" y="10" width="110" height="110"/>
+                            <state key="normal" title="已经开始装修">
+                                <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="6aD-1d-Vuj" firstAttribute="centerX" secondItem="Taa-PJ-EGa" secondAttribute="centerX" id="bS9-5A-ava"/>
+                        <constraint firstItem="6aD-1d-Vuj" firstAttribute="centerY" secondItem="Taa-PJ-EGa" secondAttribute="centerY" id="tbV-Gl-yB7"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="wmv-EH-6YC" firstAttribute="centerX" secondItem="bCy-l4-9VI" secondAttribute="centerX" id="17c-4I-M7Q"/>
+                <constraint firstItem="YLq-Kf-zJy" firstAttribute="top" secondItem="nIo-zt-LIC" secondAttribute="bottom" constant="20" id="4WU-Pz-Iyh"/>
+                <constraint firstItem="YLq-Kf-zJy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5x3-Sj-8CK"/>
+                <constraint firstItem="Taa-PJ-EGa" firstAttribute="width" secondItem="bCy-l4-9VI" secondAttribute="width" id="91L-Ga-GF7"/>
+                <constraint firstItem="wmv-EH-6YC" firstAttribute="width" secondItem="bCy-l4-9VI" secondAttribute="width" id="9fr-0Z-dpF"/>
+                <constraint firstItem="nIo-zt-LIC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="C4g-Uj-8uB"/>
+                <constraint firstItem="bCy-l4-9VI" firstAttribute="top" secondItem="YLq-Kf-zJy" secondAttribute="bottom" constant="20" id="OHJ-CY-ebq"/>
+                <constraint firstItem="6aD-1d-Vuj" firstAttribute="width" secondItem="wP7-BA-aTN" secondAttribute="width" id="R14-Ic-xWN"/>
+                <constraint firstItem="wmv-EH-6YC" firstAttribute="top" secondItem="bCy-l4-9VI" secondAttribute="bottom" id="TCh-2n-xjt"/>
+                <constraint firstItem="nIo-zt-LIC" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="TUQ-YX-RJY"/>
+                <constraint firstItem="Taa-PJ-EGa" firstAttribute="centerX" secondItem="bCy-l4-9VI" secondAttribute="centerX" id="X15-An-yuD"/>
+                <constraint firstItem="nIo-zt-LIC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Zq8-q1-3X2"/>
+                <constraint firstItem="bCy-l4-9VI" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="cNd-7Z-nGJ"/>
+                <constraint firstItem="iqh-70-eUs" firstAttribute="height" secondItem="wP7-BA-aTN" secondAttribute="height" id="fo0-wK-1Vj"/>
+                <constraint firstItem="iqh-70-eUs" firstAttribute="width" secondItem="wP7-BA-aTN" secondAttribute="width" id="gDY-BE-Chs"/>
+                <constraint firstItem="bCy-l4-9VI" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="ggH-bT-w5n"/>
+                <constraint firstItem="Taa-PJ-EGa" firstAttribute="height" secondItem="wmv-EH-6YC" secondAttribute="height" id="iOS-rQ-Nn4"/>
+                <constraint firstItem="wmv-EH-6YC" firstAttribute="height" secondItem="bCy-l4-9VI" secondAttribute="height" id="kf0-ez-ZUU"/>
+                <constraint firstItem="Taa-PJ-EGa" firstAttribute="top" secondItem="wmv-EH-6YC" secondAttribute="bottom" id="nXA-Zv-Uju"/>
+                <constraint firstItem="6aD-1d-Vuj" firstAttribute="height" secondItem="wP7-BA-aTN" secondAttribute="height" id="q3Q-K8-q6F"/>
+                <constraint firstAttribute="bottom" secondItem="Taa-PJ-EGa" secondAttribute="bottom" constant="20" id="vpg-9O-zQL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="356" y="500"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="collect_dec_phase_top" width="414" height="233"/>
+    </resources>
+</document>

@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnAddRequirement;
 @property (weak, nonatomic) IBOutlet UIButton *btnBala;
+@property (weak, nonatomic) IBOutlet UILabel *lblDetailMessage;
 
 @end
 
@@ -26,6 +27,7 @@
     [self.btnBala setCornerRadius:5];
     [self.btnBala setBorder:2 andColor:[kThemeColor CGColor]];
     [self.navigationController setNavigationBarHidden:YES];
+    self.lblDetailMessage.text = @"您可以前往免费获取三套方案\n我们将为您匹配最合适您的设计师";
 }
 
 #pragma mark - UI

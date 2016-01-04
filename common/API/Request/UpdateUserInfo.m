@@ -18,5 +18,8 @@
 @dynamic address;
 @dynamic sex;
 @dynamic imageid;
+@dynamic dec_progress;
+@dynamic dec_styles;
+@dynamic family_description;
 
 @end

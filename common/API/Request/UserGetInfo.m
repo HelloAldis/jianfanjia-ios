@@ -21,6 +21,9 @@
     [GVUserDefaults standardUserDefaults].city = [user city];
     [GVUserDefaults standardUserDefaults].district = [user district];
     [GVUserDefaults standardUserDefaults].address = [user address];
+    [GVUserDefaults standardUserDefaults].dec_progress = [user dec_progress];
+    [GVUserDefaults standardUserDefaults].dec_styles = [user dec_styles];
+    [GVUserDefaults standardUserDefaults].family_description = [user family_description];
 }
 
 @end

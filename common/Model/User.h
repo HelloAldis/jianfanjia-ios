@@ -20,5 +20,8 @@
 @property(nonatomic, strong) NSString *address;
 @property(nonatomic, strong) NSString *imageid;
 @property(nonatomic, strong) NSString *email;
+@property(nonatomic, strong) NSString *dec_progress;
+@property(nonatomic, strong) NSArray *dec_styles;
+@property(nonatomic, strong) NSString *family_description;
 
 @end

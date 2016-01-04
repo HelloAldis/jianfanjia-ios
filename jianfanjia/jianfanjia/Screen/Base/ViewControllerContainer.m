@@ -35,13 +35,19 @@
 #import "DBYSViewController.h"
 #import "RequirementCreateViewController.h"
 #import "ImageDetailViewController.h"
+#import "BeautifulImageViewController.h"
+#import "CollectDecPhaseViewController.h"
+#import "CollectDecStyleViewController.h"
+#import "CollectFamilyInfoViewController.h"
+#import "BeautifulImageHomePageViewController.h"
 
 @interface ViewControllerContainer ()
 
 @property(weak, nonatomic) UIWindow *window;
-@property(strong, nonatomic) UINavigationController *navTap1;
-@property(strong, nonatomic) UINavigationController *navTap2;
-@property(strong, nonatomic) UINavigationController *navTap4;
+@property(strong, nonatomic) UINavigationController *navTapHome;
+@property(strong, nonatomic) UINavigationController *navTapPrettyImg;
+@property(strong, nonatomic) UINavigationController *navTapRequirement;
+@property(strong, nonatomic) UINavigationController *navTapMy;
 
 @property(strong, nonatomic) TabViewController *tab;
 
@@ -82,22 +88,27 @@ static ViewControllerContainer *container;
 + (void)showTab {
     container.tab = [[TabViewController alloc] initWithNibName:nil bundle:nil];
     HomePageViewController *designerlist = [[HomePageViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTap1 = [[UINavigationController alloc] initWithRootViewController:designerlist];
-    container.navTap1.hidesBottomBarWhenPushed = YES;
+    container.navTapHome = [[UINavigationController alloc] initWithRootViewController:designerlist];
+    container.navTapHome.hidesBottomBarWhenPushed = YES;
     NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
-    container.navTap1.navigationBar.titleTextAttributes = dict;
+    container.navTapHome.navigationBar.titleTextAttributes = dict;
+    
+    BeautifulImageViewController *beatifulImage = [[BeautifulImageViewController alloc] initWithNibName:nil bundle:nil];
+    container.navTapPrettyImg = [[UINavigationController alloc] initWithRootViewController:beatifulImage];
+    container.navTapPrettyImg.hidesBottomBarWhenPushed = YES;
+    container.navTapPrettyImg.navigationBar.titleTextAttributes = dict;
     
     RequirementListViewController *requirementList = [[RequirementListViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTap2 = [[UINavigationController alloc] initWithRootViewController:requirementList];
-    container.navTap2.hidesBottomBarWhenPushed = YES;
-    container.navTap2.navigationBar.titleTextAttributes = dict;
+    container.navTapRequirement = [[UINavigationController alloc] initWithRootViewController:requirementList];
+    container.navTapRequirement.hidesBottomBarWhenPushed = YES;
+    container.navTapRequirement.navigationBar.titleTextAttributes = dict;
     
     MeViewController *me = [[MeViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTap4 = [[UINavigationController alloc] initWithRootViewController:me];
-    container.navTap4.hidesBottomBarWhenPushed = YES;
-    container.navTap4.navigationBar.titleTextAttributes = dict;
+    container.navTapMy = [[UINavigationController alloc] initWithRootViewController:me];
+    container.navTapMy.hidesBottomBarWhenPushed = YES;
+    container.navTapMy.navigationBar.titleTextAttributes = dict;
     
-    container.tab.viewControllers = @[container.navTap1, container.navTap2, container.navTap4];
+    container.tab.viewControllers = @[container.navTapHome, container.navTapPrettyImg, container.navTapRequirement, container.navTapMy];
     container.window.rootViewController = container.tab;
 }
 
@@ -127,6 +138,24 @@ static ViewControllerContainer *container;
 
 + (void)showResetPass {
     ResetPassViewController *v = [[ResetPassViewController alloc] init];
+    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+    [nav pushViewController:v animated:YES];
+}
+
++ (void)showCollectDecPhase {
+    CollectDecPhaseViewController *v = [[CollectDecPhaseViewController alloc] init];
+    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+    [nav pushViewController:v animated:YES];
+}
+
++ (void)showCollectDecStyle {
+    CollectDecStyleViewController *v = [[CollectDecStyleViewController alloc] init];
+    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+    [nav pushViewController:v animated:YES];
+}
+
++ (void)showCollectFamilyInfo {
+    CollectFamilyInfoViewController *v = [[CollectFamilyInfoViewController alloc] init];
     UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
     [nav pushViewController:v animated:YES];
 }
@@ -187,8 +216,8 @@ static ViewControllerContainer *container;
 }
 
 + (void)showRequirementCreate:(Requirement *)requirement {
-    if (container.tab.selectedViewController != container.navTap2) {
-        container.tab.selectedViewController = container.navTap2;
+    if (container.tab.selectedViewController != container.navTapRequirement) {
+        container.tab.selectedViewController = container.navTapRequirement;
     }
     
     
@@ -212,8 +241,8 @@ static ViewControllerContainer *container;
 }
 
 + (void)showOrderDesigner:(Requirement *)requirement {
-    if (container.tab.selectedViewController != container.navTap2) {
-        container.tab.selectedViewController = container.navTap2;
+    if (container.tab.selectedViewController != container.navTapRequirement) {
+        container.tab.selectedViewController = container.navTapRequirement;
     }
     
     //if has designer order screen pop to
@@ -302,6 +331,11 @@ static ViewControllerContainer *container;
     [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
 }
 
++ (void)showBeautifulImageHomePage:(BeautifulImage *)beautifulImage {
+    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithBeautifulImage:beautifulImage index:0];
+    [container.tab.selectedViewController pushViewController:controller animated:YES];
+}
+
 + (void)refreshSuccess {
     container.window.rootViewController = container.tab;
 }
@@ -313,9 +347,10 @@ static ViewControllerContainer *container;
 + (void)logout {
     [GeTuiSdk unbindAlias:[GVUserDefaults standardUserDefaults].userid];
     container.tab = nil;
-    container.navTap1 = nil;
-    container.navTap2 = nil;
-    container.navTap4 = nil;
+    container.navTapHome = nil;
+    container.navTapPrettyImg = nil;
+    container.navTapRequirement = nil;
+    container.navTapMy = nil;
     [GVUserDefaults standardUserDefaults].isLogin = NO;
     [GVUserDefaults standardUserDefaults].phone = nil;
     [GVUserDefaults standardUserDefaults].usertype = nil;

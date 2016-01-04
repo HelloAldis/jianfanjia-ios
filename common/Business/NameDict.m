@@ -23,12 +23,14 @@ static NSDictionary *requirementStatus = nil;
 static NSDictionary *authType = nil;
 static NSDictionary *userType = nil;
 static NSDictionary *sectionStatusDic = nil;
+static NSArray *beautifulTypeArr = nil;
+static NSDictionary *businessTypeDict = nil;
 
 + (void)initialize {
-    houseTypeDict = @{@"0":@"一居",
-                      @"1":@"二居",
-                      @"2":@"三居",
-                      @"3":@"四居",
+    houseTypeDict = @{@"0":@"一室",
+                      @"1":@"二室",
+                      @"2":@"三室",
+                      @"3":@"四室",
                       @"4":@"复式",
                       @"5":@"别墅",
                       @"6":@"LOFT",
@@ -42,13 +44,13 @@ static NSDictionary *sectionStatusDic = nil;
                      @"5":@"东南亚",
                      @"6":@"田园",};
     
-    decTypeDict = @{@"0":@"家装",
-                    @"1":@"商装",
+    decTypeDict = @{kDecTypeHouse:@"家装",
+                    kDecTypeBusiness:@"商装",
                     @"2":@"软装"};
     
-    work_type = @{@"0":@"设计＋施工(半包)",
-                  @"1":@"设计＋施工(全包)",
-                  @"2":@"纯设计"};
+    work_type = @{@"0":@"半包（包工包辅料，主料由您采购，用的最多的装修方式）",
+                  @"1":@"全包（一条龙服务，包工包主辅材，最省心的装修）",
+                  @"2":@"设计（我们不生产设计师，我们只是设计师的搬运工）"};
     
     population_type = @[@"单身", @"幸福小两口", @"三口之家", @"三代同堂", @"其他"];
     
@@ -111,6 +113,28 @@ static NSDictionary *sectionStatusDic = nil;
                          @"5":@"改期拒绝",
                          };
     
+    beautifulTypeArr = @[@"厨房",
+                         @"客厅",
+                         @"卫生间",
+                         @"卧室",
+                         @"餐厅",
+                         @"书房",
+                         @"玄关",
+                         @"阳台",
+                         @"儿童房",
+                         @"走廊",
+                         @"储物间",];
+    
+    businessTypeDict = @{
+                       @"0":@"餐厅",
+                       @"1":@"服装店",
+                       @"2":@"酒吧",
+                       @"3":@"美容院",
+                       @"4":@"办公室",
+                       @"5":@"美发店",
+                       @"6":@"幼儿园",
+                       @"7":@"酒店",
+                       @"999":@"其他",};
 }
 
 + (NSDictionary *)getAllHouseType {
@@ -151,6 +175,14 @@ static NSDictionary *sectionStatusDic = nil;
 
 + (NSDictionary *)getAllCommunicationType {
     return communication_type;
+}
+
++ (NSArray *)getAllBeautifulImageType {
+    return beautifulTypeArr;
+}
+
++ (NSDictionary *)getAllBusinessType {
+    return businessTypeDict;
 }
 
 + (NSString *)nameForUserType:(NSString *)type {
@@ -201,5 +233,8 @@ static NSDictionary *sectionStatusDic = nil;
     return [sectionStatusDic objectForKey:status];
 }
 
-@end
++ (NSString *)nameForBusinessType:(NSString *)status {
+    return [businessTypeDict objectForKey:status];
+}
 
+@end

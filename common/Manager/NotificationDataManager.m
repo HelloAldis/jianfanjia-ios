@@ -51,6 +51,7 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
             notification.status = kNotificationStatusUnread;
             if ([notification.type isEqualToString:kNotificationTypeDBYS]) {
                 [self showLocalNotification:notification];
+                [self broadcastNotification:notification];
             } else {
                 [self insertNotification:notification];
                 [self refreshUnreadCount];
@@ -202,6 +203,10 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 
 - (NSString *)generateNotificationKey:(Notification *)notification {
     return [NSString stringWithFormat:@"%@_%@", notification.userid, notification.type];
+}
+
+- (void)broadcastNotification:(Notification *)noti {
+    [[NSNotificationCenter defaultCenter] postNotificationName:NotificationDBYS object:noti];
 }
 
 #pragma mark - Getters and Setters for dynamic properties

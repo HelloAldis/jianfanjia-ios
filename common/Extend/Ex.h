@@ -25,5 +25,6 @@
 #import "UIImagePickerController+Ex.h"
 #import "UIButton+Badge.h"
 #import "UIBarButtonItem+Badge.h"
+#import "NSDictionary+Ex.h"
 
 #endif

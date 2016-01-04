@@ -18,5 +18,8 @@
 @property (strong, nonatomic) NSString *address;
 @property (strong, nonatomic) NSString *sex;
 @property (strong, nonatomic) NSString *imageid;
+@property (strong, nonatomic) NSString *dec_progress;
+@property (strong, nonatomic) NSArray *dec_styles;
+@property (strong, nonatomic) NSString *family_description;
 
 @end

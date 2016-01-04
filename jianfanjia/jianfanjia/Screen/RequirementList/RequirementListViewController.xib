@@ -58,7 +58,7 @@
                         <constraint firstAttribute="height" constant="30" id="jH4-nX-FrL"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="点击前往发布 &gt;">
+                    <state key="normal" title="免费获取三套方案 &gt;">
                         <color key="titleColor" red="0.99607843137254903" green="0.4392156862745098" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>

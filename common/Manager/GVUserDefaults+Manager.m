@@ -23,6 +23,9 @@
 @dynamic city;
 @dynamic district;
 @dynamic address;
+@dynamic dec_progress;
+@dynamic dec_styles;
+@dynamic family_description;
 
 @end
 

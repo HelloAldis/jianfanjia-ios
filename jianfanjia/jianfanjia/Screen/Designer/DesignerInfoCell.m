@@ -27,6 +27,7 @@
 
 - (void)awakeFromNib {
     [self.btnAdd setCornerRadius:5];
+    [self.btnAdd setBorder:2 andColor:[kThemeColor CGColor]];
     [self.designerImageView setCornerRadius:30];
 }
 
@@ -55,11 +56,13 @@
 
 - (void)refreshAdd {
     if ([self.designer.is_my_favorite boolValue]) {
-        [self.btnAdd setTitle:@"已添加意向" forState:UIControlStateNormal];
-        self.btnAdd.backgroundColor = [UIColor colorWithR:179 g:179 b:179];
+        [self.btnAdd setTitle:@"取消意向" forState:UIControlStateNormal];
+        self.btnAdd.backgroundColor = [UIColor whiteColor];
+        [self.btnAdd setTitleColor:kThemeColor forState:UIControlStateNormal];
     } else {
         [self.btnAdd setTitle:@"添加意向" forState:UIControlStateNormal];
         self.btnAdd.backgroundColor = kThemeColor;
+        [self.btnAdd setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     }
 }
 
@@ -71,6 +74,19 @@
         [API addFavoriateDesigner:request success:^{
             @strongify(self);
             self.designer.is_my_favorite = @YES;
+            [self refreshAdd];
+        } failure:^{
+            
+        } networkError:^{
+            
+        }];
+    } else if (self.designer && [self.designer.is_my_favorite boolValue]) {
+        DeleteFavoriteDesigner *request = [[DeleteFavoriteDesigner alloc] init];
+        request._id = self.designer._id;
+        @weakify(self);
+        [API deleteFavoriateDesigner:request success:^{
+            @strongify(self);
+            self.designer.is_my_favorite = @NO;
             [self refreshAdd];
         } failure:^{
             

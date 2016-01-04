@@ -28,12 +28,9 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 @interface ProcessViewController ()
 
-@property (strong, nonatomic) UIScrollView *sectionScrollView;
-@property (strong, nonatomic) UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *sectionViewArray;
-
-@property (strong, nonatomic) NSArray *scrollViewToSuperTop64Constraint;
-@property (strong, nonatomic) NSArray *scrollViewBottomEqualsSuperBottomConstraint;
+@property (weak, nonatomic) IBOutlet InfiniteScrollView *sectionScrollView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewTopToSuper;
 
 @property (strong, nonatomic) NSString *processid;
 @property (assign, nonatomic) WorkSiteMode workSiteMode;
@@ -42,6 +39,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 @property (strong, nonatomic) NSIndexPath *lastSelectedIndexPath;
 @property (assign, nonatomic) BOOL isHeaderHidden;
 @property (assign, nonatomic) BOOL isFirstEnter;
+
+@property (strong, nonatomic) UIView *minDistanceFromLeftEdgeView;
 
 @end
 
@@ -77,6 +76,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:NotificationDBYS object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -90,6 +91,12 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
@@ -99,18 +106,14 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.sectionScrollView = [[UIScrollView alloc] init];
-//    self.sectionScrollView.bounces = NO;
     self.sectionScrollView.showsHorizontalScrollIndicator = NO;
-    self.sectionScrollView.backgroundColor = [UIColor whiteColor];
-    
-    self.tableView = [[UITableView alloc] init];
-    self.tableView.backgroundView = [ItemsBackgroundView itemsBackgroundView];
-    
     self.sectionScrollView.delegate = self;
+    self.sectionScrollView.infiniteDelegate = self;
+//    self.sectionScrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+    
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
+    self.tableView.backgroundView = [ItemsBackgroundView itemsBackgroundView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.backgroundColor = self.view.backgroundColor;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -121,47 +124,30 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCheckCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCheckCellIdentifier];
     
     [self configureHeaderToTableView:YES];
-
-    [self.view addSubview:self.sectionScrollView];
-    [self.view addSubview:self.tableView];
-    
-    self.sectionScrollView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.tableView.translatesAutoresizingMaskIntoConstraints = NO;
-    NSDictionary *views = @{
-                            @"scrollView":self.sectionScrollView,
-                            @"tableView":self.tableView,
-                            };
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[scrollView]|" options:0 metrics: 0 views:views]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[tableView]|" options:0 metrics: 0 views:views]];
-    
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:[scrollView(==%f)][tableView]|", SectionViewHeight]  options:0 metrics: 0 views:views]];
-    
-    self.scrollViewToSuperTop64Constraint = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[scrollView]" options:0 metrics: 0 views:views];
-    //52 = 116(SectionViewHeight) - 64
-    self.scrollViewBottomEqualsSuperBottomConstraint = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(-52)-[scrollView]" options:0 metrics: 0 views:views];
-    [self.view addConstraints:self.scrollViewToSuperTop64Constraint];
     self.isFirstEnter = YES;
 }
 
 #pragma mark - scroll view delegate
-- (CGPoint)nearestTargetOffsetForOffset:(CGPoint)offset {
-    CGFloat pageSize = SectionViewWidth;
-    NSInteger page = roundf(offset.x / pageSize);
-    CGFloat targetX = pageSize * page;
-    return CGPointMake(targetX, offset.y);
-}
-
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    CGPoint targetOffset = [self nearestTargetOffsetForOffset:*targetContentOffset];
+    CGPoint targetOffset = [self getLeftestViewToLeftEdge];
+    
     targetContentOffset->x = targetOffset.x;
     targetContentOffset->y = targetOffset.y;
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (scrollView == self.sectionScrollView) {
+        if (!decelerate) {
+            NSInteger index = [self getIndexInScrollViewForSubview:self.minDistanceFromLeftEdgeView];
+            [self reloadItemsForSection:index];
+        }
+    }
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.sectionScrollView) {
-        NSInteger page = roundf(scrollView.contentOffset.x / SectionViewWidth);
-        [self reloadItemsForSection:page];
+        NSInteger index = [self getIndexInScrollViewForSubview:self.minDistanceFromLeftEdgeView];
+        [self reloadItemsForSection:index];
     }
 }
 
@@ -178,12 +164,37 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }
 }
 
-#pragma mark - scroll view move 
+#pragma mark - scroll view operation
+- (CGPoint)getLeftestViewToLeftEdge {
+    CGPoint offset = self.sectionScrollView.contentOffset;
+    
+    __block CGFloat minDistanceFromLeftEdge = MAXFLOAT;
+    __block UIView *minDistanceFromLeftEdgeView;
+    
+    @weakify(self);
+    [self.sectionScrollView.visibleViews enumerateObjectsUsingBlock:^(id  _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        if (idx == self.sectionScrollView.visibleViews.count / 2)
+            *stop = YES;
+        
+        CGFloat distanceToLeftEdge = [self.sectionScrollView getDistanceToLeftEdgeForSubview:view];
+        if (distanceToLeftEdge > -SectionViewWidth / 2 && distanceToLeftEdge < minDistanceFromLeftEdge) {
+            minDistanceFromLeftEdge = distanceToLeftEdge;
+            minDistanceFromLeftEdgeView = view;
+        }
+    }];
+    
+    self.minDistanceFromLeftEdgeView = minDistanceFromLeftEdgeView;
+    CGFloat targetX = offset.x + minDistanceFromLeftEdge;
+    CGPoint targetOffset = CGPointMake(targetX, offset.y);
+    
+    return targetOffset;
+}
+
 - (void)hideScrollView {
     if (!self.isHeaderHidden) {
         [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            [self.view removeConstraints:self.scrollViewToSuperTop64Constraint];
-            [self.view addConstraints:self.scrollViewBottomEqualsSuperBottomConstraint];
+            self.scrollViewTopToSuper.constant = -52;
             [self configureHeaderToTableView:NO];
             [self.view setNeedsLayout];
             [self.view layoutIfNeeded];
@@ -196,8 +207,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)showScrollView {
     if (self.isHeaderHidden) {
         [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            [self.view removeConstraints:self.scrollViewBottomEqualsSuperBottomConstraint];
-            [self.view addConstraints:self.scrollViewToSuperTop64Constraint];
+            self.scrollViewTopToSuper.constant = 64;
             [self configureHeaderToTableView:YES];
             [self.view setNeedsLayout];
             [self.view layoutIfNeeded];
@@ -205,6 +215,26 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             self.isHeaderHidden = NO;
         }];
     }
+}
+
+#pragma mark - getures
+- (void)handleTapSectionViewGesture:(UITapGestureRecognizer *)gesture {
+    SectionView *sectionView = (SectionView *)gesture.view;
+    NSInteger index = [self getIndexInScrollViewForSubview:sectionView];
+    CGPoint currentOffset = self.sectionScrollView.contentOffset;
+    CGFloat distanceFromLeftEdge = [self.sectionScrollView getDistanceToLeftEdgeForSubview:sectionView];
+    
+    [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + distanceFromLeftEdge, 0) animated:YES];
+    [self reloadItemsForSection:index];
+}
+
+#pragma mark - util
+- (NSInteger)getIndexInScrollViewForSubview:(UIView *)subview {
+    NSInteger indexInScrollView = [self.sectionScrollView.allViews indexOfObject:subview];
+    NSInteger sectionsCount = self.processDataManager.sections.count;
+    NSInteger index = indexInScrollView < sectionsCount ? indexInScrollView : indexInScrollView % sectionsCount;
+    
+    return index;
 }
 
 #pragma mark - table view delegate
@@ -278,6 +308,27 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)configureCellProperties:(UITableViewCell *)cell {
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+}
+
+#pragma mark - infiniteScrollView delegate
+/*
+ 获取需要显示的一组view的数目
+ */
+- (NSInteger)numberOfGroupInInfiniteScrollView:(InfiniteScrollView *)scrollView {
+    return self.processDataManager.sections.count;
+}
+
+/*
+ 获取需要显示的view， 必须要创建一个新的view当回调发生时
+ */
+- (UIView *)infiniteScrollView:(InfiniteScrollView *)scrollView viewAtIndex:(NSInteger)index {
+    NSArray *sections = self.processDataManager.sections;
+    Section *section = sections[index];
+    SectionView *sectionView = [SectionView sectionView];
+    [sectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSectionViewGesture:)]];
+    
+    [self updateSection:section forView:sectionView index:index total:sections.count];
+    return sectionView;
 }
 
 #pragma mark - refresh
@@ -357,65 +408,45 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 - (void)refreshSectionView {
-    NSArray *sections = self.processDataManager.sections;
     if (self.isFirstEnter) {
-        self.isFirstEnter = NO;
-        UIView *preSection = [[UIView alloc] init];
+        [self.sectionScrollView reloadData];
         
-        self.sectionViewArray = [NSMutableArray arrayWithCapacity:sections.count];
-        for (int i = 0; i < sections.count; i++) {
-            Section *section = sections[i];
-            SectionView *sectionView = [SectionView sectionView];
-            [sectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSectionViewGesture:)]];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            CGPoint currentOffset = self.sectionScrollView.contentOffset;
+            CGFloat distanceFromLeftEdge = [self.sectionScrollView getDistanceToLeftEdgeForSubview:self.sectionScrollView.allViews[self.processDataManager.selectedSectionIndex]];
             
-            [self updateSection:section for:sectionView index:i total:sections.count];
-            [self.sectionViewArray addObject:sectionView];
-            
-            sectionView.translatesAutoresizingMaskIntoConstraints = NO;
-            [self.sectionScrollView addSubview:sectionView];
-            
-            NSDictionary *views = @{
-                                    @"preSection":preSection,
-                                    @"section":sectionView,
-                                    @"scrollView":self.sectionScrollView,
-                                    };
-            
-            if (i == 0){
-                [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|[section(==%f)]", SectionViewWidth] options:0 metrics: 0 views:views]];
-                preSection = sectionView;
-            } else{
-                [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[preSection][section(==preSection)]" options:0 metrics: 0 views:views]];
-                preSection = sectionView;
-            }
-            
-            [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|[section(==%f)]", SectionViewHeight] options:0 metrics: 0 views:views]];
-            
-            if (i == sections.count - 1){
-                CGFloat moreContentX = kScreenWidth - SectionViewWidth;
-                [self.sectionScrollView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:[section]-%f-|", moreContentX] options:0 metrics: 0 views:views]];
-            }
-        }
+            [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + distanceFromLeftEdge, 0) animated:YES];
+        });
     }
     
     if (!self.isFirstEnter) {
-        for (int i = 0; i < sections.count; i++) {
-            Section *section = sections[i];
-            [self updateSection:section for:self.sectionViewArray[i] index:i total:sections.count];
+        NSArray *sections = self.processDataManager.sections;
+        for (NSInteger i = 0; i < self.sectionScrollView.allViews.count; i++) {
+            SectionView *view = self.sectionScrollView.allViews[i];
+            NSInteger index = [self getIndexInScrollViewForSubview:view];
+            Section *section = sections[index];
+            [self updateSection:section forView:view index:index total:sections.count];
         }
     }
-    self.isFirstEnter = NO;
     
-    CGFloat purposeX = self.processDataManager.selectedSectionIndex * SectionViewWidth;
-    if (self.sectionScrollView.contentOffset.x != purposeX) {
-        [self.sectionScrollView setContentOffset:CGPointMake(purposeX, 0) animated:YES];
-    }
+    self.isFirstEnter = NO;
 }
 
-- (void)updateSection:(Section *)section for:(SectionView *)sectionView index:(NSInteger)index total:(NSInteger)total {
+- (void)updateSection:(Section *)section forView:(SectionView *)sectionView index:(NSInteger)index total:(NSInteger)total {
     if (index == 0) {
         sectionView.leftLine.hidden = YES;
     } else if (index == (total - 1)) {
         sectionView.rightLine.hidden = YES;
+    }
+    
+    Section *preSection = self.processDataManager.sections[index - 1 < 0 ? 0 : index - 1];
+    Section *nextSection = self.processDataManager.sections[index + 1 > total - 1 ? total - 1 : index + 1];
+    if ([preSection.status isEqualToString:kSectionStatusAlreadyFinished] && [section.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        sectionView.leftLine.backgroundColor = kFinishedColor;
+    }
+    
+    if ([section.status isEqualToString:kSectionStatusAlreadyFinished] && [nextSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        sectionView.rightLine.backgroundColor = kFinishedColor;
     }
     
     sectionView.imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%@_%d", @(index), section.status.intValue < 3 ? section.status.intValue : 1]];
@@ -465,14 +496,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }
 }
 
-#pragma mark - getures
-- (void)handleTapSectionViewGesture:(UITapGestureRecognizer *)gesture {
-    SectionView *sectionView = (SectionView *)gesture.view;
-    NSInteger index = [self.sectionViewArray indexOfObject:sectionView];
-    [self.sectionScrollView setContentOffset:CGPointMake(index * SectionViewWidth, 0) animated:YES];
-    [self reloadItemsForSection:index];
-}
-
 #pragma mark - user action
 - (void)onClickReminder {
     @weakify(self);
@@ -480,6 +503,14 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         @strongify(self);
         [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
     }];
+}
+
+#pragma mark - notification 
+- (void)receiveNotification:(NSNotification *)notification {
+    Notification *noti = notification.object;
+    if ([noti.processid isEqualToString:self.processid]) {
+        [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
+    }
 }
 
 @end

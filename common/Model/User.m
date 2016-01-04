@@ -20,5 +20,8 @@
 @dynamic address;
 @dynamic imageid;
 @dynamic email;
+@dynamic dec_progress;
+@dynamic dec_styles;
+@dynamic family_description;
 
 @end

@@ -48,5 +48,13 @@
 #import "AgreeReschedule.h"
 #import "RejectReschedule.h"
 #import "Feedback.h"
+#import "ListFavoriateProduct.h"
+#import "ListFavoriateBeautifulImage.h"
+#import "DeleteFavoriateProduct.h"
+#import "AddFavoriateProduct.h"
+#import "SearchBeautifulImage.h"
+#import "GetBeautifulImageHomepage.h"
+#import "FavoriteBeautifulImage.h"
+#import "UnfavoriteBeautifulImage.h"
 
 #endif

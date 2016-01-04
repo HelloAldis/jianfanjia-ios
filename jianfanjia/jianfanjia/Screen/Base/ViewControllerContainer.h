@@ -18,6 +18,9 @@
 + (void)showVerifyPhone:(BOOL)isResetPass;
 + (void)showSignupSuccess;
 + (void)showResetPass;
++ (void)showCollectDecPhase;
++ (void)showCollectDecStyle;
++ (void)showCollectFamilyInfo;
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
 + (void)showProduct:(NSString *)productid;
@@ -39,6 +42,7 @@
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
 + (void)showRefresh;
++ (void)showBeautifulImageHomePage:(BeautifulImage *)beautifulImage;
 + (void)refreshSuccess;
 + (UIViewController *)getCurrentTapController;
 + (void)logout;

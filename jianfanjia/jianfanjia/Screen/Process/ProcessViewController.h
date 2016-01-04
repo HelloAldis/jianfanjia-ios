@@ -7,8 +7,9 @@
 //
 
 #import "BaseViewController.h"
+#import "InfiniteScrollView.h"
 
-@interface ProcessViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface ProcessViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, InfiniteScrollViewProtocol>
 
 - (id)initWithProcess:(NSString *)processid;
 - (id)initWithProcessPreview;

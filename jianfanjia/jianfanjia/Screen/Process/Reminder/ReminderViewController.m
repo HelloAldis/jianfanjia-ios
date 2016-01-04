@@ -166,50 +166,14 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
             notification = [notificationCD notification];
         }
         
-        [cell initWithSchedule:self.dataManager.schedules[indexPath.row] notification:notification];
-        return cell;
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.currentNotificationType == NotificationTypePostpone) {
-        Schedule *schedule = self.dataManager.schedules[indexPath.row];
-        if (![schedule.status isEqualToString:kSectionStatusChangeDateRequest]) {
-            return;
-        }
         @weakify(self);
-        [MessageAlertViewController presentAlert:@"改期提醒" msg:@"对方申请改期至" second:[NSDate yyyy_MM_dd:schedule.updated_date]
-                                     rejectTitle:@"拒绝"
-                                          reject:^{
-                                              @strongify(self);
-                                              RejectReschedule *request = [[RejectReschedule alloc] init];
-                                              request.processid = schedule.process._id;
-                                              
-                                              [API rejectReschedule:request success:^{
-                                                  [self refresh];
-                                                  [self markToReadForProcess:schedule.process._id type:kNotificationTypeReschedule];
-                                              } failure:^{
-                                                  
-                                              } networkError:^{
-                                                  
-                                              }];
-                                          }
-                                      agreeTitle:@"同意"
-                                           agree:^{
-                                               @strongify(self);
-                                               AgreeReschedule *request = [[AgreeReschedule alloc] init];
-                                               request.processid = schedule.process._id;
-                                               
-                                               [API agreeReschedule:request success:^{
-                                                   [self refresh];
-                                                   [self markToReadForProcess:schedule.process._id type:kNotificationTypeReschedule];
-                                               } failure:^{
-                                                   
-                                               } networkError:^{
-                                                   
-                                               }];
-                                           }];
+        [cell initWithSchedule:self.dataManager.schedules[indexPath.row] notification:notification refreshBlock:^(NSString *processid) {
+            @strongify(self);
+            [self refresh];
+            [self markToReadForProcess:processid type:kNotificationTypeReschedule];
 
+        }];
+        return cell;
     }
 }
 

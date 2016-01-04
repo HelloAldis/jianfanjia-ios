@@ -91,7 +91,7 @@
         
         [HUDUtil showWait];
         [API userSignup:request success:^{
-            [ViewControllerContainer showSignupSuccess];
+            [ViewControllerContainer showCollectDecPhase];
         } failure:^{
             
         } networkError:^{
