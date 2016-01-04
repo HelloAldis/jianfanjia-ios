@@ -11,3 +11,5 @@ pod 'FLEX', '~> 2.1', :configurations => ['Debug']
 pod 'SSKeychain', '~> 1.2.3'
 pod 'UMengAnalytics'
 pod 'GTSDK'
+pod 'UMengSocial', '~> 4.3'
+

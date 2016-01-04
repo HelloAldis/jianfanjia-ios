@@ -48,6 +48,7 @@ PODS:
   - SDWebImage/Core (3.7.3)
   - SSKeychain (1.2.3)
   - UMengAnalytics (3.6.6)
+  - UMengSocial (4.4)
 
 DEPENDENCIES:
   - AFNetworkActivityLogger (~> 2.0)
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - SDWebImage (~> 3.6)
   - SSKeychain (~> 1.2.3)
   - UMengAnalytics
+  - UMengSocial (~> 4.3)
 
 SPEC CHECKSUMS:
   AFNetworkActivityLogger: 121486778117d53b3ab1c61d264b88081d0c3eee
@@ -76,5 +78,6 @@ SPEC CHECKSUMS:
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
   UMengAnalytics: 4bf831415146b9c57cb10be65fbd43462ef8cf65
+  UMengSocial: aba7296602310385114d82c255539a7bef3b7ab0
 
 COCOAPODS: 0.38.2
