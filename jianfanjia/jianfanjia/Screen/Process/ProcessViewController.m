@@ -168,15 +168,21 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (CGPoint)getLeftestViewToLeftEdge {
     CGPoint offset = self.sectionScrollView.contentOffset;
     
-    CGFloat minDistanceFromLeftEdge = MAXFLOAT;
-    UIView *minDistanceFromLeftEdgeView;
-    for (UIView *view in self.sectionScrollView.visibleViews) {
+    __block CGFloat minDistanceFromLeftEdge = MAXFLOAT;
+    __block UIView *minDistanceFromLeftEdgeView;
+    
+    @weakify(self);
+    [self.sectionScrollView.visibleViews enumerateObjectsUsingBlock:^(id  _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        if (idx == self.sectionScrollView.visibleViews.count / 2)
+            *stop = YES;
+        
         CGFloat distanceToLeftEdge = [self.sectionScrollView getDistanceToLeftEdgeForSubview:view];
         if (distanceToLeftEdge > -SectionViewWidth / 2 && distanceToLeftEdge < minDistanceFromLeftEdge) {
             minDistanceFromLeftEdge = distanceToLeftEdge;
             minDistanceFromLeftEdgeView = view;
         }
-    }
+    }];
     
     self.minDistanceFromLeftEdgeView = minDistanceFromLeftEdgeView;
     CGFloat targetX = offset.x + minDistanceFromLeftEdge;
