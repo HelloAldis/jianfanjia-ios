@@ -38,7 +38,7 @@
                             <constraint firstAttribute="width" constant="60" id="dmn-Xx-3He"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="ZiL-yD-G0q">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="ZiL-yD-G0q">
                         <rect key="frame" x="174" y="284" width="16" height="16"/>
                         <gestureRecognizers/>
                     </imageView>

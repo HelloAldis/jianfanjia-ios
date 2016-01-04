@@ -43,13 +43,12 @@
 }
 
 - (NSURL *)imageurl:(NSString *)imageid {
-    NSString *url = [NSString stringWithFormat:@"%@image/%@", kApiUrl, imageid];
+    NSString *url = [StringUtil rawImageUrl:imageid];
     return [NSURL URLWithString:url];
 }
 
-- (NSURL *)imageurl:(NSString *)imageid withWidth:(long)width {    
-    width = width * kScreenScale;
-    NSString *url = [NSString stringWithFormat:@"%@thumbnail/%ld/%@", kApiUrl, width ,imageid];
+- (NSURL *)imageurl:(NSString *)imageid withWidth:(NSInteger)width {
+    NSString *url = [StringUtil thumbnailImageUrl:imageid width:width];
     return [NSURL URLWithString:url];
 }
 

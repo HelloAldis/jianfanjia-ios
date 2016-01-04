@@ -233,10 +233,18 @@
                         <constraint firstItem="reN-K2-KAn" firstAttribute="width" secondItem="lbg-vE-wFX" secondAttribute="width" id="xyx-b9-Wyh"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a17-ou-AA8">
+                    <rect key="frame" x="282" y="520" width="37" height="30"/>
+                    <state key="normal" image="weixin"/>
+                    <connections>
+                        <action selector="onClickWeChat:" destination="-1" eventType="touchUpInside" id="8mn-dK-uWs"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
+                <constraint firstItem="a17-ou-AA8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="76b-gK-ZeK"/>
                 <constraint firstItem="dtY-DG-Q1p" firstAttribute="centerX" secondItem="bRy-b7-0Gn" secondAttribute="centerX" id="FCz-td-oFF"/>
                 <constraint firstItem="dtY-DG-Q1p" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Iyl-Ka-Jxw"/>
                 <constraint firstItem="bRy-b7-0Gn" firstAttribute="leading" secondItem="htK-kK-3ht" secondAttribute="trailing" constant="20" id="Ncj-1H-ffU"/>
@@ -246,6 +254,7 @@
                 <constraint firstItem="htK-kK-3ht" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fLt-Qh-8GX"/>
                 <constraint firstItem="bRy-b7-0Gn" firstAttribute="baseline" secondItem="htK-kK-3ht" secondAttribute="baseline" id="gBF-Dn-5lM"/>
                 <constraint firstItem="Vdg-FF-mT7" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="gSf-sH-cQM"/>
+                <constraint firstAttribute="bottom" secondItem="a17-ou-AA8" secondAttribute="bottom" constant="50" id="l48-zk-Kkm"/>
                 <constraint firstItem="Vdg-FF-mT7" firstAttribute="top" secondItem="htK-kK-3ht" secondAttribute="bottom" constant="5" id="zVa-9n-bOp"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -267,4 +276,7 @@
             </connections>
         </swipeGestureRecognizer>
     </objects>
+    <resources>
+        <image name="weixin" width="37" height="30"/>
+    </resources>
 </document>

@@ -19,7 +19,7 @@
 @property (nonatomic, strong) UIBarButtonItem *favoriteButton;
 @property (nonatomic, strong) UIBarButtonItem *unfavoriteButton;
 @property (nonatomic, strong) UIBarButtonItem *shareButton;
-@property (nonatomic, strong) NSMutableArray *imageViewArray;
+@property (nonatomic, strong) NSMutableArray<UIImageView *> *imageViewArray;
 @property (nonatomic, strong) NSMutableArray *imageViewStatus;
 @property (nonatomic, assign) NSInteger imgCount;
 
@@ -87,7 +87,7 @@
         [self.favoriteButton.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
     }
     
-    self.navigationItem.rightBarButtonItems = @[//self.shareButton,
+    self.navigationItem.rightBarButtonItems = @[self.shareButton,
                                                 self.favoriteButton];
 }
 
@@ -95,6 +95,7 @@
     self.imgDescription.text = nil;
     self.imgTag.text = nil;
     self.btnDownload.hidden = YES;
+    self.shareButton.enabled = NO;
 }
 
 - (void)initUI {
@@ -127,6 +128,7 @@
             if (error == nil) {
                 if (self.index == i) {
                     self.btnDownload.hidden = NO;
+                    self.shareButton.enabled = YES;
                 }
                 self.imageViewStatus[i] = @1;
             }
@@ -163,8 +165,10 @@
         NSNumber *status = self.imageViewStatus[self.index];
         if ([status boolValue]) {
             self.btnDownload.hidden = NO;
+            self.shareButton.enabled = YES;
         } else {
             self.btnDownload.hidden = YES;
+            self.shareButton.enabled = NO;
         }
     }
 }
@@ -207,7 +211,13 @@
 }
 
 - (void)onClickShareButton {
-    [HUDUtil showSuccessText:@"分享功能还没开放，敬请期待"];
+    NSString *title = self.beautifulImage.title;
+    NSString *description = self.beautifulImage.beautiful_image_description;
+    UIImage *shareImage = [self.imageViewArray[self.index] image];
+    NSString *imgid = [[self.beautifulImage leafImageAtIndex:self.index] imageid];
+    NSString *imgLink = [StringUtil thumbnailImageUrl:imgid width:kScreenWidth];
+    
+    [ShareBusiness share:self image:shareImage title:title description:description targetLink:imgLink delegate:nil];
 }
 
 - (void)onClickDownloadButton {

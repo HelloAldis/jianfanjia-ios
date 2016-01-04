@@ -26,6 +26,14 @@
 //#define kGtAppSecret       @"sJtpmFxS0a5sA30Au3iI36"
 #endif
 
+#define kUMengAppKey       @"55ffb334e0f55a84d500247f"
+
+#define kWXAppId           @"wx391daabfce27e728"
+#define kWXAppSecret       @"f7c8e3e1b5910dd93be2744dacb3a1cc"
+
+#define kQQAppId           @"1104973048" //URL Schemal 需要配置成十六进制 0x41DC8CF8 ==> QQ41DC8CF8
+#define kQQAppKey          @"FuDs7s4vJGAEzCrz"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GeTuiSdkDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

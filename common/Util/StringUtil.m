@@ -14,4 +14,15 @@
     return aStr ? aStr : @"";
 }
 
++ (NSString *)rawImageUrl:(NSString *)imageid {
+    NSString *url = [NSString stringWithFormat:@"%@image/%@", kApiUrl, imageid];
+    return url;
+}
+
++ (NSString *)thumbnailImageUrl:(NSString *)imageid width:(NSInteger)width {
+    width = width * kScreenScale;
+    NSString *url = [NSString stringWithFormat:@"%@thumbnail/%ld/%@", kApiUrl, width ,imageid];
+    return url;
+}
+
 @end

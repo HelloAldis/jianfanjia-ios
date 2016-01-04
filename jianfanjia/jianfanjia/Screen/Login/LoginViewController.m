@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "ViewControllerContainer.h"
+#import "AppDelegate.h"
 
 @interface LoginViewController ()
 
@@ -288,6 +289,20 @@
     } networkError:^{
         
     }];
+}
+
+- (IBAction)onClickWeChat:(id)sender {
+    //    if (![UMSocialAccountManager isOauthAndTokenNotExpired:UMShareToWechatSession]) {
+    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
+    
+    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
+        if (response.responseCode == UMSResponseCodeSuccess) {
+            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
+            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+        }
+    });
+    
+    //    }
 }
 
 - (IBAction)onClickTitleLogin:(id)sender {

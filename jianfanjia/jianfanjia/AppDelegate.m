@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "ViewControllerContainer.h"
 #import "API.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialQQHandler.h"
 //#import "LeakMoniter.h"
 
 @interface AppDelegate ()
@@ -18,14 +20,15 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    [[UIApplication sharedApplication] cancelAllLocalNotifications];
-    
-    // 个推推送注册
+    // 推送注册
     [self initNotification:launchOptions];
-    // 友盟日志统计
-    [MobClick startWithAppkey:@"55ffb334e0f55a84d500247f" reportPolicy:BATCH channelId:@"default"];
-    
+    // 初始化第三方统计
+    [self initThirdPartyStatistics];
+    // 初始化第三方分享
+    [self initThirdPartyShare];
+    // 初始化日志
     [self initLog];
+    
     self.window = [[UIWindow alloc] initWithFrame:kScreenFullFrame];
     [ViewControllerContainer showAfterLanching];
     [self.window makeKeyAndVisible];
@@ -85,8 +88,30 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    BOOL result = [UMSocialSnsService handleOpenURL:url];
+    if (result == FALSE) {
+        //调用其他SDK，例如支付宝SDK等
+    }
+    return result;
+}
+
 + (AppDelegate *)sharedInstance {
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
+}
+
+#pragma mark - 第三方统计
+- (void)initThirdPartyStatistics {
+    // 友盟日志统计
+    [MobClick startWithAppkey:kUMengAppKey reportPolicy:BATCH channelId:@"default"];
+}
+
+#pragma mark - 第三方登录／分享
+- (void)initThirdPartyShare {
+    // 友盟第三方登录／分享
+    [UMSocialData setAppKey:kUMengAppKey];
+    [UMSocialWechatHandler setWXAppId:kWXAppId appSecret:kWXAppSecret url:@"http://www.umeng.com/social"];
+    [UMSocialQQHandler setQQWithAppId:kQQAppId appKey:kQQAppKey url:@"http://www.umeng.com/social"];
 }
 
 #pragma mark - 用户通知(推送) _自定义方法
