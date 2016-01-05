@@ -54,6 +54,14 @@
     self.fldOneLine.leftViewMode = UITextFieldViewModeAlways;
     self.fldOneLine.text = self.value;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    [self.fldOneLine.rac_textSignal subscribeNext:^(NSString *value) {
+        if ([value length] > 0) {
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        } else {
+            self.navigationItem.rightBarButtonItem.enabled = NO;
+        }
+    }];
 }
 
 #pragma mark - user action
