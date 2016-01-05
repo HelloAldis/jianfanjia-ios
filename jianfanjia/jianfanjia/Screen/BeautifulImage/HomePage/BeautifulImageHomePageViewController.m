@@ -217,7 +217,7 @@
     NSString *imgid = [[self.beautifulImage leafImageAtIndex:self.index] imageid];
     NSString *imgLink = [StringUtil thumbnailImageUrl:imgid width:kScreenWidth];
     
-    [ShareBusiness share:self image:shareImage title:title description:description targetLink:imgLink delegate:nil];
+    [[ShareManager shared] share:self image:shareImage title:title description:description targetLink:imgLink delegate:nil];
 }
 
 - (void)onClickDownloadButton {

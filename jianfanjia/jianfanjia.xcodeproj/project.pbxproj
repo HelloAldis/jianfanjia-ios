@@ -12,7 +12,7 @@
 		680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchBeautifulImage.m */; };
 		680F49271C240E400055C16C /* BeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49261C240E400055C16C /* BeautifulImage.m */; };
 		680F492A1C240F910055C16C /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49291C240F910055C16C /* LeafImage.m */; };
-		68134A231C3A7F4C003C1C10 /* ShareBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A221C3A7F4C003C1C10 /* ShareBusiness.m */; };
+		68134A261C3B511B003C1C10 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A251C3B511B003C1C10 /* ShareManager.m */; };
 		68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */; };
 		68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEE1BFC06CB0000EBBE /* OrderDesignder.m */; };
 		68342DF51BFC0F960000EBBE /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DF41BFC0F960000EBBE /* Plan.m */; };
@@ -368,8 +368,8 @@
 		680F49261C240E400055C16C /* BeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImage.m; sourceTree = "<group>"; };
 		680F49281C240F910055C16C /* LeafImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafImage.h; sourceTree = "<group>"; };
 		680F49291C240F910055C16C /* LeafImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeafImage.m; sourceTree = "<group>"; };
-		68134A211C3A7F4C003C1C10 /* ShareBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareBusiness.h; sourceTree = "<group>"; };
-		68134A221C3A7F4C003C1C10 /* ShareBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareBusiness.m; sourceTree = "<group>"; };
+		68134A241C3B511B003C1C10 /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
+		68134A251C3B511B003C1C10 /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
 		68342DEA1BFC057C0000EBBE /* GetOrderableDesigners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetOrderableDesigners.h; sourceTree = "<group>"; };
 		68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetOrderableDesigners.m; sourceTree = "<group>"; };
 		68342DED1BFC06CB0000EBBE /* OrderDesignder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignder.h; sourceTree = "<group>"; };
@@ -1391,8 +1391,6 @@
 				6E4496171BF717B100C90851 /* DesignerBusiness.m */,
 				68342DF71BFC45EE0000EBBE /* RequirementBusiness.h */,
 				68342DF81BFC45EE0000EBBE /* RequirementBusiness.m */,
-				68134A211C3A7F4C003C1C10 /* ShareBusiness.h */,
-				68134A221C3A7F4C003C1C10 /* ShareBusiness.m */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -1450,6 +1448,8 @@
 				6E07DA891BD88DBE001461DD /* GVUserDefaults+Manager.m */,
 				689485CE1C1A6A05002310FC /* NotificationDataManager.h */,
 				689485CF1C1A6A05002310FC /* NotificationDataManager.m */,
+				68134A241C3B511B003C1C10 /* ShareManager.h */,
+				68134A251C3B511B003C1C10 /* ShareManager.m */,
 				6E07DA8A1BD88DBE001461DD /* Manager.h */,
 			);
 			path = Manager;
@@ -2168,7 +2168,6 @@
 				683FFB471C296288002A1AFE /* DropdownMenuCollectionCell.m in Sources */,
 				684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */,
 				683A6B6A1C0F01190071DF88 /* ReminderViewController.m in Sources */,
-				68134A231C3A7F4C003C1C10 /* ShareBusiness.m in Sources */,
 				685CD5CC1C02DCAA00EC1991 /* PlanPriceDetailViewController.m in Sources */,
 				683A6B681C0F01190071DF88 /* PurchaseNotificationCell.m in Sources */,
 				6E6D98CF1BE0C34000D45F77 /* HomePageRecDesignersCell.m in Sources */,
@@ -2338,6 +2337,7 @@
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
 				680F492A1C240F910055C16C /* LeafImage.m in Sources */,
 				683FFB681C2A8FBD002A1AFE /* CollectFamilyInfoViewController.m in Sources */,
+				68134A261C3B511B003C1C10 /* ShareManager.m in Sources */,
 				6E06CC261C2BA51800A08D15 /* FavoriateBeautifulImageCell.m in Sources */,
 				685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */,
 				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
