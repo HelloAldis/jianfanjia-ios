@@ -26,6 +26,10 @@ typedef enum {
 - (void)triggerDoneEvent;
 - (BOOL)hasDataChanged;
 
+@optional
+- (void)keyboardShow:(CGFloat)keyboardHeight;
+- (void)keyboardHide:(CGFloat)keyboardHeight;
+
 @end
 
 #endif /* RequirementCreateProtocol_h */

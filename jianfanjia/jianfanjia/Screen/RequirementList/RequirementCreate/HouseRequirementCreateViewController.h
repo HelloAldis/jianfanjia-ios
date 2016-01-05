@@ -19,4 +19,7 @@
 - (void)triggerDoneEvent;
 - (BOOL)hasDataChanged;
 
+- (void)keyboardShow:(CGFloat)keyboardHeight;
+- (void)keyboardHide:(CGFloat)keyboardHeight;
+
 @end

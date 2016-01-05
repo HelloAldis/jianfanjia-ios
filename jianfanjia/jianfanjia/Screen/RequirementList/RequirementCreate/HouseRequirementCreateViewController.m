@@ -494,4 +494,13 @@
     return NO;
 }
 
+#pragma mark - keyboard
+- (void)keyboardShow:(CGFloat)keyboardHeight {
+    self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0);
+}
+
+- (void)keyboardHide:(CGFloat)keyboardHeight {
+    self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
 @end

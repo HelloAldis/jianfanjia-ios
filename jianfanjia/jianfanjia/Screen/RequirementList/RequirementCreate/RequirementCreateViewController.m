@@ -11,9 +11,6 @@
 #import "HouseRequirementCreateViewController.h"
 #import "BusinessRequirementCreateViewController.h"
 
-static float kKeyboardHeight = 480;
-static NSTimeInterval kKeyboardDuration = 2.0;
-
 @interface RequirementCreateViewController ()
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
@@ -28,6 +25,8 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 
 @property (strong, nonatomic) RACDisposable *houseDisposable;
 @property (strong, nonatomic) RACDisposable *businessDisposable;
+
+@property (assign, nonatomic) BOOL isKeyboardShow;
 
 @end
 
@@ -222,23 +221,23 @@ static NSTimeInterval kKeyboardDuration = 2.0;
 
 #pragma mark - keyboard
 - (void)keyboardWillShow:(NSNotification *)notification {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        NSDictionary *userInfo = [notification userInfo];
-        
-        // get keyboard height
-        kKeyboardHeight = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-        // get keybord anmation duration
-        kKeyboardDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
-    });
-
-    CGRect frame = self.currentDisplayController.view.frame;
-    self.currentDisplayController.view.frame = CGRectMake(0, 0, frame.size.width, frame.size.height - kKeyboardHeight);
+    NSDictionary *userInfo = [notification userInfo];
+    CGFloat keyboardHeight = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    if (!self.isKeyboardShow && keyboardHeight > 0) {
+        self.isKeyboardShow = YES;
+        [self.currentDisplayController keyboardShow:keyboardHeight];
+    }
 }
 
 - (void) keyboardWillHide:(NSNotification *)notification {
     [self.view endEditing:YES];
-    self.currentDisplayController.view.frame = self.containerView.bounds;
+    
+    NSDictionary *userInfo = [notification userInfo];
+    CGFloat keyboardHeight = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    if (self.isKeyboardShow) {
+        self.isKeyboardShow = NO;
+        [self.currentDisplayController keyboardHide:keyboardHeight];
+    }
 }
 
 @end
