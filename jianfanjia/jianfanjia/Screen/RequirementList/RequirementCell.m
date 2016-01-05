@@ -66,13 +66,14 @@
     [self updateRequirement:requirement];
     
     [self.requirementDataManager refreshOrderedDesigners:requirement];
-    @weakify(self);
-    [self.requirementDataManager.orderedDesigners enumerateObjectsUsingBlock:^(Designer*  _Nonnull orderedDesigner, NSUInteger idx, BOOL * _Nonnull stop) {
-        @strongify(self);
-        if (idx < self.designerAvatar.count) {
-            [self updateDesigner:orderedDesigner forIndex:idx];
+    
+    for (NSInteger i = 0; i < self.designerAvatar.count; i++) {
+        if (i < self.requirementDataManager.orderedDesigners.count) {
+            [self updateDesigner:self.requirementDataManager.orderedDesigners[i] forIndex:i];
+        } else {
+            [self updateDesigner:nil forIndex:i];
         }
-    }];
+    }
 }
 
 #pragma mark - gestures
@@ -121,18 +122,25 @@
 #pragma mark - update status
 - (void)updateDesigner:(Designer *)orderedDesigner forIndex:(NSUInteger)idx {
     UIImageView *imgView = self.designerAvatar[idx];
-    [imgView setImageWithId:orderedDesigner.imageid withWidth:imgView.bounds.size.width];
+    
+    if (orderedDesigner) {
+        [imgView setImageWithId:orderedDesigner.imageid withWidth:imgView.bounds.size.width];
+    } else {
+        [imgView setImage:[UIImage imageNamed:@"add"]];
+    }
     
     UILabel *lblName = self.designerName[idx];
-    lblName.text = orderedDesigner.username;
+    lblName.text = orderedDesigner ? orderedDesigner.username : @"设计师";
+    
+    NSString *status = orderedDesigner ? orderedDesigner.plan.status : kPlanStatusUnorder;
+    NSString *auth_type = orderedDesigner ? orderedDesigner.auth_type : kAuthTypeUnsubmitVerify;
     
     UILabel *lblStatus = self.designerStatus[idx];
     UIImageView *authIcon = self.authIcon[idx];
     
-    lblStatus.text = [NameDict nameForPlanStatus:orderedDesigner.plan.status];
-    [DesignerBusiness setV:authIcon withAuthType:orderedDesigner.auth_type];
+    lblStatus.text = [status isEqualToString:kPlanStatusUnorder] ? @"未预约" : [NameDict nameForPlanStatus:status];
+    [DesignerBusiness setV:authIcon withAuthType:auth_type];
     
-    NSString *status = orderedDesigner.plan.status;
     self.currentPlanStatus[idx] = status;
     
     if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]
