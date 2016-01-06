@@ -11,6 +11,8 @@
 #import "API.h"
 #import "UMSocialWechatHandler.h"
 #import "UMSocialQQHandler.h"
+#import "UMSocialSinaSSOHandler.h"
+#import "UMSocialSinaHandler.h"
 //#import "LeakMoniter.h"
 
 @interface AppDelegate ()
@@ -112,6 +114,8 @@
     [UMSocialData setAppKey:kUMengAppKey];
     [UMSocialWechatHandler setWXAppId:kWXAppId appSecret:kWXAppSecret url:@"http://www.umeng.com/social"];
     [UMSocialQQHandler setQQWithAppId:kQQAppId appKey:kQQAppKey url:@"http://www.umeng.com/social"];
+    //微博原生sdk 打开新浪微博的SSO开关，设置新浪微博回调地址，这里必须要和你在新浪微博后台设置的回调地址一致。若在新浪后台设置我们的回调地址，“http://sns.whalecloud.com/sina2/callback”，这里可以传nil
+    [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:kWeiboAppKey RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
 }
 
 #pragma mark - 用户通知(推送) _自定义方法

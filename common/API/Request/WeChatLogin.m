@@ -1,31 +1,34 @@
 //
-//  Login.m
+//  WeChatLogin.m
 //  jianfanjia
 //
-//  Created by JYZ on 15/8/24.
-//  Copyright (c) 2015年 JYZ. All rights reserved.
+//  Created by Karos on 16/1/6.
+//  Copyright © 2016年 JYZ. All rights reserved.
 //
 
-#import "UserLogin.h"
+#import "WeChatLogin.h"
 
-@implementation UserLogin
+@implementation WeChatLogin
 
-@dynamic phone;
-@dynamic pass;
+@dynamic username;
+@dynamic sex;
+@dynamic image_url;
+@dynamic wechat_openid;
+@dynamic wechat_unionid;
 
 - (void)failure {
     [HUDUtil showErrText:[DataManager shared].errMsg];
 }
 
 - (void)success {
-    [GVUserDefaults standardUserDefaults].phone = self.phone;
-//    [SSKeychain setPassword:self.pass forService:kKeychainService account:self.phone];
+    [GVUserDefaults standardUserDefaults].phone = nil;
     [GVUserDefaults standardUserDefaults].loginDate = [[NSDate date] yyyy_MM_dd];
     
     NSMutableDictionary *dict = [DataManager shared].data;
     NSString *usertype = [dict objectForKey:@"usertype"];
     [dict removeObjectForKey:@"usertype"];
     [GVUserDefaults standardUserDefaults].usertype = usertype;
+    [DataManager shared].isWechatFirstLogin = [[dict objectForKey:@"is_wechat_first_login"] boolValue];
     
     if ([kUserTypeUser isEqualToString:usertype]) {
         User *user = [[User alloc] initWith:dict];

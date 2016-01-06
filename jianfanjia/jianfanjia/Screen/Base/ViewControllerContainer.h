@@ -15,8 +15,10 @@
 + (void)showAfterLanching;
 + (void)showLogin;
 + (void)showSignup;
-+ (void)showVerifyPhone:(BOOL)isResetPass;
-+ (void)showSignupSuccess;
++ (void)showAccountBind;
++ (void)showBindPhone:(BindPhoneEvent)bindPhoneEvent;
++ (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent;
+//+ (void)showSignupSuccess;
 + (void)showResetPass;
 + (void)showCollectDecPhase;
 + (void)showCollectDecStyle;

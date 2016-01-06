@@ -23,5 +23,7 @@
 @property(nonatomic, strong) NSString *dec_progress;
 @property(nonatomic, strong) NSArray *dec_styles;
 @property(nonatomic, strong) NSString *family_description;
+@property(nonatomic, strong) NSString *wechat_openid;
+@property(nonatomic, strong) NSString *wechat_unionid;
 
 @end

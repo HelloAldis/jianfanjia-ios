@@ -34,5 +34,6 @@ return shared##className; \
 #define kIs47inchScreen (kScreenHeight == 667)
 #define kIs55inchScreen (kScreenHeight == 736)
 #define kIsPad ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
+#define kIsInstalledWechat ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"weixin://"]])
 
 #endif /* Macro_h */

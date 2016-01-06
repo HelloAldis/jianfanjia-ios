@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *fldSignupPhone;
 @property (weak, nonatomic) IBOutlet UITextField *fldSignupPassword;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
+@property (weak, nonatomic) IBOutlet UIButton *btnWechatLogin;
+@property (weak, nonatomic) IBOutlet UIImageView *wechatIcon;
 
 @property (assign, nonatomic) BOOL isUp;
 @property (strong, nonatomic) NSLayoutConstraint *leftForBtnTitleLogin;
@@ -108,6 +110,10 @@
     [self.btnNext setCornerRadius:5];
     self.btnNext.enabled = NO;
     self.isUp = NO;
+    [self.btnWechatLogin setCornerRadius:5];
+    [self.btnWechatLogin setBorder:1 andColor:kPassStatusColor.CGColor];
+    [self.btnWechatLogin setTitleColor:kPassStatusColor forState:UIControlStateNormal];
+    [self.wechatIcon setTintColor:kPassStatusColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -121,6 +127,8 @@
     } else {
         self.topConstraint.constant = (kScreenHeight - 480)/2;
     }
+    
+    self.btnWechatLogin.hidden = !kIsInstalledWechat;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -256,7 +264,7 @@
         SendVerifyCode *req = [[SendVerifyCode alloc] init];
         req.phone = [DataManager shared].signupPagePhone;
         [API sendVerifyCode:req success:^{
-            [ViewControllerContainer showVerifyPhone:NO];
+            [ViewControllerContainer showVerifyPhone:VerfityPhoneEventSignup];
         } failure:^{
             
         } networkError:^{
@@ -292,17 +300,37 @@
 }
 
 - (IBAction)onClickWeChat:(id)sender {
-    //    if (![UMSocialAccountManager isOauthAndTokenNotExpired:UMShareToWechatSession]) {
-    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
-    
-    snsPlatform.loginClickHandler(self,[UMSocialControllerService defaultControllerService],YES,^(UMSocialResponseEntity *response){
-        if (response.responseCode == UMSResponseCodeSuccess) {
-            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary]valueForKey:UMShareToWechatSession];
-            NSLog(@"username is %@, uid is %@, token is %@ url is %@",snsAccount.userName,snsAccount.usid,snsAccount.accessToken,snsAccount.iconURL);
+    [[ShareManager shared] wechatLogin:self compeletion:^(SnsAccountInfo *snsAccount, NSString *error) {
+        if (error == nil) {
+            WeChatLogin *request = [[WeChatLogin alloc] init];
+            request.username = snsAccount.userName;
+            request.sex = snsAccount.gender;
+            request.image_url = snsAccount.iconURL;
+            request.wechat_openid = snsAccount.usid;
+            request.wechat_unionid = snsAccount.unionId;
+            
+            [HUDUtil showWait];
+            [API wechatLogin:request success:^{
+                [HUDUtil hideWait];
+                if ([DataManager shared].isWechatFirstLogin) {
+                    [ViewControllerContainer showCollectDecPhase];
+                } else {
+                    UserGetInfo *getUser = [[UserGetInfo alloc] init];
+                    [API userGetInfo:getUser success:^{
+                        [ViewControllerContainer showTab];
+                    } failure:^{
+                    } networkError:^{
+                    }];
+                }
+            } failure:^{
+                [HUDUtil hideWait];
+            } networkError:^{
+                [HUDUtil hideWait];
+            }];
+        } else {
+            [HUDUtil showErrText:error];
         }
-    });
-    
-    //    }
+    }];
 }
 
 - (IBAction)onClickTitleLogin:(id)sender {

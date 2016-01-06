@@ -26,6 +26,8 @@
 @dynamic dec_progress;
 @dynamic dec_styles;
 @dynamic family_description;
+@dynamic wechat_openid;
+@dynamic wechat_unionid;
 
 @end
 

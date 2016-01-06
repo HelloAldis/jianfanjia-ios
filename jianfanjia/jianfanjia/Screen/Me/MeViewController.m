@@ -71,7 +71,12 @@
 
 - (void)initUIData {
     self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
-    self.lblPhone.text = [NSString stringWithFormat:@"帐号：%@", [GVUserDefaults standardUserDefaults].phone];
+    if ([GVUserDefaults standardUserDefaults].phone) {
+        self.lblPhone.text = [NSString stringWithFormat:@"帐号：%@", [GVUserDefaults standardUserDefaults].phone];
+    } else {
+        self.lblPhone.hidden = YES;
+    }
+    
     [self.userImageView setImageWithId:[GVUserDefaults standardUserDefaults].imageid placeholderImage:[UIImage imageNamed:@"image_place_holder_3"]];
     [self.userThumnail setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
 }

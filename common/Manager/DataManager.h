@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class Requirement;
 @class Product;
 @class Designer;
@@ -33,6 +34,8 @@
 @property (nonatomic, strong) NSString *collectedDecPhase;
 @property (nonatomic, strong) NSArray *collectedDecStyle;
 @property (nonatomic, strong) NSString *collectedFamilyInfo;
+
+@property (nonatomic, assign) BOOL isWechatFirstLogin;
 
 kSynthesizeSingletonForHeader(DataManager)
 

@@ -146,7 +146,7 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
         UserGetInfo *getUser = [[UserGetInfo alloc] init];
         [API userGetInfo:getUser success:^{
             [HUDUtil hideWait];
-            [ViewControllerContainer showSignupSuccess];
+            [ViewControllerContainer showTab];
         } failure:^{
             [HUDUtil hideWait];
         } networkError:^{

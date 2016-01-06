@@ -56,5 +56,9 @@
 #import "GetBeautifulImageHomepage.h"
 #import "FavoriteBeautifulImage.h"
 #import "UnfavoriteBeautifulImage.h"
+#import "WeChatLogin.h"
+#import "RefreshSession.h"
+#import "BindPhone.h"
+#import "BindWechat.h"
 
 #endif

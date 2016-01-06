@@ -8,8 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface VerifyPhoneViewController : BaseViewController
+@interface BindPhoneViewController : BaseViewController
 
-- (id)initWithEvent:(VerfityPhoneEvent)verfityPhoneEvent;
+- (id)initWithEvent:(BindPhoneEvent)bindPhoneEvent;
 
 @end

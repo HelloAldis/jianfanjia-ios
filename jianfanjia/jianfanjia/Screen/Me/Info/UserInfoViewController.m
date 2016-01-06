@@ -11,13 +11,13 @@
 #import "UpdateMultipleLineTextViewController.h"
 #import "SelectCityViewController.h"
 #import "SelectSexTypeViewController.h"
+#import "ViewControllerContainer.h"
 
 @interface UserInfoViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblUsername;
 @property (weak, nonatomic) IBOutlet UILabel *lblSex;
-@property (weak, nonatomic) IBOutlet UILabel *lblPhone;
 @property (weak, nonatomic) IBOutlet UILabel *lblLocation;
 @property (weak, nonatomic) IBOutlet UILabel *lblDetailLocation;
 
@@ -32,15 +32,7 @@
     [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.userImageView setCornerRadius:30];
-    
-    UserGetInfo *request = [[UserGetInfo alloc] init];
-    @weakify(self);
-    [API userGetInfo:request success:^{
-        @strongify(self);
-        [self initUIData];
-    } failure:^{
-    } networkError:^{
-    }];
+    [self initUIData];
 }
 
 #pragma mark - UI
@@ -53,7 +45,6 @@
     [self.userImageView setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
     self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
     self.lblSex.text = [NameDict nameForSexType:[GVUserDefaults standardUserDefaults].sex];
-    self.lblPhone.text = [GVUserDefaults standardUserDefaults].phone;
     
     NSArray *arr = @[[StringUtil convertNil2Empty:[GVUserDefaults standardUserDefaults].province],
                       [StringUtil convertNil2Empty:[GVUserDefaults standardUserDefaults].city],
@@ -114,6 +105,10 @@
     }];
     
     [self.navigationController pushViewController:controller animated:YES];
+}
+
+- (IBAction)onClickAccountBind:(id)sender {
+    [ViewControllerContainer showAccountBind];
 }
 
 - (IBAction)onClickDetailLocation:(id)sender {

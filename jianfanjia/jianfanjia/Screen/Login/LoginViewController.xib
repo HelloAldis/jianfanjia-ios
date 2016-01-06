@@ -11,6 +11,7 @@
                 <outlet property="btnNext" destination="xZS-OG-s2c" id="dtR-0r-Ibg"/>
                 <outlet property="btnTitleLogin" destination="htK-kK-3ht" id="Kga-ku-qsp"/>
                 <outlet property="btnTitleSignup" destination="bRy-b7-0Gn" id="0ts-jR-Qti"/>
+                <outlet property="btnWechatLogin" destination="ePc-lJ-WV9" id="vDN-Lg-tMb"/>
                 <outlet property="centerForBtnTitleLogin" destination="fLt-Qh-8GX" id="Y0k-PX-b95"/>
                 <outlet property="fldPassword" destination="Kew-9D-ggw" id="F5J-uW-Pna"/>
                 <outlet property="fldPhone" destination="Gjd-6l-haU" id="cgf-hM-v3J"/>
@@ -21,6 +22,7 @@
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewLogin" destination="Vdg-FF-mT7" id="LNN-eR-ATW"/>
                 <outlet property="viewSignup" destination="dtY-DG-Q1p" id="XmR-Qa-s2T"/>
+                <outlet property="wechatIcon" destination="6Tm-Lc-4QU" id="vxC-g7-CVK"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -233,28 +235,47 @@
                         <constraint firstItem="reN-K2-KAn" firstAttribute="width" secondItem="lbg-vE-wFX" secondAttribute="width" id="xyx-b9-Wyh"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a17-ou-AA8">
-                    <rect key="frame" x="282" y="520" width="37" height="30"/>
-                    <state key="normal" image="weixin"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ePc-lJ-WV9" userLabel="Btn Wechat Login">
+                    <rect key="frame" x="60" y="282" width="480" height="48"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="4g9-BY-7Yy">
+                            <variation key="widthClass=compact" constant="40"/>
+                        </constraint>
+                    </constraints>
+                    <state key="normal" title="微信登录">
+                        <color key="titleColor" red="0.066666666669999999" green="0.74509803919999995" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
                     <connections>
-                        <action selector="onClickWeChat:" destination="-1" eventType="touchUpInside" id="8mn-dK-uWs"/>
+                        <action selector="onClickWeChat:" destination="-1" eventType="touchUpInside" id="N93-KA-pKC"/>
                     </connections>
                 </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weixin" translatesAutoresizingMaskIntoConstraints="NO" id="6Tm-Lc-4QU">
+                    <rect key="frame" x="239" y="297" width="23" height="19"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="19" id="dFF-db-iY5"/>
+                        <constraint firstAttribute="width" constant="23" id="eYl-M3-qX5"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="a17-ou-AA8" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="76b-gK-ZeK"/>
+                <constraint firstItem="ePc-lJ-WV9" firstAttribute="width" secondItem="IFj-Kc-4IV" secondAttribute="width" id="DLL-Q1-PsH"/>
                 <constraint firstItem="dtY-DG-Q1p" firstAttribute="centerX" secondItem="bRy-b7-0Gn" secondAttribute="centerX" id="FCz-td-oFF"/>
                 <constraint firstItem="dtY-DG-Q1p" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Iyl-Ka-Jxw"/>
                 <constraint firstItem="bRy-b7-0Gn" firstAttribute="leading" secondItem="htK-kK-3ht" secondAttribute="trailing" constant="20" id="Ncj-1H-ffU"/>
                 <constraint firstItem="dtY-DG-Q1p" firstAttribute="top" secondItem="bRy-b7-0Gn" secondAttribute="bottom" constant="5" id="O8J-4D-rMZ"/>
                 <constraint firstItem="Vdg-FF-mT7" firstAttribute="centerX" secondItem="htK-kK-3ht" secondAttribute="centerX" id="PmP-QT-ocv"/>
+                <constraint firstItem="ePc-lJ-WV9" firstAttribute="top" secondItem="Vdg-FF-mT7" secondAttribute="bottom" constant="20" id="QPJ-TL-C7g"/>
                 <constraint firstItem="htK-kK-3ht" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="27" id="XiB-lD-sOc"/>
                 <constraint firstItem="htK-kK-3ht" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="fLt-Qh-8GX"/>
                 <constraint firstItem="bRy-b7-0Gn" firstAttribute="baseline" secondItem="htK-kK-3ht" secondAttribute="baseline" id="gBF-Dn-5lM"/>
                 <constraint firstItem="Vdg-FF-mT7" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="gSf-sH-cQM"/>
-                <constraint firstAttribute="bottom" secondItem="a17-ou-AA8" secondAttribute="bottom" constant="50" id="l48-zk-Kkm"/>
+                <constraint firstItem="ePc-lJ-WV9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="l5D-1z-uTu"/>
+                <constraint firstItem="6Tm-Lc-4QU" firstAttribute="centerX" secondItem="ePc-lJ-WV9" secondAttribute="centerX" constant="-50" id="m3y-45-h4X"/>
+                <constraint firstItem="6Tm-Lc-4QU" firstAttribute="centerY" secondItem="ePc-lJ-WV9" secondAttribute="centerY" id="yyv-2V-nuX"/>
                 <constraint firstItem="Vdg-FF-mT7" firstAttribute="top" secondItem="htK-kK-3ht" secondAttribute="bottom" constant="5" id="zVa-9n-bOp"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

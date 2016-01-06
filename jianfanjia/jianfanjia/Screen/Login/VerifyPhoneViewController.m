@@ -16,9 +16,20 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblPhone;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 
+@property (assign, nonatomic) VerfityPhoneEvent verfityPhoneEvent;
+
 @end
 
 @implementation VerifyPhoneViewController
+
+#pragma mark - init method 
+- (id)initWithEvent:(VerfityPhoneEvent)verfityPhoneEvent {
+    if (self = [super init]) {
+        self.verfityPhoneEvent = verfityPhoneEvent;
+    }
+    
+    return self;
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -62,41 +73,76 @@
     [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
-#pragma mark - UI
-
 #pragma mark - user action
-- (IBAction)onClickSignup:(id)sender {
-    if (self.isResetPass) {
-        UpdatePass *request = [[UpdatePass alloc] init];
-        request.phone = [DataManager shared].signupPagePhone;
-        request.pass = [DataManager shared].signupPagePass;
-        request.code = [self.fldVerifyCode.text trim];
-        
-        [HUDUtil showWait];
-        @weakify(self);
-        [API updatePass:request success:^{
-            @strongify(self);
-            [HUDUtil showSuccessText:@"密码更新成功"];
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        } failure:^{
+- (IBAction)onClickBackButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
-        } networkError:^{
+- (IBAction)onClickSignup:(id)sender {
+    switch (self.verfityPhoneEvent) {
+        case VerfityPhoneEventResetPassword: {
+                UpdatePass *request = [[UpdatePass alloc] init];
+                request.phone = [DataManager shared].signupPagePhone;
+                request.pass = [DataManager shared].signupPagePass;
+                request.code = [self.fldVerifyCode.text trim];
+                
+                [HUDUtil showWait];
+                @weakify(self);
+                [API updatePass:request success:^{
+                    @strongify(self);
+                    [HUDUtil showSuccessText:@"密码更新成功"];
+                    [self.navigationController popToRootViewControllerAnimated:YES];
+                } failure:^{
+                    
+                } networkError:^{
+                    
+                }];
+            }
             
-        }];
-    } else {
-        UserSignup *request = [[UserSignup alloc] init];
-        request.phone = [DataManager shared].signupPagePhone;
-        request.pass = [DataManager shared].signupPagePass;
-        request.code = [self.fldVerifyCode.text trim];
-        
-        [HUDUtil showWait];
-        [API userSignup:request success:^{
-            [ViewControllerContainer showCollectDecPhase];
-        } failure:^{
+            break;
+        case VerfityPhoneEventSignup: {
+                UserSignup *request = [[UserSignup alloc] init];
+                request.phone = [DataManager shared].signupPagePhone;
+                request.pass = [DataManager shared].signupPagePass;
+                request.code = [self.fldVerifyCode.text trim];
+                
+                [HUDUtil showWait];
+                [API userSignup:request success:^{
+                    [ViewControllerContainer showCollectDecPhase];
+                } failure:^{
+                    
+                } networkError:^{
+                    
+                }];
+            }
             
-        } networkError:^{
+            break;
+        case VerfityPhoneEventBindPhone: {
+            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
             
-        }];
+            
+//                BindPhone *request = [[BindPhone alloc] init];
+//                request.phone = [DataManager shared].signupPagePhone;
+//                request.code = [self.fldVerifyCode.text trim];
+//                
+//                [HUDUtil showWait];
+//                [API bindPhone:request success:^{
+//                    [GVUserDefaults standardUserDefaults].phone = request.phone;
+//                    NSArray *controllers = self.navigationController.viewControllers;
+//                    UIViewController *purposeController = controllers[controllers.count - 3];
+//                    [self.navigationController popToViewController:purposeController animated:YES];
+//                    
+//                    
+//                } failure:^{
+//                    
+//                } networkError:^{
+//                    
+//                }];
+            }
+            
+            break;
+        default:
+            break;
     }
 }
 

@@ -40,6 +40,8 @@
 #import "CollectDecStyleViewController.h"
 #import "CollectFamilyInfoViewController.h"
 #import "BeautifulImageHomePageViewController.h"
+#import "AccountBindViewController.h"
+#import "BindPhoneViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -123,18 +125,45 @@ static ViewControllerContainer *container;
     container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:v];
 }
 
-+ (void)showVerifyPhone:(BOOL)isResetPass {
-    VerifyPhoneViewController *v = [[VerifyPhoneViewController alloc] init];
-    v.isResetPass = isResetPass;
-    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
-    [nav pushViewController:v animated:YES];
++ (void)showAccountBind {
+    AccountBindViewController *v = [[AccountBindViewController alloc] init];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showSignupSuccess {
-    SignupSuccessViewController *v = [[SignupSuccessViewController alloc] init];
-    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
-    [nav pushViewController:v animated:YES];
++ (void)showBindPhone:(BindPhoneEvent)bindPhoneEvent {
+    BindPhoneViewController *v = [[BindPhoneViewController alloc] initWithEvent:bindPhoneEvent];
+    
+//    CATransition* transition = [CATransition animation];
+//    transition.duration = 0.5;
+//    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+//    transition.type = kCATransitionFade; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+//    transition.subtype = kCATransitionFromTop; //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
+//    [container.tab.selectedViewController.view.layer addAnimation:transition forKey:nil];
+//    [container.tab.selectedViewController pushViewController:v animated:NO];
+    
+    v.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    v.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [[self getCurrentTapController] presentViewController:v animated:YES completion:nil];
 }
+
++ (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent {
+    VerifyPhoneViewController *v = [[VerifyPhoneViewController alloc] initWithEvent:verfityPhoneEvent];
+    
+    if (verfityPhoneEvent == VerfityPhoneEventBindPhone) {
+        v.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        v.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        [container.tab.selectedViewController.presentedViewController presentViewController:v animated:YES completion:nil];
+    } else {
+        UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+        [nav pushViewController:v animated:YES];
+    }
+}
+
+//+ (void)showSignupSuccess {
+//    SignupSuccessViewController *v = [[SignupSuccessViewController alloc] init];
+//    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+//    [nav pushViewController:v animated:YES];
+//}
 
 + (void)showResetPass {
     ResetPassViewController *v = [[ResetPassViewController alloc] init];

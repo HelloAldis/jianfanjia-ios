@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^LoginCompeletion)(UMSocialAccountEntity *accountEntity, NSError *error);
+@class SnsAccountInfo;
+
+typedef void(^LoginCompeletion)(SnsAccountInfo *snsAccount, NSString *error);
 
 @interface ShareManager : NSObject
 
+- (void)wechatLogin:(UIViewController *)controller compeletion:(LoginCompeletion)loginCompeletion;
 - (void)share:(UIViewController *)controller image:(UIImage *)shareImage title:(NSString *)title description:(NSString *)description targetLink:(NSString *)targetLink delegate:(id)delegate;
 
 

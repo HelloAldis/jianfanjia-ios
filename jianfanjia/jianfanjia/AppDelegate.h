@@ -34,6 +34,9 @@
 #define kQQAppId           @"1104973048" //URL Schemal 需要配置成十六进制 0x41DC8CF8 ==> QQ41DC8CF8
 #define kQQAppKey          @"FuDs7s4vJGAEzCrz"
 
+#define kWeiboAppKey        @"10611350"
+#define kWeiboAppSecret     @"4a5b93b71687ec9af1ee91cfdfb361d3"
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GeTuiSdkDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

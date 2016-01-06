@@ -256,6 +256,22 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"favorite/beautiful_image/delete" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)wechatLogin:(WeChatLogin *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"user_wechat_login" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)refreshSession:(RefreshSession *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"user_refresh_session" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)bindPhone:(BindPhone *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"user_bind_phone" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)bindWechat:(BindWechat *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"user_bind_wechat" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 
