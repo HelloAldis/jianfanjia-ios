@@ -13,7 +13,8 @@ typedef void(^ValueBlock)(id value);
 @interface BaseSelectionViewController : BaseViewController
 
 @property (copy, nonatomic) ValueBlock ValueBlock;
+@property (strong, nonatomic) NSString *curValue;
 
-- (id)initWithValueBlock:(ValueBlock)ValueBlock;
+- (id)initWithValueBlock:(ValueBlock)ValueBlock curValue:(NSString *)curValue;
 
 @end

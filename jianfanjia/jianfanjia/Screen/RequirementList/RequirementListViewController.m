@@ -65,6 +65,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 #pragma mark - init ui
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     [self.tableView registerNib:[UINib nibWithNibName:@"RequirementCell" bundle:nil] forCellReuseIdentifier:requirementCellId];
     @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -104,26 +105,26 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 }
 
 #pragma mark - scroll view delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.preY > scrollView.contentOffset.y) {
-        //下滑
-        if (!self.tableView.footer.isRefreshing) {
-            [self showTabbar];
-        }
-    } else if (self.preY < scrollView.contentOffset.y && scrollView.contentOffset.y > 0) {
-        //上滑
-        [self hideTabbar];
-        
-    }
-    
-    NSInteger maxOffset = scrollView.contentSize.height - scrollView.bounds.size.height;
-    //是否有滑动超过边界
-    if (scrollView.contentOffset.y > 0 && scrollView.contentOffset.y > maxOffset) {
-        self.preY = maxOffset;
-    } else {
-        self.preY = scrollView.contentOffset.y;
-    }
-}
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    if (self.preY > scrollView.contentOffset.y) {
+//        //下滑
+//        if (!self.tableView.footer.isRefreshing) {
+//            [self showTabbar];
+//        }
+//    } else if (self.preY < scrollView.contentOffset.y && scrollView.contentOffset.y > 0) {
+//        //上滑
+//        [self hideTabbar];
+//        
+//    }
+//    
+//    NSInteger maxOffset = scrollView.contentSize.height - scrollView.bounds.size.height;
+//    //是否有滑动超过边界
+//    if (scrollView.contentOffset.y > 0 && scrollView.contentOffset.y > maxOffset) {
+//        self.preY = maxOffset;
+//    } else {
+//        self.preY = scrollView.contentOffset.y;
+//    }
+//}
 
 #pragma mark - Util
 - (void)hideTabbar {

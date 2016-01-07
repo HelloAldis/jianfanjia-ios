@@ -93,6 +93,7 @@
                                             <rect key="frame" x="578" y="14" width="7" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="cOW-a8-Ik7"/>
+                                                <constraint firstAttribute="width" constant="7" id="zli-No-NWA"/>
                                             </constraints>
                                             <state key="normal" image="bar_shape"/>
                                             <variation key="default">
@@ -147,7 +148,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j6H-3T-AcB">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="必填" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j6H-3T-AcB">
                                             <rect key="frame" x="328" y="1" width="240" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="CyB-ua-Ek7"/>
@@ -168,7 +169,7 @@
                                                 <constraint firstAttribute="height" constant="1" id="QqO-gk-GKQ"/>
                                             </constraints>
                                         </view>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpP-gd-PLy">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="必填" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lpP-gd-PLy">
                                             <rect key="frame" x="53" y="1" width="241" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="CTX-cT-ZP2"/>
@@ -216,7 +217,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-10-Y61">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="必填" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfk-10-Y61">
                                             <rect key="frame" x="39" y="1" width="147" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="N9Z-BZ-Zm1"/>
@@ -244,7 +245,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H7E-25-d3o">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="必填" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H7E-25-d3o">
                                             <rect key="frame" x="234" y="1" width="147" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="UEF-ms-ott"/>
@@ -272,7 +273,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hel-gT-CAk">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="必填" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hel-gT-CAk">
                                             <rect key="frame" x="421" y="1" width="147" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="50" id="9DL-PS-AJ5"/>
@@ -411,7 +412,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5v-0U-kp0">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="必填" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c5v-0U-kp0">
                                             <rect key="frame" x="81" y="1" width="459" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="50c-3i-eBr"/>
@@ -540,7 +541,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YYt-hA-76c">
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="必填" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YYt-hA-76c">
                                             <rect key="frame" x="81" y="1" width="449" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="6uj-1L-d9J"/>

@@ -14,9 +14,10 @@
 
 @implementation BaseSelectionViewController
 
-- (id)initWithValueBlock:(ValueBlock)ValueBlock {
+- (id)initWithValueBlock:(ValueBlock)ValueBlock curValue:(NSString *)curValue {
     if (self = [super init]) {
         _ValueBlock = ValueBlock;
+        _curValue = curValue;
     }
     
     return self;

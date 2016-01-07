@@ -104,6 +104,12 @@
     }
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
+    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
+    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeLeft];
+    [self.view addGestureRecognizer:swipeRight];
 }
 
 - (void)displayDoneButton {
@@ -115,6 +121,28 @@
 #pragma mark - UI
 - (void)initUI {
     [self initChildView];
+}
+
+#pragma mark - gesture
+- (void)swipeGesture:(UISwipeGestureRecognizer *)gesture {
+    switch (gesture.direction) {
+        case UISwipeGestureRecognizerDirectionLeft:
+            if (self.currentDisplayController != self.businessRequirementController) {
+                [self onClickRequirementType:self.businessBtn];
+            }
+            
+            break;
+            
+        case UISwipeGestureRecognizerDirectionRight:
+            if (self.currentDisplayController != self.houseRequirementController) {
+                [self onClickRequirementType:self.houseBtn];
+            }
+            
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - user action

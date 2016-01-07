@@ -181,6 +181,7 @@
     
     //City
     self.lblSelectCityVal.text = kTipsForSelectCity;
+    self.lblSelectCityVal.textColor = kUntriggeredColor;
     //Business type
     self.lblSelectBusinessTypeVal.text = [NameDict nameForBusinessType:self.editingRequirement.business_house_type];
     //Work type
@@ -286,6 +287,7 @@
         //City
         controller = [[SelectCityViewController alloc] initWithAddress:[self.lblSelectCityVal.text isEqualToString:kTipsForSelectCity] ? @"" : self.lblSelectCityVal.text valueBlock:^(id value) {
             self.lblSelectCityVal.text = value;
+            self.lblSelectCityVal.textColor = kThemeTextColor;
             NSArray *addressArr = [value componentsSeparatedByString:@" "];
             self.editingRequirement.province = addressArr[0];
             self.editingRequirement.city = addressArr[1];
@@ -296,31 +298,31 @@
         controller = [[SelectBusinessTypeViewController alloc] initWithValueBlock:^(id value) {
             self.editingRequirement.business_house_type = value == nil ? @"" : value;
             self.lblSelectBusinessTypeVal.text = [NameDict nameForBusinessType:value];
-        }];
+        } curValue:self.editingRequirement.business_house_type];
     } else if (tapView == self.selectWorkTypeView) {
         //Work type
         controller = [[SelectWorkTypeViewController alloc] initWithValueBlock:^(id value) {
             self.editingRequirement.work_type = value == nil ? @"" : value;
             self.lblSelectWorkTypeVal.text = [NameDict nameForWorkType:value];
-        }];
+        } curValue:self.editingRequirement.work_type];
     } else if (tapView == self.selectPreferredStyleView) {
         //Decoration style
         controller = [[SelectDecorationStyleViewController alloc] initWithValueBlock:^(id value) {
             self.editingRequirement.dec_style = value == nil ? @"" : value;
             self.lblSelectPreferredStyleVal.text = [NameDict nameForDecStyle:value];
-        }];
+        } curValue:self.editingRequirement.dec_style];
     } else if (tapView == self.selectCommunicationTypeView) {
         //Communication type
         controller = [[SelectCommunicationTypeViewController alloc] initWithValueBlock:^(id value) {
             self.editingRequirement.communication_type = value == nil ? @"" : value;
             self.lblSelectCommunicationTypeVal.text = [NameDict nameForCommunicationType:value];
-        }];
+        } curValue:self.editingRequirement.communication_type];
     } else if (tapView == self.selectSexTypeView) {
         //Sex type
         controller = [[SelectSexTypeViewController alloc] initWithValueBlock:^(id value) {
             self.editingRequirement.prefer_sex = value == nil ? @"" : value;
             self.lblSelectSexTypeVal.text = [NameDict nameForSexType:value];
-        }];
+        } curValue:self.editingRequirement.prefer_sex];
         [(SelectSexTypeViewController *)controller setSelectSexType:SelectSexTypeRequirementPrefer];
     }
     

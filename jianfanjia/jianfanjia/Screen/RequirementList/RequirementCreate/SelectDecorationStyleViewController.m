@@ -55,6 +55,9 @@ static NSString* cellId = @"decStyleCell";
 #pragma mark - init data 
 - (void)initData {
     self.data = [[NameDict getAllDecorationStyle] sortedKeyWithOrder:YES];
+    if (self.curValue) {
+        [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:[self.data indexOfObject:self.curValue] inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+    }
 }
 
 #pragma mark - collection view delegate

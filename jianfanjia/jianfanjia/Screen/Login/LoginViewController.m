@@ -129,6 +129,7 @@
     }
     
     self.btnWechatLogin.hidden = !kIsInstalledWechat;
+    self.wechatIcon.hidden = !kIsInstalledWechat;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

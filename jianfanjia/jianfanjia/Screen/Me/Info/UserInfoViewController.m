@@ -86,7 +86,7 @@
             [GVUserDefaults standardUserDefaults].sex = value;
             [self initUIData];
         }];
-    }];
+    } curValue:[GVUserDefaults standardUserDefaults].sex];
     controller.selectSexType = SelectSexTypeUserSex;
     [self.navigationController pushViewController:controller animated:YES];
 }

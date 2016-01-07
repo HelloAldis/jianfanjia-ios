@@ -53,6 +53,9 @@ static NSDictionary *work_type;
 #pragma mark - init data 
 - (void)initData {
     self.data = [[NameDict getAllWorkType] sortedKeyWithOrder:YES];
+    if (self.curValue) {
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.data indexOfObject:self.curValue] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+    }
 }
 
 #pragma mark - table view delegate
@@ -64,6 +67,8 @@ static NSDictionary *work_type;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSString *key = self.data[indexPath.row];
     cell.textLabel.text = work_type[key];
+    cell.selectionStyle = cell.isSelected ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleGray;
+    cell.accessoryType = cell.isSelected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
     return cell;
 }
