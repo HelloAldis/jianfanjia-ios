@@ -49,7 +49,6 @@
     [UMSocialData defaultData].extConfig.qqData.title = title;
     [UMSocialData defaultData].extConfig.qzoneData.url = targetLink;
     [UMSocialData defaultData].extConfig.qzoneData.title = title;
-    [[UMSocialData defaultData].extConfig.sinaData.urlResource setResourceType:UMSocialUrlResourceTypeImage url:targetLink];
     
     [UMSocialSnsService presentSnsIconSheetView:controller
                                          appKey:kUMengAppKey
