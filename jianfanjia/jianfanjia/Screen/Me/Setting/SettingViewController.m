@@ -44,7 +44,7 @@
 }
 
 - (IBAction)btnShare:(id)sender {
-    
+    [[ShareManager shared] share:self image:[UIImage imageNamed:@"about_logo"] title:@"简繁家, 让装修变简单" description:@"我在使用 #简繁家# 的App，上面有好多装修设计美图和真实实景装修案例，更有海量高级设计师为您免费提供三套方案，推荐给大家！" targetLink:@"http://www.jianfanjia.com/zt/mobile/index.html" delegate:nil];
 }
 
 - (IBAction)btnClearCache:(id)sender {
