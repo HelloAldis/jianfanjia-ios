@@ -74,10 +74,6 @@
 }
 
 #pragma mark - user action
-- (IBAction)onClickBackButton:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (IBAction)onClickSignup:(id)sender {
     switch (self.verfityPhoneEvent) {
         case VerfityPhoneEventResetPassword: {
@@ -118,26 +114,20 @@
             
             break;
         case VerfityPhoneEventBindPhone: {
-            [self.presentingViewController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-            
-            
-//                BindPhone *request = [[BindPhone alloc] init];
-//                request.phone = [DataManager shared].signupPagePhone;
-//                request.code = [self.fldVerifyCode.text trim];
-//                
-//                [HUDUtil showWait];
-//                [API bindPhone:request success:^{
-//                    [GVUserDefaults standardUserDefaults].phone = request.phone;
-//                    NSArray *controllers = self.navigationController.viewControllers;
-//                    UIViewController *purposeController = controllers[controllers.count - 3];
-//                    [self.navigationController popToViewController:purposeController animated:YES];
-//                    
-//                    
-//                } failure:^{
-//                    
-//                } networkError:^{
-//                    
-//                }];
+                BindPhone *request = [[BindPhone alloc] init];
+                request.phone = [DataManager shared].signupPagePhone;
+                request.code = [self.fldVerifyCode.text trim];
+                
+                [HUDUtil showWait];
+                [API bindPhone:request success:^{
+                    [GVUserDefaults standardUserDefaults].phone = request.phone;
+                    [HUDUtil showSuccessText:@"绑定成功"];
+                    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                } failure:^{
+                    
+                } networkError:^{
+                    
+                }];
             }
             
             break;

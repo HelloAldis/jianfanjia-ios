@@ -46,9 +46,9 @@
 
 #pragma mark - user action
 - (IBAction)onClickPhone:(id)sender {
-//    if ([GVUserDefaults standardUserDefaults].phone) {
-//        return;
-//    }
+    if ([GVUserDefaults standardUserDefaults].phone) {
+        return;
+    }
     
     [ViewControllerContainer showBindPhone:BindPhoneEventDefault];
 }
@@ -58,7 +58,26 @@
         return;
     }
     
-    
+    [[ShareManager shared] wechatLogin:self compeletion:^(SnsAccountInfo *snsAccount, NSString *error) {
+        if (error == nil) {
+            BindWechat *request = [[BindWechat alloc] init];
+            request.wechat_openid = snsAccount.usid;
+            request.wechat_unionid = snsAccount.unionId;
+            
+            [HUDUtil showWait];
+            [API bindWechat:request success:^{
+                [GVUserDefaults standardUserDefaults].wechat_openid = request.wechat_openid;
+                [GVUserDefaults standardUserDefaults].wechat_unionid = request.wechat_unionid;
+                self.lblWechat.text = [GVUserDefaults standardUserDefaults].wechat_unionid ? @"已绑定" : @"未绑定";
+            } failure:^{
+                
+            } networkError:^{
+                
+            }];
+        } else {
+            [HUDUtil showErrText:error];
+        }
+    }];
 }
 
 @end

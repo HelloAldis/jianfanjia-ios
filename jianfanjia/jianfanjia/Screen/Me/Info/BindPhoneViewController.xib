@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BindPhoneViewController">
             <connections>
-                <outlet property="btnBack" destination="4Kj-sj-8Qf" id="PkA-Xn-NHV"/>
                 <outlet property="btnBind" destination="gPc-r4-lH7" id="fYc-HR-Eno"/>
                 <outlet property="constraint" destination="ApL-rs-3yr" id="Yd3-ag-l8U"/>
                 <outlet property="fldPhone" destination="tnH-Zm-uZq" id="zZi-Pj-a1s"/>
@@ -62,7 +61,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您的手机号仅用于我们为您提供便捷的服务\n绝不做任何商业用途" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvg-Mf-gIC">
-                    <rect key="frame" x="60" y="118" width="480" height="18"/>
+                    <rect key="frame" x="30" y="118" width="540" height="18"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="PKg-Jy-z3Z"/>
                         <constraint firstAttribute="width" constant="160" id="ebV-wx-2e8"/>
@@ -77,16 +76,6 @@
                         </mask>
                     </variation>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Kj-sj-8Qf">
-                    <rect key="frame" x="10" y="25" width="67" height="22"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="67" id="ppf-vS-nAn"/>
-                    </constraints>
-                    <state key="normal" title="Button" image="back"/>
-                    <connections>
-                        <action selector="onClickBackButton:" destination="-1" eventType="touchUpInside" id="Zu8-hT-P6X"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -96,7 +85,6 @@
                 <constraint firstItem="gPc-r4-lH7" firstAttribute="leading" secondItem="tnH-Zm-uZq" secondAttribute="leading" id="3gw-j6-ldR"/>
                 <constraint firstItem="gPc-r4-lH7" firstAttribute="top" secondItem="7xH-77-Byu" secondAttribute="bottom" constant="30" id="4JF-6L-ByB"/>
                 <constraint firstItem="7xH-77-Byu" firstAttribute="leading" secondItem="tnH-Zm-uZq" secondAttribute="leading" id="5XQ-nU-iQ2"/>
-                <constraint firstItem="4Kj-sj-8Qf" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="7p9-UA-trF"/>
                 <constraint firstItem="EgA-g3-f38" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="ApL-rs-3yr"/>
                 <constraint firstItem="xvg-Mf-gIC" firstAttribute="top" secondItem="EgA-g3-f38" secondAttribute="bottom" constant="13" id="BWk-YS-A0U"/>
                 <constraint firstItem="EgA-g3-f38" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Dp9-3a-LHY"/>
@@ -108,8 +96,7 @@
                 <constraint firstItem="gPc-r4-lH7" firstAttribute="width" secondItem="tnH-Zm-uZq" secondAttribute="width" id="MUZ-RY-yUr"/>
                 <constraint firstItem="7xH-77-Byu" firstAttribute="width" secondItem="tnH-Zm-uZq" secondAttribute="width" id="ZtO-Yz-CWo"/>
                 <constraint firstItem="xvg-Mf-gIC" firstAttribute="centerX" secondItem="EgA-g3-f38" secondAttribute="centerX" id="aRd-0H-K8r"/>
-                <constraint firstItem="xvg-Mf-gIC" firstAttribute="leading" secondItem="tnH-Zm-uZq" secondAttribute="leading" id="hpF-wl-2q9"/>
-                <constraint firstItem="4Kj-sj-8Qf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ygX-cS-VEA"/>
+                <constraint firstItem="xvg-Mf-gIC" firstAttribute="leading" secondItem="tnH-Zm-uZq" secondAttribute="leading" constant="-30" id="hpF-wl-2q9"/>
                 <constraint firstItem="7xH-77-Byu" firstAttribute="top" secondItem="tnH-Zm-uZq" secondAttribute="bottom" constant="5" id="zbm-bT-Y8l"/>
             </constraints>
             <variation key="default">
@@ -119,7 +106,4 @@
             </variation>
         </view>
     </objects>
-    <resources>
-        <image name="back" width="13" height="22"/>
-    </resources>
 </document>

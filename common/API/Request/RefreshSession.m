@@ -12,4 +12,14 @@
 
 @dynamic _id;
 
+- (void)failure {
+    [HUDUtil showErrText:[DataManager shared].errMsg];
+}
+
+- (void)success {
+//    [GVUserDefaults standardUserDefaults].loginDate = [[NSDate date] yyyy_MM_dd];
+    [[NotificationDataManager shared] refreshUnreadCount];
+    [GeTuiSdk bindAlias:[GVUserDefaults standardUserDefaults].userid];
+}
+
 @end

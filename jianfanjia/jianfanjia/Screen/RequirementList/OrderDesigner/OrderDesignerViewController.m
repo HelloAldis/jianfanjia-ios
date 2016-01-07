@@ -12,6 +12,7 @@
 #import "MatchDesignerSection.h"
 #import "IntentDesignerSection.h"
 #import "RequirementDataManager.h"
+#import "ViewControllerContainer.h"
 
 typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     NormalOrder,
@@ -29,6 +30,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 @property (assign, nonatomic) NSInteger orderableCount;
 
 @property (assign, nonatomic) BOOL isChooseAll;
+@property (assign, nonatomic) BOOL isInBindPhoneProcess;
 
 @end
 
@@ -66,11 +68,16 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     
     [self initData];
     [self initNav];
+    [self refreshOrderableList];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self refreshOrderableList];
+    
+    if (self.isInBindPhoneProcess && [GVUserDefaults standardUserDefaults].phone) {
+        self.isInBindPhoneProcess = NO;
+        [self onClickDone];
+    }
 }
 
 #pragma mark - UI
@@ -104,7 +111,6 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
         self.orderableCount = 1;
     }
 }
-
 
 #pragma mark - table view delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -197,6 +203,12 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     NSInteger selectedCount = [self.tableView indexPathsForSelectedRows].count;
     
     if (selectedCount == 0) {
+        return;
+    }
+    
+    if (![GVUserDefaults standardUserDefaults].phone) {
+        self.isInBindPhoneProcess = YES;
+        [ViewControllerContainer showBindPhone:BindPhoneEventOrderDesigner];
         return;
     }
     

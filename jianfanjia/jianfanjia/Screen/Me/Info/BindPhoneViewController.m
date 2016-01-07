@@ -13,7 +13,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *fldPhone;
 @property (weak, nonatomic) IBOutlet UIButton *btnBind;
-@property (weak, nonatomic) IBOutlet UIButton *btnBack;
 @property (weak, nonatomic) IBOutlet UILabel *lblMessage;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 
@@ -36,27 +35,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    @weakify(self)
-    [RACObserve(self.btnBind, enabled) subscribeNext:^(NSNumber *newValue) {
-        @strongify(self);
-        if (newValue.boolValue) {
-            [self.btnBind setEnableAlpha];
-        } else {
-            [self.btnBind setDisableAlpha];
-        }
-    }];
-    
-    RAC(self.btnBind, enabled) = [RACSignal
-                                   combineLatest:@[self.fldPhone.rac_textSignal]
-                                   reduce:^(NSString *value) {
-                                       return @([value trim].length > 0);
-                                   }];
-    
-    [self.btnBind setCornerRadius:5];
-    self.btnBind.enabled = NO;
-    [self initLeftBackInNav];
-    
-    self.lblMessage.text = @"您的手机号仅用于我们为您提供便捷的服务\n绝不做任何商业用途";
+    [self initNavi];
+    [self initUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -69,8 +49,44 @@
     }
 }
 
+- (void)initNavi {
+    [self initLeftBackInNav];
+    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    self.automaticallyAdjustsScrollViewInsets = NO;
+}
+
+- (void)initUI {
+    @weakify(self)
+    [RACObserve(self.btnBind, enabled) subscribeNext:^(NSNumber *newValue) {
+        @strongify(self);
+        if (newValue.boolValue) {
+            [self.btnBind setEnableAlpha];
+        } else {
+            [self.btnBind setDisableAlpha];
+        }
+    }];
+    
+    [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
+        return YES;
+    }] length:^NSInteger{
+        return kPhoneLength;
+    }] subscribeNext:^(id x) {
+        self.fldPhone.text = x;
+        self.btnBind.enabled = [x trim].length == kPhoneLength;
+    }];
+    
+    [self.btnBind setCornerRadius:5];
+    self.btnBind.enabled = NO;
+    [self initLeftBackInNav];
+    
+    self.lblMessage.text = @"您的手机号仅用于我们为您提供便捷的服务\n绝不做任何商业用途";
+}
+
 #pragma mark - user action
-- (IBAction)onClickBackButton:(id)sender {
+- (void)onClickBack {
+    [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

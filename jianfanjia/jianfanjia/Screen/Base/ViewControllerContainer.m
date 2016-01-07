@@ -133,26 +133,18 @@ static ViewControllerContainer *container;
 + (void)showBindPhone:(BindPhoneEvent)bindPhoneEvent {
     BindPhoneViewController *v = [[BindPhoneViewController alloc] initWithEvent:bindPhoneEvent];
     
-//    CATransition* transition = [CATransition animation];
-//    transition.duration = 0.5;
-//    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-//    transition.type = kCATransitionFade; //kCATransitionMoveIn; //, kCATransitionPush, kCATransitionReveal, kCATransitionFade
-//    transition.subtype = kCATransitionFromTop; //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
-//    [container.tab.selectedViewController.view.layer addAnimation:transition forKey:nil];
-//    [container.tab.selectedViewController pushViewController:v animated:NO];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
     
     v.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     v.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    [[self getCurrentTapController] presentViewController:v animated:YES completion:nil];
+    [container.tab.selectedViewController presentViewController:navi animated:YES completion:nil];
 }
 
 + (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent {
     VerifyPhoneViewController *v = [[VerifyPhoneViewController alloc] initWithEvent:verfityPhoneEvent];
     
     if (verfityPhoneEvent == VerfityPhoneEventBindPhone) {
-        v.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        v.modalPresentationStyle = UIModalPresentationOverFullScreen;
-        [container.tab.selectedViewController.presentedViewController presentViewController:v animated:YES completion:nil];
+        [((id)container.tab.selectedViewController.presentedViewController) pushViewController:v animated:YES];
     } else {
         UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
         [nav pushViewController:v animated:YES];
@@ -345,7 +337,14 @@ static ViewControllerContainer *container;
 
 + (void)showRefresh {
     RefreshViewController *refresh = [[RefreshViewController alloc] initWithNibName:nil bundle:nil];
-    container.window.rootViewController = refresh;
+
+    [UIView transitionWithView:container.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        container.window.rootViewController = refresh;
+                    }
+                    completion:nil];
 }
 
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index {
@@ -366,7 +365,15 @@ static ViewControllerContainer *container;
 }
 
 + (void)refreshSuccess {
-    container.window.rootViewController = container.tab;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [UIView transitionWithView:container.window
+                          duration:0.5
+                           options:UIViewAnimationOptionTransitionCrossDissolve
+                        animations:^{
+                            container.window.rootViewController = container.tab;
+                        }
+                        completion:nil];
+    });
 }
 
 + (UIViewController *)getCurrentTapController {
@@ -392,6 +399,8 @@ static ViewControllerContainer *container;
     [GVUserDefaults standardUserDefaults].city = nil;
     [GVUserDefaults standardUserDefaults].district = nil;
     [GVUserDefaults standardUserDefaults].address = nil;
+    [GVUserDefaults standardUserDefaults].wechat_openid = nil;
+    [GVUserDefaults standardUserDefaults].wechat_unionid = nil;
     
     [DataManager shared].homePageDesigners = nil;
     [DataManager shared].homePageRequirement = nil;

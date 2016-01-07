@@ -80,16 +80,6 @@
                         <action selector="onClickSignup:" destination="-1" eventType="touchUpInside" id="neQ-FK-KkS"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4E-XN-8Mh">
-                    <rect key="frame" x="10" y="25" width="67" height="22"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="67" id="6AC-Yl-ond"/>
-                    </constraints>
-                    <state key="normal" title="Button" image="back"/>
-                    <connections>
-                        <action selector="onClickBackButton:" destination="-1" eventType="touchUpInside" id="f4H-Oi-Cns"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -102,13 +92,11 @@
                 <constraint firstItem="EgA-g3-f38" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="84" id="ApL-rs-3yr"/>
                 <constraint firstItem="EgA-g3-f38" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Dp9-3a-LHY"/>
                 <constraint firstItem="DZo-dq-cGZ" firstAttribute="leading" secondItem="txj-wh-XlE" secondAttribute="trailing" constant="5" id="Hj1-Fy-uXj"/>
-                <constraint firstItem="K4E-XN-8Mh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="IGb-mM-An7"/>
                 <constraint firstItem="tnH-Zm-uZq" firstAttribute="top" secondItem="DZo-dq-cGZ" secondAttribute="bottom" constant="50" id="JyL-dn-bzI"/>
                 <constraint firstItem="tnH-Zm-uZq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="Kfa-il-qZ4">
                     <variation key="heightClass=regular-widthClass=regular" constant="200"/>
                 </constraint>
                 <constraint firstItem="gPc-r4-lH7" firstAttribute="width" secondItem="tnH-Zm-uZq" secondAttribute="width" id="MUZ-RY-yUr"/>
-                <constraint firstItem="K4E-XN-8Mh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="P8m-6B-V6a"/>
                 <constraint firstItem="txj-wh-XlE" firstAttribute="top" secondItem="EgA-g3-f38" secondAttribute="bottom" constant="10" id="QUl-8y-80t"/>
                 <constraint firstItem="txj-wh-XlE" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="-80" id="UbT-ot-ESk"/>
                 <constraint firstItem="7xH-77-Byu" firstAttribute="width" secondItem="tnH-Zm-uZq" secondAttribute="width" id="ZtO-Yz-CWo"/>
@@ -117,7 +105,4 @@
             </constraints>
         </view>
     </objects>
-    <resources>
-        <image name="back" width="13" height="22"/>
-    </resources>
 </document>

@@ -24,6 +24,7 @@
     [GVUserDefaults standardUserDefaults].dec_progress = [user dec_progress];
     [GVUserDefaults standardUserDefaults].dec_styles = [user dec_styles];
     [GVUserDefaults standardUserDefaults].family_description = [user family_description];
+    [GVUserDefaults standardUserDefaults].phone = [user phone];
     [GVUserDefaults standardUserDefaults].wechat_openid = [user wechat_openid];
     [GVUserDefaults standardUserDefaults].wechat_unionid = [user wechat_unionid];
 }
