@@ -11,6 +11,7 @@
 #import "UserInfoViewController.h"
 #import "ViewControllerContainer.h"
 #import "MyFavoriateViewController.h"
+#import "CustomerServiceViewController.h"
 
 @interface MeViewController ()
 
@@ -34,16 +35,25 @@
     [super viewDidLoad];
     [self.userThumnail setCornerRadius:50];
     [self.userThumnail setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self initNav];
-    [self initUIData];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self initUIData];
+    
     if (self.isTabbarhide) {
         [self showTabbar];
     }
@@ -64,11 +74,6 @@
 }
 
 #pragma mark - UI
-- (void)initNav {
-    self.navigationController.navigationBarHidden = YES;
-    self.automaticallyAdjustsScrollViewInsets = NO;
-}
-
 - (void)initUIData {
     self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
     if ([GVUserDefaults standardUserDefaults].phone) {
@@ -94,6 +99,11 @@
 - (IBAction)onTapUserImageView:(id)sender {
     UserInfoViewController *v = [[UserInfoViewController alloc] initWithNibName:nil bundle:nil];
     [self.navigationController pushViewController:v animated:YES];
+}
+
+- (IBAction)onClickContactCustomerService:(id)sender {
+//    CustomerServiceViewController *v = [[CustomerServiceViewController alloc] init];
+    [self.navigationController pushViewController:[CustomerServiceViewController instance] animated:YES];
 }
 
 - (IBAction)onClickSetting:(id)sender {

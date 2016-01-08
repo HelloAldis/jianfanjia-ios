@@ -17,7 +17,7 @@
 }
 
 - (void)success {
-//    [GVUserDefaults standardUserDefaults].loginDate = [[NSDate date] yyyy_MM_dd];
+    [GVUserDefaults standardUserDefaults].loginDate = [[NSDate date] yyyy_MM_dd];
     [[NotificationDataManager shared] refreshUnreadCount];
     [GeTuiSdk bindAlias:[GVUserDefaults standardUserDefaults].userid];
 }

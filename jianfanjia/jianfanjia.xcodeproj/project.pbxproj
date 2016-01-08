@@ -22,6 +22,8 @@
 		68134A3F1C3CFE44003C1C10 /* AccountBindViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68134A3D1C3CFE44003C1C10 /* AccountBindViewController.xib */; };
 		68134A421C3D0BCA003C1C10 /* BindPhone.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A411C3D0BCA003C1C10 /* BindPhone.m */; };
 		68134A451C3D0BD9003C1C10 /* BindWechat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A441C3D0BD9003C1C10 /* BindWechat.m */; };
+		68134A4E1C3F503E003C1C10 /* CustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A4C1C3F503E003C1C10 /* CustomerServiceViewController.m */; };
+		68134A4F1C3F503E003C1C10 /* CustomerServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68134A4D1C3F503E003C1C10 /* CustomerServiceViewController.xib */; };
 		68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */; };
 		68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEE1BFC06CB0000EBBE /* OrderDesignder.m */; };
 		68342DF51BFC0F960000EBBE /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DF41BFC0F960000EBBE /* Plan.m */; };
@@ -396,6 +398,9 @@
 		68134A431C3D0BD9003C1C10 /* BindWechat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BindWechat.h; sourceTree = "<group>"; };
 		68134A441C3D0BD9003C1C10 /* BindWechat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BindWechat.m; sourceTree = "<group>"; };
 		68134A491C3D1486003C1C10 /* EnumBusiness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EnumBusiness.h; sourceTree = "<group>"; };
+		68134A4B1C3F503E003C1C10 /* CustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerServiceViewController.h; sourceTree = "<group>"; };
+		68134A4C1C3F503E003C1C10 /* CustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerServiceViewController.m; sourceTree = "<group>"; };
+		68134A4D1C3F503E003C1C10 /* CustomerServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewController.xib; sourceTree = "<group>"; };
 		68342DEA1BFC057C0000EBBE /* GetOrderableDesigners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetOrderableDesigners.h; sourceTree = "<group>"; };
 		68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetOrderableDesigners.m; sourceTree = "<group>"; };
 		68342DED1BFC06CB0000EBBE /* OrderDesignder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignder.h; sourceTree = "<group>"; };
@@ -989,6 +994,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68134A4A1C3F503E003C1C10 /* CustomerService */ = {
+			isa = PBXGroup;
+			children = (
+				68134A4B1C3F503E003C1C10 /* CustomerServiceViewController.h */,
+				68134A4C1C3F503E003C1C10 /* CustomerServiceViewController.m */,
+				68134A4D1C3F503E003C1C10 /* CustomerServiceViewController.xib */,
+			);
+			path = CustomerService;
+			sourceTree = "<group>";
+		};
 		683669001BFF0AF4006A5053 /* PlanList */ = {
 			isa = PBXGroup;
 			children = (
@@ -1733,6 +1748,7 @@
 			children = (
 				6E06CC031C29231A00A08D15 /* MyFavoriate */,
 				6E4496471BFC82E800C90851 /* Info */,
+				68134A4A1C3F503E003C1C10 /* CustomerService */,
 				6E4496371BFC2D8F00C90851 /* Setting */,
 				6E6D98B31BDF73DE00D45F77 /* MeViewController.h */,
 				6E6D98B41BDF73DE00D45F77 /* MeViewController.m */,
@@ -2115,6 +2131,7 @@
 				684A374B1BFD73DF00F7388C /* DecorationStyleCell.xib in Resources */,
 				6E44964C1BFC82F500C90851 /* UserInfoViewController.xib in Resources */,
 				684A37111BFD733500F7388C /* PlanWasChoosedCell.xib in Resources */,
+				68134A4F1C3F503E003C1C10 /* CustomerServiceViewController.xib in Resources */,
 				6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */,
 				685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */,
 				6E3361D31C181E07006D6868 /* iTunesArtwork in Resources */,
@@ -2424,6 +2441,7 @@
 				AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */,
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
 				6EE1E41D1C05942600883184 /* DeleteFavoriteDesigner.m in Sources */,
+				68134A4E1C3F503E003C1C10 /* CustomerServiceViewController.m in Sources */,
 				683669091BFF0C05006A5053 /* PlanCell.m in Sources */,
 				684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,

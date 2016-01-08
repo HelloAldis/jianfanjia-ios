@@ -11,14 +11,20 @@
 @implementation BaseViewController
 
 #pragma mark - life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (self.navigationController) {
-            self.navigationController.interactivePopGestureRecognizer.delegate = self;
-        }
-    });
+    if (self.navigationController && self.navigationController.viewControllers.firstObject != self) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        self.navigationController.interactivePopGestureRecognizer.delegate = self;
+    } else {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -29,6 +35,10 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewDidAppear:animated];
     [MobClick endLogPageView:NSStringFromClass(self.class)];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +61,14 @@
     self.navigationController.navigationBarHidden = NO;
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
     self.navigationItem.leftBarButtonItem = item;
+}
+
+- (void)initDefaultNavBarStyle {
+    NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes = dict;
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = nil;
 }
 
 - (void)initTranslucentNavBar {

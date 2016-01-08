@@ -28,6 +28,10 @@
     [self updateCache];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
@@ -48,7 +52,7 @@
 }
 
 -(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
-    NSString *description = @"我在使用 #简繁家# 的App，上面有好多装修设计美图和真实实景装修案例，更有海量设计师为您免费提供三套装修方案，推荐给大家！";
+    NSString *description = @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。";
     if (platformName == UMShareToSina) {
         socialData.shareText = [NSString stringWithFormat:@"%@ %@", description, @"http://www.jianfanjia.com/zt/mobile/index.html"];
     } else {
