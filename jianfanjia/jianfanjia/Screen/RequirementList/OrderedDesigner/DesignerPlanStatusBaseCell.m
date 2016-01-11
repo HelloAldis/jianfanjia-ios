@@ -7,6 +7,7 @@
 //
 
 #import "DesignerPlanStatusBaseCell.h"
+#import "ViewControllerContainer.h"
 
 @interface DesignerPlanStatusBaseCell ()
 
@@ -26,6 +27,10 @@
     if (self.refreshBlock) {
         self.refreshBlock();
     }
+}
+
+- (void)onClickDesignerAvatar {
+    [ViewControllerContainer showDesigner:self.designer._id];
 }
 
 @end

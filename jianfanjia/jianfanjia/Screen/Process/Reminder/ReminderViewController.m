@@ -128,6 +128,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     [self.btnNotifications enumerateObjectsUsingBlock:^(UIButton*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         [obj addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
+        [obj setExclusiveTouch:YES];
     }];
     
     [self switchToOtherButton:0];

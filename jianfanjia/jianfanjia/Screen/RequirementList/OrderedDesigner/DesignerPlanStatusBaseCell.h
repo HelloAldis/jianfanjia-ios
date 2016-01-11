@@ -17,5 +17,6 @@ typedef void (^PlanStatusRefreshBlock)(void);
 
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock;
 - (void)refresh;
+- (void)onClickDesignerAvatar;
 
 @end
