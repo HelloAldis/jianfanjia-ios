@@ -21,7 +21,7 @@
 
 + (NSString *)thumbnailImageUrl:(NSString *)imageid width:(NSInteger)width {
     width = width * kScreenScale;
-    NSString *url = [NSString stringWithFormat:@"%@thumbnail/%ld/%@", kApiUrl, width ,imageid];
+    NSString *url = [NSString stringWithFormat:@"%@thumbnail/%@/%@", kApiUrl, [NSNumber numberWithInteger:width] ,imageid];
     return url;
 }
 
