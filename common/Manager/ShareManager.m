@@ -50,12 +50,36 @@
     [UMSocialData defaultData].extConfig.qzoneData.url = targetLink;
     [UMSocialData defaultData].extConfig.qzoneData.title = title;
     
+    
+    NSMutableArray *snsArr = [NSMutableArray array];
+    
+    if (kIsInstalledWechat) {
+        [snsArr addObject:UMShareToWechatSession];
+        [snsArr addObject:UMShareToWechatTimeline];
+    }
+    
+    if (kIsInstalledQQ) {
+        [snsArr addObject:UMShareToQQ];
+        [snsArr addObject:UMShareToQzone];
+    }
+    
+    if (kIsInstalledWeibo) {
+        [snsArr addObject:UMShareToSina];
+    }
+    
+    if (snsArr.count == 0) {
+        [HUDUtil showErrText:@"您还没有安装微信，QQ或者微博。"];
+        return;
+    }
+    
     [UMSocialSnsService presentSnsIconSheetView:controller
                                          appKey:kUMengAppKey
                                       shareText:description
                                      shareImage:shareImage
-                                shareToSnsNames:@[UMShareToWechatSession, UMShareToWechatTimeline, UMShareToQQ, UMShareToQzone, UMShareToSina]
+                                shareToSnsNames:snsArr
                                        delegate:delegate];
+    
+    
 }
 
 kSynthesizeSingletonForClass(ShareManager)

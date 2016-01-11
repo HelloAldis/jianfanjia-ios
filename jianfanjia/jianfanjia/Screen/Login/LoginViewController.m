@@ -301,6 +301,8 @@
 }
 
 - (IBAction)onClickWeChat:(id)sender {
+    
+    
     [[ShareManager shared] wechatLogin:self compeletion:^(SnsAccountInfo *snsAccount, NSString *error) {
         if (error == nil) {
             WeChatLogin *request = [[WeChatLogin alloc] init];
