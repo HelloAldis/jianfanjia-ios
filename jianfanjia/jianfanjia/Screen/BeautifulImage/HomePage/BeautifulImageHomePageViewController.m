@@ -10,21 +10,26 @@
 
 @interface BeautifulImageHomePageViewController ()
 
+@property (weak, nonatomic) IBOutlet UIView *navBarView;
+@property (weak, nonatomic) IBOutlet UIButton *backButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
+@property (weak, nonatomic) IBOutlet UIButton *favoriateButton;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *imgDescription;
 @property (weak, nonatomic) IBOutlet UILabel *imgTag;
 @property (weak, nonatomic) IBOutlet UIButton *btnDownload;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewBottomToSuper;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navBarViewTopToSuper;
 
-@property (nonatomic, strong) UIBarButtonItem *favoriteButton;
-@property (nonatomic, strong) UIBarButtonItem *unfavoriteButton;
-@property (nonatomic, strong) UIBarButtonItem *shareButton;
 @property (nonatomic, strong) NSMutableArray<UIImageView *> *imageViewArray;
 @property (nonatomic, strong) NSMutableArray *imageViewStatus;
 @property (nonatomic, assign) NSInteger imgCount;
 
 @property (nonatomic, strong) BeautifulImage *beautifulImage;
 @property (nonatomic, assign) NSInteger index;
+
+@property (nonatomic, assign) BOOL isHidden;
 
 @end
 
@@ -52,13 +57,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
-    self.navigationController.navigationBar.titleTextAttributes = dict;
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-    
-//    [self.navigationController setNavigationBarHidden:YES animated:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -71,28 +70,21 @@
 #pragma mark - ui
 - (void)initNav {
     [self initLeftBackInNav];
-    self.navigationItem.leftBarButtonItem.image = [UIImage imageNamed:@"white_back"];
     
     @weakify(self);
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
-    [imageView addTapBounceAnimation:^{
+    [self.favoriateButton addTapBounceAnimation:^{
         @strongify(self);
         [self onClickFavoriteButton];
     }];
-    self.favoriteButton = [[UIBarButtonItem alloc] initWithCustomView:imageView];
-    self.shareButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShareButton)];
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)initRightNaviBarItems {
     if ([self.beautifulImage.is_my_favorite boolValue]) {
-        [self.favoriteButton.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
+        [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"] forState:UIControlStateNormal];
     } else {
-        [self.favoriteButton.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
+        [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"] forState:UIControlStateNormal];
     }
-    
-    self.navigationItem.rightBarButtonItems = @[self.shareButton,
-                                                self.favoriteButton];
 }
 
 - (void)initDefaultUI {
@@ -139,7 +131,7 @@
         }];
     }
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.imgCount, kBannerCellHeight)];
-    self.title = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
     self.scrollView.contentOffset = CGPointMake(self.index * kScreenWidth, 0);
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap)];
@@ -164,7 +156,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.scrollView) {
         self.index = self.scrollView.contentOffset.x/kScreenWidth;
-        self.title = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
+        self.titleLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
         
         NSNumber *status = self.imageViewStatus[self.index];
         if ([status boolValue]) {
@@ -186,6 +178,10 @@
 }
 
 #pragma mark - user action
+- (IBAction)onClickBackButton:(id)sender {
+    [self onClickBack];
+}
+
 - (void)onClickFavoriteButton {
     if (![self.beautifulImage.is_my_favorite boolValue]) {
         FavoriteBeautifulImage *request = [[FavoriteBeautifulImage alloc] init];
@@ -193,7 +189,7 @@
         
         [API favoriteBeautifulImage:request success:^{
             self.beautifulImage.is_my_favorite = @1;
-            [self.favoriteButton.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
+            [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"] forState:UIControlStateNormal];
         } failure:^{
             
         } networkError:^{
@@ -205,7 +201,7 @@
         
         [API unfavoriteBeautifulImage:request success:^{
             self.beautifulImage.is_my_favorite = @0;
-            [self.favoriteButton.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
+            [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"] forState:UIControlStateNormal];
         } failure:^{
             
         } networkError:^{
@@ -214,7 +210,7 @@
     }
 }
 
-- (void)onClickShareButton {
+- (IBAction)onClickShareButton:(id)sender {
     NSString *title = self.beautifulImage.title;
     NSString *description = self.beautifulImage.beautiful_image_description;
     UIImage *shareImage = [self.imageViewArray[self.index] image];
@@ -241,11 +237,10 @@
 
 #pragma mark - gesture
 - (void)onSingleTap {
-    BOOL isHidden = self.navigationController.navigationBarHidden;
-    
+    self.isHidden = !self.isHidden;
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
-        [self.navigationController setNavigationBarHidden:!isHidden animated:YES];
-        self.textViewBottomToSuper.constant = !isHidden ? -35 : 0;
+        self.navBarViewTopToSuper.constant = self.isHidden ? -44 : 20;
+        self.textViewBottomToSuper.constant = self.isHidden ? -35 : 0;
         [self.view layoutIfNeeded];
     } completion:nil];
 }
