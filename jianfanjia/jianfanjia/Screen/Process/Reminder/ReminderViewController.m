@@ -37,14 +37,14 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 @property (strong ,nonatomic) NSString *processid;
 
 @property (assign, nonatomic) BOOL isNeedToRefresh;
-@property (copy ,nonatomic) void (^RefreshBlock)(void);
+@property (copy ,nonatomic) void (^RefreshBlock)(NSString *type);
 
 @end
 
 @implementation ReminderViewController
 
 #pragma mark - init method
-- (id)initWithProcess:(NSString *)processid refreshBlock:(void(^)(void))RefreshBlock {
+- (id)initWithProcess:(NSString *)processid refreshBlock:(void(^)(NSString *type))RefreshBlock {
     if (self = [super init]) {
         _processid = processid;
         _RefreshBlock = RefreshBlock;
@@ -101,6 +101,35 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
             @strongify(self);
             [self.btnNotifications[2] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
         }];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    NSString *badgeValue = [self.btnNotifications[self.selectedButtonIndex] badgeValue];
+    if ([badgeValue intValue] > 0) {
+        [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)]];
+    }
+    
+    if (self.isNeedToRefresh && self.RefreshBlock) {
+        NSString *notificationType;
+        switch (self.currentNotificationType) {
+            case NotificationTypePay:
+                notificationType = kNotificationTypePay;
+                break;
+            case NotificationTypePostpone:
+                notificationType = kNotificationTypeReschedule;
+                break;
+            case NotificationTypePurchase:
+                notificationType = kNotificationTypePurchase;
+                break;
+                
+            default:
+                break;
+        }
+        
+        self.RefreshBlock(notificationType);
     }
 }
 
@@ -233,18 +262,6 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     }];
 }
 
-- (void)onClickBack {
-    NSString *badgeValue = [self.btnNotifications[self.selectedButtonIndex] badgeValue];
-    if ([badgeValue intValue] > 0) {
-        [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)]];
-    }
-    
-    if (self.isNeedToRefresh && self.RefreshBlock) {
-        self.RefreshBlock();
-    }
-    [super onClickBack];
-}
-
 #pragma mark - refresh notification
 - (void)refresh {
     if (self.currentNotificationType == NotificationTypePurchase) {
@@ -290,7 +307,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         [[NotificationDataManager shared] markToReadForType:type];
     }
 
-    if ([type isEqualToString:kNotificationTypeReschedule]) {
+    if ([type isEqualToString:kNotificationTypeReschedule] || [type isEqualToString:kNotificationTypePurchase]) {
         self.isNeedToRefresh = YES;
     }
 }

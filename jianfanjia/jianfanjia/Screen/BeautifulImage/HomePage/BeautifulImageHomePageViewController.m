@@ -212,12 +212,18 @@
 
 - (IBAction)onClickShareButton:(id)sender {
     NSString *title = self.beautifulImage.title;
-    NSString *description = self.beautifulImage.beautiful_image_description;
     UIImage *shareImage = [self.imageViewArray[self.index] image];
     NSString *imgid = [[self.beautifulImage leafImageAtIndex:self.index] imageid];
-    NSString *imgLink = [StringUtil thumbnailImageUrl:imgid width:kScreenWidth];
+    NSString *imgLink = [StringUtil beautifulImageUrl:imgid title:title];
+    NSString *description = [NSString stringWithFormat:@"我在简繁家发现一张%@风格的%@美图，感觉还不错，分享给大家！", [NameDict nameForDecStyle:self.beautifulImage.dec_style], self.beautifulImage.section];
     
-    [[ShareManager shared] share:self image:shareImage title:title description:description targetLink:imgLink delegate:nil];
+    [[ShareManager shared] share:self image:shareImage title:title description:description targetLink:imgLink delegate:self];
+}
+
+-(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
+    if (platformName == UMShareToSina) {
+        socialData.shareText = [NSString stringWithFormat:@"%@ %@", self.beautifulImage.title, socialData.shareText];
+    }
 }
 
 - (void)onClickDownloadButton {

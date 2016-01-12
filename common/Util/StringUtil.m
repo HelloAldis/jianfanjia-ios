@@ -25,4 +25,34 @@
     return url;
 }
 
++ (NSString *)beautifulImageUrl:(NSString *)imageid title:(NSString *)title {
+    NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
+    NSString *url = [NSString stringWithFormat:@"http://%@/zt/mobile/sharemito.html?imageId=%@&title=%@", components.host, imageid, [StringUtil encodeString:title]];
+    
+    return url;
+}
+
++ (NSString*)encodeString:(NSString*)unencodedString {
+    // CharactersToBeEscaped = @":/?&=;+!@#$()~',*";
+    // CharactersToLeaveUnescaped = @"[].";
+    
+    NSString *encodedString = (NSString *)
+    CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                              (CFStringRef)unencodedString,
+                                                              NULL,
+                                                              (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                              kCFStringEncodingUTF8));
+    
+    return encodedString;
+}
+
+//URLDEcode
++ (NSString *)decodeString:(NSString*)encodedString {
+    NSString *decodedString  = (__bridge_transfer NSString *)CFURLCreateStringByReplacingPercentEscapesUsingEncoding(NULL,
+                                                                                                                     (__bridge CFStringRef)encodedString,
+                                                                                                                     CFSTR(""),
+                                                                                                                     CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+    return decodedString;
+}
+
 @end

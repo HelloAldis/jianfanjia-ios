@@ -21,7 +21,7 @@ typedef void (^NotificationUnreadUpdateBlock)(id value);
 @property (assign, nonatomic) NSInteger rescheduleUnreadCount;
 @property (assign, nonatomic) NSInteger totalUnreadCount;
 
-- (void)receiveNotification:(NSData *)payload;
+- (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine;
 - (void)refreshUnreadCount;
 - (void)subscribePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block;
 - (void)subscribePayUnreadCount:(NotificationUnreadUpdateBlock)block;
@@ -33,6 +33,8 @@ typedef void (^NotificationUnreadUpdateBlock)(id value);
 
 - (void)markToReadForType:(NSString *)type;
 - (void)markToReadForProcess:(NSString *)processid type:(NSString *)type;
+
+- (void)showLocalNoti:(NSDictionary *)userInfo;
 
 kSynthesizeSingletonForHeader(NotificationDataManager)
 

@@ -12,7 +12,7 @@
 #import "DesignerRespondedWithoutMeasureHouseCell.h"
 #import "DesignerSubmittedPlanCell.h"
 #import "ExpiredAsDesignerDidNotRespondCell.h"
-#import "ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.h"
+#import "ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.h"
 #import "HomeOwnerOrderedWithoutResponseCell.h"
 #import "PlanWasChoosedCell.h"
 #import "PlanWasNotChoosedCell.h"
@@ -24,7 +24,7 @@ static NSString *DesignerMeasureHouseWithoutPlan = @"DesignerMeasureHouseWithout
 static NSString *DesignerRespondedWithoutMeasureHouse = @"DesignerRespondedWithoutMeasureHouseCell";
 static NSString *DesignerSubmittedPlan = @"DesignerSubmittedPlanCell";
 static NSString *ExpiredAsDesignerDidNotRespond = @"ExpiredAsDesignerDidNotRespondCell";
-static NSString *ExpiredAsDesignerDidProvidePlanInSpecifiedTime = @"ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell";
+static NSString *ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime = @"ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell";
 static NSString *HomeOwnerOrderedWithoutResponse = @"HomeOwnerOrderedWithoutResponseCell";
 static NSString *PlanWasChoosed = @"PlanWasChoosedCell";
 static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
@@ -61,7 +61,7 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
     [self.tableView registerNib:[UINib nibWithNibName:DesignerRespondedWithoutMeasureHouse bundle:nil] forCellReuseIdentifier:DesignerRespondedWithoutMeasureHouse];
     [self.tableView registerNib:[UINib nibWithNibName:DesignerSubmittedPlan bundle:nil] forCellReuseIdentifier:DesignerSubmittedPlan];
     [self.tableView registerNib:[UINib nibWithNibName:ExpiredAsDesignerDidNotRespond bundle:nil] forCellReuseIdentifier:ExpiredAsDesignerDidNotRespond];
-    [self.tableView registerNib:[UINib nibWithNibName:ExpiredAsDesignerDidProvidePlanInSpecifiedTime bundle:nil] forCellReuseIdentifier:ExpiredAsDesignerDidProvidePlanInSpecifiedTime];
+    [self.tableView registerNib:[UINib nibWithNibName:ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime bundle:nil] forCellReuseIdentifier:ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime];
     [self.tableView registerNib:[UINib nibWithNibName:HomeOwnerOrderedWithoutResponse bundle:nil] forCellReuseIdentifier:HomeOwnerOrderedWithoutResponse];
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosed bundle:nil] forCellReuseIdentifier:PlanWasChoosed];
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasNotChoosed bundle:nil] forCellReuseIdentifier:PlanWasNotChoosed];
@@ -135,6 +135,8 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
         cellIdentifier = DesignerMeasureHouseWithoutPlan;
     } else if ([status isEqualToString:kPlanStatusExpiredAsDesignerDidNotRespond]) {
         cellIdentifier = ExpiredAsDesignerDidNotRespond;
+    } else {
+        cellIdentifier = ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime;
     }
     
     DesignerPlanStatusBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:path];

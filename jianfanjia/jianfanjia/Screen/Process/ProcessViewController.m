@@ -475,13 +475,28 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     __block NSTimeInterval latestUpdateTime = 0;
     __block NSInteger latestUpdateItem = -1;
+    __block NSInteger dbysItem = -1;
+    __block NSInteger subSectionsFinishedCount = 0;
     [self.processDataManager.selectedItems enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Item *  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
         NSTimeInterval itemTime = item.date.doubleValue;
         if (itemTime > latestUpdateTime) {
             latestUpdateTime = itemTime;
             latestUpdateItem = idx;
         }
+        
+        if ([item.name isEqualToString:DBYS]) {
+            dbysItem = idx;
+        }
+        
+        if ([item.status isEqualToString:kSectionStatusAlreadyFinished]) {
+            subSectionsFinishedCount++;
+        }
     }];
+    
+    // 如果当前工序下的子工序都完工了，进入工地管理时，就要展开对比验收子工序。
+    if (dbysItem >= 0 && subSectionsFinishedCount + 1 == self.processDataManager.selectedItems.count) {
+        latestUpdateItem = dbysItem;
+    }
     
     [self.processDataManager.selectedItems enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Item *  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
         if (latestUpdateItem == idx) {
@@ -499,9 +514,13 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 #pragma mark - user action
 - (void)onClickReminder {
     @weakify(self);
-    [ViewControllerContainer showReminder:self.processid refreshBlock:^{
+    [ViewControllerContainer showReminder:self.processid refreshBlock:^(NSString *type){
         @strongify(self);
-        [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
+        if ([type isEqualToString:kNotificationTypePurchase]) {
+            [self refreshProcess:NO];
+        } else if ([type isEqualToString:kNotificationTypeReschedule]) {
+            [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
+        }
     }];
 }
 

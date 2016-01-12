@@ -35,26 +35,22 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 
 @implementation NotificationDataManager
 
-- (void)receiveNotification:(NSData *)payload {
+- (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        NSError *error = nil;
-        NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:payload options:NSJSONReadingMutableContainers error:&error];
-        
-        if (error) {
-            DDLogError(@"notification error %@", error);
-            return;
-        }
-        
         if ([GVUserDefaults standardUserDefaults].isLogin) {
-            Notification *notification = [[Notification alloc] initWith:json];
-            notification.userid = [GVUserDefaults standardUserDefaults].userid;
-            notification.status = kNotificationStatusUnread;
-            if ([notification.type isEqualToString:kNotificationTypeDBYS]) {
-                [self showLocalNotification:notification];
-                [self broadcastNotification:notification];
-            } else {
-                [self insertNotification:notification];
-                [self refreshUnreadCount];
+            Notification *notification = [self convertPayloadToObj:payload];
+            
+            if (notification) {
+                if (!offLine) {
+                    [self showLocalNotification:notification];
+                }
+                
+                if ([notification.type isEqualToString:kNotificationTypeDBYS]) {
+                    [self broadcastNotification:notification];
+                } else {
+                    [self insertNotification:notification];
+                    [self refreshUnreadCount];
+                }
             }
         }
     });
@@ -84,10 +80,24 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
     });
 }
 
+- (Notification *)convertPayloadToObj:(NSData *)payload {
+    NSError *error = nil;
+    NSMutableDictionary *json = [NSJSONSerialization JSONObjectWithData:payload options:NSJSONReadingMutableContainers error:&error];
+    
+    if (error) {
+        DDLogError(@"notification error %@", error);
+        nil;
+    }
+    
+    Notification *notification = [[Notification alloc] initWith:json];
+    notification.userid = [GVUserDefaults standardUserDefaults].userid;
+    notification.status = kNotificationStatusUnread;
+    
+    return notification;
+}
+
 - (void)insertNotification:(Notification *)notification {
-//    dispatch_async(dispatch_get_main_queue(), ^{
     [NotificationCD insert:notification];
-//    });
 }
 
 - (void)markToReadForType:(NSString *)type {
@@ -179,6 +189,19 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
             });
         }
     }];
+}
+
+- (void)showLocalNoti:(NSDictionary *)userInfo {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        if ([GVUserDefaults standardUserDefaults].isLogin) {
+            NSString *payload = [userInfo objectForKey:@"payload1"];
+            Notification *notification = [self convertPayloadToObj:[payload dataUsingEncoding:NSUTF8StringEncoding]];
+            
+            if (notification) {
+                [self showLocalNotification:notification];
+            }
+        }
+    });
 }
 
 - (void)showLocalNotification:(Notification *)noti {

@@ -7,14 +7,16 @@
 //
 
 #import "SelectWorkTypeViewController.h"
+#import "MultipleLineTextTableViewCell.h"
 
-static NSString* cellId = @"cityCell";
+static NSString* cellId = @"MultipleLineTextTableViewCell";
 
 static NSDictionary *work_type;
 
 @interface SelectWorkTypeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *data;
+@property (assign, nonatomic) NSInteger curValueIndex;
 
 @end
 
@@ -47,14 +49,16 @@ static NSDictionary *work_type;
 #pragma mark - UI
 - (void)initUI {
     self.tableView.tableFooterView = [[UIView alloc] init];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
+    [self.tableView registerNib:[UINib nibWithNibName:cellId bundle:nil] forCellReuseIdentifier:cellId];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 70;
 }
 
 #pragma mark - init data 
 - (void)initData {
     self.data = [[NameDict getAllWorkType] sortedKeyWithOrder:YES];
     if (self.curValue) {
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.data indexOfObject:self.curValue] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+        self.curValueIndex = [self.data indexOfObject:self.curValue];
     }
 }
 
@@ -64,11 +68,10 @@ static NSDictionary *work_type;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    MultipleLineTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     NSString *key = self.data[indexPath.row];
-    cell.textLabel.text = work_type[key];
-    cell.selectionStyle = cell.isSelected ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleGray;
-    cell.accessoryType = cell.isSelected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.lblText.text = work_type[key];
+    cell.accessoryType = indexPath.row == self.curValueIndex ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
     return cell;
 }

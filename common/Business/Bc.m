@@ -70,7 +70,7 @@ NSString * const kPlanStatusPlanWasNotChoosed = @"4";
 NSString * const kPlanStatusPlanWasChoosed = @"5";
 NSString * const kPlanStatusDesignerMeasureHouseWithoutPlan = @"6";
 NSString * const kPlanStatusExpiredAsDesignerDidNotRespond = @"7";
-NSString * const kPlanStatusExpiredAsDesignerDidProvidePlanInSpecifiedTime = @"8";
+NSString * const kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime = @"8";
 
 /**
  需求状态 requirement status

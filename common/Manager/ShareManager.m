@@ -34,7 +34,7 @@
             
         } else {
             if (loginCompeletion) {
-                loginCompeletion(nil, response.message);
+                loginCompeletion(nil, [@"user cancel the operation" isEqualToString:response.message] ? @"用户取消了操作" : response.message);
             }
         }
     });
@@ -68,7 +68,7 @@
     }
     
     if (snsArr.count == 0) {
-        [HUDUtil showErrText:@"您还没有安装微信，QQ或者微博。"];
+        [HUDUtil showErrText:@"请安装微信，QQ或者微博。"];
         return;
     }
     

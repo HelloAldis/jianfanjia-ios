@@ -107,11 +107,27 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
     } else if (self.curCollectedFamilys.count < MaxCollectedFamilyInfoCount) {
         [self.curCollectedFamilys addObject:button];
         [button setBorder:4 andColor:kFinishedColor.CGColor];
+    } else {
+        UIButton *firstButton = [self.curCollectedFamilys objectAtIndex:0];
+        [self.curCollectedFamilys removeObjectAtIndex:0];
+        [firstButton setBorder:0 andColor:nil];
+        [self.curCollectedFamilys addObject:button];
+        [button setBorder:4 andColor:kFinishedColor.CGColor];
     }
     
     if (self.curCollectedFamilys.count > 0) {
         NSArray *populations = [NameDict getAllPopulationType];
-        self.lblDecStyleVal.text = [[self.curCollectedFamilys map:^id(id obj) {
+        NSArray *sortedArr = [self.curCollectedFamilys sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(UIButton*  _Nonnull obj1, UIButton*  _Nonnull obj2) {
+            if (obj1.tag < obj2.tag) {
+                return NSOrderedAscending;
+            } else if (obj1.tag > obj2.tag) {
+                return NSOrderedDescending;
+            }
+            
+            return NSOrderedSame;
+        }];
+        
+        self.lblDecStyleVal.text = [[sortedArr map:^id(id obj) {
             NSInteger index = [self.buttonArray indexOfObject:obj];
             return populations[index];
         }] join:@", "];

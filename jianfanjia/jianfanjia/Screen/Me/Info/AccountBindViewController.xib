@@ -11,7 +11,9 @@
                 <outlet property="btnWechat" destination="pIh-vs-jB1" id="D2C-hK-fSD"/>
                 <outlet property="lblPhone" destination="kaT-9Q-6mB" id="P6x-Ao-mrB"/>
                 <outlet property="lblWechat" destination="tXg-ap-6V2" id="OnM-WW-sfG"/>
+                <outlet property="phoneArrow" destination="hHZ-1Q-qLi" id="IYU-PR-D19"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wechatArrow" destination="FZo-rE-3wi" id="HWr-R2-soB"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -115,6 +117,7 @@
                                 <constraint firstItem="tXg-ap-6V2" firstAttribute="centerY" secondItem="pIh-vs-jB1" secondAttribute="centerY" id="5up-fY-yy0"/>
                                 <constraint firstAttribute="trailing" secondItem="tXg-ap-6V2" secondAttribute="trailing" constant="40" id="9Ai-GA-Ckf"/>
                                 <constraint firstItem="x5k-JK-exA" firstAttribute="top" secondItem="fQg-oO-NKk" secondAttribute="bottom" id="9bH-Nk-wL5"/>
+                                <constraint firstItem="FZo-rE-3wi" firstAttribute="width" secondItem="hHZ-1Q-qLi" secondAttribute="width" id="BLY-tJ-znm"/>
                                 <constraint firstItem="tXg-ap-6V2" firstAttribute="trailing" secondItem="kaT-9Q-6mB" secondAttribute="trailing" id="CiP-a7-i0v"/>
                                 <constraint firstItem="x5k-JK-exA" firstAttribute="width" secondItem="tNF-tY-CKV" secondAttribute="width" id="D5A-DB-lA7"/>
                                 <constraint firstItem="FZo-rE-3wi" firstAttribute="leading" secondItem="hHZ-1Q-qLi" secondAttribute="leading" id="J2w-pY-eKj"/>
@@ -122,6 +125,7 @@
                                 <constraint firstItem="hHZ-1Q-qLi" firstAttribute="leading" secondItem="kaT-9Q-6mB" secondAttribute="trailing" constant="8" id="Ldx-ig-tfs"/>
                                 <constraint firstItem="FZo-rE-3wi" firstAttribute="centerY" secondItem="pIh-vs-jB1" secondAttribute="centerY" id="MY2-1L-RKn"/>
                                 <constraint firstItem="tXg-ap-6V2" firstAttribute="width" secondItem="kaT-9Q-6mB" secondAttribute="width" id="PGR-lI-Bci"/>
+                                <constraint firstItem="FZo-rE-3wi" firstAttribute="height" secondItem="hHZ-1Q-qLi" secondAttribute="height" id="RMZ-ik-rWC"/>
                                 <constraint firstItem="Cdg-Wt-wP0" firstAttribute="top" secondItem="pIh-vs-jB1" secondAttribute="bottom" id="WdL-Ee-HxE"/>
                                 <constraint firstAttribute="trailing" secondItem="fQg-oO-NKk" secondAttribute="trailing" constant="20" id="XTM-oN-98I"/>
                                 <constraint firstItem="pIh-vs-jB1" firstAttribute="leading" secondItem="fQg-oO-NKk" secondAttribute="leading" id="aRb-rC-fN1"/>

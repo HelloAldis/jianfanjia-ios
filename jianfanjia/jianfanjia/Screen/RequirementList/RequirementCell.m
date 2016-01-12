@@ -153,7 +153,7 @@
     } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]
                || [status isEqualToString:kPlanStatusPlanWasNotChoosed]
                || [status isEqualToString:kPlanStatusExpiredAsDesignerDidNotRespond]
-               || [status isEqualToString:kPlanStatusExpiredAsDesignerDidProvidePlanInSpecifiedTime]) {
+               || [status isEqualToString:kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime]) {
         lblStatus.textColor = kUntriggeredColor;
     }
 }

@@ -6,10 +6,10 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.h"
+#import "ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.h"
 #import "ViewControllerContainer.h"
 
-@interface ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell ()
+@interface ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *authIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
@@ -17,7 +17,7 @@
 
 @end
 
-@implementation ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell
+@implementation ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell
 
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];

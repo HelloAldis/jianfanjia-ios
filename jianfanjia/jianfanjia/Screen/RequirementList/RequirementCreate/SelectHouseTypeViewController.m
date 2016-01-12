@@ -13,6 +13,7 @@ static NSString* cellId = @"cityCell";
 @interface SelectHouseTypeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *data;
+@property (assign, nonatomic) NSInteger curValueIndex;
 
 @end
 
@@ -38,14 +39,14 @@ static NSString* cellId = @"cityCell";
 - (void)initUI {
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
-    if (self.curValue) {
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.data indexOfObject:self.curValue] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
-    }
 }
 
 #pragma mark - init data 
 - (void)initData {
     self.data = [[NameDict getAllHouseType] sortedKeyWithOrder:YES];
+    if (self.curValue) {
+        self.curValueIndex = [self.data indexOfObject:self.curValue];
+    }
 }
 
 #pragma mark - table view delegate
@@ -56,8 +57,7 @@ static NSString* cellId = @"cityCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     cell.textLabel.text = [NameDict getAllHouseType][self.data[indexPath.row]];
-    cell.selectionStyle = cell.isSelected ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleGray;
-    cell.accessoryType = cell.isSelected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.accessoryType = indexPath.row == self.curValueIndex ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
     return cell;
 }

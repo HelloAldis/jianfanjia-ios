@@ -16,29 +16,29 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="806"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collect_dec_phase_top" translatesAutoresizingMaskIntoConstraints="NO" id="nIo-zt-LIC">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="338"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="180"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="nIo-zt-LIC" secondAttribute="height" multiplier="414:233.5" id="8f8-A4-X4T"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您现在的装修阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLq-Kf-zJy">
-                    <rect key="frame" x="244" y="358" width="112" height="17"/>
+                    <rect key="frame" x="104" y="200" width="112" height="17"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bCy-l4-9VI" userLabel="View1">
-                    <rect key="frame" x="0.0" y="395" width="600" height="130"/>
+                    <rect key="frame" x="0.0" y="237" width="320" height="104"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wP7-BA-aTN">
-                            <rect key="frame" x="245" y="10" width="110" height="110"/>
+                            <rect key="frame" x="110" y="2" width="100" height="100"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="wP7-BA-aTN" secondAttribute="height" multiplier="1:1" id="jaE-0s-NeM"/>
-                                <constraint firstAttribute="width" constant="110" id="yOc-Z1-b4n"/>
+                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="yOc-Z1-b4n"/>
                             </constraints>
                             <state key="normal" title="我想看一看">
                                 <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,10 +58,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wmv-EH-6YC" userLabel="View2">
-                    <rect key="frame" x="0.0" y="525" width="600" height="131"/>
+                    <rect key="frame" x="0.0" y="341" width="320" height="103"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iqh-70-eUs">
-                            <rect key="frame" x="245" y="11" width="110" height="110"/>
+                            <rect key="frame" x="110" y="2" width="100" height="100"/>
                             <state key="normal" title="正在做准备">
                                 <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -80,10 +80,10 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Taa-PJ-EGa" userLabel="View3">
-                    <rect key="frame" x="0.0" y="656" width="600" height="130"/>
+                    <rect key="frame" x="0.0" y="444" width="320" height="104"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aD-1d-Vuj">
-                            <rect key="frame" x="245" y="10" width="110" height="110"/>
+                            <rect key="frame" x="110" y="2" width="100" height="100"/>
                             <state key="normal" title="已经开始装修">
                                 <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
@@ -126,7 +126,7 @@
                 <constraint firstItem="6aD-1d-Vuj" firstAttribute="height" secondItem="wP7-BA-aTN" secondAttribute="height" id="q3Q-K8-q6F"/>
                 <constraint firstAttribute="bottom" secondItem="Taa-PJ-EGa" secondAttribute="bottom" constant="20" id="vpg-9O-zQL"/>
             </constraints>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <point key="canvasLocation" x="356" y="500"/>
         </view>
     </objects>

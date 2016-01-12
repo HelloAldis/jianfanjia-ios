@@ -24,6 +24,8 @@
 		68134A451C3D0BD9003C1C10 /* BindWechat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A441C3D0BD9003C1C10 /* BindWechat.m */; };
 		68134A4E1C3F503E003C1C10 /* CustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A4C1C3F503E003C1C10 /* CustomerServiceViewController.m */; };
 		68134A4F1C3F503E003C1C10 /* CustomerServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68134A4D1C3F503E003C1C10 /* CustomerServiceViewController.xib */; };
+		68134A551C44D097003C1C10 /* MultipleLineTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A541C44D097003C1C10 /* MultipleLineTextTableViewCell.m */; };
+		68134A591C44D152003C1C10 /* MultipleLineTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68134A581C44D152003C1C10 /* MultipleLineTextTableViewCell.xib */; };
 		68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */; };
 		68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEE1BFC06CB0000EBBE /* OrderDesignder.m */; };
 		68342DF51BFC0F960000EBBE /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DF41BFC0F960000EBBE /* Plan.m */; };
@@ -106,8 +108,8 @@
 		684A37071BFD733500F7388C /* DesignerSubmittedPlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36EC1BFD733400F7388C /* DesignerSubmittedPlanCell.xib */; };
 		684A37081BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36EE1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.m */; };
 		684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36EF1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.xib */; };
-		684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36F11BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m */; };
-		684A370B1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36F21BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib */; };
+		684A370A1BFD733500F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36F11BFD733400F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.m */; };
+		684A370B1BFD733500F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36F21BFD733400F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.xib */; };
 		684A370C1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36F41BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.m */; };
 		684A370D1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A36F51BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.xib */; };
 		684A370E1BFD733500F7388C /* OrderedDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A36F71BFD733400F7388C /* OrderedDesignerViewController.m */; };
@@ -401,6 +403,9 @@
 		68134A4B1C3F503E003C1C10 /* CustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerServiceViewController.h; sourceTree = "<group>"; };
 		68134A4C1C3F503E003C1C10 /* CustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerServiceViewController.m; sourceTree = "<group>"; };
 		68134A4D1C3F503E003C1C10 /* CustomerServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewController.xib; sourceTree = "<group>"; };
+		68134A531C44D097003C1C10 /* MultipleLineTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleLineTextTableViewCell.h; sourceTree = "<group>"; };
+		68134A541C44D097003C1C10 /* MultipleLineTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleLineTextTableViewCell.m; sourceTree = "<group>"; };
+		68134A581C44D152003C1C10 /* MultipleLineTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleLineTextTableViewCell.xib; sourceTree = "<group>"; };
 		68342DEA1BFC057C0000EBBE /* GetOrderableDesigners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetOrderableDesigners.h; sourceTree = "<group>"; };
 		68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetOrderableDesigners.m; sourceTree = "<group>"; };
 		68342DED1BFC06CB0000EBBE /* OrderDesignder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignder.h; sourceTree = "<group>"; };
@@ -535,9 +540,9 @@
 		684A36ED1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpiredAsDesignerDidNotRespondCell.h; sourceTree = "<group>"; };
 		684A36EE1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpiredAsDesignerDidNotRespondCell.m; sourceTree = "<group>"; };
 		684A36EF1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpiredAsDesignerDidNotRespondCell.xib; sourceTree = "<group>"; };
-		684A36F01BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.h; sourceTree = "<group>"; };
-		684A36F11BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m; sourceTree = "<group>"; };
-		684A36F21BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib; sourceTree = "<group>"; };
+		684A36F01BFD733400F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.h; sourceTree = "<group>"; };
+		684A36F11BFD733400F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.m; sourceTree = "<group>"; };
+		684A36F21BFD733400F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.xib; sourceTree = "<group>"; };
 		684A36F31BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeOwnerOrderedWithoutResponseCell.h; sourceTree = "<group>"; };
 		684A36F41BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeOwnerOrderedWithoutResponseCell.m; sourceTree = "<group>"; };
 		684A36F51BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeOwnerOrderedWithoutResponseCell.xib; sourceTree = "<group>"; };
@@ -1151,9 +1156,9 @@
 				684A36ED1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.h */,
 				684A36EE1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.m */,
 				684A36EF1BFD733400F7388C /* ExpiredAsDesignerDidNotRespondCell.xib */,
-				684A36F01BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.h */,
-				684A36F11BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m */,
-				684A36F21BFD733400F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib */,
+				684A36F01BFD733400F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.h */,
+				684A36F11BFD733400F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.m */,
+				684A36F21BFD733400F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.xib */,
 				684A36F31BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.h */,
 				684A36F41BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.m */,
 				684A36F51BFD733400F7388C /* HomeOwnerOrderedWithoutResponseCell.xib */,
@@ -1236,6 +1241,9 @@
 				684A37271BFD73DF00F7388C /* DecorationStyleCell.xib */,
 				AB0084E51C146E0C00B23C7D /* BaseSelectionViewController.h */,
 				AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */,
+				68134A531C44D097003C1C10 /* MultipleLineTextTableViewCell.h */,
+				68134A541C44D097003C1C10 /* MultipleLineTextTableViewCell.m */,
+				68134A581C44D152003C1C10 /* MultipleLineTextTableViewCell.xib */,
 			);
 			path = RequirementCreate;
 			sourceTree = "<group>";
@@ -2092,7 +2100,7 @@
 				684A37571BFD73DF00F7388C /* SelectPopulationViewController.xib in Resources */,
 				6E4496261BF9BA2600C90851 /* VerifyPhoneViewController.xib in Resources */,
 				685CD5E41C0310CA00EC1991 /* LeaveMessageViewController.xib in Resources */,
-				684A370B1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.xib in Resources */,
+				684A370B1BFD733500F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.xib in Resources */,
 				683669051BFF0B44006A5053 /* PlanListViewController.xib in Resources */,
 				6E6D98E71BE343E400D45F77 /* DesignerViewController.xib in Resources */,
 				6836690A1BFF0C05006A5053 /* PlanCell.xib in Resources */,
@@ -2140,6 +2148,7 @@
 				6E06CC271C2BA51800A08D15 /* FavoriateBeautifulImageCell.xib in Resources */,
 				6E4496411BFC53CE00C90851 /* FeedbackViewController.xib in Resources */,
 				68343A181BF70719004F15C1 /* city2area.js in Resources */,
+				68134A591C44D152003C1C10 /* MultipleLineTextTableViewCell.xib in Resources */,
 				683FFB421C296288002A1AFE /* BeautifulImageCollectionCell.xib in Resources */,
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
 				683FFB4A1C296288002A1AFE /* DropdownMenuView.xib in Resources */,
@@ -2283,6 +2292,7 @@
 				685CD5D61C02EA0C00EC1991 /* PlanPriceItemSection.m in Sources */,
 				68134A3E1C3CFE44003C1C10 /* AccountBindViewController.m in Sources */,
 				6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */,
+				68134A551C44D097003C1C10 /* MultipleLineTextTableViewCell.m in Sources */,
 				6836690D1BFF183F006A5053 /* PriceItem.m in Sources */,
 				6E4496601BFECE0100C90851 /* ThumbnailCell.m in Sources */,
 				6E07DAD81BD8C6AF001461DD /* Bc.m in Sources */,
@@ -2410,7 +2420,7 @@
 				6E06CC261C2BA51800A08D15 /* FavoriateBeautifulImageCell.m in Sources */,
 				685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */,
 				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
-				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell.m in Sources */,
+				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.m in Sources */,
 				6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,

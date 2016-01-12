@@ -48,15 +48,13 @@
 }
 
 - (IBAction)btnShare:(id)sender {
-    [[ShareManager shared] share:self image:[UIImage imageNamed:@"about_logo"] title:@"简繁家，让装修变简单" description:nil targetLink:@"http://www.jianfanjia.com/zt/mobile/index.html" delegate:self];
+    NSString *description = @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。";
+    [[ShareManager shared] share:self image:[UIImage imageNamed:@"about_logo"] title:@"简繁家，让装修变简单" description:description targetLink:@"http://www.jianfanjia.com/zt/mobile/index.html" delegate:self];
 }
 
 -(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
-    NSString *description = @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。";
     if (platformName == UMShareToSina) {
-        socialData.shareText = [NSString stringWithFormat:@"%@ %@", description, @"http://www.jianfanjia.com/zt/mobile/index.html"];
-    } else {
-        socialData.shareText = description;
+        socialData.shareText = [NSString stringWithFormat:@"%@ %@", socialData.shareText, @"http://www.jianfanjia.com/zt/mobile/index.html"];
     }
 }
 

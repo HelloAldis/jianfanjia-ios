@@ -18,6 +18,7 @@
 @dynamic keywords;
 @dynamic beautiful_image_description;
 @dynamic status;
+@dynamic section;
 @dynamic house_type;
 @dynamic dec_style;
 @dynamic dec_type;

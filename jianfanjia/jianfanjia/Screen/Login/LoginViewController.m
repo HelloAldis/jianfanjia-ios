@@ -46,18 +46,18 @@
     [RACObserve(self.btnLogin, enabled) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnLogin setEnableAlpha];
+            [self.btnLogin setBackgroundColor:kFinishedColor];
         } else {
-            [self.btnLogin setDisableAlpha];
+            [self.btnLogin setBackgroundColor:kUntriggeredColor];
         }
     }];
     
     [RACObserve(self.btnNext, enabled) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnNext setEnableAlpha];
+            [self.btnNext setBackgroundColor:kFinishedColor];
         } else {
-            [self.btnNext setDisableAlpha];
+            [self.btnNext setBackgroundColor:kUntriggeredColor];
         }
     }]; 
     
@@ -301,8 +301,6 @@
 }
 
 - (IBAction)onClickWeChat:(id)sender {
-    
-    
     [[ShareManager shared] wechatLogin:self compeletion:^(SnsAccountInfo *snsAccount, NSString *error) {
         if (error == nil) {
             WeChatLogin *request = [[WeChatLogin alloc] init];

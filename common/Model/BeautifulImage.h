@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString *keywords;
 @property (nonatomic, strong) NSString *beautiful_image_description;
 @property (nonatomic, strong) NSString *status;
+@property (nonatomic, strong) NSString *section;
 @property (nonatomic, strong) NSString *house_type;
 @property (nonatomic, strong) NSString *dec_style;
 @property (nonatomic, strong) NSString *dec_type;

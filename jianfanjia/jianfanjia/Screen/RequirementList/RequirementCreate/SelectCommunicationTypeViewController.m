@@ -13,6 +13,7 @@ static NSString* cellId = @"cityCell";
 @interface SelectCommunicationTypeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *data;
+@property (assign, nonatomic) NSInteger curValueIndex;
 
 @end
 
@@ -44,7 +45,7 @@ static NSString* cellId = @"cityCell";
 - (void)initData {
     self.data = [[NameDict getAllCommunicationType] sortedKeyWithOrder:YES];
     if (self.curValue) {
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:[self.data indexOfObject:self.curValue] inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+        self.curValueIndex = [self.data indexOfObject:self.curValue];
     }
 }
 
@@ -56,8 +57,7 @@ static NSString* cellId = @"cityCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
     cell.textLabel.text = [NameDict getAllCommunicationType][self.data[indexPath.row]];
-    cell.selectionStyle = cell.isSelected ? UITableViewCellSelectionStyleNone : UITableViewCellSelectionStyleGray;
-    cell.accessoryType = cell.isSelected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.accessoryType = indexPath.row == self.curValueIndex ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
     return cell;
 }

@@ -13,8 +13,10 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *btnPhone;
 @property (weak, nonatomic) IBOutlet UILabel *lblPhone;
+@property (weak, nonatomic) IBOutlet UIImageView *phoneArrow;
 @property (weak, nonatomic) IBOutlet UIButton *btnWechat;
 @property (weak, nonatomic) IBOutlet UILabel *lblWechat;
+@property (weak, nonatomic) IBOutlet UIImageView *wechatArrow;
 
 @end
 
@@ -41,7 +43,9 @@
 - (void)initUIData {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.lblPhone.text = [GVUserDefaults standardUserDefaults].phone ? [GVUserDefaults standardUserDefaults].phone : @"未绑定";
+    self.phoneArrow.hidden = [GVUserDefaults standardUserDefaults].phone;
     self.lblWechat.text = [GVUserDefaults standardUserDefaults].wechat_unionid ? @"已绑定" : @"未绑定";
+    self.wechatArrow.hidden = [GVUserDefaults standardUserDefaults].wechat_unionid;
 }
 
 #pragma mark - user action

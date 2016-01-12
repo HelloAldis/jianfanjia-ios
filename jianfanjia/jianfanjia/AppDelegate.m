@@ -201,12 +201,7 @@
     } else if (application.applicationState == UIApplicationStateBackground) {
         DDLogDebug(@"Background");
         //Refresh the local model
-//        NSNumber *current = @(application.applicationIconBadgeNumber);
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1)), dispatch_get_main_queue(), ^{
-//                NSNumber *serverBadge = [[userInfo objectForKey:@"aps"] objectForKey:@"badge"];
-//                application.applicationIconBadgeNumber = current.intValue + serverBadge.intValue;
-//                DDLogDebug(@"Background server:%@ current:%@ total:%@", serverBadge, current, @(application.applicationIconBadgeNumber));
-//        });
+        [[NotificationDataManager shared] showLocalNoti:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
     } else {
         DDLogDebug(@"Active");
@@ -243,7 +238,7 @@
     
     NSString *msg = [NSString stringWithFormat:@" payloadId=%@,taskId=%@,messageId:%@,payloadMsg:%@%@",payloadId,taskId,aMsgId,payloadMsg,offLine ? @"<离线消息>" : @""];
     DDLogDebug(@"\n>>>[GexinSdk ReceivePayload]:%@\n\n", msg);
-    [[NotificationDataManager shared] receiveNotification:payload];
+    [[NotificationDataManager shared] receiveNotification:payload andOffLine:offLine];
     
     /**
      *汇报个推自定义事件

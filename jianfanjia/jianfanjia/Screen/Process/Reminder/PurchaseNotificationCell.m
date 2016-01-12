@@ -9,6 +9,7 @@
 #import "PurchaseNotificationCell.h"
 
 @interface PurchaseNotificationCell ()
+@property (weak, nonatomic) IBOutlet UILabel *lblCell;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblRequestTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblWorkingPhase;
@@ -27,7 +28,7 @@
 
 - (void)initWithNotification:(Notification *)notification {
     self.notification = notification;
-    self.lblTitle.text = self.notification.cell;
+    self.lblCell.text = self.notification.cell;
     self.lblContent.text = self.notification.content;
     self.lblRequestTime.text = [NSDate yyyy_MM_dd_HH_mm:self.notification.time];
     self.lblWorkingPhase.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:self.notification.section]];

@@ -79,6 +79,7 @@ static const NSInteger MaxCollectedStyleCount = 3;
         CGFloat itemX = (DecStyleWidth + space) * i + (kIsPad ? 0 : firstItemX);
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(itemX, (CGRectGetHeight(self.scrollView.frame) - DecStyleWidth) / 2, DecStyleWidth, DecStyleWidth)];
+        button.tag = 2000 + i;
         [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"collect_dec_style_%@", @(i)]] forState:UIControlStateNormal];
         [button addTarget:self action:@selector(onClickStyle:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:button];
@@ -105,10 +106,26 @@ static const NSInteger MaxCollectedStyleCount = 3;
     } else if (self.curCollectedStyles.count < MaxCollectedStyleCount) {
         [self.curCollectedStyles addObject:button];
         [button setBorder:4 andColor:kFinishedColor.CGColor];
+    } else {
+        UIButton *firstButton = [self.curCollectedStyles objectAtIndex:0];
+        [self.curCollectedStyles removeObjectAtIndex:0];
+        [firstButton setBorder:0 andColor:nil];
+        [self.curCollectedStyles addObject:button];
+        [button setBorder:4 andColor:kFinishedColor.CGColor];
     }
     
     if (self.curCollectedStyles.count > 0) {
-        self.lblDecStyleVal.text = [[self.curCollectedStyles map:^id(id obj) {
+        NSArray *sortedArr = [self.curCollectedStyles sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(UIButton*  _Nonnull obj1, UIButton*  _Nonnull obj2) {
+            if (obj1.tag < obj2.tag) {
+                return NSOrderedAscending;
+            } else if (obj1.tag > obj2.tag) {
+                return NSOrderedDescending;
+            }
+            
+            return NSOrderedSame;
+        }];
+        
+        self.lblDecStyleVal.text = [[sortedArr map:^id(id obj) {
             NSInteger index = [self.buttonArray indexOfObject:obj];
             
             return [NameDict nameForDecStyle:[@(index) stringValue]];

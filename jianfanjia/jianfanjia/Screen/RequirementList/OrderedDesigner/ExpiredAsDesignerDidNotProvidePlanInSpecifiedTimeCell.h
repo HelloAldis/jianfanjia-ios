@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "DesignerPlanStatusBaseCell.h"
 
-@interface ExpiredAsDesignerDidProvidePlanInSpecifiedTimeCell : DesignerPlanStatusBaseCell
+@interface ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell : DesignerPlanStatusBaseCell
 
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock;
 
