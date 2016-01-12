@@ -821,6 +821,7 @@
 		6E4496651BFF0B6F00C90851 /* ImageEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageEditorViewController.xib; sourceTree = "<group>"; };
 		6E4496681BFF1AC700C90851 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
 		6E4496691BFF1AC700C90851 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
+		6E676A4A1C44A8D300E91C01 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		6E6D988B1BDDC9C800D45F77 /* W1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W1View.h; sourceTree = "<group>"; };
 		6E6D988C1BDDC9C800D45F77 /* W1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W1View.m; sourceTree = "<group>"; };
 		6E6D988E1BDDC9DC00D45F77 /* W1View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W1View.xib; sourceTree = "<group>"; };
@@ -2493,6 +2494,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				6E20B2351B87223600E3A8DA /* Base */,
+				6E676A4A1C44A8D300E91C01 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
