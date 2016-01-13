@@ -129,10 +129,12 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 #pragma mark - scroll view delegate
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    CGPoint targetOffset = [self getLeftestViewToLeftEdge];
-    
-    targetContentOffset->x = targetOffset.x;
-    targetContentOffset->y = targetOffset.y;
+    if (scrollView == self.sectionScrollView) {
+        CGPoint targetOffset = [self getLeftestViewToLeftEdge];
+        
+        targetContentOffset->x = targetOffset.x;
+        targetContentOffset->y = targetOffset.y;
+    }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
@@ -413,9 +415,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             CGPoint currentOffset = self.sectionScrollView.contentOffset;
-            CGFloat distanceFromLeftEdge = [self.sectionScrollView getDistanceToLeftEdgeForSubview:self.sectionScrollView.allViews[self.processDataManager.selectedSectionIndex]];
-            
-            [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + distanceFromLeftEdge, 0) animated:YES];
+            [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + self.processDataManager.selectedSectionIndex * SectionViewWidth, 0) animated:YES];
         });
     }
     
