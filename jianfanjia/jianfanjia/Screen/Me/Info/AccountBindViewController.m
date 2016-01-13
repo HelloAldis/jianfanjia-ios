@@ -43,9 +43,9 @@
 - (void)initUIData {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.lblPhone.text = [GVUserDefaults standardUserDefaults].phone ? [GVUserDefaults standardUserDefaults].phone : @"未绑定";
-    self.phoneArrow.hidden = [GVUserDefaults standardUserDefaults].phone;
+    self.phoneArrow.hidden = [GVUserDefaults standardUserDefaults].phone != nil;
     self.lblWechat.text = [GVUserDefaults standardUserDefaults].wechat_unionid ? @"已绑定" : @"未绑定";
-    self.wechatArrow.hidden = [GVUserDefaults standardUserDefaults].wechat_unionid;
+    self.wechatArrow.hidden = [GVUserDefaults standardUserDefaults].wechat_unionid != nil;
 }
 
 #pragma mark - user action
