@@ -12,6 +12,8 @@
 		680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchBeautifulImage.m */; };
 		680F49271C240E400055C16C /* BeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49261C240E400055C16C /* BeautifulImage.m */; };
 		680F492A1C240F910055C16C /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49291C240F910055C16C /* LeafImage.m */; };
+		68123B221C461F95008FC9AB /* JYZSocialSnsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B211C461F95008FC9AB /* JYZSocialSnsManager.m */; };
+		68123B251C462269008FC9AB /* JYZSocialSnsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B241C462269008FC9AB /* JYZSocialSnsHelper.m */; };
 		68134A261C3B511B003C1C10 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A251C3B511B003C1C10 /* ShareManager.m */; };
 		68134A2F1C3CA7CA003C1C10 /* WeChatLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A2E1C3CA7CA003C1C10 /* WeChatLogin.m */; };
 		68134A321C3CA840003C1C10 /* RefreshSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A311C3CA840003C1C10 /* RefreshSession.m */; };
@@ -381,6 +383,11 @@
 		680F49261C240E400055C16C /* BeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImage.m; sourceTree = "<group>"; };
 		680F49281C240F910055C16C /* LeafImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafImage.h; sourceTree = "<group>"; };
 		680F49291C240F910055C16C /* LeafImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeafImage.m; sourceTree = "<group>"; };
+		68123B201C461F95008FC9AB /* JYZSocialSnsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsManager.h; sourceTree = "<group>"; };
+		68123B211C461F95008FC9AB /* JYZSocialSnsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsManager.m; sourceTree = "<group>"; };
+		68123B231C462269008FC9AB /* JYZSocialSnsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsHelper.h; sourceTree = "<group>"; };
+		68123B241C462269008FC9AB /* JYZSocialSnsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsHelper.m; sourceTree = "<group>"; };
+		68123B261C4623CE008FC9AB /* JYZSocialSnsConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsConstant.h; sourceTree = "<group>"; };
 		68134A241C3B511B003C1C10 /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		68134A251C3B511B003C1C10 /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
 		68134A2D1C3CA7CA003C1C10 /* WeChatLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatLogin.h; sourceTree = "<group>"; };
@@ -1510,6 +1517,11 @@
 				68134A241C3B511B003C1C10 /* ShareManager.h */,
 				68134A251C3B511B003C1C10 /* ShareManager.m */,
 				6E07DA8A1BD88DBE001461DD /* Manager.h */,
+				68123B261C4623CE008FC9AB /* JYZSocialSnsConstant.h */,
+				68123B231C462269008FC9AB /* JYZSocialSnsHelper.h */,
+				68123B241C462269008FC9AB /* JYZSocialSnsHelper.m */,
+				68123B201C461F95008FC9AB /* JYZSocialSnsManager.h */,
+				68123B211C461F95008FC9AB /* JYZSocialSnsManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2276,6 +2288,7 @@
 				685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */,
 				6EE34D7C1C0EE97D00C6957E /* NotificationCD.m in Sources */,
 				685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */,
+				68123B251C462269008FC9AB /* JYZSocialSnsHelper.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,
@@ -2357,6 +2370,7 @@
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */,
 				6836269D1C05B1E9005F2C30 /* ProcessDataManager.m in Sources */,
+				68123B221C461F95008FC9AB /* JYZSocialSnsManager.m in Sources */,
 				683A5D681C0EECD40071DF88 /* ItemExpandCheckCell.m in Sources */,
 				684A37521BFD73DF00F7388C /* SelectDecorationTypeViewController.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
