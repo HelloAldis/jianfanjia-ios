@@ -268,6 +268,9 @@
 		6E4496661BFF0B6F00C90851 /* ImageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496641BFF0B6F00C90851 /* ImageEditorViewController.m */; };
 		6E4496671BFF0B6F00C90851 /* ImageEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4496651BFF0B6F00C90851 /* ImageEditorViewController.xib */; };
 		6E44966A1BFF1AC700C90851 /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496691BFF1AC700C90851 /* OverlayView.m */; };
+		6E676A541C461F2900E91C01 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E676A4D1C461F2900E91C01 /* TencentOpenAPI.framework */; };
+		6E676A551C461F2900E91C01 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E676A4F1C461F2900E91C01 /* libWeChatSDK.a */; };
+		6E676A561C461F2900E91C01 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6E676A501C461F2900E91C01 /* read_me.txt */; };
 		6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D988C1BDDC9C800D45F77 /* W1View.m */; };
 		6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D988E1BDDC9DC00D45F77 /* W1View.xib */; };
 		6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98901BDDFD9700D45F77 /* W2View.xib */; };
@@ -822,6 +825,12 @@
 		6E4496681BFF1AC700C90851 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
 		6E4496691BFF1AC700C90851 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
 		6E676A4A1C44A8D300E91C01 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		6E676A4D1C461F2900E91C01 /* TencentOpenAPI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TencentOpenAPI.framework; sourceTree = "<group>"; };
+		6E676A4F1C461F2900E91C01 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		6E676A501C461F2900E91C01 /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
+		6E676A511C461F2900E91C01 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		6E676A521C461F2900E91C01 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		6E676A531C461F2900E91C01 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		6E6D988B1BDDC9C800D45F77 /* W1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W1View.h; sourceTree = "<group>"; };
 		6E6D988C1BDDC9C800D45F77 /* W1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W1View.m; sourceTree = "<group>"; };
 		6E6D988E1BDDC9DC00D45F77 /* W1View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W1View.xib; sourceTree = "<group>"; };
@@ -986,6 +995,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E44965A1BFEC69C00C90851 /* Photos.framework in Frameworks */,
+				6E676A541C461F2900E91C01 /* TencentOpenAPI.framework in Frameworks */,
+				6E676A551C461F2900E91C01 /* libWeChatSDK.a in Frameworks */,
 				E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1584,6 +1595,7 @@
 		6E20B2191B87223600E3A8DA = {
 			isa = PBXGroup;
 			children = (
+				6E676A4B1C461F2900E91C01 /* third */,
 				6E3361D21C181E07006D6868 /* iTunesArtwork */,
 				6E20B2241B87223600E3A8DA /* jianfanjia */,
 				6E20B23E1B87223600E3A8DA /* jianfanjiaTests */,
@@ -1708,6 +1720,35 @@
 				6E4496691BFF1AC700C90851 /* OverlayView.m */,
 			);
 			path = ImageEditor;
+			sourceTree = "<group>";
+		};
+		6E676A4B1C461F2900E91C01 /* third */ = {
+			isa = PBXGroup;
+			children = (
+				6E676A4C1C461F2900E91C01 /* qq */,
+				6E676A4E1C461F2900E91C01 /* wechat */,
+			);
+			path = third;
+			sourceTree = "<group>";
+		};
+		6E676A4C1C461F2900E91C01 /* qq */ = {
+			isa = PBXGroup;
+			children = (
+				6E676A4D1C461F2900E91C01 /* TencentOpenAPI.framework */,
+			);
+			path = qq;
+			sourceTree = "<group>";
+		};
+		6E676A4E1C461F2900E91C01 /* wechat */ = {
+			isa = PBXGroup;
+			children = (
+				6E676A4F1C461F2900E91C01 /* libWeChatSDK.a */,
+				6E676A501C461F2900E91C01 /* read_me.txt */,
+				6E676A511C461F2900E91C01 /* WechatAuthSDK.h */,
+				6E676A521C461F2900E91C01 /* WXApi.h */,
+				6E676A531C461F2900E91C01 /* WXApiObject.h */,
+			);
+			path = wechat;
 			sourceTree = "<group>";
 		};
 		6E6D98A61BDF732A00D45F77 /* HomePage */ = {
@@ -2076,6 +2117,7 @@
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */,
 				68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */,
+				6E676A561C461F2900E91C01 /* read_me.txt in Resources */,
 				684A37451BFD73DF00F7388C /* MatchDesignerCell.xib in Resources */,
 				685CD5D91C02F36A00EC1991 /* PlanPriceItemSection.xib in Resources */,
 				6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */,
@@ -2593,11 +2635,19 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/third/qq",
+				);
 				GCC_PREFIX_HEADER = jianfanjia/PrefixHeader.pch;
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/third/wechat",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.user;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -2613,11 +2663,19 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/third/qq",
+				);
 				GCC_PREFIX_HEADER = jianfanjia/PrefixHeader.pch;
 				INFOPLIST_FILE = jianfanjia/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/third/wechat",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.user;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
