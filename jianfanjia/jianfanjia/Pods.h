@@ -24,6 +24,5 @@
 #import "SSKeychain.h"
 #import "GeTuiSDK.h"
 #import "AFNetworkActivityIndicatorManager.h"
-#import "UMSocial.h"
 
 #endif

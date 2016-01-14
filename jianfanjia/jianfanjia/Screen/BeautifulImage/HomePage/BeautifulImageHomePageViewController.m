@@ -220,11 +220,11 @@
     [[ShareManager shared] share:self image:shareImage title:title description:description targetLink:imgLink delegate:self];
 }
 
--(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
-    if (platformName == UMShareToSina) {
-        socialData.shareText = [NSString stringWithFormat:@"%@ %@", self.beautifulImage.title, socialData.shareText];
-    }
-}
+//-(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
+//    if (platformName == UMShareToSina) {
+//        socialData.shareText = [NSString stringWithFormat:@"%@ %@", self.beautifulImage.title, socialData.shareText];
+//    }
+//}
 
 - (void)onClickDownloadButton {
     [UIView playBounceAnimationFor:self.btnDownload block:^{

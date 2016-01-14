@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JYZSocial.h"
 
 @class SnsAccountInfo;
+
+typedef void(^LoginCompeletion)(SnsAccountInfo *snsAccount, NSString *error);
 
 @interface ShareManager : NSObject
 

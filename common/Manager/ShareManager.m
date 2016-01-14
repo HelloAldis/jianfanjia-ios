@@ -12,59 +12,41 @@
 @implementation ShareManager
 
 - (void)wechatLogin:(UIViewController *)controller compeletion:(LoginCompeletion)loginCompeletion {
-    UMSocialSnsPlatform *snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:UMShareToWechatSession];
-
-    snsPlatform.loginClickHandler(controller,[UMSocialControllerService defaultControllerService], YES, ^(UMSocialResponseEntity *response){
-        if (response.responseCode == UMSResponseCodeSuccess) {
-            UMSocialAccountEntity *snsAccount = [[UMSocialAccountManager socialAccountDictionary] valueForKey:UMShareToWechatSession];
-
-            [[UMSocialDataService defaultDataService] requestSnsInformation:UMShareToWechatSession completion:^(UMSocialResponseEntity *responseInfo){
-//                    NSLog(@"username is %@, uid is %@, unionid is %@, token is %@ url is %@",snsAccount.userName, snsAccount.usid, snsAccount.unionId, snsAccount.accessToken, snsAccount.iconURL);
-//                    NSLog(@"SnsInformation is %@", response.data);
-                if (loginCompeletion) {
-                    SnsAccountInfo *sns = [[SnsAccountInfo alloc] init];
-                    sns.userName = snsAccount.userName;
-                    sns.usid = snsAccount.usid;
-                    sns.unionId = snsAccount.unionId;
-                    sns.iconURL = snsAccount.iconURL;
-                    sns.gender = [responseInfo.data[@"gender"] isEqualToNumber:@(0)] ? @"1" : @"0";
-                    loginCompeletion(sns, nil);
-                }
-            }];
-            
+    JYZSocialSnsPlatform *snsPlatform = [JYZSocialSnsManager getSocialPlatformWithName:JYZShareToWechatSession];
+    [snsPlatform login:controller compeletion:^(JYZSocialSnsAccountInfo *snsAccount, NSString *errorMsg) {
+        if (errorMsg) {
+            if (loginCompeletion) {
+                loginCompeletion(nil, errorMsg);
+            }
         } else {
             if (loginCompeletion) {
-                loginCompeletion(nil, [@"user cancel the operation" isEqualToString:response.message] ? @"用户取消了操作" : response.message);
+                SnsAccountInfo *sns = [[SnsAccountInfo alloc] init];
+                sns.userName = snsAccount.userName;
+                sns.usid = snsAccount.usid;
+                sns.unionId = snsAccount.unionId;
+                sns.iconURL = snsAccount.iconURL;
+                sns.gender = [snsAccount.gender isEqualToNumber:@(0)] ? @"1" : @"0";
+                loginCompeletion(sns, nil);
             }
         }
-    });
+    }];
 }
 
 - (void)share:(UIViewController *)controller image:(UIImage *)shareImage title:(NSString *)title description:(NSString *)description targetLink:(NSString *)targetLink delegate:(id)delegate {
-    [UMSocialData defaultData].extConfig.wechatSessionData.url = targetLink;
-    [UMSocialData defaultData].extConfig.wechatTimelineData.url = targetLink;
-    [UMSocialData defaultData].extConfig.wechatSessionData.title = title;
-    [UMSocialData defaultData].extConfig.wechatTimelineData.title = title;
-    [UMSocialData defaultData].extConfig.qqData.url = targetLink;
-    [UMSocialData defaultData].extConfig.qqData.title = title;
-    [UMSocialData defaultData].extConfig.qzoneData.url = targetLink;
-    [UMSocialData defaultData].extConfig.qzoneData.title = title;
-    
-    
     NSMutableArray *snsArr = [NSMutableArray array];
     
     if (kIsInstalledWechat) {
-        [snsArr addObject:UMShareToWechatSession];
-        [snsArr addObject:UMShareToWechatTimeline];
+        [snsArr addObject:JYZShareToWechatSession];
+        [snsArr addObject:JYZShareToWechatTimeline];
     }
     
     if (kIsInstalledQQ) {
-        [snsArr addObject:UMShareToQQ];
-        [snsArr addObject:UMShareToQzone];
+        [snsArr addObject:JYZShareToQQ];
+        [snsArr addObject:JYZShareToQzone];
     }
     
     if (kIsInstalledWeibo) {
-        [snsArr addObject:UMShareToSina];
+        [snsArr addObject:JYZShareToWeibo];
     }
     
     if (snsArr.count == 0) {
@@ -72,14 +54,16 @@
         return;
     }
     
-    [UMSocialSnsService presentSnsIconSheetView:controller
-                                         appKey:kUMengAppKey
-                                      shareText:description
-                                     shareImage:shareImage
-                                shareToSnsNames:snsArr
-                                       delegate:delegate];
-    
-    
+    [JYZSocialSnsManager showSnsMenu:controller flatforms:snsArr clickHandle:^(id value) {
+        JYZSocialSnsPlatform *snsPlatform = [JYZSocialSnsManager getSocialPlatformWithName:value];
+        [snsPlatform shareImage:controller image:shareImage title:title description:description targetLink:targetLink completion:^(NSString *errorMsg) {
+            if (errorMsg) {
+                [HUDUtil showErrText:errorMsg];
+            } else {
+                [HUDUtil showSuccessText:@"分享成功"];
+            }
+        }];
+    }];
 }
 
 kSynthesizeSingletonForClass(ShareManager)

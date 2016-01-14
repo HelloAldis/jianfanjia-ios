@@ -52,12 +52,6 @@
     [[ShareManager shared] share:self image:[UIImage imageNamed:@"about_logo"] title:@"简繁家，让装修变简单" description:description targetLink:@"http://www.jianfanjia.com/zt/mobile/index.html" delegate:self];
 }
 
--(void)didSelectSocialPlatform:(NSString *)platformName withSocialData:(UMSocialData *)socialData {
-    if (platformName == UMShareToSina) {
-        socialData.shareText = [NSString stringWithFormat:@"%@ %@", socialData.shareText, @"http://www.jianfanjia.com/zt/mobile/index.html"];
-    }
-}
-
 - (IBAction)btnClearCache:(id)sender {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清空缓存？" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

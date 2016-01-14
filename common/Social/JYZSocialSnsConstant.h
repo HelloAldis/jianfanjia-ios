@@ -9,6 +9,8 @@
 #ifndef JYZSocialSnsConstant_h
 #define JYZSocialSnsConstant_h
 
+#import "JYZSocialSnsAccountInfo.h"
+
 /**
  微信好友
  */
@@ -34,15 +36,8 @@ extern NSString *const JYZShareToQzone;
  */
 extern NSString *const JYZShareToWeibo;
 
-/**
- 分享平台
- */
-typedef NS_ENUM(NSInteger, JYZSocialSnsType) {
-    JYZSocialSnsTypeWechatSession,
-    JYZSocialSnsTypeWechatTimeline,
-    JYZSocialSnsTypeMobileQQ,
-    JYZSocialSnsTypeQzone,
-    JYZSocialSnsTypeWeibo,
-};
+typedef void(^JYZLoginCompeletion)(JYZSocialSnsAccountInfo *snsAccount, NSString *errorMsg);
+typedef void(^JYZShareCompeletion)(NSString *errorMsg);
+typedef void(^JYZShareMenuChooseItemBlock)(id value);
 
 #endif /* JYZSocialSnsConstant_h */

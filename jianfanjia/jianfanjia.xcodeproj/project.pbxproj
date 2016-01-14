@@ -12,8 +12,32 @@
 		680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchBeautifulImage.m */; };
 		680F49271C240E400055C16C /* BeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49261C240E400055C16C /* BeautifulImage.m */; };
 		680F492A1C240F910055C16C /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49291C240F910055C16C /* LeafImage.m */; };
-		68123B221C461F95008FC9AB /* JYZSocialSnsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B211C461F95008FC9AB /* JYZSocialSnsManager.m */; };
-		68123B251C462269008FC9AB /* JYZSocialSnsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B241C462269008FC9AB /* JYZSocialSnsHelper.m */; };
+		68123B2A1C4629EE008FC9AB /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 68123B291C4629EE008FC9AB /* libc++.tbd */; };
+		68123B5C1C47BBBD008FC9AB /* DropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B5A1C47BBBD008FC9AB /* DropdownMenuView.m */; };
+		68123B5D1C47BBBD008FC9AB /* DropdownMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123B5B1C47BBBD008FC9AB /* DropdownMenuView.xib */; };
+		68123B9A1C47D15C008FC9AB /* JYZSocialSnsAccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B771C47D15C008FC9AB /* JYZSocialSnsAccountInfo.m */; };
+		68123B9B1C47D15C008FC9AB /* JYZSocialSnsAuthResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B791C47D15C008FC9AB /* JYZSocialSnsAuthResp.m */; };
+		68123B9C1C47D15C008FC9AB /* JYZSocialSnsBaseResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B7B1C47D15C008FC9AB /* JYZSocialSnsBaseResp.m */; };
+		68123B9D1C47D15C008FC9AB /* JYZSocialSnsConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B7D1C47D15C008FC9AB /* JYZSocialSnsConfig.m */; };
+		68123B9E1C47D15C008FC9AB /* JYZSocialSnsConfigCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B7F1C47D15C008FC9AB /* JYZSocialSnsConfigCenter.m */; };
+		68123B9F1C47D15C008FC9AB /* JYZSocialSnsConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B801C47D15C008FC9AB /* JYZSocialSnsConstant.m */; };
+		68123BA01C47D15C008FC9AB /* JYZSocialSnsPlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B821C47D15C008FC9AB /* JYZSocialSnsPlatform.m */; };
+		68123BA11C47D15C008FC9AB /* JYZSocialSnsPlatformQQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B841C47D15C008FC9AB /* JYZSocialSnsPlatformQQ.m */; };
+		68123BA21C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B861C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.m */; };
+		68123BA31C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B881C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.m */; };
+		68123BA41C47D15C008FC9AB /* JYZSocialSnsSendMessageResp.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B8A1C47D15C008FC9AB /* JYZSocialSnsSendMessageResp.m */; };
+		68123BA51C47D15C008FC9AB /* JYZSocialSnsUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B8C1C47D15C008FC9AB /* JYZSocialSnsUtil.m */; };
+		68123BA61C47D15C008FC9AB /* JYZ_qq_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68123B8F1C47D15C008FC9AB /* JYZ_qq_icon@2x.png */; };
+		68123BA71C47D15C008FC9AB /* JYZ_qzone_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68123B901C47D15C008FC9AB /* JYZ_qzone_icon@2x.png */; };
+		68123BA81C47D15C008FC9AB /* JYZ_sina_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68123B911C47D15C008FC9AB /* JYZ_sina_icon@2x.png */; };
+		68123BA91C47D15C008FC9AB /* JYZ_wechat_session_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68123B921C47D15C008FC9AB /* JYZ_wechat_session_icon@2x.png */; };
+		68123BAA1C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 68123B931C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png */; };
+		68123BAB1C47D15C008FC9AB /* JYZShareMenuCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B951C47D15C008FC9AB /* JYZShareMenuCollectionCell.m */; };
+		68123BAC1C47D15C008FC9AB /* JYZShareMenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123B961C47D15C008FC9AB /* JYZShareMenuCollectionCell.xib */; };
+		68123BAD1C47D15C008FC9AB /* JYZShareMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123B981C47D15C008FC9AB /* JYZShareMenuView.m */; };
+		68123BAE1C47D15C008FC9AB /* JYZShareMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123B991C47D15C008FC9AB /* JYZShareMenuView.xib */; };
+		68123BB41C47D1CC008FC9AB /* JYZSocialSnsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123BB11C47D1CC008FC9AB /* JYZSocialSnsHelper.m */; };
+		68123BB51C47D1CC008FC9AB /* JYZSocialSnsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123BB31C47D1CC008FC9AB /* JYZSocialSnsManager.m */; };
 		68134A261C3B511B003C1C10 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A251C3B511B003C1C10 /* ShareManager.m */; };
 		68134A2F1C3CA7CA003C1C10 /* WeChatLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A2E1C3CA7CA003C1C10 /* WeChatLogin.m */; };
 		68134A321C3CA840003C1C10 /* RefreshSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A311C3CA840003C1C10 /* RefreshSession.m */; };
@@ -86,8 +110,6 @@
 		683FFB461C296288002A1AFE /* CollectionFallsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB351C296288002A1AFE /* CollectionFallsFlowLayout.m */; };
 		683FFB471C296288002A1AFE /* DropdownMenuCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB381C296288002A1AFE /* DropdownMenuCollectionCell.m */; };
 		683FFB481C296288002A1AFE /* DropdownMenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB391C296288002A1AFE /* DropdownMenuCollectionCell.xib */; };
-		683FFB491C296288002A1AFE /* DropdownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB3B1C296288002A1AFE /* DropdownMenuView.m */; };
-		683FFB4A1C296288002A1AFE /* DropdownMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB3C1C296288002A1AFE /* DropdownMenuView.xib */; };
 		683FFB4B1C296288002A1AFE /* BeautifulImageHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB3F1C296288002A1AFE /* BeautifulImageHomePageViewController.m */; };
 		683FFB4C1C296288002A1AFE /* BeautifulImageHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB401C296288002A1AFE /* BeautifulImageHomePageViewController.xib */; };
 		683FFB591C2A4135002A1AFE /* CollectDecPhaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB571C2A4135002A1AFE /* CollectDecPhaseViewController.m */; };
@@ -386,11 +408,51 @@
 		680F49261C240E400055C16C /* BeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImage.m; sourceTree = "<group>"; };
 		680F49281C240F910055C16C /* LeafImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeafImage.h; sourceTree = "<group>"; };
 		680F49291C240F910055C16C /* LeafImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeafImage.m; sourceTree = "<group>"; };
-		68123B201C461F95008FC9AB /* JYZSocialSnsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsManager.h; sourceTree = "<group>"; };
-		68123B211C461F95008FC9AB /* JYZSocialSnsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsManager.m; sourceTree = "<group>"; };
-		68123B231C462269008FC9AB /* JYZSocialSnsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsHelper.h; sourceTree = "<group>"; };
-		68123B241C462269008FC9AB /* JYZSocialSnsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsHelper.m; sourceTree = "<group>"; };
-		68123B261C4623CE008FC9AB /* JYZSocialSnsConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsConstant.h; sourceTree = "<group>"; };
+		68123B271C4629AF008FC9AB /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		68123B291C4629EE008FC9AB /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		68123B591C47BBBD008FC9AB /* DropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenuView.h; sourceTree = "<group>"; };
+		68123B5A1C47BBBD008FC9AB /* DropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenuView.m; sourceTree = "<group>"; };
+		68123B5B1C47BBBD008FC9AB /* DropdownMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownMenuView.xib; sourceTree = "<group>"; };
+		68123B751C47D15C008FC9AB /* JYZSocial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocial.h; sourceTree = "<group>"; };
+		68123B761C47D15C008FC9AB /* JYZSocialSnsAccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsAccountInfo.h; sourceTree = "<group>"; };
+		68123B771C47D15C008FC9AB /* JYZSocialSnsAccountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsAccountInfo.m; sourceTree = "<group>"; };
+		68123B781C47D15C008FC9AB /* JYZSocialSnsAuthResp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsAuthResp.h; sourceTree = "<group>"; };
+		68123B791C47D15C008FC9AB /* JYZSocialSnsAuthResp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsAuthResp.m; sourceTree = "<group>"; };
+		68123B7A1C47D15C008FC9AB /* JYZSocialSnsBaseResp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsBaseResp.h; sourceTree = "<group>"; };
+		68123B7B1C47D15C008FC9AB /* JYZSocialSnsBaseResp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsBaseResp.m; sourceTree = "<group>"; };
+		68123B7C1C47D15C008FC9AB /* JYZSocialSnsConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsConfig.h; sourceTree = "<group>"; };
+		68123B7D1C47D15C008FC9AB /* JYZSocialSnsConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsConfig.m; sourceTree = "<group>"; };
+		68123B7E1C47D15C008FC9AB /* JYZSocialSnsConfigCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsConfigCenter.h; sourceTree = "<group>"; };
+		68123B7F1C47D15C008FC9AB /* JYZSocialSnsConfigCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsConfigCenter.m; sourceTree = "<group>"; };
+		68123B801C47D15C008FC9AB /* JYZSocialSnsConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsConstant.m; sourceTree = "<group>"; };
+		68123B811C47D15C008FC9AB /* JYZSocialSnsPlatform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsPlatform.h; sourceTree = "<group>"; };
+		68123B821C47D15C008FC9AB /* JYZSocialSnsPlatform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsPlatform.m; sourceTree = "<group>"; };
+		68123B831C47D15C008FC9AB /* JYZSocialSnsPlatformQQ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsPlatformQQ.h; sourceTree = "<group>"; };
+		68123B841C47D15C008FC9AB /* JYZSocialSnsPlatformQQ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsPlatformQQ.m; sourceTree = "<group>"; };
+		68123B851C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsPlatformWechat.h; sourceTree = "<group>"; };
+		68123B861C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsPlatformWechat.m; sourceTree = "<group>"; };
+		68123B871C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsPlatformWeibo.h; sourceTree = "<group>"; };
+		68123B881C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsPlatformWeibo.m; sourceTree = "<group>"; };
+		68123B891C47D15C008FC9AB /* JYZSocialSnsSendMessageResp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsSendMessageResp.h; sourceTree = "<group>"; };
+		68123B8A1C47D15C008FC9AB /* JYZSocialSnsSendMessageResp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsSendMessageResp.m; sourceTree = "<group>"; };
+		68123B8B1C47D15C008FC9AB /* JYZSocialSnsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsUtil.h; sourceTree = "<group>"; };
+		68123B8C1C47D15C008FC9AB /* JYZSocialSnsUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsUtil.m; sourceTree = "<group>"; };
+		68123B8F1C47D15C008FC9AB /* JYZ_qq_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JYZ_qq_icon@2x.png"; sourceTree = "<group>"; };
+		68123B901C47D15C008FC9AB /* JYZ_qzone_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JYZ_qzone_icon@2x.png"; sourceTree = "<group>"; };
+		68123B911C47D15C008FC9AB /* JYZ_sina_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JYZ_sina_icon@2x.png"; sourceTree = "<group>"; };
+		68123B921C47D15C008FC9AB /* JYZ_wechat_session_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JYZ_wechat_session_icon@2x.png"; sourceTree = "<group>"; };
+		68123B931C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JYZ_wechat_timeline_icon@2x.png"; sourceTree = "<group>"; };
+		68123B941C47D15C008FC9AB /* JYZShareMenuCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZShareMenuCollectionCell.h; sourceTree = "<group>"; };
+		68123B951C47D15C008FC9AB /* JYZShareMenuCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZShareMenuCollectionCell.m; sourceTree = "<group>"; };
+		68123B961C47D15C008FC9AB /* JYZShareMenuCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JYZShareMenuCollectionCell.xib; sourceTree = "<group>"; };
+		68123B971C47D15C008FC9AB /* JYZShareMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZShareMenuView.h; sourceTree = "<group>"; };
+		68123B981C47D15C008FC9AB /* JYZShareMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZShareMenuView.m; sourceTree = "<group>"; };
+		68123B991C47D15C008FC9AB /* JYZShareMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JYZShareMenuView.xib; sourceTree = "<group>"; };
+		68123BAF1C47D1CC008FC9AB /* JYZSocialSnsConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsConstant.h; sourceTree = "<group>"; };
+		68123BB01C47D1CC008FC9AB /* JYZSocialSnsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsHelper.h; sourceTree = "<group>"; };
+		68123BB11C47D1CC008FC9AB /* JYZSocialSnsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsHelper.m; sourceTree = "<group>"; };
+		68123BB21C47D1CC008FC9AB /* JYZSocialSnsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsManager.h; sourceTree = "<group>"; };
+		68123BB31C47D1CC008FC9AB /* JYZSocialSnsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsManager.m; sourceTree = "<group>"; };
 		68134A241C3B511B003C1C10 /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		68134A251C3B511B003C1C10 /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
 		68134A2D1C3CA7CA003C1C10 /* WeChatLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatLogin.h; sourceTree = "<group>"; };
@@ -512,9 +574,6 @@
 		683FFB371C296288002A1AFE /* DropdownMenuCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenuCollectionCell.h; sourceTree = "<group>"; };
 		683FFB381C296288002A1AFE /* DropdownMenuCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenuCollectionCell.m; sourceTree = "<group>"; };
 		683FFB391C296288002A1AFE /* DropdownMenuCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownMenuCollectionCell.xib; sourceTree = "<group>"; };
-		683FFB3A1C296288002A1AFE /* DropdownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DropdownMenuView.h; path = jianfanjia/Screen/BeautifulImage/DropdownMenuView.h; sourceTree = SOURCE_ROOT; };
-		683FFB3B1C296288002A1AFE /* DropdownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DropdownMenuView.m; path = jianfanjia/Screen/BeautifulImage/DropdownMenuView.m; sourceTree = SOURCE_ROOT; };
-		683FFB3C1C296288002A1AFE /* DropdownMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DropdownMenuView.xib; path = jianfanjia/Screen/BeautifulImage/DropdownMenuView.xib; sourceTree = SOURCE_ROOT; };
 		683FFB3E1C296288002A1AFE /* BeautifulImageHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImageHomePageViewController.h; sourceTree = "<group>"; };
 		683FFB3F1C296288002A1AFE /* BeautifulImageHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImageHomePageViewController.m; sourceTree = "<group>"; };
 		683FFB401C296288002A1AFE /* BeautifulImageHomePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulImageHomePageViewController.xib; sourceTree = "<group>"; };
@@ -1005,6 +1064,7 @@
 				6E676A541C461F2900E91C01 /* TencentOpenAPI.framework in Frameworks */,
 				6E676A551C461F2900E91C01 /* libWeChatSDK.a in Frameworks */,
 				E344BCC23CA6FEF24334CD1D /* libPods.a in Frameworks */,
+				68123B2A1C4629EE008FC9AB /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1018,6 +1078,69 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		68123B741C47D15C008FC9AB /* Social */ = {
+			isa = PBXGroup;
+			children = (
+				68123B751C47D15C008FC9AB /* JYZSocial.h */,
+				68123BAF1C47D1CC008FC9AB /* JYZSocialSnsConstant.h */,
+				68123BB21C47D1CC008FC9AB /* JYZSocialSnsManager.h */,
+				68123BB31C47D1CC008FC9AB /* JYZSocialSnsManager.m */,
+				68123B811C47D15C008FC9AB /* JYZSocialSnsPlatform.h */,
+				68123B821C47D15C008FC9AB /* JYZSocialSnsPlatform.m */,
+				68123B831C47D15C008FC9AB /* JYZSocialSnsPlatformQQ.h */,
+				68123B841C47D15C008FC9AB /* JYZSocialSnsPlatformQQ.m */,
+				68123B851C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.h */,
+				68123B861C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.m */,
+				68123B871C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.h */,
+				68123B881C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.m */,
+				68123B761C47D15C008FC9AB /* JYZSocialSnsAccountInfo.h */,
+				68123B771C47D15C008FC9AB /* JYZSocialSnsAccountInfo.m */,
+				68123B781C47D15C008FC9AB /* JYZSocialSnsAuthResp.h */,
+				68123B791C47D15C008FC9AB /* JYZSocialSnsAuthResp.m */,
+				68123B7A1C47D15C008FC9AB /* JYZSocialSnsBaseResp.h */,
+				68123B7B1C47D15C008FC9AB /* JYZSocialSnsBaseResp.m */,
+				68123BB01C47D1CC008FC9AB /* JYZSocialSnsHelper.h */,
+				68123BB11C47D1CC008FC9AB /* JYZSocialSnsHelper.m */,
+				68123B7C1C47D15C008FC9AB /* JYZSocialSnsConfig.h */,
+				68123B7D1C47D15C008FC9AB /* JYZSocialSnsConfig.m */,
+				68123B7E1C47D15C008FC9AB /* JYZSocialSnsConfigCenter.h */,
+				68123B7F1C47D15C008FC9AB /* JYZSocialSnsConfigCenter.m */,
+				68123B801C47D15C008FC9AB /* JYZSocialSnsConstant.m */,
+				68123B891C47D15C008FC9AB /* JYZSocialSnsSendMessageResp.h */,
+				68123B8A1C47D15C008FC9AB /* JYZSocialSnsSendMessageResp.m */,
+				68123B8B1C47D15C008FC9AB /* JYZSocialSnsUtil.h */,
+				68123B8C1C47D15C008FC9AB /* JYZSocialSnsUtil.m */,
+				68123B8D1C47D15C008FC9AB /* ShareMenu */,
+			);
+			path = Social;
+			sourceTree = "<group>";
+		};
+		68123B8D1C47D15C008FC9AB /* ShareMenu */ = {
+			isa = PBXGroup;
+			children = (
+				68123B8E1C47D15C008FC9AB /* image */,
+				68123B941C47D15C008FC9AB /* JYZShareMenuCollectionCell.h */,
+				68123B951C47D15C008FC9AB /* JYZShareMenuCollectionCell.m */,
+				68123B961C47D15C008FC9AB /* JYZShareMenuCollectionCell.xib */,
+				68123B971C47D15C008FC9AB /* JYZShareMenuView.h */,
+				68123B981C47D15C008FC9AB /* JYZShareMenuView.m */,
+				68123B991C47D15C008FC9AB /* JYZShareMenuView.xib */,
+			);
+			path = ShareMenu;
+			sourceTree = "<group>";
+		};
+		68123B8E1C47D15C008FC9AB /* image */ = {
+			isa = PBXGroup;
+			children = (
+				68123B8F1C47D15C008FC9AB /* JYZ_qq_icon@2x.png */,
+				68123B901C47D15C008FC9AB /* JYZ_qzone_icon@2x.png */,
+				68123B911C47D15C008FC9AB /* JYZ_sina_icon@2x.png */,
+				68123B921C47D15C008FC9AB /* JYZ_wechat_session_icon@2x.png */,
+				68123B931C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		68134A4A1C3F503E003C1C10 /* CustomerService */ = {
 			isa = PBXGroup;
 			children = (
@@ -1115,9 +1238,9 @@
 		683FFB361C296288002A1AFE /* DropdownMenu */ = {
 			isa = PBXGroup;
 			children = (
-				683FFB3A1C296288002A1AFE /* DropdownMenuView.h */,
-				683FFB3B1C296288002A1AFE /* DropdownMenuView.m */,
-				683FFB3C1C296288002A1AFE /* DropdownMenuView.xib */,
+				68123B591C47BBBD008FC9AB /* DropdownMenuView.h */,
+				68123B5A1C47BBBD008FC9AB /* DropdownMenuView.m */,
+				68123B5B1C47BBBD008FC9AB /* DropdownMenuView.xib */,
 				683FFB371C296288002A1AFE /* DropdownMenuCollectionCell.h */,
 				683FFB381C296288002A1AFE /* DropdownMenuCollectionCell.m */,
 				683FFB391C296288002A1AFE /* DropdownMenuCollectionCell.xib */,
@@ -1317,6 +1440,7 @@
 		6E07DA441BD88DBE001461DD /* common */ = {
 			isa = PBXGroup;
 			children = (
+				68123B741C47D15C008FC9AB /* Social */,
 				6EE34D551C0ED49E00C6957E /* CoreData */,
 				6E07DA451BD88DBE001461DD /* API */,
 				6E07DA561BD88DBE001461DD /* Business */,
@@ -1528,11 +1652,6 @@
 				68134A241C3B511B003C1C10 /* ShareManager.h */,
 				68134A251C3B511B003C1C10 /* ShareManager.m */,
 				6E07DA8A1BD88DBE001461DD /* Manager.h */,
-				68123B261C4623CE008FC9AB /* JYZSocialSnsConstant.h */,
-				68123B231C462269008FC9AB /* JYZSocialSnsHelper.h */,
-				68123B241C462269008FC9AB /* JYZSocialSnsHelper.m */,
-				68123B201C461F95008FC9AB /* JYZSocialSnsManager.h */,
-				68123B211C461F95008FC9AB /* JYZSocialSnsManager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -2018,6 +2137,8 @@
 		94C7F59597BA43E8F719C985 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				68123B291C4629EE008FC9AB /* libc++.tbd */,
+				68123B271C4629AF008FC9AB /* libc++.1.tbd */,
 				6E44965B1BFEC6D600C90851 /* PhotosUI.framework */,
 				6E4496591BFEC69C00C90851 /* Photos.framework */,
 				44D2BD40530E2CA1D84D921D /* libPods.a */,
@@ -2126,6 +2247,7 @@
 				684A370D1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.xib in Resources */,
 				6E4496611BFECE0100C90851 /* ThumbnailCell.xib in Resources */,
 				6836269A1C059C72005F2C30 /* ItemExpandImageCell.xib in Resources */,
+				68123BAE1C47D15C008FC9AB /* JYZShareMenuView.xib in Resources */,
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */,
 				68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */,
@@ -2136,6 +2258,7 @@
 				6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */,
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
 				6E4496461BFC562900C90851 /* AboutViewController.xib in Resources */,
+				68123BA71C47D15C008FC9AB /* JYZ_qzone_icon@2x.png in Resources */,
 				683FFB5F1C2A4144002A1AFE /* CollectDecStyleViewController.xib in Resources */,
 				684A375B1BFD73DF00F7388C /* SelectWorkTypeViewController.xib in Resources */,
 				6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */,
@@ -2180,7 +2303,9 @@
 				68E505671BF0BB0100B0B910 /* SelectCityViewController.xib in Resources */,
 				685CD5D21C02DE9300EC1991 /* PlanPriceItemCell.xib in Resources */,
 				68134A3A1C3CF444003C1C10 /* BindPhoneViewController.xib in Resources */,
+				68123BA91C47D15C008FC9AB /* JYZ_wechat_session_icon@2x.png in Resources */,
 				6838400D1C158490004F456E /* UpdateMultipleLineTextViewController.xib in Resources */,
+				68123BAA1C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */,
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
@@ -2195,6 +2320,7 @@
 				6E44964C1BFC82F500C90851 /* UserInfoViewController.xib in Resources */,
 				684A37111BFD733500F7388C /* PlanWasChoosedCell.xib in Resources */,
 				68134A4F1C3F503E003C1C10 /* CustomerServiceViewController.xib in Resources */,
+				68123BA61C47D15C008FC9AB /* JYZ_qq_icon@2x.png in Resources */,
 				6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */,
 				685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */,
 				6E3361D31C181E07006D6868 /* iTunesArtwork in Resources */,
@@ -2205,13 +2331,14 @@
 				68343A181BF70719004F15C1 /* city2area.js in Resources */,
 				68134A591C44D152003C1C10 /* MultipleLineTextTableViewCell.xib in Resources */,
 				683FFB421C296288002A1AFE /* BeautifulImageCollectionCell.xib in Resources */,
+				68123B5D1C47BBBD008FC9AB /* DropdownMenuView.xib in Resources */,
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
-				683FFB4A1C296288002A1AFE /* DropdownMenuView.xib in Resources */,
 				685CD5CD1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				683FFB691C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib in Resources */,
 				680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */,
 				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
+				68123BA81C47D15C008FC9AB /* JYZ_sina_icon@2x.png in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
 				684A37691BFDE25E00F7388C /* EvaluateDesignerViewController.xib in Resources */,
 				6E44962E1BF9E32200C90851 /* SignupSuccessViewController.xib in Resources */,
@@ -2232,6 +2359,7 @@
 				683A6B651C0F01190071DF88 /* PayNotificationCell.xib in Resources */,
 				6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */,
 				685272C31C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib in Resources */,
+				68123BAC1C47D15C008FC9AB /* JYZShareMenuCollectionCell.xib in Resources */,
 				683A6B561C0F01130071DF88 /* DBYSViewController.xib in Resources */,
 				AB5852541C074252004B054E /* ItemImageCollectionCell.xib in Resources */,
 				683FFB731C2B9A70002A1AFE /* HouseRequirementCreateViewController.xib in Resources */,
@@ -2295,6 +2423,7 @@
 				684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */,
 				683A6B6A1C0F01190071DF88 /* ReminderViewController.m in Sources */,
 				685CD5CC1C02DCAA00EC1991 /* PlanPriceDetailViewController.m in Sources */,
+				68123BAB1C47D15C008FC9AB /* JYZShareMenuCollectionCell.m in Sources */,
 				683A6B681C0F01190071DF88 /* PurchaseNotificationCell.m in Sources */,
 				6E6D98CF1BE0C34000D45F77 /* HomePageRecDesignersCell.m in Sources */,
 				6E7867161BA944AF00DE8B1B /* ItemCell.m in Sources */,
@@ -2309,9 +2438,12 @@
 				684A374A1BFD73DF00F7388C /* DecorationStyleCell.m in Sources */,
 				6EE1E4371C082A8300883184 /* UIImage+Ex.m in Sources */,
 				683FFB701C2B9A70002A1AFE /* BusinessRequirementCreateViewController.m in Sources */,
+				68123B9E1C47D15C008FC9AB /* JYZSocialSnsConfigCenter.m in Sources */,
 				6E44964B1BFC82F500C90851 /* UserInfoViewController.m in Sources */,
+				68123BA01C47D15C008FC9AB /* JYZSocialSnsPlatform.m in Sources */,
 				685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */,
 				684A375E1BFD7D6600F7388C /* GetOrderedDesignder.m in Sources */,
+				68123BA41C47D15C008FC9AB /* JYZSocialSnsSendMessageResp.m in Sources */,
 				6E44966A1BFF1AC700C90851 /* OverlayView.m in Sources */,
 				684A37481BFD73DF00F7388C /* OrderDesignerViewController.m in Sources */,
 				68342DF91BFC45EE0000EBBE /* RequirementBusiness.m in Sources */,
@@ -2319,10 +2451,12 @@
 				6E06CC161C294AB600A08D15 /* FavoriateProductData.m in Sources */,
 				6E07DABC1BD88DBE001461DD /* NSString+Ex.m in Sources */,
 				AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */,
+				68123B9C1C47D15C008FC9AB /* JYZSocialSnsBaseResp.m in Sources */,
 				6E44963B1BFC2DA900C90851 /* SettingViewController.m in Sources */,
 				680F490D1C2160990055C16C /* ItemsBackgroundView.m in Sources */,
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
 				684A374E1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m in Sources */,
+				68123B9F1C47D15C008FC9AB /* JYZSocialSnsConstant.m in Sources */,
 				6E07DAC61BD88DBE001461DD /* Process.m in Sources */,
 				683595A81C04565300AD58E7 /* AgreementViewController.m in Sources */,
 				683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */,
@@ -2330,7 +2464,6 @@
 				685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */,
 				6EE34D7C1C0EE97D00C6957E /* NotificationCD.m in Sources */,
 				685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */,
-				68123B251C462269008FC9AB /* JYZSocialSnsHelper.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,
@@ -2346,10 +2479,12 @@
 				AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */,
 				6E6D98D41BE0D62F00D45F77 /* HomePageDesignerCell.m in Sources */,
 				685CD5D61C02EA0C00EC1991 /* PlanPriceItemSection.m in Sources */,
+				68123BA21C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.m in Sources */,
 				68134A3E1C3CFE44003C1C10 /* AccountBindViewController.m in Sources */,
 				6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */,
 				68134A551C44D097003C1C10 /* MultipleLineTextTableViewCell.m in Sources */,
 				6836690D1BFF183F006A5053 /* PriceItem.m in Sources */,
+				68123BAD1C47D15C008FC9AB /* JYZShareMenuView.m in Sources */,
 				6E4496601BFECE0100C90851 /* ThumbnailCell.m in Sources */,
 				6E07DAD81BD8C6AF001461DD /* Bc.m in Sources */,
 				683A6B551C0F01130071DF88 /* DBYSViewController.m in Sources */,
@@ -2366,14 +2501,15 @@
 				6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */,
 				683A6B641C0F01190071DF88 /* PayNotificationCell.m in Sources */,
 				6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */,
+				68123B9D1C47D15C008FC9AB /* JYZSocialSnsConfig.m in Sources */,
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */,
 				685726611C327E38006F6188 /* InfiniteScrollView.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				6E838D9A1BE6EF49000BF5CD /* ImageDetailViewController.m in Sources */,
+				68123BB41C47D1CC008FC9AB /* JYZSocialSnsHelper.m in Sources */,
 				684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */,
-				683FFB491C296288002A1AFE /* DropdownMenuView.m in Sources */,
 				683FFB191C280681002A1AFE /* GetBeautifulImageHomepage.m in Sources */,
 				684A370E1BFD733500F7388C /* OrderedDesignerViewController.m in Sources */,
 				6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */,
@@ -2383,6 +2519,7 @@
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
 				6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */,
 				683FFB5E1C2A4144002A1AFE /* CollectDecStyleViewController.m in Sources */,
+				68123BB51C47D1CC008FC9AB /* JYZSocialSnsManager.m in Sources */,
 				6E07DAC11BD88DBE001461DD /* GVUserDefaults+Manager.m in Sources */,
 				684A37081BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.m in Sources */,
 				6E07DABA1BD88DBE001461DD /* NSManagedObjectContext+Ex.m in Sources */,
@@ -2396,7 +2533,9 @@
 				685CD5E31C0310CA00EC1991 /* LeaveMessageViewController.m in Sources */,
 				6E4496211BF9B58800C90851 /* VerifyPhone.m in Sources */,
 				6E06CC1C1C294EE800A08D15 /* AddFavoriateProduct.m in Sources */,
+				68123B9A1C47D15C008FC9AB /* JYZSocialSnsAccountInfo.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
+				68123BA51C47D15C008FC9AB /* JYZSocialSnsUtil.m in Sources */,
 				684A37401BFD73DF00F7388C /* IntentDesignerCell.m in Sources */,
 				6E6D98AA1BDF733F00D45F77 /* HomePageViewController.m in Sources */,
 				6E07DABF1BD88DBE001461DD /* UIView+Ex.m in Sources */,
@@ -2412,9 +2551,9 @@
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */,
 				6836269D1C05B1E9005F2C30 /* ProcessDataManager.m in Sources */,
-				68123B221C461F95008FC9AB /* JYZSocialSnsManager.m in Sources */,
 				683A5D681C0EECD40071DF88 /* ItemExpandCheckCell.m in Sources */,
 				684A37521BFD73DF00F7388C /* SelectDecorationTypeViewController.m in Sources */,
+				68123B9B1C47D15C008FC9AB /* JYZSocialSnsAuthResp.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
 				6E4496571BFEC2BD00C90851 /* ImageBrowerViewController.m in Sources */,
@@ -2472,6 +2611,7 @@
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68E505661BF0BB0100B0B910 /* SelectCityViewController.m in Sources */,
 				680F492A1C240F910055C16C /* LeafImage.m in Sources */,
+				68123BA11C47D15C008FC9AB /* JYZSocialSnsPlatformQQ.m in Sources */,
 				683FFB681C2A8FBD002A1AFE /* CollectFamilyInfoViewController.m in Sources */,
 				68134A261C3B511B003C1C10 /* ShareManager.m in Sources */,
 				6E06CC261C2BA51800A08D15 /* FavoriateBeautifulImageCell.m in Sources */,
@@ -2483,6 +2623,7 @@
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
 				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
 				6838400C1C158490004F456E /* UpdateMultipleLineTextViewController.m in Sources */,
+				68123BA31C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.m in Sources */,
 				AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */,
 				684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
@@ -2513,6 +2654,7 @@
 				684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
 				6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */,
+				68123B5C1C47BBBD008FC9AB /* DropdownMenuView.m in Sources */,
 				6E6D98CA1BE0AB7C00D45F77 /* HomePageRequirementCell.m in Sources */,
 				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,
 				683FFB1C1C280E9D002A1AFE /* FavoriteBeautifulImage.m in Sources */,

@@ -13,6 +13,5 @@
 #import "GVUserDefaults+Manager.h"
 #import "NotificationDataManager.h"
 #import "ShareManager.h"
-#import "SocialManager.h"
 
 #endif /* Manager_h */
