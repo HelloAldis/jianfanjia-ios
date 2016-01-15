@@ -85,8 +85,7 @@ static NSString *PlanCellIdentifier = @"PlanPriceItemCell";
                                  NSStrikethroughColorAttributeName: [UIColor grayColor]};
     NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:[self.plan.project_price_before_discount humRmbString] attributes:attribtDic];
     self.lblProjectTotalPriceVal.attributedText = attribtStr;
-//    self.lblProjectTotalPriceVal.text = [NSString stringWithFormat:@"%@", [self.plan.project_price_before_discount humRmbString]];
-    self.lblProjectDiscountPriceVal.text = [NSString stringWithFormat:@"%@", [self.plan.project_price_after_discount humRmbString]];
+    self.lblProjectDiscountPriceVal.text = [NSString stringWithFormat:@"%@", [self.plan.project_price_after_discount doubleValue] > 0 ? [self.plan.project_price_after_discount humRmbString] : [self.plan.project_price_before_discount humRmbString]];
     self.lblDesignFeeVal.text = [NSString stringWithFormat:@"%@", [self.plan.total_design_fee humRmbString]];
     self.lblDiscountTotalPriceVal.text = [NSString stringWithFormat:@"%@", [self.plan.total_price humRmbString]];
 }
