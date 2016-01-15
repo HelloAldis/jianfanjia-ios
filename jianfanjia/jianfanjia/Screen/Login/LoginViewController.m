@@ -125,7 +125,7 @@
     if (kIs35inchScreen) {
         self.topConstraint.constant = 10;
     } else {
-        self.topConstraint.constant = (kScreenHeight - 480)/2;
+        self.topConstraint.constant = (kScreenHeight - 480)/2 - 20;
     }
     
     self.btnWechatLogin.hidden = !kIsInstalledWechat;

@@ -453,6 +453,7 @@
 		68123BB11C47D1CC008FC9AB /* JYZSocialSnsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsHelper.m; sourceTree = "<group>"; };
 		68123BB21C47D1CC008FC9AB /* JYZSocialSnsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSocialSnsManager.h; sourceTree = "<group>"; };
 		68123BB31C47D1CC008FC9AB /* JYZSocialSnsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSocialSnsManager.m; sourceTree = "<group>"; };
+		68123BB91C48DF54008FC9AB /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		68134A241C3B511B003C1C10 /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		68134A251C3B511B003C1C10 /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
 		68134A2D1C3CA7CA003C1C10 /* WeChatLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatLogin.h; sourceTree = "<group>"; };
@@ -1139,6 +1140,14 @@
 				68123B931C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png */,
 			);
 			path = image;
+			sourceTree = "<group>";
+		};
+		68123BB81C48DF54008FC9AB /* umanalytics */ = {
+			isa = PBXGroup;
+			children = (
+				68123BB91C48DF54008FC9AB /* MobClickSocialAnalytics.h */,
+			);
+			path = umanalytics;
 			sourceTree = "<group>";
 		};
 		68134A4A1C3F503E003C1C10 /* CustomerService */ = {
@@ -1856,6 +1865,7 @@
 		6E676A4B1C461F2900E91C01 /* third */ = {
 			isa = PBXGroup;
 			children = (
+				68123BB81C48DF54008FC9AB /* umanalytics */,
 				6E676A4C1C461F2900E91C01 /* qq */,
 				6E676A4E1C461F2900E91C01 /* wechat */,
 			);

@@ -49,7 +49,7 @@
 
 - (IBAction)btnShare:(id)sender {
     NSString *description = @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。";
-    [[ShareManager shared] share:self image:[UIImage imageNamed:@"about_logo"] title:@"简繁家，让装修变简单" description:description targetLink:@"http://www.jianfanjia.com/zt/mobile/index.html" delegate:self];
+    [[ShareManager shared] share:self topic:ShareTopicApp image:[UIImage imageNamed:@"about_logo"] title:@"简繁家，让装修变简单" description:description targetLink:@"http://www.jianfanjia.com/zt/mobile/index.html" delegate:self];
 }
 
 - (IBAction)btnClearCache:(id)sender {

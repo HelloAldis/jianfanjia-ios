@@ -8,6 +8,10 @@
 
 #import "ShareManager.h"
 #import "AppDelegate.h"
+#import "MobClickSocialAnalytics.h"
+
+NSString * const ShareTopicBeautifulImage = @"BeautifulImage";
+NSString * const ShareTopicApp = @"APP";
 
 @implementation ShareManager
 
@@ -32,29 +36,30 @@
     }];
 }
 
-- (void)share:(UIViewController *)controller image:(UIImage *)shareImage title:(NSString *)title description:(NSString *)description targetLink:(NSString *)targetLink delegate:(id)delegate {
+- (void)share:(UIViewController *)controller topic:(NSString *)topic image:(UIImage *)shareImage title:(NSString *)title description:(NSString *)description targetLink:(NSString *)targetLink delegate:(id)delegate {
     NSMutableArray *snsArr = [NSMutableArray array];
     
-//    if (kIsInstalledWechat) {
+    if (kIsInstalledWechat) {
         [snsArr addObject:JYZShareToWechatSession];
         [snsArr addObject:JYZShareToWechatTimeline];
-//    }
+    }
     
-//    if (kIsInstalledQQ) {
+    if (kIsInstalledQQ) {
         [snsArr addObject:JYZShareToQQ];
         [snsArr addObject:JYZShareToQzone];
-//    }
+    }
     
-//    if (kIsInstalledWeibo) {
+    if (kIsInstalledWeibo) {
         [snsArr addObject:JYZShareToWeibo];
-//    }
-    
+    }
+
     if (snsArr.count == 0) {
         [HUDUtil showErrText:@"请安装微信，QQ或者微博。"];
         return;
     }
     
     [JYZSocialSnsManager showSnsMenu:controller flatforms:snsArr clickHandle:^(id value) {
+        [self socialShareAnalytics:value topic:topic];
         JYZSocialSnsPlatform *snsPlatform = [JYZSocialSnsManager getSocialPlatformWithName:value];
         [snsPlatform shareImage:controller image:shareImage title:title description:description targetLink:targetLink completion:^(NSString *errorMsg) {
             if (errorMsg) {
@@ -64,6 +69,24 @@
             }
         }];
     }];
+}
+
+- (void)socialShareAnalytics:(NSString *)platform topic:(NSString *)topic {
+    NSString *umplatform;
+    if ([platform isEqualToString:JYZShareToWechatSession]) {
+        umplatform = MobClickSocialTypeWxsesion;
+    } else if ([platform isEqualToString:JYZShareToWechatTimeline]) {
+        umplatform = MobClickSocialTypeWxtimeline;
+    } else if ([platform isEqualToString:JYZShareToQQ]) {
+        umplatform = MobClickSocialTypeQQ;
+    } else if ([platform isEqualToString:JYZShareToQzone]) {
+        umplatform = MobClickSocialTypeQzone;
+    } else  {
+        umplatform = MobClickSocialTypeSina;
+    }
+    
+    MobClickSocialWeibo *weibo = [[MobClickSocialWeibo alloc] initWithPlatformType:umplatform weiboId:nil usid:nil param:nil];
+    [MobClickSocialAnalytics postWeiboCounts:@[weibo] appKey:kUMengAppKey topic:topic completion:nil];
 }
 
 kSynthesizeSingletonForClass(ShareManager)

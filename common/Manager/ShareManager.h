@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "JYZSocial.h"
 
+extern NSString * const ShareTopicBeautifulImage;
+extern NSString * const ShareTopicApp;
+
 @class SnsAccountInfo;
 
 typedef void(^LoginCompeletion)(SnsAccountInfo *snsAccount, NSString *error);
@@ -16,7 +19,7 @@ typedef void(^LoginCompeletion)(SnsAccountInfo *snsAccount, NSString *error);
 @interface ShareManager : NSObject
 
 - (void)wechatLogin:(UIViewController *)controller compeletion:(LoginCompeletion)loginCompeletion;
-- (void)share:(UIViewController *)controller image:(UIImage *)shareImage title:(NSString *)title description:(NSString *)description targetLink:(NSString *)targetLink delegate:(id)delegate;
+- (void)share:(UIViewController *)controller topic:(NSString *)topic image:(UIImage *)shareImage title:(NSString *)title description:(NSString *)description targetLink:(NSString *)targetLink delegate:(id)delegate;
 
 
 kSynthesizeSingletonForHeader(ShareManager)
