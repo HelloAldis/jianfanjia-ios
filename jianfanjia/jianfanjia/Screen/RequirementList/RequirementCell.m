@@ -58,12 +58,12 @@
     }];
     
     [self.imgHomeOwner setCornerRadius:self.imgHomeOwner.bounds.size.width / 2];
-    [self.imgHomeOwner setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
 }
 
 - (void)initWithRequirement:(Requirement *)requirement {
     self.requirement = requirement;
     [self updateRequirement:requirement];
+    [self.imgHomeOwner setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
     
     [self.requirementDataManager refreshOrderedDesigners:requirement];
     
