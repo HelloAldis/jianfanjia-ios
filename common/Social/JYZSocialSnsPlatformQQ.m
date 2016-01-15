@@ -11,9 +11,9 @@
 #import "JYZSocialSnsUtil.h"
 #import <TencentOpenAPI/TencentOAuth.h>
 
-static NSString *kAccessToken = @"AccessToken";
-static NSString *kOpenId = @"OpenId";
-static NSString *kExpireDate = @"ExpireDate";
+static NSString *kAccessToken = @"QQAccessToken";
+static NSString *kOpenId = @"QQOpenId";
+static NSString *kExpireDate = @"QQExpireDate";
 
 static NSString *AppId;
 static TencentOAuth *TencentAuth;
@@ -36,35 +36,11 @@ static TencentOAuth *TencentAuth;
 
 - (void)login:(UIViewController *)controller compeletion:(JYZLoginCompeletion)completion {
     [super login:controller compeletion:completion];
-}
 
-- (void)shareImage:(UIViewController *)controller image:(UIImage *)shareImage title:(NSString *)title description:(NSString *)description targetLink:(NSString *)targetLink completion:(JYZShareCompeletion)completion {
-    [super shareImage:controller image:shareImage title:title description:description targetLink:targetLink completion:completion];
-    
     NSArray *permissions = [NSArray arrayWithObjects:
                             kOPEN_PERMISSION_ADD_SHARE,
                             nil];
-    
-    __weak typeof(self) weakSelf = self;
-    self.ShareBlock = ^{
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        SendMessageToQQReq *req;
-        if (targetLink) {
-            QQApiNewsObject* img = [QQApiNewsObject objectWithURL:[NSURL URLWithString:targetLink] title:title description:description previewImageData:[JYZSocialSnsUtil thumbnailWithImage:shareImage].data];
-            req = [SendMessageToQQReq reqWithContent:img];
-        } else {
-            QQApiImageObject* img = [QQApiImageObject objectWithData:shareImage.data previewImageData:[JYZSocialSnsUtil thumbnailWithImage:shareImage].data title:title description:description];
-            req = [SendMessageToQQReq reqWithContent:img];
-        }
-        
-        QQApiSendResultCode sent;
-        if ([strongSelf.socialType isEqualToString:JYZShareToQQ]) {
-            sent = [QQApiInterface sendReq:req];
-        } else {
-            sent = [QQApiInterface SendReqToQZone:req];
-        }
-    };
-    
+
     [self restoreToken];
     if (self.accessToken && self.openId && self.expirationDate) {
         [TencentAuth setAccessToken:self.accessToken];
@@ -73,6 +49,26 @@ static TencentOAuth *TencentAuth;
         self.ShareBlock();
     } else {
         [TencentAuth authorize:permissions inSafari:NO];
+    }
+}
+
+- (void)shareImage:(UIViewController *)controller image:(UIImage *)shareImage title:(NSString *)title description:(NSString *)description targetLink:(NSString *)targetLink completion:(JYZShareCompeletion)completion {
+    [super shareImage:controller image:shareImage title:title description:description targetLink:targetLink completion:completion];
+    
+    SendMessageToQQReq *req;
+    if (targetLink) {
+        QQApiNewsObject* img = [QQApiNewsObject objectWithURL:[NSURL URLWithString:targetLink] title:title description:description previewImageData:[JYZSocialSnsUtil thumbnailWithImage:shareImage].data];
+        req = [SendMessageToQQReq reqWithContent:img];
+    } else {
+        QQApiImageObject* img = [QQApiImageObject objectWithData:shareImage.data previewImageData:[JYZSocialSnsUtil thumbnailWithImage:shareImage].data title:title description:description];
+        req = [SendMessageToQQReq reqWithContent:img];
+    }
+    
+    QQApiSendResultCode sent;
+    if ([self.socialType isEqualToString:JYZShareToQQ]) {
+        sent = [QQApiInterface sendReq:req];
+    } else {
+        sent = [QQApiInterface SendReqToQZone:req];
     }
 }
 
@@ -95,7 +91,6 @@ static TencentOAuth *TencentAuth;
         }
     } else {
         [self saveToken];
-        self.ShareBlock();
     }
 }
 

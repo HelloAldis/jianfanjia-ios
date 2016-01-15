@@ -44,8 +44,8 @@ static NSString *JYZShareMenuCollectionCellIdentifier = @"JYZShareMenuCollection
         
         _columnCount = 3;
         _columnSpace = 0;
-        _rowSpace = 0;
-        _insets = UIEdgeInsetsMake(0, 0, 0, 0);
+        _rowSpace = 20;
+        _insets = UIEdgeInsetsMake(20, 0, 20, 0);
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapParentView:)];
         [self addGestureRecognizer:tapGesture];
@@ -71,10 +71,10 @@ static NSString *JYZShareMenuCollectionCellIdentifier = @"JYZShareMenuCollection
 }
 
 - (void)initUI {
-    CGFloat cellHeight = 100;
     self.flowLayout.minimumLineSpacing = self.rowSpace;
     self.flowLayout.minimumInteritemSpacing = self.columnSpace;
     CGFloat cellWidth = ([UIScreen mainScreen].bounds.size.width - self.insets.left - self.insets.right - (self.columnCount - 1) * self.columnSpace) / self.columnCount;
+    CGFloat cellHeight = 70;
     self.flowLayout.itemSize = CGSizeMake(cellWidth, cellHeight);
     self.flowLayout.sectionInset = self.insets;
 
@@ -82,13 +82,14 @@ static NSString *JYZShareMenuCollectionCellIdentifier = @"JYZShareMenuCollection
     self.height = self.rowSpace * (rowCount - 1) + cellHeight * rowCount + self.insets.top + self.insets.bottom;
     self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, self.height);
     [self.collectionView reloadData];
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 - (void)show {
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
         self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - self.height, [UIScreen mainScreen].bounds.size.width, self.height);
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
-        [self layoutIfNeeded];
     } completion:^(BOOL finished) {
 
     }];
@@ -98,7 +99,6 @@ static NSString *JYZShareMenuCollectionCellIdentifier = @"JYZShareMenuCollection
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
         self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, self.height);
-        [self layoutIfNeeded];
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
     }];
@@ -128,7 +128,7 @@ static NSString *JYZShareMenuCollectionCellIdentifier = @"JYZShareMenuCollection
         cell.icon.image = [UIImage imageNamed:@"JYZ_sina_icon"];
         cell.text.text = @"新浪微博";
     }
-    
+
     return cell;
 }
 

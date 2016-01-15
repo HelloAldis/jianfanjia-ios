@@ -14,8 +14,4 @@
 
 @implementation JYZShareMenuCollectionCell
 
-- (void)awakeFromNib {
-    [self.icon setCornerRadius:5];
-}
-
 @end

@@ -35,19 +35,19 @@
 - (void)share:(UIViewController *)controller image:(UIImage *)shareImage title:(NSString *)title description:(NSString *)description targetLink:(NSString *)targetLink delegate:(id)delegate {
     NSMutableArray *snsArr = [NSMutableArray array];
     
-    if (kIsInstalledWechat) {
+//    if (kIsInstalledWechat) {
         [snsArr addObject:JYZShareToWechatSession];
         [snsArr addObject:JYZShareToWechatTimeline];
-    }
+//    }
     
-    if (kIsInstalledQQ) {
+//    if (kIsInstalledQQ) {
         [snsArr addObject:JYZShareToQQ];
         [snsArr addObject:JYZShareToQzone];
-    }
+//    }
     
-    if (kIsInstalledWeibo) {
+//    if (kIsInstalledWeibo) {
         [snsArr addObject:JYZShareToWeibo];
-    }
+//    }
     
     if (snsArr.count == 0) {
         [HUDUtil showErrText:@"请安装微信，QQ或者微博。"];

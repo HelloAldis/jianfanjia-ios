@@ -26,7 +26,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>WeChat</string>
+			<string>wechat</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wx391daabfce27e728</string>
@@ -36,7 +36,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>QQ</string>
+			<string>mqqapi</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>QQ41DC8CF8</string>
@@ -46,7 +46,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>Tencent</string>
+			<string>tencent</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>tencent1104973048</string>
@@ -60,6 +60,26 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>wb10611350</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>tencentApiIdentifier</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tencent1104973048.content</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>qzoneScheme</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>mqzone</string>
 			</array>
 		</dict>
 	</array>

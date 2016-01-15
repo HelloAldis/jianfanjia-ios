@@ -27,7 +27,7 @@
 
 + (NSString *)beautifulImageUrl:(NSString *)imageid title:(NSString *)title {
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
-    NSString *url = [NSString stringWithFormat:@"http://%@/zt/mobile/sharemito.html?imageId=%@&title=%@", components.host, imageid, [StringUtil encodeString:title]];
+    NSString *url = [NSString stringWithFormat:@"http://%@%@%@/zt/mobile/sharemito.html?imageId=%@&title=%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", imageid, [StringUtil encodeString:title]];
     
     return url;
 }

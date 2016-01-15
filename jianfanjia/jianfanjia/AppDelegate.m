@@ -109,7 +109,7 @@
     // 友盟第三方登录／分享
     [[JYZSocialSnsConfigCenter shared] registerWX:kWXAppId appsecret:kWXAppSecret];
     [[JYZSocialSnsConfigCenter shared] registerQQ:kQQAppId];
-    [[JYZSocialSnsConfigCenter shared] registerWeibo:kWeiboAppKey rediectURI:@"www.jianfanjia.com"];
+    [[JYZSocialSnsConfigCenter shared] registerWeibo:kWeiboAppKey rediectURI:nil];
 }
 
 #pragma mark - 用户通知(推送) _自定义方法

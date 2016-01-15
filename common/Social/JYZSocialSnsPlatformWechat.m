@@ -82,43 +82,12 @@ static NSString *AppSecret;
 }
 
 #pragma mark - hadle response
-//WXSuccess           = 0,    /**< 成功    */
-//WXErrCodeCommon     = -1,   /**< 普通错误类型    */
-//WXErrCodeUserCancel = -2,   /**< 用户点击取消并返回    */
-//WXErrCodeSentFail   = -3,   /**< 发送失败    */
-//WXErrCodeAuthDeny   = -4,   /**< 授权失败    */
-//WXErrCodeUnsupport  = -5,   /**< 微信不支持    */
-
-- (void)handleSendMessageResponse:(JYZSocialSnsSendMessageResp *)msgResp {
-    NSString *errMsg = msgResp.errStr;
-    switch (msgResp.errCode) {
-        case WXSuccess:
-            break;
-        case WXErrCodeCommon:
-            break;
-        case WXErrCodeUserCancel:
-            errMsg = @"用户取消了操作";
-            break;
-        case WXErrCodeSentFail:
-            break;
-        case WXErrCodeAuthDeny:
-            break;
-        case WXErrCodeUnsupport:
-            break;
-            
-        default:
-            break;
-    }
-    
-    if (self.shareCompletion) {
-        self.shareCompletion(errMsg);
-    }
-}
-
 - (void)handleAuthResponse:(JYZSocialSnsAuthResp *)authResp {
-    if (authResp.errStr) {
+    NSString *errMsg = [self getErrorMessage:authResp];
+    
+    if (errMsg) {
         if (self.loginCompletion) {
-            self.loginCompletion(nil, authResp.errStr);
+            self.loginCompletion(nil, errMsg);
         }
         return;
     }
@@ -172,6 +141,46 @@ static NSString *AppSecret;
             }];
         }
     }];
+}
+
+- (void)handleSendMessageResponse:(JYZSocialSnsSendMessageResp *)msgResp {
+    NSString *errMsg = [self getErrorMessage:msgResp];
+    
+    if (self.shareCompletion) {
+        self.shareCompletion(errMsg);
+    }
+}
+
+
+//WXSuccess           = 0,    /**< 成功    */
+//WXErrCodeCommon     = -1,   /**< 普通错误类型    */
+//WXErrCodeUserCancel = -2,   /**< 用户点击取消并返回    */
+//WXErrCodeSentFail   = -3,   /**< 发送失败    */
+//WXErrCodeAuthDeny   = -4,   /**< 授权失败    */
+//WXErrCodeUnsupport  = -5,   /**< 微信不支持    */
+
+- (NSString *)getErrorMessage:(JYZSocialSnsBaseResp *)msgResp {
+    NSString *errMsg = msgResp.errStr;
+    switch (msgResp.errCode) {
+        case WXSuccess:
+            break;
+        case WXErrCodeCommon:
+            break;
+        case WXErrCodeUserCancel:
+            errMsg = @"用户取消了操作";
+            break;
+        case WXErrCodeSentFail:
+            break;
+        case WXErrCodeAuthDeny:
+            break;
+        case WXErrCodeUnsupport:
+            break;
+            
+        default:
+            break;
+    }
+    
+    return errMsg;
 }
 
 /**

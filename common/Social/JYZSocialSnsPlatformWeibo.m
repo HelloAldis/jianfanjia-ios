@@ -23,7 +23,7 @@ static NSString *RedirectURI;
 
 + (void)registerApp:(NSString *)appkey redictURI:(NSString *)redirectURI {
     AppKey = appkey;
-    RedirectURI = redirectURI;
+    RedirectURI = redirectURI ? redirectURI : @"https://api.weibo.com/oauth2/default.html";
 //    [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:appkey];
 }
@@ -40,20 +40,21 @@ static NSString *RedirectURI;
     authRequest.scope = @"all";
     
     WBMessageObject *message = [WBMessageObject message];
+    message.text = [NSString stringWithFormat:@"%@ %@", description, targetLink];
     
-    if (targetLink) {
-        WBWebpageObject *webpage = [WBWebpageObject object];
-        webpage.objectID = targetLink;
-        webpage.title = title;
-        webpage.description = description;
-        webpage.thumbnailData = [JYZSocialSnsUtil thumbnailWithImage:shareImage].data;
-        webpage.webpageUrl = targetLink;
-        message.mediaObject = webpage;
-    } else {
+//    if (targetLink) {
+//        WBWebpageObject *webpage = [WBWebpageObject object];
+//        webpage.objectID = targetLink;
+//        webpage.title = title;
+//        webpage.description = description;
+//        webpage.thumbnailData = [JYZSocialSnsUtil thumbnailWithImage:shareImage].data;
+//        webpage.webpageUrl = targetLink;
+//        message.mediaObject = webpage;
+//    } else {
         WBImageObject *image = [WBImageObject object];
         image.imageData = shareImage.data;
         message.imageObject = image;
-    }
+//    }
 
     WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:message authInfo:authRequest access_token:nil];
     [WeiboSDK sendRequest:request];
