@@ -26,7 +26,7 @@ static NSDictionary *work_type;
     if ([self class] == [SelectWorkTypeViewController class]) {
         work_type = @{@"0":@"半包（包工包辅料，主料由您采购，用的最多的装修方式）",
                       @"1":@"全包（一条龙服务，包工包主辅材，最省心的装修）",
-                      @"2":@"设计（我们不生产设计师，我们只是设计师的搬运工）"};
+                      @"2":@"纯设计（我们不生产设计师，我们只是设计师的搬运工）"};
     }
 }
 

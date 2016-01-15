@@ -82,9 +82,13 @@
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([self hasRequirement] && ![self hasRequirementDesigners]) {
+    if ([DataManager shared].homePageDesigners == nil && [DataManager shared].homePageRequirement == nil) {
+        return 1;
+    } else if ([self hasRequirement] && ![self hasRequirementDesigners]) {
+        //有需求而且已经预约了设计师
         return 1 + [DataManager shared].homePageDesigners.count;
     } else {
+        //没需求或者有需求但是没有预约设计师
         return 2 + [DataManager shared].homePageDesigners.count;
     }
 }
