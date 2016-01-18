@@ -74,8 +74,11 @@
 }
 
 - (void)initNav {
-    [self initLeftBackInNav];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(onClickDone)];
+    self.navigationController.navigationBarHidden = NO;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    self.navigationItem.leftBarButtonItem = item;
+    
+    item = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(onClickDone)];
     item.tintColor = kThemeColor;
     self.navigationItem.rightBarButtonItem = item;
 }
@@ -113,6 +116,10 @@
 #pragma mark - scroll view delegate
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     return  self.imageView;
+}
+
+- (void)onClickBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)onClickDone {

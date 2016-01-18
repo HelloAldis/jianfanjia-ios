@@ -9,6 +9,8 @@
 #import "JYZSocialSnsManager.h"
 #import "WXApi.h"
 #import <TencentOpenAPI/TencentOAuth.h>
+#import <TencentOpenAPI/QQApiInterface.h>
+#import "WeiboSDK.h"
 #import "JYZSocialSnsConstant.h"
 #import "JYZSocialSnsHelper.h"
 #import "JYZSocialSnsAuthResp.h"

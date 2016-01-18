@@ -6,10 +6,6 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "WXApi.h"
-#import <TencentOpenAPI/QQApiInterface.h> 
-#import "WeiboSDK.h"
-
 #ifndef Macro_h
 #define Macro_h
 
@@ -38,9 +34,5 @@ return shared##className; \
 #define kIs47inchScreen (kScreenHeight == 667)
 #define kIs55inchScreen (kScreenHeight == 736)
 #define kIsPad ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad)
-
-#define kIsInstalledWechat ([WXApi isWXAppInstalled])
-#define kIsInstalledWeibo ([WeiboSDK isWeiboAppInstalled])
-#define kIsInstalledQQ ([QQApiInterface isQQInstalled])
 
 #endif /* Macro_h */

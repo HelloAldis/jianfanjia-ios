@@ -8,7 +8,6 @@
 
 #import "ProductImageCell.h"
 #import "ViewControllerContainer.h"
-#import "ImageDetailViewController.h"
 
 @interface ProductImageCell ()
 

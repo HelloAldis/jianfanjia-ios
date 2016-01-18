@@ -7,7 +7,6 @@
 //
 
 #import "DateAlertViewController.h"
-#import "ViewControllerContainer.h"
 
 @interface DateAlertViewController ()
 @property (weak, nonatomic) IBOutlet UIView *alertView;
@@ -35,7 +34,7 @@
     alert.modalPresentationStyle = UIModalPresentationOverFullScreen;
     alert.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-    [[ViewControllerContainer getCurrentTapController] presentViewController:alert animated:YES completion:nil];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
 }
 
 - (id)initWithTitle:(NSString *)title min:(NSDate *)minDate max:(NSDate *)maxDate allowIgnore:(BOOL)allowIgnore cancel:(DateButtonBlock)cancelBlock ok:(DateButtonBlock)okBlock {

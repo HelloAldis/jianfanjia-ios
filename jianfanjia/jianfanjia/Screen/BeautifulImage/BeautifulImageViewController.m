@@ -8,9 +8,7 @@
 
 #import "BeautifulImageViewController.h"
 #import "BeautifulImageCollectionCell.h"
-#import "ImageDetailViewController.h"
 #import "ViewControllerContainer.h"
-#import "MessageAlertViewController.h"
 #import "BeautifulImageDataManager.h"
 #import "BeautifulImageHomePageViewController.h"
 #import "DropdownMenuView.h"

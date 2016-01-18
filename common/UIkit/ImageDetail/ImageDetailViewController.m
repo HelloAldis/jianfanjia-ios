@@ -93,7 +93,7 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
         [self.scrollView addSubview:s];
         [self.imageViewArray addObject:w1];
     }
-    [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.imgCount, kBannerCellHeight)];
+    [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.imgCount, 200)];
     self.lblIndex.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
     self.lblIndex.hidden = self.imgCount <= 1;
     self.scrollView.contentOffset = CGPointMake(self.index * kScreenWidth, 0);

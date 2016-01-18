@@ -18,6 +18,7 @@
   #import "Pods.h"
   #import "App.h"
   #import "Ex.h"
+  #import "JYZUIKit.h"
   #import "Util.h"
   #import "Business.h"
   #import "Manager.h"
@@ -25,6 +26,8 @@
   #import "Constant.h"
   #import "API.h"
   #import "CD.h"
+  #import "JYZSocial.h"
+
 #endif
 
 //#define DEBUG

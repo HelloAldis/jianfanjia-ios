@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JYZSocial.h"
 
 extern NSString * const ShareTopicBeautifulImage;
 extern NSString * const ShareTopicApp;

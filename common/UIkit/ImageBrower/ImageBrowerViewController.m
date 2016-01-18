@@ -8,9 +8,6 @@
 
 #import "ImageBrowerViewController.h"
 #import "ThumbnailCell.h"
-#import "ImageEditorViewController.h"
-#import "ImageDetailViewController.h"
-#import "ViewControllerContainer.h"
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
@@ -86,7 +83,10 @@
 
 #pragma mark - UI
 - (void)initNav {
-    [self initLeftBackInNav];
+    self.navigationController.navigationBarHidden = NO;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    self.navigationItem.leftBarButtonItem = item;
+    
     if (self.allowsMultipleSelection) {
         UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(onClickDoneMutil)];
         item.tintColor = kThemeColor;
@@ -126,6 +126,10 @@
 }
 
 #pragma mark - Done
+- (void)onClickBack {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)onClickDoneSingle:(PHAsset *)asset {
     if (self.allowsEdit) {
         ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithAsset:asset finishBlock:self.finishUploadBlock];
@@ -136,7 +140,9 @@
                                         options:self.options
                                   resultHandler:^(UIImage *result, NSDictionary *info) {
                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                          [ViewControllerContainer showOfflineImages:@[result] index:0];
+                                          ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOffline:@[result] index:0];
+                                          imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                                          [self.navigationController presentViewController:imgDetail animated:YES completion:nil];
                                       });
                                   }];
 

@@ -6,10 +6,9 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "BaseViewController.h"
 #import <Photos/Photos.h>
 
-@interface ImageEditorViewController : BaseViewController
+@interface ImageEditorViewController : UIViewController
 
 - (id)initWithAsset:(PHAsset *)asset finishBlock:(FinishUploadBlock)finishUploadBlock;
 - (id)initWithImage:(UIImage *)sourceImage finishBlock:(FinishUploadBlock)finishUploadBlock;

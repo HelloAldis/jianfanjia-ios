@@ -6,11 +6,9 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "BaseViewController.h"
-
 typedef void (^FinishUploadBlock)(NSArray *imageIds);
 
-@interface ImageBrowerViewController : BaseViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ImageBrowerViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
 //UI
 @property (assign, nonatomic) CGFloat cellCountInOneRow;

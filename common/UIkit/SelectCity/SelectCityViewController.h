@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseSelectionViewController.h"
 
-@interface SelectCityViewController : BaseSelectionViewController <UITableViewDataSource, UITableViewDelegate>
+typedef void(^ValueBlock)(id value);
+
+@interface SelectCityViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithAddress:(NSString *)currentAddress valueBlock:(ValueBlock)ValueBlock;
 

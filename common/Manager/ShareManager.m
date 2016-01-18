@@ -39,17 +39,17 @@ NSString * const ShareTopicApp = @"APP";
 - (void)share:(UIViewController *)controller topic:(NSString *)topic image:(UIImage *)shareImage title:(NSString *)title description:(NSString *)description targetLink:(NSString *)targetLink delegate:(id)delegate {
     NSMutableArray *snsArr = [NSMutableArray array];
     
-    if (kIsInstalledWechat) {
+    if ([JYZSocialSnsConfigCenter isWXAppInstalled]) {
         [snsArr addObject:JYZShareToWechatSession];
         [snsArr addObject:JYZShareToWechatTimeline];
     }
     
-    if (kIsInstalledQQ) {
+    if ([JYZSocialSnsConfigCenter isQQInstalled]) {
         [snsArr addObject:JYZShareToQQ];
         [snsArr addObject:JYZShareToQzone];
     }
     
-    if (kIsInstalledWeibo) {
+    if ([JYZSocialSnsConfigCenter isWeiboAppInstalled]) {
         [snsArr addObject:JYZShareToWeibo];
     }
 

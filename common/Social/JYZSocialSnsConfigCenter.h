@@ -13,6 +13,9 @@
 @property (nonatomic, strong, readonly) NSMutableDictionary *appConfigure;
 
 + (instancetype)shared;
++ (BOOL)isWXAppInstalled;
++ (BOOL)isWeiboAppInstalled;
++ (BOOL)isQQInstalled;
 
 - (void)registerWX:(NSString *)appid appsecret:(NSString *)appsecret;
 - (void)registerQQ:(NSString *)appid;

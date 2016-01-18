@@ -9,6 +9,9 @@
 #ifndef JYZSocialSnsConstant_h
 #define JYZSocialSnsConstant_h
 
+#import "WXApi.h"
+#import <TencentOpenAPI/QQApiInterface.h>
+#import "WeiboSDK.h"
 #import "JYZSocialSnsAccountInfo.h"
 
 /**

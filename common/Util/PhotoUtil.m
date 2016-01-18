@@ -7,21 +7,18 @@
 //
 
 #import "PhotoUtil.h"
-#import "ViewControllerContainer.h"
-#import "ImageEditorViewController.h"
 
 @implementation PhotoUtil
 
-+ (void)showUserAvatarSelectorInView:(UIView *)sourceView withBlock:(FinishUploadBlock)block {
-    [self showPhotoSelectorInView:sourceView allowsEditing:YES isMultiSelection:NO withMaxSelection:1 withBlock:block];
++ (void)showUserAvatarSelector:(nonnull UIViewController *)controller inView:(UIView *)sourceView withBlock:(FinishUploadBlock)block {
+    [self showPhotoSelector:controller inView:sourceView allowsEditing:YES isMultiSelection:NO withMaxSelection:1 withBlock:block];
 }
 
-+ (void)showDecorationNodeImageSelectorInView:(UIView *)sourceView max:(NSInteger)count withBlock:(FinishUploadBlock)block {
-    [self showPhotoSelectorInView:sourceView allowsEditing:NO isMultiSelection:YES withMaxSelection:count withBlock:block];
++ (void)showDecorationNodeImageSelector:(nonnull UIViewController *)controller inView:(UIView *)sourceView max:(NSInteger)count withBlock:(FinishUploadBlock)block {
+    [self showPhotoSelector:controller inView:sourceView allowsEditing:NO isMultiSelection:YES withMaxSelection:count withBlock:block];
 }
 
-+ (void)showPhotoSelectorInView:(UIView *)sourceView allowsEditing:(BOOL)allowsEditing isMultiSelection:(BOOL)allowsMultiSection withMaxSelection:(NSInteger)maxCount withBlock:(FinishUploadBlock)block {
-    UIViewController *controller = [ViewControllerContainer getCurrentTapController];
++ (void)showPhotoSelector:(nonnull UIViewController *)controller inView:(UIView *)sourceView allowsEditing:(BOOL)allowsEditing isMultiSelection:(BOOL)allowsMultiSection withMaxSelection:(NSInteger)maxCount withBlock:(FinishUploadBlock)block {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择照片上传" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         

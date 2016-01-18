@@ -6,9 +6,7 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "BaseViewController.h"
-
-@interface ImageDetailViewController : BaseViewController<UIScrollViewDelegate>
+@interface ImageDetailViewController : UIViewController<UIScrollViewDelegate>
 
 - (id)initWithOffline:(NSArray *)offlineImages index:(NSInteger)index;
 - (id)initWithOnline:(NSArray *)onlineImages index:(NSInteger)index;

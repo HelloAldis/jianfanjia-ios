@@ -56,4 +56,16 @@
     [JYZSocialSnsPlatformWeibo registerApp:appkey redictURI:redirectURI];
 }
 
++ (BOOL)isWXAppInstalled {
+    return [WXApi isWXAppInstalled];
+}
+
++ (BOOL)isWeiboAppInstalled {
+    return [WeiboSDK isWeiboAppInstalled];
+}
+
++ (BOOL)isQQInstalled {
+    return [QQApiInterface isQQInstalled];
+}
+
 @end

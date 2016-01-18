@@ -34,7 +34,6 @@
 #import "ReminderViewController.h"
 #import "DBYSViewController.h"
 #import "RequirementCreateViewController.h"
-#import "ImageDetailViewController.h"
 #import "BeautifulImageViewController.h"
 #import "CollectDecPhaseViewController.h"
 #import "CollectDecStyleViewController.h"

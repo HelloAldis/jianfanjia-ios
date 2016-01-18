@@ -128,8 +128,8 @@
         self.topConstraint.constant = (kScreenHeight - 480)/2 - 20;
     }
     
-    self.btnWechatLogin.hidden = !kIsInstalledWechat;
-    self.wechatIcon.hidden = !kIsInstalledWechat;
+    self.btnWechatLogin.hidden = ![JYZSocialSnsConfigCenter isWXAppInstalled];
+    self.wechatIcon.hidden = ![JYZSocialSnsConfigCenter isWXAppInstalled];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

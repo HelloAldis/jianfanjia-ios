@@ -11,7 +11,6 @@
 #import "PayNotificationCell.h"
 #import "PostponeNotificationCell.h"
 #import "ReminderDataManager.h"
-#import "MessageAlertViewController.h"
 #import "API.h"
 
 typedef NS_ENUM(NSInteger, NotificationType) {

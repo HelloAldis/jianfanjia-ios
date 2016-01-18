@@ -6,11 +6,9 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "BaseViewController.h"
-
 typedef void(^DateButtonBlock)(id date);
 
-@interface DateAlertViewController : BaseViewController
+@interface DateAlertViewController : UIViewController
 
 + (void)presentAlert:(NSString *)title min:(NSDate *)minDate max:(NSDate *)maxDate cancel:(DateButtonBlock)cancelBlock ok:(DateButtonBlock)okBlock;
 

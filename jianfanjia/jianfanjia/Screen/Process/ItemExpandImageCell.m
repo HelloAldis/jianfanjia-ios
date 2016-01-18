@@ -11,7 +11,6 @@
 #import "UIItemImageCollectionView.h"
 #import "ViewControllerContainer.h"
 #import "ProcessDataManager.h"
-#import "ImageDetailViewController.h"
 
 static const NSInteger MAX_IMG_COUNT = 9;
 static const NSInteger COUNT_IN_ONE_ROW = 3;
@@ -213,7 +212,7 @@ static CGFloat imgCellWidth;
     }
     
     @weakify(self);
-    [PhotoUtil showDecorationNodeImageSelectorInView:view max:MAX_IMG_COUNT - self.item.images.count withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:MAX_IMG_COUNT - self.item.images.count withBlock:^(NSArray *imageIds) {
         @strongify(self);
 //        DDLogDebug(@"%@", imageIds);
         UploadImageToProcess *request = [[UploadImageToProcess alloc] init];

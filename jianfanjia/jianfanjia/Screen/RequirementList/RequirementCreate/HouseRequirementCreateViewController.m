@@ -7,14 +7,12 @@
 //
 
 #import "HouseRequirementCreateViewController.h"
-#import "SelectCityViewController.h"
 #import "SelectHouseTypeViewController.h"
 #import "SelectPopulationViewController.h"
 #import "SelectCommunicationTypeViewController.h"
 #import "SelectWorkTypeViewController.h"
 #import "SelectSexTypeViewController.h"
 #import "SelectDecorationStyleViewController.h"
-#import "MessageAlertViewController.h"
 
 @interface HouseRequirementCreateViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

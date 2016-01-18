@@ -7,7 +7,6 @@
 //
 
 #import "MessageAlertViewController.h"
-#import "ViewControllerContainer.h"
 
 @interface MessageAlertViewController ()
 @property (weak, nonatomic) IBOutlet UIView *alertView;
@@ -47,7 +46,7 @@
     alert.modalPresentationStyle = UIModalPresentationOverFullScreen;
     alert.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-    [[ViewControllerContainer getCurrentTapController] presentViewController:alert animated:YES completion:nil];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
 }
 
 + (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second reject:(MessageButtonBlock)rejectBlock agree:(MessageButtonBlock)agreeBlock {
@@ -60,7 +59,7 @@
     alert.modalPresentationStyle = UIModalPresentationOverFullScreen;
     alert.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-    [[ViewControllerContainer getCurrentTapController] presentViewController:alert animated:YES completion:nil];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
 }
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message secondMsg:(NSString *)secondMsg thirdMsg:(NSString *)thirdMsg allowIgnore:(BOOL)allowIgnore rejectTitle:(NSString *)rejectTitle reject:(MessageButtonBlock)rejectBlock agreeTitle:(NSString *)agreeTitle agree:(MessageButtonBlock)agreeBlock okTitle:(NSString *)okTitle ok:(MessageButtonBlock)okBlock {

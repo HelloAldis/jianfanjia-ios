@@ -6,11 +6,9 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "BaseViewController.h"
-
 typedef void(^MessageButtonBlock)();
 
-@interface MessageAlertViewController : BaseViewController
+@interface MessageAlertViewController : UIViewController
 
 + (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second ok:(MessageButtonBlock)okBlock;
 + (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second okTitle:(NSString *)okTitle ok:(MessageButtonBlock)okBlock;

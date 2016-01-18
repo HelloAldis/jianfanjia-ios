@@ -8,9 +8,7 @@
 
 #import "DBYSViewController.h"
 #import "ItemImageCollectionCell.h"
-#import "ImageDetailViewController.h"
 #import "ViewControllerContainer.h"
-#import "MessageAlertViewController.h"
 #import "API.h"
 
 static const NSInteger COUNT_IN_ONE_ROW = 2;

@@ -9,7 +9,6 @@
 #import "UserInfoViewController.h"
 #import "UpdateOneLineTextViewController.h"
 #import "UpdateMultipleLineTextViewController.h"
-#import "SelectCityViewController.h"
 #import "SelectSexTypeViewController.h"
 #import "ViewControllerContainer.h"
 
@@ -56,7 +55,7 @@
 #pragma mark - user action
 - (IBAction)onClickImage:(id)sender {
     @weakify(self);
-    [PhotoUtil showUserAvatarSelectorInView:sender withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showUserAvatarSelector:self inView:sender withBlock:^(NSArray *imageIds) {
         @strongify(self);
         [self updateUserInfo:@"imageid" value:imageIds[0] success:^{
             [GVUserDefaults standardUserDefaults].imageid = imageIds[0];
