@@ -36,6 +36,8 @@
 }
 
 - (void)initLog {
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+    
     LogFormatter *formatter = [[LogFormatter alloc] init];
     
     [[DDASLLogger sharedInstance] setLogFormatter:formatter];
@@ -46,14 +48,16 @@
     fileLogger.logFileManager.maximumNumberOfLogFiles = 4;
     [fileLogger setLogFormatter:formatter];
     
+    [DDLog addLogger:fileLogger];
+    
+#ifdef DEBUG
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
-    [DDLog addLogger:fileLogger];
     
     [[AFNetworkActivityLogger sharedLogger] startLogging];
     [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
+#endif
     
-    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
