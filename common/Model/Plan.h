@@ -27,6 +27,7 @@
 @property(nonatomic, strong) NSString *plan_description;
 @property(nonatomic, strong) NSNumber *comment_count;
 @property(nonatomic, strong) NSArray *images;
+@property(nonatomic, strong) NSString *reject_respond_msg;
 
 //不动态属性
 @property(nonatomic, strong) Designer *designer;

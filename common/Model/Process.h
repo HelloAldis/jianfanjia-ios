@@ -8,6 +8,7 @@
 
 #import "BaseModel.h"
 @class Section;
+@class User;
 
 @interface Process : BaseModel
 
@@ -29,6 +30,9 @@
 @property (nonatomic, strong) NSNumber *duration;
 @property (nonatomic, strong) NSString *going_on;
 @property (nonatomic, strong) NSMutableArray *sections;
+
+//不动态的属性
+@property(nonatomic, strong) User *user;
 
 - (Section *)sectionAtIndex:(NSInteger )index;
 

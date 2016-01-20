@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="210" id="KGk-i7-Jjw" customClass="PlanCell">
+            <rect key="frame" x="0.0" y="0.0" width="636" height="210"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="636" height="209"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uiB-s6-b2u">
+                        <rect key="frame" x="14" y="40" width="622" height="130"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="130" id="4dn-HY-X3c"/>
+                        </constraints>
+                    </scrollView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中建康城二期 方案1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGR-gY-nnY">
+                        <rect key="frame" x="19" y="12" width="123" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2015-10-16" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2d-qc-TR8">
+                        <rect key="frame" x="19" y="181" width="75" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="沟通中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Bo-w2-tcS">
+                        <rect key="frame" x="584" y="12" width="42" height="17"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TH9-CQ-KVe">
+                        <rect key="frame" x="520" y="175" width="30" height="29"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="留言">
+                            <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwn-lK-o3E">
+                        <rect key="frame" x="570" y="175" width="56" height="29"/>
+                        <animations/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="方案预览">
+                            <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="VGR-gY-nnY" firstAttribute="leading" secondItem="uiB-s6-b2u" secondAttribute="leading" constant="5" id="4PM-tT-1Lf"/>
+                    <constraint firstItem="uiB-s6-b2u" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="69F-gh-ELm"/>
+                    <constraint firstItem="Hwn-lK-o3E" firstAttribute="top" secondItem="uiB-s6-b2u" secondAttribute="bottom" constant="11" id="IqR-y5-lfr"/>
+                    <constraint firstItem="y2d-qc-TR8" firstAttribute="top" secondItem="uiB-s6-b2u" secondAttribute="bottom" constant="11" id="KHq-0j-GIu"/>
+                    <constraint firstItem="1Bo-w2-tcS" firstAttribute="centerY" secondItem="VGR-gY-nnY" secondAttribute="centerY" id="KyV-QL-IqG"/>
+                    <constraint firstItem="uiB-s6-b2u" firstAttribute="top" secondItem="VGR-gY-nnY" secondAttribute="bottom" constant="11" id="b4R-0N-guS"/>
+                    <constraint firstItem="VGR-gY-nnY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" constant="-81" id="ehS-v0-IwH"/>
+                    <constraint firstItem="y2d-qc-TR8" firstAttribute="centerY" secondItem="TH9-CQ-KVe" secondAttribute="centerY" id="fCO-ZG-6rR"/>
+                    <constraint firstItem="y2d-qc-TR8" firstAttribute="leading" secondItem="VGR-gY-nnY" secondAttribute="leading" id="gjU-4P-4cA"/>
+                    <constraint firstItem="Hwn-lK-o3E" firstAttribute="trailing" secondItem="1Bo-w2-tcS" secondAttribute="trailing" id="lsw-1V-w82"/>
+                    <constraint firstItem="TH9-CQ-KVe" firstAttribute="centerY" secondItem="Hwn-lK-o3E" secondAttribute="centerY" id="pe1-Lb-WdO"/>
+                    <constraint firstItem="Hwn-lK-o3E" firstAttribute="leading" secondItem="TH9-CQ-KVe" secondAttribute="trailing" constant="20" id="xJY-Lw-zuZ"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="ehS-v0-IwH"/>
+                        <exclude reference="IqR-y5-lfr"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <animations/>
+            <constraints>
+                <constraint firstItem="uiB-s6-b2u" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="14" id="Y4O-QT-lO4"/>
+                <constraint firstAttribute="trailing" secondItem="1Bo-w2-tcS" secondAttribute="trailing" constant="10" id="fVR-Cj-bVV"/>
+                <constraint firstAttribute="trailing" secondItem="uiB-s6-b2u" secondAttribute="trailing" id="mlS-D2-dfX"/>
+            </constraints>
+            <connections>
+                <outlet property="btnComment" destination="TH9-CQ-KVe" id="fIR-eY-Cz4"/>
+                <outlet property="btnPlanPreview" destination="Hwn-lK-o3E" id="mov-dV-EDZ"/>
+                <outlet property="imgScrollView" destination="uiB-s6-b2u" id="NDh-1S-rWv"/>
+                <outlet property="lblPlanStatusVal" destination="1Bo-w2-tcS" id="OBW-9C-CEi"/>
+                <outlet property="lblPlanTimeVal" destination="y2d-qc-TR8" id="SxJ-Dl-dnR"/>
+                <outlet property="lblPlanTitleVal" destination="VGR-gY-nnY" id="8F1-CA-FOe"/>
+            </connections>
+            <point key="canvasLocation" x="332" y="530"/>
+        </tableViewCell>
+    </objects>
+</document>

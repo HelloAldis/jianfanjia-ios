@@ -8,8 +8,8 @@
 
 #import "API.h"
 
-NSString * const kApiUrl = @"http://101.200.191.159/api/v2/app/";
-//NSString * const kApiUrl = @"http://101.200.191.159:8888/api/v2/app/";
+NSString * const kApiUrl = @"http://dev.jianfanjia.com/api/v2/app/";
+//NSString * const kApiUrl = @"http://dev.jianfanjia.com:8888/api/v2/app/";
 //NSString * const kApiUrl = @"http://www.jianfanjia.com/api/v2/app/";
 static AFHTTPRequestOperationManager *_manager;
 
@@ -270,6 +270,34 @@ static AFHTTPRequestOperationManager *_manager;
 
 + (void)bindWechat:(BindWechat *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"user_bind_wechat" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
+
+
+#pragma mark - designer api
+
++ (void)designerLogin:(DesignerLogin *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer_login" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerSignup:(DesignerSignup *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer_signup" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerGetInfo:(DesignerGetInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API GET:@"designer/info" handler:request success:success failure:failure networkError:error];
+}
+
++ (void)getDesignerProcess:(GetDesignerProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API GET:@"process/list" handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerGetUserRequirement:(DesignerGetUserRequirements *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer_get_user_requirements" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerGetRequirementPlan:(DesignerGetRequirementPlans *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer_requirement_plans" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
 @end

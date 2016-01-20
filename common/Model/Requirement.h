@@ -37,5 +37,9 @@
 
 //不动态属性
 @property (strong, nonatomic) Process *process;
+//不动态属性
+@property(nonatomic, strong) Plan *plan;
+//不动态属性
+@property(nonatomic, strong) User *user;
 
 @end

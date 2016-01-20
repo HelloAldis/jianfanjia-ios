@@ -40,7 +40,10 @@
     } else if (diff >= kOneDay && diff < 2*kOneDay) {
         NSString *str = [date HHmm];
         return [NSString stringWithFormat:@"昨天%@", str];
-    } else if (diff >= 2*kOneDay && diff < kOneYear) {
+    } else if (diff >= 2*kOneDay && diff < 3*kOneDay) {
+        NSString *str = [date HHmm];
+        return [NSString stringWithFormat:@"前天%@", str];
+    } else if (diff >= 3*kOneDay && diff < kOneYear) {
         return [date MM_dd];
     } else if (diff >= kOneYear) {
         return [date yyyy_MM_dd];

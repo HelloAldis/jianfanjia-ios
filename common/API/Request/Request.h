@@ -61,4 +61,13 @@
 #import "BindPhone.h"
 #import "BindWechat.h"
 
+#pragma mark - designer request
+
+#import "DesignerLogin.h"
+#import "DesignerSignup.h"
+#import "DesignerGetInfo.h"
+#import "GetDesignerProcess.h"
+#import "DesignerGetUserRequirements.h"
+#import "DesignerGetRequirementPlans.h"
+
 #endif

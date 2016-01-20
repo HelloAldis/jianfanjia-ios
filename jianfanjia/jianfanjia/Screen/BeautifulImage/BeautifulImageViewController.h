@@ -7,7 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#import "CollectionFallsFlowLayout.h"
 
 @interface BeautifulImageViewController : BaseViewController<UICollectionViewDataSource, CollectionFallsFlowLayoutProtocol>
 

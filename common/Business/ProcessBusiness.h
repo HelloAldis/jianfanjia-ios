@@ -24,5 +24,6 @@ extern NSString * const DBYS;
 + (Process *)defaultProcess;
 + (NSString *)nameForKey:(NSString *)key;
 + (BOOL)hasYs:(NSInteger)sectionIndex;
++ (NSArray *)allSectionName;
 
 @end

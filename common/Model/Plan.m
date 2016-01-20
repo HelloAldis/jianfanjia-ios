@@ -27,6 +27,7 @@
 @dynamic plan_description;
 @dynamic comment_count;
 @dynamic images;
+@dynamic reject_respond_msg;
 
 - (void)setObject:(id)o forKey:(NSString *)key {
     if ([@"plan_description" isEqualToString:key]) {

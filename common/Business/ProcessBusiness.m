@@ -17,10 +17,13 @@ NSString * const JUN_GONG = @"jun_gong";
 NSString * const DBYS = @"dbys";
 
 static NSDictionary *dictName = nil;
+static NSArray *sectionsName = nil;
 
 @implementation ProcessBusiness
 
 + (void)initialize {
+    sectionsName = @[KAI_GONG, CHAI_GAI, SHUI_DIAN, NI_MU, YOU_QI, AN_ZHUANG, JUN_GONG];
+    
     dictName = @{KAI_GONG:@"开工",
                  @"xcjd":@"现场交底",
                  @"qdzmjcl":@"墙地砖面积测量",
@@ -82,6 +85,10 @@ static NSDictionary *dictName = nil;
 
 + (BOOL)hasYs:(NSInteger)sectionIndex {
     return !(sectionIndex == 0 || sectionIndex == 1);
+}
+
++ (NSArray *)allSectionName {
+    return sectionsName;
 }
 
 @end

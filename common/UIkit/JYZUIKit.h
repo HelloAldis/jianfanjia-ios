@@ -16,5 +16,6 @@
 #import "ImageDetailViewController.h"
 #import "ImageEditorViewController.h"
 #import "SelectCityViewController.h"
+#import "CollectionFallsFlowLayout.h"
 
 #endif /* JYZUIKit_h */

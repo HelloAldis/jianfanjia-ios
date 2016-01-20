@@ -57,6 +57,7 @@
 		68123C631C4C8B99008FC9AB /* province2city.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C4F1C4C8B99008FC9AB /* province2city.js */; };
 		68123C641C4C8B99008FC9AB /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C511C4C8B99008FC9AB /* SelectCityViewController.m */; };
 		68123C651C4C8B99008FC9AB /* SelectCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C521C4C8B99008FC9AB /* SelectCityViewController.xib */; };
+		68123F241C4CC70E008FC9AB /* CollectionFallsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123F231C4CC70E008FC9AB /* CollectionFallsFlowLayout.m */; };
 		68134A261C3B511B003C1C10 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A251C3B511B003C1C10 /* ShareManager.m */; };
 		68134A2F1C3CA7CA003C1C10 /* WeChatLogin.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A2E1C3CA7CA003C1C10 /* WeChatLogin.m */; };
 		68134A321C3CA840003C1C10 /* RefreshSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A311C3CA840003C1C10 /* RefreshSession.m */; };
@@ -119,7 +120,6 @@
 		683FFB431C296288002A1AFE /* BeautifulImageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB301C296288002A1AFE /* BeautifulImageDataManager.m */; };
 		683FFB441C296288002A1AFE /* BeautifulImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB321C296288002A1AFE /* BeautifulImageViewController.m */; };
 		683FFB451C296288002A1AFE /* BeautifulImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB331C296288002A1AFE /* BeautifulImageViewController.xib */; };
-		683FFB461C296288002A1AFE /* CollectionFallsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB351C296288002A1AFE /* CollectionFallsFlowLayout.m */; };
 		683FFB471C296288002A1AFE /* DropdownMenuCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB381C296288002A1AFE /* DropdownMenuCollectionCell.m */; };
 		683FFB481C296288002A1AFE /* DropdownMenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683FFB391C296288002A1AFE /* DropdownMenuCollectionCell.xib */; };
 		683FFB4B1C296288002A1AFE /* BeautifulImageHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683FFB3F1C296288002A1AFE /* BeautifulImageHomePageViewController.m */; };
@@ -483,6 +483,8 @@
 		68123C511C4C8B99008FC9AB /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		68123C521C4C8B99008FC9AB /* SelectCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCityViewController.xib; sourceTree = "<group>"; };
 		68123C661C4C8C0C008FC9AB /* JYZUIKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JYZUIKit.h; sourceTree = "<group>"; };
+		68123F221C4CC70E008FC9AB /* CollectionFallsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionFallsFlowLayout.h; sourceTree = "<group>"; };
+		68123F231C4CC70E008FC9AB /* CollectionFallsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionFallsFlowLayout.m; sourceTree = "<group>"; };
 		68134A241C3B511B003C1C10 /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		68134A251C3B511B003C1C10 /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
 		68134A2D1C3CA7CA003C1C10 /* WeChatLogin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeChatLogin.h; sourceTree = "<group>"; };
@@ -590,8 +592,6 @@
 		683FFB311C296288002A1AFE /* BeautifulImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImageViewController.h; sourceTree = "<group>"; };
 		683FFB321C296288002A1AFE /* BeautifulImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImageViewController.m; sourceTree = "<group>"; };
 		683FFB331C296288002A1AFE /* BeautifulImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BeautifulImageViewController.xib; sourceTree = "<group>"; };
-		683FFB341C296288002A1AFE /* CollectionFallsFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionFallsFlowLayout.h; sourceTree = "<group>"; };
-		683FFB351C296288002A1AFE /* CollectionFallsFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionFallsFlowLayout.m; sourceTree = "<group>"; };
 		683FFB371C296288002A1AFE /* DropdownMenuCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropdownMenuCollectionCell.h; sourceTree = "<group>"; };
 		683FFB381C296288002A1AFE /* DropdownMenuCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropdownMenuCollectionCell.m; sourceTree = "<group>"; };
 		683FFB391C296288002A1AFE /* DropdownMenuCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DropdownMenuCollectionCell.xib; sourceTree = "<group>"; };
@@ -1160,6 +1160,8 @@
 				68123C421C4C8B99008FC9AB /* ImageDetail */,
 				68123C461C4C8B99008FC9AB /* ImageEditor */,
 				68123C4C1C4C8B99008FC9AB /* SelectCity */,
+				68123F221C4CC70E008FC9AB /* CollectionFallsFlowLayout.h */,
+				68123F231C4CC70E008FC9AB /* CollectionFallsFlowLayout.m */,
 				68123C661C4C8C0C008FC9AB /* JYZUIKit.h */,
 			);
 			path = UIkit;
@@ -1308,8 +1310,6 @@
 				683FFB2E1C296288002A1AFE /* BeautifulImageCollectionCell.xib */,
 				683FFB2F1C296288002A1AFE /* BeautifulImageDataManager.h */,
 				683FFB301C296288002A1AFE /* BeautifulImageDataManager.m */,
-				683FFB341C296288002A1AFE /* CollectionFallsFlowLayout.h */,
-				683FFB351C296288002A1AFE /* CollectionFallsFlowLayout.m */,
 				683FFB361C296288002A1AFE /* DropdownMenu */,
 				683FFB3D1C296288002A1AFE /* HomePage */,
 			);
@@ -2617,7 +2617,6 @@
 				68123C5E1C4C8B99008FC9AB /* ImageEditorViewController.m in Sources */,
 				689485D31C1A70A7002310FC /* Notification.m in Sources */,
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
-				683FFB461C296288002A1AFE /* CollectionFallsFlowLayout.m in Sources */,
 				683A5D6C1C0EFBAE0071DF88 /* YsImage.m in Sources */,
 				684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */,
 				685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */,
@@ -2642,6 +2641,7 @@
 				68123C601C4C8B99008FC9AB /* OverlayView.m in Sources */,
 				6838400C1C158490004F456E /* UpdateMultipleLineTextViewController.m in Sources */,
 				68123BA31C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.m in Sources */,
+				68123F241C4CC70E008FC9AB /* CollectionFallsFlowLayout.m in Sources */,
 				AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */,
 				684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,

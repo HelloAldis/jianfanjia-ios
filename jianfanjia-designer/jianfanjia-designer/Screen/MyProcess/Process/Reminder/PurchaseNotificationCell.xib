@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="243" id="KGk-i7-Jjw" customClass="PurchaseNotificationCell">
+            <rect key="frame" x="0.0" y="0.0" width="491" height="213"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="491" height="212"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小区名字" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wh-Gq-7No" userLabel="Lbl Cell">
+                        <rect key="frame" x="13" y="8" width="470" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="系统提醒您进入建材购买阶段，您需要购买的是" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mnh-le-axa">
+                        <rect key="frame" x="13" y="33" width="470" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSs-L3-ozW">
+                        <rect key="frame" x="367" y="187" width="116" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="泥木阶段&gt;木地板测量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1t-oL-hgU">
+                        <rect key="frame" x="13" y="187" width="135" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="US1-pw-A9h">
+                        <rect key="frame" x="13" y="60" width="470" height="117"/>
+                        <string key="text">复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板复合板</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9p7-Wx-Zlh" userLabel="Reminder">
+                        <rect key="frame" x="477" y="4" width="10" height="10"/>
+                        <color key="backgroundColor" red="1" green="0.2666666667" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="wnI-e9-nKY"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="9p7-Wx-Zlh" firstAttribute="top" secondItem="7wh-Gq-7No" secondAttribute="top" constant="-4" id="0mX-y7-eJc"/>
+                    <constraint firstItem="7wh-Gq-7No" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="1xf-IR-GCC"/>
+                    <constraint firstItem="9p7-Wx-Zlh" firstAttribute="trailing" secondItem="7wh-Gq-7No" secondAttribute="trailing" constant="4" id="6rh-fK-4Vd"/>
+                    <constraint firstItem="Mnh-le-axa" firstAttribute="top" secondItem="7wh-Gq-7No" secondAttribute="bottom" constant="8" id="D8c-hS-yIU"/>
+                    <constraint firstItem="e1t-oL-hgU" firstAttribute="top" secondItem="US1-pw-A9h" secondAttribute="bottom" constant="10" id="GbB-nQ-qBo"/>
+                    <constraint firstItem="US1-pw-A9h" firstAttribute="top" secondItem="Mnh-le-axa" secondAttribute="bottom" constant="10" id="JX1-TI-7ch"/>
+                    <constraint firstItem="7wh-Gq-7No" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Lde-V7-Niz"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="e1t-oL-hgU" secondAttribute="bottom" id="MxE-ZF-aAW"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="JSs-L3-ozW" secondAttribute="trailing" id="N4A-Sp-r3f"/>
+                    <constraint firstItem="Mnh-le-axa" firstAttribute="leading" secondItem="7wh-Gq-7No" secondAttribute="leading" id="NM2-l4-QwJ"/>
+                    <constraint firstItem="9p7-Wx-Zlh" firstAttribute="width" secondItem="9p7-Wx-Zlh" secondAttribute="height" multiplier="1:1" id="Qwi-Rb-QEQ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Mnh-le-axa" secondAttribute="trailing" id="Ut2-cb-hES"/>
+                    <constraint firstItem="US1-pw-A9h" firstAttribute="leading" secondItem="Mnh-le-axa" secondAttribute="leading" id="c12-3j-pWa"/>
+                    <constraint firstItem="e1t-oL-hgU" firstAttribute="leading" secondItem="US1-pw-A9h" secondAttribute="leading" id="dt5-Gd-HAG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="7wh-Gq-7No" secondAttribute="trailing" id="iI7-75-WOh"/>
+                    <constraint firstItem="JSs-L3-ozW" firstAttribute="centerY" secondItem="e1t-oL-hgU" secondAttribute="centerY" id="uq5-V4-7h8"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="US1-pw-A9h" secondAttribute="trailing" id="yPd-yg-1q3"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblCell" destination="7wh-Gq-7No" id="jXq-NI-jGI"/>
+                <outlet property="lblContent" destination="US1-pw-A9h" id="moe-T6-Ptu"/>
+                <outlet property="lblRequestTime" destination="JSs-L3-ozW" id="gnH-6A-TEs"/>
+                <outlet property="lblTitle" destination="Mnh-le-axa" id="PLy-HA-jkk"/>
+                <outlet property="lblWorkingPhase" destination="e1t-oL-hgU" id="IAE-Yl-Dqb"/>
+                <outlet property="reminderIcon" destination="9p7-Wx-Zlh" id="Bl6-Mx-wyX"/>
+            </connections>
+            <point key="canvasLocation" x="264.5" y="452.5"/>
+        </tableViewCell>
+    </objects>
+</document>
