@@ -58,7 +58,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     
     [self initNav];
     [self initUI];
-    [self refresh];
+    [self refresh:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -110,7 +110,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
-        [self refresh];
+        [self refresh:NO];
     }];
     
     [self switchToOtherButton:0];
@@ -186,7 +186,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     @weakify(self);
     [cell initWithRequirement:requirement actionBlock:^{
         @strongify(self);
-        [self refresh];
+        [self refresh:NO];
     }];
     return cell;
 }
@@ -213,17 +213,21 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 }
 
 #pragma mark - refresh notification
-- (void)refresh {
+- (void)refresh:(BOOL)showPlsWait {
+    if (showPlsWait) {
+        [HUDUtil showWait];
+    }
     DesignerGetUserRequirements *request = [[DesignerGetUserRequirements alloc] init];
     
     [API designerGetUserRequirement:request success:^{
+        [HUDUtil hideWait];
         [self.tableView.header endRefreshing];
         [self.dataManager refreshAllActions];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     } failure:^{
-        
+        [HUDUtil hideWait];
     } networkError:^{
-        
+        [HUDUtil hideWait];
     }];
 }
 

@@ -300,6 +300,14 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"designer_requirement_plans" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)designerRejectUser:(DesignerRejectUser *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/user/reject" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerRespondUser:(DesignerRespondUser *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/user/ok" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 

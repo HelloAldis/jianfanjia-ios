@@ -8,7 +8,6 @@
 
 #import "RespondedActionCell.h"
 #import "ViewControllerContainer.h"
-#import "RequirementDataManager.h"
 
 @interface RespondedActionCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -42,6 +41,7 @@
 - (void)initWithRequirement:(Requirement *)requirement actionBlock:(ActionBlock)actionBlock {
     [super initWithRequirement:requirement actionBlock:actionBlock];
     [self initHeaderData:self.imgHomeOwner gender:self.imgUserGender name:self.lblUserName cell:self.lblCellNameVal info:self.lblRequirementfInfo updateTime:self.lblUpdateTimeVal];
+    self.lblMeasureHouseTime.text = [NSString stringWithFormat:@"量房时间：%@", [NSDate yyyy_Nian_MM_Yue_dd_Ri_HH_mm:self.requirement.plan.house_check_time]];
 }
 
 @end

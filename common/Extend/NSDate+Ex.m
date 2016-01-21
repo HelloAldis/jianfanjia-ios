@@ -10,6 +10,18 @@
 
 @implementation NSDate (Ex)
 
+- (NSString *)yyyy_Nian_MM_Yue_dd_Ri_HH_mm {
+    NSDateFormatter *formate = [[NSDateFormatter alloc] init];
+    [formate setDateFormat:@"yyyy年MM月dd日 HH:mm"];
+    return [formate stringFromDate:self];
+}
+
+- (NSString *)yyyy_Nian_MM_Yue_dd_Ri {
+    NSDateFormatter *formate = [[NSDateFormatter alloc] init];
+    [formate setDateFormat:@"yyyy年MM月dd日"];
+    return [formate stringFromDate:self];
+}
+
 - (NSString *)yyyy_MM_dd {
   NSDateFormatter *formate = [[NSDateFormatter alloc] init];
   [formate setDateFormat:@"yyyy-MM-dd"];
@@ -38,6 +50,10 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"M.dd"];
     return [formatter stringFromDate:self];
+}
+
++ (NSString *)yyyy_Nian_MM_Yue_dd_Ri_HH_mm:(NSNumber *)timeInterval {
+    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longLongValue / 1000] yyyy_Nian_MM_Yue_dd_Ri_HH_mm];
 }
 
 + (NSString *)yyyy_MM_dd:(NSNumber *)timeInterval {

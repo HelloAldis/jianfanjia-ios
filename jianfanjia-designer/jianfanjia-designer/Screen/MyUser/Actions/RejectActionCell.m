@@ -8,7 +8,6 @@
 
 #import "RejectActionCell.h"
 #import "ViewControllerContainer.h"
-#import "RequirementDataManager.h"
 
 @interface RejectActionCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;

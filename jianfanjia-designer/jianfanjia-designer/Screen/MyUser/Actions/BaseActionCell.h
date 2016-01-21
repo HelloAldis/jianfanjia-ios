@@ -21,6 +21,5 @@ typedef void (^ActionBlock)(void);
 - (void)handleTapHeaderView:(UIGestureRecognizer*)gestureRecognizer;
 - (void)onClickViewPlan;
 - (void)onClickContact;
-- (void)onClickViewAgreement;
 
 @end

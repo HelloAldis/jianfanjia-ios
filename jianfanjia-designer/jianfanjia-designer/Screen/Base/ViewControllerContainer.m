@@ -216,8 +216,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showEvaluateDesigner:(Designer *)designer withRequirement:(NSString *)requirementid {
-    EvaluateDesignerViewController *v = [[EvaluateDesignerViewController alloc] initWithDesigner:designer withRequirment:requirementid];
++ (void)showEvaluate:(Evaluation *)evaluation {
+    EvaluateDesignerViewController *v = [[EvaluateDesignerViewController alloc] initWithEvaluation:evaluation];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

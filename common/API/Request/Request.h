@@ -69,5 +69,7 @@
 #import "GetDesignerProcess.h"
 #import "DesignerGetUserRequirements.h"
 #import "DesignerGetRequirementPlans.h"
+#import "DesignerRejectUser.h"
+#import "DesignerRespondUser.h"
 
 #endif

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,30 +14,13 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_loading" translatesAutoresizingMaskIntoConstraints="NO" id="tvr-zu-5jJ">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Pp-Zh-5hR">
-                    <rect key="frame" x="0.0" y="0.0" width="480" height="192"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_loading" translatesAutoresizingMaskIntoConstraints="NO" id="pyQ-LN-01p">
-                            <rect key="frame" x="177" y="60" width="125" height="132"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="pyQ-LN-01p" secondAttribute="bottom" id="bqw-Lr-Oza"/>
-                        <constraint firstItem="pyQ-LN-01p" firstAttribute="centerX" secondItem="2Pp-Zh-5hR" secondAttribute="centerX" id="dED-Me-XD0"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="2Pp-Zh-5hR" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="7LK-Ck-lJY"/>
                 <constraint firstAttribute="bottom" secondItem="tvr-zu-5jJ" secondAttribute="bottom" id="Kab-yz-mRv"/>
-                <constraint firstItem="2Pp-Zh-5hR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NK2-nh-6ES"/>
-                <constraint firstItem="2Pp-Zh-5hR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Odh-ho-rbn"/>
                 <constraint firstItem="tvr-zu-5jJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YFh-NM-x0K"/>
                 <constraint firstItem="tvr-zu-5jJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dRv-aD-ayh"/>
                 <constraint firstAttribute="trailing" secondItem="tvr-zu-5jJ" secondAttribute="trailing" id="lFC-cO-IcZ"/>
-                <constraint firstItem="2Pp-Zh-5hR" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="2/5" id="mop-p9-ELx"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -47,6 +29,5 @@
     </objects>
     <resources>
         <image name="bg_loading" width="320" height="569"/>
-        <image name="logo_loading" width="125" height="132"/>
     </resources>
 </document>

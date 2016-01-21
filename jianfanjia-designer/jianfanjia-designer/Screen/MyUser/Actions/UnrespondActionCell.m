@@ -8,7 +8,8 @@
 
 #import "UnrespondActionCell.h"
 #import "ViewControllerContainer.h"
-#import "RequirementDataManager.h"
+#import "RejectUserAlertViewController.h"
+#import "SetMeasureHouseTimeViewController.h"
 
 @interface UnrespondActionCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -37,7 +38,7 @@
         [self onClickReject];
     }];
     
-    [[self.btnReject rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    [[self.btnRespond rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [self onClickRespond];
     }];
@@ -50,11 +51,38 @@
 
 #pragma mark - user action
 - (void)onClickReject {
-    
+    [RejectUserAlertViewController presentAlert:@"拒绝接单原因" msg:@"PS：以下收集的信息，将不会向业主展示，麻烦您耐心填写拒绝接单原因，以便我们合作更加紧密" conform:^(NSString *reason) {
+        if (reason) {
+            [HUDUtil showWait];
+            DesignerRejectUser *request = [[DesignerRejectUser alloc] init];
+            request.requirementid = self.requirement._id;
+            request.reject_respond_msg = reason;
+            [API designerRejectUser:request success:^{
+                [HUDUtil hideWait];
+                if (self.actionBlock) {
+                    self.actionBlock();
+                }
+            } failure:^{
+                [HUDUtil hideWait];
+            } networkError:^{
+                [HUDUtil hideWait];
+            }];
+        }
+    }];
 }
 
 - (void)onClickRespond {
+    DesignerRespondUser *request = [[DesignerRespondUser alloc] init];
+    request.requirementid = self.requirement._id;
+    [API designerRespondUser:request success:nil failure:nil networkError:nil];
     
+    [SetMeasureHouseTimeViewController showSetMeasureHouseTime:self.requirement completion:^(BOOL completion) {
+        if (completion) {
+            if (self.actionBlock) {
+                self.actionBlock();
+            }
+        }
+    }];
 }
 
 @end

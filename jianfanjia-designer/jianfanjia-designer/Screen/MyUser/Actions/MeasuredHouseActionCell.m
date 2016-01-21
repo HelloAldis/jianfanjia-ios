@@ -8,7 +8,6 @@
 
 #import "MeasuredHouseActionCell.h"
 #import "ViewControllerContainer.h"
-#import "RequirementDataManager.h"
 
 @interface MeasuredHouseActionCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -50,7 +49,7 @@
 
 #pragma mark - user action
 - (void)onClickViewEvaluation {
-    
+    [ViewControllerContainer showEvaluate:self.requirement.evaluation];
 }
 
 

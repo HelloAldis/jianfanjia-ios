@@ -41,5 +41,8 @@
 @property(nonatomic, strong) Plan *plan;
 //不动态属性
 @property(nonatomic, strong) User *user;
+//不动态属性
+@property(nonatomic, strong) Evaluation *evaluation
+;
 
 @end

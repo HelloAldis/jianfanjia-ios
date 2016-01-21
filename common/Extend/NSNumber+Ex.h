@@ -10,6 +10,7 @@
 
 @interface NSNumber (Ex)
 
+- (NSString *)humRmbUppercaseString;
 - (NSString *)humDateString;
 - (NSString *)humCountString;
 - (NSString *)humSizeString;

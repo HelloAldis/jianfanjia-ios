@@ -22,7 +22,7 @@
 + (void)showProduct:(NSString *)productid;
 + (void)showRequirementCreate:(Requirement *)requirement;
 //+ (void)showDesigner:(NSString *)designerid;
-+ (void)showEvaluateDesigner:(Designer *)designer withRequirement:(NSString *)requirementid;
++ (void)showEvaluate:(Evaluation *)evaluation;
 + (void)showAgreement:(Requirement *)requirement;
 + (void)showPlanList:(Requirement *)requirement;
 + (void)leaveMessage:(Plan *)plan;

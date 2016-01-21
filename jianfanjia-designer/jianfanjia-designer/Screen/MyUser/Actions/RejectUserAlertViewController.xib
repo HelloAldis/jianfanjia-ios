@@ -79,7 +79,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gej-bA-xLd" userLabel="View1">
                             <rect key="frame" x="0.0" y="113" width="300" height="40"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4g-3A-qaY" userLabel="check1">
+                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K4g-3A-qaY" userLabel="check1">
                                     <rect key="frame" x="30" y="7" width="25" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="25" id="WDD-eB-VoE"/>
@@ -107,7 +107,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WdX-pX-irQ" userLabel="View2">
                             <rect key="frame" x="0.0" y="153" width="300" height="40"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVd-BC-znv" userLabel="check2">
+                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVd-BC-znv" userLabel="check2">
                                     <rect key="frame" x="30" y="7" width="25" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="25" id="9XU-ja-1Ed"/>
@@ -132,7 +132,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YxU-5B-ykP" userLabel="View3">
                             <rect key="frame" x="0.0" y="193" width="300" height="40"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lux-xT-yPq" userLabel="check3">
+                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lux-xT-yPq" userLabel="check3">
                                     <rect key="frame" x="30" y="7" width="25" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="25" id="5pS-cW-uzl"/>
@@ -157,7 +157,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvc-Lj-W8K" userLabel="View4">
                             <rect key="frame" x="0.0" y="233" width="300" height="40"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thr-GG-Fg0" userLabel="check4">
+                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thr-GG-Fg0" userLabel="check4">
                                     <rect key="frame" x="30" y="8" width="25" height="24"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="thr-GG-Fg0" secondAttribute="height" constant="1" id="RKF-1a-Wh1"/>

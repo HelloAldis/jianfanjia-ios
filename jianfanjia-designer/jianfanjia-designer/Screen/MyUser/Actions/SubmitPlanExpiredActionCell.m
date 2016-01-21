@@ -8,7 +8,6 @@
 
 #import "SubmitPlanExpiredActionCell.h"
 #import "ViewControllerContainer.h"
-#import "RequirementDataManager.h"
 
 @interface SubmitPlanExpiredActionCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;

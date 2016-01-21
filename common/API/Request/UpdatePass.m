@@ -14,4 +14,8 @@
 @dynamic pass;
 @dynamic code;
 
+- (void)failure {
+    [HUDUtil showErrText:[DataManager shared].errMsg];
+}
+
 @end

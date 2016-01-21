@@ -21,63 +21,33 @@
 
 @property (assign, nonatomic) NSInteger curSelectedIdx;
 
-@property (copy, nonatomic) MessageButtonBlock rejectBlock;
-@property (copy, nonatomic) MessageButtonBlock agreeBlock;
-@property (copy, nonatomic) MessageButtonBlock okBlock;
+@property (copy, nonatomic) RejectUserBlock agreeBlock;
 
 @property (strong, nonatomic) NSString *alertTitle;
 @property (strong, nonatomic) NSString *alertMessage;
-@property (strong, nonatomic) NSString *alertSecondMsg;
-@property (strong, nonatomic) NSString *alertThirdMsg;
-@property (strong, nonatomic) NSString *rejectTitle;
-@property (strong, nonatomic) NSString *agreeTitle;
-@property (strong, nonatomic) NSString *okTitle;
 
 @property (assign, nonatomic) BOOL allowIgnore;
+@property (assign, nonatomic) BOOL isInTapping;
 
 @end
 
 @implementation RejectUserAlertViewController
 
-//+ (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second ok:(MessageButtonBlock)okBlock {
-//    [self presentAlert:title msg:msg second:second okTitle:nil ok:okBlock];
-//}
-//
-//+ (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second okTitle:(NSString *)okTitle ok:(MessageButtonBlock)okBlock {
-//    MessageAlertViewController *alert = [[MessageAlertViewController alloc] initWithTitle:title message:msg secondMsg:second thirdMsg:nil allowIgnore:NO rejectTitle:nil reject:nil agreeTitle:nil agree:nil okTitle:okTitle ok:okBlock];
-//    alert.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
-//    alert.modalPresentationStyle = UIModalPresentationOverFullScreen;
-//    alert.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//    
-//    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
-//}
-//
-//+ (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second reject:(MessageButtonBlock)rejectBlock agree:(MessageButtonBlock)agreeBlock {
-//    [self presentAlert:title msg:msg second:second rejectTitle:nil reject:rejectBlock agreeTitle:nil agree:agreeBlock];
-//}
-//
-//+ (void)presentAlert:(NSString *)title msg:(NSString *)msg second:(NSString *)second rejectTitle:(NSString *)rejectTitle reject:(MessageButtonBlock)rejectBlock agreeTitle:(NSString *)agreeTitle agree:(MessageButtonBlock)agreeBlock {
-//    MessageAlertViewController *alert = [[MessageAlertViewController alloc] initWithTitle:title message:msg secondMsg:second thirdMsg:nil allowIgnore:YES rejectTitle:rejectTitle reject:rejectBlock agreeTitle:agreeTitle agree:agreeBlock okTitle:nil ok:nil];
-//    alert.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
-//    alert.modalPresentationStyle = UIModalPresentationOverFullScreen;
-//    alert.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-//    
-//    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
-//}
++ (void)presentAlert:(NSString *)title msg:(NSString *)msg conform:(RejectUserBlock)agreeBlock {
+    RejectUserAlertViewController *alert = [[RejectUserAlertViewController alloc] initWithTitle:title message:msg allowIgnore:YES agree:agreeBlock];
+    alert.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
+    alert.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    alert.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+}
 
-- (id)initWithTitle:(NSString *)title message:(NSString *)message secondMsg:(NSString *)secondMsg thirdMsg:(NSString *)thirdMsg allowIgnore:(BOOL)allowIgnore rejectTitle:(NSString *)rejectTitle reject:(MessageButtonBlock)rejectBlock agreeTitle:(NSString *)agreeTitle agree:(MessageButtonBlock)agreeBlock okTitle:(NSString *)okTitle ok:(MessageButtonBlock)okBlock {
+- (id)initWithTitle:(NSString *)title message:(NSString *)message allowIgnore:(BOOL)allowIgnore agree:(RejectUserBlock)agreeBlock {
     if (self = [super init]) {
         _alertTitle = title;
         _alertMessage = message;
-        _alertSecondMsg = secondMsg;
-        _alertThirdMsg = thirdMsg;
         _allowIgnore = allowIgnore;
-        _rejectTitle = rejectTitle;
-        _rejectBlock = rejectBlock;
-        _agreeTitle = agreeTitle;
         _agreeBlock = agreeBlock;
-        _okTitle = okTitle;
-        _okBlock = okBlock;
     }
     
     return self;
@@ -107,8 +77,8 @@
     [self.btnReject setBorder:1 andColor:kFinishedColor.CGColor];
     [self.btnAgree setCornerRadius:5];
     
-    [self.btnReject setTitle:self.rejectTitle ? self.rejectTitle : @"取消" forState:UIControlStateNormal];
-    [self.btnAgree setTitle:self.agreeTitle ? self.agreeTitle : @"确定" forState:UIControlStateNormal];
+    [self.btnReject setTitle:@"取消" forState:UIControlStateNormal];
+    [self.btnAgree setTitle:@"确定" forState:UIControlStateNormal];
     
     [RACObserve(self, curSelectedIdx) subscribeNext:^(id x) {
         @strongify(self);
@@ -118,12 +88,18 @@
     
     [[self.btnReject rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [self invokeBlock:self.rejectBlock];
+        if (self.agreeBlock) {
+            self.agreeBlock(nil);
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
     
     [[self.btnAgree rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [self invokeBlock:self.agreeBlock];
+        if (self.agreeBlock) {
+            self.agreeBlock([self.checkLabels[self.curSelectedIdx] text]);
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
     }];
 }
 
@@ -133,11 +109,19 @@
     CGPoint pointForTargetView = [self.alertView convertPoint:point fromView:gesture.view];
     
     if (!CGRectContainsPoint(self.alertView.bounds, pointForTargetView) && self.allowIgnore) {
+        if (self.agreeBlock) {
+            self.agreeBlock(nil);
+        }
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
 - (void)handleTapCheckView:(UIGestureRecognizer *)gesture {
+    if (self.isInTapping) {
+        return;
+    }
+    
+    self.isInTapping = YES;
     [self.checkBtns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj setImage:[UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
     }];
@@ -147,15 +131,7 @@
     [selectedButton setImage:[UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
     
     self.curSelectedIdx = selectedIdx;
-}
-
-#pragma mark - block invoke 
-- (void)invokeBlock:(MessageButtonBlock)block {
-    if (block) {
-        block();
-    }
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    self.isInTapping = NO;
 }
 
 @end

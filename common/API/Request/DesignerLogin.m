@@ -35,6 +35,8 @@
     } else if([kUserTypeDesigner isEqualToString:usertype]) {
         Designer *designer = [[Designer alloc] initWith:dict];
         [GVUserDefaults standardUserDefaults].userid = [designer _id];
+        [GVUserDefaults standardUserDefaults].imageid = [designer imageid];
+        [GVUserDefaults standardUserDefaults].username = [designer username];
     }
     [GVUserDefaults standardUserDefaults].isLogin = YES;
     [[NotificationDataManager shared] refreshUnreadCount];

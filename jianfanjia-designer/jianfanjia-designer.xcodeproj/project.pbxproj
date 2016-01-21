@@ -283,6 +283,13 @@
 		681241BA1C4F8C5F008FC9AB /* DesignerGetRequirementPlans.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241B91C4F8C5F008FC9AB /* DesignerGetRequirementPlans.m */; };
 		681241BE1C4F97D1008FC9AB /* RejectUserAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241BC1C4F97D1008FC9AB /* RejectUserAlertViewController.m */; };
 		681241BF1C4F97D1008FC9AB /* RejectUserAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681241BD1C4F97D1008FC9AB /* RejectUserAlertViewController.xib */; };
+		681241C21C5073DB008FC9AB /* DesignerRejectUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241C11C5073DB008FC9AB /* DesignerRejectUser.m */; };
+		681241C51C5073FE008FC9AB /* DesignerRespondUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241C41C5073FE008FC9AB /* DesignerRespondUser.m */; };
+		681241C91C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241C71C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m */; };
+		681241CA1C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681241C81C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib */; };
+		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
+		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
+		68FB6ED21C50DC81001C0613 /* SetWorksiteStartTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68FB6ED01C50DC80001C0613 /* SetWorksiteStartTimeViewController.xib */; };
 		6E04266E1BC757C500F984B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04266D1BC757C500F984B8 /* main.m */; };
 		6E0426711BC757C500F984B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0426701BC757C500F984B8 /* AppDelegate.m */; };
 		6E0426791BC757C500F984B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E0426781BC757C500F984B8 /* Assets.xcassets */; };
@@ -813,6 +820,18 @@
 		681241BB1C4F97D1008FC9AB /* RejectUserAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RejectUserAlertViewController.h; sourceTree = "<group>"; };
 		681241BC1C4F97D1008FC9AB /* RejectUserAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RejectUserAlertViewController.m; sourceTree = "<group>"; };
 		681241BD1C4F97D1008FC9AB /* RejectUserAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RejectUserAlertViewController.xib; sourceTree = "<group>"; };
+		681241C01C5073DB008FC9AB /* DesignerRejectUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerRejectUser.h; sourceTree = "<group>"; };
+		681241C11C5073DB008FC9AB /* DesignerRejectUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerRejectUser.m; sourceTree = "<group>"; };
+		681241C31C5073FE008FC9AB /* DesignerRespondUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerRespondUser.h; sourceTree = "<group>"; };
+		681241C41C5073FE008FC9AB /* DesignerRespondUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerRespondUser.m; sourceTree = "<group>"; };
+		681241C61C5085B2008FC9AB /* SetMeasureHouseTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetMeasureHouseTimeViewController.h; sourceTree = "<group>"; };
+		681241C71C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetMeasureHouseTimeViewController.m; sourceTree = "<group>"; };
+		681241C81C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetMeasureHouseTimeViewController.xib; sourceTree = "<group>"; };
+		68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
+		68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
+		68FB6ECE1C50DC80001C0613 /* SetWorksiteStartTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetWorksiteStartTimeViewController.h; sourceTree = "<group>"; };
+		68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetWorksiteStartTimeViewController.m; sourceTree = "<group>"; };
+		68FB6ED01C50DC80001C0613 /* SetWorksiteStartTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetWorksiteStartTimeViewController.xib; sourceTree = "<group>"; };
 		6E0426691BC757C500F984B8 /* jianfanjia-designer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "jianfanjia-designer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E04266D1BC757C500F984B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E04266F1BC757C500F984B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1385,6 +1404,12 @@
 		681241451C4E4451008FC9AB /* Actions */ = {
 			isa = PBXGroup;
 			children = (
+				68FB6ECE1C50DC80001C0613 /* SetWorksiteStartTimeViewController.h */,
+				68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */,
+				68FB6ED01C50DC80001C0613 /* SetWorksiteStartTimeViewController.xib */,
+				681241C61C5085B2008FC9AB /* SetMeasureHouseTimeViewController.h */,
+				681241C71C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m */,
+				681241C81C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib */,
 				681241BB1C4F97D1008FC9AB /* RejectUserAlertViewController.h */,
 				681241BC1C4F97D1008FC9AB /* RejectUserAlertViewController.m */,
 				681241BD1C4F97D1008FC9AB /* RejectUserAlertViewController.xib */,
@@ -1629,6 +1654,10 @@
 				6812417E1C4F22B0008FC9AB /* DesignerGetUserRequirements.m */,
 				681241B81C4F8C5F008FC9AB /* DesignerGetRequirementPlans.h */,
 				681241B91C4F8C5F008FC9AB /* DesignerGetRequirementPlans.m */,
+				681241C01C5073DB008FC9AB /* DesignerRejectUser.h */,
+				681241C11C5073DB008FC9AB /* DesignerRejectUser.m */,
+				681241C31C5073FE008FC9AB /* DesignerRespondUser.h */,
+				681241C41C5073FE008FC9AB /* DesignerRespondUser.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1811,6 +1840,8 @@
 				68123CDF1C4C99C8008FC9AB /* StringUtil.h */,
 				68123CE01C4C99C8008FC9AB /* StringUtil.m */,
 				68123CE11C4C99C9008FC9AB /* Util.h */,
+				68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */,
+				68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1955,6 +1986,7 @@
 				68123EE91C4CBE79008FC9AB /* LeaveMessageViewController.xib in Resources */,
 				68123E901C4CBE79008FC9AB /* MyFavoriateViewController.xib in Resources */,
 				6812411A1C4CF2D5008FC9AB /* DBYSViewController.xib in Resources */,
+				68FB6ED21C50DC81001C0613 /* SetWorksiteStartTimeViewController.xib in Resources */,
 				68123E7F1C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.xib in Resources */,
 				68123EFC1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.xib in Resources */,
 				68123EB71C4CBE79008FC9AB /* ProductImageCell.xib in Resources */,
@@ -1989,6 +2021,7 @@
 				68123F1D1C4CBE79008FC9AB /* W3View.xib in Resources */,
 				681241341C4CF2D5008FC9AB /* SectionView.xib in Resources */,
 				68123C991C4C9772008FC9AB /* allprovince.js in Resources */,
+				681241CA1C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib in Resources */,
 				68123F1F1C4CBE79008FC9AB /* W4View.xib in Resources */,
 				68123E711C4CBE79008FC9AB /* LoginViewController.xib in Resources */,
 				68123E771C4CBE79008FC9AB /* VerifyPhoneViewController.xib in Resources */,
@@ -2128,6 +2161,7 @@
 				681240BF1C4CE471008FC9AB /* HomePageDesigners.m in Sources */,
 				681241331C4CF2D5008FC9AB /* SectionView.m in Sources */,
 				68123E8B1C4CBE79008FC9AB /* FavoriateProductData.m in Sources */,
+				68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */,
 				681240D91C4CE471008FC9AB /* UserSignup.m in Sources */,
 				68123EB81C4CBE79008FC9AB /* ProductInfoCell.m in Sources */,
 				68123FE21C4CCF4A008FC9AB /* ProductImage.m in Sources */,
@@ -2139,6 +2173,7 @@
 				68123C8F1C4C9772008FC9AB /* InfiniteScrollView.m in Sources */,
 				681240B51C4CE471008FC9AB /* FavoriteBeautifulImage.m in Sources */,
 				681240141C4CDA06008FC9AB /* NSDictionary+Ex.m in Sources */,
+				68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */,
 				68123C921C4C9772008FC9AB /* ThumbnailCell.m in Sources */,
 				681240D81C4CE471008FC9AB /* UserLogin.m in Sources */,
 				68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */,
@@ -2268,6 +2303,7 @@
 				681240BE1C4CE471008FC9AB /* GetUserRequirement.m in Sources */,
 				6E378D521BDA2D2E00908B77 /* Section.m in Sources */,
 				68123F0D1C4CBE79008FC9AB /* SelectHouseTypeViewController.m in Sources */,
+				681241C51C5073FE008FC9AB /* DesignerRespondUser.m in Sources */,
 				68123E781C4CBE79008FC9AB /* CustomerServiceViewController.m in Sources */,
 				681241191C4CF2D5008FC9AB /* DBYSViewController.m in Sources */,
 				681241301C4CF2D5008FC9AB /* ReminderDataManager.m in Sources */,
@@ -2281,8 +2317,10 @@
 				68123EBA1C4CBE79008FC9AB /* ProductPageData.m in Sources */,
 				68123FEB1C4CCFFF008FC9AB /* NameDict.m in Sources */,
 				681240A71C4CE471008FC9AB /* AgreeReschedule.m in Sources */,
+				681241C21C5073DB008FC9AB /* DesignerRejectUser.m in Sources */,
 				6E378D491BDA2D2E00908B77 /* UIImageView+Ex.m in Sources */,
 				681240131C4CDA06008FC9AB /* NSDate+Ex.m in Sources */,
+				681241C91C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m in Sources */,
 				681240B31C4CE471008FC9AB /* DesignerSignup.m in Sources */,
 				68123EFB1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.m in Sources */,
 				68123EEC1C4CBE79008FC9AB /* PlanCell.m in Sources */,

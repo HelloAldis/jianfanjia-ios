@@ -8,7 +8,6 @@
 
 #import "ChoosedPlanActionCell.h"
 #import "ViewControllerContainer.h"
-#import "RequirementDataManager.h"
 
 @interface ChoosedPlanActionCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;

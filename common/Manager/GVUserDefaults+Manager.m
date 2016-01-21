@@ -24,6 +24,9 @@
 @dynamic district;
 @dynamic address;
 @dynamic dec_progress;
+@dynamic respond_speed;
+@dynamic service_attitude;
+@dynamic auth_type;
 @dynamic dec_styles;
 @dynamic family_description;
 @dynamic wechat_openid;

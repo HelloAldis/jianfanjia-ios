@@ -24,6 +24,9 @@
 @property (nonatomic, weak) NSString *phone;
 @property (nonatomic, weak) NSString *loginDate;
 @property (nonatomic, strong) NSString *dec_progress;
+@property (nonatomic, strong) NSNumber *respond_speed;
+@property (nonatomic, strong) NSNumber *service_attitude;
+@property (nonatomic, strong) NSString *auth_type;
 @property (nonatomic, strong) NSArray *dec_styles;
 @property (nonatomic, strong) NSString *family_description;
 @property (nonatomic, strong) NSString *wechat_openid;

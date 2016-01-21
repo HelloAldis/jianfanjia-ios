@@ -36,19 +36,9 @@
 }
 
 - (void)onClickContact {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:self.requirement.user.phone message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //Do nothing
-    }];
+    [[NSNumber numberWithInt:586197] humRmbUppercaseString];
     
-    UIAlertAction *done = [UIAlertAction actionWithTitle:@"呼叫" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://86%@", self.requirement.user.phone]]];
-    }];
-    
-    [alert addAction:cancel];
-    [alert addAction:done];
-    
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+    [PhoneUtil call:self.requirement.user.phone];
 }
 
 @end

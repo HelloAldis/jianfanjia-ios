@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *serviceAttitudeStars;
 @property (weak, nonatomic) IBOutlet UITextView *tvComment;
 
-@property (strong, nonatomic) Designer *designer;
+@property (strong, nonatomic) Evaluation *evaluation;
 @property (strong, nonatomic) NSString *requirementid;
 @property (assign, nonatomic) NSInteger respondSpeedStar;
 @property (assign, nonatomic) NSInteger serviceAttitudeStar;
@@ -28,10 +28,9 @@
 @implementation EvaluateDesignerViewController
 
 #pragma mark - init method
-- (id)initWithDesigner:(Designer *)designer withRequirment:(NSString *)requirementid {
+- (id)initWithEvaluation:(Evaluation *)evaluation  {
     if (self = [super init]) {
-        _designer = designer;
-        _requirementid = requirementid;
+        _evaluation = evaluation;
     }
     
     return self;
@@ -44,31 +43,33 @@
     
     [self initNav];
     [self initUI];
+    [self initData];
 }
 
 #pragma mark - init UI 
 - (void)initUI {
     [self.imgAvatar setCornerRadius:30];
     [self.tvComment setCornerRadius:5];
-    
-    [self.imgAvatar setImageWithId:self.designer.imageid withWidth:self.imgAvatar.bounds.size.width];
-    self.lblUserNameVal.text = self.designer.username;
-    [DesignerBusiness setStars:self.evaluatedStars withStar:(double)(self.designer.respond_speed.doubleValue + self.designer.service_attitude.doubleValue) / 2 fullStar:[UIImage imageNamed:@"star_middle"] emptyStar:[UIImage imageNamed:@"star_middle_empty"]];
-    [DesignerBusiness setV:self.authIcon withAuthType:self.designer.auth_type];
-    
-    [DesignerBusiness displayStars:self.respondSpeedStars withAmount:self.designer.evaluation.respond_speed.integerValue withStar:[UIImage imageNamed:@"star_big"]];
-    [DesignerBusiness displayStars:self.serviceAttitudeStars withAmount:self.designer.evaluation.service_attitude.integerValue withStar:[UIImage imageNamed:@"star_big"]];
-    
     self.lblEvaluateTitle.hidden = YES;
     self.tvComment.editable = NO;
     self.tvComment.backgroundColor = self.view.backgroundColor;
-    self.tvComment.text = self.designer.evaluation.comment;
+}
+
+- (void)initData {
+    [self.imgAvatar setImageWithId:[GVUserDefaults standardUserDefaults].imageid withWidth:self.imgAvatar.bounds.size.width];
+    self.lblUserNameVal.text = [GVUserDefaults standardUserDefaults].username;
+    [DesignerBusiness setStars:self.evaluatedStars withStar:(double)([GVUserDefaults standardUserDefaults].respond_speed.doubleValue + [GVUserDefaults standardUserDefaults].service_attitude.doubleValue) / 2 fullStar:[UIImage imageNamed:@"star_middle"] emptyStar:[UIImage imageNamed:@"star_middle_empty"]];
+    [DesignerBusiness setV:self.authIcon withAuthType:[GVUserDefaults standardUserDefaults].auth_type];
+    
+    [DesignerBusiness displayStars:self.respondSpeedStars withAmount:self.evaluation.respond_speed.integerValue withStar:[UIImage imageNamed:@"star_big"]];
+    [DesignerBusiness displayStars:self.serviceAttitudeStars withAmount:self.evaluation.service_attitude.integerValue withStar:[UIImage imageNamed:@"star_big"]];
+    self.tvComment.text = self.evaluation.comment;
 }
 
 #pragma mark - init nav
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"评价设计师";
+    self.title = @"业主的评价";
 }
 
 @end
