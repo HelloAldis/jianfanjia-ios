@@ -1,7 +1,7 @@
 xcodeproj './jianfanjia.xcodeproj'
 
 platform :ios, '8.0'
-pod 'SDWebImage', '~> 3.6'
+pod 'YYWebImage', '~> 0.9.12'
 pod 'AFNetworking', '~> 2.0'
 pod 'AFNetworkActivityLogger', '~> 2.0'
 pod 'CocoaLumberjack'
