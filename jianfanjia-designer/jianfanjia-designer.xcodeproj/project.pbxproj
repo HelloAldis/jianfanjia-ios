@@ -2472,7 +2472,7 @@
 				INFOPLIST_FILE = "jianfanjia-designer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.designer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.profession;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2487,7 +2487,7 @@
 				INFOPLIST_FILE = "jianfanjia-designer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.designer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.profession;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
