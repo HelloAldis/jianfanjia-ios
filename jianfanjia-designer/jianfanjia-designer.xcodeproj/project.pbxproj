@@ -27,7 +27,6 @@
 		68123C9B1C4C9772008FC9AB /* province2city.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C871C4C9772008FC9AB /* province2city.js */; };
 		68123C9C1C4C9772008FC9AB /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C891C4C9772008FC9AB /* SelectCityViewController.m */; };
 		68123C9D1C4C9772008FC9AB /* SelectCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C8A1C4C9772008FC9AB /* SelectCityViewController.xib */; };
-		68123CA71C4C97BC008FC9AB /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 68123C9F1C4C97BC008FC9AB /* Model.xcdatamodeld */; };
 		68123CA81C4C97BC008FC9AB /* NotificationCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CA21C4C97BC008FC9AB /* NotificationCD.m */; };
 		68123CA91C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CA41C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m */; };
 		68123CAA1C4C97BC008FC9AB /* NotificationToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CA61C4C97BC008FC9AB /* NotificationToData.m */; };
@@ -379,7 +378,6 @@
 		68123C891C4C9772008FC9AB /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		68123C8A1C4C9772008FC9AB /* SelectCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCityViewController.xib; sourceTree = "<group>"; };
 		68123C9E1C4C97BC008FC9AB /* CD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CD.h; sourceTree = "<group>"; };
-		68123CA01C4C97BC008FC9AB /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		68123CA11C4C97BC008FC9AB /* NotificationCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCD.h; sourceTree = "<group>"; };
 		68123CA21C4C97BC008FC9AB /* NotificationCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCD.m; sourceTree = "<group>"; };
 		68123CA31C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NotificationCD+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -1690,7 +1688,6 @@
 			isa = PBXGroup;
 			children = (
 				68123C9E1C4C97BC008FC9AB /* CD.h */,
-				68123C9F1C4C97BC008FC9AB /* Model.xcdatamodeld */,
 				68123CA11C4C97BC008FC9AB /* NotificationCD.h */,
 				68123CA21C4C97BC008FC9AB /* NotificationCD.m */,
 				68123CA31C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.h */,
@@ -1929,6 +1926,11 @@
 					6E0426681BC757C500F984B8 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 339GELC5GG;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					6E0426811BC757C500F984B8 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -2300,7 +2302,6 @@
 				68123E8F1C4CBE79008FC9AB /* MyFavoriateViewController.m in Sources */,
 				681240121C4CDA06008FC9AB /* NSArray+Ex.m in Sources */,
 				6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */,
-				68123CA71C4C97BC008FC9AB /* Model.xcdatamodeld in Sources */,
 				68123E891C4CBE79008FC9AB /* FavoriateProductCell.m in Sources */,
 				68123E761C4CBE79008FC9AB /* VerifyPhoneViewController.m in Sources */,
 				68123C961C4C9772008FC9AB /* ImageEditorViewController.m in Sources */,
@@ -2478,7 +2479,7 @@
 				INFOPLIST_FILE = "jianfanjia-designer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.designer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.profession;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -2493,7 +2494,7 @@
 				INFOPLIST_FILE = "jianfanjia-designer/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.designer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.profession;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -2588,16 +2589,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		68123C9F1C4C97BC008FC9AB /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				68123CA01C4C97BC008FC9AB /* Model.xcdatamodel */,
-			);
-			currentVersion = 68123CA01C4C97BC008FC9AB /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
 		6E378CF01BDA2D2E00908B77 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

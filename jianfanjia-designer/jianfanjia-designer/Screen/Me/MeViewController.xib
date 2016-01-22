@@ -88,10 +88,10 @@
                                     </connections>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaV-TI-THJ">
-                                    <rect key="frame" x="0.0" y="274" width="600" height="89"/>
+                                    <rect key="frame" x="0.0" y="274" width="600" height="45"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="89" id="a6O-3q-tPq"/>
+                                        <constraint firstAttribute="height" constant="45" id="a6O-3q-tPq"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzH-qr-hRG">
@@ -121,7 +121,7 @@
                                         <constraint firstAttribute="height" constant="1" id="ccZ-Ot-g78"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4H-M2-NiH">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4H-M2-NiH">
                                     <rect key="frame" x="20" y="319" width="560" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="14c-aT-dsA"/>
@@ -134,11 +134,11 @@
                                         <action selector="onClickFavoriateDesigner:" destination="-1" eventType="touchUpInside" id="FUC-5c-xzo"/>
                                     </connections>
                                 </button>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="ONG-aJ-7xX">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="ONG-aJ-7xX">
                                     <rect key="frame" x="563" y="335" width="7" height="13"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMc-N8-RcZ">
-                                    <rect key="frame" x="0.0" y="378" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="334" width="600" height="44"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbT-i2-IT9">
                                             <rect key="frame" x="20" y="0.0" width="560" height="44"/>
@@ -163,7 +163,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tps-yf-6yL">
-                                    <rect key="frame" x="0.0" y="437" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="393" width="600" height="44"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYV-FT-WdW">
                                             <rect key="frame" x="20" y="0.0" width="560" height="44"/>
