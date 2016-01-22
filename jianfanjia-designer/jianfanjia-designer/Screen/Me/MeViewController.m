@@ -92,17 +92,16 @@
 }
 
 - (IBAction)onClickFavoriateDesigner:(id)sender {
-    MyFavoriateViewController *v = [[MyFavoriateViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:v animated:YES];
+//    MyFavoriateViewController *v = [[MyFavoriateViewController alloc] initWithNibName:nil bundle:nil];
+//    [self.navigationController pushViewController:v animated:YES];
 }
 
 - (IBAction)onTapUserImageView:(id)sender {
-    UserInfoViewController *v = [[UserInfoViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:v animated:YES];
+//    UserInfoViewController *v = [[UserInfoViewController alloc] initWithNibName:nil bundle:nil];
+//    [self.navigationController pushViewController:v animated:YES];
 }
 
 - (IBAction)onClickContactCustomerService:(id)sender {
-//    CustomerServiceViewController *v = [[CustomerServiceViewController alloc] init];
     [self.navigationController pushViewController:[CustomerServiceViewController instance] animated:YES];
 }
 
