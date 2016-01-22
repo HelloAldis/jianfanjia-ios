@@ -38,7 +38,9 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnActions;
-@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *reminderIcons;
+@property (weak, nonatomic) IBOutlet UIView *noRequirementView;
+@property (weak, nonatomic) IBOutlet UILabel *lblNoRequirementTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lblNoRequirementDesc;
 
 @property (assign, nonatomic) NSInteger preSelectedButtonIndex;
 @property (assign, nonatomic) NSInteger selectedButtonIndex;
@@ -47,6 +49,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 
 @property (assign, nonatomic) CGFloat preY;
 @property (assign, nonatomic) BOOL isTabbarhide;
+@property (assign, nonatomic) BOOL isFirstEnter;
 
 @end
 
@@ -112,8 +115,13 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         @strongify(self);
         [self refresh:NO];
     }];
-    
-    [self switchToOtherButton:0];
+}
+
+#pragma mark - scroll view deleate 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.noRequirementView.alpha == 1 && scrollView.contentOffset.y <= 0) {
+        self.noRequirementView.frame = CGRectMake(self.noRequirementView.frame.origin.x, 109 - scrollView.contentOffset.y, self.noRequirementView.frame.size.width, self.noRequirementView.frame.size.height);
+    }
 }
 
 #pragma mark - table view delegate
@@ -197,17 +205,15 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 }
 
 - (void)switchToOtherButton:(NSInteger)buttonIndex {
-    @weakify(self);
     [UIView animateWithDuration:0.3 animations:^{
-        @strongify(self);
         UIButton *lastButton = self.btnActions[self.selectedButtonIndex];
         lastButton.alpha = 0.5;
         UIButton *selectedButton = self.btnActions[buttonIndex];
         selectedButton.alpha = 1;
     } completion:^(BOOL finished) {
-        @strongify(self);
         self.selectedButtonIndex = buttonIndex;
         self.currentPlanType = buttonIndex;
+        [self switchViewToHide];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     }];
 }
@@ -223,7 +229,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         [HUDUtil hideWait];
         [self.tableView.header endRefreshing];
         [self.dataManager refreshAllActions];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self switchToSuitableButton];
     } failure:^{
         [HUDUtil hideWait];
     } networkError:^{
@@ -248,6 +254,43 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
             self.tabBarController.tabBar.frame = CGRectOffset(self.tabBarController.tabBar.frame, 0, -50);
         }];
     }
+}
+
+- (void)switchToSuitableButton {
+    if (!self.isFirstEnter) {
+        self.isFirstEnter = YES;
+        
+        if (self.dataManager.unprocessActions.count > 0) {
+            [self switchToOtherButton:PlanTypeUnprocess];
+        } else if (self.dataManager.processingActions.count > 0) {
+            [self switchToOtherButton:PlanTypeProcessing];
+        } else if (self.dataManager.processedActions.count > 0) {
+            [self switchToOtherButton:PlanTypeProcessed];
+        } else {
+            [self switchToOtherButton:PlanTypeUnprocess];
+        }
+    }
+}
+
+- (void)switchViewToHide {
+    if (self.currentPlanType == PlanTypeUnprocess && self.dataManager.unprocessActions.count == 0) {
+        [self showNoRequirementImage:YES title:@"您暂时没有待响应的需求"];
+    } else if (self.currentPlanType == PlanTypeProcessing && self.dataManager.processingActions.count == 0) {
+        [self showNoRequirementImage:YES title:@"您暂时没有进行中的需求"];
+    } else if (self.currentPlanType == PlanTypeProcessed && self.dataManager.processedActions.count == 0) {
+        [self showNoRequirementImage:YES title:@"您暂时没有已放弃的需求"];
+    } else {
+        [self showNoRequirementImage:NO title:nil];
+    }
+}
+
+- (void)showNoRequirementImage:(BOOL)show title:(NSString *)title {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.lblNoRequirementTitle.text = title;
+        self.lblNoRequirementDesc.text = @"温馨提示：如您的资料完善程度高，系统将会优先将您推给业主\n\n网址：http://www.jianfanjia.com/";
+        self.noRequirementView.alpha = show ? 1 : 0;
+        self.tableView.backgroundColor = !show ? [UIColor colorWithR:240 g:240 b:240 a:1] : [UIColor colorWithR:240 g:240 b:240 a:0];
+    } completion:nil];
 }
 
 @end
