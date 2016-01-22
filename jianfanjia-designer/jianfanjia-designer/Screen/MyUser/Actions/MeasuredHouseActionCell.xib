@@ -113,14 +113,14 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="oMf-bI-o3k"/>
                                 <exclude reference="O9h-Ib-khW"/>
+                                <exclude reference="oMf-bI-o3k"/>
+                                <exclude reference="9kA-Km-loz"/>
                                 <exclude reference="ATB-VJ-wGs"/>
                                 <exclude reference="Qx8-tI-2gA"/>
-                                <exclude reference="9kA-Km-loz"/>
                                 <exclude reference="mOa-ng-UhN"/>
-                                <exclude reference="gq2-8W-HmU"/>
                                 <exclude reference="UrP-Sh-J3h"/>
+                                <exclude reference="gq2-8W-HmU"/>
                             </mask>
                         </variation>
                     </view>
@@ -135,7 +135,7 @@
                                     <constraint firstAttribute="width" constant="76" id="zjv-xV-mFT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="查看评价">
+                                <state key="normal">
                                     <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -145,6 +145,19 @@
                                     </mask>
                                 </variation>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="查看评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fb1-21-mJM">
+                                <rect key="frame" x="95" y="17" width="56" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_view_evaluation" translatesAutoresizingMaskIntoConstraints="NO" id="QGn-eK-mvK">
+                                <rect key="frame" x="76" y="18" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="fnn-ML-9Wf"/>
+                                    <constraint firstAttribute="width" constant="15" id="kvr-WG-dxc"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHK-Ft-4aC">
                                 <rect key="frame" x="247" y="1" width="245" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,7 +166,7 @@
                                     <constraint firstAttribute="height" constant="40" id="jl9-cx-oLP"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="联系业主">
+                                <state key="normal">
                                     <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -163,15 +176,36 @@
                                     </mask>
                                 </variation>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="联系业主" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1K-AN-Cto">
+                                <rect key="frame" x="341" y="17" width="56" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_phone" translatesAutoresizingMaskIntoConstraints="NO" id="GST-9U-zPL">
+                                <rect key="frame" x="322" y="18" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="Hof-DD-Dne"/>
+                                    <constraint firstAttribute="height" constant="15" id="UEp-gh-ba6"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="W1K-AN-Cto" firstAttribute="centerY" secondItem="hHK-Ft-4aC" secondAttribute="centerY" id="0KV-NM-fJM"/>
                             <constraint firstAttribute="trailing" secondItem="hHK-Ft-4aC" secondAttribute="trailing" id="2MB-q9-ZVZ"/>
+                            <constraint firstItem="GST-9U-zPL" firstAttribute="centerY" secondItem="W1K-AN-Cto" secondAttribute="centerY" id="HPu-eI-tw0"/>
                             <constraint firstAttribute="height" constant="50" id="Juq-tL-tKc"/>
                             <constraint firstItem="hHK-Ft-4aC" firstAttribute="height" secondItem="Xre-n9-fep" secondAttribute="height" id="RO4-D0-gIX"/>
                             <constraint firstItem="Xre-n9-fep" firstAttribute="width" secondItem="hHK-Ft-4aC" secondAttribute="width" id="SCA-eR-pUA"/>
                             <constraint firstAttribute="bottom" secondItem="Xre-n9-fep" secondAttribute="bottom" id="Y9h-jG-gSR"/>
+                            <constraint firstItem="W1K-AN-Cto" firstAttribute="centerX" secondItem="hHK-Ft-4aC" secondAttribute="centerX" id="YFN-KQ-4Re"/>
+                            <constraint firstItem="fb1-21-mJM" firstAttribute="leading" secondItem="QGn-eK-mvK" secondAttribute="trailing" constant="4" id="be2-MO-hgt"/>
+                            <constraint firstItem="QGn-eK-mvK" firstAttribute="centerY" secondItem="fb1-21-mJM" secondAttribute="centerY" id="e2U-Jc-91c"/>
                             <constraint firstItem="Xre-n9-fep" firstAttribute="top" secondItem="ANc-bb-4RP" secondAttribute="top" constant="1" id="f3p-jT-kaf"/>
+                            <constraint firstItem="fb1-21-mJM" firstAttribute="centerX" secondItem="Xre-n9-fep" secondAttribute="centerX" id="n3y-48-kdM"/>
+                            <constraint firstItem="W1K-AN-Cto" firstAttribute="leading" secondItem="GST-9U-zPL" secondAttribute="trailing" constant="4" id="o5W-x6-ubg"/>
+                            <constraint firstItem="fb1-21-mJM" firstAttribute="centerY" secondItem="Xre-n9-fep" secondAttribute="centerY" id="oHx-Np-OJf"/>
                             <constraint firstItem="Xre-n9-fep" firstAttribute="leading" secondItem="ANc-bb-4RP" secondAttribute="leading" id="p8o-Te-sLE"/>
                             <constraint firstItem="hHK-Ft-4aC" firstAttribute="leading" secondItem="Xre-n9-fep" secondAttribute="trailing" constant="1" id="q2G-Ih-j0L"/>
                             <constraint firstItem="hHK-Ft-4aC" firstAttribute="centerY" secondItem="Xre-n9-fep" secondAttribute="centerY" id="u8D-Us-Api"/>
@@ -211,6 +245,8 @@
     </objects>
     <resources>
         <image name="bar_shape" width="7" height="13"/>
+        <image name="icon_phone" width="13" height="13"/>
         <image name="icon_user_man" width="10" height="9"/>
+        <image name="icon_view_evaluation" width="18" height="20"/>
     </resources>
 </document>

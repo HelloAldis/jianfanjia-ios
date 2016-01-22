@@ -32,6 +32,7 @@
 @dynamic family_description;
 @dynamic communication_type;
 @dynamic create_at;
+@dynamic start_at;
 @dynamic last_status_update_time;
 @dynamic final_planid;
 

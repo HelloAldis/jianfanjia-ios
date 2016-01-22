@@ -32,6 +32,7 @@
 @property (strong, nonatomic) NSString *family_description;
 @property (strong, nonatomic) NSString *communication_type;
 @property (strong, nonatomic) NSNumber *create_at;
+@property (strong, nonatomic) NSNumber *start_at;
 @property (strong, nonatomic) NSNumber *last_status_update_time;
 @property (strong, nonatomic) NSString *final_planid;
 

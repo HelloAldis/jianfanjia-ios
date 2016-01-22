@@ -113,12 +113,12 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="gfg-03-Rey"/>
                                 <exclude reference="HgL-HW-h6F"/>
-                                <exclude reference="pgn-u6-Wod"/>
-                                <exclude reference="zqi-Fg-Cr9"/>
+                                <exclude reference="gfg-03-Rey"/>
                                 <exclude reference="0Eh-oN-ngx"/>
                                 <exclude reference="DUf-Xn-CDR"/>
+                                <exclude reference="pgn-u6-Wod"/>
+                                <exclude reference="zqi-Fg-Cr9"/>
                                 <exclude reference="SGf-Y6-RuZ"/>
                                 <exclude reference="et7-Qh-rnd"/>
                             </mask>
@@ -135,23 +135,40 @@
                                     <constraint firstAttribute="height" constant="40" id="TBK-ZZ-7N6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="查看方案">
+                                <state key="normal">
                                     <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="TBK-ZZ-7N6"/>
                                         <exclude reference="Dm6-PP-XyM"/>
+                                        <exclude reference="TBK-ZZ-7N6"/>
                                     </mask>
                                 </variation>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="查看方案" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6R-yf-luu">
+                                <rect key="frame" x="218" y="17" width="56" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_view_plan" translatesAutoresizingMaskIntoConstraints="NO" id="NjG-sU-aXJ">
+                                <rect key="frame" x="199" y="18" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="1r4-9n-4fa"/>
+                                    <constraint firstAttribute="height" constant="15" id="KoD-Yf-tYR"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="L6R-yf-luu" firstAttribute="leading" secondItem="NjG-sU-aXJ" secondAttribute="trailing" constant="4" id="4iM-Y0-b8k"/>
                             <constraint firstAttribute="height" constant="50" id="85V-yF-61u"/>
                             <constraint firstItem="H2o-1M-uN4" firstAttribute="top" secondItem="nUz-Gv-4xv" secondAttribute="top" constant="1" id="8Jz-QD-KRl"/>
                             <constraint firstItem="H2o-1M-uN4" firstAttribute="leading" secondItem="nUz-Gv-4xv" secondAttribute="leading" id="Pxq-O4-2pK"/>
+                            <constraint firstItem="NjG-sU-aXJ" firstAttribute="centerY" secondItem="L6R-yf-luu" secondAttribute="centerY" id="aNG-Mp-N3p"/>
+                            <constraint firstItem="L6R-yf-luu" firstAttribute="centerX" secondItem="H2o-1M-uN4" secondAttribute="centerX" id="mrN-TY-yVl"/>
                             <constraint firstAttribute="bottom" secondItem="H2o-1M-uN4" secondAttribute="bottom" id="oFZ-Fz-HbO"/>
+                            <constraint firstItem="L6R-yf-luu" firstAttribute="centerY" secondItem="H2o-1M-uN4" secondAttribute="centerY" id="ohS-6M-8ha"/>
                             <constraint firstAttribute="trailing" secondItem="H2o-1M-uN4" secondAttribute="trailing" id="rb4-Yx-ro2"/>
                         </constraints>
                     </view>
@@ -189,5 +206,6 @@
     <resources>
         <image name="bar_shape" width="7" height="13"/>
         <image name="icon_user_man" width="10" height="9"/>
+        <image name="icon_view_plan" width="17" height="20"/>
     </resources>
 </document>

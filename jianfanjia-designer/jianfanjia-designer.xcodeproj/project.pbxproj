@@ -290,6 +290,7 @@
 		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
 		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
 		68FB6ED21C50DC81001C0613 /* SetWorksiteStartTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68FB6ED01C50DC80001C0613 /* SetWorksiteStartTimeViewController.xib */; };
+		68FB6ED51C51E0F1001C0613 /* DesignerConfigAgreement.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ED41C51E0F1001C0613 /* DesignerConfigAgreement.m */; };
 		6E04266E1BC757C500F984B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E04266D1BC757C500F984B8 /* main.m */; };
 		6E0426711BC757C500F984B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0426701BC757C500F984B8 /* AppDelegate.m */; };
 		6E0426791BC757C500F984B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6E0426781BC757C500F984B8 /* Assets.xcassets */; };
@@ -832,6 +833,8 @@
 		68FB6ECE1C50DC80001C0613 /* SetWorksiteStartTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetWorksiteStartTimeViewController.h; sourceTree = "<group>"; };
 		68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetWorksiteStartTimeViewController.m; sourceTree = "<group>"; };
 		68FB6ED01C50DC80001C0613 /* SetWorksiteStartTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetWorksiteStartTimeViewController.xib; sourceTree = "<group>"; };
+		68FB6ED31C51E0F1001C0613 /* DesignerConfigAgreement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerConfigAgreement.h; sourceTree = "<group>"; };
+		68FB6ED41C51E0F1001C0613 /* DesignerConfigAgreement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerConfigAgreement.m; sourceTree = "<group>"; };
 		6E0426691BC757C500F984B8 /* jianfanjia-designer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "jianfanjia-designer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E04266D1BC757C500F984B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6E04266F1BC757C500F984B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -1658,6 +1661,8 @@
 				681241C11C5073DB008FC9AB /* DesignerRejectUser.m */,
 				681241C31C5073FE008FC9AB /* DesignerRespondUser.h */,
 				681241C41C5073FE008FC9AB /* DesignerRespondUser.m */,
+				68FB6ED31C51E0F1001C0613 /* DesignerConfigAgreement.h */,
+				68FB6ED41C51E0F1001C0613 /* DesignerConfigAgreement.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2221,6 +2226,7 @@
 				68123EFF1C4CBE79008FC9AB /* HouseRequirementCreateViewController.m in Sources */,
 				6E378D411BDA2D2E00908B77 /* UserCD+CoreDataProperties.m in Sources */,
 				68123CEE1C4C99E9008FC9AB /* NotificationDataManager.m in Sources */,
+				68FB6ED51C51E0F1001C0613 /* DesignerConfigAgreement.m in Sources */,
 				68123CF11C4C9A15008FC9AB /* YsImage.m in Sources */,
 				6E378D3C1BDA2D2E00908B77 /* DesignerToData.m in Sources */,
 				681241A11C4F3B1C008FC9AB /* ChoosedPlanActionCell.m in Sources */,

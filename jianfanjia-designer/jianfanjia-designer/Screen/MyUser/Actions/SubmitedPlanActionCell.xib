@@ -115,12 +115,12 @@
                             <mask key="constraints">
                                 <exclude reference="HHo-xA-kMp"/>
                                 <exclude reference="oW9-kh-QsM"/>
-                                <exclude reference="m9l-f0-O1e"/>
-                                <exclude reference="Z9h-3m-0no"/>
                                 <exclude reference="8zY-xI-8or"/>
                                 <exclude reference="B1T-K4-Bsp"/>
-                                <exclude reference="dqT-C7-kcQ"/>
+                                <exclude reference="Z9h-3m-0no"/>
+                                <exclude reference="m9l-f0-O1e"/>
                                 <exclude reference="MY7-cF-cNU"/>
+                                <exclude reference="dqT-C7-kcQ"/>
                             </mask>
                         </variation>
                     </view>
@@ -135,16 +135,29 @@
                                     <constraint firstAttribute="height" constant="40" id="FGO-Fz-OAe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="查看方案">
+                                <state key="normal">
                                     <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="FGO-Fz-OAe"/>
                                         <exclude reference="F86-PW-Mdv"/>
+                                        <exclude reference="FGO-Fz-OAe"/>
                                     </mask>
                                 </variation>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="查看方案" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F59-fx-pyP">
+                                <rect key="frame" x="95" y="17" width="56" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_view_plan" translatesAutoresizingMaskIntoConstraints="NO" id="pk6-J6-5mf">
+                                <rect key="frame" x="76" y="18" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="1oh-3l-Kkp"/>
+                                    <constraint firstAttribute="height" constant="15" id="OAh-Je-hhq"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkI-VA-3lW">
                                 <rect key="frame" x="247" y="1" width="245" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,19 +166,35 @@
                                     <constraint firstAttribute="width" constant="76" id="tW2-9W-3XB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="联系业主">
+                                <state key="normal">
                                     <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="tW2-9W-3XB"/>
                                         <exclude reference="V2y-iR-TqG"/>
+                                        <exclude reference="tW2-9W-3XB"/>
                                     </mask>
                                 </variation>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="联系业主" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUW-nB-dan">
+                                <rect key="frame" x="341" y="17" width="56" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_phone" translatesAutoresizingMaskIntoConstraints="NO" id="4j4-ve-9BX">
+                                <rect key="frame" x="322" y="18" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="9NI-x9-5GD"/>
+                                    <constraint firstAttribute="height" constant="15" id="O2O-aL-bZu"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="lUW-nB-dan" firstAttribute="leading" secondItem="4j4-ve-9BX" secondAttribute="trailing" constant="4" id="78e-vv-vkR"/>
+                            <constraint firstItem="F59-fx-pyP" firstAttribute="centerY" secondItem="YFL-sk-xsC" secondAttribute="centerY" id="CiT-dW-ZAX"/>
+                            <constraint firstItem="lUW-nB-dan" firstAttribute="centerX" secondItem="dkI-VA-3lW" secondAttribute="centerX" id="Cw1-lZ-a3o"/>
                             <constraint firstItem="YFL-sk-xsC" firstAttribute="width" secondItem="dkI-VA-3lW" secondAttribute="width" id="E5J-8p-aky"/>
                             <constraint firstAttribute="height" constant="50" id="O3w-Rn-SJ9"/>
                             <constraint firstAttribute="bottom" secondItem="YFL-sk-xsC" secondAttribute="bottom" id="Qo1-px-cAf"/>
@@ -173,9 +202,22 @@
                             <constraint firstItem="YFL-sk-xsC" firstAttribute="top" secondItem="acJ-e1-KCJ" secondAttribute="top" constant="1" id="Ygy-t7-CvH"/>
                             <constraint firstItem="YFL-sk-xsC" firstAttribute="leading" secondItem="acJ-e1-KCJ" secondAttribute="leading" id="cmf-gC-tzC"/>
                             <constraint firstItem="dkI-VA-3lW" firstAttribute="height" secondItem="YFL-sk-xsC" secondAttribute="height" id="dKm-Ci-1It"/>
+                            <constraint firstItem="F59-fx-pyP" firstAttribute="centerX" secondItem="YFL-sk-xsC" secondAttribute="centerX" id="hiL-no-lf4"/>
                             <constraint firstAttribute="trailing" secondItem="dkI-VA-3lW" secondAttribute="trailing" id="i6V-hA-ZH4"/>
+                            <constraint firstItem="pk6-J6-5mf" firstAttribute="leading" secondItem="YFL-sk-xsC" secondAttribute="trailing" constant="8" id="igx-jF-Jrp"/>
+                            <constraint firstItem="4j4-ve-9BX" firstAttribute="centerY" secondItem="lUW-nB-dan" secondAttribute="centerY" id="j2g-CG-ebs"/>
                             <constraint firstItem="dkI-VA-3lW" firstAttribute="centerY" secondItem="YFL-sk-xsC" secondAttribute="centerY" id="p0a-hs-Vvs"/>
+                            <constraint firstItem="pk6-J6-5mf" firstAttribute="centerY" secondItem="YFL-sk-xsC" secondAttribute="centerY" id="qhQ-h0-VtG"/>
+                            <constraint firstItem="lUW-nB-dan" firstAttribute="centerY" secondItem="dkI-VA-3lW" secondAttribute="centerY" id="qnu-hI-0vm"/>
+                            <constraint firstItem="pk6-J6-5mf" firstAttribute="centerY" secondItem="F59-fx-pyP" secondAttribute="centerY" id="vPR-fp-JCq"/>
+                            <constraint firstItem="F59-fx-pyP" firstAttribute="leading" secondItem="pk6-J6-5mf" secondAttribute="trailing" constant="4" id="zeh-D1-eJm"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="igx-jF-Jrp"/>
+                                <exclude reference="qhQ-h0-VtG"/>
+                            </mask>
+                        </variation>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -211,6 +253,8 @@
     </objects>
     <resources>
         <image name="bar_shape" width="7" height="13"/>
+        <image name="icon_phone" width="13" height="13"/>
         <image name="icon_user_man" width="10" height="9"/>
+        <image name="icon_view_plan" width="17" height="20"/>
     </resources>
 </document>

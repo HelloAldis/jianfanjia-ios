@@ -8,6 +8,7 @@
 
 #import "ChoosedPlanActionCell.h"
 #import "ViewControllerContainer.h"
+#import "SetWorksiteStartTimeViewController.h"
 
 @interface ChoosedPlanActionCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblUpdateTimeVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnEditRequirement;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAgreement;
+@property (weak, nonatomic) IBOutlet UILabel *lblViewAgreement;
+@property (weak, nonatomic) IBOutlet UIImageView *iconViewAgreement;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
 @property (weak, nonatomic) IBOutlet UIButton *btnContact;
 
@@ -51,11 +54,25 @@
 - (void)initWithRequirement:(Requirement *)requirement actionBlock:(ActionBlock)actionBlock {
     [super initWithRequirement:requirement actionBlock:actionBlock];
     [self initHeaderData:self.imgHomeOwner gender:self.imgUserGender name:self.lblUserName cell:self.lblCellNameVal info:self.lblRequirementfInfo updateTime:self.lblUpdateTimeVal];
+    
+    if (self.requirement.start_at) {
+        self.lblViewAgreement.text = @"查看合同";
+        self.iconViewAgreement.image = [UIImage imageNamed:@"icon_view_plan"];
+    } else {
+        self.lblViewAgreement.text = @"设置开工时间";
+        self.iconViewAgreement.image = [UIImage imageNamed:@"icon_set_work_time"];
+    }
 }
 
 #pragma mark - user action
 - (void)onClickViewAgreement {
-    
+    [SetWorksiteStartTimeViewController showSetMeasureHouseTime:self.requirement completion:^(BOOL completion) {
+        if (completion) {
+            if (self.actionBlock) {
+                self.actionBlock();
+            }
+        }
+    }];
 }
 
 @end

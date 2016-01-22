@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblProjectTotalDays;
 @property (weak, nonatomic) IBOutlet UILabel *lblProjectTotalPrice;
 @property (weak, nonatomic) IBOutlet UILabel *lblProjectWorkType;
+@property (weak, nonatomic) IBOutlet UIView *headerLine;
 
 @property (strong, nonatomic) Requirement *requirement;
 @property (copy, nonatomic) WorksiteStartCompletionBlock completion;
@@ -70,15 +71,36 @@
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     [self.datePicker setMinimumDate:[NSDate date]];
     self.lblDateTime.text = [self.datePicker.date yyyy_Nian_MM_Yue_dd_Ri];
-    self.lblProjectTotalDays.text = [NSString stringWithFormat:@"总工期：%@天,\n开工日期：%@年%@月%@日，\n竣工日期：%@年%@月%@日。", @"", @"", @"", @"", @"", @"", @""];
-    self.lblProjectTotalPrice.text = [NSString stringWithFormat:@"本工程装修合同总价为人民币（大写）%@（%@元）。", @"", [self.requirement.total_price humRmbString]];
+    
+    NSNumber *worksiteStartTime = self.requirement.start_at;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[worksiteStartTime doubleValue] / 1000];
+    
+    NSDateComponents *startComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:startDate];
+    NSDate *endDate = [calendar dateByAddingUnit:NSCalendarUnitDay value:self.requirement.plan.duration.integerValue toDate:startDate options:0];
+    NSDateComponents *endComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:endDate];
+    
+    self.lblProjectTotalDays.text = [NSString stringWithFormat:@"总工期：%@天,\n开工日期：%@年%@月%@日，\n竣工日期：%@年%@月%@日。", worksiteStartTime ? self.requirement.plan.duration : @"____", worksiteStartTime ? @(startComponents.year) : @"____", worksiteStartTime ? @(startComponents.month) : @"__", worksiteStartTime ? @(startComponents.day) : @"__", worksiteStartTime ? @(endComponents.year) : @"____", worksiteStartTime ? @(endComponents.month) : @"__", worksiteStartTime ? @(endComponents.day) : @"__"];
+    self.lblProjectTotalPrice.text = [NSString stringWithFormat:@"本工程装修合同总价为人民币 (大写) %@ (%@元)。", [self.requirement.total_price humRmbUppercaseString], [self.requirement.total_price humRmbString]];
     ;
-    self.lblProjectWorkType.text = [NSString stringWithFormat:@"%@（清包，半包，全包）。", [NameDict nameForWorkType:self.requirement.work_type]];
+    self.lblProjectWorkType.text = [NSString stringWithFormat:@"%@ (清包，半包，全包)。", [NameDict nameForWorkType:self.requirement.work_type]];
+    
+    if (worksiteStartTime) {
+        self.btnOk.hidden = YES;
+        self.lblDateTime.hidden = YES;
+        self.datePicker.hidden = YES;
+        self.headerLine.hidden = YES;
+    } else {
+        self.btnOk.hidden = NO;
+        self.lblDateTime.hidden = NO;
+        self.datePicker.hidden = NO;
+        self.headerLine.hidden = NO;
+    }
 }
 
 - (void)onDatePickerValueChanged:(UIDatePicker *)datePicker {
     NSDate *date = datePicker.date;
-    self.lblDateTime.text = [date yyyy_Nian_MM_Yue_dd_Ri_HH_mm];
+    self.lblDateTime.text = [date yyyy_Nian_MM_Yue_dd_Ri];
 }
 
 #pragma mark - user actions
@@ -91,11 +113,11 @@
 
 - (IBAction)onClickOk:(id)sender  {
     [HUDUtil showWait];
-    DesignerRespondUser *request = [[DesignerRespondUser alloc] init];
+    DesignerConfigAgreement *request = [[DesignerConfigAgreement alloc] init];
     request.requirementid = self.requirement._id;
-    request.house_check_time = @([self.datePicker.date timeIntervalSince1970] * 1000);
+    request.start_at = @([self.datePicker.date timeIntervalSince1970] * 1000);
     
-    [API designerRespondUser:request success:^{
+    [API designerConfigAgreement:request success:^{
         [HUDUtil hideWait];
         if (self.completion) {
             self.completion(YES);

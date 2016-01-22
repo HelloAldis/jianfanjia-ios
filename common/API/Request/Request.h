@@ -71,5 +71,6 @@
 #import "DesignerGetRequirementPlans.h"
 #import "DesignerRejectUser.h"
 #import "DesignerRespondUser.h"
+#import "DesignerConfigAgreement.h"
 
 #endif

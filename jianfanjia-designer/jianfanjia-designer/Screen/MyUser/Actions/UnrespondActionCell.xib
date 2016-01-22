@@ -135,7 +135,7 @@
                                     <constraint firstAttribute="width" constant="76" id="Kc3-NS-2BM"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="拒绝">
+                                <state key="normal">
                                     <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -145,6 +145,19 @@
                                     </mask>
                                 </variation>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="拒绝" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5QU-9O-vTH">
+                                <rect key="frame" x="109" y="17" width="28" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_reject" translatesAutoresizingMaskIntoConstraints="NO" id="M2P-lc-XJk">
+                                <rect key="frame" x="90" y="18" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="LCh-RB-aNh"/>
+                                    <constraint firstAttribute="width" constant="15" id="rQW-bV-JxV"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="94Q-Ev-oz8">
                                 <rect key="frame" x="247" y="1" width="245" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,7 +166,7 @@
                                     <constraint firstAttribute="height" constant="40" id="wjg-j4-yHE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="响应">
+                                <state key="normal">
                                     <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -163,6 +176,19 @@
                                     </mask>
                                 </variation>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="响应" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxi-9y-AMD">
+                                <rect key="frame" x="355" y="17" width="28" height="17"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_respond" translatesAutoresizingMaskIntoConstraints="NO" id="rGF-Au-H4p">
+                                <rect key="frame" x="336" y="18" width="15" height="15"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="15" id="MeW-TX-UEq"/>
+                                    <constraint firstAttribute="height" constant="15" id="v95-SP-ZMh"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -171,9 +197,17 @@
                             <constraint firstItem="94Q-Ev-oz8" firstAttribute="centerY" secondItem="Aep-Vd-j91" secondAttribute="centerY" id="6fm-ee-hLq"/>
                             <constraint firstItem="94Q-Ev-oz8" firstAttribute="leading" secondItem="Aep-Vd-j91" secondAttribute="trailing" constant="1" id="8uo-PL-csk"/>
                             <constraint firstItem="94Q-Ev-oz8" firstAttribute="height" secondItem="Aep-Vd-j91" secondAttribute="height" id="E7k-2c-Igu"/>
+                            <constraint firstItem="rGF-Au-H4p" firstAttribute="centerY" secondItem="Kxi-9y-AMD" secondAttribute="centerY" id="EIT-lw-iqW"/>
+                            <constraint firstItem="M2P-lc-XJk" firstAttribute="centerY" secondItem="5QU-9O-vTH" secondAttribute="centerY" id="IQF-RO-XYj"/>
                             <constraint firstAttribute="trailing" secondItem="94Q-Ev-oz8" secondAttribute="trailing" id="Lc0-8c-M9M"/>
                             <constraint firstItem="Aep-Vd-j91" firstAttribute="width" secondItem="94Q-Ev-oz8" secondAttribute="width" id="MV0-3l-hHM"/>
+                            <constraint firstItem="5QU-9O-vTH" firstAttribute="leading" secondItem="M2P-lc-XJk" secondAttribute="trailing" constant="4" id="Mzc-1p-YNU"/>
+                            <constraint firstItem="5QU-9O-vTH" firstAttribute="centerX" secondItem="Aep-Vd-j91" secondAttribute="centerX" id="U2d-ZM-K4v"/>
+                            <constraint firstItem="Kxi-9y-AMD" firstAttribute="centerX" secondItem="94Q-Ev-oz8" secondAttribute="centerX" id="Z1u-U2-qtK"/>
                             <constraint firstAttribute="height" constant="50" id="o3I-85-TDC"/>
+                            <constraint firstItem="Kxi-9y-AMD" firstAttribute="leading" secondItem="rGF-Au-H4p" secondAttribute="trailing" constant="4" id="oI9-XK-MDk"/>
+                            <constraint firstItem="5QU-9O-vTH" firstAttribute="centerY" secondItem="Aep-Vd-j91" secondAttribute="centerY" id="vvg-aB-4NW"/>
+                            <constraint firstItem="Kxi-9y-AMD" firstAttribute="centerY" secondItem="94Q-Ev-oz8" secondAttribute="centerY" id="xiV-jm-ci6"/>
                             <constraint firstItem="Aep-Vd-j91" firstAttribute="leading" secondItem="zWf-JH-eVt" secondAttribute="leading" id="zhl-bu-3ab"/>
                         </constraints>
                     </view>
@@ -211,6 +245,8 @@
     </objects>
     <resources>
         <image name="bar_shape" width="7" height="13"/>
+        <image name="icon_reject" width="21" height="21"/>
+        <image name="icon_respond" width="21" height="21"/>
         <image name="icon_user_man" width="10" height="9"/>
     </resources>
 </document>

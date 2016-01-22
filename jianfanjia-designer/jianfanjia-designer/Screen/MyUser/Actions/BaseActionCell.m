@@ -35,9 +35,7 @@
     [ViewControllerContainer showPlanList:self.requirement];
 }
 
-- (void)onClickContact {
-    [[NSNumber numberWithInt:5861907] humRmbUppercaseString];
-    
+- (void)onClickContact {    
     [PhoneUtil call:self.requirement.user.phone];
 }
 
