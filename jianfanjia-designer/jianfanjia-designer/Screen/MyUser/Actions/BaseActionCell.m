@@ -36,7 +36,7 @@
 }
 
 - (void)onClickContact {
-    [[NSNumber numberWithInt:586197] humRmbUppercaseString];
+    [[NSNumber numberWithInt:5861907] humRmbUppercaseString];
     
     [PhoneUtil call:self.requirement.user.phone];
 }

@@ -77,85 +77,35 @@
 }
 
 - (NSString *)humRmbUppercaseString {
-    NSString *rmbStr = [self stringValue];
-    NSMutableString *rmbUppercase = [[NSMutableString alloc] init];
-    NSInteger len = rmbStr.length;
+    static NSArray *unitArr;
+    static NSArray *uppercaseArr;
+    unitArr = @[@"分", @"角", @"元", @"拾", @"佰", @"仟", @"万", @"拾", @"佰", @"仟", @"亿", @"拾", @"佰", @"仟", @"兆", @"拾", @"佰", @"仟" ];
+    uppercaseArr = @[@"零", @"壹", @"贰", @"叁", @"肆", @"伍", @"陆", @"柒", @"捌", @"玖"];
     
-    for (NSInteger i = 0; i < len; i++) {
-        NSInteger numth = len - i;
-
-        [rmbUppercase appendString:[self rmbNumToUppercase:@([[rmbStr substringWithRange:NSMakeRange(i, 1)] integerValue])]];
-        [rmbUppercase appendString:[self rmbUnitToUppercase:@(numth)]];
-    }
+    NSMutableString *moneyStr = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"%.2f", [self doubleValue]]];
+    NSMutableString *chineseNumerals = [[NSMutableString alloc] init];
     
-    return [NSString stringWithFormat:@"￥%@元", rmbUppercase];
-}
-
-- (NSString *)rmbNumToUppercase:(NSNumber *)num {
-    NSString *str = @"";
-    switch (num.intValue) {
-        case 0:
-            str = @"零";
-            break;
-        case 1:
-            str = @"壹";
-            break;
-        case 2:
-            str = @"贰";
-            break;
-        case 3:
-            str = @"叁";
-            break;
-        case 4:
-            str = @"肆";
-            break;
-        case 5:
-            str = @"伍";
-            break;
-        case 6:
-            str = @"陆";
-            break;
-        case 7:
-            str = @"柒";
-            break;
-        case 8:
-            str = @"捌";
-            break;
-        case 9:
-            str = @"玖";
-            break;
+    [moneyStr deleteCharactersInRange:NSMakeRange([moneyStr rangeOfString:@"."].location, 1)];
+    
+    for(NSInteger i = moneyStr.length; i > 0; i--) {
+        NSInteger num = [[moneyStr substringWithRange:NSMakeRange(moneyStr.length - i, 1)] integerValue];
+        [chineseNumerals appendString:uppercaseArr[num]];
+                                             
+        if([[moneyStr substringFromIndex:moneyStr.length - i + 1] integerValue] == 0 && i != 1 && i != 2) {
+            if ([unitArr[i - 1] isEqualToString:@"元"]) {
+             
+            } else {
+                [chineseNumerals appendString:unitArr[i - 1]];
+            }
             
-        default:
+            [chineseNumerals appendString:@"元整"];
             break;
+        }
+        
+        [chineseNumerals appendString:unitArr[i - 1]];
     }
-    
-    return str;
-}
-
-- (NSString *)rmbUnitToUppercase:(NSNumber *)num {
-    NSString *str = @"";
-    switch (num.intValue) {
-        case 2:
-            str = @"拾";
-            break;
-        case 3:
-            str = @"佰";
-            break;
-        case 4:
-            str = @"仟";
-            break;
-        case 5:
-            str = @"万";
-            break;
-        case 9:
-            str = @"亿";
-            break;
-            
-        default:
-            break;
-    }
-    
-    return str;
+              
+    return chineseNumerals;
 }
 
 @end
