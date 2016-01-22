@@ -16,9 +16,8 @@ static NSString *ProcessCellId = @"ProcessCell";
 
 @interface MyProcessViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIButton *btnCreate;
-@property (weak, nonatomic) IBOutlet UILabel *lblNoRequirement;
+@property (weak, nonatomic) IBOutlet UIScrollView *noProcessImageView;
+@property (weak, nonatomic) IBOutlet UILabel *lblNoProcessDesc;
 
 @property (strong, nonatomic) ProcessDataManager *dataManager;
 
@@ -37,13 +36,13 @@ static NSString *ProcessCellId = @"ProcessCell";
     
     [self initUI];
     [self initNav];
+    [self refreshProcessList:YES];
     self.preY = 0;
     self.isTabbarhide = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];    
-    [self refreshProcessList:YES];
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -64,11 +63,14 @@ static NSString *ProcessCellId = @"ProcessCell";
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 210;
     [self.tableView registerNib:[UINib nibWithNibName:ProcessCellId bundle:nil] forCellReuseIdentifier:ProcessCellId];
     @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refreshProcessList:NO];
+    }];
+    
+    self.noProcessImageView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refreshProcessList:NO];
     }];
@@ -120,17 +122,33 @@ static NSString *ProcessCellId = @"ProcessCell";
     }
 }
 
+- (void)showNoProcessImage:(BOOL)show {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.lblNoProcessDesc.text = @"由于您的工地还没有开工，请及时查看需求状态，\n如果您想查看装修流程，我们已为您精心准备了工地模版";
+        self.noProcessImageView.alpha = show ? 1 : 0;
+        self.tableView.alpha = !show ? 1 : 0;
+    } completion:nil];
+}
+
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.dataManager.processList count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ProcessCell *cell = [tableView dequeueReusableCellWithIdentifier:ProcessCellId forIndexPath:indexPath];
     [cell initWithProcess:self.dataManager.processList[indexPath.row]];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 246;
+}
+
+#pragma mark - user action
+- (IBAction)onClickPreviewWorksite:(id)sender {
+    [ViewControllerContainer showProcessPreview];
 }
 
 #pragma mark - send request 
@@ -144,15 +162,18 @@ static NSString *ProcessCellId = @"ProcessCell";
     [API getDesignerProcess:getProcesss success:^{
         [HUDUtil hideWait];
         [self.tableView.header endRefreshing];
+        [self.noProcessImageView.header endRefreshing];
         [self.dataManager refreshProcessList];
-        
+        [self showNoProcessImage:self.dataManager.processList.count == 0];
         [self.tableView reloadData];
     } failure:^{
         [HUDUtil hideWait];
         [self.tableView.header endRefreshing];
+        [self.noProcessImageView.header endRefreshing];
     } networkError:^{
         [HUDUtil hideWait];
         [self.tableView.header endRefreshing];
+        [self.noProcessImageView.header endRefreshing];
     }];
 }
 

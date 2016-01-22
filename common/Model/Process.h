@@ -9,6 +9,8 @@
 #import "BaseModel.h"
 @class Section;
 @class User;
+@class Plan;
+@class Requirement;
 
 @interface Process : BaseModel
 
@@ -33,6 +35,10 @@
 
 //不动态的属性
 @property(nonatomic, strong) User *user;
+//不动态属性
+@property(nonatomic, strong) Plan *plan;
+//不动态属性
+@property(nonatomic, strong) Requirement *requirement;
 
 - (Section *)sectionAtIndex:(NSInteger )index;
 

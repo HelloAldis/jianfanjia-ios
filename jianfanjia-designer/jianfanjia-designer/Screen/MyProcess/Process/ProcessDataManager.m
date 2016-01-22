@@ -16,6 +16,14 @@
     
     [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         Process *process = [[Process alloc] initWith:obj];
+        User *user = [[User alloc] initWith:[process.data objectForKey:@"user"]];
+        Requirement *requirement = [[Requirement alloc] initWith:[process.data objectForKey:@"requirement"]];
+        Plan *plan = [[Plan alloc] initWith:[process.data objectForKey:@"plan"]];
+        process.user = user;
+        process.requirement = requirement;
+        process.plan = plan;
+        requirement.plan = plan;
+        
         [processArr addObject:process];
     }];
     

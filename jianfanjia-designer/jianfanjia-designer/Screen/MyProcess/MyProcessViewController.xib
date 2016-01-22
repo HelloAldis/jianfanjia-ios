@@ -8,9 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyProcessViewController">
             <connections>
-                <outlet property="btnCreate" destination="zlJ-1x-l7N" id="ExM-JD-fNv"/>
-                <outlet property="imageView" destination="9ig-fY-uhR" id="xeQ-om-L2z"/>
-                <outlet property="lblNoRequirement" destination="DS7-EN-yPO" id="qRS-FH-Cs4"/>
+                <outlet property="lblNoProcessDesc" destination="9pz-qz-nLe" id="DnK-PL-fCf"/>
+                <outlet property="noProcessImageView" destination="rl5-l7-bxQ" id="nnX-ZS-qz4"/>
                 <outlet property="tableView" destination="SBR-wo-UES" id="qVI-77-zUb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="K7E-IL-zYl"/>
             </connections>
@@ -20,6 +19,49 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rl5-l7-bxQ" userLabel="noProcessImageView">
+                    <rect key="frame" x="0.0" y="64" width="414" height="632"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_process_image" translatesAutoresizingMaskIntoConstraints="NO" id="xhx-TV-Kf2">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="266"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="xhx-TV-Kf2" secondAttribute="height" multiplier="829:532" id="zu7-Yl-9Zf"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="由于您的工地还没有开工，请及时查看需求状态，如果您想查看装修流程，我们已为您精心准备了工地模版" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pz-qz-nLe">
+                            <rect key="frame" x="20" y="296" width="374" height="58"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlJ-1x-l7N">
+                            <rect key="frame" x="122" y="384" width="170" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="170" id="189-6e-qMM"/>
+                                <constraint firstAttribute="height" constant="30" id="jH4-nX-FrL"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <state key="normal" title="点击查看工地模版">
+                                <color key="titleColor" red="0.99607843137254903" green="0.4392156862745098" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="onClickPreviewWorksite:" destination="-1" eventType="touchUpInside" id="nkV-AG-aDO"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="xhx-TV-Kf2" secondAttribute="trailing" id="3Uj-Is-Mqi"/>
+                        <constraint firstItem="xhx-TV-Kf2" firstAttribute="top" secondItem="rl5-l7-bxQ" secondAttribute="top" id="5uh-Iv-rde"/>
+                        <constraint firstItem="zlJ-1x-l7N" firstAttribute="centerX" secondItem="rl5-l7-bxQ" secondAttribute="centerX" id="BYj-8G-adZ"/>
+                        <constraint firstItem="9pz-qz-nLe" firstAttribute="leading" secondItem="rl5-l7-bxQ" secondAttribute="leading" constant="20" id="Hb9-Ji-o1t"/>
+                        <constraint firstItem="9pz-qz-nLe" firstAttribute="centerX" secondItem="rl5-l7-bxQ" secondAttribute="centerX" id="Wfr-k5-MKC"/>
+                        <constraint firstItem="9pz-qz-nLe" firstAttribute="top" secondItem="xhx-TV-Kf2" secondAttribute="bottom" constant="30" id="dc1-Fj-Psh"/>
+                        <constraint firstItem="xhx-TV-Kf2" firstAttribute="width" secondItem="rl5-l7-bxQ" secondAttribute="width" id="h0r-1E-p65"/>
+                        <constraint firstItem="zlJ-1x-l7N" firstAttribute="top" secondItem="9pz-qz-nLe" secondAttribute="bottom" constant="30" id="pwl-lu-ESY"/>
+                        <constraint firstAttribute="bottom" secondItem="zlJ-1x-l7N" secondAttribute="bottom" constant="30" id="qag-XU-oSb"/>
+                        <constraint firstItem="xhx-TV-Kf2" firstAttribute="leading" secondItem="rl5-l7-bxQ" secondAttribute="leading" id="tb2-of-IyE"/>
+                    </constraints>
+                </scrollView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SBR-wo-UES">
                     <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                     <color key="backgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,53 +71,14 @@
                         <outlet property="delegate" destination="-1" id="mTM-rl-mGR"/>
                     </connections>
                 </tableView>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="requirement_bg" translatesAutoresizingMaskIntoConstraints="NO" id="9ig-fY-uhR">
-                    <rect key="frame" x="0.0" y="64" width="414" height="283"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="268" id="Ldn-Uh-QmO"/>
-                        <constraint firstAttribute="width" secondItem="9ig-fY-uhR" secondAttribute="height" multiplier="640:438" id="SiR-mQ-Fle"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="Ldn-Uh-QmO"/>
-                        </mask>
-                    </variation>
-                </imageView>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有发布需求，当前列表为空" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS7-EN-yPO">
-                    <rect key="frame" x="89" y="398" width="236" height="16"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="236" id="Ohj-wb-RoY"/>
-                        <constraint firstAttribute="height" constant="16" id="RNH-cu-6sC"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                    <color key="textColor" red="0.48627450980392156" green="0.51764705882352935" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlJ-1x-l7N">
-                    <rect key="frame" x="122" y="471" width="170" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="170" id="189-6e-qMM"/>
-                        <constraint firstAttribute="height" constant="30" id="jH4-nX-FrL"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                    <state key="normal" title="免费获取三套方案 &gt;">
-                        <color key="titleColor" red="0.99607843137254903" green="0.4392156862745098" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="onClickCreate:" destination="-1" eventType="touchUpInside" id="BA5-Us-3br"/>
-                    </connections>
-                </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="9ig-fY-uhR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="4u6-jz-Lnp"/>
-                <constraint firstItem="zlJ-1x-l7N" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Hba-YJ-Uf3"/>
+                <constraint firstItem="rl5-l7-bxQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3Cd-fp-PoV"/>
+                <constraint firstAttribute="bottom" secondItem="rl5-l7-bxQ" secondAttribute="bottom" constant="40" id="3Nb-zj-b57"/>
+                <constraint firstItem="rl5-l7-bxQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="DP2-s7-4UI"/>
                 <constraint firstItem="SBR-wo-UES" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Hct-SA-zbl"/>
-                <constraint firstItem="9ig-fY-uhR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HnY-4X-aKU"/>
-                <constraint firstItem="DS7-EN-yPO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Ku7-vy-uXE"/>
-                <constraint firstItem="DS7-EN-yPO" firstAttribute="top" secondItem="9ig-fY-uhR" secondAttribute="bottom" constant="51" id="L9L-R1-fs2"/>
-                <constraint firstItem="zlJ-1x-l7N" firstAttribute="top" secondItem="DS7-EN-yPO" secondAttribute="bottom" constant="57" id="bGT-nb-VAg"/>
-                <constraint firstItem="9ig-fY-uhR" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="dRJ-vq-A1r"/>
+                <constraint firstItem="rl5-l7-bxQ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="U9H-Ci-vbX"/>
                 <constraint firstItem="SBR-wo-UES" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="kwS-6c-Nne"/>
                 <constraint firstItem="SBR-wo-UES" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="nVf-aM-nic"/>
                 <constraint firstAttribute="bottom" secondItem="SBR-wo-UES" secondAttribute="bottom" id="oeY-qT-OON"/>
@@ -85,6 +88,6 @@
         </view>
     </objects>
     <resources>
-        <image name="requirement_bg" width="320" height="219"/>
+        <image name="no_process_image" width="414" height="266"/>
     </resources>
 </document>
