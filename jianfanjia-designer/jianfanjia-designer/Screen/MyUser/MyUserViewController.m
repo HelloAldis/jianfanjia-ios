@@ -231,8 +231,10 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         [self.dataManager refreshAllActions];
         [self switchToSuitableButton];
     } failure:^{
+        [self.tableView.header endRefreshing];
         [HUDUtil hideWait];
     } networkError:^{
+        [self.tableView.header endRefreshing];
         [HUDUtil hideWait];
     }];
 }
