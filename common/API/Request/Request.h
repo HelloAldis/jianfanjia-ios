@@ -72,5 +72,6 @@
 #import "DesignerRejectUser.h"
 #import "DesignerRespondUser.h"
 #import "DesignerConfigAgreement.h"
+#import "DesignerDoneSectionItem.h"
 
 #endif

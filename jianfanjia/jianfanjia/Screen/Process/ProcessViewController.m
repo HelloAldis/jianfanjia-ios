@@ -399,8 +399,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         }
         
         [self refreshSectionView];
+        [self refreshSectionBackground];
         [self.tableView beginUpdates];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+//        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView endUpdates];
     } failure:^{
         
@@ -461,12 +463,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 - (void)initItemsStatus {
-    id backgroundView = self.tableView.backgroundView;
-    if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
-        [backgroundView statusLine].backgroundColor = kFinishedColor;
-    } else {
-        [backgroundView statusLine].backgroundColor = kUntriggeredColor;
-    }
+    [self refreshSectionBackground];
     
     self.lastSelectedIndexPath = nil;
     if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusUnStart]) {
@@ -508,6 +505,15 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     if (latestUpdateItem > -1) {
         self.lastSelectedIndexPath = [NSIndexPath indexPathForRow:latestUpdateItem inSection:0];
+    }
+}
+
+- (void)refreshSectionBackground {
+    id backgroundView = self.tableView.backgroundView;
+    if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        [backgroundView statusLine].backgroundColor = kFinishedColor;
+    } else {
+        [backgroundView statusLine].backgroundColor = kUntriggeredColor;
     }
 }
 

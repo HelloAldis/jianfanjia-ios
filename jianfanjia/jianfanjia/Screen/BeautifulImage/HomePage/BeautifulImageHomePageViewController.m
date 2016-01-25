@@ -119,7 +119,7 @@
         
         LeafImage *leafImage = [self.beautifulImage leafImageAtIndex:i];
         [self.imageViewStatus addObject:@0];
-        [w1 setImageWithId:leafImage.imageid withWidth:kScreenWidth completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [w1 setImageWithId:leafImage.imageid withWidth:kScreenWidth completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
             @strongify(self);
             if (error == nil) {
                 if (self.index == i) {

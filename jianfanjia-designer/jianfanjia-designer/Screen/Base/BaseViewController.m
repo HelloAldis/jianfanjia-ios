@@ -43,6 +43,8 @@
 
 - (void)didReceiveMemoryWarning {
     DDLogError(@"didReceiveMemoryWarning");
+    YYImageCache *cache = [YYWebImageManager sharedManager].cache;
+    [cache.memoryCache removeAllObjects];
 }
 
 #pragma mark - UI

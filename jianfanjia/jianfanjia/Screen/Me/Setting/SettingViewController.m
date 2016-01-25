@@ -39,7 +39,8 @@
 }
 
 - (void)updateCache {
-    self.lblCache.text = [@([[SDImageCache sharedImageCache] getSize] / 8) humSizeString];
+    YYImageCache *cache = [YYWebImageManager sharedManager].cache;
+    self.lblCache.text = [@((cache.memoryCache.totalCost + cache.diskCache.totalCost) /8 ) humSizeString];
 }
 
 #pragma mark - user action
@@ -61,7 +62,10 @@
     @weakify(self)
     UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         @strongify(self);
-        [[SDImageCache sharedImageCache] clearDisk];
+        YYImageCache *cache = [YYWebImageManager sharedManager].cache;
+        [cache.memoryCache removeAllObjects];
+        [cache.diskCache removeAllObjects];
+        [self updateCache];
         [self updateCache];
     }];
     

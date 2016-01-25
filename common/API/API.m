@@ -312,6 +312,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"config_contract" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)designerDoneSectionItem:(DesignerDoneSectionItem *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"process/done_item" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 

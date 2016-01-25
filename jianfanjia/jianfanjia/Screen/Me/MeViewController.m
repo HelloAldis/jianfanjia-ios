@@ -33,7 +33,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.userThumnail setCornerRadius:50];
+    [self.userThumnail setCornerRadius:self.userThumnail.frame.size.width / 2];
     [self.userThumnail setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
