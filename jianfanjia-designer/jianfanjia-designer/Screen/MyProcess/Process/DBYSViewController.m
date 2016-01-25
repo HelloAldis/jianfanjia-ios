@@ -33,6 +33,9 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 @property (strong, nonatomic) NSMutableArray *imgArray;
 
+@property (assign, nonatomic) BOOL isEditing;
+@property (assign, nonatomic) BOOL isShaking;
+
 @end
 
 @implementation DBYSViewController
@@ -63,6 +66,8 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
+    self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     self.title = @"对比验收";
 }
 
@@ -177,7 +182,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
             YsImage *image = self.imgArray[scenceImageIndex];
             [cell initWithImage:image.imageid width:self.imgCollectionLayout.itemSize.width];
         } else {
-            [cell initWithImage:[UIImage imageNamed:@"waitToUpload"]];
+            [cell initWithImage:[UIImage imageNamed:@"btn_add_image"]];
         }
     } else {
         [cell initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", self.section.name, @(indexPath.row / 2)]]];
@@ -196,7 +201,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     }
     
     if ((indexPath.row + 1) % 2 == 0) {
-        [self showScenceImageDetail:(indexPath.row + 1) / 2 - 1];
+        [self showScenceImageDetail:(indexPath.row + 1) / 2 - 1 indexpath:indexPath];
     } else {
         [self showStandardImageDetail:indexPath.row / 2];
     }
@@ -213,14 +218,109 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     [ViewControllerContainer showOfflineImages:images index:index];
 }
 
-- (void)showScenceImageDetail:(NSInteger)index {
+- (void)showScenceImageDetail:(NSInteger)index indexpath:(NSIndexPath *)indexPath {
+    if (self.isShaking) {
+        if (index < self.imgArray.count) {
+            [self deleteImage:index indexPath:indexPath];
+            return;
+        }
+    }
+    
     if (index < self.imgArray.count) {
         NSArray *images = [self.imgArray map:^id(YsImage *obj) {
             return obj.imageid;
         }];
         
         [ViewControllerContainer showOnlineImages:images index:index];
+    } else {
+        [self showPhotoSelector:[self.imgCollection cellForItemAtIndexPath:indexPath] index:index];
     }
+}
+
+#pragma mark - user action 
+- (void)onClickEdit {
+    self.isEditing = !self.isEditing;
+    
+    if (self.isEditing) {
+        self.navigationItem.rightBarButtonItem.title = @"完成";
+        [self startShaking];
+    } else {
+        self.navigationItem.rightBarButtonItem.title = @"编辑";
+        [self endShaking];
+    }
+}
+
+- (void)deleteImage:(NSInteger)index indexPath:(NSIndexPath *)indexPath {
+    [self.imgArray removeObjectAtIndex:index];
+    
+    DeleteYsImageFromProcess *request = [[DeleteYsImageFromProcess alloc] init];
+    request._id = self.processid;
+    request.section = self.section.name;
+    request.key = [@(index) stringValue];
+    
+    [API designerDeleteYsImage:request success:^{
+        ItemImageCollectionCell *cell = (ItemImageCollectionCell *)[self.imgCollection cellForItemAtIndexPath:indexPath];
+        cell.image.image = [UIImage imageNamed:@"btn_add_image"];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
+}
+
+- (void)startShaking {
+    if (self.isShaking) {
+        return;
+    }
+    
+    self.isShaking = YES;
+    [self.imgCollection.visibleCells enumerateObjectsUsingBlock:^(__kindof ItemImageCollectionCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ((idx + 1) % 2 == 0) {
+            [obj startShaking];
+        }
+    }];
+}
+
+- (void)endShaking {
+    if (!self.isShaking) {
+        return;
+    }
+    
+    self.isShaking = NO;
+    [self.imgCollection.visibleCells enumerateObjectsUsingBlock:^(__kindof ItemImageCollectionCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ((idx + 1) % 2 == 0) {
+            [obj endShaking];
+        }
+    }];
+}
+
+- (void)showPhotoSelector:(UIView *)view index:(NSInteger)index {
+    if (self.isShaking) {
+        [self endShaking];
+        return;
+    }
+    
+    @weakify(self);
+    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:[self getDBYSImageCount:self.section] - self.imgArray.count withBlock:^(NSArray *imageIds) {
+        @strongify(self);
+        UploadYsImageToProcess *request = [[UploadYsImageToProcess alloc] init];
+        request._id = self.processid;
+        request.section = self.section.name;
+        request.key = [@(index) stringValue];
+        request.imageid = imageIds[0];
+        [API designerUploadYsImage:request success:^{
+            YsImage *image = [[YsImage alloc] init];
+            image.imageid = imageIds[0];
+            
+            [self.imgArray addObject:image];
+            [self.imgCollection reloadData];
+        } failure:^{
+            
+        } networkError:^{
+            
+        }];
+        
+    }];
 }
 
 @end

@@ -287,6 +287,9 @@
 		681241C91C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241C71C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m */; };
 		681241CA1C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681241C81C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib */; };
 		682E04E61C55D85200F1ACAA /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 682E04E51C55D85200F1ACAA /* iTunesArtwork */; };
+		682E04ED1C55FA9100F1ACAA /* DeleteYsImageFromProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E04E81C55FA9100F1ACAA /* DeleteYsImageFromProcess.m */; };
+		682E04EE1C55FA9100F1ACAA /* NotifyUserToDBYS.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E04EA1C55FA9100F1ACAA /* NotifyUserToDBYS.m */; };
+		682E04EF1C55FA9100F1ACAA /* UploadYsImageToProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E04EC1C55FA9100F1ACAA /* UploadYsImageToProcess.m */; };
 		68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68425C2F1C55B0CC004D33F4 /* DesignerDoneSectionItem.m */; };
 		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
 		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
@@ -829,6 +832,12 @@
 		681241C71C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetMeasureHouseTimeViewController.m; sourceTree = "<group>"; };
 		681241C81C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetMeasureHouseTimeViewController.xib; sourceTree = "<group>"; };
 		682E04E51C55D85200F1ACAA /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		682E04E71C55FA9100F1ACAA /* DeleteYsImageFromProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteYsImageFromProcess.h; sourceTree = "<group>"; };
+		682E04E81C55FA9100F1ACAA /* DeleteYsImageFromProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteYsImageFromProcess.m; sourceTree = "<group>"; };
+		682E04E91C55FA9100F1ACAA /* NotifyUserToDBYS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifyUserToDBYS.h; sourceTree = "<group>"; };
+		682E04EA1C55FA9100F1ACAA /* NotifyUserToDBYS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotifyUserToDBYS.m; sourceTree = "<group>"; };
+		682E04EB1C55FA9100F1ACAA /* UploadYsImageToProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadYsImageToProcess.h; sourceTree = "<group>"; };
+		682E04EC1C55FA9100F1ACAA /* UploadYsImageToProcess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadYsImageToProcess.m; sourceTree = "<group>"; };
 		68425C2E1C55B0CC004D33F4 /* DesignerDoneSectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDoneSectionItem.h; sourceTree = "<group>"; };
 		68425C2F1C55B0CC004D33F4 /* DesignerDoneSectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDoneSectionItem.m; sourceTree = "<group>"; };
 		68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -1669,6 +1678,12 @@
 				68FB6ED41C51E0F1001C0613 /* DesignerConfigAgreement.m */,
 				68425C2E1C55B0CC004D33F4 /* DesignerDoneSectionItem.h */,
 				68425C2F1C55B0CC004D33F4 /* DesignerDoneSectionItem.m */,
+				682E04E71C55FA9100F1ACAA /* DeleteYsImageFromProcess.h */,
+				682E04E81C55FA9100F1ACAA /* DeleteYsImageFromProcess.m */,
+				682E04E91C55FA9100F1ACAA /* NotifyUserToDBYS.h */,
+				682E04EA1C55FA9100F1ACAA /* NotifyUserToDBYS.m */,
+				682E04EB1C55FA9100F1ACAA /* UploadYsImageToProcess.h */,
+				682E04EC1C55FA9100F1ACAA /* UploadYsImageToProcess.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2169,6 +2184,7 @@
 				681240C01C4CE471008FC9AB /* LeaveComment.m in Sources */,
 				681240C51C4CE471008FC9AB /* ProcessList.m in Sources */,
 				68123CE31C4C99C9008FC9AB /* BaseDynamicObject.m in Sources */,
+				682E04EF1C55FA9100F1ACAA /* UploadYsImageToProcess.m in Sources */,
 				68123CE61C4C99C9008FC9AB /* LogFormatter.m in Sources */,
 				681240D21C4CE471008FC9AB /* UnfavoriteBeautifulImage.m in Sources */,
 				68123FE31C4CCF4A008FC9AB /* Requirement.m in Sources */,
@@ -2186,6 +2202,7 @@
 				681241A71C4F3B1C008FC9AB /* RejectActionCell.m in Sources */,
 				68123E6E1C4CBE79008FC9AB /* TabViewController.m in Sources */,
 				68123E911C4CBE79008FC9AB /* AboutViewController.m in Sources */,
+				682E04ED1C55FA9100F1ACAA /* DeleteYsImageFromProcess.m in Sources */,
 				68123C8F1C4C9772008FC9AB /* InfiniteScrollView.m in Sources */,
 				681240B51C4CE471008FC9AB /* FavoriteBeautifulImage.m in Sources */,
 				681240141C4CDA06008FC9AB /* NSDictionary+Ex.m in Sources */,
@@ -2267,6 +2284,7 @@
 				6812412C1C4CF2D5008FC9AB /* PostponeNotificationCell.m in Sources */,
 				681240DE1C4CED53008FC9AB /* GetDesignerProcess.m in Sources */,
 				681240B11C4CE471008FC9AB /* DesignerHomePage.m in Sources */,
+				682E04EE1C55FA9100F1ACAA /* NotifyUserToDBYS.m in Sources */,
 				6E378D531BDA2D2E00908B77 /* User.m in Sources */,
 				681240C41C4CE471008FC9AB /* OrderDesignder.m in Sources */,
 				68123C901C4C9772008FC9AB /* ImageBrowerViewController.m in Sources */,

@@ -73,5 +73,8 @@
 #import "DesignerRespondUser.h"
 #import "DesignerConfigAgreement.h"
 #import "DesignerDoneSectionItem.h"
+#import "UploadYsImageToProcess.h"
+#import "DeleteYsImageFromProcess.h"
+#import "NotifyUserToDBYS.h"
 
 #endif

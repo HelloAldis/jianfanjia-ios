@@ -316,6 +316,18 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"process/done_item" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)designerUploadYsImage:(UploadYsImageToProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"process/ysimage" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerDeleteYsImage:(DeleteYsImageFromProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"process/ysimage/delete" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerNotifyUserToDBYS:(NotifyUserToDBYS *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"process/can_ys" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 
