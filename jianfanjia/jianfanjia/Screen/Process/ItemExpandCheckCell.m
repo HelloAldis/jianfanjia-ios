@@ -143,10 +143,7 @@
         self.statusLine2.backgroundColor = kUntriggeredColor;
     }
     
-    if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]
-        || [dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateRequest]
-        || [dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateAgree]
-        || [dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateDecline]) {
+    if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
         self.statusLine1.backgroundColor = kFinishedColor;
     } else {
         self.statusLine1.backgroundColor = kUntriggeredColor;

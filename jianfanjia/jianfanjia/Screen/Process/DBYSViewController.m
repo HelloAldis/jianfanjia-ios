@@ -74,22 +74,18 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     self.imgCollectionLayout.itemSize = CGSizeMake(cellWidth, cellWidth);
     self.imgCollectionLayout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
     [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
-    self.imgArray = [NSMutableArray arrayWithCapacity:self.section.ys.images.count];
+    NSInteger imgArrCount = [self getDBYSImageCount:self.section];
+    self.imgArray = [NSMutableArray arrayWithCapacity:imgArrCount];
+    for (NSInteger i = 0; i < imgArrCount; i++) {
+        [self.imgArray addObject:[[YsImage alloc] init]];
+    }
     
     @weakify(self);
     [self.section.ys.images enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
-        [self.imgArray addObject:[[YsImage alloc] initWith:obj]];
-    }];
-    
-    [self.imgArray sortWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(YsImage*  _Nonnull obj1, YsImage*  _Nonnull obj2) {
-        if ([obj1.key compare:obj2.key] == NSOrderedAscending) {
-            return NSOrderedAscending;
-        } else if ([obj1.key compare:obj2.key] == NSOrderedDescending) {
-            return NSOrderedDescending;
-        } else {
-            return NSOrderedSame;
-        }
+        YsImage *ysimage = [[YsImage alloc] initWith:obj];
+        YsImage *ysimg = self.imgArray[[ysimage.key intValue]];
+        ysimg.imageid = ysimage.imageid;
     }];
     
     [[self.btnConfirmAccept rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -112,11 +108,14 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         }];
     }];
     
+    NSInteger totalCount = [self getDBYSImageCount:self.section];
+    NSInteger count = [self getCurrentImageCount];
+    
     if ([self.section.status isEqualToString:kSectionStatusAlreadyFinished]) {
         self.btnConfirmAccept.enabled = NO;
         self.btnConfirmAccept.backgroundColor = kUntriggeredColor;
         [self.btnConfirmAccept setTitle:@"已确认对比验收" forState:UIControlStateNormal];
-    } else if ([self getDBYSImageCount:self.section] == self.imgArray.count) {
+    } else if (totalCount == count) {
         if ([self isAllSectionItemsFinished:self.section]) {
             self.btnConfirmAccept.enabled = YES;
             self.btnConfirmAccept.backgroundColor = kFinishedColor;
@@ -163,6 +162,18 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     return finished;
 }
 
+- (NSInteger)getCurrentImageCount {
+    NSInteger count = 0;
+    for (NSInteger i = 0; i < self.imgArray.count; i++) {
+        YsImage *img = self.imgArray[i];
+        if (img.imageid) {
+            count++;
+        }
+    }
+    
+    return count;
+}
+
 #pragma mark - collection delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return [self getDBYSImageCount:self.section] * 2;
@@ -173,9 +184,16 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     
     if ((indexPath.row + 1) % 2 == 0) {
         NSInteger scenceImageIndex = (indexPath.row + 1) / 2 - 1;
-        if (scenceImageIndex < self.imgArray.count) {
-            YsImage *image = self.imgArray[scenceImageIndex];
+        YsImage *image = self.imgArray[scenceImageIndex];
+        
+        if (image.imageid) {
             [cell initWithImage:image.imageid width:self.imgCollectionLayout.itemSize.width];
+            if (self.isEditing) {
+                [cell endShaking];
+                [cell startShaking];
+            } else {
+                [cell endShaking];
+            }
         } else {
             [cell initWithImage:[UIImage imageNamed:@"waitToUpload"]];
         }
@@ -214,12 +232,18 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 }
 
 - (void)showScenceImageDetail:(NSInteger)index {
-    if (index < self.imgArray.count) {
-        NSArray *images = [self.imgArray map:^id(YsImage *obj) {
-            return obj.imageid;
-        }];
+    YsImage *image = self.imgArray[index];
+    if (image.imageid) {
+        NSMutableArray *images = [NSMutableArray array];
+        for (NSInteger i = 0; i < self.imgArray.count; i++) {
+            YsImage *img = self.imgArray[i];
+            if (img.imageid) {
+                [images addObject:img.imageid];
+            }
+        }
         
-        [ViewControllerContainer showOnlineImages:images index:index];
+        NSInteger idx = [images indexOfObject:image.imageid];
+        [ViewControllerContainer showOnlineImages:images index:idx];
     }
 }
 

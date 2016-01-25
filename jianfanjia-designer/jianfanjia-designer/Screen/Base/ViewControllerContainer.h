@@ -23,7 +23,6 @@
 + (void)showRequirementCreate:(Requirement *)requirement;
 //+ (void)showDesigner:(NSString *)designerid;
 + (void)showEvaluate:(Evaluation *)evaluation;
-+ (void)showAgreement:(Requirement *)requirement;
 + (void)showPlanList:(Requirement *)requirement;
 + (void)leaveMessage:(Plan *)plan;
 + (void)leaveMessage:(NSString *)processid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock;

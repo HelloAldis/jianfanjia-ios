@@ -25,7 +25,6 @@
 #import "PlanPreviewViewController.h"
 #import "PlanPriceDetailViewController.h"
 #import "LeaveMessageViewController.h"
-#import "AgreementViewController.h"
 #import "ReminderViewController.h"
 #import "DBYSViewController.h"
 #import "RequirementCreateViewController.h"
@@ -218,11 +217,6 @@ static ViewControllerContainer *container;
 
 + (void)showEvaluate:(Evaluation *)evaluation {
     EvaluateDesignerViewController *v = [[EvaluateDesignerViewController alloc] initWithEvaluation:evaluation];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
-}
-
-+ (void)showAgreement:(Requirement *)requirement {
-    AgreementViewController *v = [[AgreementViewController alloc] initWithRequirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

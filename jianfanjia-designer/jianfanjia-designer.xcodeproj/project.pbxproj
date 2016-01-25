@@ -154,8 +154,6 @@
 		68123FE41C4CCF4A008FC9AB /* Schedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123FDB1C4CCF4A008FC9AB /* Schedule.m */; };
 		68123FEA1C4CCFFF008FC9AB /* DesignerBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123FE61C4CCFFF008FC9AB /* DesignerBusiness.m */; };
 		68123FEB1C4CCFFF008FC9AB /* NameDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123FE91C4CCFFF008FC9AB /* NameDict.m */; };
-		68123FF21C4CD1E3008FC9AB /* AgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123FED1C4CD1E3008FC9AB /* AgreementViewController.m */; };
-		68123FF31C4CD1E3008FC9AB /* AgreementViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123FEE1C4CD1E3008FC9AB /* AgreementViewController.xib */; };
 		68123FF41C4CD1E3008FC9AB /* EvaluateDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123FF01C4CD1E3008FC9AB /* EvaluateDesignerViewController.m */; };
 		68123FF51C4CD1E3008FC9AB /* EvaluateDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123FF11C4CD1E3008FC9AB /* EvaluateDesignerViewController.xib */; };
 		681240121C4CDA06008FC9AB /* NSArray+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123FFD1C4CDA06008FC9AB /* NSArray+Ex.m */; };
@@ -594,9 +592,6 @@
 		68123FE71C4CCFFF008FC9AB /* EnumBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnumBusiness.h; sourceTree = "<group>"; };
 		68123FE81C4CCFFF008FC9AB /* NameDict.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameDict.h; sourceTree = "<group>"; };
 		68123FE91C4CCFFF008FC9AB /* NameDict.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NameDict.m; sourceTree = "<group>"; };
-		68123FEC1C4CD1E3008FC9AB /* AgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreementViewController.h; sourceTree = "<group>"; };
-		68123FED1C4CD1E3008FC9AB /* AgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgreementViewController.m; sourceTree = "<group>"; };
-		68123FEE1C4CD1E3008FC9AB /* AgreementViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AgreementViewController.xib; sourceTree = "<group>"; };
 		68123FEF1C4CD1E3008FC9AB /* EvaluateDesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateDesignerViewController.h; sourceTree = "<group>"; };
 		68123FF01C4CD1E3008FC9AB /* EvaluateDesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateDesignerViewController.m; sourceTree = "<group>"; };
 		68123FF11C4CD1E3008FC9AB /* EvaluateDesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateDesignerViewController.xib; sourceTree = "<group>"; };
@@ -1330,9 +1325,6 @@
 				68123F261C4CCBF9008FC9AB /* MyUserViewController.h */,
 				68123F271C4CCBF9008FC9AB /* MyUserViewController.m */,
 				68123F281C4CCBF9008FC9AB /* MyUserViewController.xib */,
-				68123FEC1C4CD1E3008FC9AB /* AgreementViewController.h */,
-				68123FED1C4CD1E3008FC9AB /* AgreementViewController.m */,
-				68123FEE1C4CD1E3008FC9AB /* AgreementViewController.xib */,
 				68123FEF1C4CD1E3008FC9AB /* EvaluateDesignerViewController.h */,
 				68123FF01C4CD1E3008FC9AB /* EvaluateDesignerViewController.m */,
 				68123FF11C4CD1E3008FC9AB /* EvaluateDesignerViewController.xib */,
@@ -2075,7 +2067,6 @@
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
 				68123F101C4CBE79008FC9AB /* SelectPopulationViewController.xib in Resources */,
 				68123E941C4CBE79008FC9AB /* FeedbackViewController.xib in Resources */,
-				68123FF31C4CD1E3008FC9AB /* AgreementViewController.xib in Resources */,
 				68123C9A1C4C9772008FC9AB /* city2area.js in Resources */,
 				6812412D1C4CF2D5008FC9AB /* PostponeNotificationCell.xib in Resources */,
 			);
@@ -2263,7 +2254,6 @@
 				681240171C4CDA06008FC9AB /* UIBarButtonItem+Badge.m in Sources */,
 				68123F011C4CBE79008FC9AB /* MultipleLineTextTableViewCell.m in Sources */,
 				6812401F1C4CDA78008FC9AB /* CollectionFallsFlowLayout.m in Sources */,
-				68123FF21C4CD1E3008FC9AB /* AgreementViewController.m in Sources */,
 				681240B41C4CE471008FC9AB /* EvaluateDesigner.m in Sources */,
 				6E378D4E1BDA2D2E00908B77 /* Comment.m in Sources */,
 				681240A61C4CE471008FC9AB /* AddFavoriateProduct.m in Sources */,
