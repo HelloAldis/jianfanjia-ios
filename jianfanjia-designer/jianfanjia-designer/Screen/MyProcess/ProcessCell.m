@@ -80,7 +80,7 @@
 }
 
 - (void)onClickViewPlan {
-    [ViewControllerContainer showPlanPerview:self.process.plan withOrder:1 forRequirement:self.process.requirement];
+    [ViewControllerContainer showPlanPerview:self.process.plan withOrder:-1 forRequirement:self.process.requirement];
 }
 
 - (void)onClickViewAgreement {

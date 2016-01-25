@@ -58,7 +58,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"详细报价" style:UIBarButtonItemStylePlain target:self action:@selector(onChoosePriceDetail)];
     self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     
-    self.title = [NSString stringWithFormat:@"方案%ld", (long)self.order];
+    self.title = self.order > 0 ? [NSString stringWithFormat:@"方案%ld", (long)self.order] : @"方案详情";
 }
 
 - (void)initUI {
