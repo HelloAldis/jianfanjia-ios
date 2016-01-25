@@ -52,13 +52,21 @@
         self.statusLine2.backgroundColor = kUntriggeredColor;
     }
     
-    if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]
-        || [dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateRequest]
-        || [dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateAgree]
-        || [dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateDecline]) {
-        self.statusLine1.backgroundColor = kFinishedColor;
+    if ([item.name isEqualToString:DBYS]) {
+        if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]
+            || [dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateRequest]
+            || [dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateAgree]
+            || [dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateDecline]) {
+            self.statusLine1.backgroundColor = kFinishedColor;
+        } else {
+            self.statusLine1.backgroundColor = kUntriggeredColor;
+        }
     } else {
-        self.statusLine1.backgroundColor = kUntriggeredColor;
+        if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
+            self.statusLine1.backgroundColor = kFinishedColor;
+        } else {
+            self.statusLine1.backgroundColor = kUntriggeredColor;
+        }
     }
 }
 
