@@ -111,8 +111,8 @@ static float kKeyboardHeight = 480;
             [obj addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickServiceAttitudeStar:)]];
         }];
     } else {
-        [DesignerBusiness displayStars:self.respondSpeedStars withAmount:self.designer.evaluation.respond_speed.integerValue withStar:[UIImage imageNamed:@"star_big"]];
-        [DesignerBusiness displayStars:self.serviceAttitudeStars withAmount:self.designer.evaluation.service_attitude.integerValue withStar:[UIImage imageNamed:@"star_big"]];
+        [DesignerBusiness displayStars:self.respondSpeedStars withAmount:self.designer.evaluation.respond_speed.integerValue fullStar:[UIImage imageNamed:@"star_big"] emptyStar:[UIImage imageNamed:@"star_big_empty"]];
+        [DesignerBusiness displayStars:self.serviceAttitudeStars withAmount:self.designer.evaluation.service_attitude.integerValue fullStar:[UIImage imageNamed:@"star_big"] emptyStar:[UIImage imageNamed:@"star_big_empty"]];
         
         self.btnPublish.hidden = YES;
         self.lblEvaluateTitle.hidden = YES;

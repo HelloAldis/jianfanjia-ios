@@ -52,7 +52,15 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self initUIData];
+    
+    UserGetInfo *request = [[UserGetInfo alloc] init];
+    [API userGetInfo:request success:^{
+        [self initUIData];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
     
     if (self.isTabbarhide) {
         [self showTabbar];

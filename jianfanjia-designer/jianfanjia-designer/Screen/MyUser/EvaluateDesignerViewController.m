@@ -61,9 +61,15 @@
     [DesignerBusiness setStars:self.evaluatedStars withStar:(double)([GVUserDefaults standardUserDefaults].respond_speed.doubleValue + [GVUserDefaults standardUserDefaults].service_attitude.doubleValue) / 2 fullStar:[UIImage imageNamed:@"star_middle"] emptyStar:[UIImage imageNamed:@"star_middle_empty"]];
     [DesignerBusiness setV:self.authIcon withAuthType:[GVUserDefaults standardUserDefaults].auth_type];
     
-    [DesignerBusiness displayStars:self.respondSpeedStars withAmount:self.evaluation.respond_speed.integerValue withStar:[UIImage imageNamed:@"star_big"]];
-    [DesignerBusiness displayStars:self.serviceAttitudeStars withAmount:self.evaluation.service_attitude.integerValue withStar:[UIImage imageNamed:@"star_big"]];
-    self.tvComment.text = self.evaluation.comment;
+    [DesignerBusiness displayStars:self.respondSpeedStars withAmount:self.evaluation.respond_speed.integerValue fullStar:[UIImage imageNamed:@"star_big"] emptyStar:[UIImage imageNamed:@"star_big_empty"]];
+    [DesignerBusiness displayStars:self.serviceAttitudeStars withAmount:self.evaluation.service_attitude.integerValue fullStar:[UIImage imageNamed:@"star_big"] emptyStar:[UIImage imageNamed:@"star_big_empty"]];
+    if (self.evaluation.comment) {
+        self.tvComment.text = self.evaluation.comment;
+    } else {
+        self.tvComment.text = @"业主还没有对您进行评价";
+        self.tvComment.font = [UIFont systemFontOfSize:16];
+        self.tvComment.textAlignment = NSTextAlignmentCenter;
+    }
 }
 
 #pragma mark - init nav

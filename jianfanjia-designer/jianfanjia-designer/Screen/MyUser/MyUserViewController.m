@@ -233,7 +233,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         [HUDUtil hideWait];
         [self.tableView.header endRefreshing];
         [self.dataManager refreshAllActions];
-        [self switchToSuitableButton];
+        [self reloadData];
     } failure:^{
         [self.tableView.header endRefreshing];
         [HUDUtil hideWait];
@@ -262,21 +262,26 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     }
 }
 
-- (void)switchToSuitableButton {
+- (void)reloadData {
     if (!self.isFirstEnter) {
         self.isFirstEnter = YES;
         
-        if (self.dataManager.unprocessActions.count > 0) {
-            [self switchToOtherButton:PlanTypeUnprocess];
-        } else if (self.dataManager.processingActions.count > 0) {
-            [self switchToOtherButton:PlanTypeProcessing];
-        } else if (self.dataManager.processedActions.count > 0) {
-            [self switchToOtherButton:PlanTypeProcessed];
-        } else {
-            [self switchToOtherButton:PlanTypeUnprocess];
-        }
+        [self switchToSuitableButton];
     } else {
+        [self switchViewToHide];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+- (void)switchToSuitableButton {
+    if (self.dataManager.unprocessActions.count > 0) {
+        [self switchToOtherButton:PlanTypeUnprocess];
+    } else if (self.dataManager.processingActions.count > 0) {
+        [self switchToOtherButton:PlanTypeProcessing];
+    } else if (self.dataManager.processedActions.count > 0) {
+        [self switchToOtherButton:PlanTypeProcessed];
+    } else {
+        [self switchToOtherButton:PlanTypeUnprocess];
     }
 }
 

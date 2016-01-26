@@ -48,12 +48,12 @@
     return touchIndex + 1;
 }
 
-+ (void)displayStars:(NSArray *)imageViewArray withAmount:(NSInteger)amount withStar:(UIImage *)starImg {
++ (void)displayStars:(NSArray *)imageViewArray withAmount:(NSInteger)amount fullStar:(UIImage *)full emptyStar:(UIImage *)empty {
     [imageViewArray enumerateObjectsUsingBlock:^(UIImageView*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ((idx + 1) <= amount) {
-            obj.image = starImg;
+            obj.image = full;
         } else {
-            obj.image = nil;
+            obj.image = empty;
         }
     }];
 }
