@@ -83,27 +83,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="Hek-M2-3AD" secondAttribute="bottom" constant="15" id="1pp-y8-bWp"/>
-                            <constraint firstItem="EVA-Dx-3PG" firstAttribute="leading" secondItem="2Kn-6H-wfv" secondAttribute="trailing" constant="10" id="2mp-wQ-0Zd"/>
                             <constraint firstItem="7jc-0P-dre" firstAttribute="leading" secondItem="EVA-Dx-3PG" secondAttribute="trailing" constant="5" id="4np-bd-1W1"/>
-                            <constraint firstItem="EVA-Dx-3PG" firstAttribute="centerY" secondItem="2Kn-6H-wfv" secondAttribute="centerY" id="5Uq-OT-1eS"/>
-                            <constraint firstItem="7jc-0P-dre" firstAttribute="trailing" secondItem="ej9-zU-Dr3" secondAttribute="trailing" id="6Qj-fm-aWq"/>
-                            <constraint firstItem="ej9-zU-Dr3" firstAttribute="leading" secondItem="EVA-Dx-3PG" secondAttribute="trailing" constant="10" id="7VF-CT-T5h"/>
                             <constraint firstItem="2Kn-6H-wfv" firstAttribute="leading" secondItem="nFP-xO-yqD" secondAttribute="leading" id="83c-Gs-OgU"/>
                             <constraint firstAttribute="trailing" secondItem="ej9-zU-Dr3" secondAttribute="trailing" constant="8" id="FaS-X5-REG"/>
                             <constraint firstItem="33k-4f-ciI" firstAttribute="centerY" secondItem="nFP-xO-yqD" secondAttribute="centerY" constant="-1" id="Gmo-hf-Orn"/>
                             <constraint firstItem="nFP-xO-yqD" firstAttribute="top" secondItem="Hek-M2-3AD" secondAttribute="top" id="KA7-Gz-t93"/>
                             <constraint firstItem="Hek-M2-3AD" firstAttribute="top" secondItem="Jbr-fa-yF1" secondAttribute="top" constant="15" id="Qqw-bl-RsW"/>
                             <constraint firstItem="33k-4f-ciI" firstAttribute="leading" secondItem="nFP-xO-yqD" secondAttribute="trailing" constant="5" id="RNk-VM-RxL"/>
-                            <constraint firstItem="ej9-zU-Dr3" firstAttribute="leading" secondItem="7jc-0P-dre" secondAttribute="trailing" constant="10" id="SLK-1m-uVM"/>
                             <constraint firstItem="Hek-M2-3AD" firstAttribute="centerY" secondItem="ej9-zU-Dr3" secondAttribute="centerY" id="UNH-WI-6cC"/>
                             <constraint firstItem="nFP-xO-yqD" firstAttribute="leading" secondItem="Hek-M2-3AD" secondAttribute="trailing" constant="8" id="UgW-0z-GYW"/>
                             <constraint firstItem="7jc-0P-dre" firstAttribute="trailing" secondItem="ej9-zU-Dr3" secondAttribute="trailing" id="YFV-tu-BcK"/>
                             <constraint firstItem="2Kn-6H-wfv" firstAttribute="centerY" secondItem="Hek-M2-3AD" secondAttribute="centerY" id="YTN-fc-C5W"/>
                             <constraint firstItem="uOr-ql-uiA" firstAttribute="leading" secondItem="2Kn-6H-wfv" secondAttribute="leading" id="aci-N5-mv0"/>
                             <constraint firstItem="ej9-zU-Dr3" firstAttribute="leading" secondItem="uOr-ql-uiA" secondAttribute="trailing" constant="10" id="bMk-vl-tVH"/>
-                            <constraint firstItem="7jc-0P-dre" firstAttribute="leading" secondItem="33k-4f-ciI" secondAttribute="trailing" constant="20" id="g60-Jb-mkK"/>
-                            <constraint firstItem="7jc-0P-dre" firstAttribute="centerY" secondItem="nFP-xO-yqD" secondAttribute="centerY" id="i6Y-Mi-0ZX"/>
-                            <constraint firstItem="7jc-0P-dre" firstAttribute="leading" secondItem="33k-4f-ciI" secondAttribute="trailing" constant="20" id="kGG-DD-pQK"/>
                             <constraint firstItem="Hek-M2-3AD" firstAttribute="leading" secondItem="Jbr-fa-yF1" secondAttribute="leading" constant="8" id="m3P-gW-bqZ"/>
                             <constraint firstItem="uOr-ql-uiA" firstAttribute="bottom" secondItem="Hek-M2-3AD" secondAttribute="bottom" id="o9e-M5-dDX"/>
                             <constraint firstItem="ej9-zU-Dr3" firstAttribute="leading" secondItem="2Kn-6H-wfv" secondAttribute="trailing" constant="10" id="oUY-Jo-Eum"/>
@@ -111,18 +103,6 @@
                             <constraint firstItem="7jc-0P-dre" firstAttribute="centerY" secondItem="nFP-xO-yqD" secondAttribute="centerY" id="yQq-wZ-TZl"/>
                             <constraint firstItem="EVA-Dx-3PG" firstAttribute="leading" secondItem="33k-4f-ciI" secondAttribute="trailing" constant="5" id="zam-0E-f0c"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="2mp-wQ-0Zd"/>
-                                <exclude reference="5Uq-OT-1eS"/>
-                                <exclude reference="6Qj-fm-aWq"/>
-                                <exclude reference="g60-Jb-mkK"/>
-                                <exclude reference="i6Y-Mi-0ZX"/>
-                                <exclude reference="kGG-DD-pQK"/>
-                                <exclude reference="7VF-CT-T5h"/>
-                                <exclude reference="SLK-1m-uVM"/>
-                            </mask>
-                        </variation>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OJ5-IY-VBR" userLabel="ActionView">
                         <rect key="frame" x="0.0" y="96" width="492" height="50"/>

@@ -31,7 +31,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 @property (strong, nonatomic) NSString *processid;
 @property (copy, nonatomic) void(^refreshBlock)(void);
 
-@property (strong, nonatomic) NSMutableArray *imgArray;
+@property (strong, nonatomic) NSArray *imgArray;
 
 @property (assign, nonatomic) BOOL isEditing;
 
@@ -75,9 +75,12 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     self.imgCollectionLayout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
     [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
     NSInteger imgArrCount = [self getDBYSImageCount:self.section];
-    self.imgArray = [NSMutableArray arrayWithCapacity:imgArrCount];
+    NSMutableArray *imgArr = [NSMutableArray arrayWithCapacity:imgArrCount];
+    self.imgArray = imgArr;
     for (NSInteger i = 0; i < imgArrCount; i++) {
-        [self.imgArray addObject:[[YsImage alloc] init]];
+        YsImage *ysimage = [[YsImage alloc] init];
+        ysimage.imageid = @"";
+        [imgArr addObject:ysimage];
     }
     
     @weakify(self);
@@ -109,6 +112,10 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     }];
     
     [self refreshButtonInBottom];
+    
+    [self.imgArray.rac_sequence.signal subscribeNext:^(id x) {
+        
+    }];
 }
 
 #pragma mark - util
@@ -196,7 +203,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         NSInteger scenceImageIndex = (indexPath.row + 1) / 2 - 1;
         YsImage *image = self.imgArray[scenceImageIndex];
         
-        if (image.imageid) {
+        if (![image.imageid isEqualToString:@""]) {
             [cell initWithImage:image.imageid width:self.imgCollectionLayout.itemSize.width];
             if (self.isEditing) {
                 [cell endShaking];
@@ -243,18 +250,17 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 - (void)showScenceImageDetail:(NSInteger)index indexPath:(NSIndexPath *)indexPath {
     YsImage *image = self.imgArray[index];
-    if (self.isEditing) {
-        if (image.imageid) {
+
+    if (![image.imageid isEqualToString:@""]) {
+        if (self.isEditing) {
             [self deleteImage:index indexPath:indexPath];
+            return;
         }
-        return;
-    }
-    
-    if (image.imageid) {
+        
         NSMutableArray *images = [NSMutableArray array];
         for (NSInteger i = 0; i < self.imgArray.count; i++) {
             YsImage *img = self.imgArray[i];
-            if (img.imageid) {
+            if (![img.imageid isEqualToString:@""]) {
                 [images addObject:img.imageid];
             }
         }
@@ -280,7 +286,8 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 }
 
 - (void)deleteImage:(NSInteger)index indexPath:(NSIndexPath *)indexPath {
-    self.imgArray[index] = [[YsImage alloc] init];
+    YsImage *ysimg = self.imgArray[index];
+    ysimg.imageid = @"";
     [self.imgCollection reloadData];
     [self refreshButtonInBottom];
     

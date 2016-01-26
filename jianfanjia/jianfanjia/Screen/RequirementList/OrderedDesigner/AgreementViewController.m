@@ -12,6 +12,7 @@
 
 @interface AgreementViewController () <WKNavigationDelegate>
 @property (strong, nonatomic) WKWebView *webView;
+@property (weak, nonatomic) IBOutlet UIButton *btnConfirm;
 
 @property (strong, nonatomic) Requirement *requirement;
 
@@ -42,18 +43,25 @@
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    
-    if ([kRequirementStatusConfiguredAgreementWithoutWorkSite isEqualToString:self.requirement.status]) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"确认" style:UIBarButtonItemStylePlain target:self action:@selector(onClickConfirm:)];
-        self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    } else if ([kRequirementStatusPlanWasChoosedWithoutAgreement isEqualToString:self.requirement.status]) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"等待开工" style:UIBarButtonItemStylePlain target:nil action:nil];
-        self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    }
-    
     self.title = @"施工合同";
+    
+    if (![self.requirement.work_type isEqualToString:kWorkTypeDesign]) {
+        if ([kRequirementStatusConfiguredAgreementWithoutWorkSite isEqualToString:self.requirement.status]) {
+            self.btnConfirm.enabled = YES;
+            [self.btnConfirm setTitle:@"确认开工" forState:UIControlStateNormal];
+            [self.btnConfirm setBackgroundColor:kFinishedColor];
+        } else if ([kRequirementStatusPlanWasChoosedWithoutAgreement isEqualToString:self.requirement.status]) {
+            self.btnConfirm.enabled = NO;
+            [self.btnConfirm setTitle:@"等待设置开工时间" forState:UIControlStateNormal];
+            [self.btnConfirm setBackgroundColor:kUntriggeredColor];
+        } else {
+            self.btnConfirm.enabled = NO;
+            [self.btnConfirm setTitle:@"已开工" forState:UIControlStateNormal];
+            [self.btnConfirm setBackgroundColor:kUntriggeredColor];
+        }
+    } else {
+        self.btnConfirm.hidden = YES;
+    }
 }
 
 #pragma mark - load page
@@ -80,7 +88,9 @@
     [self.view addSubview:_webView];
     // Add the constraints
     NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_webView]|" options:0 metrics:nil views:views]];
+    
+    NSInteger bottomDistance = ![self.requirement.work_type isEqualToString:kWorkTypeDesign] ? 50 : 0;
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|[_webView]-%@-|", @(bottomDistance)] options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
@@ -88,19 +98,8 @@
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
 
-#pragma mark - delegate 
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    if (self.navigationItem.rightBarButtonItem) {
-        if ([kRequirementStatusConfiguredAgreementWithoutWorkSite isEqualToString:self.requirement.status]) {
-            self.navigationItem.rightBarButtonItem.enabled = YES;
-        } else if ([kRequirementStatusPlanWasChoosedWithoutAgreement isEqualToString:self.requirement.status]) {
-            self.navigationItem.rightBarButtonItem.enabled = NO;
-        }
-    }
-}
-
 #pragma mark - user action
-- (void)onClickConfirm:(id)sender {
+- (IBAction)onClickConfirm:(id)sender {
     StartDecorationProcess *request = [[StartDecorationProcess alloc] init];
     request.requirementid = self.requirement._id;
     request.final_planid = self.requirement.final_planid;

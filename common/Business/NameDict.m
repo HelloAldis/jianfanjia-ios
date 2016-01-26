@@ -48,9 +48,9 @@ static NSDictionary *businessTypeDict = nil;
                     kDecTypeBusiness:@"商装",
                     @"2":@"软装"};
     
-    work_type = @{@"0":@"半包",
-                  @"1":@"全包",
-                  @"2":@"纯设计"};
+    work_type = @{kWorkTypeHalf:@"半包",
+                  kWorkTypeWhole:@"全包",
+                  kWorkTypeDesign:@"纯设计"};
     
     population_type = @[@"单身", @"幸福小两口", @"三口之家", @"三代同堂", @"其他"];
     

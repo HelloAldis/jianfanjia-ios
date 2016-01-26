@@ -9,8 +9,6 @@
 #ifndef RequirementCreateProtocol_h
 #define RequirementCreateProtocol_h
 
-static NSString *kTipsForSelectCity = @"（目前仅支持湖北省武汉市）";
-
 typedef enum {
     RequirementOperateTypeView,
     RequirementOperateTypeEdit

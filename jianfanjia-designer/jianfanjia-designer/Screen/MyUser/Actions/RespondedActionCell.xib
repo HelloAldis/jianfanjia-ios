@@ -134,13 +134,13 @@
                                 </variation>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="联系业主" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9l5-Hd-WLa">
-                                <rect key="frame" x="382" y="17" width="56" height="17"/>
+                                <rect key="frame" x="392" y="17" width="56" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_phone" translatesAutoresizingMaskIntoConstraints="NO" id="7De-y5-l35">
-                                <rect key="frame" x="363" y="18" width="15" height="15"/>
+                                <rect key="frame" x="373" y="18" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="MRL-yR-xgt"/>
                                     <constraint firstAttribute="height" constant="15" id="QoK-Fr-E4X"/>
@@ -157,7 +157,7 @@
                             <constraint firstItem="KCc-TE-9hK" firstAttribute="leading" secondItem="zWf-JH-eVt" secondAttribute="leading" id="Wzp-0J-KgP"/>
                             <constraint firstItem="94Q-Ev-oz8" firstAttribute="height" secondItem="KCc-TE-9hK" secondAttribute="height" id="X0G-YW-EYw"/>
                             <constraint firstItem="94Q-Ev-oz8" firstAttribute="centerY" secondItem="KCc-TE-9hK" secondAttribute="centerY" id="bPd-gU-kMd"/>
-                            <constraint firstItem="9l5-Hd-WLa" firstAttribute="centerX" secondItem="94Q-Ev-oz8" secondAttribute="centerX" id="cZb-iR-VMi"/>
+                            <constraint firstItem="9l5-Hd-WLa" firstAttribute="centerX" secondItem="94Q-Ev-oz8" secondAttribute="centerX" constant="10" id="cZb-iR-VMi"/>
                             <constraint firstAttribute="bottom" secondItem="KCc-TE-9hK" secondAttribute="bottom" id="h0q-NZ-Gow"/>
                             <constraint firstItem="7De-y5-l35" firstAttribute="centerY" secondItem="9l5-Hd-WLa" secondAttribute="centerY" id="ihI-9Q-d1c"/>
                             <constraint firstItem="KCc-TE-9hK" firstAttribute="top" secondItem="zWf-JH-eVt" secondAttribute="top" constant="1" id="lJH-xw-YDw"/>

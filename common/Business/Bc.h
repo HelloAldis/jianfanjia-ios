@@ -67,3 +67,7 @@ extern NSString * const kNotificationTypeReschedule;
 extern NSString * const kNotificationTypeDBYS;
 extern NSString * const kDecTypeHouse;
 extern NSString * const kDecTypeBusiness;
+
+extern NSString * const kWorkTypeHalf;
+extern NSString * const kWorkTypeWhole;
+extern NSString * const kWorkTypeDesign;

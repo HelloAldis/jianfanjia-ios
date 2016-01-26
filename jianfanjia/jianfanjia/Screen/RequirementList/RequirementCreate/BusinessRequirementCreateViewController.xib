@@ -62,8 +62,8 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（目前仅支持湖北省武汉市）" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huN-PG-vow">
-                                            <rect key="frame" x="386" y="17" width="182" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huN-PG-vow">
+                                            <rect key="frame" x="568" y="26" width="0.0" height="0.0"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="IWT-Sz-KQa"/>
                                             </constraints>
@@ -84,8 +84,9 @@
                                             </constraints>
                                         </view>
                                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zh8-HU-bKz">
-                                            <rect key="frame" x="578" y="14" width="7" height="22"/>
+                                            <rect key="frame" x="578" y="15" width="7" height="22"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="H7k-ZL-gbL"/>
                                                 <constraint firstAttribute="width" constant="7" id="Kc1-Qt-LCH"/>
                                                 <constraint firstAttribute="width" constant="20" id="cOW-a8-Ik7"/>
                                             </constraints>

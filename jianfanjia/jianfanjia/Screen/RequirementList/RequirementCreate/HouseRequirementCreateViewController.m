@@ -158,7 +158,6 @@
                                                               NSNumber *decBudget) {
                                                        
                                                                 if (city.length > 0
-                                                                    && ![city isEqualToString:kTipsForSelectCity]
                                                                     && houseType.length > 0
                                                                     && workType.length > 0
                                                                     && population.length > 0
@@ -198,9 +197,6 @@
     //sex type @"2":@"不限"
     self.editingRequirement.prefer_sex = @"2";
     
-    //City
-    self.lblSelectCityVal.text = kTipsForSelectCity;
-    self.lblSelectCityVal.textColor = kUntriggeredColor;
     //House type
     self.lblSelectHouseTypeVal.text = [NameDict nameForHouseType:self.editingRequirement.house_type];
     //Work type
@@ -342,7 +338,7 @@
 
     if (tapView == self.selectCityView) {
         //City
-        controller = [[SelectCityViewController alloc] initWithAddress:[self.lblSelectCityVal.text isEqualToString:kTipsForSelectCity] ? @"" : self.lblSelectCityVal.text valueBlock:^(id value) {
+        controller = [[SelectCityViewController alloc] initWithAddress:self.lblSelectCityVal.text valueBlock:^(id value) {
             self.lblSelectCityVal.text = value;
             self.lblSelectCityVal.textColor = kThemeTextColor;
             
@@ -350,7 +346,7 @@
             self.editingRequirement.province = addressArr[0];
             self.editingRequirement.city = addressArr[1];
             self.editingRequirement.district = addressArr[2];
-        }];
+        } limitCity:YES];
     } else if (tapView == self.selectHouseTypeView) {
         //House type
         controller = [[SelectHouseTypeViewController alloc] initWithValueBlock:^(id value) {

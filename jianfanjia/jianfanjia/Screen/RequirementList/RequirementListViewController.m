@@ -88,19 +88,12 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
         
         self.tableView.hidden = YES;
     }
-    
-    if ([self.requirementDataManager.requirements count] < 3) {
-        self.navigationItem.rightBarButtonItem.enabled = YES;
-    } else {
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    }
 }
 
 #pragma mark - nav
 - (void)initNav {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate:)];
     self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
-    self.navigationItem.rightBarButtonItem.enabled = NO;
     self.title = @"装修需求";
 }
 

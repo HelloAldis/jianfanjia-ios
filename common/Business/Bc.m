@@ -173,3 +173,13 @@ NSString * const kNotificationTypeDBYS = @"3";
 NSString * const kDecTypeHouse = @"0";
 NSString * const kDecTypeBusiness = @"1";
 
+/*
+ 装修类型 work_type
+ * 0. 半包
+ * 1. 全包
+ * 2. 纯设计
+ **/
+NSString * const kWorkTypeHalf = @"0";
+NSString * const kWorkTypeWhole = @"1";
+NSString * const kWorkTypeDesign = @"2";
+

@@ -143,7 +143,6 @@
                                                               NSString *decBudget) {
                                                        
                                                                if (city.length > 0
-                                                                   && ![city isEqualToString:kTipsForSelectCity]
                                                                    && businessType.length > 0
                                                                    && workType.length > 0
                                                                    && decStyle.length > 0
@@ -177,9 +176,6 @@
     //sex type @"2":@"不限"
     self.editingRequirement.prefer_sex = @"2";
     
-    //City
-    self.lblSelectCityVal.text = kTipsForSelectCity;
-    self.lblSelectCityVal.textColor = kUntriggeredColor;
     //Business type
     self.lblSelectBusinessTypeVal.text = [NameDict nameForBusinessType:self.editingRequirement.business_house_type];
     //Work type
@@ -283,14 +279,14 @@
     
     if (tapView == self.selectCityView) {
         //City
-        controller = [[SelectCityViewController alloc] initWithAddress:[self.lblSelectCityVal.text isEqualToString:kTipsForSelectCity] ? @"" : self.lblSelectCityVal.text valueBlock:^(id value) {
+        controller = [[SelectCityViewController alloc] initWithAddress:self.lblSelectCityVal.text valueBlock:^(id value) {
             self.lblSelectCityVal.text = value;
             self.lblSelectCityVal.textColor = kThemeTextColor;
             NSArray *addressArr = [value componentsSeparatedByString:@" "];
             self.editingRequirement.province = addressArr[0];
             self.editingRequirement.city = addressArr[1];
             self.editingRequirement.district = addressArr[2];
-        }];
+        } limitCity:YES];
     } else if (tapView == self.selectBusinessTypeView) {
         //Business type
         controller = [[SelectBusinessTypeViewController alloc] initWithValueBlock:^(id value) {

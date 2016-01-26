@@ -13,5 +13,6 @@ typedef void(^ValueBlock)(id value);
 @interface SelectCityViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithAddress:(NSString *)currentAddress valueBlock:(ValueBlock)ValueBlock;
+- (id)initWithAddress:(NSString *)currentAddress valueBlock:(ValueBlock)ValueBlock limitCity:(BOOL)limitCity;
 
 @end

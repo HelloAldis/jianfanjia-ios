@@ -71,19 +71,19 @@
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
     [self.datePicker setMinimumDate:[NSDate date]];
     self.lblDateTime.text = [self.datePicker.date yyyy_Nian_MM_Yue_dd_Ri];
-    
-    NSNumber *worksiteStartTime = self.requirement.start_at;
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:[worksiteStartTime doubleValue] / 1000];
-    
-    NSDateComponents *startComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:startDate];
-    NSDate *endDate = [calendar dateByAddingUnit:NSCalendarUnitDay value:self.requirement.plan.duration.integerValue toDate:startDate options:0];
-    NSDateComponents *endComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:endDate];
-    
-    self.lblProjectTotalDays.text = [NSString stringWithFormat:@"总工期：%@天,\n开工日期：%@年%@月%@日，\n竣工日期：%@年%@月%@日。", worksiteStartTime ? self.requirement.plan.duration : @"____", worksiteStartTime ? @(startComponents.year) : @"____", worksiteStartTime ? @(startComponents.month) : @"__", worksiteStartTime ? @(startComponents.day) : @"__", worksiteStartTime ? @(endComponents.year) : @"____", worksiteStartTime ? @(endComponents.month) : @"__", worksiteStartTime ? @(endComponents.day) : @"__"];
     self.lblProjectTotalPrice.text = [NSString stringWithFormat:@"本工程装修合同总价为人民币 (大写) %@ (%@元)。", [self.requirement.total_price humRmbUppercaseString], [self.requirement.total_price humRmbString]];
     ;
-    self.lblProjectWorkType.text = [NSString stringWithFormat:@"%@ (清包，半包，全包)。", [NameDict nameForWorkType:self.requirement.work_type]];
+    self.lblProjectWorkType.text = [NSString stringWithFormat:@"%@ (半包，全包)。", [NameDict nameForWorkType:self.requirement.work_type]];
+    
+    NSNumber *worksiteStartTime = self.requirement.start_at;
+    NSDate *startDate;
+    if (worksiteStartTime) {
+        startDate = [NSDate dateWithTimeIntervalSince1970:[worksiteStartTime doubleValue] / 1000];
+    } else {
+        startDate = self.datePicker.date;
+    }
+    
+    [self updateProjectTotalDay:startDate];
     
     if (worksiteStartTime) {
         self.btnOk.hidden = YES;
@@ -98,9 +98,19 @@
     }
 }
 
+- (void)updateProjectTotalDay:(NSDate *)startDate {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *startComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:startDate];
+    NSDate *endDate = [calendar dateByAddingUnit:NSCalendarUnitDay value:self.requirement.plan.duration.integerValue toDate:startDate options:0];
+    NSDateComponents *endComponents = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:endDate];
+    
+    self.lblProjectTotalDays.text = [NSString stringWithFormat:@"总工期：%@天,\n开工日期：%@年%@月%@日，\n竣工日期：%@年%@月%@日。", self.requirement.plan.duration, @(startComponents.year), @(startComponents.month), @(startComponents.day), @(endComponents.year), @(endComponents.month), @(endComponents.day)];
+}
+
 - (void)onDatePickerValueChanged:(UIDatePicker *)datePicker {
     NSDate *date = datePicker.date;
     self.lblDateTime.text = [date yyyy_Nian_MM_Yue_dd_Ri];
+    [self updateProjectTotalDay:date];
 }
 
 #pragma mark - user actions

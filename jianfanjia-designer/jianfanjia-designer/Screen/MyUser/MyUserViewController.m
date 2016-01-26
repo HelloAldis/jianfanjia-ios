@@ -14,6 +14,7 @@
 #import "SubmitPlanExpiredActionCell.h"
 #import "SubmitedPlanActionCell.h"
 #import "ChoosedPlanActionCell.h"
+#import "ChoosedPlanForDesignActionCell.h"
 #import "UnchoosedPlanActionCell.h"
 #import "MyUserDataManager.h"
 #import "API.h"
@@ -31,6 +32,7 @@ static NSString *MeasuredHouseActionCellIdentifier = @"MeasuredHouseActionCell";
 static NSString *SubmitPlanExpiredActionCellIdentifier = @"SubmitPlanExpiredActionCell";
 static NSString *SubmitedPlanActionCellIdentifier = @"SubmitedPlanActionCell";
 static NSString *ChoosedPlanActionCellIdentifier = @"ChoosedPlanActionCell";
+static NSString *ChoosedPlanForDesignActionCellIdentifier = @"ChoosedPlanForDesignActionCell";
 static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 
 @interface MyUserViewController ()
@@ -102,6 +104,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     [self.tableView registerNib:[UINib nibWithNibName:SubmitPlanExpiredActionCellIdentifier bundle:nil] forCellReuseIdentifier:SubmitPlanExpiredActionCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:SubmitedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:SubmitedPlanActionCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:ChoosedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:ChoosedPlanActionCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:ChoosedPlanForDesignActionCellIdentifier bundle:nil] forCellReuseIdentifier:ChoosedPlanForDesignActionCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:UnchoosedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:UnchoosedPlanActionCellIdentifier];
     
     @weakify(self);
@@ -178,7 +181,8 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     } else if ([status isEqualToString:kPlanStatusDesignerSubmittedPlan]) {
         cellIdentifier = SubmitedPlanActionCellIdentifier;
     } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
-        cellIdentifier = ChoosedPlanActionCellIdentifier;
+        NSString *work_type = requirement.work_type;
+        cellIdentifier = [work_type isEqualToString:kWorkTypeDesign] ? ChoosedPlanForDesignActionCellIdentifier : ChoosedPlanActionCellIdentifier;
     } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]) {
         cellIdentifier = RejectActionCellIdentifier;
     } else if ([status isEqualToString:kPlanStatusPlanWasNotChoosed]) {

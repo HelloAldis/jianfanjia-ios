@@ -142,6 +142,7 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
     DesignerPlanStatusBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:path];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     @weakify(self);
+    [self.requirement merge:orderedDesigner.requirement];
     [cell initWithDesigner:orderedDesigner withRequirement:self.requirement withBlock:^{
         @strongify(self);
         [self refreshOrderedList];

@@ -29,6 +29,7 @@ static NSString* cellId = @"cityCell";
 
 @property (strong, nonatomic) NSString *currentAddress;
 @property (copy, nonatomic) ValueBlock ValueBlock;
+@property (assign, nonatomic) BOOL limitCity;
 
 @end
 
@@ -36,9 +37,14 @@ static NSString* cellId = @"cityCell";
 
 #pragma mark - init method 
 - (id)initWithAddress:(NSString *)currentAddress valueBlock:(ValueBlock)ValueBlock {
+    return [self initWithAddress:currentAddress valueBlock:ValueBlock limitCity:NO];
+}
+
+- (id)initWithAddress:(NSString *)currentAddress valueBlock:(ValueBlock)ValueBlock limitCity:(BOOL)limitCity {
     if (self = [super init]) {
         _ValueBlock = ValueBlock;
         _currentAddress = [currentAddress trim].length > 0 ? currentAddress : nil;
+        _limitCity = limitCity;
     }
     
     return self;
@@ -244,19 +250,27 @@ static NSString* cellId = @"cityCell";
         } else {
             self.selectedProvince = self.provinces[indexPath.row];
             
-            SelectCityViewController *cityVC = [[SelectCityViewController alloc] initWithAddress:self.currentAddress valueBlock:self.ValueBlock];
-            cityVC.displayType = kDisplayCity;
-            cityVC.selectedProvince = self.selectedProvince;
-            [self.navigationController pushViewController:cityVC animated:YES];
+            if (self.limitCity && ![self.selectedProvince isEqualToString:@"湖北省"]) {
+                [HUDUtil showErrText:@"目前仅支持湖北省武汉市"];
+            } else {
+                SelectCityViewController *cityVC = [[SelectCityViewController alloc] initWithAddress:self.currentAddress valueBlock:self.ValueBlock];
+                cityVC.displayType = kDisplayCity;
+                cityVC.selectedProvince = self.selectedProvince;
+                [self.navigationController pushViewController:cityVC animated:YES];
+            }
         }
     } else if (self.displayType == kDisplayCity){
         self.selectedCity = self.citys[indexPath.row];
         
-        SelectCityViewController *areaVC = [[SelectCityViewController alloc] initWithAddress:self.currentAddress valueBlock:self.ValueBlock];
-        areaVC.displayType = kDisplayArea;
-        areaVC.selectedCity = self.selectedCity;
-        areaVC.selectedProvince = self.selectedProvince;
-        [self.navigationController pushViewController:areaVC animated:YES];
+        if (self.limitCity && ![self.selectedCity isEqualToString:@"武汉市"]) {
+            [HUDUtil showErrText:@"目前仅支持湖北省武汉市"];
+        } else {
+            SelectCityViewController *areaVC = [[SelectCityViewController alloc] initWithAddress:self.currentAddress valueBlock:self.ValueBlock];
+            areaVC.displayType = kDisplayArea;
+            areaVC.selectedCity = self.selectedCity;
+            areaVC.selectedProvince = self.selectedProvince;
+            [self.navigationController pushViewController:areaVC animated:YES];
+        }
     } else{
         self.selectedArea = self.areas[indexPath.row];
         [self submit];

@@ -95,10 +95,10 @@
         [titleView addSubview:_businessBtn];
         self.navigationItem.titleView = titleView;
     } else {
-        if ([self.editingRequirement.dec_type isEqualToString:kDecTypeHouse]) {
-            self.title = @"家装";
-        } else if ([self.editingRequirement.dec_type isEqualToString:kDecTypeBusiness]) {
+        if ([self.editingRequirement.dec_type isEqualToString:kDecTypeBusiness]) {
             self.title = @"商装";
+        } else {
+            self.title = @"家装";
         }
     }
     
@@ -204,15 +204,15 @@
         [self highlightButton:self.houseBtn high:YES];
         [self highlightButton:self.businessBtn high:NO];
     } else {
-        if ([self.editingRequirement.dec_type isEqualToString:kDecTypeHouse]) {
-            self.houseRequirementController = [[HouseRequirementCreateViewController alloc] initToViewRequirement:self.editingRequirement];
-            [self addChildViewController:self.houseRequirementController];
-            self.currentDisplayController = self.houseRequirementController;
-            [self.containerView addSubview:self.currentDisplayController.view];
-        } else if ([self.editingRequirement.dec_type isEqualToString:kDecTypeBusiness]) {
+        if ([self.editingRequirement.dec_type isEqualToString:kDecTypeBusiness]) {
             self.businessRequirementController = [[BusinessRequirementCreateViewController alloc] initToViewRequirement:self.editingRequirement];
             [self addChildViewController:self.businessRequirementController];
             self.currentDisplayController = self.businessRequirementController;
+            [self.containerView addSubview:self.currentDisplayController.view];
+        } else {
+            self.houseRequirementController = [[HouseRequirementCreateViewController alloc] initToViewRequirement:self.editingRequirement];
+            [self addChildViewController:self.houseRequirementController];
+            self.currentDisplayController = self.houseRequirementController;
             [self.containerView addSubview:self.currentDisplayController.view];
         }
     }
