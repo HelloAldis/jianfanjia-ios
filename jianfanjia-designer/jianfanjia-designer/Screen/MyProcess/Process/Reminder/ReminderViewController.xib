@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReminderViewController">
             <connections>
+                <outlet property="noNotificationImage" destination="uto-ng-czl" id="R9H-cd-7yA"/>
+                <outlet property="noNotificationLabel" destination="mZw-TC-bkc" id="aW1-cP-zlq"/>
                 <outlet property="tableView" destination="BMg-ih-g0O" id="mss-m3-Ejs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="btnNotifications" destination="h1G-cv-tHD" id="zXQ-WN-3TE"/>
@@ -167,13 +169,30 @@
                         <outlet property="delegate" destination="-1" id="PMm-60-mHS"/>
                     </connections>
                 </tableView>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_purchase_notification" translatesAutoresizingMaskIntoConstraints="NO" id="uto-ng-czl">
+                    <rect key="frame" x="225" y="304" width="44" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="7ag-x2-cOl"/>
+                        <constraint firstAttribute="width" constant="44" id="cY9-DJ-2aj"/>
+                    </constraints>
+                </imageView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有采购提醒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mZw-TC-bkc">
+                    <rect key="frame" x="187" y="359" width="120" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="uto-ng-czl" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="1Vy-dT-JN8"/>
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7iY-bI-1ad"/>
                 <constraint firstAttribute="bottom" secondItem="BMg-ih-g0O" secondAttribute="bottom" id="99i-3k-nRv"/>
                 <constraint firstItem="BMg-ih-g0O" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Cdg-QA-OYP"/>
+                <constraint firstItem="uto-ng-czl" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FpY-p8-vHJ"/>
                 <constraint firstItem="BMg-ih-g0O" firstAttribute="top" secondItem="9yY-BV-qmw" secondAttribute="bottom" id="P03-OZ-krk"/>
+                <constraint firstItem="mZw-TC-bkc" firstAttribute="top" secondItem="uto-ng-czl" secondAttribute="bottom" constant="15" id="SQK-XI-C2x"/>
+                <constraint firstItem="mZw-TC-bkc" firstAttribute="centerX" secondItem="uto-ng-czl" secondAttribute="centerX" id="Vra-Vp-lmA"/>
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="srg-wW-EsY"/>
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xv4-ef-LMf"/>
                 <constraint firstItem="BMg-ih-g0O" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="yBj-1I-NB8"/>
@@ -183,4 +202,7 @@
             <point key="canvasLocation" x="322.5" y="307"/>
         </view>
     </objects>
+    <resources>
+        <image name="no_purchase_notification" width="44" height="40"/>
+    </resources>
 </document>

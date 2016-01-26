@@ -28,6 +28,8 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnNotifications;
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *reminderIcons;
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *selectedLines;
+@property (weak, nonatomic) IBOutlet UIImageView *noNotificationImage;
+@property (weak, nonatomic) IBOutlet UILabel *noNotificationLabel;
 
 @property (assign, nonatomic) NSInteger preSelectedButtonIndex;
 @property (assign, nonatomic) NSInteger selectedButtonIndex;
@@ -276,12 +278,14 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     [self.dataManager refreshNotificationWithProcess:self.processid type:kNotificationTypePurchase];
     self.dataManager.notifications = [self descendNotifications:self.dataManager.notifications];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self showNoNotification:self.dataManager.notifications.count > 0 image:@"no_purchase_notification" text:@"您还没有采购提醒"];
 }
 
 - (void)refreshPays {
     [self.dataManager refreshNotificationWithProcess:self.processid type:kNotificationTypePay];
     self.dataManager.notifications = [self descendNotifications:self.dataManager.notifications];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self showNoNotification:self.dataManager.notifications.count > 0 image:@"no_pay_notification" text:@"您还没有付款提醒"];
 }
 
 - (void)refreshReschedules {
@@ -292,6 +296,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         [self.dataManager refreshNotificationWithProcess:self.processid type:kNotificationTypeReschedule status:kNotificationStatusUnread];
         [self.dataManager refreshSchedule:self.processid];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self showNoNotification:self.dataManager.schedules.count > 0 image:@"no_reschedule_notification" text:@"您还没有付款提醒"];
     } failure:^{
         
     } networkError:^{
@@ -299,6 +304,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     }];
 }
 
+#pragma mark - util
 - (void)markToReadForProcess:(NSString *)processid type:(NSString *)type {
     if (processid) {
         [[NotificationDataManager shared] markToReadForProcess:processid type:type];
@@ -321,6 +327,13 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
             return NSOrderedSame;
         }
     }];
+}
+
+- (void)showNoNotification:(BOOL)show image:(NSString *)image text:(NSString *)text {
+    self.noNotificationImage.image = [UIImage imageNamed:image];
+    self.noNotificationLabel.text = text;
+    self.noNotificationImage.hidden = YES;
+    self.noNotificationLabel.hidden = YES;
 }
 
 @end
