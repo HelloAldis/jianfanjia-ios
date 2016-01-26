@@ -55,7 +55,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="0Rq-7k-NcG" firstAttribute="top" secondItem="9yY-BV-qmw" secondAttribute="top" id="13r-W8-zL1"/>
                         <constraint firstItem="0Rq-7k-NcG" firstAttribute="width" secondItem="9yY-BV-qmw" secondAttribute="width" multiplier="1/2" id="9Pu-Ip-QxX"/>
@@ -94,7 +94,7 @@
                     </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7iY-bI-1ad"/>
                 <constraint firstItem="i60-kI-vLX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="8Jo-O5-072"/>
