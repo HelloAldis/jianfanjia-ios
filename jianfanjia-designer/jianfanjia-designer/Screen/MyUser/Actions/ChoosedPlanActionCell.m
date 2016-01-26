@@ -57,7 +57,7 @@
     
     if (self.requirement.start_at) {
         self.lblViewAgreement.text = @"查看合同";
-        self.iconViewAgreement.image = [UIImage imageNamed:@"icon_view_plan"];
+        self.iconViewAgreement.image = [UIImage imageNamed:@"icon_view_agreement"];
     } else {
         self.lblViewAgreement.text = @"设置开工时间";
         self.iconViewAgreement.image = [UIImage imageNamed:@"icon_set_work_time"];

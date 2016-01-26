@@ -26,6 +26,7 @@
 @dynamic work_type;
 @dynamic total_price;
 @dynamic start_at;
+@dynamic lastupdate;
 @dynamic duration;
 @dynamic going_on;
 @dynamic sections;

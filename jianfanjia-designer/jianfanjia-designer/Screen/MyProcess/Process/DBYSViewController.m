@@ -111,10 +111,15 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         }
     }];
     
-    [self refreshButtonInBottom];
-    
-    [self.imgArray.rac_sequence.signal subscribeNext:^(id x) {
+    [[RACObserve(self, imgArray) flattenMap:^RACStream *(NSArray *items) {
+        NSMutableArray *signals = [NSMutableArray array];
+        for (YsImage *img in items) {
+            [signals addObject:RACObserve(img, imageid)];
+        }
         
+        return [RACSignal combineLatest:(signals)];
+    }] subscribeNext:^(id x) {
+        [self refreshButtonInBottom];
     }];
 }
 
@@ -168,7 +173,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     NSInteger count = 0;
     for (NSInteger i = 0; i < self.imgArray.count; i++) {
         YsImage *img = self.imgArray[i];
-        if (img.imageid) {
+        if (![img.imageid isEqualToString:@""]) {
             count++;
         }
     }
@@ -289,7 +294,6 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     YsImage *ysimg = self.imgArray[index];
     ysimg.imageid = @"";
     [self.imgCollection reloadData];
-    [self refreshButtonInBottom];
     
     DeleteYsImageFromProcess *request = [[DeleteYsImageFromProcess alloc] init];
     request._id = self.processid;
@@ -323,7 +327,6 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
             YsImage *ysimg = self.imgArray[index];
             ysimg.imageid = imageIds[0];
             [self.imgCollection reloadData];
-            [self refreshButtonInBottom];
         } failure:^{
             
         } networkError:^{

@@ -65,7 +65,10 @@
     [self.btnPhone setCornerRadius:5];
     [self.btnOk setCornerRadius:5];
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-    [self.datePicker setMinimumDate:[NSDate date]];
+
+    
+    NSDate *now = [self getNowDate];
+    [self.datePicker setMinimumDate:now];
     self.lblDateTime.text = [self.datePicker.date yyyy_Nian_MM_Yue_dd_Ri_HH_mm];
     self.lblPhone.text = self.requirement.user.phone;
 }
@@ -73,6 +76,20 @@
 - (void)onDatePickerValueChanged:(UIDatePicker *)datePicker {
     NSDate *date = datePicker.date;
     self.lblDateTime.text = [date yyyy_Nian_MM_Yue_dd_Ri_HH_mm];
+}
+
+#pragma mark - util
+- (NSDate *)getNowDate {
+    NSDate *now = [NSDate date];
+    NSCalendar *cal = [NSCalendar currentCalendar];
+    NSDateComponents *components = [cal components:NSCalendarUnitMinute fromDate:now];
+    NSInteger minute = components.minute;
+    minute = minute + 10 - minute % 10;
+    
+    now = [cal dateBySettingUnit:NSCalendarUnitMinute value:minute ofDate:now options:0];
+    now = [cal dateBySettingUnit:NSCalendarUnitSecond value:0 ofDate:now options:0];
+    
+    return now;
 }
 
 #pragma mark - user actions 
@@ -88,10 +105,13 @@
 }
 
 - (IBAction)onClickOk:(id)sender  {
+    NSDate *now = [self getNowDate];
+    NSDate *selectedDate = [self.datePicker.date earlierDate:now] ? now : self.datePicker.date;
+    
     [HUDUtil showWait];
     DesignerRespondUser *request = [[DesignerRespondUser alloc] init];
     request.requirementid = self.requirement._id;
-    request.house_check_time = @([self.datePicker.date timeIntervalSince1970] * 1000);
+    request.house_check_time = @([selectedDate timeIntervalSince1970] * 1000);
     
     [API designerRespondUser:request success:^{
         [HUDUtil hideWait];

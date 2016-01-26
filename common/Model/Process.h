@@ -29,6 +29,7 @@
 @property (nonatomic, strong) NSString *work_type;
 @property (nonatomic, strong) NSNumber *total_price;
 @property (nonatomic, strong) NSNumber *start_at;
+@property (nonatomic, strong) NSNumber *lastupdate;
 @property (nonatomic, strong) NSNumber *duration;
 @property (nonatomic, strong) NSString *going_on;
 @property (nonatomic, strong) NSMutableArray *sections;

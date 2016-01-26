@@ -59,8 +59,8 @@
 - (void)initWithProcess:(Process *)process {
     self.process = process;
     [self.imgHomeOwner setUserImageWithId:self.process.user.imageid];
-//    self.lblPublishTimeVal.text = [NSDate yyyy_MM_dd_HH_mm:self.process.create_at];
-//    self.lblUpdateTimeVal.text = [NSDate yyyy_MM_dd_HH_mm:self.process.last_status_update_time];;
+    self.lblPublishTimeVal.text = [NSDate yyyy_MM_dd:self.process.start_at];
+    self.lblUpdateTimeVal.text = [self.process.lastupdate humDateString];
     self.lblCellNameVal.text = process.cell;
     self.lblProcessStatusVal.text = [process.going_on isEqualToString:@"done"] ? @"已竣工" : [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:process.going_on]];
     
@@ -68,7 +68,10 @@
     [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.process._id observer:^(id value) {
         @strongify(self);
         self.btnGoToWorkspace.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
-        self.btnGoToWorkspace.badgeOriginX = CGRectGetMinX(self.btnGoToWorkspace.frame) + CGRectGetWidth(self.btnGoToWorkspace.frame) / 2 + 9;
+        CGFloat btnWidth = kScreenWidth / 3.0;
+        CGFloat btnHeight = self.btnGoToWorkspace.frame.size.height;
+        self.btnGoToWorkspace.badgeOriginX = btnWidth / 2 + 22;
+        self.btnGoToWorkspace.badgeOriginY = (btnHeight - self.btnGoToWorkspace.badge.frame.size.width) / 2 - 10;
     }];
     
     [self updateSections:process];

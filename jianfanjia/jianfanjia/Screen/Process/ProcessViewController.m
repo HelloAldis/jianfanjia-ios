@@ -401,7 +401,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [self refreshSectionView];
         [self refreshSectionBackground];
         [self.tableView beginUpdates];
-        [self.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
         [self.tableView endUpdates];
     } failure:^{
         

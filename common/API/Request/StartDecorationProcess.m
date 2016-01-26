@@ -13,4 +13,8 @@
 @dynamic requirementid;
 @dynamic final_planid;
 
+- (void)failure {
+    [HUDUtil showErrText:[DataManager shared].errMsg];
+}
+
 @end

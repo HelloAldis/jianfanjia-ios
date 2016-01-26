@@ -50,7 +50,7 @@
 
 + (void)displayStars:(NSArray *)imageViewArray withAmount:(NSInteger)amount withStar:(UIImage *)starImg {
     [imageViewArray enumerateObjectsUsingBlock:^(UIImageView*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (idx <= amount) {
+        if ((idx + 1) <= amount) {
             obj.image = starImg;
         } else {
             obj.image = nil;

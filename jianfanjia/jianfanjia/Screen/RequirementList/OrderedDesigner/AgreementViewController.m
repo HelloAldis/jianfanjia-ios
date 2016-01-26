@@ -100,6 +100,7 @@
 
 #pragma mark - user action
 - (IBAction)onClickConfirm:(id)sender {
+    self.btnConfirm.enabled = NO;
     StartDecorationProcess *request = [[StartDecorationProcess alloc] init];
     request.requirementid = self.requirement._id;
     request.final_planid = self.requirement.final_planid;
@@ -107,9 +108,9 @@
     [API startDecoration:request success:^{
         [self.navigationController popToRootViewControllerAnimated:YES];
     } failure:^{
-        
+        self.btnConfirm.enabled = YES;
     } networkError:^{
-        
+        self.btnConfirm.enabled = YES;
     }];
 }
 

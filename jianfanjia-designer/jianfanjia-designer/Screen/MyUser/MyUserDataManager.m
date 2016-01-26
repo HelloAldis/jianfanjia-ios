@@ -53,7 +53,9 @@ static NSArray *processedStatusArr = nil;
         if ([unprocessStatusArr containsObject:requirement.plan.status]) {
             [unprocessActions addObject:requirement];
         } else if ([processingStatusArr containsObject:requirement.plan.status]) {
-            [processingActions addObject:requirement];
+            if (![requirement.status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
+                [processingActions addObject:requirement];
+            }
         } else if ([processedStatusArr containsObject:requirement.plan.status]) {
             [processedActions addObject:requirement];
         }
