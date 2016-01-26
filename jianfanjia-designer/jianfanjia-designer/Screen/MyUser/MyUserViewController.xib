@@ -24,6 +24,53 @@
             <rect key="frame" x="0.0" y="0.0" width="542" height="874"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHg-i4-02I" userLabel="NoRequirementView">
+                    <rect key="frame" x="0.0" y="109" width="542" height="725"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQg-WO-c6x">
+                            <rect key="frame" x="0.0" y="0.0" width="542" height="221"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有业主邀约哦～ 加油啊！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2E2-yw-rmU">
+                                    <rect key="frame" x="20" y="75" width="502" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示：如您的资料完善程度高，系统将会优先将您推给业主\n网址：http://www.jianfanjia.com/" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1F-XN-gKt">
+                                    <rect key="frame" x="20" y="110" width="502" height="32"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="N1F-XN-gKt" firstAttribute="leading" secondItem="2E2-yw-rmU" secondAttribute="leading" id="HOs-8b-dww"/>
+                                <constraint firstItem="N1F-XN-gKt" firstAttribute="centerX" secondItem="QQg-WO-c6x" secondAttribute="centerX" id="PR4-F4-Klv"/>
+                                <constraint firstItem="2E2-yw-rmU" firstAttribute="centerX" secondItem="N1F-XN-gKt" secondAttribute="centerX" id="Q27-Vh-KuQ"/>
+                                <constraint firstItem="N1F-XN-gKt" firstAttribute="top" secondItem="2E2-yw-rmU" secondAttribute="bottom" constant="15" id="f7m-dG-7OW"/>
+                                <constraint firstItem="2E2-yw-rmU" firstAttribute="leading" secondItem="QQg-WO-c6x" secondAttribute="leading" constant="20" id="np6-tj-HE4"/>
+                                <constraint firstItem="N1F-XN-gKt" firstAttribute="centerY" secondItem="QQg-WO-c6x" secondAttribute="centerY" constant="15" id="u9e-R9-kHO"/>
+                            </constraints>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_requirement_image" translatesAutoresizingMaskIntoConstraints="NO" id="USc-06-7jZ">
+                            <rect key="frame" x="0.0" y="221" width="542" height="504"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="USc-06-7jZ" secondAttribute="height" multiplier="414:385" id="Qbm-ZF-sTT"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="QQg-WO-c6x" firstAttribute="top" secondItem="NHg-i4-02I" secondAttribute="top" id="8Vg-k2-brc"/>
+                        <constraint firstAttribute="bottom" secondItem="USc-06-7jZ" secondAttribute="bottom" id="Kyw-Du-LSg"/>
+                        <constraint firstItem="QQg-WO-c6x" firstAttribute="leading" secondItem="NHg-i4-02I" secondAttribute="leading" id="Q0n-b1-49h"/>
+                        <constraint firstItem="USc-06-7jZ" firstAttribute="top" secondItem="QQg-WO-c6x" secondAttribute="bottom" id="UL3-MS-F2H"/>
+                        <constraint firstItem="USc-06-7jZ" firstAttribute="width" secondItem="NHg-i4-02I" secondAttribute="width" id="Vlg-qO-7m7"/>
+                        <constraint firstItem="USc-06-7jZ" firstAttribute="leading" secondItem="NHg-i4-02I" secondAttribute="leading" id="rPf-Tx-v1m"/>
+                        <constraint firstItem="QQg-WO-c6x" firstAttribute="width" secondItem="NHg-i4-02I" secondAttribute="width" id="y68-QG-UW1"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9yY-BV-qmw" userLabel="HeaderView">
                     <rect key="frame" x="0.0" y="64" width="542" height="45"/>
                     <subviews>
@@ -110,53 +157,6 @@
                         <constraint firstItem="9gr-ot-jfT" firstAttribute="top" secondItem="0Rq-7k-NcG" secondAttribute="top" id="psz-6n-wXu"/>
                         <constraint firstItem="RSp-mW-wP4" firstAttribute="leading" secondItem="9yY-BV-qmw" secondAttribute="leading" id="sed-qs-GuW"/>
                         <constraint firstAttribute="height" constant="45" id="t8D-q9-YPN"/>
-                    </constraints>
-                </view>
-                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NHg-i4-02I" userLabel="NoRequirementView">
-                    <rect key="frame" x="0.0" y="109" width="542" height="725"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QQg-WO-c6x">
-                            <rect key="frame" x="0.0" y="0.0" width="542" height="221"/>
-                            <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有业主邀约哦～ 加油啊！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2E2-yw-rmU">
-                                    <rect key="frame" x="20" y="75" width="502" height="20"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示：如您的资料完善程度高，系统将会优先将您推给业主\n网址：http://www.jianfanjia.com/" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N1F-XN-gKt">
-                                    <rect key="frame" x="20" y="110" width="502" height="32"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                    <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="N1F-XN-gKt" firstAttribute="leading" secondItem="2E2-yw-rmU" secondAttribute="leading" id="HOs-8b-dww"/>
-                                <constraint firstItem="N1F-XN-gKt" firstAttribute="centerX" secondItem="QQg-WO-c6x" secondAttribute="centerX" id="PR4-F4-Klv"/>
-                                <constraint firstItem="2E2-yw-rmU" firstAttribute="centerX" secondItem="N1F-XN-gKt" secondAttribute="centerX" id="Q27-Vh-KuQ"/>
-                                <constraint firstItem="N1F-XN-gKt" firstAttribute="top" secondItem="2E2-yw-rmU" secondAttribute="bottom" constant="15" id="f7m-dG-7OW"/>
-                                <constraint firstItem="2E2-yw-rmU" firstAttribute="leading" secondItem="QQg-WO-c6x" secondAttribute="leading" constant="20" id="np6-tj-HE4"/>
-                                <constraint firstItem="N1F-XN-gKt" firstAttribute="centerY" secondItem="QQg-WO-c6x" secondAttribute="centerY" constant="15" id="u9e-R9-kHO"/>
-                            </constraints>
-                        </view>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_requirement_image" translatesAutoresizingMaskIntoConstraints="NO" id="USc-06-7jZ">
-                            <rect key="frame" x="0.0" y="221" width="542" height="504"/>
-                            <constraints>
-                                <constraint firstAttribute="width" secondItem="USc-06-7jZ" secondAttribute="height" multiplier="414:385" id="Qbm-ZF-sTT"/>
-                            </constraints>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="QQg-WO-c6x" firstAttribute="top" secondItem="NHg-i4-02I" secondAttribute="top" id="8Vg-k2-brc"/>
-                        <constraint firstAttribute="bottom" secondItem="USc-06-7jZ" secondAttribute="bottom" id="Kyw-Du-LSg"/>
-                        <constraint firstItem="QQg-WO-c6x" firstAttribute="leading" secondItem="NHg-i4-02I" secondAttribute="leading" id="Q0n-b1-49h"/>
-                        <constraint firstItem="USc-06-7jZ" firstAttribute="top" secondItem="QQg-WO-c6x" secondAttribute="bottom" id="UL3-MS-F2H"/>
-                        <constraint firstItem="USc-06-7jZ" firstAttribute="width" secondItem="NHg-i4-02I" secondAttribute="width" id="Vlg-qO-7m7"/>
-                        <constraint firstItem="USc-06-7jZ" firstAttribute="leading" secondItem="NHg-i4-02I" secondAttribute="leading" id="rPf-Tx-v1m"/>
-                        <constraint firstItem="QQg-WO-c6x" firstAttribute="width" secondItem="NHg-i4-02I" secondAttribute="width" id="y68-QG-UW1"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BMg-ih-g0O">

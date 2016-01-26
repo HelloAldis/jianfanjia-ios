@@ -122,7 +122,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 
 #pragma mark - scroll view deleate 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.noRequirementView.alpha == 1 && scrollView.contentOffset.y <= 0) {
+    if (self.noRequirementView.alpha == 1) {
         self.noRequirementView.frame = CGRectMake(self.noRequirementView.frame.origin.x, 109 - scrollView.contentOffset.y, self.noRequirementView.frame.size.width, self.noRequirementView.frame.size.height);
     }
 }
