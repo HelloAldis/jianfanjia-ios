@@ -19,9 +19,7 @@
 + (void)showResetPass;
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
-+ (void)showProduct:(NSString *)productid;
 + (void)showRequirementCreate:(Requirement *)requirement;
-//+ (void)showDesigner:(NSString *)designerid;
 + (void)showEvaluate:(Evaluation *)evaluation;
 + (void)showPlanList:(Requirement *)requirement;
 + (void)leaveMessage:(Plan *)plan;

@@ -10,7 +10,6 @@
 #import "SettingViewController.h"
 #import "UserInfoViewController.h"
 #import "ViewControllerContainer.h"
-#import "MyFavoriateViewController.h"
 #import "CustomerServiceViewController.h"
 
 @interface MeViewController ()
