@@ -208,8 +208,9 @@
         [API favoriteBeautifulImage:request success:^{
             self.beautifulImage.is_my_favorite = @1;
             [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"] forState:UIControlStateNormal];
+            [HUDUtil showSuccessText:@"收藏成功"];
         } failure:^{
-            
+            [HUDUtil showErrText:@"收藏失败"];
         } networkError:^{
             
         }];
@@ -220,8 +221,9 @@
         [API unfavoriteBeautifulImage:request success:^{
             self.beautifulImage.is_my_favorite = @0;
             [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"] forState:UIControlStateNormal];
+            [HUDUtil showSuccessText:@"取消收藏成功"];
         } failure:^{
-            
+            [HUDUtil showErrText:@"取消收藏失败"];
         } networkError:^{
             
         }];
@@ -247,9 +249,9 @@
 
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     if (error == nil) {
-        [HUDUtil showSuccessText:@"保存成功"];
+        [HUDUtil showSuccessText:@"保存到相册成功"];
     } else {
-        [HUDUtil showSuccessText:@"保存失败"];
+        [HUDUtil showErrText:@"保存到相册失败"];
     }
 }
 
