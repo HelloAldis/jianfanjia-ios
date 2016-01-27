@@ -11,6 +11,7 @@
 NSString * const kApiUrl = @"http://dev.jianfanjia.com/api/v2/app/";
 //NSString * const kApiUrl = @"http://dev.jianfanjia.com:8888/api/v2/app/";
 //NSString * const kApiUrl = @"http://www.jianfanjia.com/api/v2/app/";
+
 static AFHTTPRequestOperationManager *_manager;
 
 @implementation API
