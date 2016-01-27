@@ -34,6 +34,19 @@
     [self initUIData];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    UserGetInfo *request = [[UserGetInfo alloc] init];
+    [API userGetInfo:request success:^{
+        [self initUIData];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
