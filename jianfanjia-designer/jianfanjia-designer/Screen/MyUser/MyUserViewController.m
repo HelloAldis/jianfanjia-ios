@@ -17,6 +17,7 @@
 #import "ChoosedPlanForDesignActionCell.h"
 #import "UnchoosedPlanActionCell.h"
 #import "MyUserDataManager.h"
+#import "NoRequirementImageView.h"
 #import "API.h"
 
 typedef NS_ENUM(NSInteger, PlanType) {
@@ -37,15 +38,12 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 
 @interface MyUserViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) UIScrollView *pageScrollView;
+@property (strong, nonatomic) NSMutableArray<UITableView *> *tableViews;
+@property (strong, nonatomic) NSMutableArray<NoRequirementImageView *> *noRequirementViews;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnActions;
-@property (weak, nonatomic) IBOutlet UIView *noRequirementView;
-@property (weak, nonatomic) IBOutlet UILabel *lblNoRequirementTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lblNoRequirementDesc;
 
-@property (assign, nonatomic) NSInteger preSelectedButtonIndex;
-@property (assign, nonatomic) NSInteger selectedButtonIndex;
 @property (assign, nonatomic) PlanType currentPlanType;
 @property (strong ,nonatomic) MyUserDataManager *dataManager;
 
@@ -94,36 +92,70 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     self.isTabbarhide = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.dataManager = [[MyUserDataManager alloc] init];
-    self.tableView.tableFooterView = [[UIView alloc] init];
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
+    self.tableViews = [NSMutableArray array];
+    self.noRequirementViews = [NSMutableArray array];
+    CGFloat topDistance = 45 + 64;
+    CGFloat bottomDistance = 50;
+    CGFloat bettweenDistance = 4;
+    CGFloat tableViewWidth = kScreenWidth - bettweenDistance;
+    CGFloat tableViewHeight = kScreenHeight - topDistance - bottomDistance;
     
-    [self.tableView registerNib:[UINib nibWithNibName:UnrespondActionCellIdentifier bundle:nil] forCellReuseIdentifier:UnrespondActionCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:RejectActionCellIdentifier bundle:nil] forCellReuseIdentifier:RejectActionCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:RespondedActionCellIdentifier bundle:nil] forCellReuseIdentifier:RespondedActionCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:MeasuredHouseActionCellIdentifier bundle:nil] forCellReuseIdentifier:MeasuredHouseActionCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:SubmitPlanExpiredActionCellIdentifier bundle:nil] forCellReuseIdentifier:SubmitPlanExpiredActionCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:SubmitedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:SubmitedPlanActionCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:ChoosedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:ChoosedPlanActionCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:ChoosedPlanForDesignActionCellIdentifier bundle:nil] forCellReuseIdentifier:ChoosedPlanForDesignActionCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:UnchoosedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:UnchoosedPlanActionCellIdentifier];
+    self.pageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, topDistance, kScreenWidth, tableViewHeight)];
+    self.pageScrollView.delegate = self;
+    self.pageScrollView.backgroundColor = kViewBgColor;
+    self.pageScrollView.alwaysBounceHorizontal = NO;
+    self.pageScrollView.alwaysBounceVertical = NO;
+    self.pageScrollView.showsHorizontalScrollIndicator = NO;
+    self.pageScrollView.showsVerticalScrollIndicator = NO;
+    self.pageScrollView.pagingEnabled = YES;
+    [self.view addSubview:self.pageScrollView];
     
     @weakify(self);
+    for (NSInteger i = 0; i < 3; i++) {
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(bettweenDistance / 2 + i * (tableViewWidth + bettweenDistance), 0, tableViewWidth, tableViewHeight)];
+        tableView.delegate = self;
+        tableView.dataSource = self;
+        tableView.backgroundColor = kViewBgColor;
+        tableView.tableFooterView = [[UIView alloc] init];
+        [tableView registerNib:[UINib nibWithNibName:UnrespondActionCellIdentifier bundle:nil] forCellReuseIdentifier:UnrespondActionCellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:RejectActionCellIdentifier bundle:nil] forCellReuseIdentifier:RejectActionCellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:RespondedActionCellIdentifier bundle:nil] forCellReuseIdentifier:RespondedActionCellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:MeasuredHouseActionCellIdentifier bundle:nil] forCellReuseIdentifier:MeasuredHouseActionCellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:SubmitPlanExpiredActionCellIdentifier bundle:nil] forCellReuseIdentifier:SubmitPlanExpiredActionCellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:SubmitedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:SubmitedPlanActionCellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:ChoosedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:ChoosedPlanActionCellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:ChoosedPlanForDesignActionCellIdentifier bundle:nil] forCellReuseIdentifier:ChoosedPlanForDesignActionCellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:UnchoosedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:UnchoosedPlanActionCellIdentifier];
+        
+        NoRequirementImageView *noRequirementView = [NoRequirementImageView noRequirementImageView];
+        noRequirementView.frame = CGRectMake(0, 0, kScreenWidth, tableViewHeight);
+        [tableView addSubview:noRequirementView];
+        
+        [self.pageScrollView addSubview:tableView];
+        [self.tableViews addObject:tableView];
+        [self.noRequirementViews addObject:noRequirementView];
+        
+        tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            @strongify(self);
+            [self refresh:NO];
+        }];
+    }
+    [self.pageScrollView setContentSize:CGSizeMake(kScreenWidth * 3, tableViewHeight)];
+
     [self.btnActions enumerateObjectsUsingBlock:^(UIButton*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         [obj addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
         [obj setExclusiveTouch:YES];
     }];
-    
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        @strongify(self);
-        [self refresh:NO];
-    }];
 }
 
 #pragma mark - scroll view deleate 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.noRequirementView.alpha == 1) {
-        self.noRequirementView.frame = CGRectMake(self.noRequirementView.frame.origin.x, 109 - scrollView.contentOffset.y, self.noRequirementView.frame.size.width, self.noRequirementView.frame.size.height);
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (scrollView == self.pageScrollView) {
+        NSInteger idx = self.pageScrollView.contentOffset.x / kScreenWidth;
+        if (idx != self.currentPlanType) {
+            [self switchToOtherButton:idx isClicked:NO];
+        }
     }
 }
 
@@ -205,20 +237,27 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 
 #pragma mark - user actions
 - (void)onClickButton:(UIButton *)button {
-    [self switchToOtherButton:[self.btnActions indexOfObject:button]];
+    NSInteger idx = [self.btnActions indexOfObject:button];
+    [self switchToOtherButton:idx isClicked:YES];
 }
 
-- (void)switchToOtherButton:(NSInteger)buttonIndex {
+- (void)switchToOtherButton:(NSInteger)buttonIndex isClicked:(BOOL)isClicked {
     [UIView animateWithDuration:0.3 animations:^{
-        UIButton *lastButton = self.btnActions[self.selectedButtonIndex];
+        UIButton *lastButton = self.btnActions[self.currentPlanType];
         lastButton.alpha = 0.5;
         UIButton *selectedButton = self.btnActions[buttonIndex];
         selectedButton.alpha = 1;
     } completion:^(BOOL finished) {
-        self.selectedButtonIndex = buttonIndex;
         self.currentPlanType = buttonIndex;
         [self switchViewToHide];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        CGFloat offsetX = self.pageScrollView.contentOffset.x;
+        NSInteger curIdx = offsetX / kScreenWidth;
+        
+        if (curIdx != buttonIndex && isClicked) {
+            [self.pageScrollView setContentOffset:CGPointMake(kScreenWidth * buttonIndex, 0) animated:YES];
+        }
+        
+        [[self getCurrentTableView] reloadData];
     }];
 }
 
@@ -231,19 +270,23 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     
     [API designerGetUserRequirement:request success:^{
         [HUDUtil hideWait];
-        [self.tableView.header endRefreshing];
+        [[self getCurrentTableView].header endRefreshing];
         [self.dataManager refreshAllActions];
         [self reloadData];
     } failure:^{
-        [self.tableView.header endRefreshing];
+        [[self getCurrentTableView].header endRefreshing];
         [HUDUtil hideWait];
     } networkError:^{
-        [self.tableView.header endRefreshing];
+        [[self getCurrentTableView].header endRefreshing];
         [HUDUtil hideWait];
     }];
 }
 
 #pragma mark - Util
+- (UITableView *)getCurrentTableView {
+    return self.tableViews[self.currentPlanType];
+}
+
 - (void)hideTabbar {
     if (!self.isTabbarhide) {
         self.isTabbarhide = YES;
@@ -269,19 +312,19 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         [self switchToSuitableButton];
     } else {
         [self switchViewToHide];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [[self getCurrentTableView] reloadData];
     }
 }
 
 - (void)switchToSuitableButton {
     if (self.dataManager.unprocessActions.count > 0) {
-        [self switchToOtherButton:PlanTypeUnprocess];
+        [self switchToOtherButton:PlanTypeUnprocess isClicked:YES];
     } else if (self.dataManager.processingActions.count > 0) {
-        [self switchToOtherButton:PlanTypeProcessing];
+        [self switchToOtherButton:PlanTypeProcessing isClicked:YES];
     } else if (self.dataManager.processedActions.count > 0) {
-        [self switchToOtherButton:PlanTypeProcessed];
+        [self switchToOtherButton:PlanTypeProcessed isClicked:YES];
     } else {
-        [self switchToOtherButton:PlanTypeUnprocess];
+        [self switchToOtherButton:PlanTypeUnprocess isClicked:YES];
     }
 }
 
@@ -298,11 +341,12 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 }
 
 - (void)showNoRequirementImage:(BOOL)show title:(NSString *)title {
+    NoRequirementImageView *noRequirementView = self.noRequirementViews[self.currentPlanType];
+    
     [UIView animateWithDuration:0.3 animations:^{
-        self.lblNoRequirementTitle.text = title;
-        self.lblNoRequirementDesc.text = @"温馨提示：如您的资料完善程度高，系统将会优先将您推给业主\n\n网址：http://www.jianfanjia.com/";
-        self.noRequirementView.alpha = show ? 1 : 0;
-        self.tableView.backgroundColor = !show ? [UIColor colorWithR:240 g:240 b:240 a:1] : [UIColor colorWithR:240 g:240 b:240 a:0];
+        noRequirementView.alpha = show ? 1 : 0;
+        noRequirementView.lblNoRequirementTitle.text = title;
+        noRequirementView.lblNoRequirementDesc.text = @"温馨提示：如您的资料完善程度高，系统将会优先将您推给业主\n\n网址：http://www.jianfanjia.com/";
     } completion:nil];
 }
 

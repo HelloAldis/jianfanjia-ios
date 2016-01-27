@@ -290,6 +290,8 @@
 		682E04EF1C55FA9100F1ACAA /* UploadYsImageToProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E04EC1C55FA9100F1ACAA /* UploadYsImageToProcess.m */; };
 		682E04F31C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E04F11C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.m */; };
 		682E04F41C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682E04F21C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.xib */; };
+		682E04FD1C588A6100F1ACAA /* NoRequirementImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E04FB1C588A6100F1ACAA /* NoRequirementImageView.m */; };
+		682E04FE1C588A6100F1ACAA /* NoRequirementImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682E04FC1C588A6100F1ACAA /* NoRequirementImageView.xib */; };
 		68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68425C2F1C55B0CC004D33F4 /* DesignerDoneSectionItem.m */; };
 		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
 		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
@@ -838,6 +840,9 @@
 		682E04F01C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosedPlanForDesignActionCell.h; sourceTree = "<group>"; };
 		682E04F11C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosedPlanForDesignActionCell.m; sourceTree = "<group>"; };
 		682E04F21C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChoosedPlanForDesignActionCell.xib; sourceTree = "<group>"; };
+		682E04FA1C588A6100F1ACAA /* NoRequirementImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoRequirementImageView.h; sourceTree = "<group>"; };
+		682E04FB1C588A6100F1ACAA /* NoRequirementImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoRequirementImageView.m; sourceTree = "<group>"; };
+		682E04FC1C588A6100F1ACAA /* NoRequirementImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoRequirementImageView.xib; sourceTree = "<group>"; };
 		68425C2E1C55B0CC004D33F4 /* DesignerDoneSectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDoneSectionItem.h; sourceTree = "<group>"; };
 		68425C2F1C55B0CC004D33F4 /* DesignerDoneSectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDoneSectionItem.m; sourceTree = "<group>"; };
 		68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -1330,6 +1335,9 @@
 				68123F261C4CCBF9008FC9AB /* MyUserViewController.h */,
 				68123F271C4CCBF9008FC9AB /* MyUserViewController.m */,
 				68123F281C4CCBF9008FC9AB /* MyUserViewController.xib */,
+				682E04FA1C588A6100F1ACAA /* NoRequirementImageView.h */,
+				682E04FB1C588A6100F1ACAA /* NoRequirementImageView.m */,
+				682E04FC1C588A6100F1ACAA /* NoRequirementImageView.xib */,
 				68123FEF1C4CD1E3008FC9AB /* EvaluateDesignerViewController.h */,
 				68123FF01C4CD1E3008FC9AB /* EvaluateDesignerViewController.m */,
 				68123FF11C4CD1E3008FC9AB /* EvaluateDesignerViewController.xib */,
@@ -2039,6 +2047,7 @@
 				68123F121C4CBE79008FC9AB /* SelectSexTypeViewController.xib in Resources */,
 				68123E8D1C4CBE79008FC9AB /* FavoriteDesignerCell.xib in Resources */,
 				68123FF51C4CD1E3008FC9AB /* EvaluateDesignerViewController.xib in Resources */,
+				682E04FE1C588A6100F1ACAA /* NoRequirementImageView.xib in Resources */,
 				68123E8A1C4CBE79008FC9AB /* FavoriateProductCell.xib in Resources */,
 				681241BF1C4F97D1008FC9AB /* RejectUserAlertViewController.xib in Resources */,
 				68123EBE1C4CBE79008FC9AB /* RefreshViewController.xib in Resources */,
@@ -2250,6 +2259,7 @@
 				68123E8C1C4CBE79008FC9AB /* FavoriteDesignerCell.m in Sources */,
 				681240CC1C4CE471008FC9AB /* SearchBeautifulImage.m in Sources */,
 				6E378D481BDA2D2E00908B77 /* UIButton+Ex.m in Sources */,
+				682E04FD1C588A6100F1ACAA /* NoRequirementImageView.m in Sources */,
 				681240C71C4CE471008FC9AB /* QueryProduct.m in Sources */,
 				6812401C1C4CDA06008FC9AB /* UIScrollView+Ex.m in Sources */,
 				68123EFF1C4CBE79008FC9AB /* HouseRequirementCreateViewController.m in Sources */,
