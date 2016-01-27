@@ -1960,7 +1960,6 @@
 				68123E7F1C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.xib in Resources */,
 				68123EFC1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.xib in Resources */,
 				6EA0C1A81C585C5B00D04A4F /* PlanPriceItemExpandCell.xib in Resources */,
-				68123EB71C4CBE79008FC9AB /* ProductImageCell.xib in Resources */,
 				681241A41C4F3B1C008FC9AB /* MeasuredHouseActionCell.xib in Resources */,
 				68123E851C4CBE79008FC9AB /* MeViewController.xib in Resources */,
 				681241201C4CF2D5008FC9AB /* ItemExpandImageCell.xib in Resources */,
