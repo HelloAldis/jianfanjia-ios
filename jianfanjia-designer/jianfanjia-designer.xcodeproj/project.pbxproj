@@ -111,10 +111,6 @@
 		68123F191C4CBE79008FC9AB /* W1View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E601C4CBE79008FC9AB /* W1View.xib */; };
 		68123F1A1C4CBE79008FC9AB /* W2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123E621C4CBE79008FC9AB /* W2View.m */; };
 		68123F1B1C4CBE79008FC9AB /* W2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E631C4CBE79008FC9AB /* W2View.xib */; };
-		68123F1C1C4CBE79008FC9AB /* W3View.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123E651C4CBE79008FC9AB /* W3View.m */; };
-		68123F1D1C4CBE79008FC9AB /* W3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E661C4CBE79008FC9AB /* W3View.xib */; };
-		68123F1E1C4CBE79008FC9AB /* W4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123E681C4CBE79008FC9AB /* W4View.m */; };
-		68123F1F1C4CBE79008FC9AB /* W4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E691C4CBE79008FC9AB /* W4View.xib */; };
 		68123F201C4CBE79008FC9AB /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123E6B1C4CBE79008FC9AB /* WelcomeViewController.m */; };
 		68123F211C4CBE79008FC9AB /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E6C1C4CBE79008FC9AB /* WelcomeViewController.xib */; };
 		68123F291C4CCBF9008FC9AB /* MyUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123F271C4CCBF9008FC9AB /* MyUserViewController.m */; };
@@ -509,12 +505,6 @@
 		68123E611C4CBE79008FC9AB /* W2View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W2View.h; sourceTree = "<group>"; };
 		68123E621C4CBE79008FC9AB /* W2View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W2View.m; sourceTree = "<group>"; };
 		68123E631C4CBE79008FC9AB /* W2View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W2View.xib; sourceTree = "<group>"; };
-		68123E641C4CBE79008FC9AB /* W3View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W3View.h; sourceTree = "<group>"; };
-		68123E651C4CBE79008FC9AB /* W3View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W3View.m; sourceTree = "<group>"; };
-		68123E661C4CBE79008FC9AB /* W3View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W3View.xib; sourceTree = "<group>"; };
-		68123E671C4CBE79008FC9AB /* W4View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W4View.h; sourceTree = "<group>"; };
-		68123E681C4CBE79008FC9AB /* W4View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W4View.m; sourceTree = "<group>"; };
-		68123E691C4CBE79008FC9AB /* W4View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W4View.xib; sourceTree = "<group>"; };
 		68123E6A1C4CBE79008FC9AB /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		68123E6B1C4CBE79008FC9AB /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		68123E6C1C4CBE79008FC9AB /* WelcomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
@@ -1225,12 +1215,6 @@
 				68123E611C4CBE79008FC9AB /* W2View.h */,
 				68123E621C4CBE79008FC9AB /* W2View.m */,
 				68123E631C4CBE79008FC9AB /* W2View.xib */,
-				68123E641C4CBE79008FC9AB /* W3View.h */,
-				68123E651C4CBE79008FC9AB /* W3View.m */,
-				68123E661C4CBE79008FC9AB /* W3View.xib */,
-				68123E671C4CBE79008FC9AB /* W4View.h */,
-				68123E681C4CBE79008FC9AB /* W4View.m */,
-				68123E691C4CBE79008FC9AB /* W4View.xib */,
 				68123E6A1C4CBE79008FC9AB /* WelcomeViewController.h */,
 				68123E6B1C4CBE79008FC9AB /* WelcomeViewController.m */,
 				68123E6C1C4CBE79008FC9AB /* WelcomeViewController.xib */,
@@ -1987,11 +1971,9 @@
 				681241AF1C4F3BCF008FC9AB /* SubmitedPlanActionCell.xib in Resources */,
 				68123C931C4C9772008FC9AB /* ThumbnailCell.xib in Resources */,
 				681241241C4CF2D5008FC9AB /* ItemsBackgroundView.xib in Resources */,
-				68123F1D1C4CBE79008FC9AB /* W3View.xib in Resources */,
 				681241341C4CF2D5008FC9AB /* SectionView.xib in Resources */,
 				68123C991C4C9772008FC9AB /* allprovince.js in Resources */,
 				681241CA1C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib in Resources */,
-				68123F1F1C4CBE79008FC9AB /* W4View.xib in Resources */,
 				68123E711C4CBE79008FC9AB /* LoginViewController.xib in Resources */,
 				68123E771C4CBE79008FC9AB /* VerifyPhoneViewController.xib in Resources */,
 				6EA0C1A31C57827A00D04A4F /* PlanPriceTotalCell.xib in Resources */,
@@ -2111,7 +2093,6 @@
 				6E378D3A1BDA2D2E00908B77 /* DesignerCD+CoreDataProperties.m in Sources */,
 				681241A91C4F3B1C008FC9AB /* RespondedActionCell.m in Sources */,
 				6E378D3F1BDA2D2E00908B77 /* ProcessCD.m in Sources */,
-				68123F1C1C4CBE79008FC9AB /* W3View.m in Sources */,
 				681240C31C4CE471008FC9AB /* ListFavoriteDesigner.m in Sources */,
 				681240D61C4CE471008FC9AB /* UploadImageToProcess.m in Sources */,
 				6E378D541BDA2D2E00908B77 /* Ys.m in Sources */,
@@ -2289,7 +2270,6 @@
 				681240BC1C4CE471008FC9AB /* GetRequirementPlans.m in Sources */,
 				68123FDE1C4CCF4A008FC9AB /* LeafImage.m in Sources */,
 				681241A31C4F3B1C008FC9AB /* MeasuredHouseActionCell.m in Sources */,
-				68123F1E1C4CBE79008FC9AB /* W4View.m in Sources */,
 				68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */,
 				68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */,
 				68123F091C4CBE79008FC9AB /* SelectDecorationStyleViewController.m in Sources */,

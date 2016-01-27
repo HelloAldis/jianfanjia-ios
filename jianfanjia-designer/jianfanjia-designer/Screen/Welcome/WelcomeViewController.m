@@ -10,8 +10,6 @@
 #import "ViewControllerContainer.h"
 #import "W1View.h"
 #import "W2View.h"
-#import "W3View.h"
-#import "W4View.h"
 
 @interface WelcomeViewController ()
 
@@ -22,8 +20,7 @@
 
 @property (weak, nonatomic) W1View *w1;
 @property (weak, nonatomic) W2View *w2;
-@property (weak, nonatomic) W3View *w3;
-@property (weak, nonatomic) W4View *w4;
+
 @end
 
 @implementation WelcomeViewController
@@ -37,13 +34,9 @@
     
     self.w1 = [W1View w1View];
     self.w2 = [W2View w2View];
-    self.w3 = [W3View w3View];
-    self.w4 = [W4View w4View];
     [self.scrollView addSubview:self.w1];
     [self.scrollView addSubview:self.w2];
-    [self.scrollView addSubview:self.w3];
-    [self.scrollView addSubview:self.w4];
-    [self.scrollView setContentSize:CGSizeMake(kScreenWidth *4, kScreenHeight)];
+    [self.scrollView setContentSize:CGSizeMake(kScreenWidth *2, kScreenHeight)];
 
      [GVUserDefaults standardUserDefaults].welcomeVersion  = kWelconeVersion;
 }
@@ -56,8 +49,7 @@
     [super viewDidAppear:animated];
     self.w1.frame = kScreenFullFrame;
     self.w2.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight);
-    self.w3.frame = CGRectMake(kScreenWidth*2, 0, kScreenWidth, kScreenHeight);
-    self.w4.frame = CGRectMake(kScreenWidth*3, 0, kScreenWidth, kScreenHeight);
+
 }
 
 #pragma mark - UI
@@ -67,7 +59,7 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSInteger index = self.scrollView.contentOffset.x/kScreenWidth;
     self.pageControl.currentPage = index;
-    if (index == 3) {
+    if (index == 1) {
         self.pageControl.hidden = YES;
         self.btnLogin.hidden = NO;
         self.btnSignup.hidden = NO;
