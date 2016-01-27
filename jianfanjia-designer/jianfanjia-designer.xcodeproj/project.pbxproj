@@ -97,12 +97,6 @@
 		68123EEF1C4CBE79008FC9AB /* PlanListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E1D1C4CBE79008FC9AB /* PlanListViewController.xib */; };
 		68123EF01C4CBE79008FC9AB /* PlanPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123E1F1C4CBE79008FC9AB /* PlanPreviewViewController.m */; };
 		68123EF11C4CBE79008FC9AB /* PlanPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E201C4CBE79008FC9AB /* PlanPreviewViewController.xib */; };
-		68123EF21C4CBE79008FC9AB /* PlanPriceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123E221C4CBE79008FC9AB /* PlanPriceDetailViewController.m */; };
-		68123EF31C4CBE79008FC9AB /* PlanPriceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E231C4CBE79008FC9AB /* PlanPriceDetailViewController.xib */; };
-		68123EF41C4CBE79008FC9AB /* PlanPriceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123E251C4CBE79008FC9AB /* PlanPriceItemCell.m */; };
-		68123EF51C4CBE79008FC9AB /* PlanPriceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E261C4CBE79008FC9AB /* PlanPriceItemCell.xib */; };
-		68123EF61C4CBE79008FC9AB /* PlanPriceItemSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123E281C4CBE79008FC9AB /* PlanPriceItemSection.m */; };
-		68123EF71C4CBE79008FC9AB /* PlanPriceItemSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E291C4CBE79008FC9AB /* PlanPriceItemSection.xib */; };
 		68123EFA1C4CBE79008FC9AB /* BaseSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123E2F1C4CBE79008FC9AB /* BaseSelectionViewController.m */; };
 		68123EFB1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123E311C4CBE79008FC9AB /* BusinessRequirementCreateViewController.m */; };
 		68123EFC1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123E321C4CBE79008FC9AB /* BusinessRequirementCreateViewController.xib */; };
@@ -332,6 +326,16 @@
 		6E378D521BDA2D2E00908B77 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D211BDA2D2E00908B77 /* Section.m */; };
 		6E378D531BDA2D2E00908B77 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D231BDA2D2E00908B77 /* User.m */; };
 		6E378D541BDA2D2E00908B77 /* Ys.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D251BDA2D2E00908B77 /* Ys.m */; };
+		6EA0C1991C577F7500D04A4F /* PlanPriceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0C1911C577F7500D04A4F /* PlanPriceDetailViewController.m */; };
+		6EA0C19A1C577F7500D04A4F /* PlanPriceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0C1921C577F7500D04A4F /* PlanPriceDetailViewController.xib */; };
+		6EA0C19B1C577F7500D04A4F /* PlanPriceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0C1941C577F7500D04A4F /* PlanPriceItemCell.m */; };
+		6EA0C19C1C577F7500D04A4F /* PlanPriceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0C1951C577F7500D04A4F /* PlanPriceItemCell.xib */; };
+		6EA0C19D1C577F7500D04A4F /* PlanPriceItemSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0C1971C577F7500D04A4F /* PlanPriceItemSection.m */; };
+		6EA0C19E1C577F7500D04A4F /* PlanPriceItemSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0C1981C577F7500D04A4F /* PlanPriceItemSection.xib */; };
+		6EA0C1A21C57827A00D04A4F /* PlanPriceTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0C1A01C57827A00D04A4F /* PlanPriceTotalCell.m */; };
+		6EA0C1A31C57827A00D04A4F /* PlanPriceTotalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0C1A11C57827A00D04A4F /* PlanPriceTotalCell.xib */; };
+		6EA0C1A71C585C5B00D04A4F /* PlanPriceItemExpandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EA0C1A51C585C5B00D04A4F /* PlanPriceItemExpandCell.m */; };
+		6EA0C1A81C585C5B00D04A4F /* PlanPriceItemExpandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6EA0C1A61C585C5B00D04A4F /* PlanPriceItemExpandCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -500,15 +504,6 @@
 		68123E1E1C4CBE79008FC9AB /* PlanPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPreviewViewController.h; sourceTree = "<group>"; };
 		68123E1F1C4CBE79008FC9AB /* PlanPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPreviewViewController.m; sourceTree = "<group>"; };
 		68123E201C4CBE79008FC9AB /* PlanPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPreviewViewController.xib; sourceTree = "<group>"; };
-		68123E211C4CBE79008FC9AB /* PlanPriceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceDetailViewController.h; sourceTree = "<group>"; };
-		68123E221C4CBE79008FC9AB /* PlanPriceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceDetailViewController.m; sourceTree = "<group>"; };
-		68123E231C4CBE79008FC9AB /* PlanPriceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceDetailViewController.xib; sourceTree = "<group>"; };
-		68123E241C4CBE79008FC9AB /* PlanPriceItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemCell.h; sourceTree = "<group>"; };
-		68123E251C4CBE79008FC9AB /* PlanPriceItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemCell.m; sourceTree = "<group>"; };
-		68123E261C4CBE79008FC9AB /* PlanPriceItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemCell.xib; sourceTree = "<group>"; };
-		68123E271C4CBE79008FC9AB /* PlanPriceItemSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemSection.h; sourceTree = "<group>"; };
-		68123E281C4CBE79008FC9AB /* PlanPriceItemSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemSection.m; sourceTree = "<group>"; };
-		68123E291C4CBE79008FC9AB /* PlanPriceItemSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemSection.xib; sourceTree = "<group>"; };
 		68123E2E1C4CBE79008FC9AB /* BaseSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectionViewController.h; sourceTree = "<group>"; };
 		68123E2F1C4CBE79008FC9AB /* BaseSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectionViewController.m; sourceTree = "<group>"; };
 		68123E301C4CBE79008FC9AB /* BusinessRequirementCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessRequirementCreateViewController.h; sourceTree = "<group>"; };
@@ -928,6 +923,21 @@
 		6E378D231BDA2D2E00908B77 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6E378D241BDA2D2E00908B77 /* Ys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ys.h; sourceTree = "<group>"; };
 		6E378D251BDA2D2E00908B77 /* Ys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ys.m; sourceTree = "<group>"; };
+		6EA0C1901C577F7500D04A4F /* PlanPriceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceDetailViewController.h; sourceTree = "<group>"; };
+		6EA0C1911C577F7500D04A4F /* PlanPriceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceDetailViewController.m; sourceTree = "<group>"; };
+		6EA0C1921C577F7500D04A4F /* PlanPriceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceDetailViewController.xib; sourceTree = "<group>"; };
+		6EA0C1931C577F7500D04A4F /* PlanPriceItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemCell.h; sourceTree = "<group>"; };
+		6EA0C1941C577F7500D04A4F /* PlanPriceItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemCell.m; sourceTree = "<group>"; };
+		6EA0C1951C577F7500D04A4F /* PlanPriceItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemCell.xib; sourceTree = "<group>"; };
+		6EA0C1961C577F7500D04A4F /* PlanPriceItemSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemSection.h; sourceTree = "<group>"; };
+		6EA0C1971C577F7500D04A4F /* PlanPriceItemSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemSection.m; sourceTree = "<group>"; };
+		6EA0C1981C577F7500D04A4F /* PlanPriceItemSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemSection.xib; sourceTree = "<group>"; };
+		6EA0C19F1C57827A00D04A4F /* PlanPriceTotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceTotalCell.h; sourceTree = "<group>"; };
+		6EA0C1A01C57827A00D04A4F /* PlanPriceTotalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceTotalCell.m; sourceTree = "<group>"; };
+		6EA0C1A11C57827A00D04A4F /* PlanPriceTotalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceTotalCell.xib; sourceTree = "<group>"; };
+		6EA0C1A41C585C5B00D04A4F /* PlanPriceItemExpandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemExpandCell.h; sourceTree = "<group>"; };
+		6EA0C1A51C585C5B00D04A4F /* PlanPriceItemExpandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemExpandCell.m; sourceTree = "<group>"; };
+		6EA0C1A61C585C5B00D04A4F /* PlanPriceItemExpandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemExpandCell.xib; sourceTree = "<group>"; };
 		A89C4960E17F13A3FDA7F3DB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDAF11036A474A85921AB191 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1224,6 +1234,7 @@
 		68123E111C4CBE79008FC9AB /* PlanList */ = {
 			isa = PBXGroup;
 			children = (
+				6EA0C18F1C577F4C00D04A4F /* PlanPriceDetail */,
 				68123E121C4CBE79008FC9AB /* LeaveMessageViewController.h */,
 				68123E131C4CBE79008FC9AB /* LeaveMessageViewController.m */,
 				68123E141C4CBE79008FC9AB /* LeaveMessageViewController.xib */,
@@ -1239,15 +1250,6 @@
 				68123E1E1C4CBE79008FC9AB /* PlanPreviewViewController.h */,
 				68123E1F1C4CBE79008FC9AB /* PlanPreviewViewController.m */,
 				68123E201C4CBE79008FC9AB /* PlanPreviewViewController.xib */,
-				68123E211C4CBE79008FC9AB /* PlanPriceDetailViewController.h */,
-				68123E221C4CBE79008FC9AB /* PlanPriceDetailViewController.m */,
-				68123E231C4CBE79008FC9AB /* PlanPriceDetailViewController.xib */,
-				68123E241C4CBE79008FC9AB /* PlanPriceItemCell.h */,
-				68123E251C4CBE79008FC9AB /* PlanPriceItemCell.m */,
-				68123E261C4CBE79008FC9AB /* PlanPriceItemCell.xib */,
-				68123E271C4CBE79008FC9AB /* PlanPriceItemSection.h */,
-				68123E281C4CBE79008FC9AB /* PlanPriceItemSection.m */,
-				68123E291C4CBE79008FC9AB /* PlanPriceItemSection.xib */,
 			);
 			path = PlanList;
 			sourceTree = "<group>";
@@ -1871,6 +1873,28 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		6EA0C18F1C577F4C00D04A4F /* PlanPriceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6EA0C1901C577F7500D04A4F /* PlanPriceDetailViewController.h */,
+				6EA0C1911C577F7500D04A4F /* PlanPriceDetailViewController.m */,
+				6EA0C1921C577F7500D04A4F /* PlanPriceDetailViewController.xib */,
+				6EA0C1931C577F7500D04A4F /* PlanPriceItemCell.h */,
+				6EA0C1941C577F7500D04A4F /* PlanPriceItemCell.m */,
+				6EA0C1951C577F7500D04A4F /* PlanPriceItemCell.xib */,
+				6EA0C1961C577F7500D04A4F /* PlanPriceItemSection.h */,
+				6EA0C1971C577F7500D04A4F /* PlanPriceItemSection.m */,
+				6EA0C1981C577F7500D04A4F /* PlanPriceItemSection.xib */,
+				6EA0C19F1C57827A00D04A4F /* PlanPriceTotalCell.h */,
+				6EA0C1A01C57827A00D04A4F /* PlanPriceTotalCell.m */,
+				6EA0C1A11C57827A00D04A4F /* PlanPriceTotalCell.xib */,
+				6EA0C1A41C585C5B00D04A4F /* PlanPriceItemExpandCell.h */,
+				6EA0C1A51C585C5B00D04A4F /* PlanPriceItemExpandCell.m */,
+				6EA0C1A61C585C5B00D04A4F /* PlanPriceItemExpandCell.xib */,
+			);
+			path = PlanPriceDetail;
+			sourceTree = "<group>";
+		};
 		E9FF93774079744E99B1F9E6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1992,6 +2016,7 @@
 			files = (
 				68123F001C4CBE79008FC9AB /* HouseRequirementCreateViewController.xib in Resources */,
 				681241261C4CF2D5008FC9AB /* LeftViewController.xib in Resources */,
+				6EA0C19C1C577F7500D04A4F /* PlanPriceItemCell.xib in Resources */,
 				68123E791C4CBE79008FC9AB /* CustomerServiceViewController.xib in Resources */,
 				68123E961C4CBE79008FC9AB /* SettingViewController.xib in Resources */,
 				68123EED1C4CBE79008FC9AB /* PlanCell.xib in Resources */,
@@ -2010,6 +2035,7 @@
 				68123EEF1C4CBE79008FC9AB /* PlanListViewController.xib in Resources */,
 				6E0426791BC757C500F984B8 /* Assets.xcassets in Resources */,
 				68123F041C4CBE79008FC9AB /* RequirementCreateViewController.xib in Resources */,
+				6EA0C19A1C577F7500D04A4F /* PlanPriceDetailViewController.xib in Resources */,
 				681241911C4F2F35008FC9AB /* UnrespondActionCell.xib in Resources */,
 				681241A61C4F3B1C008FC9AB /* SubmitPlanExpiredActionCell.xib in Resources */,
 				68123F1B1C4CBE79008FC9AB /* W2View.xib in Resources */,
@@ -2019,6 +2045,7 @@
 				68FB6ED21C50DC81001C0613 /* SetWorksiteStartTimeViewController.xib in Resources */,
 				68123E7F1C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.xib in Resources */,
 				68123EFC1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.xib in Resources */,
+				6EA0C1A81C585C5B00D04A4F /* PlanPriceItemExpandCell.xib in Resources */,
 				68123EB71C4CBE79008FC9AB /* ProductImageCell.xib in Resources */,
 				681241A41C4F3B1C008FC9AB /* MeasuredHouseActionCell.xib in Resources */,
 				68123E851C4CBE79008FC9AB /* MeViewController.xib in Resources */,
@@ -2042,7 +2069,6 @@
 				68123E8A1C4CBE79008FC9AB /* FavoriateProductCell.xib in Resources */,
 				681241BF1C4F97D1008FC9AB /* RejectUserAlertViewController.xib in Resources */,
 				68123EBE1C4CBE79008FC9AB /* RefreshViewController.xib in Resources */,
-				68123EF51C4CBE79008FC9AB /* PlanPriceItemCell.xib in Resources */,
 				68123C8E1C4C9772008FC9AB /* MessageAlertViewController.xib in Resources */,
 				68123F211C4CBE79008FC9AB /* WelcomeViewController.xib in Resources */,
 				68123F0E1C4CBE79008FC9AB /* SelectHouseTypeViewController.xib in Resources */,
@@ -2057,23 +2083,23 @@
 				68123F1F1C4CBE79008FC9AB /* W4View.xib in Resources */,
 				68123E711C4CBE79008FC9AB /* LoginViewController.xib in Resources */,
 				68123E771C4CBE79008FC9AB /* VerifyPhoneViewController.xib in Resources */,
+				6EA0C1A31C57827A00D04A4F /* PlanPriceTotalCell.xib in Resources */,
 				68123E921C4CBE79008FC9AB /* AboutViewController.xib in Resources */,
 				681241B41C4F3D31008FC9AB /* UnchoosedPlanActionCell.xib in Resources */,
 				68123EFE1C4CBE79008FC9AB /* DecorationStyleCell.xib in Resources */,
 				681240E71C4CF2CC008FC9AB /* MyProcessViewController.xib in Resources */,
-				68123EF31C4CBE79008FC9AB /* PlanPriceDetailViewController.xib in Resources */,
 				68123F141C4CBE79008FC9AB /* SelectWorkTypeViewController.xib in Resources */,
 				68123C911C4C9772008FC9AB /* ImageBrowerViewController.xib in Resources */,
 				68123F2A1C4CCBF9008FC9AB /* MyUserViewController.xib in Resources */,
 				68123E831C4CBE79008FC9AB /* UserInfoViewController.xib in Resources */,
 				68123E871C4CBE79008FC9AB /* FavoriateBeautifulImageCell.xib in Resources */,
 				68123F061C4CBE79008FC9AB /* SelectBusinessTypeViewController.xib in Resources */,
-				68123EF71C4CBE79008FC9AB /* PlanPriceItemSection.xib in Resources */,
 				68123F191C4CBE79008FC9AB /* W1View.xib in Resources */,
 				6812411E1C4CF2D5008FC9AB /* ItemExpandCheckCell.xib in Resources */,
 				68123C971C4C9772008FC9AB /* ImageEditorViewController.xib in Resources */,
 				68123F081C4CBE79008FC9AB /* SelectCommunicationTypeViewController.xib in Resources */,
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
+				6EA0C19E1C577F7500D04A4F /* PlanPriceItemSection.xib in Resources */,
 				68123F101C4CBE79008FC9AB /* SelectPopulationViewController.xib in Resources */,
 				68123E941C4CBE79008FC9AB /* FeedbackViewController.xib in Resources */,
 				68123C9A1C4C9772008FC9AB /* city2area.js in Resources */,
@@ -2150,6 +2176,7 @@
 				681240C91C4CE471008FC9AB /* RejectReschedule.m in Sources */,
 				6E378D361BDA2D2E00908B77 /* AccountBusiness.m in Sources */,
 				68123FE01C4CCF4A008FC9AB /* PriceItem.m in Sources */,
+				6EA0C19D1C577F7500D04A4F /* PlanPriceItemSection.m in Sources */,
 				6812412A1C4CF2D5008FC9AB /* PayNotificationCell.m in Sources */,
 				681240E81C4CF2CC008FC9AB /* ProcessCell.m in Sources */,
 				681240CA1C4CE471008FC9AB /* ReplaceOrderedDesigner.m in Sources */,
@@ -2229,9 +2256,9 @@
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
 				68123FDC1C4CCF4A008FC9AB /* BeautifulImage.m in Sources */,
 				681241251C4CF2D5008FC9AB /* LeftViewController.m in Sources */,
-				68123EF41C4CBE79008FC9AB /* PlanPriceItemCell.m in Sources */,
 				68123E821C4CBE79008FC9AB /* UserInfoViewController.m in Sources */,
 				68123EFA1C4CBE79008FC9AB /* BaseSelectionViewController.m in Sources */,
+				6EA0C1A71C585C5B00D04A4F /* PlanPriceItemExpandCell.m in Sources */,
 				6E378D3E1BDA2D2E00908B77 /* ProcessCD+CoreDataProperties.m in Sources */,
 				68123E881C4CBE79008FC9AB /* FavoriateBeautifulImageData.m in Sources */,
 				681240CD1C4CE471008FC9AB /* SectionDone.m in Sources */,
@@ -2258,6 +2285,7 @@
 				68FB6ED51C51E0F1001C0613 /* DesignerConfigAgreement.m in Sources */,
 				68123CF11C4C9A15008FC9AB /* YsImage.m in Sources */,
 				6E378D3C1BDA2D2E00908B77 /* DesignerToData.m in Sources */,
+				6EA0C1991C577F7500D04A4F /* PlanPriceDetailViewController.m in Sources */,
 				681241A11C4F3B1C008FC9AB /* ChoosedPlanActionCell.m in Sources */,
 				6E378D401BDA2D2E00908B77 /* ProcessToData.m in Sources */,
 				681240B01C4CE471008FC9AB /* DesignerGetInfo.m in Sources */,
@@ -2295,8 +2323,6 @@
 				6E378D451BDA2D2E00908B77 /* NSManagedObjectContext+Ex.m in Sources */,
 				681241821C4F235B008FC9AB /* MyUserDataManager.m in Sources */,
 				68123F181C4CBE79008FC9AB /* W1View.m in Sources */,
-				68123EF61C4CBE79008FC9AB /* PlanPriceItemSection.m in Sources */,
-				68123EF21C4CBE79008FC9AB /* PlanPriceDetailViewController.m in Sources */,
 				68123E741C4CBE79008FC9AB /* SignupSuccessViewController.m in Sources */,
 				681240A91C4CE471008FC9AB /* BindPhone.m in Sources */,
 				6E378D4B1BDA2D2E00908B77 /* DataManager.m in Sources */,
@@ -2308,6 +2334,7 @@
 				68123E951C4CBE79008FC9AB /* SettingViewController.m in Sources */,
 				681240AC1C4CE471008FC9AB /* ConfirmMeasuringHouse.m in Sources */,
 				681241B31C4F3D31008FC9AB /* UnchoosedPlanActionCell.m in Sources */,
+				6EA0C19B1C577F7500D04A4F /* PlanPriceItemCell.m in Sources */,
 				68123FEA1C4CCFFF008FC9AB /* DesignerBusiness.m in Sources */,
 				681240C21C4CE471008FC9AB /* ListFavoriateProduct.m in Sources */,
 				681240D41C4CE471008FC9AB /* UpdateUserInfo.m in Sources */,
@@ -2347,6 +2374,7 @@
 				6E378D4F1BDA2D2E00908B77 /* Designer.m in Sources */,
 				6812411B1C4CF2D5008FC9AB /* ItemCell.m in Sources */,
 				681240BD1C4CE471008FC9AB /* GetRescheduleNotification.m in Sources */,
+				6EA0C1A21C57827A00D04A4F /* PlanPriceTotalCell.m in Sources */,
 				6E378D461BDA2D2E00908B77 /* NSObject+Ex.m in Sources */,
 				68123EBA1C4CBE79008FC9AB /* ProductPageData.m in Sources */,
 				68123FEB1C4CCFFF008FC9AB /* NameDict.m in Sources */,

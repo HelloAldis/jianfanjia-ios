@@ -12,7 +12,7 @@
 
 @property(nonatomic, strong) NSString *_id;
 @property(nonatomic, strong) NSString *item;
-@property(nonatomic, strong) NSString *description;
+@property(nonatomic, strong) NSString *price_description;
 @property(nonatomic, strong) NSNumber *price;
 
 @end

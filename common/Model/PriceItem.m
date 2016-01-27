@@ -12,7 +12,23 @@
 
 @dynamic _id;
 @dynamic item;
-@dynamic description;
+@dynamic price_description;
 @dynamic price;
+
+- (void)setObject:(id)o forKey:(NSString *)key {
+    if ([@"price_description" isEqualToString:key]) {
+        [[self data] setObject:o forKey:@"description"];
+    } else {
+        [[self data] setObject:o forKey:key];
+    }
+}
+
+- (id)objectForKey:(NSString *)key {
+    if ([@"price_description" isEqualToString:key]) {
+        return [[self data] objectForKey:@"description"];
+    } else {
+        return [[self data] objectForKey:key];
+    }
+}
 
 @end
