@@ -47,7 +47,7 @@ static NSString *PlanPriceTotalCellIdentifier = @"PlanPriceTotalCell";
     [self.tableView registerNib:[UINib nibWithNibName:PlanPriceTotalCellIdentifier bundle:nil] forCellReuseIdentifier:PlanPriceTotalCellIdentifier];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 200;
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 8, 0);
     [self initNav];
     [self loadData];
 }
