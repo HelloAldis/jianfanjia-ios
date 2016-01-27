@@ -137,16 +137,17 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="vYU-81-pCd" firstAttribute="top" secondItem="1ED-J9-9vO" secondAttribute="top" id="0ju-0k-YYE"/>
-                        <constraint firstAttribute="trailing" secondItem="vYU-81-pCd" secondAttribute="trailing" constant="20" id="6ec-9A-oZk"/>
+                        <constraint firstAttribute="trailing" secondItem="vYU-81-pCd" secondAttribute="trailing" id="6ec-9A-oZk"/>
                         <constraint firstItem="A75-32-gDf" firstAttribute="width" secondItem="Mpx-Ht-MRJ" secondAttribute="width" id="6lS-IY-GRL"/>
                         <constraint firstItem="udR-mD-qcb" firstAttribute="width" secondItem="Mpx-Ht-MRJ" secondAttribute="width" id="CXp-Or-opy"/>
                         <constraint firstAttribute="bottom" secondItem="M0q-Ia-Gvi" secondAttribute="bottom" id="Fo1-kE-hTh"/>
                         <constraint firstItem="M0q-Ia-Gvi" firstAttribute="width" secondItem="vYU-81-pCd" secondAttribute="width" id="I8m-cQ-bss"/>
                         <constraint firstItem="vYU-81-pCd" firstAttribute="leading" secondItem="1ED-J9-9vO" secondAttribute="leading" id="LdS-fd-Gfa"/>
                         <constraint firstItem="M0q-Ia-Gvi" firstAttribute="top" secondItem="vYU-81-pCd" secondAttribute="bottom" id="NM4-1w-Gwj"/>
+                        <constraint firstItem="M0q-Ia-Gvi" firstAttribute="leading" secondItem="1ED-J9-9vO" secondAttribute="leading" id="RvU-vQ-WTS"/>
+                        <constraint firstAttribute="trailing" secondItem="M0q-Ia-Gvi" secondAttribute="trailing" id="U9H-0o-XYa"/>
                         <constraint firstItem="udR-mD-qcb" firstAttribute="leading" secondItem="Mpx-Ht-MRJ" secondAttribute="leading" id="V2V-Yp-zKg"/>
                         <constraint firstItem="A75-32-gDf" firstAttribute="leading" secondItem="Mpx-Ht-MRJ" secondAttribute="leading" id="esq-PK-aHQ"/>
-                        <constraint firstItem="M0q-Ia-Gvi" firstAttribute="leading" secondItem="vYU-81-pCd" secondAttribute="leading" id="mD1-Py-iBM"/>
                     </constraints>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kb9-Fm-T2r">
