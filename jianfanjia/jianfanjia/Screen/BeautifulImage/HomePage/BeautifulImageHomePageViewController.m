@@ -119,14 +119,17 @@
         
         LeafImage *leafImage = [self.beautifulImage leafImageAtIndex:i];
         [self.imageViewStatus addObject:@0];
+        @weakify(w1);
         [w1 setImageWithId:leafImage.imageid withWidth:kScreenWidth completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
-            @strongify(self);
+            @strongify(self, w1);
             if (error == nil) {
                 if (self.index == i) {
                     self.btnDownload.hidden = NO;
                     self.shareButton.enabled = YES;
                 }
                 self.imageViewStatus[i] = @1;
+                CGFloat height = kScreenWidth / (image.size.width / image.size.height);
+                w1.frame = CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height);
             }
         }];
     }
@@ -137,7 +140,7 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap)];
     [self.scrollView addGestureRecognizer:singleTap];
     
-    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDoubleTap)];
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDoubleTap:)];
     doubleTap.numberOfTapsRequired = 2;
     [self.scrollView addGestureRecognizer:doubleTap];
     [singleTap requireGestureRecognizerToFail:doubleTap];
@@ -175,6 +178,21 @@
     } else {
         return nil;
     }
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    UIScrollView *subscrollView = self.scrollView.subviews[self.index];
+    UIImageView *imgView = subscrollView.subviews[0];
+    UIView *subView = imgView;
+    
+    CGFloat offsetX = (scrollView.bounds.size.width > scrollView.contentSize.width)?
+    (scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5 : 0.0;
+    
+    CGFloat offsetY = (scrollView.bounds.size.height > scrollView.contentSize.height)?
+    (scrollView.bounds.size.height - scrollView.contentSize.height) * 0.5 : 0.0;
+    
+    subView.center = CGPointMake(scrollView.contentSize.width * 0.5 + offsetX,
+                                 scrollView.contentSize.height * 0.5 + offsetY);
 }
 
 #pragma mark - user action
@@ -245,17 +263,22 @@
     } completion:nil];
 }
 
-- (void)onDoubleTap {
+- (void)onDoubleTap:(UITapGestureRecognizer *)g {
     UIScrollView *subscrollView = self.scrollView.subviews[self.index];
     
     if (subscrollView.zoomScale > 1) {
         [subscrollView setZoomScale:1.0 animated:YES];
     } else {
-        [subscrollView setZoomScale:2.0 animated:YES];
+        UIImageView *imgView = subscrollView.subviews[0];
+        CGPoint touchPoint = [g locationInView:imgView];
+        CGFloat newZoomScale = subscrollView.maximumZoomScale;
+        CGFloat xsize = subscrollView.frame.size.width / newZoomScale;
+        CGFloat ysize = subscrollView.frame.size.height / newZoomScale;
+        [subscrollView zoomToRect:CGRectMake(touchPoint.x - xsize/2, touchPoint.y - ysize/2, xsize, ysize) animated:YES];
     }
 }
 
-#pragma mark - api request 
+#pragma mark - api request
 - (void)getHomepage:(NSString *)beautifulId {
     [HUDUtil showWait];
     GetBeautifulImageHomepage *request = [[GetBeautifulImageHomepage alloc] init];
