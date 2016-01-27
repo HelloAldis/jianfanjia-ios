@@ -75,7 +75,7 @@
 #pragma mark - init nav
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"业主的评价";
+    self.title = @"评价详情";
 }
 
 @end
