@@ -72,6 +72,16 @@
 		68134A4F1C3F503E003C1C10 /* CustomerServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68134A4D1C3F503E003C1C10 /* CustomerServiceViewController.xib */; };
 		68134A551C44D097003C1C10 /* MultipleLineTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A541C44D097003C1C10 /* MultipleLineTextTableViewCell.m */; };
 		68134A591C44D152003C1C10 /* MultipleLineTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68134A581C44D152003C1C10 /* MultipleLineTextTableViewCell.xib */; };
+		682E050F1C58BDA700F1ACAA /* PlanPriceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E05011C58BDA700F1ACAA /* PlanPriceDetailViewController.m */; };
+		682E05101C58BDA700F1ACAA /* PlanPriceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682E05021C58BDA700F1ACAA /* PlanPriceDetailViewController.xib */; };
+		682E05111C58BDA700F1ACAA /* PlanPriceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E05041C58BDA700F1ACAA /* PlanPriceItemCell.m */; };
+		682E05121C58BDA700F1ACAA /* PlanPriceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682E05051C58BDA700F1ACAA /* PlanPriceItemCell.xib */; };
+		682E05131C58BDA700F1ACAA /* PlanPriceItemExpandCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E05071C58BDA700F1ACAA /* PlanPriceItemExpandCell.m */; };
+		682E05141C58BDA700F1ACAA /* PlanPriceItemExpandCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682E05081C58BDA700F1ACAA /* PlanPriceItemExpandCell.xib */; };
+		682E05151C58BDA700F1ACAA /* PlanPriceItemSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E050A1C58BDA700F1ACAA /* PlanPriceItemSection.m */; };
+		682E05161C58BDA700F1ACAA /* PlanPriceItemSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682E050B1C58BDA700F1ACAA /* PlanPriceItemSection.xib */; };
+		682E05171C58BDA700F1ACAA /* PlanPriceTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E050D1C58BDA700F1ACAA /* PlanPriceTotalCell.m */; };
+		682E05181C58BDA700F1ACAA /* PlanPriceTotalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682E050E1C58BDA700F1ACAA /* PlanPriceTotalCell.xib */; };
 		68342DEC1BFC057C0000EBBE /* GetOrderableDesigners.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */; };
 		68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DEE1BFC06CB0000EBBE /* OrderDesignder.m */; };
 		68342DF51BFC0F960000EBBE /* Plan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68342DF41BFC0F960000EBBE /* Plan.m */; };
@@ -200,12 +210,6 @@
 		685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C21471BF9729E00D5D320 /* SendAddRequirement.m */; };
 		685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214A1BF9870B00D5D320 /* RACStream+Ex.m */; };
 		685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */; };
-		685CD5CC1C02DCAA00EC1991 /* PlanPriceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5CA1C02DCAA00EC1991 /* PlanPriceDetailViewController.m */; };
-		685CD5CD1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5CB1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib */; };
-		685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5CF1C02DE9300EC1991 /* PlanPriceItemCell.m */; };
-		685CD5D21C02DE9300EC1991 /* PlanPriceItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5D01C02DE9300EC1991 /* PlanPriceItemCell.xib */; };
-		685CD5D61C02EA0C00EC1991 /* PlanPriceItemSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5D41C02EA0C00EC1991 /* PlanPriceItemSection.m */; };
-		685CD5D91C02F36A00EC1991 /* PlanPriceItemSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5D81C02F36A00EC1991 /* PlanPriceItemSection.xib */; };
 		685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5DB1C02FA7400EC1991 /* ChoosePlan.m */; };
 		685CD5DF1C030F1400EC1991 /* LeaveComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5DE1C030F1400EC1991 /* LeaveComment.m */; };
 		685CD5E31C0310CA00EC1991 /* LeaveMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5E11C0310CA00EC1991 /* LeaveMessageViewController.m */; };
@@ -510,6 +514,21 @@
 		68134A531C44D097003C1C10 /* MultipleLineTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleLineTextTableViewCell.h; sourceTree = "<group>"; };
 		68134A541C44D097003C1C10 /* MultipleLineTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleLineTextTableViewCell.m; sourceTree = "<group>"; };
 		68134A581C44D152003C1C10 /* MultipleLineTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleLineTextTableViewCell.xib; sourceTree = "<group>"; };
+		682E05001C58BDA700F1ACAA /* PlanPriceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceDetailViewController.h; sourceTree = "<group>"; };
+		682E05011C58BDA700F1ACAA /* PlanPriceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceDetailViewController.m; sourceTree = "<group>"; };
+		682E05021C58BDA700F1ACAA /* PlanPriceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceDetailViewController.xib; sourceTree = "<group>"; };
+		682E05031C58BDA700F1ACAA /* PlanPriceItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemCell.h; sourceTree = "<group>"; };
+		682E05041C58BDA700F1ACAA /* PlanPriceItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemCell.m; sourceTree = "<group>"; };
+		682E05051C58BDA700F1ACAA /* PlanPriceItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemCell.xib; sourceTree = "<group>"; };
+		682E05061C58BDA700F1ACAA /* PlanPriceItemExpandCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemExpandCell.h; sourceTree = "<group>"; };
+		682E05071C58BDA700F1ACAA /* PlanPriceItemExpandCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemExpandCell.m; sourceTree = "<group>"; };
+		682E05081C58BDA700F1ACAA /* PlanPriceItemExpandCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemExpandCell.xib; sourceTree = "<group>"; };
+		682E05091C58BDA700F1ACAA /* PlanPriceItemSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemSection.h; sourceTree = "<group>"; };
+		682E050A1C58BDA700F1ACAA /* PlanPriceItemSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemSection.m; sourceTree = "<group>"; };
+		682E050B1C58BDA700F1ACAA /* PlanPriceItemSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemSection.xib; sourceTree = "<group>"; };
+		682E050C1C58BDA700F1ACAA /* PlanPriceTotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceTotalCell.h; sourceTree = "<group>"; };
+		682E050D1C58BDA700F1ACAA /* PlanPriceTotalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceTotalCell.m; sourceTree = "<group>"; };
+		682E050E1C58BDA700F1ACAA /* PlanPriceTotalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceTotalCell.xib; sourceTree = "<group>"; };
 		68342DEA1BFC057C0000EBBE /* GetOrderableDesigners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetOrderableDesigners.h; sourceTree = "<group>"; };
 		68342DEB1BFC057C0000EBBE /* GetOrderableDesigners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetOrderableDesigners.m; sourceTree = "<group>"; };
 		68342DED1BFC06CB0000EBBE /* OrderDesignder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignder.h; sourceTree = "<group>"; };
@@ -719,15 +738,6 @@
 		685C214A1BF9870B00D5D320 /* RACStream+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACStream+Ex.m"; sourceTree = "<group>"; };
 		685C214C1BF9C7E100D5D320 /* UIScrollView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Ex.h"; sourceTree = "<group>"; };
 		685C214D1BF9C7E100D5D320 /* UIScrollView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Ex.m"; sourceTree = "<group>"; };
-		685CD5C91C02DCAA00EC1991 /* PlanPriceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceDetailViewController.h; sourceTree = "<group>"; };
-		685CD5CA1C02DCAA00EC1991 /* PlanPriceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceDetailViewController.m; sourceTree = "<group>"; };
-		685CD5CB1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceDetailViewController.xib; sourceTree = "<group>"; };
-		685CD5CE1C02DE9300EC1991 /* PlanPriceItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemCell.h; sourceTree = "<group>"; };
-		685CD5CF1C02DE9300EC1991 /* PlanPriceItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemCell.m; sourceTree = "<group>"; };
-		685CD5D01C02DE9300EC1991 /* PlanPriceItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemCell.xib; sourceTree = "<group>"; };
-		685CD5D31C02EA0C00EC1991 /* PlanPriceItemSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceItemSection.h; sourceTree = "<group>"; };
-		685CD5D41C02EA0C00EC1991 /* PlanPriceItemSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceItemSection.m; sourceTree = "<group>"; };
-		685CD5D81C02F36A00EC1991 /* PlanPriceItemSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceItemSection.xib; sourceTree = "<group>"; };
 		685CD5DA1C02FA7400EC1991 /* ChoosePlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChoosePlan.h; sourceTree = "<group>"; };
 		685CD5DB1C02FA7400EC1991 /* ChoosePlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChoosePlan.m; sourceTree = "<group>"; };
 		685CD5DD1C030F1400EC1991 /* LeaveComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaveComment.h; sourceTree = "<group>"; };
@@ -1247,9 +1257,32 @@
 			path = CustomerService;
 			sourceTree = "<group>";
 		};
+		682E04FF1C58BDA700F1ACAA /* PlanPriceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				682E05001C58BDA700F1ACAA /* PlanPriceDetailViewController.h */,
+				682E05011C58BDA700F1ACAA /* PlanPriceDetailViewController.m */,
+				682E05021C58BDA700F1ACAA /* PlanPriceDetailViewController.xib */,
+				682E05031C58BDA700F1ACAA /* PlanPriceItemCell.h */,
+				682E05041C58BDA700F1ACAA /* PlanPriceItemCell.m */,
+				682E05051C58BDA700F1ACAA /* PlanPriceItemCell.xib */,
+				682E05061C58BDA700F1ACAA /* PlanPriceItemExpandCell.h */,
+				682E05071C58BDA700F1ACAA /* PlanPriceItemExpandCell.m */,
+				682E05081C58BDA700F1ACAA /* PlanPriceItemExpandCell.xib */,
+				682E05091C58BDA700F1ACAA /* PlanPriceItemSection.h */,
+				682E050A1C58BDA700F1ACAA /* PlanPriceItemSection.m */,
+				682E050B1C58BDA700F1ACAA /* PlanPriceItemSection.xib */,
+				682E050C1C58BDA700F1ACAA /* PlanPriceTotalCell.h */,
+				682E050D1C58BDA700F1ACAA /* PlanPriceTotalCell.m */,
+				682E050E1C58BDA700F1ACAA /* PlanPriceTotalCell.xib */,
+			);
+			path = PlanPriceDetail;
+			sourceTree = "<group>";
+		};
 		683669001BFF0AF4006A5053 /* PlanList */ = {
 			isa = PBXGroup;
 			children = (
+				682E04FF1C58BDA700F1ACAA /* PlanPriceDetail */,
 				683669011BFF0B44006A5053 /* PlanListViewController.h */,
 				683669021BFF0B44006A5053 /* PlanListViewController.m */,
 				683669031BFF0B44006A5053 /* PlanListViewController.xib */,
@@ -1259,15 +1292,6 @@
 				68D536A31BFF563800D8F1B2 /* PlanPreviewViewController.h */,
 				68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */,
 				68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */,
-				685CD5C91C02DCAA00EC1991 /* PlanPriceDetailViewController.h */,
-				685CD5CA1C02DCAA00EC1991 /* PlanPriceDetailViewController.m */,
-				685CD5CB1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib */,
-				685CD5CE1C02DE9300EC1991 /* PlanPriceItemCell.h */,
-				685CD5CF1C02DE9300EC1991 /* PlanPriceItemCell.m */,
-				685CD5D01C02DE9300EC1991 /* PlanPriceItemCell.xib */,
-				685CD5D31C02EA0C00EC1991 /* PlanPriceItemSection.h */,
-				685CD5D41C02EA0C00EC1991 /* PlanPriceItemSection.m */,
-				685CD5D81C02F36A00EC1991 /* PlanPriceItemSection.xib */,
 				685CD5E01C0310CA00EC1991 /* LeaveMessageViewController.h */,
 				685CD5E11C0310CA00EC1991 /* LeaveMessageViewController.m */,
 				685CD5E21C0310CA00EC1991 /* LeaveMessageViewController.xib */,
@@ -2269,12 +2293,13 @@
 				6836269A1C059C72005F2C30 /* ItemExpandImageCell.xib in Resources */,
 				68123BAE1C47D15C008FC9AB /* JYZShareMenuView.xib in Resources */,
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
+				682E05121C58BDA700F1ACAA /* PlanPriceItemCell.xib in Resources */,
 				6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */,
 				68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */,
 				6E676A561C461F2900E91C01 /* read_me.txt in Resources */,
 				684A37451BFD73DF00F7388C /* MatchDesignerCell.xib in Resources */,
-				685CD5D91C02F36A00EC1991 /* PlanPriceItemSection.xib in Resources */,
 				6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */,
+				682E05161C58BDA700F1ACAA /* PlanPriceItemSection.xib in Resources */,
 				6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */,
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
 				6E4496461BFC562900C90851 /* AboutViewController.xib in Resources */,
@@ -2290,8 +2315,10 @@
 				684A37071BFD733500F7388C /* DesignerSubmittedPlanCell.xib in Resources */,
 				68123C631C4C8B99008FC9AB /* province2city.js in Resources */,
 				6E7867171BA944AF00DE8B1B /* ItemCell.xib in Resources */,
+				682E05141C58BDA700F1ACAA /* PlanPriceItemExpandCell.xib in Resources */,
 				684A37471BFD73DF00F7388C /* MatchDesignerSection.xib in Resources */,
 				6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */,
+				682E05101C58BDA700F1ACAA /* PlanPriceDetailViewController.xib in Resources */,
 				6E6D98CB1BE0AB7C00D45F77 /* HomePageRequirementCell.xib in Resources */,
 				6E6D98D51BE0D62F00D45F77 /* HomePageDesignerCell.xib in Resources */,
 				68134A3F1C3CFE44003C1C10 /* AccountBindViewController.xib in Resources */,
@@ -2321,7 +2348,6 @@
 				6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */,
 				6E6D98B11BDF736A00D45F77 /* RequirementListViewController.xib in Resources */,
 				6E7867281BAA538E00DE8B1B /* SectionView.xib in Resources */,
-				685CD5D21C02DE9300EC1991 /* PlanPriceItemCell.xib in Resources */,
 				68134A3A1C3CF444003C1C10 /* BindPhoneViewController.xib in Resources */,
 				68123BA91C47D15C008FC9AB /* JYZ_wechat_session_icon@2x.png in Resources */,
 				6838400D1C158490004F456E /* UpdateMultipleLineTextViewController.xib in Resources */,
@@ -2337,6 +2363,7 @@
 				684A37531BFD73DF00F7388C /* SelectDecorationTypeViewController.xib in Resources */,
 				6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */,
 				684A374B1BFD73DF00F7388C /* DecorationStyleCell.xib in Resources */,
+				682E05181C58BDA700F1ACAA /* PlanPriceTotalCell.xib in Resources */,
 				6E44964C1BFC82F500C90851 /* UserInfoViewController.xib in Resources */,
 				684A37111BFD733500F7388C /* PlanWasChoosedCell.xib in Resources */,
 				68134A4F1C3F503E003C1C10 /* CustomerServiceViewController.xib in Resources */,
@@ -2354,7 +2381,6 @@
 				683FFB421C296288002A1AFE /* BeautifulImageCollectionCell.xib in Resources */,
 				68123B5D1C47BBBD008FC9AB /* DropdownMenuView.xib in Resources */,
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
-				685CD5CD1C02DCAA00EC1991 /* PlanPriceDetailViewController.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				683FFB691C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib in Resources */,
 				680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */,
@@ -2441,7 +2467,6 @@
 				683FFB471C296288002A1AFE /* DropdownMenuCollectionCell.m in Sources */,
 				684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */,
 				683A6B6A1C0F01190071DF88 /* ReminderViewController.m in Sources */,
-				685CD5CC1C02DCAA00EC1991 /* PlanPriceDetailViewController.m in Sources */,
 				68123BAB1C47D15C008FC9AB /* JYZShareMenuCollectionCell.m in Sources */,
 				683A6B681C0F01190071DF88 /* PurchaseNotificationCell.m in Sources */,
 				6E6D98CF1BE0C34000D45F77 /* HomePageRecDesignersCell.m in Sources */,
@@ -2455,6 +2480,7 @@
 				6E07DACA1BD88DBE001461DD /* BaseDynamicObject.m in Sources */,
 				6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */,
 				684A374A1BFD73DF00F7388C /* DecorationStyleCell.m in Sources */,
+				682E05151C58BDA700F1ACAA /* PlanPriceItemSection.m in Sources */,
 				6EE1E4371C082A8300883184 /* UIImage+Ex.m in Sources */,
 				683FFB701C2B9A70002A1AFE /* BusinessRequirementCreateViewController.m in Sources */,
 				68123B9E1C47D15C008FC9AB /* JYZSocialSnsConfigCenter.m in Sources */,
@@ -2482,7 +2508,6 @@
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,
 				685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */,
 				6EE34D7C1C0EE97D00C6957E /* NotificationCD.m in Sources */,
-				685CD5D11C02DE9300EC1991 /* PlanPriceItemCell.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,
@@ -2497,7 +2522,6 @@
 				6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */,
 				AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */,
 				6E6D98D41BE0D62F00D45F77 /* HomePageDesignerCell.m in Sources */,
-				685CD5D61C02EA0C00EC1991 /* PlanPriceItemSection.m in Sources */,
 				68123BA21C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.m in Sources */,
 				68134A3E1C3CFE44003C1C10 /* AccountBindViewController.m in Sources */,
 				6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */,
@@ -2570,6 +2594,7 @@
 				6836269D1C05B1E9005F2C30 /* ProcessDataManager.m in Sources */,
 				683A5D681C0EECD40071DF88 /* ItemExpandCheckCell.m in Sources */,
 				684A37521BFD73DF00F7388C /* SelectDecorationTypeViewController.m in Sources */,
+				682E05131C58BDA700F1ACAA /* PlanPriceItemExpandCell.m in Sources */,
 				68123B9B1C47D15C008FC9AB /* JYZSocialSnsAuthResp.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
@@ -2621,6 +2646,7 @@
 				684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */,
 				685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */,
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
+				682E05171C58BDA700F1ACAA /* PlanPriceTotalCell.m in Sources */,
 				683FFB721C2B9A70002A1AFE /* HouseRequirementCreateViewController.m in Sources */,
 				6E06CC0E1C29453000A08D15 /* ListFavoriateBeautifulImage.m in Sources */,
 				AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */,
@@ -2644,6 +2670,7 @@
 				68123F241C4CC70E008FC9AB /* CollectionFallsFlowLayout.m in Sources */,
 				AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */,
 				684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */,
+				682E050F1C58BDA700F1ACAA /* PlanPriceDetailViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
 				684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */,
@@ -2670,6 +2697,7 @@
 				68134A4E1C3F503E003C1C10 /* CustomerServiceViewController.m in Sources */,
 				683669091BFF0C05006A5053 /* PlanCell.m in Sources */,
 				684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */,
+				682E05111C58BDA700F1ACAA /* PlanPriceItemCell.m in Sources */,
 				68123C531C4C8B99008FC9AB /* DateAlertViewController.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
 				6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */,
