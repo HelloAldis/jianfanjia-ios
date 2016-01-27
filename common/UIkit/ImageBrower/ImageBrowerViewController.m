@@ -161,6 +161,7 @@
         self.progressBar.mode = MBProgressHUDModeAnnularDeterminate;
         self.progressBar.labelText = @"上传中";
     }
+
     @weakify(self);
     [self.imageManager requestImageForAsset:self.result[indexPath.row] targetSize:CGSizeMake(kScreenWidth * kScreenScale, kScreenHeight * kScreenScale)
                            contentMode:PHImageContentModeAspectFit
@@ -173,11 +174,10 @@
                              UploadImage *request = [[UploadImage alloc] init];
                              request.image = result;
                              [API uploadImage:request success:^{
-                                 @strongify(self);
                                  [self.imageIds addObject:[DataManager shared].lastUploadImageid];
                                  
-                                 dispatch_async(dispatch_get_main_queue(), ^{
-                                     self.progressBar.progress = (index + 1) / total;
+//                                 dispatch_async(dispatch_get_main_queue(), ^{
+                                     self.progressBar.progress = (CGFloat)(index + 1) / (CGFloat)total ;
                                      if (index < total - 1) {
                                          NSIndexPath *nextIndexPath = self.collectionView.indexPathsForSelectedItems[index + 1];
                                          [self uploadImageForIndex:nextIndexPath];
@@ -191,10 +191,9 @@
                                              [self.navigationController popViewControllerAnimated:YES];
                                          });
                                      }
-                                 });
+//                                 });
                              } failure:^{
-                                 @strongify(self);
-                                 dispatch_async(dispatch_get_main_queue(), ^{
+//                                 dispatch_async(dispatch_get_main_queue(), ^{
                                      if (index == 0) {
                                          self.progressBar.labelText = @"上传失败";
                                      } else {
@@ -208,7 +207,7 @@
                                          }
                                          [self.navigationController popViewControllerAnimated:YES];
                                      });
-                                 });
+//                                 });
                              } networkError:^{
                                  
                              }];

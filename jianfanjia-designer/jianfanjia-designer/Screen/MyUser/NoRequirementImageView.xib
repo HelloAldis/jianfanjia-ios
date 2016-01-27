@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view alpha="0.0" contentMode="scaleToFill" id="7aq-3V-ipE" userLabel="NoRequirementView" customClass="NoRequirementImageView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EUb-kT-gkM">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="182"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有业主邀约哦～ 加油啊！" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RCs-46-WLh">
+                            <rect key="frame" x="20" y="48" width="280" height="20"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="温馨提示：如您的资料完善程度高，系统将会优先将您推给业主\n网址：http://www.jianfanjia.com/" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xH5-im-6Jv">
+                            <rect key="frame" x="20" y="83" width="280" height="47"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="xH5-im-6Jv" firstAttribute="top" secondItem="RCs-46-WLh" secondAttribute="bottom" constant="15" id="DSi-yH-jtJ"/>
+                        <constraint firstItem="RCs-46-WLh" firstAttribute="leading" secondItem="EUb-kT-gkM" secondAttribute="leading" constant="20" id="Q69-gq-WWv"/>
+                        <constraint firstItem="xH5-im-6Jv" firstAttribute="leading" secondItem="RCs-46-WLh" secondAttribute="leading" id="Un9-36-htk"/>
+                        <constraint firstItem="RCs-46-WLh" firstAttribute="centerX" secondItem="xH5-im-6Jv" secondAttribute="centerX" id="fsB-AE-QUO"/>
+                        <constraint firstItem="xH5-im-6Jv" firstAttribute="centerX" secondItem="EUb-kT-gkM" secondAttribute="centerX" id="nsE-XJ-I3e"/>
+                        <constraint firstItem="xH5-im-6Jv" firstAttribute="centerY" secondItem="EUb-kT-gkM" secondAttribute="centerY" constant="15" id="wWX-hc-3es"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_requirement_image" translatesAutoresizingMaskIntoConstraints="NO" id="oFd-be-7Sl">
+                    <rect key="frame" x="0.0" y="182" width="320" height="298"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="oFd-be-7Sl" secondAttribute="height" multiplier="414:385" id="qJg-ew-Vg5"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="oFd-be-7Sl" firstAttribute="leading" secondItem="7aq-3V-ipE" secondAttribute="leading" id="2Bv-st-F6f"/>
+                <constraint firstItem="EUb-kT-gkM" firstAttribute="leading" secondItem="7aq-3V-ipE" secondAttribute="leading" id="FhC-Y5-abf"/>
+                <constraint firstItem="oFd-be-7Sl" firstAttribute="width" secondItem="7aq-3V-ipE" secondAttribute="width" id="OB9-7I-Xvx"/>
+                <constraint firstItem="oFd-be-7Sl" firstAttribute="top" secondItem="EUb-kT-gkM" secondAttribute="bottom" id="jLi-BS-Aep"/>
+                <constraint firstAttribute="bottom" secondItem="oFd-be-7Sl" secondAttribute="bottom" id="nz8-Vy-e0D"/>
+                <constraint firstItem="EUb-kT-gkM" firstAttribute="width" secondItem="7aq-3V-ipE" secondAttribute="width" id="x2H-4j-vgT"/>
+                <constraint firstItem="EUb-kT-gkM" firstAttribute="top" secondItem="7aq-3V-ipE" secondAttribute="top" id="zGj-5Q-gRd"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="lblNoRequirementDesc" destination="xH5-im-6Jv" id="90B-xY-yY8"/>
+                <outlet property="lblNoRequirementTitle" destination="RCs-46-WLh" id="RVb-jE-Gpy"/>
+            </connections>
+            <point key="canvasLocation" x="472" y="401"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="no_requirement_image" width="414" height="385"/>
+    </resources>
+</document>

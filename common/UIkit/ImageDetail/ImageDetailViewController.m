@@ -72,14 +72,7 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
     for (int i = 0; i < self.imgCount; i++) {
         UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         [w1 setContentMode:UIViewContentModeScaleAspectFit];
-        if (self.type == ImageDetailViewTypeOffline) {
-            w1.image = [self.offlineImages objectAtIndex:i];
-        } else if (self.type == ImageDetailViewTypeOnline) {
-            [w1 setImageWithId:[self.onlineImages objectAtIndex:i] withWidth:kScreenWidth];
-        } else {
-        
-        }
-        
+
         UIScrollView *s = [[UIScrollView alloc] initWithFrame:CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenHeight)];
         s.maximumZoomScale = 3;
         s.minimumZoomScale = 1;
@@ -92,6 +85,23 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
         [s addSubview:w1];
         [self.scrollView addSubview:s];
         [self.imageViewArray addObject:w1];
+        
+        if (self.type == ImageDetailViewTypeOffline) {
+            w1.image = [self.offlineImages objectAtIndex:i];
+            CGFloat height = kScreenWidth / (w1.image.size.width / w1.image.size.height);
+            w1.frame = CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height);
+        } else if (self.type == ImageDetailViewTypeOnline) {
+            @weakify(w1);
+            [w1 setImageWithId:[self.onlineImages objectAtIndex:i] withWidth:kScreenWidth completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
+                @strongify(w1);
+                if (error == nil) {
+                    CGFloat height = kScreenWidth / (image.size.width / image.size.height);
+                    w1.frame = CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth,  height);
+                }
+            }];
+        } else {
+            
+        }
     }
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.imgCount, 200)];
     self.lblIndex.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
@@ -101,7 +111,7 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap)];
     [self.scrollView addGestureRecognizer:self.tap];
     
-    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDoubleTap)];
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onDoubleTap:)];
     doubleTap.numberOfTapsRequired = 2;
     [self.scrollView addGestureRecognizer:doubleTap];
     [self.tap requireGestureRecognizerToFail:doubleTap];
@@ -123,18 +133,38 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
     }
 }
 
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    UIScrollView *subscrollView = self.scrollView.subviews[self.index];
+    UIImageView *imgView = subscrollView.subviews[0];
+    UIView *subView = imgView;
+    
+    CGFloat offsetX = (scrollView.bounds.size.width > scrollView.contentSize.width)?
+    (scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5 : 0.0;
+    
+    CGFloat offsetY = (scrollView.bounds.size.height > scrollView.contentSize.height)?
+    (scrollView.bounds.size.height - scrollView.contentSize.height) * 0.5 : 0.0;
+    
+    subView.center = CGPointMake(scrollView.contentSize.width * 0.5 + offsetX,
+                                 scrollView.contentSize.height * 0.5 + offsetY);
+}
+
 #pragma mark - user action 
 - (void)onSingleTap {
     [self.presentingViewController dismissViewControllerAnimated:YES completion:^{}];
 }
 
-- (void)onDoubleTap {
+- (void)onDoubleTap:(UITapGestureRecognizer *)g {
     UIScrollView *subscrollView = self.scrollView.subviews[self.index];
     
     if (subscrollView.zoomScale > 1) {
         [subscrollView setZoomScale:1.0 animated:YES];
     } else {
-        [subscrollView setZoomScale:2.0 animated:YES];
+        UIImageView *imgView = subscrollView.subviews[0];
+        CGPoint touchPoint = [g locationInView:imgView];
+        CGFloat newZoomScale = subscrollView.maximumZoomScale;
+        CGFloat xsize = subscrollView.frame.size.width / newZoomScale;
+        CGFloat ysize = subscrollView.frame.size.height / newZoomScale;
+        [subscrollView zoomToRect:CGRectMake(touchPoint.x - xsize/2, touchPoint.y - ysize/2, xsize, ysize) animated:YES];
     }
 }
 

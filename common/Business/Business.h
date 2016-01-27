@@ -28,5 +28,6 @@
 #define kThemeTextColor [UIColor colorWithR:0x34 g:0x49 b:0x5e]
 
 #define kReminderColor [UIColor colorWithR:0xff g:0x44 b:0x45]
+#define kViewBgColor [UIColor colorWithR:0xED g:0xEF b:0xF1]
 
 #endif /* Type_h */
