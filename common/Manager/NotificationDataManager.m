@@ -191,16 +191,6 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
         }];
 }
 
-- (void)realtimeUnreadCountForProcess:(NSString *)processid observer:(NotificationUnreadUpdateBlock)block  {
-    [[[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data]
-      deliverOn:[RACScheduler mainThreadScheduler]]
-     subscribeNext:^(id x) {
-         if (block) {
-             block(x);
-         }
-     }];
-}
-
 - (void)showLocalNoti:(NSDictionary *)userInfo {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         if ([GVUserDefaults standardUserDefaults].isLogin) {
