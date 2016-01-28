@@ -45,9 +45,11 @@ static NSArray *processedStatusArr = nil;
         Requirement *requirement = [[Requirement alloc] initWith:dict];
         User *user = [[User alloc] initWith:[requirement.data objectForKey:@"user"]];
         Plan *plan = [[Plan alloc] initWith:[requirement.data objectForKey:@"plan"]];
+        Designer *designer = [[Designer alloc] initWith:[requirement.data objectForKey:@"designer"]];
         Evaluation *evaluation = [[Evaluation alloc] initWith:[requirement.data objectForKey:@"evaluation"]];
         requirement.user = user;
         requirement.plan = plan;
+        requirement.designer = designer;
         requirement.evaluation = evaluation;
         
         if ([unprocessStatusArr containsObject:requirement.plan.status]) {

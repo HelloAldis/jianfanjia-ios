@@ -18,18 +18,17 @@
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *serviceAttitudeStars;
 @property (weak, nonatomic) IBOutlet UITextView *tvComment;
 
+@property (strong, nonatomic) Designer *designer;
 @property (strong, nonatomic) Evaluation *evaluation;
-@property (strong, nonatomic) NSString *requirementid;
-@property (assign, nonatomic) NSInteger respondSpeedStar;
-@property (assign, nonatomic) NSInteger serviceAttitudeStar;
 
 @end
 
 @implementation EvaluateDesignerViewController
 
 #pragma mark - init method
-- (id)initWithEvaluation:(Evaluation *)evaluation  {
+- (id)initWithDesigner:(Designer *)designer evaluation:(Evaluation *)evaluation  {
     if (self = [super init]) {
+        _designer = designer;
         _evaluation = evaluation;
     }
     
@@ -53,6 +52,11 @@
     self.lblEvaluateTitle.hidden = YES;
     self.tvComment.editable = NO;
     self.tvComment.backgroundColor = self.view.backgroundColor;
+    
+    [GVUserDefaults standardUserDefaults].imageid = self.designer.imageid;
+    [GVUserDefaults standardUserDefaults].username = self.designer.username;
+    [GVUserDefaults standardUserDefaults].respond_speed = self.designer.respond_speed;
+    [GVUserDefaults standardUserDefaults].service_attitude = self.designer.service_attitude;
 }
 
 - (void)initData {

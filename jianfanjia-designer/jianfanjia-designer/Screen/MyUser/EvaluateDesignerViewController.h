@@ -11,6 +11,6 @@
 
 @interface EvaluateDesignerViewController : BaseViewController
 
-- (id)initWithEvaluation:(Evaluation *)evaluation;
+- (id)initWithDesigner:(Designer *)designer evaluation:(Evaluation *)evaluation;
 
 @end

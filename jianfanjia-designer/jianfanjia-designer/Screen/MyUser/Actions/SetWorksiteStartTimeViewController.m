@@ -69,7 +69,7 @@
 - (void)initUI {
     [self.btnOk setCornerRadius:5];
     [self.datePicker addTarget:self action:@selector(onDatePickerValueChanged:) forControlEvents:UIControlEventValueChanged];
-    [self.datePicker setMinimumDate:[NSDate date]];
+    [self.datePicker setMinimumDate:[self getMinDate]];
     self.lblDateTime.text = [self.datePicker.date yyyy_Nian_MM_Yue_dd_Ri];
     self.lblProjectTotalPrice.text = [NSString stringWithFormat:@"本工程装修合同总价为人民币 (大写) %@ (%@元)。", [self.requirement.total_price humRmbUppercaseString], [self.requirement.total_price humRmbString]];
     ;
@@ -96,6 +96,14 @@
         self.datePicker.hidden = NO;
         self.headerLine.hidden = NO;
     }
+}
+
+- (NSDate *)getMinDate {
+    NSDate *minDate = [NSDate date];
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    minDate = [calendar dateByAddingUnit:NSCalendarUnitDay value:1 toDate:minDate options:0];
+    
+    return minDate;
 }
 
 - (void)updateProjectTotalDay:(NSDate *)startDate {
