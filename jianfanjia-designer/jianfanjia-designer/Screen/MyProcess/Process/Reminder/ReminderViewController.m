@@ -95,7 +95,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     
     NSString *badgeValue = [self.btnNotifications[self.currentNotificationType] badgeValue];
     if ([badgeValue intValue] > 0) {
-        [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)]];
+        [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", self.currentNotificationType == NotificationTypePurchase ? kNotificationTypePurchase : kNotificationTypeReschedule]];
     }
     
     if (self.isNeedToRefresh && self.RefreshBlock) {
@@ -206,7 +206,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         if (preNotificationType != self.currentNotificationType) {
             NSString *badgeValue = [self.btnNotifications[preNotificationType] badgeValue];
             if ([badgeValue intValue] > 0) {
-                [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)]];
+                [self markToReadForProcess:self.processid type:preNotificationType == NotificationTypePurchase ? kNotificationTypePurchase : kNotificationTypeReschedule];
             }
         }
 
