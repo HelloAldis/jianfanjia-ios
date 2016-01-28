@@ -128,19 +128,21 @@ static CGFloat imgCellWidth;
 
 #pragma mark - user action
 - (IBAction)onClickFinishItem:(id)sender {
-    DesignerDoneSectionItem *request = [[DesignerDoneSectionItem alloc] init];
-    request._id = self.dataManager.process._id;
-    request.section = self.dataManager.selectedSection.name;
-    request.item = self.item.name;
-    
-    [API designerDoneSectionItem:request success:^{
-        if (self.refreshBlock) {
-            self.refreshBlock(YES);
-        }
-    } failure:^{
+    [MessageAlertViewController presentAlert:[ProcessBusiness nameForKey:self.item.name] msg:@"确认完工吗？" second:nil reject:nil agree:^{
+        DesignerDoneSectionItem *request = [[DesignerDoneSectionItem alloc] init];
+        request._id = self.dataManager.process._id;
+        request.section = self.dataManager.selectedSection.name;
+        request.item = self.item.name;
         
-    } networkError:^{
-        
+        [API designerDoneSectionItem:request success:^{
+            if (self.refreshBlock) {
+                self.refreshBlock(YES);
+            }
+        } failure:^{
+            
+        } networkError:^{
+            
+        }];
     }];
 }
 
