@@ -131,64 +131,74 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 }
 
 - (void)subscribePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, purchaseUnreadCount) subscribeNext:^(id x) {
-        if (block) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+    [[RACObserve(self, purchaseUnreadCount)
+        deliverOn:[RACScheduler mainThreadScheduler]]
+        subscribeNext:^(id x) {
+            if (block) {
                 block(x);
-            });
-        }
-    }];
+            }
+        }];
 }
 
 - (void)subscribePayUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, payUnreadCount) subscribeNext:^(id x) {
-        if (block) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+    [[RACObserve(self, payUnreadCount)
+         deliverOn:[RACScheduler mainThreadScheduler]]
+         subscribeNext:^(id x) {
+            if (block) {
                 block(x);
-            });
-        }
-    }];
+            }
+         }];
 }
 
 - (void)subscribeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, rescheduleUnreadCount) subscribeNext:^(id x) {
-        if (block) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+    [[RACObserve(self, rescheduleUnreadCount)
+         deliverOn:[RACScheduler mainThreadScheduler]]
+         subscribeNext:^(id x) {
+            if (block) {
                 block(x);
-            });
-        }
-    }];
+            }
+         }];
 }
 
 - (void)subscribeAllUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, totalUnreadCount) subscribeNext:^(id x) {
-        dispatch_async(dispatch_get_main_queue(), ^{
+    [[RACObserve(self, totalUnreadCount)
+         deliverOn:[RACScheduler mainThreadScheduler]]
+         subscribeNext:^(id x) {
             [UIApplication sharedApplication].applicationIconBadgeNumber = [x integerValue];
             if (block) {
                 block(x);
             }
-        });
-    }];
+        }];
 }
 
 - (void)subscribeUnreadCountForProcess:(NSString *)processid observer:(NotificationUnreadUpdateBlock)block  {
-    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data] subscribeNext:^(id x) {
-        if (block) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+    [[[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data]
+         deliverOn:[RACScheduler mainThreadScheduler]]
+         subscribeNext:^(id x) {
+            if (block) {
                 block(x);
-            });
-        }
-    }];
+            }
+        }];
 }
 
 - (void)subscribeUnreadCountForProcess:(NSString *)processid type:(NSString *)type observer:(NotificationUnreadUpdateBlock)block  {
-    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid type:type] observer:self.data] subscribeNext:^(id x) {
-        if (block) {
-            dispatch_async(dispatch_get_main_queue(), ^{
+    [[[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid type:type] observer:self.data]
+         deliverOn:[RACScheduler mainThreadScheduler]]
+         subscribeNext:^(id x) {
+            if (block) {
                 block(x);
-            });
-        }
-    }];
+            }
+        }];
+}
+
+- (void)realtimeUnreadCountForProcess:(NSString *)processid observer:(NotificationUnreadUpdateBlock)block  {
+    [[[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data]
+      deliverOn:[RACScheduler mainThreadScheduler]]
+     subscribeNext:^(id x) {
+         if (block) {
+             block(x);
+         }
+     }];
 }
 
 - (void)showLocalNoti:(NSDictionary *)userInfo {
@@ -196,7 +206,6 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
         if ([GVUserDefaults standardUserDefaults].isLogin) {
             NSString *payload = [userInfo objectForKey:@"payload1"];
             Notification *notification = [self convertPayloadToObj:[payload dataUsingEncoding:NSUTF8StringEncoding]];
-            
             if (notification) {
                 [self showLocalNotification:notification];
             }

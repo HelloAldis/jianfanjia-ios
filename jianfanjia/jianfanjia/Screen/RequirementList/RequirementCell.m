@@ -172,6 +172,8 @@
         self.lblRequirementStatusVal.textColor = kPassStatusColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
+        
+        self.btnGoToWorkspace.badgeValue = 0;
     } else if ([status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
         self.lblRequirementStatusVal.textColor = kFinishedColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
@@ -187,6 +189,8 @@
         self.lblRequirementStatusVal.textColor = kUntriggeredColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
+        
+        self.btnGoToWorkspace.badgeValue = 0;
     }
 }
 
