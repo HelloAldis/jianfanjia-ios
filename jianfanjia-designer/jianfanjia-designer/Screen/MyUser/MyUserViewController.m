@@ -43,6 +43,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 @property (strong, nonatomic) NSMutableArray<NoRequirementImageView *> *noRequirementViews;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnActions;
+@property (strong, nonatomic) MJRefreshNormalHeader *refreshHeader;
 
 @property (assign, nonatomic) PlanType currentPlanType;
 @property (strong ,nonatomic) MyUserDataManager *dataManager;
@@ -110,7 +111,6 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     self.pageScrollView.pagingEnabled = YES;
     [self.view addSubview:self.pageScrollView];
     
-    @weakify(self);
     for (NSInteger i = 0; i < 3; i++) {
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(bettweenDistance / 2 + i * (tableViewWidth + bettweenDistance), 0, tableViewWidth, tableViewHeight)];
         tableView.delegate = self;
@@ -134,19 +134,22 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         [self.pageScrollView addSubview:tableView];
         [self.tableViews addObject:tableView];
         [self.noRequirementViews addObject:noRequirementView];
-        
-        tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            @strongify(self);
-            [self refresh:NO];
-        }];
     }
     [self.pageScrollView setContentSize:CGSizeMake(kScreenWidth * 3, tableViewHeight)];
 
+    @weakify(self);
     [self.btnActions enumerateObjectsUsingBlock:^(UIButton*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         [obj addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
         [obj setExclusiveTouch:YES];
     }];
+    
+    self.refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refresh:NO];
+    }];
+    
+    [self getCurrentTableView].header = self.refreshHeader;
 }
 
 #pragma mark - scroll view deleate 
@@ -247,6 +250,11 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         lastButton.alpha = 0.5;
         UIButton *selectedButton = self.btnActions[buttonIndex];
         selectedButton.alpha = 1;
+        
+        UITableView *lastTableView = self.tableViews[self.currentPlanType];
+        UITableView *selectedTableView = self.tableViews[buttonIndex];
+        lastTableView.header = nil;
+        selectedTableView.header = self.refreshHeader;
     } completion:^(BOOL finished) {
         self.currentPlanType = buttonIndex;
         [self switchViewToHide];
@@ -269,15 +277,15 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     DesignerGetUserRequirements *request = [[DesignerGetUserRequirements alloc] init];
     
     [API designerGetUserRequirement:request success:^{
+        [self.refreshHeader endRefreshing];
         [HUDUtil hideWait];
-        [[self getCurrentTableView].header endRefreshing];
         [self.dataManager refreshAllActions];
         [self reloadData];
     } failure:^{
-        [[self getCurrentTableView].header endRefreshing];
+        [self.refreshHeader endRefreshing];
         [HUDUtil hideWait];
     } networkError:^{
-        [[self getCurrentTableView].header endRefreshing];
+        [self.refreshHeader endRefreshing];
         [HUDUtil hideWait];
     }];
 }
