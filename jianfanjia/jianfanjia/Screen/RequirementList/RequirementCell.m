@@ -150,10 +150,7 @@
         lblStatus.textColor = kPassStatusColor;
     } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
         lblStatus.textColor = kFinishedColor;
-    } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]
-               || [status isEqualToString:kPlanStatusPlanWasNotChoosed]
-               || [status isEqualToString:kPlanStatusExpiredAsDesignerDidNotRespond]
-               || [status isEqualToString:kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime]) {
+    } else {
         lblStatus.textColor = kUntriggeredColor;
     }
 }
