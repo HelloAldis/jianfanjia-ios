@@ -65,6 +65,7 @@
 - (void)initUI {
     [self.btnPriceDetail setBorder:1 andColor:kFinishedColor.CGColor];
     [self.btnPriceDetail setCornerRadius:5];
+    [self.imgScrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImage:)]];
     
     @weakify(self);
     [self.plan.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -121,6 +122,12 @@
 }
 
 #pragma mark - user action
+- (void)onTapImage:(UIGestureRecognizer *)gesture {
+    if (self.plan.images.count > 0) {
+        [ViewControllerContainer showOnlineImages:self.plan.images index:self.pageControl.currentPage];
+    }
+}
+
 - (void)onChoosePriceDetail {
     [ViewControllerContainer showPlanPriceDetail:self.plan];
 }
