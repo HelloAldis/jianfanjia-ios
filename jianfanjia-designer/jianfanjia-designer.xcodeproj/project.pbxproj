@@ -218,8 +218,6 @@
 		681241271C4CF2D5008FC9AB /* ProcessDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241011C4CF2D5008FC9AB /* ProcessDataManager.m */; };
 		681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241031C4CF2D5008FC9AB /* ProcessViewController.m */; };
 		681241291C4CF2D5008FC9AB /* ProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681241041C4CF2D5008FC9AB /* ProcessViewController.xib */; };
-		6812412A1C4CF2D5008FC9AB /* PayNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241071C4CF2D5008FC9AB /* PayNotificationCell.m */; };
-		6812412B1C4CF2D5008FC9AB /* PayNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681241081C4CF2D5008FC9AB /* PayNotificationCell.xib */; };
 		6812412C1C4CF2D5008FC9AB /* PostponeNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812410A1C4CF2D5008FC9AB /* PostponeNotificationCell.m */; };
 		6812412D1C4CF2D5008FC9AB /* PostponeNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6812410B1C4CF2D5008FC9AB /* PostponeNotificationCell.xib */; };
 		6812412E1C4CF2D5008FC9AB /* PurchaseNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812410D1C4CF2D5008FC9AB /* PurchaseNotificationCell.m */; };
@@ -707,9 +705,6 @@
 		681241021C4CF2D5008FC9AB /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
 		681241031C4CF2D5008FC9AB /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
 		681241041C4CF2D5008FC9AB /* ProcessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewController.xib; sourceTree = "<group>"; };
-		681241061C4CF2D5008FC9AB /* PayNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayNotificationCell.h; sourceTree = "<group>"; };
-		681241071C4CF2D5008FC9AB /* PayNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayNotificationCell.m; sourceTree = "<group>"; };
-		681241081C4CF2D5008FC9AB /* PayNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayNotificationCell.xib; sourceTree = "<group>"; };
 		681241091C4CF2D5008FC9AB /* PostponeNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostponeNotificationCell.h; sourceTree = "<group>"; };
 		6812410A1C4CF2D5008FC9AB /* PostponeNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostponeNotificationCell.m; sourceTree = "<group>"; };
 		6812410B1C4CF2D5008FC9AB /* PostponeNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostponeNotificationCell.xib; sourceTree = "<group>"; };
@@ -1297,9 +1292,6 @@
 		681241051C4CF2D5008FC9AB /* Reminder */ = {
 			isa = PBXGroup;
 			children = (
-				681241061C4CF2D5008FC9AB /* PayNotificationCell.h */,
-				681241071C4CF2D5008FC9AB /* PayNotificationCell.m */,
-				681241081C4CF2D5008FC9AB /* PayNotificationCell.xib */,
 				681241091C4CF2D5008FC9AB /* PostponeNotificationCell.h */,
 				6812410A1C4CF2D5008FC9AB /* PostponeNotificationCell.m */,
 				6812410B1C4CF2D5008FC9AB /* PostponeNotificationCell.xib */,
@@ -1948,7 +1940,6 @@
 				68123E851C4CBE79008FC9AB /* MeViewController.xib in Resources */,
 				681241201C4CF2D5008FC9AB /* ItemExpandImageCell.xib in Resources */,
 				68123E731C4CBE79008FC9AB /* ResetPassViewController.xib in Resources */,
-				6812412B1C4CF2D5008FC9AB /* PayNotificationCell.xib in Resources */,
 				68123C8C1C4C9772008FC9AB /* DateAlertViewController.xib in Resources */,
 				681240271C4CDC78008FC9AB /* LaunchScreen.xib in Resources */,
 				681240E91C4CF2CC008FC9AB /* ProcessCell.xib in Resources */,
@@ -2069,7 +2060,6 @@
 				6E378D361BDA2D2E00908B77 /* AccountBusiness.m in Sources */,
 				68123FE01C4CCF4A008FC9AB /* PriceItem.m in Sources */,
 				6EA0C19D1C577F7500D04A4F /* PlanPriceItemSection.m in Sources */,
-				6812412A1C4CF2D5008FC9AB /* PayNotificationCell.m in Sources */,
 				681240E81C4CF2CC008FC9AB /* ProcessCell.m in Sources */,
 				681240CA1C4CE471008FC9AB /* ReplaceOrderedDesigner.m in Sources */,
 				68123CA91C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m in Sources */,
