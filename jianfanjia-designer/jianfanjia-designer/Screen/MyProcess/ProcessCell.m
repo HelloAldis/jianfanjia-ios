@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnGoToWorkspace;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAgreement;
+@property (weak, nonatomic) IBOutlet UIButton *lblGoToWorkspace;
 
 @property (strong, nonatomic) Process *process;
 
@@ -67,11 +68,8 @@
     @weakify(self);
     [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.process._id observer:^(id value) {
         @strongify(self);
-        self.btnGoToWorkspace.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
-        CGFloat btnWidth = kScreenWidth / 3.0;
-        CGFloat btnHeight = self.btnGoToWorkspace.frame.size.height;
-        self.btnGoToWorkspace.badgeOriginX = btnWidth / 2 + 32;
-        self.btnGoToWorkspace.badgeOriginY = (btnHeight - self.btnGoToWorkspace.badge.frame.size.width) / 2 - 10;
+        self.lblGoToWorkspace.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
+        self.lblGoToWorkspace.badgeOriginY = -11;
     }];
     
     [self updateSections:process];
