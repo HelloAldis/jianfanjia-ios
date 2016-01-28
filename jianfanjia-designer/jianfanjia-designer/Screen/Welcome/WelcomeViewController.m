@@ -28,6 +28,8 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.pageControl.numberOfPages = 3;
+    
     [self.btnSignup setCornerRadius:5];
     [self.btnSignup setBorder:1 andColor:[kThemeColor CGColor]];
     [self.btnLogin setCornerRadius:5];
@@ -49,24 +51,28 @@
     [super viewDidAppear:animated];
     self.w1.frame = kScreenFullFrame;
     self.w2.frame = CGRectMake(kScreenWidth, 0, kScreenWidth, kScreenHeight);
-
 }
-
-#pragma mark - UI
-
 
 #pragma mark - scroll view deleaget
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    NSInteger index = self.scrollView.contentOffset.x/kScreenWidth;
+    CGFloat offsetX = self.scrollView.contentOffset.x;
+    NSInteger index = offsetX/kScreenWidth;
     self.pageControl.currentPage = index;
-    if (index == 1) {
-        self.pageControl.hidden = YES;
-        self.btnLogin.hidden = NO;
-        self.btnSignup.hidden = NO;
-    } else {
-        self.pageControl.hidden = NO;
-        self.btnSignup.hidden = YES;
-        self.btnLogin.hidden = YES;
+//    if (index == 1) {
+//        self.pageControl.hidden = YES;
+//        self.btnLogin.hidden = NO;
+//        self.btnSignup.hidden = NO;
+//    } else {
+//        self.pageControl.hidden = NO;
+//        self.btnSignup.hidden = YES;
+//        self.btnLogin.hidden = YES;
+//    }
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    CGFloat offsetX = self.scrollView.contentOffset.x;
+    if (offsetX >= kScreenWidth && velocity.x > 0) {
+        [ViewControllerContainer showLogin];
     }
 }
 
