@@ -263,7 +263,7 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"user_wechat_login" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
-+ (void)refreshSession:(RefreshSession *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
++ (void)userRefreshSession:(RefreshSession *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"user_refresh_session" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
@@ -276,8 +276,10 @@ static AFHTTPRequestOperationManager *_manager;
 }
 
 
-
 #pragma mark - designer api
++ (void)designerRefreshSession:(RefreshSession *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer_refresh_session" data:request.data handler:request success:success failure:failure networkError:error];
+}
 
 + (void)designerLogin:(DesignerLogin *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"designer_login" data:request.data handler:request success:success failure:failure networkError:error];

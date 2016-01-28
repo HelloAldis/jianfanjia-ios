@@ -73,7 +73,7 @@
     self.lblDateTime.text = [self.datePicker.date yyyy_Nian_MM_Yue_dd_Ri];
     self.lblProjectTotalPrice.text = [NSString stringWithFormat:@"本工程装修合同总价为人民币 (大写) %@ (%@元)。", [self.requirement.total_price humRmbUppercaseString], [self.requirement.total_price humRmbString]];
     ;
-    self.lblProjectWorkType.text = [NSString stringWithFormat:@"%@ (半包，全包)。", [NameDict nameForWorkType:self.requirement.work_type]];
+    self.lblProjectWorkType.text = [NSString stringWithFormat:@"%@", [NameDict nameForWorkType:self.requirement.work_type]];
     
     NSNumber *worksiteStartTime = self.requirement.start_at;
     NSDate *startDate;
