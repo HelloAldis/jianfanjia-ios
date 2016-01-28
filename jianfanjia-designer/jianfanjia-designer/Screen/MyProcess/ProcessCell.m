@@ -70,7 +70,7 @@
         self.btnGoToWorkspace.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
         CGFloat btnWidth = kScreenWidth / 3.0;
         CGFloat btnHeight = self.btnGoToWorkspace.frame.size.height;
-        self.btnGoToWorkspace.badgeOriginX = btnWidth / 2 + 22;
+        self.btnGoToWorkspace.badgeOriginX = btnWidth / 2 + 32;
         self.btnGoToWorkspace.badgeOriginY = (btnHeight - self.btnGoToWorkspace.badge.frame.size.width) / 2 - 10;
     }];
     
