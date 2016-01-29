@@ -134,16 +134,22 @@ static CGFloat imgCellWidth;
         request.section = self.dataManager.selectedSection.name;
         request.item = self.item.name;
         
+        [self enableFinishItem:NO];
         [API designerDoneSectionItem:request success:^{
             if (self.refreshBlock) {
                 self.refreshBlock(YES);
             }
         } failure:^{
-            
+            [self enableFinishItem:YES];
         } networkError:^{
-            
+            [self enableFinishItem:YES];
         }];
     }];
+}
+
+- (void)enableFinishItem:(BOOL)enable {
+    self.btnFinishItem.enabled = enable;
+    self.btnFinishItem.backgroundColor = enable ? kFinishedColor : kUntriggeredColor;
 }
 
 - (void)deleteImage:(NSIndexPath *)indexPath {
