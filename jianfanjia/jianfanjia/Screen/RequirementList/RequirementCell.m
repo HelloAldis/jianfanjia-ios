@@ -165,17 +165,19 @@
     self.lblUpdateTimeVal.text = [NSDate yyyy_MM_dd:requirement.last_status_update_time];
     self.lblCellNameVal.text = [requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", requirement.cell, requirement.cell_phase] : requirement.cell;
     
-    self.btnGoToWorkspace.badgeValue = 0;
     NSString *status = requirement.status;
     if ([status isEqualToString:kRequirementStatusOrderedDesignerWithoutAnyResponse]) {
         self.lblRequirementStatusVal.textColor = kPassStatusColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
         
+        self.btnGoToWorkspace.badgeValue = 0;
     } else if ([status isEqualToString:kRequirementStatusDesignerRespondedWithoutMeasureHouse]) {
         self.lblRequirementStatusVal.textColor = kExcutionStatusColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
+        
+        self.btnGoToWorkspace.badgeValue = 0;
     } else if ([status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
                || [status isEqualToString:kRequirementStatusDesignerMeasureHouseWithoutPlan]
                || [status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
@@ -183,6 +185,8 @@
         self.lblRequirementStatusVal.textColor = kFinishedColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
+        
+        self.btnGoToWorkspace.badgeValue = 0;
     } else if ([status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
         self.lblRequirementStatusVal.textColor = kFinishedColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
@@ -198,10 +202,14 @@
         self.lblRequirementStatusVal.textColor = kFinishedColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"前往工地" forState:UIControlStateNormal];
+        
+        self.btnGoToWorkspace.badgeValue = 0;
     } else if ([status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
         self.lblRequirementStatusVal.textColor = kUntriggeredColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
+        
+        self.btnGoToWorkspace.badgeValue = 0;
     }
 }
 

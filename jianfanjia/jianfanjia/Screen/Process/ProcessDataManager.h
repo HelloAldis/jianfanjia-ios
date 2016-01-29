@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) Process *process;
 @property (nonatomic, strong) NSArray *sections;
+@property (nonatomic, assign) NSInteger preOngoingSectionIndex;
 @property (nonatomic, assign) NSInteger ongoingSectionIndex;
 @property (nonatomic, strong) Section *selectedSection;
 @property (nonatomic, assign) NSInteger selectedSectionIndex;

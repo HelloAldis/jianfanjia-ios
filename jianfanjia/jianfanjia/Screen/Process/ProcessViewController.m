@@ -364,11 +364,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
             [self.processDataManager refreshProcess];
-            if (self.isFirstEnter) {
-                self.title = self.processDataManager.process.cell;
-                [self.processDataManager switchToSelectedSection:self.processDataManager.ongoingSectionIndex];
-            }
             [self refreshSectionView];
+            [self scrollToOngoingSection];
             [self reloadItemsForSection:self.processDataManager.selectedSectionIndex];
         } failure:^{
             [HUDUtil hideWait];
@@ -390,19 +387,24 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     [API getProcess:request success:^{
         [self.processDataManager refreshProcess];
-        [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex];
-        Item *item = self.processDataManager.selectedItems[indexPath.row];
-        if (isExpand) {
-            item.itemCellStatus = ItemCellStatusExpaned;
-        } else {
-            item.itemCellStatus = ItemCellStatusClosed;
-        }
-        
         [self refreshSectionView];
-        [self refreshSectionBackground];
-        [self.tableView beginUpdates];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self.tableView endUpdates];
+        BOOL goToNextSection = [self scrollToOngoingSection];
+        if (goToNextSection) {
+            [self reloadItemsForSection:self.processDataManager.selectedSectionIndex];
+        } else {
+            [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex];
+            Item *item = self.processDataManager.selectedItems[indexPath.row];
+            if (isExpand) {
+                item.itemCellStatus = ItemCellStatusExpaned;
+            } else {
+                item.itemCellStatus = ItemCellStatusClosed;
+            }
+            
+            [self refreshSectionBackground];
+            [self.tableView beginUpdates];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView endUpdates];
+        }
     } failure:^{
         
     } networkError:^{
@@ -412,15 +414,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)refreshSectionView {
     if (self.isFirstEnter) {
+        self.isFirstEnter = NO;
+        self.title = self.processDataManager.process.cell;
         [self.sectionScrollView reloadData];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            CGPoint currentOffset = self.sectionScrollView.contentOffset;
-            [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + self.processDataManager.selectedSectionIndex * SectionViewWidth, 0) animated:YES];
-        });
-    }
-    
-    if (!self.isFirstEnter) {
+    } else {
         NSArray *sections = self.processDataManager.sections;
         for (NSInteger i = 0; i < self.sectionScrollView.allViews.count; i++) {
             SectionView *view = self.sectionScrollView.allViews[i];
@@ -429,8 +426,20 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             [self updateSection:section forView:view index:index total:sections.count];
         }
     }
+}
+
+- (BOOL)scrollToOngoingSection {
+    if (self.processDataManager.preOngoingSectionIndex == self.processDataManager.ongoingSectionIndex) {
+        return NO;
+    }
     
-    self.isFirstEnter = NO;
+    self.processDataManager.selectedSectionIndex = self.processDataManager.ongoingSectionIndex;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        CGPoint currentOffset = self.sectionScrollView.contentOffset;
+        [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + (self.processDataManager.ongoingSectionIndex - self.processDataManager.preOngoingSectionIndex) * SectionViewWidth, 0) animated:YES];
+    });
+    
+    return YES;
 }
 
 - (void)updateSection:(Section *)section forView:(SectionView *)sectionView index:(NSInteger)index total:(NSInteger)total {
