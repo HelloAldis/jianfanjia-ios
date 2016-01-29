@@ -222,24 +222,39 @@
 
 - (IBAction)onClickLogin:(id)sender {
     [self.view endEditing:YES];
-    DesignerLogin *login = [[DesignerLogin alloc] init];
-    
-    [login setPhone:[self.fldPhone.text trim]];
-    [login setPass:[self.fldPassword.text trim]];
-    
-    [HUDUtil showWait];
-    [API designerLogin:login success:^{
-        DesignerGetInfo *getUser = [[DesignerGetInfo alloc] init];
-        [API designerGetInfo:getUser success:^{
-            [ViewControllerContainer showTab];
-        } failure:^{
-        } networkError:^{
-        }];
-    } failure:^{
+#ifdef DEBUG
+    DDLogDebug(@"DEBUG defined");
+#endif
+#ifdef TEST
+    DDLogDebug(@"TEST defined");
+#endif
+#ifdef PRO
+    DDLogDebug(@"PRO defined");
+#endif
+#ifdef COCOAPODS
+    DDLogDebug(@"COCOAPODS defined");
+#endif
 
-    } networkError:^{
-        
-    }];
+    DDLogDebug(@"%@, %@, %@, %@", kGtAppId, kGtAppKey, kGtAppSecret, kApiUrl);
+    
+//    DesignerLogin *login = [[DesignerLogin alloc] init];
+//    
+//    [login setPhone:[self.fldPhone.text trim]];
+//    [login setPass:[self.fldPassword.text trim]];
+//    
+//    [HUDUtil showWait];
+//    [API designerLogin:login success:^{
+//        DesignerGetInfo *getUser = [[DesignerGetInfo alloc] init];
+//        [API designerGetInfo:getUser success:^{
+//            [ViewControllerContainer showTab];
+//        } failure:^{
+//        } networkError:^{
+//        }];
+//    } failure:^{
+//
+//    } networkError:^{
+//        
+//    }];
 }
 
 - (IBAction)onClickTitleLogin:(id)sender {
