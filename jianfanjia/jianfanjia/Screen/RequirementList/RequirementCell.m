@@ -113,7 +113,8 @@
 
 #pragma mark - user action
 - (void)onClickGoToWorkSiteButton {
-    if ([kRequirementStatusConfiguredWorkSite isEqualToString:self.currentRequirementStatus]) {
+    if ([kRequirementStatusConfiguredWorkSite isEqualToString:self.currentRequirementStatus]
+        || [kRequirementStatusFinishedWorkSite isEqualToString:self.currentRequirementStatus]) {
         [ViewControllerContainer showProcess:self.requirement.process._id];
     } else {
         [ViewControllerContainer showProcessPreview];
