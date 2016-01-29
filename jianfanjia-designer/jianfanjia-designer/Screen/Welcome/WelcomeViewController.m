@@ -28,7 +28,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.pageControl.numberOfPages = 3;
+    self.pageControl.numberOfPages = 2;
     
     [self.btnSignup setCornerRadius:5];
     [self.btnSignup setBorder:1 andColor:[kThemeColor CGColor]];
