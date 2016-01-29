@@ -11,6 +11,8 @@
 @interface PlanPriceItemCell ()
 @property (weak, nonatomic) IBOutlet UILabel *lblItemVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblItemPriceVal;
+@property (weak, nonatomic) IBOutlet UIView *lblDetailView;
+@property (weak, nonatomic) IBOutlet UILabel *lblNo;
 
 @property (strong, nonatomic) Plan *plan;
 
@@ -21,6 +23,14 @@
 - (void)initWithPriceItem:(PriceItem *)priceItem {
     self.lblItemVal.text = priceItem.item;
     self.lblItemPriceVal.text = [NSString stringWithFormat:@"%d", priceItem.price.intValue];
+    
+    if ([priceItem.price_description trim].length > 0) {
+        self.lblDetailView.hidden = NO;
+        self.lblNo.hidden = YES;
+    } else {
+        self.lblDetailView.hidden = YES;
+        self.lblNo.hidden = NO;
+    }
 }
 
 @end

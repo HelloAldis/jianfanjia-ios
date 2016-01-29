@@ -163,7 +163,7 @@
     } else if (application.applicationState == UIApplicationStateBackground) {
         DDLogDebug(@"Background");
         //Refresh the local model
-        [[NotificationDataManager shared] showLocalNoti:userInfo];
+//        [[NotificationDataManager shared] showLocalNoti:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
     } else {
         DDLogDebug(@"Active");

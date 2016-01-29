@@ -65,6 +65,7 @@
 - (void)initUI {
     [self.btnPriceDetail setBorder:1 andColor:kFinishedColor.CGColor];
     [self.btnPriceDetail setCornerRadius:5];
+    [self.imgScrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImage:)]];
     
     @weakify(self);
     [self.plan.images enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -81,7 +82,7 @@
     self.imgScrollView.showsHorizontalScrollIndicator = NO;
     self.pageControl.numberOfPages = self.plan.images.count;
     self.pageControl.hidden = self.plan.images.count <= 1;
-    self.lblPlanTitle.text = [NSString stringWithFormat:@"%@%@期", self.requirement.cell, self.requirement.cell_phase];
+    self.lblPlanTitle.text = [self.requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", self.requirement.cell, self.requirement.cell_phase] : self.requirement.cell;
     self.lblDecHouseTypeVal.text = [NameDict nameForHouseType:self.requirement.house_type];
     self.lblDecAreaVal.text = [NSString stringWithFormat:@"%@m²", self.requirement.house_area];
     self.lblDecTypeVal.text = [NameDict nameForDecStyle:self.requirement.dec_type];
@@ -101,9 +102,11 @@
     }];
     
     NSString *status = self.plan.status;
+    NSString *requiremntStatus = self.requirement.status;
     if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
-        || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
-        || [status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
+        || [requiremntStatus isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
+        || [requiremntStatus isEqualToString:kRequirementStatusConfiguredWorkSite]
+        || [requiremntStatus isEqualToString:kRequirementStatusFinishedWorkSite]) {
         self.btnChoosePlan.enabled = NO;
         self.btnChoosePlan.backgroundColor = kUntriggeredColor;
     } else {
@@ -121,6 +124,12 @@
 }
 
 #pragma mark - user action
+- (void)onTapImage:(UIGestureRecognizer *)gesture {
+    if (self.plan.images.count > 0) {
+        [ViewControllerContainer showOnlineImages:self.plan.images index:self.pageControl.currentPage];
+    }
+}
+
 - (void)onChoosePriceDetail {
     [ViewControllerContainer showPlanPriceDetail:self.plan];
 }

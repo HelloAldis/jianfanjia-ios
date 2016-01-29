@@ -20,7 +20,7 @@
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
 + (void)showRequirementCreate:(Requirement *)requirement;
-+ (void)showEvaluate:(Evaluation *)evaluation;
++ (void)showEvaluate:(Designer *)designer evaluation:(Evaluation *)evaluation;
 + (void)showPlanList:(Requirement *)requirement;
 + (void)leaveMessage:(Plan *)plan;
 + (void)leaveMessage:(NSString *)processid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock;

@@ -98,14 +98,18 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         NSInteger count = [self getCurrentImageCount];
         
         if (count == totalCount) {
-            NotifyUserToDBYS *request = [[NotifyUserToDBYS alloc] init];
-            request._id = self.processid;
-            request.section = self.section.name;
-            
-            [API designerNotifyUserToDBYS:request success:^{
-            } failure:^{
-            } networkError:^{
-            }];
+            if ([self isAllSectionItemsFinished:self.section]) {
+                NotifyUserToDBYS *request = [[NotifyUserToDBYS alloc] init];
+                request._id = self.processid;
+                request.section = self.section.name;
+                
+                [API designerNotifyUserToDBYS:request success:^{
+                } failure:^{
+                } networkError:^{
+                }];
+            } else {
+                [self clickBack];
+            }
         } else {
             [self clickBack];
         }
@@ -156,9 +160,9 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
             [self.btnConfirmAccept setTitle:@"提醒用户进行对比验收" forState:UIControlStateNormal];
             self.navigationItem.rightBarButtonItem.enabled = YES;
         } else {
-            self.btnConfirmAccept.enabled = YES;
-            self.btnConfirmAccept.backgroundColor = kFinishedColor;
-            [self.btnConfirmAccept setTitle:@"确认上传" forState:UIControlStateNormal];
+            self.btnConfirmAccept.enabled = NO;
+            self.btnConfirmAccept.backgroundColor = kUntriggeredColor;
+            [self.btnConfirmAccept setTitle:@"其他工序未完工，您还不能提醒业主验收" forState:UIControlStateNormal];
             self.navigationItem.rightBarButtonItem.enabled = YES;
         }
     } else {

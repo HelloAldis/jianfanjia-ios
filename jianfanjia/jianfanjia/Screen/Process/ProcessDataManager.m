@@ -25,6 +25,7 @@
         [sectionArr addObject:section];
         
         if ([self.process.going_on isEqualToString:section.name]) {
+            self.preOngoingSectionIndex = self.ongoingSectionIndex;
             self.ongoingSectionIndex = idx;
         }
     }];

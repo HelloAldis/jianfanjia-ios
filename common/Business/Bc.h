@@ -41,6 +41,7 @@ extern NSString * const kRequirementStatusPlanWasChoosedWithoutAgreement;
 extern NSString * const kRequirementStatusConfiguredWorkSite;
 extern NSString * const kRequirementStatusDesignerMeasureHouseWithoutPlan;
 extern NSString * const kRequirementStatusConfiguredAgreementWithoutWorkSite;
+extern NSString * const kRequirementStatusFinishedWorkSite;
 
 extern NSString * const kAuthTypeUnsubmitVerify;
 extern NSString * const kAuthTypeSubmitedVerifyButNotPass;

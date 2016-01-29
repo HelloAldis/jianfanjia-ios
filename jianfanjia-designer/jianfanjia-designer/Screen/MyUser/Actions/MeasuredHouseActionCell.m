@@ -49,8 +49,7 @@
 
 #pragma mark - user action
 - (void)onClickViewEvaluation {
-    [ViewControllerContainer showEvaluate:self.requirement.evaluation];
+    [ViewControllerContainer showEvaluate:self.requirement.designer evaluation:self.requirement.evaluation];
 }
-
 
 @end

@@ -143,6 +143,7 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     @weakify(self);
     [self.requirement merge:orderedDesigner.requirement];
+    self.requirement.final_planid = orderedDesigner.plan._id;
     [cell initWithDesigner:orderedDesigner withRequirement:self.requirement withBlock:^{
         @strongify(self);
         [self refreshOrderedList];

@@ -95,7 +95,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzH-qr-hRG">
-                                    <rect key="frame" x="20" y="274" width="560" height="44"/>
+                                    <rect key="frame" x="20" y="274" width="580" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="0BV-nC-qBu"/>
                                     </constraints>
@@ -108,7 +108,7 @@
                                     </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="lsn-Jn-7gJ">
-                                    <rect key="frame" x="563" y="289" width="7" height="13"/>
+                                    <rect key="frame" x="581" y="289" width="7" height="13"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="13" id="4Zq-1B-3JW"/>
                                         <constraint firstAttribute="width" constant="7" id="894-ao-cLh"/>
@@ -122,7 +122,7 @@
                                     </constraints>
                                 </view>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4H-M2-NiH">
-                                    <rect key="frame" x="20" y="319" width="560" height="44"/>
+                                    <rect key="frame" x="20" y="319" width="580" height="44"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="14c-aT-dsA"/>
                                     </constraints>
@@ -135,7 +135,7 @@
                                     </connections>
                                 </button>
                                 <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="ONG-aJ-7xX">
-                                    <rect key="frame" x="563" y="335" width="7" height="13"/>
+                                    <rect key="frame" x="581" y="335" width="7" height="13"/>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMc-N8-RcZ">
                                     <rect key="frame" x="0.0" y="334" width="600" height="44"/>
@@ -219,10 +219,10 @@
                                 <constraint firstItem="EMc-N8-RcZ" firstAttribute="width" secondItem="uaV-TI-THJ" secondAttribute="width" id="d2R-K0-lTe"/>
                                 <constraint firstItem="dgH-KV-wJY" firstAttribute="top" secondItem="Fq0-hI-rOM" secondAttribute="top" constant="100" id="dfS-ap-mB9"/>
                                 <constraint firstItem="Tps-yf-6yL" firstAttribute="width" secondItem="uaV-TI-THJ" secondAttribute="width" id="eAn-zb-fy2"/>
-                                <constraint firstAttribute="trailing" secondItem="lsn-Jn-7gJ" secondAttribute="trailing" constant="30" id="gLF-dn-IhG"/>
+                                <constraint firstAttribute="trailing" secondItem="lsn-Jn-7gJ" secondAttribute="trailing" constant="12" id="gLF-dn-IhG"/>
                                 <constraint firstItem="ONG-aJ-7xX" firstAttribute="centerY" secondItem="P4H-M2-NiH" secondAttribute="centerY" id="gwR-7E-UB4"/>
                                 <constraint firstItem="ONG-aJ-7xX" firstAttribute="width" secondItem="lsn-Jn-7gJ" secondAttribute="width" id="h2n-4W-VgK"/>
-                                <constraint firstAttribute="trailing" secondItem="FzH-qr-hRG" secondAttribute="trailing" constant="20" id="h8W-RF-dE0"/>
+                                <constraint firstAttribute="trailing" secondItem="FzH-qr-hRG" secondAttribute="trailing" id="h8W-RF-dE0"/>
                                 <constraint firstItem="uaV-TI-THJ" firstAttribute="top" secondItem="Fq0-hI-rOM" secondAttribute="top" constant="274" id="hFJ-7G-daw"/>
                                 <constraint firstItem="Tps-yf-6yL" firstAttribute="top" secondItem="EMc-N8-RcZ" secondAttribute="bottom" constant="15" id="jGc-Rj-NLb"/>
                                 <constraint firstItem="itK-t4-gGr" firstAttribute="width" secondItem="Fq0-hI-rOM" secondAttribute="width" id="nRA-cc-KHo"/>

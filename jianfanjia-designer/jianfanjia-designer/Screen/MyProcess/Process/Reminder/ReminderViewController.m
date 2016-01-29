@@ -8,19 +8,16 @@
 
 #import "ReminderViewController.h"
 #import "PurchaseNotificationCell.h"
-#import "PayNotificationCell.h"
 #import "PostponeNotificationCell.h"
 #import "ReminderDataManager.h"
 #import "API.h"
 
 typedef NS_ENUM(NSInteger, NotificationType) {
-    NotificationTypePostpone,
     NotificationTypePurchase,
-    NotificationTypePay,
+    NotificationTypePostpone,
 };
 
 static NSString *PurchaseNotificationCellIdentifier = @"PurchaseNotificationCell";
-static NSString *PayNotificationCellIdentifier = @"PayNotificationCell";
 static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell";
 
 @interface ReminderViewController ()
@@ -31,8 +28,6 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 @property (weak, nonatomic) IBOutlet UIImageView *noNotificationImage;
 @property (weak, nonatomic) IBOutlet UILabel *noNotificationLabel;
 
-@property (assign, nonatomic) NSInteger preSelectedButtonIndex;
-@property (assign, nonatomic) NSInteger selectedButtonIndex;
 @property (assign, nonatomic) NotificationType currentNotificationType;
 @property (strong ,nonatomic) ReminderDataManager *dataManager;
 @property (strong ,nonatomic) NSString *processid;
@@ -78,14 +73,9 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
             [self.btnNotifications[0] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
         }];
         
-        [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid type:kNotificationTypePay observer:^(id value) {
-            @strongify(self);
-            [self.btnNotifications[1] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
-        }];
-        
         [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid type:kNotificationTypeReschedule observer:^(id value) {
             @strongify(self);
-            [self.btnNotifications[2] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
+            [self.btnNotifications[1] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
         }];
     } else  {
         [[NotificationDataManager shared] subscribePurchaseUnreadCount:^(id value) {
@@ -93,14 +83,9 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
             [self.btnNotifications[0] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
         }];
         
-        [[NotificationDataManager shared] subscribePayUnreadCount:^(id value) {
-            @strongify(self);
-            [self.btnNotifications[1] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
-        }];
-        
         [[NotificationDataManager shared] subscribeRescheduleUnreadCount:^(id value) {
             @strongify(self);
-            [self.btnNotifications[2] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
+            [self.btnNotifications[1] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
         }];
     }
 }
@@ -108,17 +93,14 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
-    NSString *badgeValue = [self.btnNotifications[self.selectedButtonIndex] badgeValue];
+    NSString *badgeValue = [self.btnNotifications[self.currentNotificationType] badgeValue];
     if ([badgeValue intValue] > 0) {
-        [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)]];
+        [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", self.currentNotificationType == NotificationTypePurchase ? kNotificationTypePurchase : kNotificationTypeReschedule]];
     }
     
     if (self.isNeedToRefresh && self.RefreshBlock) {
         NSString *notificationType;
         switch (self.currentNotificationType) {
-            case NotificationTypePay:
-                notificationType = kNotificationTypePay;
-                break;
             case NotificationTypePostpone:
                 notificationType = kNotificationTypeReschedule;
                 break;
@@ -147,7 +129,6 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     self.tableView.estimatedRowHeight = 90;
     
     [self.tableView registerNib:[UINib nibWithNibName:PurchaseNotificationCellIdentifier bundle:nil] forCellReuseIdentifier:PurchaseNotificationCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:PayNotificationCellIdentifier bundle:nil] forCellReuseIdentifier:PayNotificationCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:PostponeNotificationCellIdentifier bundle:nil] forCellReuseIdentifier:PostponeNotificationCellIdentifier];
     
     [self.reminderIcons enumerateObjectsUsingBlock:^(UIView* _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -161,14 +142,12 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         [obj setExclusiveTouch:YES];
     }];
     
-    [self switchToOtherButton:0];
+    [self switchToOtherButton:NotificationTypePurchase];
 }
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.currentNotificationType == NotificationTypePurchase) {
-        return self.dataManager.notifications.count;
-    } else if (self.currentNotificationType == NotificationTypePay) {
         return self.dataManager.notifications.count;
     } else {
         return self.dataManager.schedules.count;
@@ -178,12 +157,6 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.currentNotificationType == NotificationTypePurchase) {
         PurchaseNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:PurchaseNotificationCellIdentifier forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        NotificationCD *notification = self.dataManager.notifications[indexPath.row];
-        [cell initWithNotification:[notification notification]];
-        return cell;
-    } else if (self.currentNotificationType == NotificationTypePay) {
-        PayNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:PayNotificationCellIdentifier forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         NotificationCD *notification = self.dataManager.notifications[indexPath.row];
         [cell initWithNotification:[notification notification]];
@@ -217,9 +190,9 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     @weakify(self);
     [UIView animateWithDuration:0.3 animations:^{
         @strongify(self);
-        UIButton *lastButton = self.btnNotifications[self.selectedButtonIndex];
+        UIButton *lastButton = self.btnNotifications[self.currentNotificationType];
         lastButton.alpha = 0.5;
-        UIView *lastSelectedLine = self.selectedLines[self.selectedButtonIndex];
+        UIView *lastSelectedLine = self.selectedLines[self.currentNotificationType];
         lastSelectedLine.alpha = 0;
         UIButton *selectedButton = self.btnNotifications[buttonIndex];
         selectedButton.alpha = 1;
@@ -227,27 +200,17 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         selectedLine.alpha = 1;
     } completion:^(BOOL finished) {
         @strongify(self);
-        self.preSelectedButtonIndex = self.selectedButtonIndex;
-        self.selectedButtonIndex = buttonIndex;
+        NotificationType preNotificationType = self.currentNotificationType;
+        self.currentNotificationType = buttonIndex;
         
-        if (self.preSelectedButtonIndex != self.selectedButtonIndex) {
-            NSString *badgeValue = [self.btnNotifications[self.preSelectedButtonIndex] badgeValue];
+        if (preNotificationType != self.currentNotificationType) {
+            NSString *badgeValue = [self.btnNotifications[preNotificationType] badgeValue];
             if ([badgeValue intValue] > 0) {
-                [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", @(self.currentNotificationType)]];
+                [self markToReadForProcess:self.processid type:preNotificationType == NotificationTypePurchase ? kNotificationTypePurchase : kNotificationTypeReschedule];
             }
-        }
-        
-        if (buttonIndex == 0) {
-            self.currentNotificationType = NotificationTypePurchase;
-        } else if (buttonIndex == 1) {
-            self.currentNotificationType = NotificationTypePay;
-        } else if (buttonIndex == 2) {
-            self.currentNotificationType = NotificationTypePostpone;
         }
 
         if (self.currentNotificationType == NotificationTypePurchase) {
-            self.tableView.header = nil;
-        } else if (self.currentNotificationType == NotificationTypePay) {
             self.tableView.header = nil;
         } else {
             if (!self.tableView.header) {
@@ -267,8 +230,6 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 - (void)refresh {
     if (self.currentNotificationType == NotificationTypePurchase) {
         [self refreshPurchases];
-    } else if (self.currentNotificationType == NotificationTypePay) {
-        [self refreshPays];
     } else {
         [self refreshReschedules];
     }
@@ -279,13 +240,6 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     self.dataManager.notifications = [self descendNotifications:self.dataManager.notifications];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self showNoNotification:self.dataManager.notifications.count == 0 image:@"no_purchase_notification" text:@"您还没有采购提醒"];
-}
-
-- (void)refreshPays {
-    [self.dataManager refreshNotificationWithProcess:self.processid type:kNotificationTypePay];
-    self.dataManager.notifications = [self descendNotifications:self.dataManager.notifications];
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-    [self showNoNotification:self.dataManager.notifications.count == 0 image:@"no_pay_notification" text:@"您还没有付款提醒"];
 }
 
 - (void)refreshReschedules {

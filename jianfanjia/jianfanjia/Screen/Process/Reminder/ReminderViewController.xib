@@ -203,6 +203,6 @@
         </view>
     </objects>
     <resources>
-        <image name="no_purchase_notification" width="7" height="13"/>
+        <image name="no_purchase_notification" width="44" height="40"/>
     </resources>
 </document>

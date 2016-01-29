@@ -89,7 +89,12 @@
     
     for(NSInteger i = moneyStr.length; i > 0; i--) {
         NSInteger num = [[moneyStr substringWithRange:NSMakeRange(moneyStr.length - i, 1)] integerValue];
-        [chineseNumerals appendString:uppercaseArr[num]];
+        
+        if (moneyStr.length == 4 && i == 4 && num == 1) {
+            
+        } else {
+            [chineseNumerals appendString:uppercaseArr[num]];
+        }
                                              
         if([[moneyStr substringFromIndex:moneyStr.length - i + 1] integerValue] == 0 && i != 1 && i != 2) {
             if ([unitArr[i - 1] isEqualToString:@"元"]) {

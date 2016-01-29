@@ -47,7 +47,7 @@ static const NSInteger imgSpace = 2;
     self.plan = plan;
     self.order = order;
     self.requirement = requirement;
-    self.lblPlanTitleVal.text = [NSString stringWithFormat:@"%@%@期 方案%ld", requirement.cell, requirement.cell_phase, (long)order];
+    self.lblPlanTitleVal.text = [NSString stringWithFormat:@"%@ 方案%@", [requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", requirement.cell, requirement.cell_phase] : requirement.cell, @(order)];
     self.lblPlanTimeVal.text = [NSDate yyyy_MM_dd:plan.last_status_update_time];
     
     if ([plan.status isEqualToString:kPlanStatusPlanWasChoosed] || [plan.status isEqualToString:kPlanStatusPlanWasNotChoosed]) {

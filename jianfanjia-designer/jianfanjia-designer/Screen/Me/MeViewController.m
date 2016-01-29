@@ -39,6 +39,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self initUIData];
     
     [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
@@ -51,16 +52,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    DesignerGetInfo *request = [[DesignerGetInfo alloc] init];
-    [API designerGetInfo:request success:^{
-        [self initUIData];
-    } failure:^{
-        
-    } networkError:^{
-        
-    }];
-    
+
     if (self.isTabbarhide) {
         [self showTabbar];
     }

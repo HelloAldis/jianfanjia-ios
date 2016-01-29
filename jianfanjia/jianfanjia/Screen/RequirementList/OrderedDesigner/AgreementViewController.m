@@ -54,6 +54,10 @@
             self.btnConfirm.enabled = NO;
             [self.btnConfirm setTitle:@"等待设置开工时间" forState:UIControlStateNormal];
             [self.btnConfirm setBackgroundColor:kUntriggeredColor];
+        } else if ([kRequirementStatusFinishedWorkSite isEqualToString:self.requirement.status]) {
+            self.btnConfirm.enabled = NO;
+            [self.btnConfirm setTitle:@"已完工" forState:UIControlStateNormal];
+            [self.btnConfirm setBackgroundColor:kUntriggeredColor];
         } else {
             self.btnConfirm.enabled = NO;
             [self.btnConfirm setTitle:@"已开工" forState:UIControlStateNormal];

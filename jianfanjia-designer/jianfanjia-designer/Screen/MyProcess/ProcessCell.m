@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnGoToWorkspace;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAgreement;
+@property (weak, nonatomic) IBOutlet UIButton *lblGoToWorkspace;
 
 @property (strong, nonatomic) Process *process;
 
@@ -34,6 +35,7 @@
 
 - (void)awakeFromNib {
     [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapHeaderView:)]];
+    [self.sectionScrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSectionView:)]];
     
     @weakify(self);
     [[self.btnViewPlan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -67,11 +69,8 @@
     @weakify(self);
     [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.process._id observer:^(id value) {
         @strongify(self);
-        self.btnGoToWorkspace.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
-        CGFloat btnWidth = kScreenWidth / 3.0;
-        CGFloat btnHeight = self.btnGoToWorkspace.frame.size.height;
-        self.btnGoToWorkspace.badgeOriginX = btnWidth / 2 + 22;
-        self.btnGoToWorkspace.badgeOriginY = (btnHeight - self.btnGoToWorkspace.badge.frame.size.width) / 2 - 10;
+        self.lblGoToWorkspace.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
+        self.lblGoToWorkspace.badgeOriginY = -11;
     }];
     
     [self updateSections:process];
@@ -93,6 +92,10 @@
 #pragma mark - gestures
 - (void)handleTapHeaderView:(UIGestureRecognizer*)gestureRecognizer {
     [ViewControllerContainer showRequirementCreate:self.process.requirement];
+}
+
+- (void)handleTapSectionView:(UIGestureRecognizer*)gestureRecognizer {
+    [ViewControllerContainer showProcess:self.process._id];
 }
 
 #pragma mark - update sections
