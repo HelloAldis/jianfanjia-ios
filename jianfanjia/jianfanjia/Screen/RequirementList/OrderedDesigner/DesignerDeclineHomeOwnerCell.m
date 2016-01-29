@@ -42,7 +42,8 @@
     NSString *status = self.requirement.status;
     if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
         || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
-        || [status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
+        || [status isEqualToString:kRequirementStatusConfiguredWorkSite]
+        || [status isEqualToString:kRequirementStatusFinishedWorkSite]) {
         self.btnReplace.enabled = NO;
         [self.btnReplace setBorder:1 andColor:kUntriggeredColor.CGColor];
         [self.btnReplace setTitleColor:kUntriggeredColor forState:UIControlStateNormal];

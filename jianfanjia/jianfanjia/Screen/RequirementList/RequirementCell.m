@@ -100,7 +100,8 @@
         NSString *status = self.requirement.status;
         if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
             || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
-            || [status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
+            || [status isEqualToString:kRequirementStatusConfiguredWorkSite]
+            || [status isEqualToString:kRequirementStatusFinishedWorkSite]) {
             // Nothing
         } else {
             [ViewControllerContainer showOrderDesigner:self.requirement];
@@ -192,6 +193,10 @@
             self.btnGoToWorkspace.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
             self.btnGoToWorkspace.badgeOriginX = kScreenWidth / 2 + 17;
         }];
+    } else if ([status isEqualToString:kRequirementStatusFinishedWorkSite]) {
+        self.lblRequirementStatusVal.textColor = kFinishedColor;
+        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
+        [self.btnGoToWorkspace setTitle:@"前往工地" forState:UIControlStateNormal];
     } else if ([status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
         self.lblRequirementStatusVal.textColor = kUntriggeredColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;

@@ -89,6 +89,7 @@ static NSDictionary *businessTypeDict = nil;
                           @"5":@"有工地",
                           @"6":@"已量房",
                           @"7":@"有合同",
+                          @"8":@"已完工",
                           };
     
     authType = @{

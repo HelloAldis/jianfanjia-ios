@@ -82,6 +82,7 @@ NSString * const kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime = 
  * 5. 配置了工地
  * 6. 有一个或多个设计师量完房但是没有人上传方案
  * 7. 配置了合同但是没有配置工地
+ * 8. 工地已完工
  
  <string-array name="requirement_status">
  <item>未预约</item>
@@ -103,6 +104,7 @@ NSString * const kRequirementStatusPlanWasChoosedWithoutAgreement = @"4";
 NSString * const kRequirementStatusConfiguredWorkSite = @"5";
 NSString * const kRequirementStatusDesignerMeasureHouseWithoutPlan = @"6";
 NSString * const kRequirementStatusConfiguredAgreementWithoutWorkSite  = @"7";
+NSString * const kRequirementStatusFinishedWorkSite = @"8";
 
 
 /**
