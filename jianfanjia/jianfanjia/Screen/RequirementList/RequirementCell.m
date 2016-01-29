@@ -143,13 +143,14 @@
     
     self.currentPlanStatus[idx] = status;
     
-    if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]
-        || [status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]
+    if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
+        lblStatus.textColor = kPassStatusColor;
+    } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]
         || [status isEqualToString:kPlanStatusDesignerMeasureHouseWithoutPlan]
         || [status isEqualToString:kPlanStatusDesignerSubmittedPlan]) {
-        lblStatus.textColor = kPassStatusColor;
-    } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
         lblStatus.textColor = kFinishedColor;
+    } else if ([status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]) {
+        lblStatus.textColor = kExcutionStatusColor;
     } else {
         lblStatus.textColor = kUntriggeredColor;
     }
@@ -162,18 +163,24 @@
     self.lblUpdateTimeVal.text = [NSDate yyyy_MM_dd:requirement.last_status_update_time];
     self.lblCellNameVal.text = [requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", requirement.cell, requirement.cell_phase] : requirement.cell;
     
+    self.btnGoToWorkspace.badgeValue = 0;
     NSString *status = requirement.status;
-    if ([status isEqualToString:kRequirementStatusOrderedDesignerWithoutAnyResponse]
-        || [status isEqualToString:kRequirementStatusDesignerRespondedWithoutMeasureHouse]
-        || [status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
-        || [status isEqualToString:kRequirementStatusDesignerMeasureHouseWithoutPlan]
-        || [status isEqualToString:kRequirementStatusDesignerSubmittedPlanWithoutResponse]
-        || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]) {
+    if ([status isEqualToString:kRequirementStatusOrderedDesignerWithoutAnyResponse]) {
         self.lblRequirementStatusVal.textColor = kPassStatusColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
         
-        self.btnGoToWorkspace.badgeValue = 0;
+    } else if ([status isEqualToString:kRequirementStatusDesignerRespondedWithoutMeasureHouse]) {
+        self.lblRequirementStatusVal.textColor = kExcutionStatusColor;
+        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
+        [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
+    } else if ([status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
+               || [status isEqualToString:kRequirementStatusDesignerMeasureHouseWithoutPlan]
+               || [status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
+               || [status isEqualToString:kRequirementStatusDesignerSubmittedPlanWithoutResponse]) {
+        self.lblRequirementStatusVal.textColor = kFinishedColor;
+        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
+        [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
     } else if ([status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
         self.lblRequirementStatusVal.textColor = kFinishedColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
@@ -189,8 +196,6 @@
         self.lblRequirementStatusVal.textColor = kUntriggeredColor;
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
-        
-        self.btnGoToWorkspace.badgeValue = 0;
     }
 }
 

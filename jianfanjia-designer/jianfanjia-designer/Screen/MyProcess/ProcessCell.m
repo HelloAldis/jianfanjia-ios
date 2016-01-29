@@ -35,6 +35,7 @@
 
 - (void)awakeFromNib {
     [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapHeaderView:)]];
+    [self.sectionScrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSectionView:)]];
     
     @weakify(self);
     [[self.btnViewPlan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -91,6 +92,10 @@
 #pragma mark - gestures
 - (void)handleTapHeaderView:(UIGestureRecognizer*)gestureRecognizer {
     [ViewControllerContainer showRequirementCreate:self.process.requirement];
+}
+
+- (void)handleTapSectionView:(UIGestureRecognizer*)gestureRecognizer {
+    [ViewControllerContainer showProcess:self.process._id];
 }
 
 #pragma mark - update sections
