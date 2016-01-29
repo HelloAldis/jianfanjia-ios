@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -16,30 +16,32 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小区名字" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9MY-Hi-45b" userLabel="Lbl Cell">
+                        <rect key="frame" x="13" y="8" width="299" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="尊敬的业主，您即将进入下一轮付款环节，请及时与设计师联系" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Otc-g0-NfX">
-                        <rect key="frame" x="13" y="8" width="299" height="56"/>
-                        <animations/>
+                        <rect key="frame" x="13" y="30" width="299" height="34"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DY-bT-wCX">
                         <rect key="frame" x="196" y="74" width="116" height="17"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="泥木阶段&gt;木地板测量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynj-yE-NZu">
                         <rect key="frame" x="13" y="74" width="135" height="17"/>
-                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aO7-Yf-bRs" userLabel="Reminder">
                         <rect key="frame" x="306" y="4" width="10" height="10"/>
-                        <animations/>
                         <color key="backgroundColor" red="1" green="0.2666666667" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="10" id="sN1-xi-cea"/>
@@ -52,31 +54,25 @@
                         </variation>
                     </view>
                 </subviews>
-                <animations/>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="9MY-Hi-45b" secondAttribute="trailing" id="0Fr-cP-kLf"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ynj-yE-NZu" secondAttribute="bottom" id="3qg-Vg-w1A"/>
-                    <constraint firstItem="aO7-Yf-bRs" firstAttribute="trailing" secondItem="Otc-g0-NfX" secondAttribute="trailing" constant="4" id="CC6-pW-FXd"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Otc-g0-NfX" secondAttribute="trailing" id="Ch9-hQ-okf"/>
-                    <constraint firstItem="aO7-Yf-bRs" firstAttribute="width" secondItem="aO7-Yf-bRs" secondAttribute="height" multiplier="1:1" id="Dcx-lm-Z0x"/>
                     <constraint firstItem="5DY-bT-wCX" firstAttribute="centerY" secondItem="ynj-yE-NZu" secondAttribute="centerY" id="Qqg-c9-S6i"/>
-                    <constraint firstItem="aO7-Yf-bRs" firstAttribute="top" secondItem="Otc-g0-NfX" secondAttribute="top" constant="-4" id="Zfh-UT-gi9"/>
-                    <constraint firstAttribute="topMargin" secondItem="Otc-g0-NfX" secondAttribute="top" id="Zph-C7-Dm2"/>
+                    <constraint firstItem="9MY-Hi-45b" firstAttribute="top" secondItem="0ha-L2-DdJ" secondAttribute="topMargin" id="ToE-Sg-UxO"/>
                     <constraint firstItem="ynj-yE-NZu" firstAttribute="leading" secondItem="Otc-g0-NfX" secondAttribute="leading" id="aFh-el-SYm"/>
+                    <constraint firstItem="aO7-Yf-bRs" firstAttribute="trailing" secondItem="9MY-Hi-45b" secondAttribute="trailing" constant="4" id="crS-Kj-pZF"/>
+                    <constraint firstItem="aO7-Yf-bRs" firstAttribute="top" secondItem="9MY-Hi-45b" secondAttribute="top" constant="-4" id="gg7-R8-MH4"/>
                     <constraint firstItem="aO7-Yf-bRs" firstAttribute="width" secondItem="aO7-Yf-bRs" secondAttribute="height" multiplier="1:1" id="hQ0-To-cN2"/>
-                    <constraint firstItem="aO7-Yf-bRs" firstAttribute="leading" secondItem="Otc-g0-NfX" secondAttribute="leading" constant="-4" id="iEL-r8-UaU"/>
+                    <constraint firstItem="Otc-g0-NfX" firstAttribute="top" secondItem="9MY-Hi-45b" secondAttribute="bottom" constant="8" id="jUa-2R-AEU"/>
                     <constraint firstItem="Otc-g0-NfX" firstAttribute="leading" secondItem="0ha-L2-DdJ" secondAttribute="leadingMargin" constant="5" id="oGS-yY-TEU"/>
+                    <constraint firstItem="9MY-Hi-45b" firstAttribute="leading" secondItem="0ha-L2-DdJ" secondAttribute="leadingMargin" constant="5" id="yYv-qr-Yb7"/>
                     <constraint firstItem="ynj-yE-NZu" firstAttribute="top" secondItem="Otc-g0-NfX" secondAttribute="bottom" constant="10" id="yf8-qa-tLF"/>
                     <constraint firstAttribute="trailingMargin" secondItem="5DY-bT-wCX" secondAttribute="trailing" id="zsf-lg-6RL"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="Dcx-lm-Z0x"/>
-                        <exclude reference="iEL-r8-UaU"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
-            <animations/>
             <connections>
+                <outlet property="lblCell" destination="9MY-Hi-45b" id="jQk-Tx-jri"/>
                 <outlet property="lblRequestTime" destination="5DY-bT-wCX" id="F50-yZ-URs"/>
                 <outlet property="lblTitle" destination="Otc-g0-NfX" id="ZZx-vQ-GDO"/>
                 <outlet property="lblWorkingPhase" destination="ynj-yE-NZu" id="9Cx-bZ-RG3"/>
