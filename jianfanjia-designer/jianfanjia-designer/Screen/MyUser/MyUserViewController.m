@@ -43,7 +43,6 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 @property (strong, nonatomic) NSMutableArray<NoRequirementImageView *> *noRequirementViews;
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnActions;
-@property (strong, nonatomic) MJRefreshNormalHeader *refreshHeader;
 
 @property (assign, nonatomic) PlanType currentPlanType;
 @property (strong ,nonatomic) MyUserDataManager *dataManager;
@@ -104,6 +103,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     self.pageScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, topDistance, kScreenWidth, tableViewHeight)];
     self.pageScrollView.delegate = self;
     self.pageScrollView.backgroundColor = kViewBgColor;
+    self.pageScrollView.bounces = NO;
     self.pageScrollView.alwaysBounceHorizontal = NO;
     self.pageScrollView.alwaysBounceVertical = NO;
     self.pageScrollView.showsHorizontalScrollIndicator = NO;
@@ -111,10 +111,10 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     self.pageScrollView.pagingEnabled = YES;
     [self.view addSubview:self.pageScrollView];
     
+    @weakify(self);
     for (NSInteger i = 0; i < 3; i++) {
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(bettweenDistance / 2 + i * (tableViewWidth + bettweenDistance), 0, tableViewWidth, tableViewHeight)];
-        tableView.delegate = self;
-        tableView.dataSource = self;
+        
         tableView.backgroundColor = kViewBgColor;
         tableView.tableFooterView = [[UIView alloc] init];
         [tableView registerNib:[UINib nibWithNibName:UnrespondActionCellIdentifier bundle:nil] forCellReuseIdentifier:UnrespondActionCellIdentifier];
@@ -134,22 +134,22 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         [self.pageScrollView addSubview:tableView];
         [self.tableViews addObject:tableView];
         [self.noRequirementViews addObject:noRequirementView];
+        
+        tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            @strongify(self);
+            [self refresh:NO];
+        }];
+        
+        tableView.delegate = self;
+        tableView.dataSource = self;
     }
     [self.pageScrollView setContentSize:CGSizeMake(kScreenWidth * 3, tableViewHeight)];
-
-    @weakify(self);
+    
     [self.btnActions enumerateObjectsUsingBlock:^(UIButton*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         [obj addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
         [obj setExclusiveTouch:YES];
     }];
-    
-    self.refreshHeader = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        @strongify(self);
-        [self refresh:NO];
-    }];
-    
-    [self getCurrentTableView].header = self.refreshHeader;
 }
 
 #pragma mark - scroll view deleate 
@@ -164,22 +164,24 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.currentPlanType == PlanTypeUnprocess) {
+    if (self.currentPlanType == PlanTypeUnprocess && self.tableViews[PlanTypeUnprocess] == tableView) {
         return self.dataManager.unprocessActions.count;
-    } else if (self.currentPlanType == PlanTypeProcessing) {
+    } else if (self.currentPlanType == PlanTypeProcessing && self.tableViews[PlanTypeProcessing] == tableView) {
         return self.dataManager.processingActions.count;
-    } else {
+    } else if (self.tableViews[PlanTypeProcessed] == tableView) {
         return self.dataManager.processedActions.count;
     }
+    
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Requirement *requirement;
-    if (self.currentPlanType == PlanTypeUnprocess) {
+    if (self.currentPlanType == PlanTypeUnprocess && self.tableViews[PlanTypeUnprocess] == tableView) {
         requirement = self.dataManager.unprocessActions[indexPath.row];
-    } else if (self.currentPlanType == PlanTypeProcessing) {
+    } else if (self.currentPlanType == PlanTypeProcessing && self.tableViews[PlanTypeProcessing] == tableView) {
         requirement = self.dataManager.processingActions[indexPath.row];
-    } else {
+    } else if (self.tableViews[PlanTypeProcessed] == tableView) {
         requirement = self.dataManager.processedActions[indexPath.row];
     }
     
@@ -189,11 +191,11 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Requirement *requirement;
-    if (self.currentPlanType == PlanTypeUnprocess) {
+    if (self.currentPlanType == PlanTypeUnprocess && self.tableViews[PlanTypeUnprocess] == tableView) {
         requirement = self.dataManager.unprocessActions[indexPath.row];
-    } else if (self.currentPlanType == PlanTypeProcessing) {
+    } else if (self.currentPlanType == PlanTypeProcessing && self.tableViews[PlanTypeProcessing] == tableView) {
         requirement = self.dataManager.processingActions[indexPath.row];
-    } else {
+    } else if (self.tableViews[PlanTypeProcessed] == tableView) {
         requirement = self.dataManager.processedActions[indexPath.row];
     }
     
@@ -245,27 +247,26 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 }
 
 - (void)switchToOtherButton:(NSInteger)buttonIndex isClicked:(BOOL)isClicked {
+    NSInteger prePlanType = self.currentPlanType;
+    self.currentPlanType = buttonIndex;
+    [self switchViewToHide];
+    [[self getCurrentTableView] reloadData];
+    
+    CGFloat offsetX = self.pageScrollView.contentOffset.x;
+    NSInteger curIdx = offsetX / kScreenWidth;
+    
+    if (curIdx != buttonIndex && isClicked) {
+        [self.pageScrollView setContentOffset:CGPointMake(kScreenWidth * buttonIndex, 0) animated:YES];
+    }
+    
     [UIView animateWithDuration:0.3 animations:^{
-        UIButton *lastButton = self.btnActions[self.currentPlanType];
+        UIButton *lastButton = self.btnActions[prePlanType];
         lastButton.alpha = 0.5;
-        UIButton *selectedButton = self.btnActions[buttonIndex];
+        UIButton *selectedButton = self.btnActions[self.currentPlanType];
         selectedButton.alpha = 1;
         
-        UITableView *lastTableView = self.tableViews[self.currentPlanType];
-        UITableView *selectedTableView = self.tableViews[buttonIndex];
-        lastTableView.header = nil;
-        selectedTableView.header = self.refreshHeader;
+        [self endAllTableViewRefreshing];
     } completion:^(BOOL finished) {
-        self.currentPlanType = buttonIndex;
-        [self switchViewToHide];
-        CGFloat offsetX = self.pageScrollView.contentOffset.x;
-        NSInteger curIdx = offsetX / kScreenWidth;
-        
-        if (curIdx != buttonIndex && isClicked) {
-            [self.pageScrollView setContentOffset:CGPointMake(kScreenWidth * buttonIndex, 0) animated:YES];
-        }
-        
-        [[self getCurrentTableView] reloadData];
     }];
 }
 
@@ -277,15 +278,15 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     DesignerGetUserRequirements *request = [[DesignerGetUserRequirements alloc] init];
     
     [API designerGetUserRequirement:request success:^{
-        [self.refreshHeader endRefreshing];
+        [self endAllTableViewRefreshing];
         [HUDUtil hideWait];
         [self.dataManager refreshAllActions];
         [self reloadData];
     } failure:^{
-        [self.refreshHeader endRefreshing];
+        [self endAllTableViewRefreshing];
         [HUDUtil hideWait];
     } networkError:^{
-        [self.refreshHeader endRefreshing];
+        [self endAllTableViewRefreshing];
         [HUDUtil hideWait];
     }];
 }
@@ -293,6 +294,12 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 #pragma mark - Util
 - (UITableView *)getCurrentTableView {
     return self.tableViews[self.currentPlanType];
+}
+
+- (void)endAllTableViewRefreshing {
+    [self.tableViews enumerateObjectsUsingBlock:^(UITableView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj.header endRefreshing];
+    }];
 }
 
 - (void)hideTabbar {

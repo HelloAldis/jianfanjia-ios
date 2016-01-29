@@ -31,7 +31,7 @@
     } failure:^{
         [ViewControllerContainer logout];
     } networkError:^{
-        
+        [ViewControllerContainer logout];
     }];
 }
 
