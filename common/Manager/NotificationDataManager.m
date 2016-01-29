@@ -42,6 +42,9 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
             
             if (notification) {
                 if (!offLine) {
+                    if ([notification.type isEqualToString:kNotificationTypePurchase]) {
+                        notification.content = [NSString stringWithFormat:@"系统提醒您进入建材购买阶段，您需要购买的是：%@", notification.content];
+                    }
                     [self showLocalNotification:notification];
                 }
                 
@@ -194,10 +197,14 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 - (void)showLocalNoti:(NSDictionary *)userInfo {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         if ([GVUserDefaults standardUserDefaults].isLogin) {
+            NSString *alert = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
             NSString *payload = [userInfo objectForKey:@"payload1"];
-            Notification *notification = [self convertPayloadToObj:[payload dataUsingEncoding:NSUTF8StringEncoding]];
-            if (notification) {
-                [self showLocalNotification:notification];
+            if (payload) {
+                Notification *notification = [self convertPayloadToObj:[payload dataUsingEncoding:NSUTF8StringEncoding]];
+                if (notification) {
+                    notification.content = [NSString stringWithFormat:@"%@ %@", alert, notification.content];
+                    [self showLocalNotification:notification];
+                }
             }
         }
     });
