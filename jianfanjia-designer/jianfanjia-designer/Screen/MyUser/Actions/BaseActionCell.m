@@ -21,7 +21,11 @@
     imgUserGender.image = [_requirement.user.sex isEqualToString:@"1"] ? [UIImage imageNamed:@"icon_user_woman"] : [UIImage imageNamed:@"icon_user_man"];
     lblUserName.text = _requirement.user.username;
     lblCellNameVal.text = [_requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", _requirement.cell, _requirement.cell_phase] : _requirement.cell;
-    lblRequirementfInfo.text = [NSString stringWithFormat:@"%@, %@m², %@, 装修预算%@万", [NameDict nameForHouseType:_requirement.house_type], _requirement.house_area, [NameDict nameForDecStyle:_requirement.dec_style], _requirement.total_price];
+    lblRequirementfInfo.text = [NSString stringWithFormat:@"%@%@m², %@, 装修预算%@万",
+                                [_requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@, ", [NameDict nameForHouseType:_requirement.house_type]] : @"",
+                                _requirement.house_area,
+                                [NameDict nameForDecStyle:_requirement.dec_style],
+                                _requirement.total_price];
     lblUpdateTimeVal.text = [_requirement.plan.last_status_update_time humDateString];
 }
 

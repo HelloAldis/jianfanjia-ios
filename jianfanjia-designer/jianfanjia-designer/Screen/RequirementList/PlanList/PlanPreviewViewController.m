@@ -81,7 +81,7 @@
     self.imgScrollView.showsHorizontalScrollIndicator = NO;
     self.pageControl.numberOfPages = self.plan.images.count;
     self.pageControl.hidden = self.plan.images.count <= 1;
-    self.lblPlanTitle.text = [NSString stringWithFormat:@"%@%@期", self.requirement.cell, self.requirement.cell_phase];
+    self.lblPlanTitle.text = [self.requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", self.requirement.cell, self.requirement.cell_phase] : self.requirement.cell;
     self.lblDecHouseTypeVal.text = [NameDict nameForHouseType:self.requirement.house_type];
     self.lblDecAreaVal.text = [NSString stringWithFormat:@"%@m²", self.requirement.house_area];
     self.lblDecTypeVal.text = [NameDict nameForDecStyle:self.requirement.dec_type];
