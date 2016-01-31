@@ -98,7 +98,7 @@
                                              
         if([[moneyStr substringFromIndex:moneyStr.length - i + 1] integerValue] == 0 && i != 1 && i != 2) {
             if ([unitArr[i - 1] isEqualToString:@"元"]) {
-             
+                
             } else {
                 [chineseNumerals appendString:unitArr[i - 1]];
             }
@@ -109,7 +109,9 @@
         
         [chineseNumerals appendString:unitArr[i - 1]];
     }
-              
+    
+    [chineseNumerals replaceOccurrencesOfString:@"壹拾" withString:@"拾" options:0 range:NSMakeRange(0, 2)];
+    
     return chineseNumerals;
 }
 
