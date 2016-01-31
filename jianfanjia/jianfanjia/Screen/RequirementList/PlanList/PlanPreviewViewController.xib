@@ -9,8 +9,10 @@
             <connections>
                 <outlet property="btnChoosePlan" destination="wq2-j6-1np" id="dJ4-Gd-FAM"/>
                 <outlet property="btnPriceDetail" destination="8Zf-SL-kRf" id="5fH-OT-Fl3"/>
+                <outlet property="decAreaTopConstraint" destination="1Lo-JM-b5s" id="hyq-Vk-dbd"/>
                 <outlet property="imgScrollView" destination="uNa-mC-mk2" id="715-YG-5M8"/>
                 <outlet property="lblDecAreaVal" destination="Zf3-lZ-TLt" id="LQU-UL-0dG"/>
+                <outlet property="lblDecHouseType" destination="Arx-ZG-E2K" id="LH3-sN-x0q"/>
                 <outlet property="lblDecHouseTypeVal" destination="60K-NQ-0hV" id="RSj-BZ-XxL"/>
                 <outlet property="lblDecTypeVal" destination="ejT-gN-py9" id="Bin-5l-IW5"/>
                 <outlet property="lblDesignDescriptionVal" destination="l8v-tz-aUy" id="MOr-dM-GXf"/>
