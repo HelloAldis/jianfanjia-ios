@@ -45,6 +45,14 @@
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
     [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
+    
+    if ([requirement.work_type isEqualToString:kWorkTypeDesign]) {
+        self.btnViewAgreement.enabled = NO;
+        self.btnViewAgreement.backgroundColor = kUntriggeredColor;
+    } else {
+        self.btnViewAgreement.enabled = YES;
+        self.btnViewAgreement.backgroundColor = kFinishedColor;
+    }
 }
 
 - (void)onClickViewPlanButton {
