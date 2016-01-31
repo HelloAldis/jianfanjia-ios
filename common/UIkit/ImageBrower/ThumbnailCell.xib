@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,21 +15,17 @@
                 <subviews>
                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VKl-wk-2KD">
                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
-                        <animations/>
                     </imageView>
                     <imageView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked_1" translatesAutoresizingMaskIntoConstraints="NO" id="izl-e8-WTs">
-                        <rect key="frame" x="50" y="5" width="25" height="25"/>
-                        <animations/>
+                        <rect key="frame" x="47" y="5" width="28" height="28"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="G8q-8e-Jz7"/>
-                            <constraint firstAttribute="width" constant="25" id="jfg-uY-EBm"/>
+                            <constraint firstAttribute="height" constant="28" id="G8q-8e-Jz7"/>
+                            <constraint firstAttribute="width" constant="28" id="jfg-uY-EBm"/>
                         </constraints>
                     </imageView>
                 </subviews>
-                <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <animations/>
             <constraints>
                 <constraint firstItem="VKl-wk-2KD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="7oA-FS-gDb"/>
                 <constraint firstItem="izl-e8-WTs" firstAttribute="trailing" secondItem="VKl-wk-2KD" secondAttribute="trailing" constant="-5" id="C0a-uG-mOv"/>
