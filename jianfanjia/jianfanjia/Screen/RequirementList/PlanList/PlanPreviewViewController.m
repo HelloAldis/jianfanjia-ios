@@ -103,7 +103,8 @@
     
     NSString *status = self.plan.status;
     NSString *requiremntStatus = self.requirement.status;
-    if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
+    if ([status isEqualToString:kPlanStatusPlanWasChoosed]
+        || [requiremntStatus isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
         || [requiremntStatus isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
         || [requiremntStatus isEqualToString:kRequirementStatusConfiguredWorkSite]
         || [requiremntStatus isEqualToString:kRequirementStatusFinishedWorkSite]) {
