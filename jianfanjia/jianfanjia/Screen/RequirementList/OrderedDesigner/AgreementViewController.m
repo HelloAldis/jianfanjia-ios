@@ -94,11 +94,11 @@
     NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
     
     NSInteger bottomDistance = ![self.requirement.work_type isEqualToString:kWorkTypeDesign] ? 50 : 0;
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|[_webView]-%@-|", @(bottomDistance)] options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-64-[_webView]-%@-|", @(bottomDistance)] options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/%@", components.host, @"tpl/user/agreement.html"];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", @"tpl/user/agreement.html"];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
 
