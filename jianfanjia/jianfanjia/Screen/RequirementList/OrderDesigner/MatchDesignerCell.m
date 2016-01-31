@@ -7,6 +7,7 @@
 //
 
 #import "MatchDesignerCell.h"
+#import "ViewControllerContainer.h"
 
 @interface MatchDesignerCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
@@ -20,7 +21,8 @@
 @implementation MatchDesignerCell
 
 - (void)awakeFromNib {
-    [self.imgAvatar setCornerRadius:30];
+    [self.imgAvatar setCornerRadius:self.imgAvatar.bounds.size.width / 2];
+    [self.imgAvatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickDesignerAvatar)]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -39,6 +41,10 @@
     self.lblUserNameVal.text = designer.username;
     self.lblMatchVal.text = [NSString stringWithFormat:@"%@%%", designer.match];
     [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
+}
+
+- (void)onClickDesignerAvatar {
+    [ViewControllerContainer showDesigner:self.designer._id];
 }
 
 @end

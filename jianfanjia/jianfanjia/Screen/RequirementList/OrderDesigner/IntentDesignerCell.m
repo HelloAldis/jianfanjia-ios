@@ -7,6 +7,7 @@
 //
 
 #import "IntentDesignerCell.h"
+#import "ViewControllerContainer.h"
 
 @interface IntentDesignerCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
@@ -20,7 +21,8 @@
 @implementation IntentDesignerCell
 
 - (void)awakeFromNib {
-    [self.imgAvatar setCornerRadius:30];
+    [self.imgAvatar setCornerRadius:self.imgAvatar.bounds.size.width / 2];
+    [self.imgAvatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickDesignerAvatar)]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -39,6 +41,10 @@
     self.lblUserNameVal.text = designer.username;
     [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
     [DesignerBusiness setStars:self.stars withStar:(double)(designer.respond_speed.doubleValue + designer.service_attitude.doubleValue) / 2 fullStar:[UIImage imageNamed:@"star_middle"] emptyStar:[UIImage imageNamed:@"star_middle_empty"]];
+}
+
+- (void)onClickDesignerAvatar {
+    [ViewControllerContainer showDesigner:self.designer._id];
 }
 
 @end

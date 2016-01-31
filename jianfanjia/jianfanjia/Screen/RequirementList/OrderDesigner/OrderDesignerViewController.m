@@ -21,7 +21,6 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 
 @interface OrderDesignerViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UILabel *lblUnavailableDesigner;
 @property (strong, nonatomic) NSArray *orderableDesigners;
 @property (strong, nonatomic) Requirement *requirement;
 @property (strong, nonatomic) NSString *toBeReplacedDesignerId;
@@ -89,7 +88,6 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     
     UIView *customeTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, 44)];
     UILabel *lblCount = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 44)];
-    lblCount.text = [NSString stringWithFormat:@"%ld", (long)self.orderableCount];
     lblCount.textAlignment = NSTextAlignmentRight;
     lblCount.textColor = kFinishedColor;
     lblCount.font = [UIFont systemFontOfSize:17];
@@ -100,6 +98,10 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     [customeTitleView addSubview:lblCount];
     [customeTitleView addSubview:fixedString];
     self.navigationItem.titleView = customeTitleView;
+    
+    RAC(lblCount, text) = [RACObserve(self, orderableCount) map:^id(id value) {
+        return [value stringValue];
+    }];
 }
 
 #pragma mark - init data 
@@ -144,17 +146,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if (section == 0) {
-        if (self.requirementDataManager.recommendedDesigners.count > 0) {
-            return 44;
-        }
-    } else {
-        if (self.requirementDataManager.favoriteDesigners.count > 0) {
-            return 44;
-        }
-    }
-    
-    return 0;
+    return 44;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
@@ -187,10 +179,12 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.navigationItem.rightBarButtonItem.enabled = [tableView.indexPathsForSelectedRows count] > 0 ? YES : NO;
+    self.orderableCount++;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     self.navigationItem.rightBarButtonItem.enabled = [tableView.indexPathsForSelectedRows count] > 0 ? YES : NO;
+    self.orderableCount--;
 }
 
 #pragma mark - user action
@@ -267,15 +261,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     
     [API getOrderableDesigners:request success:^{
         [self.requirementDataManager refreshOrderableDesigners];
-        if (self.requirementDataManager.recommendedDesigners.count == 0
-            && self.requirementDataManager.favoriteDesigners.count == 0) {
-            self.lblUnavailableDesigner.hidden = NO;
-            self.tableView.hidden = YES;
-        } else {
-            self.lblUnavailableDesigner.hidden = YES;
-            self.tableView.hidden = NO;
-            [self.tableView reloadData];
-        }
+        [self.tableView reloadData];
     } failure:^{
     
     } networkError:^{
