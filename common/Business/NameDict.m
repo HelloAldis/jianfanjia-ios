@@ -135,7 +135,7 @@ static NSDictionary *businessTypeDict = nil;
                        @"5":@"美发店",
                        @"6":@"幼儿园",
                        @"7":@"酒店",
-                       @"999":@"其他",};
+                       @"9999":@"其他",};
 }
 
 + (NSDictionary *)getAllHouseType {
