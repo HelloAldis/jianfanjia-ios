@@ -169,8 +169,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.tableView indexPathsForSelectedRows].count == self.orderableCount
-        && ![[self.tableView indexPathsForSelectedRows] containsObject:indexPath]) {
+    if (self.orderableCount == 0) {
         return nil;
     }
     
