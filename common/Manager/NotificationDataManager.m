@@ -100,7 +100,13 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 }
 
 - (void)insertNotification:(Notification *)notification {
-    [NotificationCD insert:notification];
+    if ([NSThread isMainThread]) {
+        [NotificationCD insert:notification];
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [NotificationCD insert:notification];
+        });
+    }
 }
 
 - (void)markToReadForType:(NSString *)type {
