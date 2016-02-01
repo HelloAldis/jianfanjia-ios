@@ -126,16 +126,18 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 }
 
 - (void)markToReadForProcess:(NSString *)processid type:(NSString *)type {
-    NSArray *notifications = [NotificationCD getNotificationsWithProcess:processid type:type status:kNotificationStatusUnread];
-    for (NotificationCD *notification in notifications) {
-        notification.status = kNotificationStatusReaded;
-    }
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (notifications.count > 0) {
-            [NSManagedObjectContext save];
-            [self refreshUnreadCount];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSArray *notifications = [NotificationCD getNotificationsWithProcess:processid type:type status:kNotificationStatusUnread];
+        for (NotificationCD *notification in notifications) {
+            notification.status = kNotificationStatusReaded;
         }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (notifications.count > 0) {
+                [NSManagedObjectContext save];
+                [self refreshUnreadCount];
+            }
+        });
     });
 }
 
