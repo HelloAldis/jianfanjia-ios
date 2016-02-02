@@ -80,21 +80,23 @@ static float kKeyboardHeight = 480;
     [DesignerBusiness setV:self.authIcon withAuthType:self.designer.auth_type];
     
     if (self.type == New) {
+        self.respondSpeedStar = 0;
+        self.serviceAttitudeStar = 0;
         @weakify(self);
-        [[self.tvComment.rac_textSignal
-          filterNonSpace:^BOOL{
-              return YES;
-          }]
-         subscribeNext:^(NSString *value) {
-             @strongify(self);
-             if (value.length > 0) {
-                 self.btnPublish.enabled = YES;
-                 self.btnPublish.alpha = 1;
-             } else {
-                 self.btnPublish.enabled = NO;
-                 self.btnPublish.alpha = 0.5;
-             }
-         }];
+        [[RACSignal combineLatest:@[RACObserve(self, respondSpeedStar), RACObserve(self, serviceAttitudeStar)]
+            reduce:^id(NSNumber *respondSpeedStar, NSNumber *serviceAttitudeStar){
+              return @([respondSpeedStar integerValue] > 0 && [serviceAttitudeStar integerValue] > 0);
+            }]
+            subscribeNext:^(id x) {
+                @strongify(self);
+                if ([x boolValue]) {
+                    self.btnPublish.enabled = YES;
+                    self.btnPublish.backgroundColor = kFinishedColor;
+                } else {
+                    self.btnPublish.enabled = NO;
+                    self.btnPublish.backgroundColor = kUntriggeredColor;
+                }
+            }];
         
         [[self.btnPublish rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
             @strongify(self);
