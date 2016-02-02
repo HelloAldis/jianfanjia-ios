@@ -142,63 +142,69 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 }
 
 - (void)subscribePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [[RACObserve(self, purchaseUnreadCount)
-        deliverOn:[RACScheduler mainThreadScheduler]]
+    [RACObserve(self, purchaseUnreadCount)
         subscribeNext:^(id x) {
             if (block) {
-                block(x);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    block(x);
+                });
             }
         }];
 }
 
 - (void)subscribePayUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [[RACObserve(self, payUnreadCount)
-         deliverOn:[RACScheduler mainThreadScheduler]]
+    [RACObserve(self, payUnreadCount)
          subscribeNext:^(id x) {
-            if (block) {
-                block(x);
-            }
+             if (block) {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     block(x);
+                 });
+             }
          }];
 }
 
 - (void)subscribeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [[RACObserve(self, rescheduleUnreadCount)
-         deliverOn:[RACScheduler mainThreadScheduler]]
+    [RACObserve(self, rescheduleUnreadCount)
          subscribeNext:^(id x) {
-            if (block) {
-                block(x);
-            }
+             if (block) {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     block(x);
+                 });
+             }
          }];
 }
 
 - (void)subscribeAllUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [[RACObserve(self, totalUnreadCount)
-         deliverOn:[RACScheduler mainThreadScheduler]]
+    [RACObserve(self, totalUnreadCount)
          subscribeNext:^(id x) {
             [UIApplication sharedApplication].applicationIconBadgeNumber = [x integerValue];
-            if (block) {
-                block(x);
-            }
+             if (block) {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     block(x);
+                 });
+             }
         }];
 }
 
 - (void)subscribeUnreadCountForProcess:(NSString *)processid observer:(NotificationUnreadUpdateBlock)block  {
-    [[[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data]
-         deliverOn:[RACScheduler mainThreadScheduler]]
+    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data]
          subscribeNext:^(id x) {
-            if (block) {
-                block(x);
-            }
+             if (block) {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     block(x);
+                 });
+             }
         }];
 }
 
 - (void)subscribeUnreadCountForProcess:(NSString *)processid type:(NSString *)type observer:(NotificationUnreadUpdateBlock)block  {
-    [[[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid type:type] observer:self.data]
-         deliverOn:[RACScheduler mainThreadScheduler]]
+    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid type:type] observer:self.data]
          subscribeNext:^(id x) {
-            if (block) {
-                block(x);
-            }
+             if (block) {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     block(x);
+                 });
+             }
         }];
 }
 
