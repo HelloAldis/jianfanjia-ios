@@ -83,7 +83,7 @@ static CGFloat imgCellWidth;
         self.statusLine2.backgroundColor = kFinishedColor;
         self.lblItemStatus.textColor = kExcutionStatusColor;
         self.btnFinishItem.hidden = NO;
-        [self enableFinishItem:NO];
+        [self enableFinishItem:YES];
     } else if([self.item.status isEqualToString:kSectionStatusAlreadyFinished]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_2"];
         self.statusLine2.backgroundColor = kFinishedColor;
