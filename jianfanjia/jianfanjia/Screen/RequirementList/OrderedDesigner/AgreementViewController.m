@@ -8,6 +8,7 @@
 
 #import "AgreementViewController.h"
 #import <SafariServices/SafariServices.h>
+#import <Foundation/Foundation.h>
 @import WebKit;
 
 @interface AgreementViewController () <WKNavigationDelegate>
@@ -38,6 +39,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self printCookie];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self printCookie];
 }
 
 #pragma mark - UI
@@ -94,11 +101,11 @@
     NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
     
     NSInteger bottomDistance = ![self.requirement.work_type isEqualToString:kWorkTypeDesign] ? 50 : 0;
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|[_webView]-%@-|", @(bottomDistance)] options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-64-[_webView]-%@-|", @(bottomDistance)] options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/%@", components.host, @"tpl/user/agreement.html"];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", @"tpl/user/agreement.html"];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
 
@@ -116,6 +123,16 @@
     } networkError:^{
         self.btnConfirm.enabled = YES;
     }];
+}
+
+- (void)printCookie {
+    NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@", components.host, components.port ? @":" : @"", components.port ? components.port : @""];
+    NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[NSURL URLWithString:urlString]];
+    
+    for (NSHTTPCookie *cookie in cookieStorage) {
+        DDLogDebug(@"[===cookie property===] %@", cookie.properties);
+    }
 }
 
 @end

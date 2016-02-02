@@ -51,7 +51,7 @@
 
 #pragma mark - user action
 - (void)onClickReject {
-    [RejectUserAlertViewController presentAlert:@"拒绝接单原因" msg:@"PS：以下收集的信息，将不会向业主展示，麻烦您耐心填写拒绝接单原因，以便我们合作更加紧密" conform:^(NSString *reason) {
+    [RejectUserAlertViewController presentAlert:@"拒绝接单原因" msg:@"PS：以下收集的信息，将不会向业主展示，麻烦您耐心填写拒绝接单原因，以便我们合作更加紧密。" conform:^(NSString *reason) {
         if (reason) {
             [HUDUtil showWait];
             DesignerRejectUser *request = [[DesignerRejectUser alloc] init];

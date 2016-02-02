@@ -152,7 +152,21 @@ static NSString* cellId = @"cityCell";
             
             NSDictionary *address = [placemark addressDictionary];
             // State(省) City(城市)  SubLocality(区)
-            self.locationAddress = [NSString stringWithFormat:@"%@ %@ %@", address[@"State"], address[@"City"], address[@"SubLocality"]];
+            NSString *state = address[@"State"];
+            NSString *city = address[@"City"];
+            NSString *sublocality = address[@"SubLocality"];
+            
+            if (!city && sublocality) {
+                city = sublocality;
+            } else if (city && !sublocality) {
+                sublocality = city;
+            }
+            
+            state = state ? state : @"";
+            city = city ? city : @"";
+            sublocality = sublocality ? sublocality : @"";
+            
+            self.locationAddress = [NSString stringWithFormat:@"%@ %@ %@", state, city, sublocality];
             UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
             cell.textLabel.text = self.locationAddress;
             cell.selectionStyle = UITableViewCellSelectionStyleBlue;

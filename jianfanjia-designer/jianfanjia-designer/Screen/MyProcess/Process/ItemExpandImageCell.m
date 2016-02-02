@@ -83,16 +83,19 @@ static CGFloat imgCellWidth;
         self.statusLine2.backgroundColor = kFinishedColor;
         self.lblItemStatus.textColor = kExcutionStatusColor;
         self.btnFinishItem.hidden = NO;
+        [self enableFinishItem:NO];
     } else if([self.item.status isEqualToString:kSectionStatusAlreadyFinished]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_2"];
         self.statusLine2.backgroundColor = kFinishedColor;
         self.lblItemStatus.textColor = kFinishedColor;
         self.btnFinishItem.hidden = YES;
+        [self enableFinishItem:NO];
     } else {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_0"];
         self.statusLine2.backgroundColor = kUntriggeredColor;
         self.lblItemStatus.textColor = kUntriggeredColor;
         self.btnFinishItem.hidden = NO;
+        [self enableFinishItem:YES];
     }
     
     if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {

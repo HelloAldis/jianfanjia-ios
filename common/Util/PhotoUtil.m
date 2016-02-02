@@ -60,7 +60,7 @@
     UIAlertAction *photo = [UIAlertAction actionWithTitle:@"从相册中选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] == YES)) {
             ImageBrowerViewController *v = [[ImageBrowerViewController alloc] initWithNibName:nil bundle:nil];
-            v.cellCountInOneRow = 4;
+            v.cellCountInOneRow = 3;
             v.cellSpace = 1;
             v.maxCount = maxCount;
             v.finishUploadBlock = block;

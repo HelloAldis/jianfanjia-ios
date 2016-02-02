@@ -14,7 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIScrollView *imgScrollView;
 @property (weak, nonatomic) IBOutlet UILabel *lblPlanTitle;
+@property (weak, nonatomic) IBOutlet UILabel *lblDecHouseType;
 @property (weak, nonatomic) IBOutlet UILabel *lblDecHouseTypeVal;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *decAreaTopConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *lblDecAreaVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblDecTypeVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblWorkTypeVal;
@@ -84,6 +86,12 @@
     self.pageControl.hidden = self.plan.images.count <= 1;
     self.lblPlanTitle.text = [self.requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", self.requirement.cell, self.requirement.cell_phase] : self.requirement.cell;
     self.lblDecHouseTypeVal.text = [NameDict nameForHouseType:self.requirement.house_type];
+    if (![self.requirement.dec_type isEqualToString:kDecTypeHouse]) {
+        self.lblDecHouseType.text = @"";
+        self.lblDecHouseTypeVal.text = @"";
+        self.decAreaTopConstraint.constant = 0;
+    }
+    
     self.lblDecAreaVal.text = [NSString stringWithFormat:@"%@m²", self.requirement.house_area];
     self.lblDecTypeVal.text = [NameDict nameForDecStyle:self.requirement.dec_type];
     self.lblWorkTypeVal.text = [NameDict nameForWorkType:self.requirement.work_type];
@@ -103,7 +111,8 @@
     
     NSString *status = self.plan.status;
     NSString *requiremntStatus = self.requirement.status;
-    if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
+    if ([status isEqualToString:kPlanStatusPlanWasChoosed]
+        || [requiremntStatus isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
         || [requiremntStatus isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
         || [requiremntStatus isEqualToString:kRequirementStatusConfiguredWorkSite]
         || [requiremntStatus isEqualToString:kRequirementStatusFinishedWorkSite]) {
