@@ -16,14 +16,14 @@
 #define kGtAppSecret       @"cvNcATrYoo717R8milqyn7"
 #else
 // Test
-#define kGtAppId           @"s7Et91ZLPu8KRwBEtY4AZ8"
-#define kGtAppKey          @"8BTWfBSMYM95oFpDOwGYu5"
-#define kGtAppSecret       @"QbclEVLgAIA6iWblkTjyD4"
+//#define kGtAppId           @"s7Et91ZLPu8KRwBEtY4AZ8"
+//#define kGtAppKey          @"8BTWfBSMYM95oFpDOwGYu5"
+//#define kGtAppSecret       @"QbclEVLgAIA6iWblkTjyD4"
 
 //Product
-//#define kGtAppId           @"tE9LwxEKvxACImev1VLiCA"
-//#define kGtAppKey          @"5pOVHYbLcS6GrWsp0CTwK3"
-//#define kGtAppSecret       @"qX6mtXErCJ7I5ADTLW8P85"
+#define kGtAppId           @"tE9LwxEKvxACImev1VLiCA"
+#define kGtAppKey          @"5pOVHYbLcS6GrWsp0CTwK3"
+#define kGtAppSecret       @"qX6mtXErCJ7I5ADTLW8P85"
 #endif
 
 #define kUMengAppKey       @"5670dd4e67e58eb7220069f6"
