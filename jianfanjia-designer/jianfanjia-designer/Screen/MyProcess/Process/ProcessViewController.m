@@ -71,23 +71,18 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self initNav];
     [self initUI];
     [self refreshProcess:YES];
+    
+    @weakify(self);
+    [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid observer:^(id value) {
+        @strongify(self);
+        self.navigationItem.rightBarButtonItem.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:NotificationDBYS object:nil];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    @weakify(self);
-    [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid observer:^(id value) {
-        @strongify(self);
-        DDLogDebug(@"subscribeUnreadCountForProcess");
-        self.navigationItem.rightBarButtonItem.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
-    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
