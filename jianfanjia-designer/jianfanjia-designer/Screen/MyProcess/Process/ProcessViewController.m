@@ -381,14 +381,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     [API getProcess:request success:^{
         [self.processDataManager refreshProcess];
-        [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex];
-        Item *item = self.processDataManager.selectedItems[indexPath.row];
-        if (isExpand) {
-            item.itemCellStatus = ItemCellStatusExpaned;
-        } else {
-            item.itemCellStatus = ItemCellStatusClosed;
-        }
-        
         [self refreshSectionView];
         BOOL goToNextSection = [self scrollToOngoingSection];
         if (goToNextSection) {
