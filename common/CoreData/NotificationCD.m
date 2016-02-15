@@ -17,15 +17,17 @@
 }
 
 + (void)insert:(Notification *)notification {
-    NotificationCD *notificationCD = [NotificationCD insertOne];
-    notificationCD.userid = notification.userid;
-    notificationCD.processid = notification.processid;
-    notificationCD.type = notification.type;
-    notificationCD.time = notification.time;
-    notificationCD.status = notification.status;
-    notificationCD.info = [notification data];
-    
-    [NSManagedObjectContext save];
+    [[NSManagedObjectContext context] performBlock:^{
+        NotificationCD *notificationCD = [NotificationCD insertOne];
+        notificationCD.userid = notification.userid;
+        notificationCD.processid = notification.processid;
+        notificationCD.type = notification.type;
+        notificationCD.time = notification.time;
+        notificationCD.status = notification.status;
+        notificationCD.info = [notification data];
+        
+        [NSManagedObjectContext save];
+    }];
 }
 
 - (Notification *)notification {
