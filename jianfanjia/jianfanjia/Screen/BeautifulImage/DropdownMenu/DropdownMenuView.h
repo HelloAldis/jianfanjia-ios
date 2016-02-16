@@ -12,8 +12,13 @@ typedef void(^DropdownChooseItemBlock)(id value);
 
 @interface DropdownMenuView : UIView
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (assign, nonatomic, readonly) BOOL isShowing;
 
-- (void)initWithDataSource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block;
+- (void)show;
+- (void)dismiss;
+- (void)refreshDatasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue;
+
++ (DropdownMenuView *)show:(UIView *)view datasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block;
+
 
 @end
