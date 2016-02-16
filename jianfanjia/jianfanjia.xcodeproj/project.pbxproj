@@ -220,6 +220,7 @@
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
+		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68D536A61BFF563800D8F1B2 /* PlanPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */; };
 		68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */; };
 		6E06CC071C29235500A08D15 /* MyFavoriateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */; };
@@ -756,6 +757,8 @@
 		689485CF1C1A6A05002310FC /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		689485D21C1A70A7002310FC /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
+		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68D536A31BFF563800D8F1B2 /* PlanPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPreviewViewController.h; sourceTree = "<group>"; };
 		68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPreviewViewController.m; sourceTree = "<group>"; };
 		68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPreviewViewController.xib; sourceTree = "<group>"; };
@@ -1780,6 +1783,8 @@
 				689485D21C1A70A7002310FC /* Notification.m */,
 				680F49251C240E400055C16C /* BeautifulImage.h */,
 				680F49261C240E400055C16C /* BeautifulImage.m */,
+				68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */,
+				68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */,
 				680F49281C240F910055C16C /* LeafImage.h */,
 				680F49291C240F910055C16C /* LeafImage.m */,
 				68134A331C3CAEC2003C1C10 /* SnsAccountInfo.h */,
@@ -2599,6 +2604,7 @@
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
 				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
+				68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */,
 				68134A421C3D0BCA003C1C10 /* BindPhone.m in Sources */,
 				6855E6321BFAC78A00E789D4 /* RequirementCell.m in Sources */,
 				684A37611BFD80E800F7388C /* DesignerPlanStatusBaseCell.m in Sources */,

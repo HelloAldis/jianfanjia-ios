@@ -9,6 +9,7 @@
 #import "BaseModel.h"
 
 @class LeafImage;
+@class BeautifulImagePosition;
 
 @interface BeautifulImage : BaseModel
 
@@ -30,6 +31,10 @@
 @property (nonatomic, strong) NSNumber *view_count;
 @property (nonatomic, assign) NSNumber *is_my_favorite;
 @property (nonatomic, assign) NSNumber *is_deleted;
+
+// 不动态属性
+@property (nonatomic, strong) BeautifulImagePosition *previous;
+@property (nonatomic, strong) BeautifulImagePosition *next;
 
 - (LeafImage *)leafImageAtIndex:(NSInteger )index;
 
