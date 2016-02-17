@@ -8,8 +8,20 @@
 
 #import "BaseViewController.h"
 
+@class BeautifulImageDataManager;
+
+typedef void(^HomePageDismissBlock)(NSInteger index);
+
+@protocol BeautifulImageHomePageDataManagerProtocol <NSObject>
+
+@required
+- (NSMutableArray *)beautifulImages;
+- (NSInteger)loadMoreBeautifulImages;
+
+@end
+
 @interface BeautifulImageHomePageViewController : BaseViewController<UIScrollViewDelegate>
 
-- (id)initWithBeautifulImage:(BeautifulImage *)beautifulImage index:(NSInteger)index;
+- (id)initWithDataManager:(id<BeautifulImageHomePageDataManagerProtocol>)dataManager index:(NSInteger)index queryDic:(NSDictionary *)queryDic dismissBlock:(HomePageDismissBlock)dismissBlock;
 
 @end

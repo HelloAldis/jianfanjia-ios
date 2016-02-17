@@ -182,8 +182,12 @@ static NSMutableArray *decStyleDS;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    BeautifulImage *beauitifulImage = self.dataManager.beautifulImages[indexPath.row];
-    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithBeautifulImage:beauitifulImage index:0];
+    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.dataManager index:indexPath.row queryDic:[self getQueryDic] dismissBlock:^(NSInteger index) {
+        [self.imgCollection reloadData];
+        [self.imgCollection layoutIfNeeded];
+        UICollectionViewLayoutAttributes *layoutAttributes = self.imgCollectionLayout.allItemAttributes[index];
+        [self.imgCollection scrollRectToVisible:layoutAttributes.frame animated:YES];
+    }];
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -290,32 +294,6 @@ static NSMutableArray *decStyleDS;
     [imgView setImage:[UIImage imageNamed:highlight ? @"angle_expand" : @"angle_unexpand" ]];
 }
 
-//- (void)showDropdownMenu {
-//    if (!self.isShowDropdown) {
-//        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
-//            self.dropdownMenu.frame = CGRectMake(0, CGRectGetMaxY(self.headerView.frame), CGRectGetWidth(self.view.frame), CGRectGetHeight(self.imgCollection.frame));
-//            [self.view layoutIfNeeded];
-//        } completion:^(BOOL finished) {
-//            if (finished) {
-//                self.isShowDropdown = YES;
-//            }
-//        }];
-//    }
-//}
-//
-//- (void)hideDropdownMenu {
-//    if (self.isShowDropdown) {
-//        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
-//            self.dropdownMenu.frame = CGRectMake(0, -CGRectGetMaxY(self.dropdownMenu.collectionView.frame), CGRectGetWidth(self.view.frame), 0);
-//            [self.view layoutIfNeeded];
-//        } completion:^(BOOL finished) {
-//            if (finished) {
-//                self.isShowDropdown = NO;
-//            }
-//        }];
-//    }
-//}
-
 #pragma mark - api request
 - (void)refreshBeautifulImage {
     [self resetNoDataTip];
@@ -328,7 +306,7 @@ static NSMutableArray *decStyleDS;
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.header endRefreshing];
-        NSInteger count = [self.dataManager refreshBeautifulImage];
+        NSInteger count = [self.dataManager refreshBeautifulImages];
         
         if (count == 0) {
             [self handleNoFavoriateBeautifulImage];
@@ -352,7 +330,7 @@ static NSMutableArray *decStyleDS;
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.footer endRefreshing];
-        NSInteger count = [self.dataManager loadMoreBeautifulImage];
+        NSInteger count = [self.dataManager loadMoreBeautifulImages];
         if (request.limit.integerValue > count) {
             [self.imgCollection.footer noticeNoMoreData];
         }

@@ -28,6 +28,8 @@
 /*显示多少列*/
 @property (nonatomic,assign) NSInteger columnCount;
 
+@property (nonatomic, strong, readonly) NSMutableArray *allItemAttributes;
+
 @property (nonatomic, weak) id<CollectionFallsFlowLayoutProtocol> delegate;
 
 @end

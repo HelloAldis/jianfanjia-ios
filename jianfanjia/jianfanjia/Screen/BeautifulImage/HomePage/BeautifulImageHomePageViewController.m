@@ -7,6 +7,7 @@
 //
 
 #import "BeautifulImageHomePageViewController.h"
+#import "BeautifulImageDataManager.h"
 
 @interface BeautifulImageHomePageViewController ()
 
@@ -26,23 +27,37 @@
 @property (nonatomic, strong) NSMutableArray<UIScrollView *> *subscrollViewArray;
 
 @property (nonatomic, strong) BeautifulImage *beautifulImage;
-@property (nonatomic, strong) BeautifulImage *preBeautifulImage;
-@property (nonatomic, strong) BeautifulImage *nextBeautifulImage;
+
+@property (nonatomic, strong) NSMutableArray<BeautifulImage *> *beautifulImages;
 
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, assign) NSInteger total;
 
 @property (nonatomic, assign) BOOL isHidden;
+@property (nonatomic, assign) BOOL isGettingHomepage;
+@property (nonatomic, assign) BOOL hasMoreBeautifulImage;
+
+@property (strong, nonatomic) id<BeautifulImageHomePageDataManagerProtocol> dataManager;
+@property (strong, nonatomic) NSDictionary *queryDic;
+@property (copy, nonatomic) HomePageDismissBlock dismissBlock;
+
+@property (nonatomic, strong) NSNumber *pageNumber;
 
 @end
 
 @implementation BeautifulImageHomePageViewController
 
 #pragma mark - init method
-- (id)initWithBeautifulImage:(BeautifulImage *)beautifulImage index:(NSInteger)index {
+- (id)initWithDataManager:(id<BeautifulImageHomePageDataManagerProtocol>)dataManager index:(NSInteger)index queryDic:(NSDictionary *)queryDic dismissBlock:(HomePageDismissBlock)dismissBlock {
     if (self = [super init]) {
-        _beautifulImage = beautifulImage;
         _index = index;
+        _dataManager = dataManager;
+        _queryDic = queryDic;
+        _beautifulImages = dataManager.beautifulImages;
+        _beautifulImage = _beautifulImages[index];
+        _total = _beautifulImages.count;
+        _dismissBlock = dismissBlock;
+        _pageNumber = @(20);
     }
     
     return self;
@@ -54,7 +69,7 @@
     
     [self initNav];
     [self initUI];
-    [self getHomepage:self.beautifulImage._id];
+    [self reloadAllImage];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -68,6 +83,14 @@
     
     [self initDefaultNavBarStyle];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    if (self.dismissBlock) {
+        self.dismissBlock(self.index);
+    }
 }
 
 #pragma mark - ui
@@ -136,39 +159,32 @@
     }];
 }
 
-- (NSString *)reloadAllImage {
-    [self resetUI];
+- (void)reloadAllImage {
     CGFloat offsetX = self.scrollView.contentOffset.x;
-    NSString *preImageid = [self.preBeautifulImage leafImageAtIndex:0].imageid;
-    NSString *curImageid = [self.beautifulImage leafImageAtIndex:0].imageid;
-    NSString *nextImageid = [self.nextBeautifulImage leafImageAtIndex:0].imageid;
-    NSString *currentBeautifulId;
-    
     if (offsetX > kScreenWidth) { // 向右
-        [self reloadImageView:self.imageViewArray[0] withImage:curImageid];
-        [self reloadImageView:self.imageViewArray[1] withImage:nextImageid];
-        [self reloadImageView:self.imageViewArray[2] withImage:preImageid];
-        currentBeautifulId = self.nextBeautifulImage._id;
+        self.index++;
+        self.beautifulImage = self.beautifulImages[self.index];
     } else if (offsetX < kScreenWidth) { // 向左
-        [self reloadImageView:self.imageViewArray[0] withImage:nextImageid];
-        [self reloadImageView:self.imageViewArray[1] withImage:preImageid];
-        [self reloadImageView:self.imageViewArray[2] withImage:curImageid];
-        currentBeautifulId = self.preBeautifulImage._id;
+        self.index--;
+        self.beautifulImage = self.beautifulImages[self.index];
     } else {
-        [self reloadImageView:self.imageViewArray[0] withImage:preImageid];
-        [self reloadImageView:self.imageViewArray[1] withImage:curImageid];
-        [self reloadImageView:self.imageViewArray[2] withImage:nextImageid];
-        currentBeautifulId = self.beautifulImage._id;
+        self.beautifulImage = self.beautifulImages[self.index];
     }
     
+    [self resetUI];
+    NSString *preImageid = [self.beautifulImages[MAX(self.index-1, 0)] leafImageAtIndex:0].imageid;
+    NSString *curImageid = [self.beautifulImages[self.index] leafImageAtIndex:0].imageid;
+    NSString *nextImageid = [self.beautifulImages[MIN(self.index+1, self.beautifulImages.count-1)] leafImageAtIndex:0].imageid;
+    [self reloadImageView:self.imageViewArray[0] withImage:preImageid];
+    [self reloadImageView:self.imageViewArray[1] withImage:curImageid];
+    [self reloadImageView:self.imageViewArray[2] withImage:nextImageid];
+    
     self.scrollView.contentOffset = CGPointMake(kScreenWidth, 0);
-    self.titleLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.index), @(self.total)];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.index+1), @(self.total)];
     self.imgDescription.text = self.beautifulImage.title;
     self.imgTag.text = [[[self.beautifulImage.keywords componentsSeparatedByString:@","] map:^id(id obj) {
         return [NSString stringWithFormat:@"#%@", obj];
     }] join:@" "];
-    
-    return currentBeautifulId;
 }
 
 - (void)resetUI {
@@ -229,8 +245,7 @@
         if (!decelerate) {
             CGFloat offsetX = self.scrollView.contentOffset.x;
             if (offsetX == 0 || offsetX == kScreenWidth * 2) {
-                NSString *beautifulImageId = [self reloadAllImage];
-                [self getHomepage:beautifulImageId];
+                [self reloadAllImage];
             }
         }
     }
@@ -240,8 +255,7 @@
     if (scrollView == self.scrollView) {
         CGFloat offsetX = self.scrollView.contentOffset.x;
         if (offsetX == 0 || offsetX == kScreenWidth * 2) {
-            NSString *beautifulImageId = [self reloadAllImage];
-            [self getHomepage:beautifulImageId];
+            [self reloadAllImage];
         }
     }
 }
@@ -249,10 +263,13 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.scrollView) {
         CGFloat offsetX = self.scrollView.contentOffset.x;
-        if (self.index == 1 && offsetX < kScreenWidth) {
+        if (self.index == 0 && offsetX < kScreenWidth) {
             self.scrollView.contentOffset = CGPointMake(kScreenWidth, 0);
-        } else if (self.index == self.total && offsetX > kScreenWidth) {
+        } else if (self.index == self.beautifulImages.count - 1 && offsetX > kScreenWidth) {
             self.scrollView.contentOffset = CGPointMake(kScreenWidth, 0);
+            if (self.index < self.total && !self.isGettingHomepage) {
+                [self loadMoreBeautifulImage];
+            }
         }
     }
 }
@@ -295,7 +312,6 @@
         } failure:^{
             [HUDUtil showErrText:@"收藏失败"];
         } networkError:^{
-            
         }];
     } else {
         UnfavoriteBeautifulImage *request = [[UnfavoriteBeautifulImage alloc] init];
@@ -308,7 +324,6 @@
         } failure:^{
             [HUDUtil showErrText:@"取消收藏失败"];
         } networkError:^{
-            
         }];
     }
 }
@@ -364,31 +379,61 @@
 }
 
 #pragma mark - api request
-- (void)getHomepage:(NSString *)beautifulId {
-    [HUDUtil showWait];
-    GetBeautifulImageHomepage *request = [[GetBeautifulImageHomepage alloc] init];
-    request._id = beautifulId;
+- (void)loadMoreBeautifulImage {
+    if (self.hasMoreBeautifulImage) {
+        [HUDUtil showSuccessText:@"没有更多美图了"];
+        return;
+    }
     
-    @weakify(self);
-    [API getBeautifulImageHomepage:request success:^{
-        @strongify(self);
-        self.beautifulImage = [[BeautifulImage alloc] initWith:[DataManager shared].data];;
-        self.beautifulImage.previous = [[BeautifulImagePosition alloc] initWith:[self.beautifulImage.data objectForKey:@"previous"]];
-        self.beautifulImage.next = [[BeautifulImagePosition alloc] initWith:[self.beautifulImage.data objectForKey:@"next"]];
-        self.index = self.beautifulImage.previous.total.integerValue + 1;
-        self.total = self.index + self.beautifulImage.next.total.integerValue;
-        self.preBeautifulImage = [self.beautifulImage.previous beautifulImageAtIndex:0];
-        self.nextBeautifulImage = [self.beautifulImage.next beautifulImageAtIndex:0];
+    [HUDUtil showWait:@"更多美图加载中..."];
+    self.isGettingHomepage = YES;
+    
+    if (self.queryDic) {
+        SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
+        request.query = self.queryDic;
+        request.from = @(self.dataManager.beautifulImages.count);
+        request.limit = self.pageNumber;
         
-        [self reloadAllImage];
-        [HUDUtil hideWait];
-    } failure:^{
-        [self reloadAllImage];
-        [HUDUtil hideWait];
-    } networkError:^{
-        [self reloadAllImage];
-        [HUDUtil hideWait];
-    }];
+        [API searchBeautifulImage:request success:^{
+            [self resetData];
+            [self reloadAllImage];
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        } failure:^{
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        } networkError:^{
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        }];
+    } else {
+        ListFavoriateBeautifulImage *request = [[ListFavoriateBeautifulImage alloc] init];
+        request.from = @(self.dataManager.beautifulImages.count);
+        request.limit = self.pageNumber;
+        
+        @weakify(self);
+        [API listFavoriateBeautifulImage:request success:^{
+            @strongify(self);
+            [self resetData];
+            [self reloadAllImage];
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        } failure:^{
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        } networkError:^{
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        }];
+    }
+}
+
+- (void)resetData {
+    NSInteger count = [self.dataManager loadMoreBeautifulImages];
+    self.beautifulImages = self.dataManager.beautifulImages;
+    self.index = [self.beautifulImages indexOfObject:self.beautifulImage];
+    self.total = self.beautifulImages.count;
+    self.hasMoreBeautifulImage = count < [self.pageNumber integerValue];
 }
 
 @end

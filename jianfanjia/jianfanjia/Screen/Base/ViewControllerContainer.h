@@ -44,7 +44,6 @@
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
 + (void)showRefresh;
-+ (void)showBeautifulImageHomePage:(BeautifulImage *)beautifulImage;
 + (void)refreshSuccess;
 + (UIViewController *)getCurrentTapController;
 + (void)logout;

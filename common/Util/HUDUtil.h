@@ -13,6 +13,7 @@
 + (void)showErrText:(NSString *) text;
 + (void)showSuccessText:(NSString *) text;
 + (void)showWait;
++ (void)showWait:(NSString *)text;
 + (void)hideWait;
 
 @end

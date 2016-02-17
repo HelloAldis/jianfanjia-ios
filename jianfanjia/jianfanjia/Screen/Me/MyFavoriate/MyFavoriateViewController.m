@@ -13,6 +13,7 @@
 #import "FavoriateProductCell.h"
 #import "FavoriateBeautifulImageData.h"
 #import "FavoriateBeautifulImageCell.h"
+#import "BeautifulImageHomePageViewController.h"
 
 
 typedef NS_ENUM(NSInteger, FavoriateType) {
@@ -144,25 +145,13 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 - (void)initUIData {
     switch (self.favoriateType) {
         case FavoriateTypeDesigner:
-//            if ([self.favoriateDesignerPageData.designers count] == 0) {
-//                [self.designerTableView.header beginRefreshing];
-//            } else {
-                [self refreshDesigner];
-//            }
+            [self refreshDesigner];
             break;
         case FavoriateTypeProduct:
-//            if ([self.favoriateProductPageData.products count] == 0) {
-//                [self.productTableView.header beginRefreshing];
-//            } else {
-                [self refreshFavoriateProduct];
-//            }
+            [self refreshFavoriateProduct];
             break;
         case FavoriateTypeBeautifulImage:
-//            if ([self.favoriateBeautifulImageData.beautifulImages count] == 0) {
-//                [self.beautifulImageCollectionView.header beginRefreshing];
-//            } else {
-                [self refreshFavoriateBeautifulImage];
-//            }
+            [self refreshFavoriateBeautifulImage];
             break;
         default:
             break;
@@ -217,17 +206,6 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     }
 }
 
-//- (IBAction)panGesture:(UIPanGestureRecognizer *)gesture {
-//    CGPoint p = [gesture translationInView:self.view];
-//    CGPoint p2 = [gesture velocityInView:self.view];
-//    self.designerTableView.frame = CGRectOffset(self.designerTableView.frame, p.x, 0);
-//    
-//    DDLogDebug(@"translation %@", NSStringFromCGPoint(p));
-//    DDLogDebug(@"velocity %@", NSStringFromCGPoint(p));
-//    [gesture setTranslation:CGPointMake(0,0) inView:self.view];
-//}
-
-
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.designerTableView) {
@@ -274,6 +252,16 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     BeautifulImage *beauitifulImage = self.favoriateBeautifulImageData.beautifulImages[indexPath.item];
     [cell initWithImage:beauitifulImage withDeleteBlock:self.deleteFavoriateBeautifulImageBlock];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.favoriateBeautifulImageData index:indexPath.row queryDic:nil dismissBlock:^(NSInteger index) {
+        [self.beautifulImageCollectionView reloadData];
+        [self.beautifulImageCollectionView layoutIfNeeded];
+        UICollectionViewLayoutAttributes *layoutAttributes = self.flowLayout.allItemAttributes[index];
+        [self.beautifulImageCollectionView scrollRectToVisible:layoutAttributes.frame animated:YES];
+    }];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (CGFloat)fallFlowLayout:(CollectionFallsFlowLayout *)layout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath {

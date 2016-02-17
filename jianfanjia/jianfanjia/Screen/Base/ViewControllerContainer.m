@@ -358,11 +358,6 @@ static ViewControllerContainer *container;
     [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
 }
 
-+ (void)showBeautifulImageHomePage:(BeautifulImage *)beautifulImage {
-    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithBeautifulImage:beautifulImage index:0];
-    [container.tab.selectedViewController pushViewController:controller animated:YES];
-}
-
 + (void)refreshSuccess {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [UIView transitionWithView:container.window

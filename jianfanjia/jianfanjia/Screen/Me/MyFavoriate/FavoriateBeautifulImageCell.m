@@ -27,9 +27,7 @@
 - (void)awakeFromNib {
     [self.image setCornerRadius:5];
     [self.coverView setCornerRadius:5];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDetail)];
-    [self.image addGestureRecognizer:tap];
-     tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDelete)];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDelete)];
     [self.coverView addGestureRecognizer:tap];
 }
 
@@ -52,10 +50,6 @@
         LeafImage *leafImage = [self.beautifulImage leafImageAtIndex:0];
         [self.image setImageWithId:leafImage.imageid withWidth:self.bounds.size.width];
     }
-}
-
-- (void)onTapDetail {
-    [ViewControllerContainer showBeautifulImageHomePage:self.beautifulImage];
 }
 
 - (void)onTapDelete {
