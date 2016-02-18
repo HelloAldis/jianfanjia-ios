@@ -32,9 +32,11 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
 @implementation DropdownMenuView
 
 + (DropdownMenuView *)show:(UIView *)view datasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block {
-    DropdownMenuView *menu = [[DropdownMenuView alloc] initWithFrame:CGRectMake(0, 0, view.bounds.size.width, view.bounds.size.height)];
+    CGRect frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height);
+    frame = [[UIApplication sharedApplication].keyWindow convertRect:view.bounds fromView:view];
+    DropdownMenuView *menu = [[DropdownMenuView alloc] initWithFrame:frame];
     [menu initWithDatasource:datasoure defaultValue:defaultValue block:block];
-    [view addSubview:menu];
+    [[UIApplication sharedApplication].keyWindow insertSubview:menu aboveSubview:view];
     [menu show];
     
     return menu;
@@ -94,9 +96,9 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
     self.height = self.rowSpace * (rowCount - 1) + cellHeight * rowCount + self.insets.top + self.insets.bottom;
     
     if (refresh) {
-        self.collectionView.frame = CGRectMake(self.collectionView.frame.origin.x, self.collectionView.frame.origin.y, self.collectionView.frame.size.width, self.height);
+        self.collectionView.frame = CGRectMake(0, 0, self.bounds.size.width, self.height);
     } else {
-        self.collectionView.frame = CGRectMake(0, -self.height, self.bounds.size.width, self.height);
+        self.collectionView.frame = CGRectMake(0, 0, self.bounds.size.width, 0);
     }
     [self.collectionView reloadData];
     [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:[self.datasoure indexOfObject:self.defaultValue] inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionNone];
@@ -114,7 +116,7 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
 - (void)dismiss {
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
-        self.collectionView.frame = CGRectMake(0, -self.height, self.bounds.size.width, self.height);
+        self.collectionView.frame = CGRectMake(0, 0, self.bounds.size.width, 0);
     } completion:^(BOOL finished) {
         self.isShowing = NO;
         [self removeFromSuperview];

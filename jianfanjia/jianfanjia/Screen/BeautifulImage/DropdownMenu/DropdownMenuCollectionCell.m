@@ -23,9 +23,11 @@
         @strongify(self);
         if (newValue.boolValue) {
             self.background.backgroundColor = kFinishedColor;
+            [self.background setBorder:1 andColor:kFinishedColor.CGColor];
             self.lblTitle.textColor = [UIColor whiteColor];
         } else {
             self.background.backgroundColor = [UIColor whiteColor];
+            [self.background setBorder:1 andColor:[UIColor whiteColor].CGColor];
             self.lblTitle.textColor = kThemeTextColor;
         }
     }];
