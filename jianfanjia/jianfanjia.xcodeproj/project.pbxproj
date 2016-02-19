@@ -224,6 +224,8 @@
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
 		68B10C8C1C76F345005866C1 /* GetTopProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C8B1C76F345005866C1 /* GetTopProducts.m */; };
+		68B10C911C772174005866C1 /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C8F1C772174005866C1 /* ProductListViewController.m */; };
+		68B10C921C772174005866C1 /* ProductListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C901C772174005866C1 /* ProductListViewController.xib */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C25A1C75891F00EEEBD8 /* HomePageQuickEntryCell.m */; };
 		68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C3C25B1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib */; };
@@ -776,6 +778,9 @@
 		68B10C881C76F13F005866C1 /* HomePageDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageDataManager.m; sourceTree = "<group>"; };
 		68B10C8A1C76F345005866C1 /* GetTopProducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTopProducts.h; sourceTree = "<group>"; };
 		68B10C8B1C76F345005866C1 /* GetTopProducts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTopProducts.m; sourceTree = "<group>"; };
+		68B10C8E1C772174005866C1 /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewController.h; sourceTree = "<group>"; };
+		68B10C8F1C772174005866C1 /* ProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewController.m; sourceTree = "<group>"; };
+		68B10C901C772174005866C1 /* ProductListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListViewController.xib; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1539,6 +1544,16 @@
 			path = DesignerList;
 			sourceTree = "<group>";
 		};
+		68B10C8D1C772174005866C1 /* ProductList */ = {
+			isa = PBXGroup;
+			children = (
+				68B10C8E1C772174005866C1 /* ProductListViewController.h */,
+				68B10C8F1C772174005866C1 /* ProductListViewController.m */,
+				68B10C901C772174005866C1 /* ProductListViewController.xib */,
+			);
+			path = ProductList;
+			sourceTree = "<group>";
+		};
 		6E06CC031C29231A00A08D15 /* MyFavoriate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1993,6 +2008,7 @@
 		6E6D98A61BDF732A00D45F77 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				68B10C8D1C772174005866C1 /* ProductList */,
 				68B10C811C76D489005866C1 /* DesignerList */,
 				6E6D98A71BDF733F00D45F77 /* HomePageViewController.h */,
 				6E6D98A81BDF733F00D45F77 /* HomePageViewController.m */,
@@ -2417,6 +2433,7 @@
 				68123BA91C47D15C008FC9AB /* JYZ_wechat_session_icon@2x.png in Resources */,
 				6838400D1C158490004F456E /* UpdateMultipleLineTextViewController.xib in Resources */,
 				68123BAA1C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png in Resources */,
+				68B10C921C772174005866C1 /* ProductListViewController.xib in Resources */,
 				68123C611C4C8B99008FC9AB /* allprovince.js in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */,
@@ -2713,6 +2730,7 @@
 				68342DF51BFC0F960000EBBE /* Plan.m in Sources */,
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
+				68B10C911C772174005866C1 /* ProductListViewController.m in Sources */,
 				AB5852531C074252004B054E /* ItemImageCollectionCell.m in Sources */,
 				68123C5E1C4C8B99008FC9AB /* ImageEditorViewController.m in Sources */,
 				689485D31C1A70A7002310FC /* Notification.m in Sources */,

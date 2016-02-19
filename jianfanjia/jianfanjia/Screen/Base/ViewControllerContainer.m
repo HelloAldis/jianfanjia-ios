@@ -42,6 +42,7 @@
 #import "AccountBindViewController.h"
 #import "BindPhoneViewController.h"
 #import "DesignerListViewController.h"
+#import "ProductListViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -177,6 +178,11 @@ static ViewControllerContainer *container;
 
 + (void)showDesignerList {
     DesignerListViewController *v = [[DesignerListViewController alloc] initWithNibName:nil bundle:nil];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showProductList {
+    ProductListViewController *v = [[ProductListViewController alloc] initWithNibName:nil bundle:nil];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

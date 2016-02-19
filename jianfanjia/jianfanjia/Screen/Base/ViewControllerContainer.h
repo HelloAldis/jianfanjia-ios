@@ -23,6 +23,7 @@
 + (void)showCollectDecStyle;
 + (void)showCollectFamilyInfo;
 + (void)showDesignerList;
++ (void)showProductList;
 + (void)showBeautifulImage;
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
