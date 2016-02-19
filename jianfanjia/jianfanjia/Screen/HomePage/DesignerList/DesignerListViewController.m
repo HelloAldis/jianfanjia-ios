@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, DesignFilterType) {
     DesignFilterTypeDecType,
     DesignFilterTypeHouseType,
     DesignFilterTypeStyle,
+    DesignFilterTypeDesignFee,
 };
 
 static NSString *HomePageDesignerCellIdentifier = @"HomePageDesignerCell";
@@ -21,9 +22,6 @@ static NSString *HomePageDesignerCellIdentifier = @"HomePageDesignerCell";
 @interface DesignerListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (assign, nonatomic) CGFloat preY;
-@property (assign, nonatomic) BOOL isTabbarhide;
-
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnChooseTypes;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *lblChooseTypes;
@@ -37,6 +35,7 @@ static NSString *HomePageDesignerCellIdentifier = @"HomePageDesignerCell";
 @property (strong, nonatomic) NSString *curDesignFilterTypeDecType;
 @property (strong, nonatomic) NSString *curDesignFilterTypeHouse;
 @property (strong, nonatomic) NSString *curDesignFilterTypeStyle;
+@property (strong, nonatomic) NSString *curDesignFilterTypeDesignFee;
 
 @end
 
@@ -77,9 +76,6 @@ static NSString *HomePageDesignerCellIdentifier = @"HomePageDesignerCell";
         @strongify(self);
         [self loadMore];
     }];
-    
-    self.preY = 0;
-    self.isTabbarhide = NO;
     
     [self refresh:YES];
 }

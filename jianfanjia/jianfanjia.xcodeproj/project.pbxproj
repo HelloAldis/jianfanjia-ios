@@ -226,6 +226,10 @@
 		68B10C8C1C76F345005866C1 /* GetTopProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C8B1C76F345005866C1 /* GetTopProducts.m */; };
 		68B10C911C772174005866C1 /* ProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C8F1C772174005866C1 /* ProductListViewController.m */; };
 		68B10C921C772174005866C1 /* ProductListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C901C772174005866C1 /* ProductListViewController.xib */; };
+		68B10C971C772824005866C1 /* SearchDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C941C772824005866C1 /* SearchDesigner.m */; };
+		68B10C981C772824005866C1 /* SearchProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C961C772824005866C1 /* SearchProduct.m */; };
+		68B10C9C1C772A73005866C1 /* DesignerSimpleInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C9A1C772A73005866C1 /* DesignerSimpleInfoCell.m */; };
+		68B10C9D1C772A73005866C1 /* DesignerSimpleInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C9B1C772A73005866C1 /* DesignerSimpleInfoCell.xib */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C25A1C75891F00EEEBD8 /* HomePageQuickEntryCell.m */; };
 		68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C3C25B1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib */; };
@@ -781,6 +785,13 @@
 		68B10C8E1C772174005866C1 /* ProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductListViewController.h; sourceTree = "<group>"; };
 		68B10C8F1C772174005866C1 /* ProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductListViewController.m; sourceTree = "<group>"; };
 		68B10C901C772174005866C1 /* ProductListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductListViewController.xib; sourceTree = "<group>"; };
+		68B10C931C772824005866C1 /* SearchDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDesigner.h; sourceTree = "<group>"; };
+		68B10C941C772824005866C1 /* SearchDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDesigner.m; sourceTree = "<group>"; };
+		68B10C951C772824005866C1 /* SearchProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchProduct.h; sourceTree = "<group>"; };
+		68B10C961C772824005866C1 /* SearchProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchProduct.m; sourceTree = "<group>"; };
+		68B10C991C772A73005866C1 /* DesignerSimpleInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerSimpleInfoCell.h; sourceTree = "<group>"; };
+		68B10C9A1C772A73005866C1 /* DesignerSimpleInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerSimpleInfoCell.m; sourceTree = "<group>"; };
+		68B10C9B1C772A73005866C1 /* DesignerSimpleInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerSimpleInfoCell.xib; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1540,6 +1551,9 @@
 				68B10C821C76D489005866C1 /* DesignerListViewController.h */,
 				68B10C831C76D489005866C1 /* DesignerListViewController.m */,
 				68B10C841C76D489005866C1 /* DesignerListViewController.xib */,
+				68B10C991C772A73005866C1 /* DesignerSimpleInfoCell.h */,
+				68B10C9A1C772A73005866C1 /* DesignerSimpleInfoCell.m */,
+				68B10C9B1C772A73005866C1 /* DesignerSimpleInfoCell.xib */,
 			);
 			path = DesignerList;
 			sourceTree = "<group>";
@@ -1700,6 +1714,10 @@
 				6E06CC1B1C294EE800A08D15 /* AddFavoriateProduct.m */,
 				680F49221C2408130055C16C /* SearchBeautifulImage.h */,
 				680F49231C2408130055C16C /* SearchBeautifulImage.m */,
+				68B10C931C772824005866C1 /* SearchDesigner.h */,
+				68B10C941C772824005866C1 /* SearchDesigner.m */,
+				68B10C951C772824005866C1 /* SearchProduct.h */,
+				68B10C961C772824005866C1 /* SearchProduct.m */,
 				683FFB171C280681002A1AFE /* GetBeautifulImageHomepage.h */,
 				683FFB181C280681002A1AFE /* GetBeautifulImageHomepage.m */,
 				683FFB1A1C280E9D002A1AFE /* FavoriteBeautifulImage.h */,
@@ -2417,6 +2435,7 @@
 				684A37591BFD73DF00F7388C /* SelectSexTypeViewController.xib in Resources */,
 				684A37051BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.xib in Resources */,
 				68C3C26A1C75C41200EEEBD8 /* HomePageProductCell.xib in Resources */,
+				68B10C9D1C772A73005866C1 /* DesignerSimpleInfoCell.xib in Resources */,
 				6E6D98AB1BDF733F00D45F77 /* HomePageViewController.xib in Resources */,
 				685272C81C2D1602002E62EC /* SelectBusinessTypeViewController.xib in Resources */,
 				68123C561C4C8B99008FC9AB /* MessageAlertViewController.xib in Resources */,
@@ -2583,6 +2602,7 @@
 				68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */,
 				AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */,
 				68123B9C1C47D15C008FC9AB /* JYZSocialSnsBaseResp.m in Sources */,
+				68B10C9C1C772A73005866C1 /* DesignerSimpleInfoCell.m in Sources */,
 				6E44963B1BFC2DA900C90851 /* SettingViewController.m in Sources */,
 				680F490D1C2160990055C16C /* ItemsBackgroundView.m in Sources */,
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
@@ -2737,11 +2757,13 @@
 				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
 				683A5D6C1C0EFBAE0071DF88 /* YsImage.m in Sources */,
 				684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */,
+				68B10C981C772824005866C1 /* SearchProduct.m in Sources */,
 				685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */,
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
 				682E05171C58BDA700F1ACAA /* PlanPriceTotalCell.m in Sources */,
 				683FFB721C2B9A70002A1AFE /* HouseRequirementCreateViewController.m in Sources */,
 				6E06CC0E1C29453000A08D15 /* ListFavoriateBeautifulImage.m in Sources */,
+				68B10C971C772824005866C1 /* SearchDesigner.m in Sources */,
 				AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68123C5C1C4C8B99008FC9AB /* ImageDetailViewController.m in Sources */,

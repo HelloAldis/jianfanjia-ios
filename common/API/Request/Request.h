@@ -53,6 +53,8 @@
 #import "DeleteFavoriateProduct.h"
 #import "AddFavoriateProduct.h"
 #import "SearchBeautifulImage.h"
+#import "SearchDesigner.h"
+#import "SearchProduct.h"
 #import "GetBeautifulImageHomepage.h"
 #import "FavoriteBeautifulImage.h"
 #import "UnfavoriteBeautifulImage.h"
