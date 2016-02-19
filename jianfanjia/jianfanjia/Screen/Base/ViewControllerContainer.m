@@ -41,6 +41,7 @@
 #import "BeautifulImageHomePageViewController.h"
 #import "AccountBindViewController.h"
 #import "BindPhoneViewController.h"
+#import "DesignerListViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -150,12 +151,6 @@ static ViewControllerContainer *container;
     }
 }
 
-//+ (void)showSignupSuccess {
-//    SignupSuccessViewController *v = [[SignupSuccessViewController alloc] init];
-//    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
-//    [nav pushViewController:v animated:YES];
-//}
-
 + (void)showResetPass {
     ResetPassViewController *v = [[ResetPassViewController alloc] init];
     UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
@@ -180,6 +175,15 @@ static ViewControllerContainer *container;
     [nav pushViewController:v animated:YES];
 }
 
++ (void)showDesignerList {
+    DesignerListViewController *v = [[DesignerListViewController alloc] initWithNibName:nil bundle:nil];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showBeautifulImage {
+    container.tab.selectedViewController = container.navTapPrettyImg;
+}
+
 + (void)showProcessPreview {
     ProcessViewController *v = [[ProcessViewController alloc] initWithProcessPreview];
     [container.tab.selectedViewController pushViewController:v animated:YES];
@@ -191,7 +195,12 @@ static ViewControllerContainer *container;
 }
 
 + (void)showProduct:(NSString *)productid {
-    UINavigationController* nav =  container.tab.selectedViewController;
+    [self showProduct:productid isModal:NO];
+}
+
++ (void)showProduct:(NSString *)productid isModal:(BOOL)isModal {
+    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
     BOOL hasProduct = NO;
     for (UIViewController *v in nav.viewControllers) {
         if ([v isKindOfClass:[ProductViewController class]]) {
@@ -208,12 +217,22 @@ static ViewControllerContainer *container;
     if (!hasProduct) {
         ProductViewController *v = [[ProductViewController alloc] initWithNibName:nil bundle:nil];
         v.productid = productid;
-        [container.tab.selectedViewController pushViewController:v animated:YES];
+        
+        if (isModal) {
+            UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
+            v.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            v.modalPresentationStyle = UIModalPresentationOverFullScreen;
+            
+            [nav presentViewController:navi animated:YES completion:nil];
+        } else {
+            [nav pushViewController:v animated:YES];
+        }
     }
 }
 
 + (void)showDesigner:(NSString *)designerid {
-    UINavigationController* nav =  container.tab.selectedViewController;
+    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
     BOOL hasDesigner = NO;
     for (UIViewController *v in nav.viewControllers) {
         if ([v isKindOfClass:[DesignerViewController class]]) {
@@ -231,7 +250,7 @@ static ViewControllerContainer *container;
     if (!hasDesigner) {
         DesignerViewController *v = [[DesignerViewController alloc] initWithNibName:nil bundle:nil];
         v.designerid = designerid;
-        [container.tab.selectedViewController pushViewController:v animated:YES];
+        [nav pushViewController:v animated:YES];
     }
 }
 
@@ -347,15 +366,19 @@ static ViewControllerContainer *container;
 }
 
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index {
+    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOffline:offlineImages index:index];
     imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+    [nav presentViewController:imgDetail animated:YES completion:nil];
 }
 
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index {
+    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:onlineImages index:index];
     imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+    [nav presentViewController:imgDetail animated:YES completion:nil];
 }
 
 + (void)refreshSuccess {

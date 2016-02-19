@@ -25,6 +25,13 @@
     return url;
 }
 
++ (NSString *)thumbnailImageUrl:(NSString *)imageid width:(NSInteger)width height:(NSInteger)height {
+    width = width * kScreenScale;
+    height = height * kScreenScale;
+    NSString *url = [NSString stringWithFormat:@"%@thumbnail2/%@/%@/%@", kApiUrl, [NSNumber numberWithInteger:width], [NSNumber numberWithInteger:height], imageid];
+    return url;
+}
+
 + (NSString *)beautifulImageUrl:(NSString *)imageid title:(NSString *)title {
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
     NSString *url = [NSString stringWithFormat:@"http://%@%@%@/zt/mobile/sharemito.html?imageId=%@&title=%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", imageid, [StringUtil encodeString:title]];

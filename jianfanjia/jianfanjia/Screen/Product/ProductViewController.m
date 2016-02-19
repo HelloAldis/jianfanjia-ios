@@ -167,6 +167,14 @@
     }];
 }
 
+- (void)onClickBack {
+    if (self.presentingViewController) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [super onClickBack];
+    }
+}
+
 #pragma mark - Util
 - (void)refresh {
     ProductHomePage *request = [[ProductHomePage alloc] init];

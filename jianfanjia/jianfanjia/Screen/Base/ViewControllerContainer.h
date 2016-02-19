@@ -18,14 +18,16 @@
 + (void)showAccountBind;
 + (void)showBindPhone:(BindPhoneEvent)bindPhoneEvent;
 + (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent;
-//+ (void)showSignupSuccess;
 + (void)showResetPass;
 + (void)showCollectDecPhase;
 + (void)showCollectDecStyle;
 + (void)showCollectFamilyInfo;
++ (void)showDesignerList;
++ (void)showBeautifulImage;
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
 + (void)showProduct:(NSString *)productid;
++ (void)showProduct:(NSString *)productid isModal:(BOOL)isModal;
 + (void)showRequirementCreate:(Requirement *)requirement;
 + (void)showDesigner:(NSString *)designerid;
 + (void)showOrderDesigner:(Requirement *)requirement;

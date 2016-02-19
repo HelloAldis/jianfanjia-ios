@@ -29,5 +29,6 @@
 
 #define kReminderColor [UIColor colorWithR:0xff g:0x44 b:0x45]
 #define kViewBgColor [UIColor colorWithR:0xED g:0xEF b:0xF1]
+#define kPlaceHolderColor [UIColor colorWithR:0xD5 g:0xD5 b:0xD5]
 
 #endif /* Type_h */

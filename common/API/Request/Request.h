@@ -60,6 +60,7 @@
 #import "RefreshSession.h"
 #import "BindPhone.h"
 #import "BindWechat.h"
+#import "GetTopProducts.h"
 
 #pragma mark - designer request
 

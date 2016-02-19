@@ -8,15 +8,21 @@
 
 #import "HomePageViewController.h"
 #import "BannerCell.h"
-#import "HomePageRecDesignersCell.h"
-#import "HomePageRequirementCell.h"
-#import "HomePageDesignerCell.h"
+#import "HomePageQuickEntryCell.h"
+#import "HomePageProductCell.h"
+#import "HomePageDataManager.h"
+
+static NSString *BannerCellIdentifier = @"BannerCell";
+static NSString *HomePageQuickEntryCellIdentifier = @"HomePageQuickEntryCell";
+static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 
 @interface HomePageViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (assign, nonatomic) CGFloat preY;
 @property (assign, nonatomic) BOOL isTabbarhide;
+@property (assign, nonatomic) BOOL isShowProduct;
+
+@property (strong, nonatomic) HomePageDataManager *dataManager;
 
 @end
 
@@ -25,46 +31,22 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.tableView registerNib:[UINib nibWithNibName:@"BannerCell" bundle:nil] forCellReuseIdentifier:@"BannerCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"HomePageRequirementCell" bundle:nil] forCellReuseIdentifier:@"HomePageRequirementCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"HomePageRecDesignersCell" bundle:nil] forCellReuseIdentifier:@"HomePageRecDesignersCell"];
-    [self.tableView registerNib:[UINib nibWithNibName:@"HomePageDesignerCell" bundle:nil] forCellReuseIdentifier:@"HomePageDesignerCell"];
-    
-    @weakify(self);
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        @strongify(self);
-        [self refresh];
-    }];
-    
-    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        @strongify(self);
-        [self loadMore];
-    }];
-    
-    self.preY = 0;
-    self.isTabbarhide = NO;
-    [self refresh];
+    [self initNav];
+    [self initUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self initNav];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (self.isTabbarhide) {
         [self showTabbar];
-    }
-    
-    if ([DataManager shared].homePageNeedRefresh) {
-        [self refresh];
     }
 }
 
@@ -78,50 +60,51 @@
 #pragma mark - UI
 - (void)initNav {
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickSearch)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
+    
+    UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    titleLbl.text = @"简繁家";
+    titleLbl.textColor = kThemeTextColor;
+    titleLbl.textAlignment = NSTextAlignmentCenter;
+    titleLbl.font = [UIFont boldSystemFontOfSize:18];
+    self.navigationItem.titleView = titleLbl;
+}
+
+- (void)initUI {
+    self.dataManager = [[HomePageDataManager alloc] init];
+    self.isTabbarhide = NO;
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 44, 0);
+    self.tableView.decelerationRate = UIScrollViewDecelerationRateFast;
+    [self.tableView registerNib:[UINib nibWithNibName:BannerCellIdentifier bundle:nil] forCellReuseIdentifier:BannerCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:HomePageQuickEntryCellIdentifier bundle:nil] forCellReuseIdentifier:HomePageQuickEntryCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:HomePageProductCellIdentifier bundle:nil] forCellReuseIdentifier:HomePageProductCellIdentifier];
+    
+    @weakify(self);
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refresh:NO];
+    }];
+    
+    [self.tableView reloadData];
+    [self refresh:YES];
 }
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([DataManager shared].homePageDesigners == nil && [DataManager shared].homePageRequirement == nil) {
-        return 1;
-    } else if ([self hasRequirement] && ![self hasRequirementDesigners]) {
-        //有需求而且已经预约了设计师
-        return 1 + [DataManager shared].homePageDesigners.count;
-    } else {
-        //没需求或者有需求但是没有预约设计师
-        return 2 + [DataManager shared].homePageDesigners.count;
-    }
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        BannerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"BannerCell"];
+        BannerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:BannerCellIdentifier];
         return cell;
     } else if (indexPath.row == 1) {
-        if ([self hasRequirement]) {
-            if ([self hasRequirementDesigners]) {
-                HomePageRecDesignersCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HomePageRecDesignersCell"];
-                [cell initWithDesigners:[DataManager shared].homePageRequirementDesigners];
-                return cell;
-            } else {
-                HomePageDesignerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HomePageDesignerCell"];
-                [cell initWith:[[DataManager shared].homePageDesigners objectAtIndex:indexPath.row - 1]];
-                return cell;
-            }
-        } else {
-            HomePageRequirementCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HomePageRequirementCell"];
-            return cell;
-        }
+        HomePageQuickEntryCell *cell = [self.tableView dequeueReusableCellWithIdentifier:HomePageQuickEntryCellIdentifier];
+        return cell;
     } else {
-        NSInteger index = 0;
-        if ([self hasRequirement] && ![self hasRequirementDesigners]) {
-            index = indexPath.row - 1;
-        } else {
-            index = indexPath.row - 2;
-        }
-        
-        HomePageDesignerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HomePageDesignerCell"];
-        [cell initWith:[[DataManager shared].homePageDesigners objectAtIndex:index]];
+        HomePageProductCell *cell = [self.tableView dequeueReusableCellWithIdentifier:HomePageProductCellIdentifier];
+        [cell initWithProducts:self.dataManager.homeProducts isShowProduct:self.isShowProduct];
         return cell;
     }
 }
@@ -130,31 +113,35 @@
     if (indexPath.row == 0) {
         return kBannerCellHeight;
     } else if (indexPath.row == 1) {
-        if ([self hasRequirement] && ![self hasRequirementDesigners]) {
-            return kHomePageDesignerCellHeight;
-        } else {
-            return kHomePageRequirementCellHeight;
-        }
+        return kHomePageQuickEntryCellHeight;
     } else {
-        return kHomePageDesignerCellHeight;
+        return kHomePageProductCellHeight;
     }
 }
 
 #pragma mark - scroll view delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.preY > scrollView.contentOffset.y) {
-        //上滑
-        if (!self.tableView.footer.isRefreshing) {
-            [self showTabbar];
-        }
-    } else if (self.preY < scrollView.contentOffset.y && scrollView.contentOffset.y > 0) {
-        //下滑
-        [self hideTabbar];
-    }
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    CGPoint targetOffset;
+    CGFloat contentHeight = scrollView.contentSize.height;
+    CGFloat productOffsetY = contentHeight - kScreenHeight + 44;
+    CGPoint curOffset = scrollView.contentOffset;
     
-    self.preY = scrollView.contentOffset.y;
+    if (!self.isShowProduct && curOffset.y > -64) {
+        self.isShowProduct = YES;
+        [self.tableView reloadData];
+        targetOffset = CGPointMake(curOffset.x, productOffsetY);
+        targetContentOffset->x = targetOffset.x;
+        targetContentOffset->y = targetOffset.y;
+    } else if (self.isShowProduct) {
+        if (curOffset.y < productOffsetY) {
+            self.isShowProduct = NO;
+            [self.tableView reloadData];
+            targetOffset = CGPointMake(curOffset.x, -64);
+            targetContentOffset->x = targetOffset.x;
+            targetContentOffset->y = targetOffset.y;
+        }
+    }
 }
-
 
 #pragma mark - Util
 - (void)hideTabbar {
@@ -175,73 +162,30 @@
     }
 }
 
-- (BOOL)hasRequirement {
-    return [DataManager shared].homePageRequirement ? YES : NO;
-}
-
-- (BOOL)hasRequirementDesigners {
-    return [DataManager shared].homePageRequirementDesigners.count > 0;
-}
-
-- (void)refresh {
-    HomePageDesigners *request = [[HomePageDesigners alloc] init];
-    request.from = @0;
-    request.limit = @10;
+#pragma mark - user action
+- (void)refresh:(BOOL)showPlsWait {
+    if (showPlsWait) {
+        [HUDUtil showWait];
+    }
     
-    @weakify(self);
-    [API homePageDesigners:request success:^{
-        @strongify(self);
-        [DataManager shared].homePageNeedRefresh = NO;
+    GetTopProducts *request = [[GetTopProducts alloc] init];
+    request.limit = @(50);
+    [API getTopProducts:request success:^{
         [self.tableView.header endRefreshing];
+        [self.dataManager refresh];
         [self.tableView reloadData];
+        [HUDUtil hideWait];
     } failure:^{
-        @strongify(self);
-        [self hanldeFailure];
+        [self.tableView.header endRefreshing];
+        [HUDUtil hideWait];
     } networkError:^{
-        @strongify(self);
-        [self hanldeNetworkError];
+        [self.tableView.header endRefreshing];
+        [HUDUtil hideWait];
     }];
 }
 
-- (void)loadMore {
-    HomePageDesigners *request = [[HomePageDesigners alloc] init];
-    request.from = @([DataManager shared].homePageDesigners.count);
-    request.limit = @10;
+- (void)onClickSearch {
     
-    @weakify(self);
-    [API homePageDesigners:request success:^{
-        @strongify(self);
-        [self.tableView.footer endRefreshing];
-        [self.tableView reloadData];
-    } failure:^{
-        @strongify(self);
-        [self hanldeFailure];
-    } networkError:^{
-        @strongify(self);
-        [self hanldeNetworkError];
-    }];
 }
-
-- (void)hanldeFailure {
-    if (self.tableView.header.isRefreshing) {
-        [self.tableView.header endRefreshing];
-    }
-    
-    if (self.tableView.footer.isRefreshing) {
-        [self.tableView.footer endRefreshing];
-    }
-}
-
-- (void)hanldeNetworkError {
-    if (self.tableView.header.isRefreshing) {
-        [self.tableView.header endRefreshing];
-    }
-    
-    if (self.tableView.footer.isRefreshing) {
-        [self.tableView.footer endRefreshing];
-    }
-}
-
-
 
 @end
