@@ -36,7 +36,6 @@ static NSMutableArray *designFeeDS;
 @property (weak, nonatomic) IBOutlet UILabel *lblNoData;
 
 @property (strong, nonatomic) DropdownMenuView *dropdownMenu;
-@property (assign, nonatomic) BOOL isShowDropdown;
 @property (assign, nonatomic) DesignFilterType designFilterType;
 @property (strong, nonatomic) NSString *curDesignFilterTypeDecType;
 @property (strong, nonatomic) NSString *curDesignFilterTypeHouseType;
@@ -194,16 +193,16 @@ static NSMutableArray *designFeeDS;
     NSString *buttonTitle;
     switch (self.designFilterType) {
         case DesignFilterTypeDecType:
-            buttonTitle = @"装修类型";
+            buttonTitle = @"类型";
             break;
         case DesignFilterTypeHouseType:
-            buttonTitle = @"装修户型";
+            buttonTitle = @"户型";
             break;
         case DesignFilterTypeStyle:
-            buttonTitle = @"擅长风格";
+            buttonTitle = @"风格";
             break;
         case DesignFilterTypeDesignFee:
-            buttonTitle = @"设计收费";
+            buttonTitle = @"收费";
             break;
             
         default:
@@ -298,7 +297,7 @@ static NSMutableArray *designFeeDS;
 
 - (void)handleNoDesigner {
     self.lblNoData.text = @"没有找到任何匹配的设计师";
-    self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_beautiful_image"];
+    self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_designer"];
     self.lblNoData.hidden = NO;
     self.noDataImageView.hidden = NO;
 }

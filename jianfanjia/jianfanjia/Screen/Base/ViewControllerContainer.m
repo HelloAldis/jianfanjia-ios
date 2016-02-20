@@ -43,6 +43,7 @@
 #import "BindPhoneViewController.h"
 #import "DesignerListViewController.h"
 #import "ProductCaseListViewController.h"
+#import "SearchViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -174,6 +175,11 @@ static ViewControllerContainer *container;
     CollectFamilyInfoViewController *v = [[CollectFamilyInfoViewController alloc] init];
     UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
     [nav pushViewController:v animated:YES];
+}
+
++ (void)showSearch {
+    SearchViewController *v = [[SearchViewController alloc] initWithNibName:nil bundle:nil];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
 + (void)showDesignerList {

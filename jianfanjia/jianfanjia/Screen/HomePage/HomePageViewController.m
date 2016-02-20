@@ -11,6 +11,7 @@
 #import "HomePageQuickEntryCell.h"
 #import "HomePageProductCell.h"
 #import "HomePageDataManager.h"
+#import "ViewControllerContainer.h"
 
 static NSString *BannerCellIdentifier = @"BannerCell";
 static NSString *HomePageQuickEntryCellIdentifier = @"HomePageQuickEntryCell";
@@ -185,7 +186,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 }
 
 - (void)onClickSearch {
-    
+    [ViewControllerContainer showSearch];
 }
 
 @end

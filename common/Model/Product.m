@@ -11,6 +11,7 @@
 @implementation Product
 
 @dynamic _id;
+@dynamic designerid;
 @dynamic province;
 @dynamic city;
 @dynamic district;

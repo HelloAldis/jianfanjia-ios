@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#define kProductCaseCellHeight 376
+
 @interface ProductCaseCell : UITableViewCell
 
-- (void)initWith:(Designer *)designer;
+- (void)initWithProduct:(Product *)product;
 
 @end

@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDetail;
 @property (weak, nonatomic) IBOutlet UIView *boderView;
 
-@property (weak, nonatomic) Designer *designer;
+@property (strong, nonatomic) Product *product;
 @property (strong, nonatomic) UITapGestureRecognizer *tapProductImage;
 @property (strong, nonatomic) UITapGestureRecognizer *tapDesignerImage;
 
@@ -27,7 +27,6 @@
 @implementation ProductCaseCell
 
 - (void)awakeFromNib {
-    // Initialization code
     [self.designerImageView setCornerRadius:30];
     [self.boderView setCornerRadius:31];
 
@@ -37,35 +36,25 @@
     [self.productImageView addGestureRecognizer:self.tapProductImage];
 }
 
-- (void)initWith:(Designer *)designer {
-    self.designer = designer;
+- (void)initWithProduct:(Product *)product {
+    self.product = product;
     
-    ProductImage *productImage = [designer.product imageAtIndex:0];
+    ProductImage *productImage = [product imageAtIndex:0];
     [self.productImageView setImageWithId:productImage.imageid withWidth:kScreenWidth];
-    [self.designerImageView setUserImageWithId:self.designer.imageid];
-    self.lblCell.text = self.designer.product.cell;
+    [self.designerImageView setUserImageWithId:self.product.designer.imageid];
+    self.lblCell.text = product.cell;
     self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@风格",
-                           self.designer.product.house_area,
-                           [NameDict nameForHouseType:self.designer.product.house_type],
-                           [NameDict nameForDecStyle:self.designer.product.dec_style]];
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+                           product.house_area,
+                           [NameDict nameForHouseType:product.house_type],
+                           [NameDict nameForDecStyle:product.dec_style]];
 }
 
 - (void)onTapProductImage:(UIGestureRecognizer *)sender {
-    if (self.designer) {
-        [ViewControllerContainer showProduct:self.designer.product._id];
-    }
+    [ViewControllerContainer showProduct:self.product._id];
 }
 
 - (void)onTapDesignerImage:(UIGestureRecognizer *)sender {
-    if (self.designer) {
-        [ViewControllerContainer showDesigner:self.designer._id];
-    }
+    [ViewControllerContainer showDesigner:self.product.designerid];
 }
 
 @end

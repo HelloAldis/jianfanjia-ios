@@ -233,6 +233,12 @@
 		68B10CA91C7819E3005866C1 /* ProductCaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10CA41C7819E3005866C1 /* ProductCaseCell.xib */; };
 		68B10CAA1C7819E3005866C1 /* ProductCaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CA61C7819E3005866C1 /* ProductCaseListViewController.m */; };
 		68B10CAB1C7819E3005866C1 /* ProductCaseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10CA71C7819E3005866C1 /* ProductCaseListViewController.xib */; };
+		68B10CB01C781C10005866C1 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CAE1C781C10005866C1 /* SearchViewController.m */; };
+		68B10CB11C781C10005866C1 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10CAF1C781C10005866C1 /* SearchViewController.xib */; };
+		68B10CB81C785659005866C1 /* SearchBeautifulImageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CB31C785659005866C1 /* SearchBeautifulImageDataManager.m */; };
+		68B10CB91C785659005866C1 /* SearchDesignerDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CB51C785659005866C1 /* SearchDesignerDataManager.m */; };
+		68B10CBA1C785659005866C1 /* SearchProductCaseDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CB71C785659005866C1 /* SearchProductCaseDataManager.m */; };
+		68B10CBD1C78686E005866C1 /* ProductCaseListDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C25A1C75891F00EEEBD8 /* HomePageQuickEntryCell.m */; };
 		68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C3C25B1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib */; };
@@ -794,6 +800,17 @@
 		68B10CA51C7819E3005866C1 /* ProductCaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCaseListViewController.h; sourceTree = "<group>"; };
 		68B10CA61C7819E3005866C1 /* ProductCaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCaseListViewController.m; sourceTree = "<group>"; };
 		68B10CA71C7819E3005866C1 /* ProductCaseListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCaseListViewController.xib; sourceTree = "<group>"; };
+		68B10CAD1C781C10005866C1 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		68B10CAE1C781C10005866C1 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		68B10CAF1C781C10005866C1 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		68B10CB21C785659005866C1 /* SearchBeautifulImageDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBeautifulImageDataManager.h; sourceTree = "<group>"; };
+		68B10CB31C785659005866C1 /* SearchBeautifulImageDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBeautifulImageDataManager.m; sourceTree = "<group>"; };
+		68B10CB41C785659005866C1 /* SearchDesignerDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDesignerDataManager.h; sourceTree = "<group>"; };
+		68B10CB51C785659005866C1 /* SearchDesignerDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDesignerDataManager.m; sourceTree = "<group>"; };
+		68B10CB61C785659005866C1 /* SearchProductCaseDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchProductCaseDataManager.h; sourceTree = "<group>"; };
+		68B10CB71C785659005866C1 /* SearchProductCaseDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchProductCaseDataManager.m; sourceTree = "<group>"; };
+		68B10CBB1C78686E005866C1 /* ProductCaseListDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCaseListDataManager.h; sourceTree = "<group>"; };
+		68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCaseListDataManager.m; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1562,8 +1579,26 @@
 				68B10CA21C7819E3005866C1 /* ProductCaseCell.h */,
 				68B10CA31C7819E3005866C1 /* ProductCaseCell.m */,
 				68B10CA41C7819E3005866C1 /* ProductCaseCell.xib */,
+				68B10CBB1C78686E005866C1 /* ProductCaseListDataManager.h */,
+				68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */,
 			);
 			path = ProductCaseList;
+			sourceTree = "<group>";
+		};
+		68B10CAC1C781C10005866C1 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				68B10CAD1C781C10005866C1 /* SearchViewController.h */,
+				68B10CAE1C781C10005866C1 /* SearchViewController.m */,
+				68B10CAF1C781C10005866C1 /* SearchViewController.xib */,
+				68B10CB21C785659005866C1 /* SearchBeautifulImageDataManager.h */,
+				68B10CB31C785659005866C1 /* SearchBeautifulImageDataManager.m */,
+				68B10CB41C785659005866C1 /* SearchDesignerDataManager.h */,
+				68B10CB51C785659005866C1 /* SearchDesignerDataManager.m */,
+				68B10CB61C785659005866C1 /* SearchProductCaseDataManager.h */,
+				68B10CB71C785659005866C1 /* SearchProductCaseDataManager.m */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		6E06CC031C29231A00A08D15 /* MyFavoriate */ = {
@@ -2024,6 +2059,7 @@
 		6E6D98A61BDF732A00D45F77 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				68B10CAC1C781C10005866C1 /* Search */,
 				68B10CA11C7819E3005866C1 /* ProductCaseList */,
 				68B10C811C76D489005866C1 /* DesignerList */,
 				6E6D98A71BDF733F00D45F77 /* HomePageViewController.h */,
@@ -2426,6 +2462,7 @@
 				68C3C26A1C75C41200EEEBD8 /* HomePageProductCell.xib in Resources */,
 				68B10C9D1C772A73005866C1 /* DesignerSimpleInfoCell.xib in Resources */,
 				6E6D98AB1BDF733F00D45F77 /* HomePageViewController.xib in Resources */,
+				68B10CB11C781C10005866C1 /* SearchViewController.xib in Resources */,
 				685272C81C2D1602002E62EC /* SelectBusinessTypeViewController.xib in Resources */,
 				68123C561C4C8B99008FC9AB /* MessageAlertViewController.xib in Resources */,
 				683FFB451C296288002A1AFE /* BeautifulImageViewController.xib in Resources */,
@@ -2615,6 +2652,7 @@
 				AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */,
 				68123BA21C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.m in Sources */,
 				68134A3E1C3CFE44003C1C10 /* AccountBindViewController.m in Sources */,
+				68B10CBA1C785659005866C1 /* SearchProductCaseDataManager.m in Sources */,
 				6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */,
 				68134A551C44D097003C1C10 /* MultipleLineTextTableViewCell.m in Sources */,
 				6836690D1BFF183F006A5053 /* PriceItem.m in Sources */,
@@ -2635,12 +2673,14 @@
 				6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */,
 				683A6B641C0F01190071DF88 /* PayNotificationCell.m in Sources */,
 				6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */,
+				68B10CB91C785659005866C1 /* SearchDesignerDataManager.m in Sources */,
 				68123B9D1C47D15C008FC9AB /* JYZSocialSnsConfig.m in Sources */,
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */,
 				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				68123BB41C47D1CC008FC9AB /* JYZSocialSnsHelper.m in Sources */,
+				68B10CBD1C78686E005866C1 /* ProductCaseListDataManager.m in Sources */,
 				684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */,
 				68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */,
 				683FFB191C280681002A1AFE /* GetBeautifulImageHomepage.m in Sources */,
@@ -2764,6 +2804,7 @@
 				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.m in Sources */,
 				6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */,
 				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
+				68B10CB01C781C10005866C1 /* SearchViewController.m in Sources */,
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
 				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
 				68123C601C4C8B99008FC9AB /* OverlayView.m in Sources */,
@@ -2774,6 +2815,7 @@
 				684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */,
 				682E050F1C58BDA700F1ACAA /* PlanPriceDetailViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
+				68B10CB81C785659005866C1 /* SearchBeautifulImageDataManager.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
 				684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */,
 				684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */,

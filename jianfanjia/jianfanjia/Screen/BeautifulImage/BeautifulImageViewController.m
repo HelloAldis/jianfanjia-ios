@@ -37,7 +37,6 @@ static NSMutableArray *decStyleDS;
 @property (weak, nonatomic) IBOutlet UILabel *lblNoData;
 
 @property (strong, nonatomic) DropdownMenuView *dropdownMenu;
-@property (assign, nonatomic) BOOL isShowDropdown;
 @property (assign, nonatomic) BeautifulImageType beautifulImageType;
 @property (strong, nonatomic) NSString *curBeautifulImageTypeSpace;
 @property (strong, nonatomic) NSString *curBeautifulImageTypeHouse;
