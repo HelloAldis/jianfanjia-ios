@@ -6,8 +6,8 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "ProductListViewController.h"
-#import "HomePageDesignerCell.h"
+#import "ProductCaseListViewController.h"
+#import "ProductCaseCell.h"
 #import "DropdownMenuView.h"
 
 typedef NS_ENUM(NSInteger, DesignFilterType) {
@@ -16,9 +16,9 @@ typedef NS_ENUM(NSInteger, DesignFilterType) {
     DesignFilterTypeStyle,
 };
 
-static NSString *HomePageDesignerCellIdentifier = @"HomePageDesignerCell";
+static NSString *ProductCaseCellIdentifier = @"ProductCaseCell";
 
-@interface ProductListViewController ()
+@interface ProductCaseListViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -37,7 +37,7 @@ static NSString *HomePageDesignerCellIdentifier = @"HomePageDesignerCell";
 
 @end
 
-@implementation ProductListViewController
+@implementation ProductCaseListViewController
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -62,7 +62,7 @@ static NSString *HomePageDesignerCellIdentifier = @"HomePageDesignerCell";
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.tableView registerNib:[UINib nibWithNibName:HomePageDesignerCellIdentifier bundle:nil] forCellReuseIdentifier:HomePageDesignerCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:ProductCaseCellIdentifier bundle:nil] forCellReuseIdentifier:ProductCaseCellIdentifier];
     
     @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -84,7 +84,7 @@ static NSString *HomePageDesignerCellIdentifier = @"HomePageDesignerCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    HomePageDesignerCell *cell = [self.tableView dequeueReusableCellWithIdentifier:HomePageDesignerCellIdentifier];
+    ProductCaseCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductCaseCellIdentifier];
     [cell initWith:[[DataManager shared].homePageDesigners objectAtIndex:indexPath.row]];
     return cell;
 }

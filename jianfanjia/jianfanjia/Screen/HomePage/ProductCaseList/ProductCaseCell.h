@@ -1,5 +1,5 @@
 //
-//  HomePageRecDesignersCell.h
+//  HomePageDesignerCell.h
 //  jianfanjia
 //
 //  Created by JYZ on 15/10/28.
@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomePageRecDesignersCell : UITableViewCell
+@interface ProductCaseCell : UITableViewCell
 
-- (void)initWithDesigners:(NSArray *)designers;
+- (void)initWith:(Designer *)designer;
 
 @end

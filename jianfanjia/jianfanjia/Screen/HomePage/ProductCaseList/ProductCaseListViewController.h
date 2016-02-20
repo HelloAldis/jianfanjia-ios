@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface ProductListViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+@interface ProductCaseListViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @end

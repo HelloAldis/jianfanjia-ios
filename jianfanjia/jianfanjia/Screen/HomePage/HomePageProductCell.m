@@ -65,7 +65,7 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
 }
 
 - (IBAction)onClickAllProduct:(id)sender {
-    [ViewControllerContainer showProductList];
+    [ViewControllerContainer showProductCaseList];
 }
 
 @end
