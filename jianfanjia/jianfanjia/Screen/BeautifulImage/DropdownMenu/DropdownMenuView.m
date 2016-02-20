@@ -105,20 +105,21 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
 }
 
 - (void)show {
+    self.isShowing = YES;
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
         self.collectionView.frame = CGRectMake(0, 0, self.bounds.size.width, self.height);
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     } completion:^(BOOL finished) {
-        self.isShowing = YES;
+        
     }];
 }
 
 - (void)dismiss {
+    self.isShowing = NO;
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
         self.collectionView.frame = CGRectMake(0, 0, self.bounds.size.width, 0);
     } completion:^(BOOL finished) {
-        self.isShowing = NO;
         [self removeFromSuperview];
     }];
 }

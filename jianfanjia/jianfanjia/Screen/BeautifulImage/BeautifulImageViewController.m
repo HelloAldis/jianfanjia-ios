@@ -309,7 +309,7 @@ static NSMutableArray *decStyleDS;
         NSInteger count = [self.dataManager refreshBeautifulImages];
         
         if (count == 0) {
-            [self handleNoFavoriateBeautifulImage];
+            [self handleNoBeautifulImage];
         } else if (request.limit.integerValue > count) {
             [self.imgCollection.footer noticeNoMoreData];
         }
@@ -363,7 +363,7 @@ static NSMutableArray *decStyleDS;
     self.noDataImageView.hidden = YES;
 }
 
-- (void)handleNoFavoriateBeautifulImage {
+- (void)handleNoBeautifulImage {
     self.lblNoData.text = @"没有找到任何匹配的美图";
     self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_beautiful_image"];
     self.lblNoData.hidden = NO;

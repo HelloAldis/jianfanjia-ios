@@ -186,6 +186,10 @@ static NSDictionary *businessTypeDict = nil;
     return businessTypeDict;
 }
 
++ (NSDictionary *)getAllDesignFee {
+    return desginFeeDict;
+}
+
 + (NSString *)nameForUserType:(NSString *)type {
     return [userType objectForKey:type];
 }

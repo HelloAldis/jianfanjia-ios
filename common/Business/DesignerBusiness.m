@@ -31,6 +31,26 @@
     }
 }
 
++ (void)setIdCardCheck:(UIImageView *)imageView withAuthType:(NSString *)authType {
+    UIImage *img = [UIImage imageNamed:@"icon_id_card_checked"];
+    [imageView setImage:img];
+    if ([kAuthTypeVerifyPass isEqualToString:authType]) {
+        imageView.tintColor = [UIColor colorWithR:0x00 g:0xBF b:0x42];
+    } else {
+        imageView.tintColor = kUntriggeredColor;
+    }
+}
+
++ (void)setBaseInfoCheck:(UIImageView *)imageView withAuthType:(NSString *)authType {
+    UIImage *img = [UIImage imageNamed:@"icon_base_info_checked"];
+    [imageView setImage:img];
+    if ([kAuthTypeVerifyPass isEqualToString:authType]) {
+        imageView.tintColor = [UIColor colorWithR:0x00 g:0xBF b:0x42];
+    } else {
+        imageView.tintColor = kUntriggeredColor;
+    }
+}
+
 + (NSInteger)setStars:(NSArray *)imageViewArray withTouchStar:(UIImageView *)touchedStar fullStar:(UIImage *)full emptyStar:(UIImage *)empty {
     __block NSInteger touchIndex = imageViewArray.count - 1;
     [imageViewArray enumerateObjectsUsingBlock:^(UIImageView*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

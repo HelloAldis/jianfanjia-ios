@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kDesignerSimpleInfoCellHeight 166
+
 @interface DesignerSimpleInfoCell : UITableViewCell
 
 - (void)initWithDesigner:(Designer *)designer;

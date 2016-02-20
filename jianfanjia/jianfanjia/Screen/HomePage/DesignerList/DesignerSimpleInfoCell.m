@@ -11,19 +11,17 @@
 
 @interface DesignerSimpleInfoCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;
-@property (weak, nonatomic) IBOutlet UILabel *lblUserName;
-@property (weak, nonatomic) IBOutlet UIImageView *imgUserGender;
-@property (weak, nonatomic) IBOutlet UIImageView *imgHomeOwner;
-@property (weak, nonatomic) IBOutlet UILabel *lblCellNameVal;
-@property (weak, nonatomic) IBOutlet UILabel *lblStatus;
-@property (weak, nonatomic) IBOutlet UILabel *lblRequirementfInfo;
-@property (weak, nonatomic) IBOutlet UILabel *lblUpdateTimeVal;
-@property (weak, nonatomic) IBOutlet UIButton *btnEditRequirement;
-@property (weak, nonatomic) IBOutlet UIButton *btnViewAgreement;
-@property (weak, nonatomic) IBOutlet UILabel *lblViewAgreement;
-@property (weak, nonatomic) IBOutlet UIImageView *iconViewAgreement;
-@property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
-@property (weak, nonatomic) IBOutlet UIButton *btnContact;
+@property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
+@property (weak, nonatomic) IBOutlet UILabel *lblDesignerName;
+@property (weak, nonatomic) IBOutlet UIImageView *imgIdCardChecked;
+@property (weak, nonatomic) IBOutlet UIImageView *imgBaseInfoChecked;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *evaluatedStars;
+@property (weak, nonatomic) IBOutlet UILabel *lblHouseTypeVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblStyleVal;
+
+@property (weak, nonatomic) IBOutlet UILabel *lblProductCountVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblOrderedCountVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblDesignFeeVal;
 
 @property (strong, nonatomic) Designer *designer;
 
@@ -32,14 +30,33 @@
 @implementation DesignerSimpleInfoCell
 
 - (void)awakeFromNib {
-    [self.imgHomeOwner setCornerRadius:self.imgHomeOwner.bounds.size.width / 2];
+    [self.imgAvatar setCornerRadius:self.imgAvatar.bounds.size.width / 2];
+    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapCell)]];
 }
 
 - (void)initWithDesigner:(Designer *)designer {
-
+    self.designer = designer;
+    [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
+    self.lblDesignerName.text = designer.username;
+    self.lblHouseTypeVal.text = [[designer.dec_house_types map:^id(id obj) {
+        return [NameDict nameForHouseType:obj];
+    }] join:@"   "];
+    self.lblStyleVal.text = [[designer.dec_styles map:^id(id obj) {
+        return [NameDict nameForDecStyle:obj];
+    }] join:@"   "];
+    
+    self.lblProductCountVal.text = [designer.authed_product_count stringValue];
+    self.lblOrderedCountVal.text = [designer.order_count stringValue];
+    self.lblDesignFeeVal.text = [NameDict nameForDesignerFee:designer.design_fee_range];
+    
+    [DesignerBusiness setIdCardCheck:self.imgIdCardChecked withAuthType:designer.uid_auth_type];
+    [DesignerBusiness setBaseInfoCheck:self.imgBaseInfoChecked withAuthType:designer.auth_type];
+    [DesignerBusiness setStars:self.evaluatedStars withStar:(designer.respond_speed.floatValue +  designer.service_attitude.floatValue) / 2 fullStar:[UIImage imageNamed:@"star_small"] emptyStar:[UIImage imageNamed:@"star_small_empty"]];
 }
 
-#pragma mark - user action
-
+#pragma mark - gesture
+- (void)onTapCell {
+    [ViewControllerContainer showDesigner:self.designer._id];
+}
 
 @end

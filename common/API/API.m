@@ -234,7 +234,7 @@ static AFHTTPRequestOperationManager *_manager;
 }
 
 + (void)searchDesigner:(SearchDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer/search" data:request.data handler:request success:success failure:failure networkError:error];
+    [API POST:@"search_designer" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
 + (void)searchProduct:(SearchProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {

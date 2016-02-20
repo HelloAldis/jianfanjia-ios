@@ -12,6 +12,8 @@
 
 + (void)setStars:(NSArray *)imageViewArray withStar:(double)star fullStar:(UIImage *)full emptyStar:(UIImage *)empty;
 + (void)setV:(UIImageView *)imageView withAuthType:(NSString *)authType;
++ (void)setIdCardCheck:(UIImageView *)imageView withAuthType:(NSString *)authType;
++ (void)setBaseInfoCheck:(UIImageView *)imageView withAuthType:(NSString *)authType;
 + (NSInteger)setStars:(NSArray *)imageViewArray withTouchStar:(UIImageView *)touchedStar fullStar:(UIImage *)full emptyStar:(UIImage *)empty ;
 + (void)displayStars:(NSArray *)imageViewArray withAmount:(NSInteger)amount fullStar:(UIImage *)full emptyStar:(UIImage *)empty;
 

@@ -36,6 +36,7 @@
 @dynamic service_attitude;
 @dynamic respond_speed;
 @dynamic auth_type;
+@dynamic uid_auth_type;
 @dynamic match;
 
 
