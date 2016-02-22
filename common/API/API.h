@@ -9,7 +9,26 @@
 #import <Foundation/Foundation.h>
 #import "Request.h"
 
-extern NSString * const kApiUrl;
+#if defined PRO
+// Product 中的配置
+#define kApiUrl @"http://www.jianfanjia.com/api/v2/app/"
+
+#elif defined TEST
+// Test 中的配置
+#define kApiUrl @"http://dev.jianfanjia.com:8888/api/v2/app/"
+
+#elif defined DEBUG
+// Dev 中的配置
+#define kApiUrl @"http://dev.jianfanjia.com/api/v2/app/"
+
+#endif
+
+#ifndef kApiUrl
+// 默认的使用 product 中的配置
+#define kApiUrl @"http://www.jianfanjia.com/api/v2/app/"
+
+#endif
+
 
 @interface API : NSObject
 
