@@ -241,6 +241,7 @@
 		68B10CBD1C78686E005866C1 /* ProductCaseListDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */; };
 		68B10CC31C7AB3AB005866C1 /* DecStrategyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC11C7AB3AB005866C1 /* DecStrategyViewController.m */; };
 		68B10CC41C7AB3AB005866C1 /* DecStrategyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */; };
+		68B10CC71C7B1A3F005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C25A1C75891F00EEEBD8 /* HomePageQuickEntryCell.m */; };
 		68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C3C25B1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib */; };
@@ -817,6 +818,8 @@
 		68B10CC01C7AB3AB005866C1 /* DecStrategyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecStrategyViewController.h; sourceTree = "<group>"; };
 		68B10CC11C7AB3AB005866C1 /* DecStrategyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecStrategyViewController.m; sourceTree = "<group>"; };
 		68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecStrategyViewController.xib; sourceTree = "<group>"; };
+		68B10CC51C7B1A3F005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
+		68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1849,6 +1852,8 @@
 				AB5F1EC51C0C8B32009203DF /* UIImagePickerController+Ex.m */,
 				6857265B1C30E472006F6188 /* NSDictionary+Ex.h */,
 				6857265C1C30E472006F6188 /* NSDictionary+Ex.m */,
+				68B10CC51C7B1A3F005866C1 /* ProgressWebView.h */,
+				68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -2782,6 +2787,7 @@
 				684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */,
 				683626951C05545E005F2C30 /* StartDecorationProcess.m in Sources */,
 				6E6D98C01BE0637700D45F77 /* Product.m in Sources */,
+				68B10CC71C7B1A3F005866C1 /* ProgressWebView.m in Sources */,
 				6EE1E4201C0594CF00883184 /* ListFavoriteDesigner.m in Sources */,
 				68C3C2611C7598FE00EEEBD8 /* HomePageQuickEntryItem.m in Sources */,
 				684A37671BFDE24900F7388C /* EvaluateDesignerViewController.m in Sources */,

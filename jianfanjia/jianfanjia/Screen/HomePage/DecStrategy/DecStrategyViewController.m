@@ -9,12 +9,14 @@
 #import "DecStrategyViewController.h"
 #import <SafariServices/SafariServices.h>
 #import <Foundation/Foundation.h>
+#import "ProgressWebView.h"
+
 @import WebKit;
 
 static NSString *MessageModel = @"DecStrategy";
 
 @interface DecStrategyViewController () <WKNavigationDelegate, WKScriptMessageHandler>
-@property (strong, nonatomic) WKWebView *webView;
+@property (strong, nonatomic) ProgressWebView *webView;
 
 @end
 
@@ -34,11 +36,11 @@ static NSString *MessageModel = @"DecStrategy";
     [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
     self.navigationItem.rightBarButtonItem.enabled = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 #pragma mark - load page
 - (void)loadPage {
-    self.automaticallyAdjustsScrollViewInsets = NO;
     NSString *source = [NSString stringWithFormat:@"function sendMessageToNative(msg) {window.webkit.messageHandlers.%@.postMessage(msg);}", MessageModel];
     WKUserScript *script = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
     // Create the user content controller and add the script to it
@@ -49,7 +51,7 @@ static NSString *MessageModel = @"DecStrategy";
     WKWebViewConfiguration *configuration = [WKWebViewConfiguration new];
     configuration.userContentController = userContentController;
     // Create the web view with the configuration
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
+    self.webView = [[ProgressWebView alloc] initWithFrame:CGRectZero configuration:configuration];
     _webView.translatesAutoresizingMaskIntoConstraints = NO;
     _webView.allowsBackForwardNavigationGestures = YES;
     _webView.navigationDelegate = self;
@@ -57,13 +59,11 @@ static NSString *MessageModel = @"DecStrategy";
     // Add the constraints
     NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
     
-    NSInteger bottomDistance = 0;
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-64-[_webView]-%@-|", @(bottomDistance)] options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[_webView]-0-|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kMApiUrl];
     NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", @"/view/article/"];
-    
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
 

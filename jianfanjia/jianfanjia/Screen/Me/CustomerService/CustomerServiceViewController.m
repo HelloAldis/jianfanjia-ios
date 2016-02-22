@@ -8,6 +8,8 @@
 
 #import "CustomerServiceViewController.h"
 #import <SafariServices/SafariServices.h>
+#import "ProgressWebView.h"
+
 @import WebKit;
 
 static NSString *CustomerServiceLink = @"http://chat16.live800.com/live800/chatClient/chatbox.jsp?companyID=611886&configID=139921&jid=3699665419";
@@ -15,7 +17,7 @@ static CustomerServiceViewController *controller;
 static BOOL isReload;
 
 @interface CustomerServiceViewController () <WKNavigationDelegate>
-@property (strong, nonatomic) WKWebView *webView;
+@property (strong, nonatomic) ProgressWebView *webView;
 @property (strong, nonatomic) NSURLRequest *request;
 
 @end
@@ -69,7 +71,7 @@ static BOOL isReload;
     WKWebViewConfiguration *configuration = [WKWebViewConfiguration new];
     configuration.userContentController = userContentController;
     // Create the web view with the configuration
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
+    self.webView = [[ProgressWebView alloc] initWithFrame:CGRectZero configuration:configuration];
     _webView.translatesAutoresizingMaskIntoConstraints = NO;
     _webView.navigationDelegate = self;
     [self.view addSubview:_webView];

@@ -9,10 +9,12 @@
 #import "AgreementViewController.h"
 #import <SafariServices/SafariServices.h>
 #import <Foundation/Foundation.h>
+#import "ProgressWebView.h"
+
 @import WebKit;
 
 @interface AgreementViewController () <WKNavigationDelegate>
-@property (strong, nonatomic) WKWebView *webView;
+@property (strong, nonatomic) ProgressWebView *webView;
 @property (weak, nonatomic) IBOutlet UIButton *btnConfirm;
 
 @property (strong, nonatomic) Requirement *requirement;
@@ -92,7 +94,7 @@
     WKWebViewConfiguration *configuration = [WKWebViewConfiguration new];
     configuration.userContentController = userContentController;
     // Create the web view with the configuration
-    self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
+    self.webView = [[ProgressWebView alloc] initWithFrame:CGRectZero configuration:configuration];
     _webView.translatesAutoresizingMaskIntoConstraints = NO;
     _webView.allowsBackForwardNavigationGestures = YES;
     _webView.navigationDelegate = self;
