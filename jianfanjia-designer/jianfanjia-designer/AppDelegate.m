@@ -79,13 +79,13 @@
     
     [DDLog addLogger:fileLogger];
     
-//#ifdef DEBUG
+#ifdef DEBUG
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
     
     [[AFNetworkActivityLogger sharedLogger] startLogging];
     [[AFNetworkActivityLogger sharedLogger] setLevel:AFLoggerLevelDebug];
-//#endif
+#endif
 }
 
 #pragma mark - 第三方统计
