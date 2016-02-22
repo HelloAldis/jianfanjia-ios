@@ -114,22 +114,34 @@ if [[ $build_target = $user_build_target ]]; then
   echo "update to new version $newVersion";
   updateVersion $user_info_plist $newVersion
 
-  echo '-----------git status here ------------'
-  git status
-  echo '-----------git status end--------------'
+#  echo '-----------git status here ------------'
+#  git status
+#  echo '-----------git status end--------------'
+
+  #remove the old file if exsited
+  rm "$user_package_path/$build_type/$newVersion/$user_ipa_file"
 
   if [[ $build_type = $debug_build_type ]]; then
     echo 'build user dev build now, please wait.................'
     ipa build -w $user_workspace -c Debug -s $user_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS DEBUG=1 COCOAPODS=1"' -d "$user_package_path/debug/$newVersion" --ipa $user_ipa_file
-    ipa info "$user_package_path/debug/$newVersion/$user_ipa_file"
   elif [[ $build_type = $test_build_type ]]; then
     echo 'build user test build now, please wait.................'
     ipa build -w $user_workspace -c Release -s $user_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$user_package_path/test/$newVersion" --ipa $user_ipa_file
-    ipa info "$user_package_path/test/$newVersion/$user_ipa_file"
   elif [[ $build_type = $pro_build_type ]]; then
     echo 'build user pro build now, please wait.................'
     ipa build -w $user_workspace -c Release -s $user_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$user_package_path/pro/$newVersion" --ipa $user_ipa_file
-    ipa info "$user_package_path/pro/$newVersion/$user_ipa_file"
+  fi
+
+  ipa info "$user_package_path/$build_type/$newVersion/$user_ipa_file"
+  if [[ -e "$user_package_path/$build_type/$newVersion/$user_ipa_file" ]]; then
+    echo 'build ipa successfully, commit code and tag'
+    git commit -am "update user build to version  $newVersion"
+    git push
+    git tag "user_$newVersion"
+    git push origin "user_$newVersion"
+  else
+    echo 'build ipa failed, rollback info'
+    git checkout $user_info_plist
   fi
 
 elif [[ $build_target = $profession_build_target ]]; then
@@ -147,18 +159,30 @@ elif [[ $build_target = $profession_build_target ]]; then
 #  git status
 #  echo '-----------git status end--------------'
 
+  #remove the old file if exsited
+  rm "$profession_packages_path/$build_type/$newVersion/$profession_ipa_file"
+
   if [[ $build_type = $debug_build_type ]]; then
     echo 'build profession dev build now, please wait.................'
     ipa build -w $profession_workspace -c Debug -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS DEBUG=1 COCOAPODS=1"' -d "$profession_packages_path/debug/$newVersion" --ipa $profession_ipa_file
-    ipa info "$profession_packages_path/debug/$newVersion/$profession_ipa_file"
   elif [[ $build_type = $test_build_type ]]; then
     echo 'build profession test build now, please wait.................'
     ipa build -w $profession_workspace -c Release -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$profession_packages_path/test/$newVersion" --ipa $profession_ipa_file
-    ipa info "$profession_packages_path/test/$newVersion/$profession_ipa_file"
   elif [[ $build_type = $pro_build_type ]]; then
     echo 'build profession pro build now, please wait.................'
     ipa build -w $profession_workspace -c Release -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$profession_packages_path/pro/$newVersion" --ipa $profession_ipa_file
-    ipa info "$profession_packages_path/pro/$newVersion/$profession_ipa_file"
+  fi
+
+  ipa info "$profession_packages_path/$build_type/$newVersion/$profession_ipa_file"
+  if [[ -e "$profession_packages_path/$build_type/$newVersion/$profession_ipa_file" ]]; then
+    echo 'build ipa successfully, commit code and tag'
+    git commit -am "update profession build to version  $newVersion"
+    git push
+    git tag "profession_$newVersion"
+    git push origin "profession_$newVersion"
+  else
+    echo 'build ipa failed, rollback info'
+    git checkout $profession_info_plist
   fi
 
 fi
