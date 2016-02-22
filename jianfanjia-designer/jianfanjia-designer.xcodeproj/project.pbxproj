@@ -263,6 +263,7 @@
 		682E04FD1C588A6100F1ACAA /* NoRequirementImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E04FB1C588A6100F1ACAA /* NoRequirementImageView.m */; };
 		682E04FE1C588A6100F1ACAA /* NoRequirementImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682E04FC1C588A6100F1ACAA /* NoRequirementImageView.xib */; };
 		68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68425C2F1C55B0CC004D33F4 /* DesignerDoneSectionItem.m */; };
+		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
 		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
 		68FB6ED21C50DC81001C0613 /* SetWorksiteStartTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68FB6ED01C50DC80001C0613 /* SetWorksiteStartTimeViewController.xib */; };
@@ -778,6 +779,8 @@
 		682E04FC1C588A6100F1ACAA /* NoRequirementImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoRequirementImageView.xib; sourceTree = "<group>"; };
 		68425C2E1C55B0CC004D33F4 /* DesignerDoneSectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDoneSectionItem.h; sourceTree = "<group>"; };
 		68425C2F1C55B0CC004D33F4 /* DesignerDoneSectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDoneSectionItem.m; sourceTree = "<group>"; };
+		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
+		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68FB6ECE1C50DC80001C0613 /* SetWorksiteStartTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetWorksiteStartTimeViewController.h; sourceTree = "<group>"; };
@@ -1676,6 +1679,8 @@
 				6E378D0B1BDA2D2E00908B77 /* UIImageView+Ex.m */,
 				6E378D0C1BDA2D2E00908B77 /* UIView+Ex.h */,
 				6E378D0D1BDA2D2E00908B77 /* UIView+Ex.m */,
+				68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */,
+				68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -2262,6 +2267,7 @@
 				681241A31C4F3B1C008FC9AB /* MeasuredHouseActionCell.m in Sources */,
 				68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */,
 				68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */,
+				68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */,
 				68123F091C4CBE79008FC9AB /* SelectDecorationStyleViewController.m in Sources */,
 				681240161C4CDA06008FC9AB /* RACStream+Ex.m in Sources */,
 				68123EEA1C4CBE79008FC9AB /* MessageCell.m in Sources */,

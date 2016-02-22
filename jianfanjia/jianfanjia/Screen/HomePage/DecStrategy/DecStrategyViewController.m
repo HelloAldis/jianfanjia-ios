@@ -9,7 +9,6 @@
 #import "DecStrategyViewController.h"
 #import <SafariServices/SafariServices.h>
 #import <Foundation/Foundation.h>
-#import "ProgressWebView.h"
 
 @import WebKit;
 

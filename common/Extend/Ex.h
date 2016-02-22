@@ -26,5 +26,6 @@
 #import "UIButton+Badge.h"
 #import "UIBarButtonItem+Badge.h"
 #import "NSDictionary+Ex.h"
+#import "ProgressWebView.h"
 
 #endif
