@@ -46,6 +46,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
 @property (strong, nonatomic) SearchProductCaseDataManager *productCaseDataManager;
 @property (strong, nonatomic) SearchBeautifulImageDataManager *beautifulDataManager;
 
+@property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) NSString *searchText;
 
 @end
@@ -71,15 +72,17 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
 #pragma mark - UI
 - (void)initNav {
     self.navigationItem.hidesBackButton = YES;
-    UISearchBar *searchBar = [[UISearchBar alloc] init];
-    searchBar.placeholder = @"设计师、案例、美图";
-    searchBar.tintColor = kThemeTextColor;
-    searchBar.showsCancelButton = YES;
-    searchBar.delegate = self;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
     
+    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    searchBar.backgroundImage = [[UIImage alloc] init];
+    searchBar.placeholder = @"设计师、案例、美图";
+    searchBar.delegate = self;
     [searchBar sizeToFit];
     [searchBar becomeFirstResponder];
     self.navigationItem.titleView = searchBar;
+    self.searchBar = searchBar;
 }
 
 - (void)initUI {
@@ -123,11 +126,6 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
     self.headerView.hidden = NO;
     self.searchText = searchBar.text;
     [self search];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
-    [self clickBack];
 }
 
 #pragma mark - table view delegate
@@ -222,6 +220,11 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
     
     [label setTextColor:highlight ? kThemeColor : kUntriggeredColor];
     [imgView setImage:[UIImage imageNamed:highlight ? @"angle_expand" : @"angle_unexpand" ]];
+}
+
+- (void)onClickBack {
+    [self.searchBar resignFirstResponder];
+    [super onClickBack];
 }
 
 #pragma mark - api request
