@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BeautifulImageHomePageProtocol.h"
 
-@interface SearchBeautifulImageDataManager : NSObject
+@interface SearchBeautifulImageDataManager : NSObject <BeautifulImageHomePageDataManagerProtocol>
 
 @property (nonatomic, strong) NSMutableArray *beautifulImages;
 
-- (NSInteger)refresh;
-- (NSInteger)loadMore;
+- (NSInteger)refreshBeautifulImages;
+- (NSInteger)loadMoreBeautifulImages;
 
 @end

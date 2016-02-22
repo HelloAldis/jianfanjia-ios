@@ -38,7 +38,7 @@
 @property (nonatomic, assign) BOOL hasMoreBeautifulImage;
 
 @property (strong, nonatomic) id<BeautifulImageHomePageDataManagerProtocol> dataManager;
-@property (strong, nonatomic) NSDictionary *queryDic;
+@property (strong, nonatomic) BaseRequest<BeautifulImageHomePageLoadMoreRequestProtocol> *loadMoreRequest;
 @property (copy, nonatomic) HomePageDismissBlock dismissBlock;
 
 @property (nonatomic, strong) NSNumber *pageNumber;
@@ -48,11 +48,11 @@
 @implementation BeautifulImageHomePageViewController
 
 #pragma mark - init method
-- (id)initWithDataManager:(id<BeautifulImageHomePageDataManagerProtocol>)dataManager index:(NSInteger)index queryDic:(NSDictionary *)queryDic dismissBlock:(HomePageDismissBlock)dismissBlock {
+- (id)initWithDataManager:(id<BeautifulImageHomePageDataManagerProtocol>)dataManager index:(NSInteger)index loadMore:(BaseRequest<BeautifulImageHomePageLoadMoreRequestProtocol> *)loadMoreRequest dismissBlock:(HomePageDismissBlock)dismissBlock {
     if (self = [super init]) {
         _index = index;
         _dataManager = dataManager;
-        _queryDic = queryDic;
+        _loadMoreRequest = loadMoreRequest;
         _beautifulImages = dataManager.beautifulImages;
         _beautifulImage = _beautifulImages[index];
         _total = _beautifulImages.count;
@@ -388,13 +388,9 @@
     [HUDUtil showWait:@"更多美图加载中..."];
     self.isGettingHomepage = YES;
     
-    if (self.queryDic) {
-        SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
-        request.query = self.queryDic;
-        request.from = @(self.dataManager.beautifulImages.count);
-        request.limit = self.pageNumber;
-        
-        [API searchBeautifulImage:request success:^{
+    if ([self.loadMoreRequest isKindOfClass:[SearchBeautifulImage class]]) {
+        [self.loadMoreRequest setFrom:@(self.dataManager.beautifulImages.count)];
+        [API searchBeautifulImage:(SearchBeautifulImage *)self.loadMoreRequest success:^{
             [self resetData];
             [self reloadAllImage];
             [HUDUtil hideWait];
@@ -406,13 +402,10 @@
             [HUDUtil hideWait];
             self.isGettingHomepage = NO;
         }];
-    } else {
-        ListFavoriateBeautifulImage *request = [[ListFavoriateBeautifulImage alloc] init];
-        request.from = @(self.dataManager.beautifulImages.count);
-        request.limit = self.pageNumber;
-        
+    } else if ([self.loadMoreRequest isKindOfClass:[ListFavoriateBeautifulImage class]]) {
+        [self.loadMoreRequest setFrom:@(self.dataManager.beautifulImages.count)];
         @weakify(self);
-        [API listFavoriateBeautifulImage:request success:^{
+        [API listFavoriateBeautifulImage:(ListFavoriateBeautifulImage *)self.loadMoreRequest success:^{
             @strongify(self);
             [self resetData];
             [self reloadAllImage];

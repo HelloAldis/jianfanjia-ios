@@ -255,7 +255,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.favoriateBeautifulImageData index:indexPath.row queryDic:nil dismissBlock:^(NSInteger index) {
+    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.favoriateBeautifulImageData index:indexPath.row loadMore:[self loadMoreBeautifulImageRequest] dismissBlock:^(NSInteger index) {
         [self.beautifulImageCollectionView reloadData];
         [self.beautifulImageCollectionView layoutIfNeeded];
         UICollectionViewLayoutAttributes *layoutAttributes = self.flowLayout.allItemAttributes[index];
@@ -447,9 +447,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 }
 
 - (void)loadMoreFavoriateBeautifulImage {
-    ListFavoriateBeautifulImage *request = [[ListFavoriateBeautifulImage alloc] init];
-    request.from = @(self.favoriateBeautifulImageData.beautifulImages.count);
-    request.limit = @20;
+    ListFavoriateBeautifulImage *request = [self loadMoreBeautifulImageRequest];
     
     @weakify(self);
     [API listFavoriateBeautifulImage:request success:^{
@@ -466,6 +464,14 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     } networkError:^{
         [self.beautifulImageCollectionView.footer endRefreshing];
     }];
+}
+
+- (ListFavoriateBeautifulImage *)loadMoreBeautifulImageRequest {
+    ListFavoriateBeautifulImage *request = [[ListFavoriateBeautifulImage alloc] init];
+    request.from = @(self.favoriateBeautifulImageData.beautifulImages.count);
+    request.limit = @20;
+    
+    return request;
 }
 
 - (void)handleAfterDeleteFavoriateBeautifulImage:(FavoriateBeautifulImageCell *)cell {

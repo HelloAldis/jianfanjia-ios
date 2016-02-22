@@ -7,8 +7,9 @@
 //
 
 #import "BaseRequest.h"
+#import "BeautifulImageHomePageProtocol.h"
 
-@interface ListFavoriateBeautifulImage : BaseRequest
+@interface ListFavoriateBeautifulImage : BaseRequest <BeautifulImageHomePageLoadMoreRequestProtocol>
 
 @property (assign, nonatomic) NSNumber *from;
 @property (assign, nonatomic) NSNumber *limit;

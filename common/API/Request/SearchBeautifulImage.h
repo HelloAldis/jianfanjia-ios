@@ -7,8 +7,9 @@
 //
 
 #import "BaseRequest.h"
+#import "BeautifulImageHomePageProtocol.h"
 
-@interface SearchBeautifulImage : BaseRequest
+@interface SearchBeautifulImage : BaseRequest <BeautifulImageHomePageLoadMoreRequestProtocol>
 
 @property (nonatomic, strong) NSDictionary *query;
 @property (nonatomic, strong) NSDictionary *sort;

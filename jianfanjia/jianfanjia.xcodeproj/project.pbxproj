@@ -811,6 +811,7 @@
 		68B10CB71C785659005866C1 /* SearchProductCaseDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchProductCaseDataManager.m; sourceTree = "<group>"; };
 		68B10CBB1C78686E005866C1 /* ProductCaseListDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCaseListDataManager.h; sourceTree = "<group>"; };
 		68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCaseListDataManager.m; sourceTree = "<group>"; };
+		68B10CBE1C7AACE9005866C1 /* BeautifulImageHomePageProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautifulImageHomePageProtocol.h; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1416,6 +1417,7 @@
 		683FFB3D1C296288002A1AFE /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				68B10CBE1C7AACE9005866C1 /* BeautifulImageHomePageProtocol.h */,
 				683FFB3E1C296288002A1AFE /* BeautifulImageHomePageViewController.h */,
 				683FFB3F1C296288002A1AFE /* BeautifulImageHomePageViewController.m */,
 				683FFB401C296288002A1AFE /* BeautifulImageHomePageViewController.xib */,

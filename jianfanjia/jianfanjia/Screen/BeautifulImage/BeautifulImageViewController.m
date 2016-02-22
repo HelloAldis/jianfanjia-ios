@@ -181,7 +181,7 @@ static NSMutableArray *decStyleDS;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.dataManager index:indexPath.row queryDic:[self getQueryDic] dismissBlock:^(NSInteger index) {
+    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.dataManager index:indexPath.row loadMore:[self loadMoreBeautifulImageRequest] dismissBlock:^(NSInteger index) {
         [self.imgCollection reloadData];
         [self.imgCollection layoutIfNeeded];
         UICollectionViewLayoutAttributes *layoutAttributes = self.imgCollectionLayout.allItemAttributes[index];
@@ -322,10 +322,7 @@ static NSMutableArray *decStyleDS;
 }
 
 - (void)loadMoreBeautifulImage {
-    SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
-    request.query = [self getQueryDic];
-    request.from = @(self.dataManager.beautifulImages.count);
-    request.limit = @20;
+    SearchBeautifulImage *request = [self loadMoreBeautifulImageRequest];
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.footer endRefreshing];
@@ -340,6 +337,15 @@ static NSMutableArray *decStyleDS;
     } networkError:^{
         [self.imgCollection.footer endRefreshing];
     }];
+}
+
+- (SearchBeautifulImage *)loadMoreBeautifulImageRequest {
+    SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
+    request.query = [self getQueryDic];
+    request.from = @(self.dataManager.beautifulImages.count);
+    request.limit = @20;
+    
+    return request;
 }
 
 - (NSDictionary *)getQueryDic {

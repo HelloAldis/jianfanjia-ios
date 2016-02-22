@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BeautifulImageHomePageViewController.h"
+#import "BeautifulImageHomePageProtocol.h"
 
 @interface BeautifulImageDataManager : NSObject <BeautifulImageHomePageDataManagerProtocol>
 

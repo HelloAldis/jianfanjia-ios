@@ -179,13 +179,13 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.beautifulDataManager index:indexPath.row queryDic:[self getQueryDic] dismissBlock:^(NSInteger index) {
-//        [self.imgCollection reloadData];
-//        [self.imgCollection layoutIfNeeded];
-//        UICollectionViewLayoutAttributes *layoutAttributes = self.imgCollectionLayout.allItemAttributes[index];
-//        [self.imgCollection scrollRectToVisible:layoutAttributes.frame animated:YES];
-//    }];
-//    [self.navigationController pushViewController:controller animated:YES];
+    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.beautifulDataManager index:indexPath.row loadMore:[self loadMoreBeautifulImageRequest] dismissBlock:^(NSInteger index) {
+        [self.imgCollection reloadData];
+        [self.imgCollection layoutIfNeeded];
+        UICollectionViewLayoutAttributes *layoutAttributes = self.imgCollectionLayout.allItemAttributes[index];
+        [self.imgCollection scrollRectToVisible:layoutAttributes.frame animated:YES];
+    }];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (CGFloat)fallFlowLayout:(CollectionFallsFlowLayout *)layout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath {
@@ -397,7 +397,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.header endRefreshing];
-        NSInteger count = [self.beautifulDataManager refresh];
+        NSInteger count = [self.beautifulDataManager refreshBeautifulImages];
         
         if (count == 0) {
             [self handleNoBeautifulImage];
@@ -414,14 +414,11 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
 }
 
 - (void)loadMoreBeautifulImage {
-    SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
-    request.search_word = self.searchText;
-    request.from = @(self.beautifulDataManager.beautifulImages.count);
-    request.limit = @20;
+    SearchBeautifulImage *request = [self loadMoreBeautifulImageRequest];
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.footer endRefreshing];
-        NSInteger count = [self.beautifulDataManager loadMore];
+        NSInteger count = [self.beautifulDataManager loadMoreBeautifulImages];
         if (request.limit.integerValue > count) {
             [self.imgCollection.footer noticeNoMoreData];
         }
@@ -432,6 +429,15 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
     } networkError:^{
         [self.imgCollection.footer endRefreshing];
     }];
+}
+
+- (SearchBeautifulImage *)loadMoreBeautifulImageRequest {
+    SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
+    request.search_word = self.searchText;
+    request.from = @(self.beautifulDataManager.beautifulImages.count);
+    request.limit = @20;
+    
+    return request;
 }
 
 - (void)handleNoBeautifulImage {
