@@ -229,6 +229,14 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"search_beautiful_image" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)searchDesigner:(SearchDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"search_designer" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)searchProduct:(SearchProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"search_designer_product" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 + (void)listFavoriateProduct:(ListFavoriateProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"favorite/product/list" data:request.data handler:request success:success failure:failure networkError:error];
 }
@@ -270,6 +278,10 @@ static AFHTTPRequestOperationManager *_manager;
 
 + (void)bindWechat:(BindWechat *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"user_bind_wechat" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)getTopProducts:(GetTopProducts *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"top_products" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
 

@@ -14,6 +14,7 @@
 @interface Product : BaseModel
 
 @property (strong, nonatomic) NSString *_id;
+@property (strong, nonatomic) NSString *designerid;
 @property (strong, nonatomic) NSString *province;
 @property (strong, nonatomic) NSString *city;
 @property (strong, nonatomic) NSString *district;

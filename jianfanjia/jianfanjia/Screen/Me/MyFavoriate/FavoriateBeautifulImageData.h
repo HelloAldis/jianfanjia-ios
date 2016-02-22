@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BeautifulImageHomePageViewController.h"
 
-@interface FavoriateBeautifulImageData : NSObject
+@interface FavoriateBeautifulImageData : NSObject <BeautifulImageHomePageDataManagerProtocol>
 
 @property (strong, nonatomic) NSMutableArray *beautifulImages;
 - (NSInteger)refreshBeautifulImages;

@@ -19,7 +19,7 @@
 @implementation BannerCell
 
 - (void)awakeFromNib {
-    NSInteger height = kBannerCellHeight - 8;
+    NSInteger height = kBannerCellHeight;
     UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, height)];
     [w1 setContentMode:UIViewContentModeScaleAspectFill];
     [w1 setClipsToBounds:YES];

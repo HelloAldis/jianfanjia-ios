@@ -53,6 +53,8 @@
 #import "DeleteFavoriateProduct.h"
 #import "AddFavoriateProduct.h"
 #import "SearchBeautifulImage.h"
+#import "SearchDesigner.h"
+#import "SearchProduct.h"
 #import "GetBeautifulImageHomepage.h"
 #import "FavoriteBeautifulImage.h"
 #import "UnfavoriteBeautifulImage.h"
@@ -60,6 +62,7 @@
 #import "RefreshSession.h"
 #import "BindPhone.h"
 #import "BindWechat.h"
+#import "GetTopProducts.h"
 
 #pragma mark - designer request
 

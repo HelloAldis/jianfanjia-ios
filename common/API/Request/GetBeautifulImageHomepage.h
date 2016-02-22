@@ -11,5 +11,7 @@
 @interface GetBeautifulImageHomepage : BaseRequest
 
 @property (nonatomic, strong) NSString *_id;
+@property (nonatomic, strong) NSNumber *previous_count;
+@property (nonatomic, strong) NSNumber *next_count;
 
 @end

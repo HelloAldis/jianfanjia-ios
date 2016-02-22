@@ -61,48 +61,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     
     [self initNav];
     [self initUI];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-//    [self refresh];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    
-    @weakify(self);
-    if (self.processid) {
-        [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid type:kNotificationTypePurchase observer:^(id value) {
-            @strongify(self);
-            [self.btnNotifications[0] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
-        }];
-        
-        [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid type:kNotificationTypePay observer:^(id value) {
-            @strongify(self);
-            [self.btnNotifications[1] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
-        }];
-        
-        [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid type:kNotificationTypeReschedule observer:^(id value) {
-            @strongify(self);
-            [self.btnNotifications[2] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
-        }];
-    } else  {
-        [[NotificationDataManager shared] subscribePurchaseUnreadCount:^(id value) {
-            @strongify(self);
-            [self.btnNotifications[0] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
-        }];
-        
-        [[NotificationDataManager shared] subscribePayUnreadCount:^(id value) {
-            @strongify(self);
-            [self.btnNotifications[1] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
-        }];
-        
-        [[NotificationDataManager shared] subscribeRescheduleUnreadCount:^(id value) {
-            @strongify(self);
-            [self.btnNotifications[2] setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
-        }];
-    }
+    [self initNotification];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -162,6 +121,45 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     }];
     
     [self switchToOtherButton:0];
+}
+
+- (void)initNotification {
+    @weakify(self);
+    if (self.processid) {
+        [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid type:kNotificationTypePurchase observer:^(id value) {
+            @strongify(self);
+            [self setBtn:self.btnNotifications[0] badgeValue:value];
+        }];
+        
+        [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid type:kNotificationTypePay observer:^(id value) {
+            @strongify(self);
+            [self setBtn:self.btnNotifications[1] badgeValue:value];
+        }];
+        
+        [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid type:kNotificationTypeReschedule observer:^(id value) {
+            @strongify(self);
+            [self setBtn:self.btnNotifications[2] badgeValue:value];
+        }];
+    } else  {
+        [[NotificationDataManager shared] subscribePurchaseUnreadCount:^(id value) {
+            @strongify(self);
+            [self setBtn:self.btnNotifications[0] badgeValue:value];
+        }];
+        
+        [[NotificationDataManager shared] subscribePayUnreadCount:^(id value) {
+            @strongify(self);
+            [self setBtn:self.btnNotifications[1] badgeValue:value];
+        }];
+        
+        [[NotificationDataManager shared] subscribeRescheduleUnreadCount:^(id value) {
+            @strongify(self);
+            [self setBtn:self.btnNotifications[2] badgeValue:value];
+        }];
+    }
+}
+
+- (void)setBtn:(UIButton *)btn badgeValue:(NSNumber *)value {
+    [btn setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
 }
 
 #pragma mark - table view delegate

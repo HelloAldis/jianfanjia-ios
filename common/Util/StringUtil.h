@@ -13,6 +13,7 @@
 + (NSString *)convertNil2Empty:(NSString *)aStr;
 + (NSString *)rawImageUrl:(NSString *)imageid;
 + (NSString *)thumbnailImageUrl:(NSString *)imageid width:(NSInteger)width;
++ (NSString *)thumbnailImageUrl:(NSString *)imageid width:(NSInteger)width height:(NSInteger)height;
 + (NSString *)beautifulImageUrl:(NSString *)imageid title:(NSString *)title;
 
 @end

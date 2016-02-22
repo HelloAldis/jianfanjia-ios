@@ -26,6 +26,7 @@
 #import "Schedule.h"
 #import "Notification.h"
 #import "BeautifulImage.h"
+#import "BeautifulImagePosition.h"
 #import "LeafImage.h"
 #import "SnsAccountInfo.h"
 

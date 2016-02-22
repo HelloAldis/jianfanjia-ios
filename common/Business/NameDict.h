@@ -11,6 +11,8 @@
 @interface NameDict : NSObject
 
 + (NSDictionary *)getAllHouseType;
++ (NSDictionary *)getAllDisplayHouseArea;
++ (NSDictionary *)getAllValueHouseArea;
 + (NSDictionary *)getAllDecorationStyle;
 + (NSDictionary *)getAllDecorationType;
 + (NSArray *)getAllPopulationType;
@@ -22,6 +24,7 @@
 + (NSDictionary *)getAllRequirementStatus;
 + (NSArray *)getAllBeautifulImageType;
 + (NSDictionary *)getAllBusinessType;
++ (NSDictionary *)getAllDesignFee;
 
 + (NSString *)nameForUserType:(NSString *)type;
 + (NSString *)nameForHouseType:(NSString *)type;

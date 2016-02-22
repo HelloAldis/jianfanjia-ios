@@ -11,6 +11,8 @@
 @implementation NameDict
 
 static NSDictionary *houseTypeDict = nil;
+static NSDictionary *houseAreaDisplayDict = nil;
+static NSDictionary *houseAreaValueDict = nil;
 static NSDictionary *decStyleDict = nil;
 static NSDictionary *decTypeDict = nil;
 static NSDictionary *desginFeeDict = nil;
@@ -35,6 +37,18 @@ static NSDictionary *businessTypeDict = nil;
                       @"5":@"别墅",
                       @"6":@"LOFT",
                       @"7":@"其他"};
+    
+    houseAreaDisplayDict = @{@"0":@"90m²以下",
+                             @"1":@"90 - 120m²",
+                             @"2":@"120 - 150m²",
+                             @"3":@"150 - 200m²",
+                             @"4":@"200m²以上",};
+    
+    houseAreaValueDict = @{@"0":@"{\"$lt\":90}",
+                           @"1":@"{\"$gte\": 90, \"$lt\":120}",
+                           @"2":@"{\"$gte\": 120, \"$lt\":150}",
+                           @"3":@"{\"$gte\": 150, \"$lt\":200}",
+                           @"4":@"{\"$gte\": 200}",};
     
     decStyleDict = @{@"0":@"欧式",
                      @"1":@"中式",
@@ -142,6 +156,14 @@ static NSDictionary *businessTypeDict = nil;
     return houseTypeDict;
 }
 
++ (NSDictionary *)getAllDisplayHouseArea {
+    return houseAreaDisplayDict;
+}
+
++ (NSDictionary *)getAllValueHouseArea {
+    return houseAreaValueDict;
+}
+
 + (NSDictionary *)getAllDecorationStyle {
     return decStyleDict;
 }
@@ -184,6 +206,10 @@ static NSDictionary *businessTypeDict = nil;
 
 + (NSDictionary *)getAllBusinessType {
     return businessTypeDict;
+}
+
++ (NSDictionary *)getAllDesignFee {
+    return desginFeeDict;
 }
 
 + (NSString *)nameForUserType:(NSString *)type {

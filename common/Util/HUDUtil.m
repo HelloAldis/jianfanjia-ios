@@ -29,6 +29,11 @@
     [MBProgressHUD showHUDAddedTo:[AppDelegate sharedInstance].window animated:YES];
 }
 
++ (void)showWait:(NSString *)text {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[AppDelegate sharedInstance].window animated:YES];
+    hud.labelText = text;
+}
+
 + (void)hideWait {
     [MBProgressHUD hideHUDForView:[AppDelegate sharedInstance].window animated:YES];
 }

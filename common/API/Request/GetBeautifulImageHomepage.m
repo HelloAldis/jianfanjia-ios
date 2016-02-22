@@ -11,5 +11,7 @@
 @implementation GetBeautifulImageHomepage
 
 @dynamic _id;
+@dynamic previous_count;
+@dynamic next_count;
 
 @end

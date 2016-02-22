@@ -18,14 +18,18 @@
 + (void)showAccountBind;
 + (void)showBindPhone:(BindPhoneEvent)bindPhoneEvent;
 + (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent;
-//+ (void)showSignupSuccess;
 + (void)showResetPass;
 + (void)showCollectDecPhase;
 + (void)showCollectDecStyle;
 + (void)showCollectFamilyInfo;
++ (void)showSearch;
++ (void)showDesignerList;
++ (void)showProductCaseList;
++ (void)showBeautifulImage;
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
 + (void)showProduct:(NSString *)productid;
++ (void)showProduct:(NSString *)productid isModal:(BOOL)isModal;
 + (void)showRequirementCreate:(Requirement *)requirement;
 + (void)showDesigner:(NSString *)designerid;
 + (void)showOrderDesigner:(Requirement *)requirement;
@@ -44,7 +48,6 @@
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
 + (void)showRefresh;
-+ (void)showBeautifulImageHomePage:(BeautifulImage *)beautifulImage;
 + (void)refreshSuccess;
 + (UIViewController *)getCurrentTapController;
 + (void)logout;

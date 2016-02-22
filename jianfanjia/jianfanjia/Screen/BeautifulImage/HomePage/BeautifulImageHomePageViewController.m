@@ -7,6 +7,7 @@
 //
 
 #import "BeautifulImageHomePageViewController.h"
+#import "BeautifulImageDataManager.h"
 
 @interface BeautifulImageHomePageViewController ()
 
@@ -23,23 +24,40 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *navBarViewTopToSuper;
 
 @property (nonatomic, strong) NSMutableArray<UIImageView *> *imageViewArray;
-@property (nonatomic, strong) NSMutableArray *imageViewStatus;
-@property (nonatomic, assign) NSInteger imgCount;
+@property (nonatomic, strong) NSMutableArray<UIScrollView *> *subscrollViewArray;
 
 @property (nonatomic, strong) BeautifulImage *beautifulImage;
+
+@property (nonatomic, strong) NSMutableArray<BeautifulImage *> *beautifulImages;
+
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, assign) NSInteger total;
 
 @property (nonatomic, assign) BOOL isHidden;
+@property (nonatomic, assign) BOOL isGettingHomepage;
+@property (nonatomic, assign) BOOL hasMoreBeautifulImage;
+
+@property (strong, nonatomic) id<BeautifulImageHomePageDataManagerProtocol> dataManager;
+@property (strong, nonatomic) NSDictionary *queryDic;
+@property (copy, nonatomic) HomePageDismissBlock dismissBlock;
+
+@property (nonatomic, strong) NSNumber *pageNumber;
 
 @end
 
 @implementation BeautifulImageHomePageViewController
 
 #pragma mark - init method
-- (id)initWithBeautifulImage:(BeautifulImage *)beautifulImage index:(NSInteger)index {
+- (id)initWithDataManager:(id<BeautifulImageHomePageDataManagerProtocol>)dataManager index:(NSInteger)index queryDic:(NSDictionary *)queryDic dismissBlock:(HomePageDismissBlock)dismissBlock {
     if (self = [super init]) {
-        _beautifulImage = beautifulImage;
         _index = index;
+        _dataManager = dataManager;
+        _queryDic = queryDic;
+        _beautifulImages = dataManager.beautifulImages;
+        _beautifulImage = _beautifulImages[index];
+        _total = _beautifulImages.count;
+        _dismissBlock = dismissBlock;
+        _pageNumber = @(20);
     }
     
     return self;
@@ -50,8 +68,8 @@
     [super viewDidLoad];
     
     [self initNav];
-    [self initDefaultUI];
-    [self getHomepage:self.beautifulImage._id];
+    [self initUI];
+    [self reloadAllImage];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -65,6 +83,14 @@
     
     [self initDefaultNavBarStyle];
     [self.navigationController setNavigationBarHidden:NO animated:animated];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    if (self.dismissBlock) {
+        self.dismissBlock(self.index);
+    }
 }
 
 #pragma mark - ui
@@ -87,21 +113,17 @@
     }
 }
 
-- (void)initDefaultUI {
+- (void)initUI {
+    [self initRightNaviBarItems];
     self.imgDescription.text = nil;
     self.imgTag.text = nil;
     self.btnDownload.hidden = YES;
     self.shareButton.enabled = NO;
-}
-
-- (void)initUI {
-    [self initRightNaviBarItems];
     
-    self.imgCount = self.beautifulImage.images.count;
-    self.imageViewStatus = [NSMutableArray arrayWithCapacity:self.imgCount];
-    self.imageViewArray = [NSMutableArray arrayWithCapacity:self.imgCount];
+    self.imageViewArray = [NSMutableArray arrayWithCapacity:3];
+    self.subscrollViewArray = [NSMutableArray arrayWithCapacity:3];
     @weakify(self);
-    for (int i = 0; i < self.imgCount; i++) {
+    for (int i = 0; i < 3; i++) {
         UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         [w1 setContentMode:UIViewContentModeScaleAspectFit];
         UIScrollView *s = [[UIScrollView alloc] initWithFrame:CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenHeight)];
@@ -116,26 +138,12 @@
         [s addSubview:w1];
         [self.scrollView addSubview:s];
         [self.imageViewArray addObject:w1];
-        
-        LeafImage *leafImage = [self.beautifulImage leafImageAtIndex:i];
-        [self.imageViewStatus addObject:@0];
-        @weakify(w1);
-        [w1 setImageWithId:leafImage.imageid withWidth:kScreenWidth completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
-            @strongify(self, w1);
-            if (error == nil) {
-                if (self.index == i) {
-                    self.btnDownload.hidden = NO;
-                    self.shareButton.enabled = YES;
-                }
-                self.imageViewStatus[i] = @1;
-                CGFloat height = kScreenWidth / (image.size.width / image.size.height);
-                w1.frame = CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height);
-            }
-        }];
+        [self.subscrollViewArray addObject:s];
     }
-    [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.imgCount, kBannerCellHeight)];
-    self.titleLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
-    self.scrollView.contentOffset = CGPointMake(self.index * kScreenWidth, 0);
+    
+    [self.scrollView setContentSize:CGSizeMake(kScreenWidth * 3, kScreenHeight)];
+    self.scrollView.contentOffset = CGPointMake(kScreenWidth, 0);
+    self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap)];
     [self.scrollView addGestureRecognizer:singleTap];
@@ -145,45 +153,137 @@
     [self.scrollView addGestureRecognizer:doubleTap];
     [singleTap requireGestureRecognizerToFail:doubleTap];
     
-    self.imgDescription.text = self.beautifulImage.title;
-    self.imgTag.text = [[[self.beautifulImage.keywords componentsSeparatedByString:@","] map:^id(id obj) {
-        return [NSString stringWithFormat:@"#%@", obj];
-    }] join:@" "];
     [[self.btnDownload rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [self onClickDownloadButton];
     }];
 }
 
+- (void)reloadAllImage {
+    CGFloat offsetX = self.scrollView.contentOffset.x;
+    if (offsetX > kScreenWidth) { // 向右
+        self.index++;
+        self.beautifulImage = self.beautifulImages[self.index];
+    } else if (offsetX < kScreenWidth) { // 向左
+        self.index--;
+        self.beautifulImage = self.beautifulImages[self.index];
+    } else {
+        self.beautifulImage = self.beautifulImages[self.index];
+    }
+    
+    [self resetUI];
+    NSString *preImageid = [self.beautifulImages[MAX(self.index-1, 0)] leafImageAtIndex:0].imageid;
+    NSString *curImageid = [self.beautifulImages[self.index] leafImageAtIndex:0].imageid;
+    NSString *nextImageid = [self.beautifulImages[MIN(self.index+1, self.beautifulImages.count-1)] leafImageAtIndex:0].imageid;
+    [self reloadImageView:self.imageViewArray[0] withImage:preImageid];
+    [self reloadImageView:self.imageViewArray[1] withImage:curImageid];
+    [self reloadImageView:self.imageViewArray[2] withImage:nextImageid];
+    
+    self.scrollView.contentOffset = CGPointMake(kScreenWidth, 0);
+    self.titleLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.index+1), @(self.total)];
+    self.imgDescription.text = self.beautifulImage.title;
+    self.imgTag.text = [[[self.beautifulImage.keywords componentsSeparatedByString:@","] map:^id(id obj) {
+        return [NSString stringWithFormat:@"#%@", obj];
+    }] join:@" "];
+}
+
+- (void)resetUI {
+    [self initRightNaviBarItems];
+    self.btnDownload.hidden = YES;
+    self.shareButton.enabled = NO;
+    [self.subscrollViewArray[1] setZoomScale:1];
+}
+
+- (void)reloadImageView:(UIImageView *)imgView withImage:(NSString *)imageid {
+    @weakify(imgView);
+    [imgView setImageWithId:imageid withWidth:kScreenWidth completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
+        @strongify(imgView);
+        if (error == nil) {
+            CGFloat height = kScreenWidth / (image.size.width / image.size.height);
+            if (!isnan(height)) {
+                if (imgView == self.imageViewArray[1]) {
+                    self.btnDownload.hidden = NO;
+                    self.shareButton.enabled = YES;
+                }
+                
+                imgView.frame = CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height);
+            }
+        }
+    }];
+}
+
 #pragma mark - scroll view deleaget
+- (CGPoint)nearestTargetOffset:(CGPoint)curOffset velocity:(CGPoint)velocity {
+    CGPoint targetOffset;
+    if (curOffset.x > kScreenWidth) {
+        if (curOffset.x > kScreenWidth * 1.5 || velocity.x > 0) {
+            targetOffset = CGPointMake(kScreenWidth * 2, curOffset.y);
+        } else {
+            targetOffset = CGPointMake(kScreenWidth, curOffset.y);
+        }
+    } else {
+        if (curOffset.x < kScreenWidth * 0.5 || velocity.x < 0) {
+            targetOffset = CGPointMake(0, curOffset.y);
+        } else {
+            targetOffset = CGPointMake(kScreenWidth, curOffset.y);
+        }
+    }
+    
+    return targetOffset;
+}
+
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+    if (scrollView == self.scrollView) {
+        CGPoint targetOffset = [self nearestTargetOffset:scrollView.contentOffset velocity:velocity];
+        targetContentOffset->x = targetOffset.x;
+        targetContentOffset->y = targetOffset.y;
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (scrollView == self.scrollView) {
+        if (!decelerate) {
+            CGFloat offsetX = self.scrollView.contentOffset.x;
+            if (offsetX == 0 || offsetX == kScreenWidth * 2) {
+                [self reloadAllImage];
+            }
+        }
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    if (scrollView == self.scrollView) {
+        CGFloat offsetX = self.scrollView.contentOffset.x;
+        if (offsetX == 0 || offsetX == kScreenWidth * 2) {
+            [self reloadAllImage];
+        }
+    }
+}
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (scrollView == self.scrollView) {
-        self.index = self.scrollView.contentOffset.x/kScreenWidth;
-        self.titleLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
-        
-        NSNumber *status = self.imageViewStatus[self.index];
-        if ([status boolValue]) {
-            self.btnDownload.hidden = NO;
-            self.shareButton.enabled = YES;
-        } else {
-            self.btnDownload.hidden = YES;
-            self.shareButton.enabled = NO;
+        CGFloat offsetX = self.scrollView.contentOffset.x;
+        if (self.index == 0 && offsetX < kScreenWidth) {
+            self.scrollView.contentOffset = CGPointMake(kScreenWidth, 0);
+        } else if (self.index == self.beautifulImages.count - 1 && offsetX > kScreenWidth) {
+            self.scrollView.contentOffset = CGPointMake(kScreenWidth, 0);
+            if (self.index < self.total && !self.isGettingHomepage) {
+                [self loadMoreBeautifulImage];
+            }
         }
     }
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
     if (scrollView != self.scrollView) {
-        return [self.imageViewArray objectAtIndex:self.index];
+        return self.imageViewArray[1];
     } else {
         return nil;
     }
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
-    UIScrollView *subscrollView = self.scrollView.subviews[self.index];
-    UIImageView *imgView = subscrollView.subviews[0];
-    UIView *subView = imgView;
+    UIView *subView = self.imageViewArray[1];
     
     CGFloat offsetX = (scrollView.bounds.size.width > scrollView.contentSize.width)?
     (scrollView.bounds.size.width - scrollView.contentSize.width) * 0.5 : 0.0;
@@ -212,7 +312,6 @@
         } failure:^{
             [HUDUtil showErrText:@"收藏失败"];
         } networkError:^{
-            
         }];
     } else {
         UnfavoriteBeautifulImage *request = [[UnfavoriteBeautifulImage alloc] init];
@@ -225,15 +324,14 @@
         } failure:^{
             [HUDUtil showErrText:@"取消收藏失败"];
         } networkError:^{
-            
         }];
     }
 }
 
 - (IBAction)onClickShareButton:(id)sender {
     NSString *title = self.beautifulImage.title;
-    UIImage *shareImage = [self.imageViewArray[self.index] image];
-    NSString *imgid = [[self.beautifulImage leafImageAtIndex:self.index] imageid];
+    UIImage *shareImage = [self.imageViewArray[1] image];
+    NSString *imgid = [[self.beautifulImage leafImageAtIndex:0] imageid];
     NSString *imgLink = [StringUtil beautifulImageUrl:imgid title:title];
     NSString *description = [NSString stringWithFormat:@"我在简繁家发现一张%@风格的%@美图，感觉还不错，分享给大家！", [NameDict nameForDecStyle:self.beautifulImage.dec_style], self.beautifulImage.section];
     
@@ -242,7 +340,7 @@
 
 - (void)onClickDownloadButton {
     [UIView playBounceAnimationFor:self.btnDownload block:^{
-        UIImageView *imgView = self.imageViewArray[self.index];
+        UIImageView *imgView = self.imageViewArray[1];
         UIImageWriteToSavedPhotosAlbum(imgView.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
     }];
 }
@@ -266,7 +364,7 @@
 }
 
 - (void)onDoubleTap:(UITapGestureRecognizer *)g {
-    UIScrollView *subscrollView = self.scrollView.subviews[self.index];
+    UIScrollView *subscrollView = self.subscrollViewArray[1];
     
     if (subscrollView.zoomScale > 1) {
         [subscrollView setZoomScale:1.0 animated:YES];
@@ -281,22 +379,61 @@
 }
 
 #pragma mark - api request
-- (void)getHomepage:(NSString *)beautifulId {
-    [HUDUtil showWait];
-    GetBeautifulImageHomepage *request = [[GetBeautifulImageHomepage alloc] init];
-    request._id = beautifulId;
+- (void)loadMoreBeautifulImage {
+    if (self.hasMoreBeautifulImage) {
+        [HUDUtil showSuccessText:@"没有更多美图了"];
+        return;
+    }
     
-    @weakify(self);
-    [API getBeautifulImageHomepage:request success:^{
-        @strongify(self);
-        self.beautifulImage = [[BeautifulImage alloc] initWith:[DataManager shared].data];;
-        [self initUI];
-        [HUDUtil hideWait];
-    } failure:^{
-        [HUDUtil hideWait];
-    } networkError:^{
-        [HUDUtil hideWait];
-    }];
+    [HUDUtil showWait:@"更多美图加载中..."];
+    self.isGettingHomepage = YES;
+    
+    if (self.queryDic) {
+        SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
+        request.query = self.queryDic;
+        request.from = @(self.dataManager.beautifulImages.count);
+        request.limit = self.pageNumber;
+        
+        [API searchBeautifulImage:request success:^{
+            [self resetData];
+            [self reloadAllImage];
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        } failure:^{
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        } networkError:^{
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        }];
+    } else {
+        ListFavoriateBeautifulImage *request = [[ListFavoriateBeautifulImage alloc] init];
+        request.from = @(self.dataManager.beautifulImages.count);
+        request.limit = self.pageNumber;
+        
+        @weakify(self);
+        [API listFavoriateBeautifulImage:request success:^{
+            @strongify(self);
+            [self resetData];
+            [self reloadAllImage];
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        } failure:^{
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        } networkError:^{
+            [HUDUtil hideWait];
+            self.isGettingHomepage = NO;
+        }];
+    }
+}
+
+- (void)resetData {
+    NSInteger count = [self.dataManager loadMoreBeautifulImages];
+    self.beautifulImages = self.dataManager.beautifulImages;
+    self.index = [self.beautifulImages indexOfObject:self.beautifulImage];
+    self.total = self.beautifulImages.count;
+    self.hasMoreBeautifulImage = count < [self.pageNumber integerValue];
 }
 
 @end

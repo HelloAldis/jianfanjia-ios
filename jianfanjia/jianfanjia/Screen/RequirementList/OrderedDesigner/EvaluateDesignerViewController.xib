@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EvaluateDesignerViewController">
@@ -41,7 +41,6 @@
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_place_holder_2" translatesAutoresizingMaskIntoConstraints="NO" id="pc3-qy-Hwi">
                             <rect key="frame" x="270" y="100" width="60" height="60"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="FUS-Dh-4t7"/>
                                 <constraint firstAttribute="height" constant="60" id="SP4-4Y-TqO"/>
@@ -49,38 +48,30 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王大雷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AT8-Vl-oAC">
                             <rect key="frame" x="279" y="175" width="42" height="17"/>
-                            <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="LJW-TO-zZe">
                             <rect key="frame" x="314" y="144" width="16" height="16"/>
-                            <animations/>
                             <gestureRecognizers/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle" translatesAutoresizingMaskIntoConstraints="NO" id="x6w-3R-nbP">
                             <rect key="frame" x="292" y="202" width="17" height="15"/>
-                            <animations/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle" translatesAutoresizingMaskIntoConstraints="NO" id="cAQ-nr-bhv">
                             <rect key="frame" x="336" y="202" width="17" height="15"/>
-                            <animations/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle" translatesAutoresizingMaskIntoConstraints="NO" id="g2e-rE-VtM">
                             <rect key="frame" x="314" y="202" width="17" height="15"/>
-                            <animations/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle" translatesAutoresizingMaskIntoConstraints="NO" id="AnV-At-EdF">
                             <rect key="frame" x="270" y="202" width="17" height="15"/>
-                            <animations/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle" translatesAutoresizingMaskIntoConstraints="NO" id="rlt-l9-GHw">
                             <rect key="frame" x="248" y="202" width="17" height="15"/>
-                            <animations/>
                         </imageView>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" red="0.96862745098039216" green="0.97647058823529409" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="g2e-rE-VtM" firstAttribute="leading" secondItem="x6w-3R-nbP" secondAttribute="trailing" constant="5" id="0Z7-6J-A7u"/>
@@ -110,68 +101,54 @@
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="给设计师评分" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4SL-u4-Z8N">
                     <rect key="frame" x="258" y="247" width="84" height="17"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="响应速度：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg5-at-qDd">
                     <rect key="frame" x="168" y="283" width="70" height="17"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big_empty" translatesAutoresizingMaskIntoConstraints="NO" id="uJh-Yf-sd9">
                     <rect key="frame" x="324" y="279" width="28" height="25"/>
-                    <animations/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big_empty" translatesAutoresizingMaskIntoConstraints="NO" id="xnj-Ia-8BM">
                     <rect key="frame" x="286" y="279" width="28" height="25"/>
-                    <animations/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big_empty" translatesAutoresizingMaskIntoConstraints="NO" id="oJY-g9-q60">
                     <rect key="frame" x="362" y="279" width="28" height="25"/>
-                    <animations/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big_empty" translatesAutoresizingMaskIntoConstraints="NO" id="xW0-jx-VC0">
                     <rect key="frame" x="400" y="279" width="28" height="25"/>
-                    <animations/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big_empty" translatesAutoresizingMaskIntoConstraints="NO" id="kmF-k5-D8n">
                     <rect key="frame" x="248" y="279" width="28" height="25"/>
-                    <animations/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="服务态度：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YKX-lg-QyL">
                     <rect key="frame" x="168" y="323" width="70" height="17"/>
-                    <animations/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big_empty" translatesAutoresizingMaskIntoConstraints="NO" id="vVv-c9-vEC">
                     <rect key="frame" x="324" y="319" width="28" height="25"/>
-                    <animations/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big_empty" translatesAutoresizingMaskIntoConstraints="NO" id="d6R-dn-tvS">
                     <rect key="frame" x="286" y="319" width="28" height="25"/>
-                    <animations/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big_empty" translatesAutoresizingMaskIntoConstraints="NO" id="2fu-oM-ahn">
                     <rect key="frame" x="362" y="319" width="28" height="25"/>
-                    <animations/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big_empty" translatesAutoresizingMaskIntoConstraints="NO" id="c8e-N4-0s2">
                     <rect key="frame" x="400" y="319" width="28" height="25"/>
-                    <animations/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_big_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Imk-mo-VAv">
                     <rect key="frame" x="248" y="319" width="28" height="25"/>
-                    <animations/>
                 </imageView>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xdy-XE-Hgg">
                     <rect key="frame" x="20" y="360" width="560" height="130"/>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="130" id="JRY-a2-xxy"/>
@@ -180,9 +157,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
-                <button opaque="NO" alpha="0.5" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYB-6j-MD9">
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYB-6j-MD9">
                     <rect key="frame" x="20" y="495" width="560" height="40"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="NPV-FO-RQB"/>
@@ -193,7 +169,6 @@
                     </state>
                 </button>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.92941176470588238" green="0.93725490196078431" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="vVv-c9-vEC" firstAttribute="top" secondItem="uJh-Yf-sd9" secondAttribute="bottom" constant="15" id="35d-6t-AES"/>

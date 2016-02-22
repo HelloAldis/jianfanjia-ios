@@ -37,7 +37,6 @@ static NSMutableArray *decStyleDS;
 @property (weak, nonatomic) IBOutlet UILabel *lblNoData;
 
 @property (strong, nonatomic) DropdownMenuView *dropdownMenu;
-@property (assign, nonatomic) BOOL isShowDropdown;
 @property (assign, nonatomic) BeautifulImageType beautifulImageType;
 @property (strong, nonatomic) NSString *curBeautifulImageTypeSpace;
 @property (strong, nonatomic) NSString *curBeautifulImageTypeHouse;
@@ -182,8 +181,12 @@ static NSMutableArray *decStyleDS;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    BeautifulImage *beauitifulImage = self.dataManager.beautifulImages[indexPath.row];
-    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithBeautifulImage:beauitifulImage index:0];
+    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.dataManager index:indexPath.row queryDic:[self getQueryDic] dismissBlock:^(NSInteger index) {
+        [self.imgCollection reloadData];
+        [self.imgCollection layoutIfNeeded];
+        UICollectionViewLayoutAttributes *layoutAttributes = self.imgCollectionLayout.allItemAttributes[index];
+        [self.imgCollection scrollRectToVisible:layoutAttributes.frame animated:YES];
+    }];
     [self.navigationController pushViewController:controller animated:YES];
 }
 
@@ -210,9 +213,9 @@ static NSMutableArray *decStyleDS;
 
 - (void)showDropdown:(UIButton *)button {
     NSInteger buttonIndex = [self.btnChooseTypes indexOfObject:button];
-    if (self.beautifulImageType == buttonIndex && self.isShowDropdown) {
+    if (self.beautifulImageType == buttonIndex && self.dropdownMenu && self.dropdownMenu.isShowing) {
         [self highlightTypeButton:self.beautifulImageType highlight:NO title:nil];
-        [self hideDropdownMenu];
+        [self.dropdownMenu dismiss];
         return;
     }
     
@@ -231,38 +234,32 @@ static NSMutableArray *decStyleDS;
         defaultValue = self.curBeautifulImageTypeStyle;
     }
     
-    if (!self.dropdownMenu) {
-        self.dropdownMenu = [[DropdownMenuView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 0)];
-        [self.view insertSubview:self.dropdownMenu belowSubview:self.headerView];
-    }
-    
     @weakify(self);
-    [self.dropdownMenu initWithDataSource:datasource defaultValue:defaultValue block:^(id value) {
-        @strongify(self);
-        if (value) {
-            if (self.beautifulImageType == BeautifulImageTypeSpace) {
-                self.curBeautifulImageTypeSpace = value;
-            } else if (self.beautifulImageType == BeautifulImageTypeHouse) {
-                self.curBeautifulImageTypeHouse = value;
-            } else if (self.beautifulImageType == BeautifulImageTypeStyle) {
-                self.curBeautifulImageTypeStyle = value;
+    if (self.dropdownMenu && self.dropdownMenu.isShowing) {
+        [self.dropdownMenu refreshDatasource:datasource defaultValue:defaultValue];
+    } else {
+        self.dropdownMenu = [DropdownMenuView show:self.imgCollection datasource:datasource defaultValue:defaultValue block:^(id value) {
+            @strongify(self);
+            if (value) {
+                if (self.beautifulImageType == BeautifulImageTypeSpace) {
+                    self.curBeautifulImageTypeSpace = value;
+                } else if (self.beautifulImageType == BeautifulImageTypeHouse) {
+                    self.curBeautifulImageTypeHouse = value;
+                } else if (self.beautifulImageType == BeautifulImageTypeStyle) {
+                    self.curBeautifulImageTypeStyle = value;
+                }
+                
+                //update fall flow data
+                [self refreshBeautifulImage];
             }
-
-            //update fall flow data
-            [self refreshBeautifulImage];
-        }
-        
-        if ([value isEqualToString:UnlimitedValue]) {
-            [self highlightTypeButton:buttonIndex highlight:NO title:[self getDefaultTypeButtonTitle]];
-        } else {
-            [self highlightTypeButton:buttonIndex highlight:NO title:value];
-        }
-        
-        //dismiss
-        [self hideDropdownMenu];
-    }];
-    
-    [self showDropdownMenu];
+            
+            if ([value isEqualToString:UnlimitedValue]) {
+                [self highlightTypeButton:self.beautifulImageType highlight:NO title:[self getDefaultTypeButtonTitle]];
+            } else {
+                [self highlightTypeButton:self.beautifulImageType highlight:NO title:value];
+            }
+        }];
+    }
 }
 
 - (NSString *)getDefaultTypeButtonTitle {
@@ -296,32 +293,6 @@ static NSMutableArray *decStyleDS;
     [imgView setImage:[UIImage imageNamed:highlight ? @"angle_expand" : @"angle_unexpand" ]];
 }
 
-- (void)showDropdownMenu {
-    if (!self.isShowDropdown) {
-        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
-            self.dropdownMenu.frame = CGRectMake(0, CGRectGetMaxY(self.headerView.frame), CGRectGetWidth(self.view.frame), CGRectGetHeight(self.imgCollection.frame));
-            [self.view layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            if (finished) {
-                self.isShowDropdown = YES;
-            }
-        }];
-    }
-}
-
-- (void)hideDropdownMenu {
-    if (self.isShowDropdown) {
-        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
-            self.dropdownMenu.frame = CGRectMake(0, -CGRectGetMaxY(self.dropdownMenu.collectionView.frame), CGRectGetWidth(self.view.frame), 0);
-            [self.view layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            if (finished) {
-                self.isShowDropdown = NO;
-            }
-        }];
-    }
-}
-
 #pragma mark - api request
 - (void)refreshBeautifulImage {
     [self resetNoDataTip];
@@ -334,10 +305,10 @@ static NSMutableArray *decStyleDS;
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.header endRefreshing];
-        NSInteger count = [self.dataManager refreshBeautifulImage];
+        NSInteger count = [self.dataManager refreshBeautifulImages];
         
         if (count == 0) {
-            [self handleNoFavoriateBeautifulImage];
+            [self handleNoBeautifulImage];
         } else if (request.limit.integerValue > count) {
             [self.imgCollection.footer noticeNoMoreData];
         }
@@ -358,7 +329,7 @@ static NSMutableArray *decStyleDS;
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.footer endRefreshing];
-        NSInteger count = [self.dataManager loadMoreBeautifulImage];
+        NSInteger count = [self.dataManager loadMoreBeautifulImages];
         if (request.limit.integerValue > count) {
             [self.imgCollection.footer noticeNoMoreData];
         }
@@ -391,7 +362,7 @@ static NSMutableArray *decStyleDS;
     self.noDataImageView.hidden = YES;
 }
 
-- (void)handleNoFavoriateBeautifulImage {
+- (void)handleNoBeautifulImage {
     self.lblNoData.text = @"没有找到任何匹配的美图";
     self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_beautiful_image"];
     self.lblNoData.hidden = NO;

@@ -200,7 +200,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     }
     
     NSString *status = requirement.plan.status;
-    if ([status isEqualToString:SubmitPlanExpiredActionCellIdentifier]) {
+    if ([status isEqualToString:kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime]) {
         return 96;
     }
     

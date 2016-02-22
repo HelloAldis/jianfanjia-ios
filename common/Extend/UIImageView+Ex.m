@@ -19,6 +19,10 @@
     [self yy_setImageWithURL:[self imageurl:imageid withWidth:width] placeholder:[UIImage imageNamed:@"image_place_holder"] options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
 }
 
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width height:(NSInteger)height {
+    [self yy_setImageWithURL:[self imageurl:imageid withWidth:width height:height] placeholder:[UIImage imageNamed:@"image_place_holder"] options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
+}
+
 - (void)setUserImageWithId:(NSString *)imageid {
     [self yy_setImageWithURL:[self imageurl:imageid withWidth:60] placeholder:[UIImage imageNamed:@"image_place_holder_2"] options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
 }
@@ -34,6 +38,11 @@
 
 - (NSURL *)imageurl:(NSString *)imageid withWidth:(NSInteger)width {
     NSString *url = [StringUtil thumbnailImageUrl:imageid width:width];
+    return [NSURL URLWithString:url];
+}
+
+- (NSURL *)imageurl:(NSString *)imageid withWidth:(NSInteger)width height:(NSInteger)height {
+    NSString *url = [StringUtil thumbnailImageUrl:imageid width:width height:height];
     return [NSURL URLWithString:url];
 }
 

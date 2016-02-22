@@ -23,8 +23,6 @@
 
 - (void)awakeFromNib {
     [self.image setCornerRadius:5];
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)];
-    [self.image addGestureRecognizer:tap];
 }
 
 - (void)initWithImage:(NSString *)imageid width:(CGFloat)width {
@@ -35,12 +33,6 @@
     self.beautifulImage = beautifulImage;
     LeafImage *leafImage = [self.beautifulImage leafImageAtIndex:0];
     [self.image setImageWithId:leafImage.imageid withWidth:self.bounds.size.width];
-}
-
-- (void)onTap {
-    if (self.beautifulImage) {
-        [ViewControllerContainer showBeautifulImageHomePage:self.beautifulImage];
-    }
 }
 
 @end

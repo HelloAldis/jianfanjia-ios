@@ -10,7 +10,7 @@
 
 @implementation BeautifulImageDataManager
 
-- (NSInteger)refreshBeautifulImage {
+- (NSInteger)refreshBeautifulImages {
     NSArray* arr = [[DataManager shared].data objectForKey:@"beautiful_images"];
     NSMutableArray *beautifulImages = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
@@ -23,7 +23,7 @@
     return beautifulImages.count;
 }
 
-- (NSInteger)loadMoreBeautifulImage {
+- (NSInteger)loadMoreBeautifulImages {
     NSArray* arr = [[DataManager shared].data objectForKey:@"beautiful_images"];
     NSMutableArray *beautifulImages = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
