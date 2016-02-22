@@ -39,11 +39,11 @@ static NSArray const *quickEntryTexts;
 + (void)initialize {
     if ([self class] == [HomePageQuickEntryCell class] ) {
         HomePageQuickEntryFreePlan = @"免费方案";
-        HomePageQuickEntryDecGuide = @"装修攻略";
+        HomePageQuickEntryDecStrategy = @"装修攻略";
         HomePageQuickEntryBeautifulImage = @"装修美图";
         HomePageQuickEntryMassDesigner = @"海量设计师";
         
-        quickEntryTexts = @[HomePageQuickEntryFreePlan, HomePageQuickEntryDecGuide, HomePageQuickEntryBeautifulImage, HomePageQuickEntryMassDesigner];
+        quickEntryTexts = @[HomePageQuickEntryFreePlan, HomePageQuickEntryDecStrategy, HomePageQuickEntryBeautifulImage, HomePageQuickEntryMassDesigner];
         quickEntryImages = @[@"icon_publish_requirement", @"icon_dec_guide", @"icon_dec_beautiful_img", @"icon_mass_designer"];
         
         kHomePageQuickEntryCellHeight = ITEM_HEIGHT + SECTION_HEIGHT * 2 + HEADER_HEIGHT + FOOTER_HEIGHT;
@@ -100,6 +100,8 @@ static NSArray const *quickEntryTexts;
         [ViewControllerContainer showBeautifulImage];
     } else if ([entry isEqualToString:HomePageQuickEntryFreePlan]) {
         [ViewControllerContainer showRequirementCreate:nil];
+    } else if ([entry isEqualToString:HomePageQuickEntryDecStrategy]) {
+        [ViewControllerContainer showDecStrategy];
     }
 }
 

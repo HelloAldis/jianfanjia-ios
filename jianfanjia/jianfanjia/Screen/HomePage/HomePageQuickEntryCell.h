@@ -10,7 +10,7 @@
 
 extern CGFloat kHomePageQuickEntryCellHeight;
 static NSString *HomePageQuickEntryFreePlan;
-static NSString *HomePageQuickEntryDecGuide;
+static NSString *HomePageQuickEntryDecStrategy;
 static NSString *HomePageQuickEntryBeautifulImage;
 static NSString *HomePageQuickEntryMassDesigner;
 

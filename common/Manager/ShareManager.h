@@ -10,6 +10,7 @@
 
 extern NSString * const ShareTopicBeautifulImage;
 extern NSString * const ShareTopicApp;
+extern NSString * const ShareTopicDecStrategy;
 
 @class SnsAccountInfo;
 

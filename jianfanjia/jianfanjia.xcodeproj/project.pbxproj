@@ -239,6 +239,8 @@
 		68B10CB91C785659005866C1 /* SearchDesignerDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CB51C785659005866C1 /* SearchDesignerDataManager.m */; };
 		68B10CBA1C785659005866C1 /* SearchProductCaseDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CB71C785659005866C1 /* SearchProductCaseDataManager.m */; };
 		68B10CBD1C78686E005866C1 /* ProductCaseListDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */; };
+		68B10CC31C7AB3AB005866C1 /* DecStrategyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC11C7AB3AB005866C1 /* DecStrategyViewController.m */; };
+		68B10CC41C7AB3AB005866C1 /* DecStrategyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C25A1C75891F00EEEBD8 /* HomePageQuickEntryCell.m */; };
 		68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C3C25B1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib */; };
@@ -812,6 +814,9 @@
 		68B10CBB1C78686E005866C1 /* ProductCaseListDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCaseListDataManager.h; sourceTree = "<group>"; };
 		68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCaseListDataManager.m; sourceTree = "<group>"; };
 		68B10CBE1C7AACE9005866C1 /* BeautifulImageHomePageProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautifulImageHomePageProtocol.h; sourceTree = "<group>"; };
+		68B10CC01C7AB3AB005866C1 /* DecStrategyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecStrategyViewController.h; sourceTree = "<group>"; };
+		68B10CC11C7AB3AB005866C1 /* DecStrategyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecStrategyViewController.m; sourceTree = "<group>"; };
+		68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecStrategyViewController.xib; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1603,6 +1608,16 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		68B10CBF1C7AB3AB005866C1 /* DecStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				68B10CC01C7AB3AB005866C1 /* DecStrategyViewController.h */,
+				68B10CC11C7AB3AB005866C1 /* DecStrategyViewController.m */,
+				68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */,
+			);
+			path = DecStrategy;
+			sourceTree = "<group>";
+		};
 		6E06CC031C29231A00A08D15 /* MyFavoriate */ = {
 			isa = PBXGroup;
 			children = (
@@ -2061,6 +2076,7 @@
 		6E6D98A61BDF732A00D45F77 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				68B10CBF1C7AB3AB005866C1 /* DecStrategy */,
 				68B10CAC1C781C10005866C1 /* Search */,
 				68B10CA11C7819E3005866C1 /* ProductCaseList */,
 				68B10C811C76D489005866C1 /* DesignerList */,
@@ -2456,6 +2472,7 @@
 				6836690A1BFF0C05006A5053 /* PlanCell.xib in Resources */,
 				68B10CAB1C7819E3005866C1 /* ProductCaseListViewController.xib in Resources */,
 				684A370F1BFD733500F7388C /* OrderedDesignerViewController.xib in Resources */,
+				68B10CC41C7AB3AB005866C1 /* DecStrategyViewController.xib in Resources */,
 				68123C651C4C8B99008FC9AB /* SelectCityViewController.xib in Resources */,
 				684A37551BFD73DF00F7388C /* SelectHouseTypeViewController.xib in Resources */,
 				6E7E4A6A1B9A90BA00503B35 /* LoginViewController.xib in Resources */,
@@ -2721,6 +2738,7 @@
 				6E07DAC91BD88DBE001461DD /* Ys.m in Sources */,
 				6E07DAAA1BD88DBE001461DD /* ProcessList.m in Sources */,
 				6E6D989E1BDDFF1B00D45F77 /* W4View.m in Sources */,
+				68B10CC31C7AB3AB005866C1 /* DecStrategyViewController.m in Sources */,
 				6E07DAA91BD88DBE001461DD /* UserLogin.m in Sources */,
 				AB5F1EC61C0C8B32009203DF /* UIImagePickerController+Ex.m in Sources */,
 				68B10C851C76D489005866C1 /* DesignerListViewController.m in Sources */,
