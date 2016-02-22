@@ -222,21 +222,6 @@
 
 - (IBAction)onClickLogin:(id)sender {
     [self.view endEditing:YES];
-#ifdef DEBUG
-    DDLogDebug(@"DEBUG defined");
-#endif
-#ifdef TEST
-    DDLogDebug(@"TEST defined");
-#endif
-#ifdef PRO
-    DDLogDebug(@"PRO defined");
-#endif
-#ifdef COCOAPODS
-    DDLogDebug(@"COCOAPODS defined");
-#endif
-
-    DDLogDebug(@"%@, %@, %@, %@", kGtAppId, kGtAppKey, kGtAppSecret, kApiUrl);
-    
     DesignerLogin *login = [[DesignerLogin alloc] init];
     
     [login setPhone:[self.fldPhone.text trim]];
