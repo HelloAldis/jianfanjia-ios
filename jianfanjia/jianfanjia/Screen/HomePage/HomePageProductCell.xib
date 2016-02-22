@@ -39,10 +39,10 @@
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_product" translatesAutoresizingMaskIntoConstraints="NO" id="Zg5-pg-fV9">
-                        <rect key="frame" x="510" y="126" width="62" height="62"/>
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_show_product" translatesAutoresizingMaskIntoConstraints="NO" id="Zg5-pg-fV9">
+                        <rect key="frame" x="512" y="128" width="60" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="62" id="U3S-Jg-QCt"/>
+                            <constraint firstAttribute="width" constant="60" id="U3S-Jg-QCt"/>
                             <constraint firstAttribute="width" secondItem="Zg5-pg-fV9" secondAttribute="height" multiplier="25:21" id="UA8-Iv-hBd"/>
                             <constraint firstAttribute="height" constant="21" id="ndF-kw-Xcj"/>
                             <constraint firstAttribute="width" secondItem="Zg5-pg-fV9" secondAttribute="height" id="prk-cV-vWc"/>
@@ -55,9 +55,10 @@
                         </variation>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="unf-MV-Bsm">
-                        <rect key="frame" x="513" y="0.0" width="74" height="40"/>
+                        <rect key="frame" x="518" y="0.0" width="69" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="全部案例 &gt;">
-                            <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                         <connections>
                             <action selector="onClickAllProduct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0CL-X9-20D"/>
@@ -91,6 +92,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_product" width="62" height="62"/>
+        <image name="icon_show_product" width="60" height="60"/>
     </resources>
 </document>

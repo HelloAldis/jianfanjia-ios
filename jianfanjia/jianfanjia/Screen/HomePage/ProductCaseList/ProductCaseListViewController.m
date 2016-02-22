@@ -276,9 +276,7 @@ static NSMutableArray *decStyleDS;
     if (![self.curProductCaseFilterTypeHouseArea isEqualToString:UnlimitedValue]) {
         NSString *key = [[[NameDict getAllDisplayHouseArea] allKeysForObject:self.curProductCaseFilterTypeHouseArea] lastObject];
         NSString *value = [[NameDict getAllValueHouseArea] valueForKey:key];
-        
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:[value dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
-        [dic setObject:json forKey:@"house_area"];
+        [dic setObject:value forKey:@"house_area"];
     }
     if (![self.curProductCaseFilterTypeDecType isEqualToString:UnlimitedValue]) {
         [dic setObject:[[[NameDict getAllDecorationType] allKeysForObject:self.curProductCaseFilterTypeDecType] lastObject] forKey:@"dec_type"];
