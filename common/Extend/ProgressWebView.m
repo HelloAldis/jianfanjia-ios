@@ -23,7 +23,7 @@
             [progressView setProgress:progress animated:YES];
             
             if(progress >= 1.0f) {
-                [UIView animateWithDuration:0.3 delay:0.6 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                [UIView animateWithDuration:0.3 delay:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
                     [progressView setAlpha:0.0f];
                 } completion:^(BOOL finished) {
                     [progressView setProgress:0.0f animated:NO];

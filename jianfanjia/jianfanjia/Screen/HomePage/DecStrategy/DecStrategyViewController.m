@@ -77,9 +77,22 @@ static NSString *MessageModel = @"DecStrategy";
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     self.title = self.webView.title;
-    [self.webView evaluateJavaScript:@"var nodelist = document.getElementsByTagName('meta'); var description; for(var i = 0; i < nodelist.length; i++) {var node = nodelist[i]; if(node.getAttribute('name') == 'description'){description = node.getAttribute('content');}}\
-     var imgurl = document.getElementsByTagName('img')[0].src;\
-     sendMessageToNative({'msgtype':'share', 'description':description, 'imgurl':imgurl});"
+    [self.webView evaluateJavaScript:@"\
+                     var nodelist = document.getElementsByTagName('meta');\
+                     var description;\
+                     for(var i = 0; i < nodelist.length; i++) {\
+                        var node = nodelist[i];\
+                        if (node.getAttribute('name') == 'description') {\
+                            description = node.getAttribute('content');\
+                        }\
+                     }\
+                     var imglist = document.getElementsByTagName('img');\
+                     var imgurl;\
+                     if (imglist.length > 0) {\
+                        imgurl = imglist[0].src;\
+                     }\
+                     sendMessageToNative({'msgtype':'share', 'description':description, 'imgurl':imgurl});\
+                     "
                    completionHandler:^(id _Nullable value, NSError * _Nullable error) {
                        if (error) {
                            [self showError:error];
@@ -111,6 +124,10 @@ static NSString *MessageModel = @"DecStrategy";
 #pragma mark - user action
 - (void)onClickShare {
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.articleImgUrl]]];
+    if (![self.webView canGoBack]) {
+        image = [UIImage imageNamed:@"about_logo"];
+    }
+    
     [[ShareManager shared] share:self topic:ShareTopicDecStrategy image:image ? image : [UIImage imageNamed:@"about_logo"] title:self.webView.title ? self.webView.title : @"装修攻略" description:self.articleDescription ? self.articleDescription : @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。" targetLink:self.webView.URL.absoluteString delegate:self];
 }
 
