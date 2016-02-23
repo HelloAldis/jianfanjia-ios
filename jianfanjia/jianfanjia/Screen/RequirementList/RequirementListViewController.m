@@ -44,8 +44,6 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];    
     [self refreshRequirements:YES];
-    
-//    NSLog(@"%@", [GVUserDefaults standardUserDefaults].userid);
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -65,7 +63,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 #pragma mark - init ui
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 60, 0);
     [self.tableView registerNib:[UINib nibWithNibName:@"RequirementCell" bundle:nil] forCellReuseIdentifier:requirementCellId];
     @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{

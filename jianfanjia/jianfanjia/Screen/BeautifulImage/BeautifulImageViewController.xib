@@ -32,7 +32,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="aPU-7m-aXy">
-                    <rect key="frame" x="0.0" y="109" width="414" height="627"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="C6m-hn-tGL" customClass="CollectionFallsFlowLayout">
                         <size key="itemSize" width="50" height="50"/>
@@ -207,6 +207,7 @@
             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="stb-oL-q2J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3yn-38-Vge"/>
+                <constraint firstItem="aPU-7m-aXy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5IC-7H-ffF"/>
                 <constraint firstItem="aPU-7m-aXy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5Yw-2H-Evp"/>
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7iY-bI-1ad"/>
                 <constraint firstItem="aPU-7m-aXy" firstAttribute="top" secondItem="9yY-BV-qmw" secondAttribute="bottom" id="MUx-9B-CrQ"/>
@@ -219,6 +220,11 @@
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xv4-ef-LMf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="MUx-9B-CrQ"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="322" y="307"/>
         </view>
     </objects>

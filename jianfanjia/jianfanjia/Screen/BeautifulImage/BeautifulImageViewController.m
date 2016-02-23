@@ -101,6 +101,7 @@ static NSMutableArray *decStyleDS;
     self.preY = 0;
     self.isTabbarhide = NO;
     self.dataManager = [[BeautifulImageDataManager alloc] init];
+    self.imgCollection.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
     [self.imgCollection registerNib:[UINib nibWithNibName:BeautifulImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:BeautifulImageCollectionCellIdentifier];
     self.imgCollectionLayout.delegate = self;
     
@@ -146,6 +147,13 @@ static NSMutableArray *decStyleDS;
     } else {
         self.preY = scrollView.contentOffset.y;
     }
+
+//    CGFloat offsetY = scrollView.contentOffset.y;
+//    offsetY -= -scrollView.contentInset.top;
+//    if (offsetY >= -64 && offsetY <= 150) {
+//        self.navigationController.navigationBar.frame = CGRectMake(0, MIN(20, MAX(-offsetY + 20, -44)), self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height);
+//        self.headerView.frame = CGRectMake(0, CGRectGetMaxY(self.navigationController.navigationBar.frame), CGRectGetWidth(self.headerView.frame), CGRectGetHeight(self.headerView.frame));
+//    }
 }
 
 #pragma mark - Util
