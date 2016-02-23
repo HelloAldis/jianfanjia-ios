@@ -43,10 +43,10 @@
                     <rect key="frame" x="0.0" y="64" width="414" height="45"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Rq-7k-NcG" userLabel="View1">
-                            <rect key="frame" x="0.0" y="0.0" width="104" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="104" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1G-cv-tHD">
-                                    <rect key="frame" x="10" y="0.0" width="84" height="45"/>
+                                    <rect key="frame" x="10" y="0.0" width="84" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal">
                                         <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,10 +75,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gr-ot-jfT" userLabel="View2">
-                            <rect key="frame" x="104" y="0.0" width="103" height="45"/>
+                            <rect key="frame" x="104" y="0.0" width="103" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P4-Ng-qzT">
-                                    <rect key="frame" x="10" y="0.0" width="83" height="45"/>
+                                    <rect key="frame" x="10" y="0.0" width="83" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal">
                                         <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,10 +107,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aqu-bk-inU" userLabel="View3">
-                            <rect key="frame" x="207" y="0.0" width="104" height="45"/>
+                            <rect key="frame" x="207" y="0.0" width="104" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aw1-Lr-wMf">
-                                    <rect key="frame" x="10" y="0.0" width="84" height="45"/>
+                                    <rect key="frame" x="10" y="0.0" width="84" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal">
                                         <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -139,10 +139,10 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LVE-TU-7zd" userLabel="View4">
-                            <rect key="frame" x="311" y="0.0" width="103" height="45"/>
+                            <rect key="frame" x="311" y="0.0" width="103" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ImL-lJ-wBZ">
-                                    <rect key="frame" x="10" y="0.0" width="83" height="45"/>
+                                    <rect key="frame" x="10" y="0.0" width="83" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal">
                                         <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -171,7 +171,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="0Rq-7k-NcG" firstAttribute="top" secondItem="9yY-BV-qmw" secondAttribute="top" id="13r-W8-zL1"/>
                         <constraint firstItem="LVE-TU-7zd" firstAttribute="width" secondItem="0Rq-7k-NcG" secondAttribute="width" id="8rn-xO-5y7"/>
@@ -180,7 +180,7 @@
                         <constraint firstAttribute="trailing" secondItem="LVE-TU-7zd" secondAttribute="trailing" id="IPK-4y-f1O"/>
                         <constraint firstItem="LVE-TU-7zd" firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" id="IgP-Qw-Vgt"/>
                         <constraint firstItem="LVE-TU-7zd" firstAttribute="leading" secondItem="Aqu-bk-inU" secondAttribute="trailing" id="P0d-8q-0Ki"/>
-                        <constraint firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" id="X7W-Vz-U3Y"/>
+                        <constraint firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" constant="1" id="X7W-Vz-U3Y"/>
                         <constraint firstItem="Aqu-bk-inU" firstAttribute="width" secondItem="0Rq-7k-NcG" secondAttribute="width" id="b2Y-pZ-ikA"/>
                         <constraint firstItem="9gr-ot-jfT" firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" id="bLB-72-eWc"/>
                         <constraint firstItem="Aqu-bk-inU" firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" id="cgT-fb-mGX"/>

@@ -49,10 +49,10 @@
                     <rect key="frame" x="0.0" y="64" width="414" height="45"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Rq-7k-NcG" userLabel="View1">
-                            <rect key="frame" x="0.0" y="0.0" width="138" height="45"/>
+                            <rect key="frame" x="0.0" y="0.0" width="138" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1G-cv-tHD">
-                                    <rect key="frame" x="10" y="0.0" width="118" height="45"/>
+                                    <rect key="frame" x="10" y="0.0" width="118" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal">
                                         <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -93,10 +93,10 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gr-ot-jfT" userLabel="View2">
-                            <rect key="frame" x="138" y="0.0" width="138" height="45"/>
+                            <rect key="frame" x="138" y="0.0" width="138" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P4-Ng-qzT">
-                                    <rect key="frame" x="10" y="0.0" width="118" height="45"/>
+                                    <rect key="frame" x="10" y="0.0" width="118" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal">
                                         <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -133,10 +133,10 @@
                             </variation>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aqu-bk-inU" userLabel="View3">
-                            <rect key="frame" x="276" y="0.0" width="138" height="45"/>
+                            <rect key="frame" x="276" y="0.0" width="138" height="44"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aw1-Lr-wMf">
-                                    <rect key="frame" x="10" y="0.0" width="118" height="45"/>
+                                    <rect key="frame" x="10" y="0.0" width="118" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal">
                                         <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -173,14 +173,14 @@
                             </variation>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="0Rq-7k-NcG" firstAttribute="top" secondItem="9yY-BV-qmw" secondAttribute="top" id="13r-W8-zL1"/>
                         <constraint firstItem="Aqu-bk-inU" firstAttribute="width" secondItem="9yY-BV-qmw" secondAttribute="width" multiplier="1/3" id="65l-80-fw7"/>
                         <constraint firstItem="0Rq-7k-NcG" firstAttribute="width" secondItem="9yY-BV-qmw" secondAttribute="width" multiplier="1/3" id="9Pu-Ip-QxX"/>
                         <constraint firstItem="Aqu-bk-inU" firstAttribute="top" secondItem="0Rq-7k-NcG" secondAttribute="top" id="F8z-6p-9T7"/>
                         <constraint firstItem="9gr-ot-jfT" firstAttribute="width" secondItem="9yY-BV-qmw" secondAttribute="width" multiplier="1/3" id="GDp-Bx-KxO"/>
-                        <constraint firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" id="X7W-Vz-U3Y"/>
+                        <constraint firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" constant="1" id="X7W-Vz-U3Y"/>
                         <constraint firstItem="9gr-ot-jfT" firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" id="bLB-72-eWc"/>
                         <constraint firstItem="Aqu-bk-inU" firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" id="cgT-fb-mGX"/>
                         <constraint firstItem="0Rq-7k-NcG" firstAttribute="leading" secondItem="9yY-BV-qmw" secondAttribute="leading" id="gSI-DH-6lD"/>
