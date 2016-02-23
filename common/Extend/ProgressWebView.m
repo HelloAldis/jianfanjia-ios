@@ -13,6 +13,8 @@
 - (id)initWithFrame:(CGRect)frame configuration:(WKWebViewConfiguration *)configuration {
     if (self = [super initWithFrame:frame configuration:configuration]) {
         UIProgressView *progressView = progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+        progressView.progressTintColor = kThemeColor;
+        progressView.trackTintColor = [UIColor clearColor];
         progressView.frame = CGRectMake(0, 0, kScreenWidth, 1);
         
         [[self rac_valuesAndChangesForKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew observer:self] subscribeNext:^(RACTuple *tuple) {
@@ -21,7 +23,7 @@
             [progressView setProgress:progress animated:YES];
             
             if(progress >= 1.0f) {
-                [UIView animateWithDuration:0.3 delay:0.3 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                [UIView animateWithDuration:0.3 delay:0.6 options:UIViewAnimationOptionCurveEaseOut animations:^{
                     [progressView setAlpha:0.0f];
                 } completion:^(BOOL finished) {
                     [progressView setProgress:0.0f animated:NO];

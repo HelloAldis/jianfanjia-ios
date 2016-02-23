@@ -42,6 +42,8 @@
     ProductImage *productImage = [product imageAtIndex:0];
     [self.productImageView setImageWithId:productImage.imageid withWidth:kScreenWidth];
     [self.designerImageView setUserImageWithId:self.product.designer.imageid];
+    [DesignerBusiness setV:self.vImageView withAuthType:product.designer.auth_type];
+    
     self.lblCell.text = product.cell;
     self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@, %@风格",
                            product.house_area,

@@ -17,6 +17,9 @@ static NSString *MessageModel = @"DecStrategy";
 @interface DecStrategyViewController () <WKNavigationDelegate, WKScriptMessageHandler>
 @property (strong, nonatomic) ProgressWebView *webView;
 
+@property (strong, nonatomic) NSString *articleImgUrl;
+@property (strong, nonatomic) NSString *articleDescription;
+
 @end
 
 @implementation DecStrategyViewController
@@ -34,6 +37,7 @@ static NSString *MessageModel = @"DecStrategy";
     self.title = @"装修攻略";
     [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
     self.navigationItem.rightBarButtonItem.enabled = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
@@ -62,13 +66,31 @@ static NSString *MessageModel = @"DecStrategy";
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kMApiUrl];
-    NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", @"/view/article/"];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", @"view/article/"];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
 
 #pragma mark - WKNavigationDelegate
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+}
+
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
-    self.navigationItem.rightBarButtonItem.enabled = YES;
+    self.title = self.webView.title;
+    [self.webView evaluateJavaScript:@"var nodelist = document.getElementsByTagName('meta'); var description; for(var i = 0; i < nodelist.length; i++) {var node = nodelist[i]; if(node.getAttribute('name') == 'description'){description = node.getAttribute('content');}}\
+     var imgurl = document.getElementsByTagName('img')[0].src;\
+     sendMessageToNative({'msgtype':'share', 'description':description, 'imgurl':imgurl});"
+                   completionHandler:^(id _Nullable value, NSError * _Nullable error) {
+                       if (error) {
+                           [self showError:error];
+                       }
+                   }];
+}
+
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
+    if (error) {
+        [self showError:error];
+    }
 }
 
 #pragma mark - WKScriptMessageHandler
@@ -79,19 +101,17 @@ static NSString *MessageModel = @"DecStrategy";
         NSString *description = [dic objectForKey:@"description"];
         NSString *imgUrl = [dic objectForKey:@"imgurl"];
         if ([@"share" isEqualToString:msgtype]) {
-            UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imgUrl]]];
-            [[ShareManager shared] share:self topic:ShareTopicDecStrategy image:image ? image : [UIImage imageNamed:@"about_logo"] title:self.webView.title ? self.webView.title : @"装修攻略" description:description ? description : @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。" targetLink:self.webView.URL.absoluteString delegate:self];
+            self.articleImgUrl = imgUrl;
+            self.articleDescription = description;
+            self.navigationItem.rightBarButtonItem.enabled = YES;
         }
     }
 }
 
 #pragma mark - user action
 - (void)onClickShare {
-    [self.webView evaluateJavaScript:@"var nodelist = document.getElementsByTagName('meta'); var description; for(var i = 0; i < nodelist.length; i++) {var node = nodelist[i]; if(node.getAttribute('name') == 'description'){description = node.getAttribute('content');}}\
-        var imgurl = document.getElementsByTagName('img')[0].src;\
-     sendMessageToNative({'msgtype':'share', 'description':description, 'imgurl':imgurl});"
-                   completionHandler:^(id _Nullable value, NSError * _Nullable error) {
-    }];
+    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.articleImgUrl]]];
+    [[ShareManager shared] share:self topic:ShareTopicDecStrategy image:image ? image : [UIImage imageNamed:@"about_logo"] title:self.webView.title ? self.webView.title : @"装修攻略" description:self.articleDescription ? self.articleDescription : @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。" targetLink:self.webView.URL.absoluteString delegate:self];
 }
 
 - (void)onClickBack {
@@ -100,6 +120,19 @@ static NSString *MessageModel = @"DecStrategy";
     } else {
         [super onClickBack];
     }
+}
+
+#pragma mark - other
+- (void)showError:(NSError *)error {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                   message:error.localizedDescription
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end
