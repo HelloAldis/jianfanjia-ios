@@ -88,7 +88,7 @@ CGFloat kBannerCellHeight;
     self.pageControl.currentPage = self.index;
     
     if (!self.timer) {
-        self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(fireTimer) userInfo:nil repeats:NO];
+        [self startTimer];
     }
 }
 
@@ -96,11 +96,14 @@ CGFloat kBannerCellHeight;
     [UIView animateWithDuration:0.75 delay:0.0 options:(UIViewAnimationOptionCurveEaseInOut) animations:^{
         [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 2, 0) animated:NO];
     } completion:^(BOOL finished) {
-        if (finished) {
-            [self reloadAllImage];
-            self.timer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(fireTimer) userInfo:nil repeats:NO];
-        }
+        [self reloadAllImage];
+        [self startTimer];
     }];
+}
+
+- (void)startTimer {
+    self.timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(fireTimer) userInfo:nil repeats:NO];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 #pragma mark - scroll view deleaget
