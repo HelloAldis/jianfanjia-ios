@@ -80,6 +80,7 @@ static NSMutableArray *decStyleDS;
 - (void)initUI {
     self.dataManager = [[ProductCaseListDataManager alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableView.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
     [self.tableView registerNib:[UINib nibWithNibName:ProductCaseCellIdentifier bundle:nil] forCellReuseIdentifier:ProductCaseCellIdentifier];
     
     @weakify(self);

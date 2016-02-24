@@ -32,7 +32,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D6K-Az-IpN">
-                    <rect key="frame" x="0.0" y="109" width="414" height="627"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="1GD-NN-0Lc"/>
@@ -208,6 +208,7 @@
             </subviews>
             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="D6K-Az-IpN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0zn-yi-oPl"/>
                 <constraint firstItem="stb-oL-q2J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3yn-38-Vge"/>
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7iY-bI-1ad"/>
                 <constraint firstItem="D6K-Az-IpN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CcC-NN-rBF"/>
@@ -221,6 +222,11 @@
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xv4-ef-LMf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="IIf-3o-4dC"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="322" y="307"/>
         </view>
     </objects>

@@ -32,6 +32,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerInfoCell" bundle:nil] forCellReuseIdentifier:@"DesignerInfoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerDetailCell" bundle:nil] forCellReuseIdentifier:@"DesignerDetailCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerProductCell" bundle:nil] forCellReuseIdentifier:@"DesignerProductCell"];
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     self.tableView.estimatedRowHeight = 260;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 

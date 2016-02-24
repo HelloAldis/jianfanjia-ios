@@ -32,7 +32,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D6K-Az-IpN">
-                    <rect key="frame" x="0.0" y="109" width="414" height="627"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="1GD-NN-0Lc"/>
@@ -213,6 +213,7 @@
                 <constraint firstItem="D6K-Az-IpN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="CcC-NN-rBF"/>
                 <constraint firstItem="D6K-Az-IpN" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="DJY-Bi-tp3"/>
                 <constraint firstItem="D6K-Az-IpN" firstAttribute="top" secondItem="9yY-BV-qmw" secondAttribute="bottom" id="IIf-3o-4dC"/>
+                <constraint firstItem="D6K-Az-IpN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="XtI-hG-3Ct"/>
                 <constraint firstItem="1vT-Di-fuU" firstAttribute="centerX" secondItem="stb-oL-q2J" secondAttribute="centerX" id="Zez-kC-Yh2"/>
                 <constraint firstAttribute="bottom" secondItem="D6K-Az-IpN" secondAttribute="bottom" id="f6g-0c-TdY"/>
                 <constraint firstItem="1vT-Di-fuU" firstAttribute="top" secondItem="stb-oL-q2J" secondAttribute="bottom" constant="10" id="r1c-pP-6BI"/>
@@ -221,6 +222,11 @@
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xv4-ef-LMf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="IIf-3o-4dC"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="322" y="307"/>
         </view>
     </objects>

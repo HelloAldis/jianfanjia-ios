@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NMn-De-ejd">
-                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="6fK-rB-Kza"/>
@@ -90,7 +90,7 @@
                 <constraint firstItem="NMn-De-ejd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0Ci-fO-t8F"/>
                 <constraint firstAttribute="bottom" secondItem="NMn-De-ejd" secondAttribute="bottom" id="HQW-k8-q7l"/>
                 <constraint firstItem="vom-jL-EBe" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="MNR-b8-mzN"/>
-                <constraint firstItem="NMn-De-ejd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="Spx-mj-JrE"/>
+                <constraint firstItem="NMn-De-ejd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Spx-mj-JrE"/>
                 <constraint firstItem="vom-jL-EBe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="StI-Ss-8VS"/>
                 <constraint firstAttribute="trailing" secondItem="NMn-De-ejd" secondAttribute="trailing" id="esM-cD-hrO"/>
                 <constraint firstItem="vom-jL-EBe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="iIc-Sb-kWN"/>

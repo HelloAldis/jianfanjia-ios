@@ -32,8 +32,10 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
 @implementation DropdownMenuView
 
 + (DropdownMenuView *)show:(UIView *)view datasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block {
-    CGRect frame = CGRectMake(view.frame.origin.x, view.frame.origin.y, view.frame.size.width, view.frame.size.height);
-    frame = [[UIApplication sharedApplication].keyWindow convertRect:view.bounds fromView:view];
+    CGRect frame = [[UIApplication sharedApplication].keyWindow convertRect:view.bounds fromView:view];
+    if ([view isKindOfClass:[UIScrollView class]]) {
+        frame = CGRectOffset(frame, 0, ((UIScrollView *)view).contentInset.top);
+    }
     DropdownMenuView *menu = [[DropdownMenuView alloc] initWithFrame:frame];
     [menu initWithDatasource:datasoure defaultValue:defaultValue block:block];
     [[UIApplication sharedApplication].keyWindow insertSubview:menu aboveSubview:view];
@@ -50,7 +52,7 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
         _columnCount = 3;
         _columnSpace = 3;
         _rowSpace = 3;
-        _insets = UIEdgeInsetsMake(0, 0, 10, 0);
+        _insets = UIEdgeInsetsMake(10, 0, 10, 0);
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapParentView:)];
         [self addGestureRecognizer:tapGesture];

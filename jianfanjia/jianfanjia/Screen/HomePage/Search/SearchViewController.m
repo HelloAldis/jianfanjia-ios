@@ -90,6 +90,8 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
     self.productCaseDataManager = [[SearchProductCaseDataManager alloc] init];
     self.beautifulDataManager = [[SearchBeautifulImageDataManager alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableView.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
+    self.imgCollection.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
     [self.tableView registerNib:[UINib nibWithNibName:DesignerSimpleInfoCellIdentifier bundle:nil] forCellReuseIdentifier:DesignerSimpleInfoCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:ProductCaseCellIdentifier bundle:nil] forCellReuseIdentifier:ProductCaseCellIdentifier];
     [self.imgCollection registerNib:[UINib nibWithNibName:BeautifulImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:BeautifulImageCollectionCellIdentifier];
