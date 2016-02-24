@@ -7,6 +7,7 @@
 //
 
 #import "BaseRequest.h"
+#import "ViewControllerContainer.h"
 
 @implementation BaseRequest
 
@@ -51,8 +52,14 @@
 - (void)handleHttpError:(NSError *)err networkError:(void (^)(void))error {
     [HUDUtil hideWait];
     [HUDUtil showErrText:@"网络不给力"];
+    
     if (error) {
         error();
+    }
+    
+    if ([err.localizedDescription containsString:@"403"]) {
+        [ViewControllerContainer logout];
+        [HUDUtil showErrText:@"网络不给力, 请重新登录"];
     }
 }
 
