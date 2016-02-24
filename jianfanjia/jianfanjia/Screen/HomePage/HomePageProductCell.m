@@ -19,6 +19,8 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
 @property (nonatomic, strong) NSArray *products;
 @property (nonatomic, assign) BOOL isShowProduct;
 
+@property (nonatomic, strong) UIView *guideView;
+
 @end
 
 @implementation HomePageProductCell
@@ -38,6 +40,7 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
     self.products = products;
     self.isShowProduct = isShowProduct;
     [self.imgCollection reloadData];
+    [self createGuide];
 }
 
 #pragma mark - collection delegate
@@ -66,6 +69,18 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
 
 - (IBAction)onClickAllProduct:(id)sender {
     [ViewControllerContainer showProductCaseList];
+}
+
+#pragma mark - util
+- (void)createGuide {
+    if (!self.isShowProduct) {
+        return;
+    }
+    
+//    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+//    self.guideView = [[UIView alloc] initWithFrame:window.bounds];
+//    [self.guideView.layer addSublayer:[CALayer createMask:window.bounds]];
+//    [window addSubview:self.guideView];
 }
 
 @end

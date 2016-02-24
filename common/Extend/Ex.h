@@ -27,5 +27,6 @@
 #import "UIBarButtonItem+Badge.h"
 #import "NSDictionary+Ex.h"
 #import "ProgressWebView.h"
+#import "CALayer+Ex.h"
 
 #endif

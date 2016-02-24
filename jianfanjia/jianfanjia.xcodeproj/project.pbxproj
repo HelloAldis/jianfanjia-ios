@@ -242,6 +242,7 @@
 		68B10CC31C7AB3AB005866C1 /* DecStrategyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC11C7AB3AB005866C1 /* DecStrategyViewController.m */; };
 		68B10CC41C7AB3AB005866C1 /* DecStrategyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */; };
 		68B10CC71C7B1A3F005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */; };
+		68B10CCD1C7DAD34005866C1 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C25A1C75891F00EEEBD8 /* HomePageQuickEntryCell.m */; };
 		68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C3C25B1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib */; };
@@ -820,6 +821,8 @@
 		68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecStrategyViewController.xib; sourceTree = "<group>"; };
 		68B10CC51C7B1A3F005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
+		68B10CCB1C7DAD34005866C1 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
+		68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Ex.m"; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1854,6 +1857,8 @@
 				6857265C1C30E472006F6188 /* NSDictionary+Ex.m */,
 				68B10CC51C7B1A3F005866C1 /* ProgressWebView.h */,
 				68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */,
+				68B10CCB1C7DAD34005866C1 /* CALayer+Ex.h */,
+				68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -2863,6 +2868,7 @@
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
 				AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */,
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
+				68B10CCD1C7DAD34005866C1 /* CALayer+Ex.m in Sources */,
 				6EE1E41D1C05942600883184 /* DeleteFavoriteDesigner.m in Sources */,
 				68134A4E1C3F503E003C1C10 /* CustomerServiceViewController.m in Sources */,
 				683669091BFF0C05006A5053 /* PlanCell.m in Sources */,
