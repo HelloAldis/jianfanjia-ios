@@ -243,20 +243,14 @@
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (scrollView == self.scrollView) {
         if (!decelerate) {
-            CGFloat offsetX = self.scrollView.contentOffset.x;
-            if (offsetX == 0 || offsetX == kScreenWidth * 2) {
-                [self reloadAllImage];
-            }
+            [self reloadAllImage];
         }
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.scrollView) {
-        CGFloat offsetX = self.scrollView.contentOffset.x;
-        if (offsetX == 0 || offsetX == kScreenWidth * 2) {
-            [self reloadAllImage];
-        }
+        [self reloadAllImage];
     }
 }
 

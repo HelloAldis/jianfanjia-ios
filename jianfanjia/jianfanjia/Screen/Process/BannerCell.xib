@@ -16,15 +16,12 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1d7-V1-in0">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="169"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="170"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <connections>
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="5sM-Aa-OBb"/>
                         </connections>
                     </scrollView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="banner_cover" translatesAutoresizingMaskIntoConstraints="NO" id="aHH-qu-xm5">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="169"/>
-                    </imageView>
                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="izJ-MJ-YtU">
                         <rect key="frame" x="273" y="132" width="55" height="37"/>
                         <color key="currentPageIndicatorTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -33,26 +30,16 @@
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="izJ-MJ-YtU" secondAttribute="bottom" constant="-8" id="0GP-P2-Zef"/>
-                    <constraint firstAttribute="trailing" secondItem="1d7-V1-in0" secondAttribute="trailing" id="0Nn-Du-obc"/>
-                    <constraint firstItem="izJ-MJ-YtU" firstAttribute="centerX" secondItem="aHH-qu-xm5" secondAttribute="centerX" id="9Qo-Vp-i6F"/>
-                    <constraint firstAttribute="trailing" secondItem="aHH-qu-xm5" secondAttribute="trailing" id="IUN-oy-iBv"/>
-                    <constraint firstItem="1d7-V1-in0" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="NNL-39-YjY"/>
-                    <constraint firstItem="izJ-MJ-YtU" firstAttribute="centerX" secondItem="aHH-qu-xm5" secondAttribute="centerX" id="VrO-a1-sua"/>
-                    <constraint firstAttribute="bottom" secondItem="1d7-V1-in0" secondAttribute="bottom" id="XCs-N1-zfB"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="izJ-MJ-YtU" secondAttribute="bottom" constant="-8" id="Xn2-uL-25t"/>
-                    <constraint firstItem="1d7-V1-in0" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="iUW-KV-QmC"/>
-                    <constraint firstItem="aHH-qu-xm5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="kMc-BI-2m8"/>
-                    <constraint firstItem="aHH-qu-xm5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="pIU-Sj-Aqf"/>
-                    <constraint firstAttribute="bottom" secondItem="aHH-qu-xm5" secondAttribute="bottom" id="wbF-Wh-vcq"/>
+                    <constraint firstItem="izJ-MJ-YtU" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ugl-Hf-Zgp"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="VrO-a1-sua"/>
-                        <exclude reference="Xn2-uL-25t"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="1d7-V1-in0" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="3Xh-gN-SW6"/>
+                <constraint firstItem="1d7-V1-in0" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="6hZ-HV-qZI"/>
+                <constraint firstAttribute="trailing" secondItem="1d7-V1-in0" secondAttribute="trailing" id="hba-ON-b9i"/>
+                <constraint firstAttribute="bottom" secondItem="1d7-V1-in0" secondAttribute="bottom" id="idB-WB-sU0"/>
+            </constraints>
             <connections>
                 <outlet property="pageControl" destination="izJ-MJ-YtU" id="xbZ-se-bnb"/>
                 <outlet property="scrollView" destination="1d7-V1-in0" id="WT5-sU-HEp"/>
@@ -60,7 +47,4 @@
             <point key="canvasLocation" x="347" y="318"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="banner_cover" width="320" height="133"/>
-    </resources>
 </document>

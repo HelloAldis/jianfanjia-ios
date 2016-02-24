@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-extern CGFloat const kBannerCellHeight;
 extern CGFloat const kHomePageRequirementCellHeight;
 extern CGFloat const kHomePageDesignerCellHeight;
 extern CGFloat const kSectionCellHeight;

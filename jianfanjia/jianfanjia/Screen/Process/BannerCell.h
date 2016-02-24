@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+extern CGFloat kBannerCellHeight;
+
 @interface BannerCell : UITableViewCell
 
 @end
