@@ -15,7 +15,7 @@ typedef void(^DropdownChooseItemBlock)(id value);
 @property (assign, nonatomic, readonly) BOOL isShowing;
 
 - (void)show;
-- (void)dismiss;
+- (void)dismiss:(BOOL)animated;
 - (void)refreshDatasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue;
 
 + (DropdownMenuView *)show:(UIView *)view datasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block;

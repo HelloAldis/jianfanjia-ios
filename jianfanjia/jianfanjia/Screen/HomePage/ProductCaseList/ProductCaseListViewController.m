@@ -137,7 +137,7 @@ static NSMutableArray *decStyleDS;
     NSInteger buttonIndex = [self.btnChooseTypes indexOfObject:button];
     if (self.productCaseFilterType == buttonIndex && self.dropdownMenu && self.dropdownMenu.isShowing) {
         [self highlightTypeButton:self.productCaseFilterType highlight:NO title:nil];
-        [self.dropdownMenu dismiss];
+        [self.dropdownMenu dismiss:YES];
         return;
     }
     
@@ -225,7 +225,7 @@ static NSMutableArray *decStyleDS;
 
 - (void)onClickBack {
     if (self.dropdownMenu) {
-        [self.dropdownMenu dismiss];
+        [self.dropdownMenu dismiss:NO];
     }
     [super onClickBack];
 }

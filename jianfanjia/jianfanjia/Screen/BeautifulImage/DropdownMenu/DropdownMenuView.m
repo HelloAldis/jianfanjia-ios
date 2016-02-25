@@ -120,14 +120,20 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
     }];
 }
 
-- (void)dismiss {
+- (void)dismiss:(BOOL)animated {
     self.isShowing = NO;
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+    if (animated) {
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+            self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+            self.collectionView.frame = CGRectMake(0, 0, self.bounds.size.width, 0);
+        } completion:^(BOOL finished) {
+            [self removeFromSuperview];
+        }];
+    } else {
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
         self.collectionView.frame = CGRectMake(0, 0, self.bounds.size.width, 0);
-    } completion:^(BOOL finished) {
         [self removeFromSuperview];
-    }];
+    }
 }
 
 #pragma mark - collection delegate
@@ -155,7 +161,7 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
             self.chooseItemBlock(nil);
         }
         
-        [self dismiss];
+        [self dismiss:YES];
     }
 }
 
@@ -165,7 +171,7 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
         self.chooseItemBlock(value);
     }
     
-    [self dismiss];
+    [self dismiss:YES];
 }
 
 @end

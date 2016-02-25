@@ -223,7 +223,7 @@ static NSMutableArray *decStyleDS;
     NSInteger buttonIndex = [self.btnChooseTypes indexOfObject:button];
     if (self.beautifulImageType == buttonIndex && self.dropdownMenu && self.dropdownMenu.isShowing) {
         [self highlightTypeButton:self.beautifulImageType highlight:NO title:nil];
-        [self.dropdownMenu dismiss];
+        [self.dropdownMenu dismiss:YES];
         return;
     }
     
