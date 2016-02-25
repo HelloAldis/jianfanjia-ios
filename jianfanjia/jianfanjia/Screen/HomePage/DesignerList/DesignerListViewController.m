@@ -203,7 +203,7 @@ static NSMutableArray *designFeeDS;
             buttonTitle = @"风格";
             break;
         case DesignFilterTypeDesignFee:
-            buttonTitle = @"收费";
+            buttonTitle = @"报价";
             break;
             
         default:
