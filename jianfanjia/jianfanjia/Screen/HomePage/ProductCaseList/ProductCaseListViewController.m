@@ -223,6 +223,13 @@ static NSMutableArray *decStyleDS;
     [imgView setImage:[UIImage imageNamed:highlight ? @"angle_expand" : @"angle_unexpand" ]];
 }
 
+- (void)onClickBack {
+    if (self.dropdownMenu) {
+        [self.dropdownMenu dismiss];
+    }
+    [super onClickBack];
+}
+
 #pragma mark - api request
 - (void)refresh {
     [self resetNoDataTip];

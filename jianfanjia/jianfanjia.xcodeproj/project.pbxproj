@@ -815,7 +815,6 @@
 		68B10CB71C785659005866C1 /* SearchProductCaseDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchProductCaseDataManager.m; sourceTree = "<group>"; };
 		68B10CBB1C78686E005866C1 /* ProductCaseListDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCaseListDataManager.h; sourceTree = "<group>"; };
 		68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCaseListDataManager.m; sourceTree = "<group>"; };
-		68B10CBE1C7AACE9005866C1 /* BeautifulImageHomePageProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautifulImageHomePageProtocol.h; sourceTree = "<group>"; };
 		68B10CC01C7AB3AB005866C1 /* DecStrategyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecStrategyViewController.h; sourceTree = "<group>"; };
 		68B10CC11C7AB3AB005866C1 /* DecStrategyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecStrategyViewController.m; sourceTree = "<group>"; };
 		68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecStrategyViewController.xib; sourceTree = "<group>"; };
@@ -823,6 +822,7 @@
 		68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68B10CCB1C7DAD34005866C1 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
 		68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Ex.m"; sourceTree = "<group>"; };
+		68B10CCE1C7EFF9E005866C1 /* BeautifulImageHomePageProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImageHomePageProtocol.h; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1428,7 +1428,6 @@
 		683FFB3D1C296288002A1AFE /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				68B10CBE1C7AACE9005866C1 /* BeautifulImageHomePageProtocol.h */,
 				683FFB3E1C296288002A1AFE /* BeautifulImageHomePageViewController.h */,
 				683FFB3F1C296288002A1AFE /* BeautifulImageHomePageViewController.m */,
 				683FFB401C296288002A1AFE /* BeautifulImageHomePageViewController.xib */,
@@ -1689,6 +1688,7 @@
 				6E07DA501BD88DBE001461DD /* UserLogin.m */,
 				6E07DA511BD88DBE001461DD /* ProcessList.h */,
 				6E07DA521BD88DBE001461DD /* ProcessList.m */,
+				68B10CCE1C7EFF9E005866C1 /* BeautifulImageHomePageProtocol.h */,
 				6E07DA531BD88DBE001461DD /* Request.h */,
 				6E07DA541BD88DBE001461DD /* SendVerifyCode.h */,
 				6E07DA551BD88DBE001461DD /* SendVerifyCode.m */,

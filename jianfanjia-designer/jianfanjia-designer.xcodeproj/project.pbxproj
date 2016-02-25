@@ -169,9 +169,6 @@
 		681240BE1C4CE471008FC9AB /* GetUserRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240691C4CE471008FC9AB /* GetUserRequirement.m */; };
 		681240BF1C4CE471008FC9AB /* HomePageDesigners.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812406B1C4CE471008FC9AB /* HomePageDesigners.m */; };
 		681240C01C4CE471008FC9AB /* LeaveComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812406D1C4CE471008FC9AB /* LeaveComment.m */; };
-		681240C11C4CE471008FC9AB /* ListFavoriateBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812406F1C4CE471008FC9AB /* ListFavoriateBeautifulImage.m */; };
-		681240C21C4CE471008FC9AB /* ListFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240711C4CE471008FC9AB /* ListFavoriateProduct.m */; };
-		681240C31C4CE471008FC9AB /* ListFavoriteDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240731C4CE471008FC9AB /* ListFavoriteDesigner.m */; };
 		681240C41C4CE471008FC9AB /* OrderDesignder.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240751C4CE471008FC9AB /* OrderDesignder.m */; };
 		681240C51C4CE471008FC9AB /* ProcessList.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240771C4CE471008FC9AB /* ProcessList.m */; };
 		681240C61C4CE471008FC9AB /* ProductHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240791C4CE471008FC9AB /* ProductHomePage.m */; };
@@ -180,7 +177,6 @@
 		681240C91C4CE471008FC9AB /* RejectReschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812407F1C4CE471008FC9AB /* RejectReschedule.m */; };
 		681240CA1C4CE471008FC9AB /* ReplaceOrderedDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240811C4CE471008FC9AB /* ReplaceOrderedDesigner.m */; };
 		681240CB1C4CE471008FC9AB /* Reschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240841C4CE471008FC9AB /* Reschedule.m */; };
-		681240CC1C4CE471008FC9AB /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240861C4CE471008FC9AB /* SearchBeautifulImage.m */; };
 		681240CD1C4CE471008FC9AB /* SectionDone.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240881C4CE471008FC9AB /* SectionDone.m */; };
 		681240CE1C4CE471008FC9AB /* SendAddRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812408A1C4CE471008FC9AB /* SendAddRequirement.m */; };
 		681240CF1C4CE471008FC9AB /* SendUpdateRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812408C1C4CE471008FC9AB /* SendUpdateRequirement.m */; };
@@ -617,12 +613,6 @@
 		6812406B1C4CE471008FC9AB /* HomePageDesigners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageDesigners.m; sourceTree = "<group>"; };
 		6812406C1C4CE471008FC9AB /* LeaveComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaveComment.h; sourceTree = "<group>"; };
 		6812406D1C4CE471008FC9AB /* LeaveComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaveComment.m; sourceTree = "<group>"; };
-		6812406E1C4CE471008FC9AB /* ListFavoriateBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFavoriateBeautifulImage.h; sourceTree = "<group>"; };
-		6812406F1C4CE471008FC9AB /* ListFavoriateBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFavoriateBeautifulImage.m; sourceTree = "<group>"; };
-		681240701C4CE471008FC9AB /* ListFavoriateProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFavoriateProduct.h; sourceTree = "<group>"; };
-		681240711C4CE471008FC9AB /* ListFavoriateProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFavoriateProduct.m; sourceTree = "<group>"; };
-		681240721C4CE471008FC9AB /* ListFavoriteDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFavoriteDesigner.h; sourceTree = "<group>"; };
-		681240731C4CE471008FC9AB /* ListFavoriteDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFavoriteDesigner.m; sourceTree = "<group>"; };
 		681240741C4CE471008FC9AB /* OrderDesignder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignder.h; sourceTree = "<group>"; };
 		681240751C4CE471008FC9AB /* OrderDesignder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderDesignder.m; sourceTree = "<group>"; };
 		681240761C4CE471008FC9AB /* ProcessList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessList.h; sourceTree = "<group>"; };
@@ -640,8 +630,6 @@
 		681240821C4CE471008FC9AB /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
 		681240831C4CE471008FC9AB /* Reschedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reschedule.h; sourceTree = "<group>"; };
 		681240841C4CE471008FC9AB /* Reschedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reschedule.m; sourceTree = "<group>"; };
-		681240851C4CE471008FC9AB /* SearchBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBeautifulImage.h; sourceTree = "<group>"; };
-		681240861C4CE471008FC9AB /* SearchBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBeautifulImage.m; sourceTree = "<group>"; };
 		681240871C4CE471008FC9AB /* SectionDone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionDone.h; sourceTree = "<group>"; };
 		681240881C4CE471008FC9AB /* SectionDone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionDone.m; sourceTree = "<group>"; };
 		681240891C4CE471008FC9AB /* SendAddRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendAddRequirement.h; sourceTree = "<group>"; };
@@ -1506,12 +1494,6 @@
 				6812406B1C4CE471008FC9AB /* HomePageDesigners.m */,
 				6812406C1C4CE471008FC9AB /* LeaveComment.h */,
 				6812406D1C4CE471008FC9AB /* LeaveComment.m */,
-				6812406E1C4CE471008FC9AB /* ListFavoriateBeautifulImage.h */,
-				6812406F1C4CE471008FC9AB /* ListFavoriateBeautifulImage.m */,
-				681240701C4CE471008FC9AB /* ListFavoriateProduct.h */,
-				681240711C4CE471008FC9AB /* ListFavoriateProduct.m */,
-				681240721C4CE471008FC9AB /* ListFavoriteDesigner.h */,
-				681240731C4CE471008FC9AB /* ListFavoriteDesigner.m */,
 				681240741C4CE471008FC9AB /* OrderDesignder.h */,
 				681240751C4CE471008FC9AB /* OrderDesignder.m */,
 				681240761C4CE471008FC9AB /* ProcessList.h */,
@@ -1529,8 +1511,6 @@
 				681240821C4CE471008FC9AB /* Request.h */,
 				681240831C4CE471008FC9AB /* Reschedule.h */,
 				681240841C4CE471008FC9AB /* Reschedule.m */,
-				681240851C4CE471008FC9AB /* SearchBeautifulImage.h */,
-				681240861C4CE471008FC9AB /* SearchBeautifulImage.m */,
 				681240871C4CE471008FC9AB /* SectionDone.h */,
 				681240881C4CE471008FC9AB /* SectionDone.m */,
 				681240891C4CE471008FC9AB /* SendAddRequirement.h */,
@@ -2088,7 +2068,6 @@
 				6E378D3A1BDA2D2E00908B77 /* DesignerCD+CoreDataProperties.m in Sources */,
 				681241A91C4F3B1C008FC9AB /* RespondedActionCell.m in Sources */,
 				6E378D3F1BDA2D2E00908B77 /* ProcessCD.m in Sources */,
-				681240C31C4CE471008FC9AB /* ListFavoriteDesigner.m in Sources */,
 				681240D61C4CE471008FC9AB /* UploadImageToProcess.m in Sources */,
 				6E378D541BDA2D2E00908B77 /* Ys.m in Sources */,
 				6812417F1C4F22B0008FC9AB /* DesignerGetUserRequirements.m in Sources */,
@@ -2154,7 +2133,6 @@
 				6E378D3B1BDA2D2E00908B77 /* DesignerCD.m in Sources */,
 				681240B21C4CE471008FC9AB /* DesignerLogin.m in Sources */,
 				681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */,
-				681240CC1C4CE471008FC9AB /* SearchBeautifulImage.m in Sources */,
 				6E378D481BDA2D2E00908B77 /* UIButton+Ex.m in Sources */,
 				682E04FD1C588A6100F1ACAA /* NoRequirementImageView.m in Sources */,
 				681240C71C4CE471008FC9AB /* QueryProduct.m in Sources */,
@@ -2216,7 +2194,6 @@
 				681241B31C4F3D31008FC9AB /* UnchoosedPlanActionCell.m in Sources */,
 				6EA0C19B1C577F7500D04A4F /* PlanPriceItemCell.m in Sources */,
 				68123FEA1C4CCFFF008FC9AB /* DesignerBusiness.m in Sources */,
-				681240C21C4CE471008FC9AB /* ListFavoriateProduct.m in Sources */,
 				681240D41C4CE471008FC9AB /* UpdateUserInfo.m in Sources */,
 				681240CF1C4CE471008FC9AB /* SendUpdateRequirement.m in Sources */,
 				68123F131C4CBE79008FC9AB /* SelectWorkTypeViewController.m in Sources */,
@@ -2245,7 +2222,6 @@
 				68123E781C4CBE79008FC9AB /* CustomerServiceViewController.m in Sources */,
 				681241191C4CF2D5008FC9AB /* DBYSViewController.m in Sources */,
 				681241301C4CF2D5008FC9AB /* ReminderDataManager.m in Sources */,
-				681240C11C4CE471008FC9AB /* ListFavoriateBeautifulImage.m in Sources */,
 				68123F051C4CBE79008FC9AB /* SelectBusinessTypeViewController.m in Sources */,
 				68123CA81C4C97BC008FC9AB /* NotificationCD.m in Sources */,
 				6E378D4F1BDA2D2E00908B77 /* Designer.m in Sources */,

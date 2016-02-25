@@ -32,13 +32,14 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
 @implementation DropdownMenuView
 
 + (DropdownMenuView *)show:(UIView *)view datasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block {
-    CGRect frame = view.bounds;
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    CGRect frame = [window convertRect:view.bounds fromView:view];
     if ([view isKindOfClass:[UIScrollView class]]) {
         frame = CGRectOffset(frame, 0, ((UIScrollView *)view).contentInset.top);
     }
     DropdownMenuView *menu = [[DropdownMenuView alloc] initWithFrame:frame];
     [menu initWithDatasource:datasoure defaultValue:defaultValue block:block];
-    [view addSubview:menu];
+    [window insertSubview:menu aboveSubview:view];
     [menu show];
     
     return menu;
