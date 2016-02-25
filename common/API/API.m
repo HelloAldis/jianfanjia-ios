@@ -16,6 +16,7 @@ static AFHTTPRequestOperationManager *_manager;
     _manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:kApiUrl]];
     _manager.requestSerializer = [AFJSONRequestSerializer serializer];
     _manager.requestSerializer.HTTPShouldHandleCookies = YES;
+    _manager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
     serializer.removesKeysWithNullValues = YES;
     _manager.responseSerializer = serializer;
