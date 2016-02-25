@@ -64,9 +64,18 @@
                             <action selector="onClickAllProduct:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0CL-X9-20D"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_right_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="dnv-qD-CUW">
+                        <rect key="frame" x="560" y="104" width="40" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="dnv-qD-CUW" secondAttribute="height" multiplier="4:5" id="28X-CC-bsz"/>
+                            <constraint firstAttribute="width" constant="40" id="J4w-oi-QSZ"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
+                    <constraint firstAttribute="trailingMargin" secondItem="dnv-qD-CUW" secondAttribute="trailing" id="61W-Ek-was"/>
+                    <constraint firstItem="dnv-qD-CUW" firstAttribute="centerY" secondItem="NDz-Ku-vYS" secondAttribute="centerY" id="CTo-Tn-Hvj"/>
                     <constraint firstItem="unf-MV-Bsm" firstAttribute="height" secondItem="ZRc-Qu-cab" secondAttribute="height" id="Eab-eY-Rfr"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Zg5-pg-fV9" secondAttribute="bottom" constant="20" id="Hti-s1-qm8"/>
                     <constraint firstItem="NDz-Ku-vYS" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="SGE-2l-n7S"/>
@@ -75,23 +84,32 @@
                     <constraint firstItem="NDz-Ku-vYS" firstAttribute="top" secondItem="ZRc-Qu-cab" secondAttribute="bottom" id="ckS-Nj-gEI"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Zg5-pg-fV9" secondAttribute="trailing" constant="20" id="tTa-52-7wm"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="61W-Ek-was"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.79215686269999996" green="0.79607843140000001" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="ZRc-Qu-cab" firstAttribute="top" secondItem="KGk-i7-Jjw" secondAttribute="top" id="I3Y-XN-c7E"/>
                 <constraint firstItem="ZRc-Qu-cab" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="12" id="XZK-hx-fBu"/>
                 <constraint firstAttribute="bottom" secondItem="NDz-Ku-vYS" secondAttribute="bottom" id="k1e-eN-jgt"/>
+                <constraint firstAttribute="trailing" secondItem="dnv-qD-CUW" secondAttribute="trailing" id="kKU-f0-qwf"/>
                 <constraint firstItem="NDz-Ku-vYS" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="nOF-Z0-DyZ"/>
             </constraints>
             <connections>
                 <outlet property="flowLayout" destination="Q5u-1k-jxt" id="NKo-DO-cIG"/>
                 <outlet property="iconProduct" destination="Zg5-pg-fV9" id="N1g-eM-HFZ"/>
+                <outlet property="iconRightArrow" destination="dnv-qD-CUW" id="DzF-1G-k0E"/>
                 <outlet property="imgCollection" destination="NDz-Ku-vYS" id="Hw9-Pc-l6U"/>
+                <outlet property="lblTitle" destination="ZRc-Qu-cab" id="ByU-sa-ZVr"/>
             </connections>
             <point key="canvasLocation" x="357" y="308.5"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon_right_arrow" width="39" height="54"/>
         <image name="icon_show_product" width="60" height="60"/>
     </resources>
 </document>

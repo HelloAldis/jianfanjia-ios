@@ -12,6 +12,6 @@
 
 + (CALayer *)createMask:(CGRect)frame withTransparentHole:(CGRect)hole;
 + (CALayer *)createMask:(CGRect)frame;
-+ (CALayer *)createLayer:(UIImage *)img;
++ (CALayer *)createLayer:(CGRect)frame image:(UIImage *)img;
 
 @end

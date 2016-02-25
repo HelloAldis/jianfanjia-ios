@@ -36,9 +36,12 @@
     return fillLayer;
 }
 
-+ (CALayer *)createLayer:(UIImage *)img {
++ (CALayer *)createLayer:(CGRect)frame image:(UIImage *)img {
     CALayer *layer = [CALayer layer];
+    layer.frame = frame;
     layer.contents = (__bridge id _Nullable)(img.CGImage);
+    layer.contentsGravity = kCAGravityResizeAspect;
+    layer.contentsScale = [UIScreen mainScreen].scale;
     
     return layer;
 }

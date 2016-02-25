@@ -31,6 +31,8 @@
 @dynamic family_description;
 @dynamic wechat_openid;
 @dynamic wechat_unionid;
+@dynamic wasShowProductCaseUserHelper;
+@dynamic wasShowProductCaseRightArrow;
 
 @end
 

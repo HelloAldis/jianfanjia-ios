@@ -15,6 +15,8 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
 @property (weak, nonatomic) IBOutlet UICollectionView *imgCollection;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 @property (weak, nonatomic) IBOutlet UIImageView *iconProduct;
+@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
+@property (weak, nonatomic) IBOutlet UIImageView *iconRightArrow;
 
 @property (nonatomic, strong) NSArray *products;
 @property (nonatomic, assign) BOOL isShowProduct;
@@ -34,13 +36,16 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
     swipe.direction = UISwipeGestureRecognizerDirectionUp;
     swipe.delegate = self;
     [self.imgCollection addGestureRecognizer:swipe];
+    RAC(self.iconRightArrow, hidden) = RACObserve([GVUserDefaults standardUserDefaults], wasShowProductCaseRightArrow);
 }
 
 - (void)initWithProducts:(NSArray *)products isShowProduct:(BOOL)isShowProduct {
     self.products = products;
     self.isShowProduct = isShowProduct;
     [self.imgCollection reloadData];
-    [self createGuide];
+    if (self.isShowProduct) {
+        [self addUserHelper];
+    }
 }
 
 #pragma mark - collection delegate
@@ -55,6 +60,13 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
     return cell;
 }
 
+#pragma mark - UIScroll view delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView.contentOffset.x >= kScreenWidth) {
+        [GVUserDefaults standardUserDefaults].wasShowProductCaseRightArrow = YES;
+    }
+}
+
 #pragma mark - gesture delegate
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
     return self.isShowProduct;
@@ -62,7 +74,13 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
 
 #pragma mark - user action
 - (void)showProduct:(UIGestureRecognizer *)g {
-    CGPoint point = [g locationInView:self.imgCollection];
+    CGPoint point = [g locationInView:self];
+    if (self.guideView && [g isKindOfClass:[UITapGestureRecognizer class]] && !CGRectContainsPoint(self.iconProduct.frame, point)) {
+      return;
+    }
+    
+    [self removeUserHelper];
+    point = [g locationInView:self.imgCollection];
     NSIndexPath *index = [self.imgCollection indexPathForItemAtPoint:point];
     [ViewControllerContainer showProduct:[self.products[index.row] _id] isModal:YES];
 }
@@ -72,15 +90,26 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
 }
 
 #pragma mark - util
-- (void)createGuide {
-    if (!self.isShowProduct) {
-        return;
+- (void)addUserHelper {
+    if (![GVUserDefaults standardUserDefaults].wasShowProductCaseUserHelper) {
+        [GVUserDefaults standardUserDefaults].wasShowProductCaseUserHelper = YES;
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        UIImage *img = [UIImage imageNamed:@"img_swipe_up"];
+        self.guideView = [[UIView alloc] initWithFrame:window.bounds];
+        [self.guideView.layer addSublayer:[CALayer createMask:window.bounds withTransparentHole:CGRectOffset(self.iconProduct.frame, 0, 64 - self.lblTitle.frame.size.height)]];
+        [self.guideView.layer addSublayer:[CALayer createLayer:CGRectMake((kScreenWidth - img.size.width) / 2, (kScreenHeight - img.size.height) / 2, img.size.width, img.size.height) image:img]];
+        [window addSubview:self.guideView];
+        [self.guideView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showProduct:)]];
+        UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(showProduct:)];
+        swipe.direction = UISwipeGestureRecognizerDirectionUp;
+        [self.guideView addGestureRecognizer:swipe];
     }
-    
-//    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-//    self.guideView = [[UIView alloc] initWithFrame:window.bounds];
-//    [self.guideView.layer addSublayer:[CALayer createMask:window.bounds]];
-//    [window addSubview:self.guideView];
+}
+
+- (void)removeUserHelper {
+    if (self.guideView) {
+        [self.guideView removeFromSuperview];
+    }
 }
 
 @end

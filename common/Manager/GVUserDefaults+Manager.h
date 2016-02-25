@@ -31,5 +31,7 @@
 @property (nonatomic, strong) NSString *family_description;
 @property (nonatomic, strong) NSString *wechat_openid;
 @property (nonatomic, strong) NSString *wechat_unionid;
+@property (nonatomic, assign) BOOL wasShowProductCaseUserHelper;
+@property (nonatomic, assign) BOOL wasShowProductCaseRightArrow;
 
 @end
