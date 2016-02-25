@@ -41,10 +41,11 @@
     self.product = product;
     
     self.lblCell.text = product.cell;
-    self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@风格",
-                           self.product.house_area,
-                           [NameDict nameForHouseType:self.product.house_type],
-                           [NameDict nameForDecStyle:self.product.dec_style]];
+    self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@, %@风格",
+                           product.house_area,
+                           [NameDict nameForDecType:product.dec_type],
+                           [NameDict nameForHouseType:product.house_type],
+                           [NameDict nameForDecStyle:product.dec_style]];
     [self.designerImageView setUserImageWithId:self.product.designer.imageid];
     self.lblDescription.text = self.product.product_description;
 }
