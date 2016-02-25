@@ -32,13 +32,13 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
 @implementation DropdownMenuView
 
 + (DropdownMenuView *)show:(UIView *)view datasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block {
-    CGRect frame = [[UIApplication sharedApplication].keyWindow convertRect:view.bounds fromView:view];
+    CGRect frame = view.bounds;
     if ([view isKindOfClass:[UIScrollView class]]) {
         frame = CGRectOffset(frame, 0, ((UIScrollView *)view).contentInset.top);
     }
     DropdownMenuView *menu = [[DropdownMenuView alloc] initWithFrame:frame];
     [menu initWithDatasource:datasoure defaultValue:defaultValue block:block];
-    [[UIApplication sharedApplication].keyWindow insertSubview:menu aboveSubview:view];
+    [view addSubview:menu];
     [menu show];
     
     return menu;
@@ -57,6 +57,9 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapParentView:)];
         [self addGestureRecognizer:tapGesture];
         tapGesture.cancelsTouchesInView = NO;
+        
+        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:nil];
+        [self addGestureRecognizer:panGesture];
         
         self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
         self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 0) collectionViewLayout:self.flowLayout];
