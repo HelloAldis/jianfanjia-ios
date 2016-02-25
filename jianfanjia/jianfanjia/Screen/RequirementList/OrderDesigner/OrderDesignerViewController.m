@@ -28,8 +28,9 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 @property (assign, nonatomic) OrderDesignerOrderType orderType;
 @property (assign, nonatomic) NSInteger orderableCount;
 
-@property (assign, nonatomic) BOOL isChooseAll;
-@property (assign, nonatomic) BOOL isInBindPhoneProcess;
+@property (assign, nonatomic) BOOL wasChooseAll;
+@property (assign, nonatomic) BOOL wasInBindPhoneProcess;
+@property (assign, nonatomic) BOOL wasClickMore;
 
 @end
 
@@ -73,8 +74,13 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    if (self.isInBindPhoneProcess && [GVUserDefaults standardUserDefaults].phone) {
-        self.isInBindPhoneProcess = NO;
+    if (self.wasClickMore) {
+        self.wasClickMore = NO;
+        [self refreshOrderableList];
+    }
+    
+    if (self.wasInBindPhoneProcess && [GVUserDefaults standardUserDefaults].phone) {
+        self.wasInBindPhoneProcess = NO;
         [self onClickDone];
     }
 }
@@ -164,6 +170,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
         return section;
     } else {
         IntentDesignerSection *section = [IntentDesignerSection sectionView];
+        [section.btnMore addTarget:self action:@selector(onClickMore) forControlEvents:UIControlEventTouchUpInside];
         return section;
     }
 }
@@ -188,8 +195,13 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 
 #pragma mark - user action
 - (void)onChooseAll {
-    self.isChooseAll = YES;
+    self.wasChooseAll = YES;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+- (void)onClickMore {
+    [ViewControllerContainer showDesignerList];
+    self.wasClickMore = YES;
 }
 
 - (void)onClickDone {
@@ -200,7 +212,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     }
     
     if (![GVUserDefaults standardUserDefaults].phone) {
-        self.isInBindPhoneProcess = YES;
+        self.wasInBindPhoneProcess = YES;
         [ViewControllerContainer showBindPhone:BindPhoneEventOrderDesigner];
         return;
     }
