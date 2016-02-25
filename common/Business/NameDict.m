@@ -95,15 +95,15 @@ static NSDictionary *businessTypeDict = nil;
                    };
     
     requirementStatus = @{
-                          @"0":@"未预约",
-                          @"1":@"已预约",
-                          @"2":@"已响应",
-                          @"3":@"有方案",
-                          @"4":@"已选定",
-                          @"5":@"有工地",
-                          @"6":@"已量房",
-                          @"7":@"有合同",
-                          @"8":@"已竣工",
+                          kRequirementStatusUnorderAnyDesigner:@"未预约",
+                          kRequirementStatusOrderedDesignerWithoutAnyResponse:@"已预约",
+                          kRequirementStatusDesignerRespondedWithoutMeasureHouse:@"已响应",
+                          kRequirementStatusDesignerSubmittedPlanWithoutResponse:@"有方案",
+                          kRequirementStatusPlanWasChoosedWithoutAgreement:@"已选定",
+                          kRequirementStatusConfiguredWorkSite:@"有工地",
+                          kRequirementStatusDesignerMeasureHouseWithoutPlan:@"已量房",
+                          kRequirementStatusConfiguredAgreementWithoutWorkSite:@"有合同",
+                          kRequirementStatusFinishedWorkSite:@"已竣工",
                           };
     
     authType = @{
