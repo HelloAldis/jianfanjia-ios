@@ -50,9 +50,10 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     [self.designerTableView registerNib:[UINib nibWithNibName:@"FavoriteDesignerCell" bundle:nil] forCellReuseIdentifier:@"FavoriteDesignerCell"];
     [self.productTableView registerNib:[UINib nibWithNibName:@"FavoriateProductCell" bundle:nil] forCellReuseIdentifier:@"FavoriateProductCell"];
     [self.beautifulImageCollectionView registerNib:[UINib nibWithNibName:@"FavoriateBeautifulImageCell"bundle:nil] forCellWithReuseIdentifier:@"FavoriateBeautifulImageCell"];
-    self.designerTableView.contentInset = UIEdgeInsetsMake(64+45+9, 0, 0, 0);
+    self.designerTableView.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
     self.productTableView.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
     self.beautifulImageCollectionView.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
+    self.designerTableView.tableFooterView = [[UIView alloc] init];
     
     @weakify(self);
     [RACObserve(self.designerTableView, hidden) subscribeNext:^(NSNumber *newValue) {
@@ -96,7 +97,6 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
          @strongify(self);
         [self refreshDesigner];
     }];
-    self.designerTableView.header.ignoredScrollViewContentInsetTop = 9;
     self.designerTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreDesigner];

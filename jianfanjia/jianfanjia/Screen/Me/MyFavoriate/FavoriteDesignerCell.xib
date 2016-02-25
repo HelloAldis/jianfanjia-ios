@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,7 +17,6 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oRm-dh-dZ5">
                         <rect key="frame" x="20" y="10" width="60" height="60"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="7wW-D2-9VP"/>
                             <constraint firstAttribute="width" constant="60" id="8ex-1A-62P"/>
@@ -25,7 +24,6 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="戴涛" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDu-Si-Ogm">
                         <rect key="frame" x="100" y="17" width="176" height="21"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="176" id="C2d-qM-Wlr"/>
                             <constraint firstAttribute="height" constant="21" id="HTj-nw-Mwk"/>
@@ -36,7 +34,6 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle_empty" translatesAutoresizingMaskIntoConstraints="NO" id="zfH-Uh-bcp">
                         <rect key="frame" x="100" y="46" width="17" height="15"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="LZZ-Lm-4D5"/>
                             <constraint firstAttribute="width" constant="17" id="ndH-Sn-HXs"/>
@@ -44,7 +41,6 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle_empty" translatesAutoresizingMaskIntoConstraints="NO" id="oce-Xh-QPJ">
                         <rect key="frame" x="122" y="46" width="17" height="15"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="kDB-xG-wxd"/>
                             <constraint firstAttribute="width" constant="17" id="tUp-Lt-0Da"/>
@@ -52,7 +48,6 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle_empty" translatesAutoresizingMaskIntoConstraints="NO" id="DWR-dl-XGd">
                         <rect key="frame" x="144" y="46" width="17" height="15"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="17" id="9eb-CA-H37"/>
                             <constraint firstAttribute="height" constant="15" id="Xpz-gR-pXo"/>
@@ -60,7 +55,6 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle_empty" translatesAutoresizingMaskIntoConstraints="NO" id="tSE-gV-CMB">
                         <rect key="frame" x="166" y="46" width="17" height="15"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="17" id="aSI-gz-LXJ"/>
                             <constraint firstAttribute="height" constant="15" id="hII-cZ-ygj"/>
@@ -68,32 +62,19 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle_empty" translatesAutoresizingMaskIntoConstraints="NO" id="Q3z-IC-3Yq">
                         <rect key="frame" x="188" y="46" width="17" height="15"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="17" id="R7T-Ga-7GJ"/>
                             <constraint firstAttribute="height" constant="15" id="qkj-ll-zEi"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erd-d1-0wb">
-                        <rect key="frame" x="0.0" y="78" width="320" height="1"/>
-                        <animations/>
-                        <color key="backgroundColor" red="0.86274509799999999" green="0.86274509799999999" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="z0u-CP-Arg"/>
-                        </constraints>
-                    </view>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstItem="oRm-dh-dZ5" firstAttribute="top" secondItem="xDu-Si-Ogm" secondAttribute="bottom" constant="-28" id="1XX-KM-7gl"/>
                     <constraint firstItem="DWR-dl-XGd" firstAttribute="leading" secondItem="oce-Xh-QPJ" secondAttribute="trailing" constant="5" id="6K9-0q-hHJ"/>
                     <constraint firstItem="oRm-dh-dZ5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="6Uo-hW-FTm"/>
                     <constraint firstItem="DWR-dl-XGd" firstAttribute="baseline" secondItem="oce-Xh-QPJ" secondAttribute="baseline" id="Ayl-Wz-KVk"/>
                     <constraint firstItem="Q3z-IC-3Yq" firstAttribute="leading" secondItem="tSE-gV-CMB" secondAttribute="trailing" constant="5" id="GSs-zu-v4d"/>
-                    <constraint firstItem="erd-d1-0wb" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="Iof-Ck-Rz5"/>
-                    <constraint firstItem="erd-d1-0wb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="JUV-Ks-jll"/>
                     <constraint firstItem="tSE-gV-CMB" firstAttribute="leading" secondItem="DWR-dl-XGd" secondAttribute="trailing" constant="5" id="O9b-hB-i1p"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="erd-d1-0wb" secondAttribute="bottom" constant="-8" id="OtG-jL-ZwH"/>
                     <constraint firstItem="zfH-Uh-bcp" firstAttribute="top" secondItem="xDu-Si-Ogm" secondAttribute="bottom" constant="8" id="QS3-wO-9Nf"/>
                     <constraint firstItem="oce-Xh-QPJ" firstAttribute="leading" secondItem="zfH-Uh-bcp" secondAttribute="trailing" constant="5" id="RyI-vm-AQS"/>
                     <constraint firstItem="xDu-Si-Ogm" firstAttribute="leading" secondItem="oRm-dh-dZ5" secondAttribute="trailing" constant="20" id="XoC-Hm-hUc"/>
@@ -104,7 +85,6 @@
                     <constraint firstItem="oce-Xh-QPJ" firstAttribute="baseline" secondItem="zfH-Uh-bcp" secondAttribute="baseline" id="xhr-UE-jDX"/>
                 </constraints>
             </tableViewCellContentView>
-            <animations/>
             <connections>
                 <outlet property="designerImageView" destination="oRm-dh-dZ5" id="JEp-tX-SKJ"/>
                 <outlet property="lblDesignerName" destination="xDu-Si-Ogm" id="Fma-e6-S9Z"/>
