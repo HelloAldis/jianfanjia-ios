@@ -55,9 +55,10 @@
         _loadMoreRequest = loadMoreRequest;
         _beautifulImages = dataManager.beautifulImages;
         _beautifulImage = _beautifulImages[index];
-        _total = _beautifulImages.count;
+        _total = dataManager.total;
         _dismissBlock = dismissBlock;
         _pageNumber = @(20);
+        _hasMoreBeautifulImage = _index == _total;
     }
     
     return self;
@@ -419,7 +420,6 @@
     NSInteger count = [self.dataManager loadMoreBeautifulImages];
     self.beautifulImages = self.dataManager.beautifulImages;
     self.index = [self.beautifulImages indexOfObject:self.beautifulImage];
-    self.total = self.beautifulImages.count;
     self.hasMoreBeautifulImage = count < [self.pageNumber integerValue];
 }
 

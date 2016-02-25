@@ -20,6 +20,7 @@
     }
     
     self.beautifulImages = beautifulImages;
+    self.total = [[[DataManager shared].data objectForKey:@"total"] integerValue];
     return beautifulImages.count;
 }
 

@@ -12,6 +12,7 @@
 @interface BeautifulImageDataManager : NSObject <BeautifulImageHomePageDataManagerProtocol>
 
 @property (nonatomic, strong) NSMutableArray *beautifulImages;
+@property (nonatomic, assign) NSInteger total;
 
 - (NSInteger)refreshBeautifulImages;
 - (NSInteger)loadMoreBeautifulImages;

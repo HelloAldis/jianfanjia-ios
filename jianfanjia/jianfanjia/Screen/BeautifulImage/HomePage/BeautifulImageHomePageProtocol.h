@@ -14,6 +14,7 @@
 @required
 - (NSMutableArray *)beautifulImages;
 - (NSInteger)loadMoreBeautifulImages;
+- (NSInteger)total;
 
 @end
 
