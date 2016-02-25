@@ -93,7 +93,7 @@ function incVersion() {
     version[2]=`expr 1 + ${version[2]}`
   elif [[ $build_version_type = $b_build_version ]]; then
     version[1]=`expr 1 + ${version[1]}`
-    version[1]=0
+    version[2]=0
   elif [[ $build_version_type = $a_build_version ]]; then
     version[0]=`expr 1 + ${version[0]}`
     version[1]=0
