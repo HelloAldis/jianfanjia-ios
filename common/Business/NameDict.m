@@ -122,7 +122,7 @@ static NSDictionary *businessTypeDict = nil;
     sectionStatusDic = @{
                          @"0":@"未开工",
                          @"1":@"进行中",
-                         @"2":@"已完成",
+                         @"2":@"已完工",
                          @"3":@"改期申请中",
                          @"4":@"改期同意",
                          @"5":@"改期拒绝",
