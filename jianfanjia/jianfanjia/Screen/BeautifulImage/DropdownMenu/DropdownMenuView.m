@@ -31,15 +31,10 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
 
 @implementation DropdownMenuView
 
-+ (DropdownMenuView *)show:(UIView *)view datasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block {
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    CGRect frame = [window convertRect:view.bounds fromView:view];
-    if ([view isKindOfClass:[UIScrollView class]]) {
-        frame = CGRectOffset(frame, 0, ((UIScrollView *)view).contentInset.top);
-    }
-    DropdownMenuView *menu = [[DropdownMenuView alloc] initWithFrame:frame];
++ (DropdownMenuView *)showIn:(UIView *)view belowTo:(CGRect)belowTo datasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block {
+    DropdownMenuView *menu = [[DropdownMenuView alloc] initWithFrame:CGRectMake(belowTo.origin.x, CGRectGetMaxY(belowTo), belowTo.size.width, kScreenHeight)];
     [menu initWithDatasource:datasoure defaultValue:defaultValue block:block];
-    [window insertSubview:menu aboveSubview:view];
+    [view addSubview:menu];
     [menu show];
     
     return menu;
@@ -58,9 +53,6 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapParentView:)];
         [self addGestureRecognizer:tapGesture];
         tapGesture.cancelsTouchesInView = NO;
-        
-        UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:nil];
-        [self addGestureRecognizer:panGesture];
         
         self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
         self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 0) collectionViewLayout:self.flowLayout];

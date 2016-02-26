@@ -18,7 +18,7 @@ typedef void(^DropdownChooseItemBlock)(id value);
 - (void)dismiss:(BOOL)animated;
 - (void)refreshDatasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue;
 
-+ (DropdownMenuView *)show:(UIView *)view datasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block;
++ (DropdownMenuView *)showIn:(UIView *)view belowTo:(CGRect)belowTo datasource:(NSArray *)datasoure defaultValue:(NSString *)defaultValue block:(DropdownChooseItemBlock)block;
 
 
 @end

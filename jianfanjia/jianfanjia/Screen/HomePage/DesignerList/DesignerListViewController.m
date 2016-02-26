@@ -164,7 +164,7 @@ static NSMutableArray *designFeeDS;
     if (self.dropdownMenu && self.dropdownMenu.isShowing) {
         [self.dropdownMenu refreshDatasource:datasource defaultValue:defaultValue];
     } else {
-        self.dropdownMenu = [DropdownMenuView show:self.tableView datasource:datasource defaultValue:defaultValue block:^(id value) {
+        self.dropdownMenu = [DropdownMenuView showIn:self.view belowTo:self.headerView.frame datasource:datasource defaultValue:defaultValue block:^(id value) {
             @strongify(self);
             if (value) {
                 if (self.designFilterType == DesignFilterTypeDecType) {
@@ -222,13 +222,6 @@ static NSMutableArray *designFeeDS;
     
     [label setTextColor:highlight ? kThemeTextColor : kUntriggeredColor];
     [imgView setImage:[UIImage imageNamed:highlight ? @"angle_expand" : @"angle_unexpand" ]];
-}
-
-- (void)onClickBack {
-    if (self.dropdownMenu) {
-        [self.dropdownMenu dismiss:NO];
-    }
-    [super onClickBack];
 }
 
 #pragma mark - api request

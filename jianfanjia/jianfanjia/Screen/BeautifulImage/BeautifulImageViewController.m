@@ -246,7 +246,7 @@ static NSMutableArray *decStyleDS;
     if (self.dropdownMenu && self.dropdownMenu.isShowing) {
         [self.dropdownMenu refreshDatasource:datasource defaultValue:defaultValue];
     } else {
-        self.dropdownMenu = [DropdownMenuView show:self.imgCollection datasource:datasource defaultValue:defaultValue block:^(id value) {
+        self.dropdownMenu = [DropdownMenuView showIn:self.view belowTo:self.headerView.frame datasource:datasource defaultValue:defaultValue block:^(id value) {
             @strongify(self);
             if (value) {
                 if (self.beautifulImageType == BeautifulImageTypeSpace) {

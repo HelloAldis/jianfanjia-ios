@@ -59,7 +59,7 @@
     
     if ([err.localizedDescription containsString:@"403"]) {
         [ViewControllerContainer logout];
-        [HUDUtil showErrText:@"网络不给力, 请重新登录"];
+        [HUDUtil showErrText:@"登录过期, 请重新登录"];
     }
 }
 
