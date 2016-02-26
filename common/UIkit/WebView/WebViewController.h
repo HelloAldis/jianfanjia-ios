@@ -8,6 +8,8 @@
 
 #import "BaseViewController.h"
 
-@interface DecStrategyViewController : BaseViewController
+@interface WebViewController : BaseViewController
+
++ (void)show:(UIViewController *)controller withUrl:(NSString *)url;
 
 @end

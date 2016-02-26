@@ -220,6 +220,8 @@
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
+		689E713B1C803D900012BF3C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689E71391C803D900012BF3C /* WebViewController.m */; };
+		689E713C1C803D900012BF3C /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689E713A1C803D900012BF3C /* WebViewController.xib */; };
 		68B10C851C76D489005866C1 /* DesignerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C831C76D489005866C1 /* DesignerListViewController.m */; };
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
@@ -239,8 +241,6 @@
 		68B10CB91C785659005866C1 /* SearchDesignerDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CB51C785659005866C1 /* SearchDesignerDataManager.m */; };
 		68B10CBA1C785659005866C1 /* SearchProductCaseDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CB71C785659005866C1 /* SearchProductCaseDataManager.m */; };
 		68B10CBD1C78686E005866C1 /* ProductCaseListDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */; };
-		68B10CC31C7AB3AB005866C1 /* DecStrategyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC11C7AB3AB005866C1 /* DecStrategyViewController.m */; };
-		68B10CC41C7AB3AB005866C1 /* DecStrategyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */; };
 		68B10CC71C7B1A3F005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */; };
 		68B10CCD1C7DAD34005866C1 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
@@ -782,6 +782,9 @@
 		689485CF1C1A6A05002310FC /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		689485D21C1A70A7002310FC /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		689E71381C803D900012BF3C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		689E71391C803D900012BF3C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		689E713A1C803D900012BF3C /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
 		68B10C831C76D489005866C1 /* DesignerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerListViewController.m; sourceTree = "<group>"; };
 		68B10C841C76D489005866C1 /* DesignerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerListViewController.xib; sourceTree = "<group>"; };
@@ -815,9 +818,6 @@
 		68B10CB71C785659005866C1 /* SearchProductCaseDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchProductCaseDataManager.m; sourceTree = "<group>"; };
 		68B10CBB1C78686E005866C1 /* ProductCaseListDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCaseListDataManager.h; sourceTree = "<group>"; };
 		68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCaseListDataManager.m; sourceTree = "<group>"; };
-		68B10CC01C7AB3AB005866C1 /* DecStrategyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecStrategyViewController.h; sourceTree = "<group>"; };
-		68B10CC11C7AB3AB005866C1 /* DecStrategyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecStrategyViewController.m; sourceTree = "<group>"; };
-		68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecStrategyViewController.xib; sourceTree = "<group>"; };
 		68B10CC51C7B1A3F005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68B10CCB1C7DAD34005866C1 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1236,6 +1236,7 @@
 		68123C301C4C8B99008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				689E71371C803D900012BF3C /* WebView */,
 				68123C311C4C8B99008FC9AB /* CustomAlert */,
 				68123C381C4C8B99008FC9AB /* CustomScroll */,
 				68123C3B1C4C8B99008FC9AB /* ImageBrower */,
@@ -1567,6 +1568,16 @@
 			path = RequirementCreate;
 			sourceTree = "<group>";
 		};
+		689E71371C803D900012BF3C /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				689E71381C803D900012BF3C /* WebViewController.h */,
+				689E71391C803D900012BF3C /* WebViewController.m */,
+				689E713A1C803D900012BF3C /* WebViewController.xib */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		68B10C811C76D489005866C1 /* DesignerList */ = {
 			isa = PBXGroup;
 			children = (
@@ -1611,16 +1622,6 @@
 				68B10CB71C785659005866C1 /* SearchProductCaseDataManager.m */,
 			);
 			path = Search;
-			sourceTree = "<group>";
-		};
-		68B10CBF1C7AB3AB005866C1 /* DecStrategy */ = {
-			isa = PBXGroup;
-			children = (
-				68B10CC01C7AB3AB005866C1 /* DecStrategyViewController.h */,
-				68B10CC11C7AB3AB005866C1 /* DecStrategyViewController.m */,
-				68B10CC21C7AB3AB005866C1 /* DecStrategyViewController.xib */,
-			);
-			path = DecStrategy;
 			sourceTree = "<group>";
 		};
 		6E06CC031C29231A00A08D15 /* MyFavoriate */ = {
@@ -2086,7 +2087,6 @@
 		6E6D98A61BDF732A00D45F77 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				68B10CBF1C7AB3AB005866C1 /* DecStrategy */,
 				68B10CAC1C781C10005866C1 /* Search */,
 				68B10CA11C7819E3005866C1 /* ProductCaseList */,
 				68B10C811C76D489005866C1 /* DesignerList */,
@@ -2482,7 +2482,6 @@
 				6836690A1BFF0C05006A5053 /* PlanCell.xib in Resources */,
 				68B10CAB1C7819E3005866C1 /* ProductCaseListViewController.xib in Resources */,
 				684A370F1BFD733500F7388C /* OrderedDesignerViewController.xib in Resources */,
-				68B10CC41C7AB3AB005866C1 /* DecStrategyViewController.xib in Resources */,
 				68123C651C4C8B99008FC9AB /* SelectCityViewController.xib in Resources */,
 				684A37551BFD73DF00F7388C /* SelectHouseTypeViewController.xib in Resources */,
 				6E7E4A6A1B9A90BA00503B35 /* LoginViewController.xib in Resources */,
@@ -2538,6 +2537,7 @@
 				68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */,
 				68123B5D1C47BBBD008FC9AB /* DropdownMenuView.xib in Resources */,
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
+				689E713C1C803D900012BF3C /* WebViewController.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				683FFB691C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib in Resources */,
 				680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */,
@@ -2669,6 +2669,7 @@
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,
+				689E713B1C803D900012BF3C /* WebViewController.m in Sources */,
 				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
 				6E4496451BFC562900C90851 /* AboutViewController.m in Sources */,
 				684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */,
@@ -2748,7 +2749,6 @@
 				6E07DAC91BD88DBE001461DD /* Ys.m in Sources */,
 				6E07DAAA1BD88DBE001461DD /* ProcessList.m in Sources */,
 				6E6D989E1BDDFF1B00D45F77 /* W4View.m in Sources */,
-				68B10CC31C7AB3AB005866C1 /* DecStrategyViewController.m in Sources */,
 				6E07DAA91BD88DBE001461DD /* UserLogin.m in Sources */,
 				AB5F1EC61C0C8B32009203DF /* UIImagePickerController+Ex.m in Sources */,
 				68B10C851C76D489005866C1 /* DesignerListViewController.m in Sources */,

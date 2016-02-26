@@ -9,6 +9,7 @@
 #import "HomePageQuickEntryCell.h"
 #import "HomePageQuickEntryItem.h"
 #import "ViewControllerContainer.h"
+#import "WebViewController.h"
 
 CGFloat kHomePageQuickEntryCellHeight;
 
@@ -101,7 +102,7 @@ static NSArray const *quickEntryTexts;
     } else if ([entry isEqualToString:HomePageQuickEntryFreePlan]) {
         [ViewControllerContainer showRequirementCreate:nil];
     } else if ([entry isEqualToString:HomePageQuickEntryDecStrategy]) {
-        [ViewControllerContainer showDecStrategy];
+        [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:@"view/article/"];
     }
 }
 

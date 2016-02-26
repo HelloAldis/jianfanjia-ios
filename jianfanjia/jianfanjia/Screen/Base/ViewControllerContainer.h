@@ -22,7 +22,6 @@
 + (void)showCollectDecPhase;
 + (void)showCollectDecStyle;
 + (void)showCollectFamilyInfo;
-+ (void)showDecStrategy;
 + (void)showSearch;
 + (void)showDesignerList;
 + (void)showProductCaseList;

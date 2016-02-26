@@ -6,23 +6,38 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "DecStrategyViewController.h"
+#import "WebViewController.h"
 #import <SafariServices/SafariServices.h>
 #import <Foundation/Foundation.h>
 
 @import WebKit;
 
-static NSString *MessageModel = @"DecStrategy";
+static NSString *MessageModel = @"jianfanjia";
 
-@interface DecStrategyViewController () <WKNavigationDelegate, WKScriptMessageHandler>
+@interface WebViewController () <WKNavigationDelegate, WKScriptMessageHandler>
 @property (strong, nonatomic) ProgressWebView *webView;
 
 @property (strong, nonatomic) NSString *articleImgUrl;
 @property (strong, nonatomic) NSString *articleDescription;
 
+@property (strong, nonatomic) NSString *url;
+
 @end
 
-@implementation DecStrategyViewController
+@implementation WebViewController
+
++ (void)show:(UIViewController *)controller withUrl:(NSString *)url {
+    WebViewController *webview = [[WebViewController alloc] initWithUrl:url];
+    [controller.navigationController pushViewController:webview animated:YES];
+}
+
+- (id)initWithUrl:(NSString *)url {
+    if (self = [super init]) {
+        _url = url;
+    }
+    
+    return self;
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -34,7 +49,7 @@ static NSString *MessageModel = @"DecStrategy";
 
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"装修攻略";
+    self.title = @"Loading...";
     [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
@@ -66,7 +81,7 @@ static NSString *MessageModel = @"DecStrategy";
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kMApiUrl];
-    NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", @"view/article/"];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", self.url];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
 
@@ -128,7 +143,7 @@ static NSString *MessageModel = @"DecStrategy";
         image = [UIImage imageNamed:@"about_logo"];
     }
     
-    [[ShareManager shared] share:self topic:ShareTopicDecStrategy image:image ? image : [UIImage imageNamed:@"about_logo"] title:self.webView.title ? self.webView.title : @"装修攻略" description:self.articleDescription ? self.articleDescription : @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。" targetLink:self.webView.URL.absoluteString delegate:self];
+    [[ShareManager shared] share:self topic:ShareTopicDecStrategy image:image ? image : [UIImage imageNamed:@"about_logo"] title:![self.webView.title isEmpty] ? self.webView.title : @"简繁家，让装修变简单" description:self.articleDescription ? self.articleDescription : @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。" targetLink:self.webView.URL.absoluteString delegate:self];
 }
 
 - (void)onClickBack {

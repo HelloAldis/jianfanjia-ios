@@ -7,6 +7,7 @@
 //
 
 #import "BannerCell.h"
+#import "ViewControllerContainer.h"
 
 CGFloat kBannerCellHeight;
 
@@ -16,7 +17,8 @@ CGFloat kBannerCellHeight;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (strong, nonatomic) NSMutableArray *imgViews;
-@property (strong, nonatomic) NSMutableArray *imgs;
+@property (strong, nonatomic) NSArray *imgs;
+@property (strong, nonatomic) NSArray *urls;
 
 @property (assign, nonatomic) NSInteger index;
 @property (strong, nonatomic) NSTimer *timer;
@@ -34,9 +36,8 @@ CGFloat kBannerCellHeight;
 
 - (void)awakeFromNib {
     CGFloat height = kBannerCellHeight;
-    self.imgs = [NSMutableArray array];
-    [self.imgs addObject:@"banner_1"];
-    [self.imgs addObject:@"banner_2"];
+    self.imgs = @[@"banner_1", @"banner_2"];
+    self.urls = @[@"view/zt/supervision/", @"view/zt/safeguard/"];
     
     self.imgViews = [NSMutableArray array];
     for (NSInteger i = 0; i < 3; i++) {
@@ -50,6 +51,8 @@ CGFloat kBannerCellHeight;
 
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth * 3, height)];
     self.scrollView.contentOffset = CGPointMake(kScreenWidth, 0);
+    [self.scrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImage:)]];
+    
     self.pageControl.numberOfPages = self.imgs.count;
     [self reloadAllImage];
 }
@@ -124,6 +127,11 @@ CGFloat kBannerCellHeight;
     if (scrollView == self.scrollView) {
         [self reloadAllImage];
     }
+}
+
+#pragma mark - gesture
+- (void)onTapImage:(UIGestureRecognizer *)g {
+    [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:self.urls[self.index]];
 }
 
 @end

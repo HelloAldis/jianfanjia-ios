@@ -44,7 +44,6 @@
 #import "DesignerListViewController.h"
 #import "ProductCaseListViewController.h"
 #import "SearchViewController.h"
-#import "DecStrategyViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -176,11 +175,6 @@ static ViewControllerContainer *container;
     CollectFamilyInfoViewController *v = [[CollectFamilyInfoViewController alloc] init];
     UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
     [nav pushViewController:v animated:YES];
-}
-
-+ (void)showDecStrategy {
-    DecStrategyViewController *v = [[DecStrategyViewController alloc] initWithNibName:nil bundle:nil];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
 + (void)showSearch {
