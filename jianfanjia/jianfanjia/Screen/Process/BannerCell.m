@@ -96,7 +96,7 @@ CGFloat kBannerCellHeight;
 }
 
 - (void)fireTimer {
-    [UIView animateWithDuration:0.75 delay:0.0 options:(UIViewAnimationOptionCurveEaseInOut) animations:^{
+    [UIView animateWithDuration:0.75 delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         [self.scrollView setContentOffset:CGPointMake(kScreenWidth * 2, 0) animated:NO];
     } completion:^(BOOL finished) {
         [self reloadAllImage];
@@ -105,7 +105,7 @@ CGFloat kBannerCellHeight;
 }
 
 - (void)startTimer {
-    self.timer = [NSTimer timerWithTimeInterval:2 target:self selector:@selector(fireTimer) userInfo:nil repeats:NO];
+    self.timer = [NSTimer timerWithTimeInterval:2.5 target:self selector:@selector(fireTimer) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 

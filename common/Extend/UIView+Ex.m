@@ -88,5 +88,12 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
     objc_setAssociatedObject(self, &UIView_TapBlock, tapBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
+- (UIImage *)snapshotImage {
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;
+}
 
 @end
