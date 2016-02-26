@@ -50,7 +50,6 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
 
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"Loading...";
     [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
