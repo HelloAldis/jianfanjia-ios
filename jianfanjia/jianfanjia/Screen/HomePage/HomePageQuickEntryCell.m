@@ -102,7 +102,7 @@ static NSArray const *quickEntryTexts;
     } else if ([entry isEqualToString:HomePageQuickEntryFreePlan]) {
         [ViewControllerContainer showRequirementCreate:nil];
     } else if ([entry isEqualToString:HomePageQuickEntryDecStrategy]) {
-        [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:@"view/article/"];
+        [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:@"view/article/" shareTopic:ShareTopicDecStrategy];
     }
 }
 

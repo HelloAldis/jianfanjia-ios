@@ -220,8 +220,8 @@
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
-		689E713B1C803D900012BF3C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689E71391C803D900012BF3C /* WebViewController.m */; };
-		689E713C1C803D900012BF3C /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689E713A1C803D900012BF3C /* WebViewController.xib */; };
+		689E714A1C80588C0012BF3C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689E71481C80588C0012BF3C /* WebViewController.m */; };
+		689E714B1C80588C0012BF3C /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689E71491C80588C0012BF3C /* WebViewController.xib */; };
 		68B10C851C76D489005866C1 /* DesignerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C831C76D489005866C1 /* DesignerListViewController.m */; };
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
@@ -782,9 +782,9 @@
 		689485CF1C1A6A05002310FC /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		689485D21C1A70A7002310FC /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
-		689E71381C803D900012BF3C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		689E71391C803D900012BF3C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		689E713A1C803D900012BF3C /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		689E71471C80588C0012BF3C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		689E71481C80588C0012BF3C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		689E71491C80588C0012BF3C /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
 		68B10C831C76D489005866C1 /* DesignerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerListViewController.m; sourceTree = "<group>"; };
 		68B10C841C76D489005866C1 /* DesignerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerListViewController.xib; sourceTree = "<group>"; };
@@ -1236,7 +1236,6 @@
 		68123C301C4C8B99008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
-				689E71371C803D900012BF3C /* WebView */,
 				68123C311C4C8B99008FC9AB /* CustomAlert */,
 				68123C381C4C8B99008FC9AB /* CustomScroll */,
 				68123C3B1C4C8B99008FC9AB /* ImageBrower */,
@@ -1568,12 +1567,12 @@
 			path = RequirementCreate;
 			sourceTree = "<group>";
 		};
-		689E71371C803D900012BF3C /* WebView */ = {
+		689E71461C80588C0012BF3C /* WebView */ = {
 			isa = PBXGroup;
 			children = (
-				689E71381C803D900012BF3C /* WebViewController.h */,
-				689E71391C803D900012BF3C /* WebViewController.m */,
-				689E713A1C803D900012BF3C /* WebViewController.xib */,
+				689E71471C80588C0012BF3C /* WebViewController.h */,
+				689E71481C80588C0012BF3C /* WebViewController.m */,
+				689E71491C80588C0012BF3C /* WebViewController.xib */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -2251,6 +2250,7 @@
 		6E7E4A621B9A8FA700503B35 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				689E71461C80588C0012BF3C /* WebView */,
 				6E7E4A631B9A902500503B35 /* BaseViewController.h */,
 				6E7E4A641B9A902500503B35 /* BaseViewController.m */,
 				6E7E4A7B1B9D325400503B35 /* ViewControllerContainer.h */,
@@ -2537,7 +2537,7 @@
 				68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */,
 				68123B5D1C47BBBD008FC9AB /* DropdownMenuView.xib in Resources */,
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
-				689E713C1C803D900012BF3C /* WebViewController.xib in Resources */,
+				689E714B1C80588C0012BF3C /* WebViewController.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				683FFB691C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib in Resources */,
 				680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */,
@@ -2669,7 +2669,7 @@
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,
-				689E713B1C803D900012BF3C /* WebViewController.m in Sources */,
+				689E714A1C80588C0012BF3C /* WebViewController.m in Sources */,
 				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
 				6E4496451BFC562900C90851 /* AboutViewController.m in Sources */,
 				684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */,

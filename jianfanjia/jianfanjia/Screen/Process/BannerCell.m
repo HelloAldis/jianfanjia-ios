@@ -8,6 +8,7 @@
 
 #import "BannerCell.h"
 #import "ViewControllerContainer.h"
+#import "WebViewController.h"
 
 CGFloat kBannerCellHeight;
 
@@ -131,7 +132,7 @@ CGFloat kBannerCellHeight;
 
 #pragma mark - gesture
 - (void)onTapImage:(UIGestureRecognizer *)g {
-    [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:self.urls[self.index]];
+    [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:self.urls[self.index] shareTopic:ShareTopicActivity];
 }
 
 @end

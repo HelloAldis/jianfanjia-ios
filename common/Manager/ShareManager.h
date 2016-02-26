@@ -11,6 +11,7 @@
 extern NSString * const ShareTopicBeautifulImage;
 extern NSString * const ShareTopicApp;
 extern NSString * const ShareTopicDecStrategy;
+extern NSString * const ShareTopicActivity;
 
 @class SnsAccountInfo;
 

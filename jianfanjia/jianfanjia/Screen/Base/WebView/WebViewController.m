@@ -22,19 +22,21 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
 @property (strong, nonatomic) NSString *articleDescription;
 
 @property (strong, nonatomic) NSString *url;
+@property (strong, nonatomic) NSString *topic;
 
 @end
 
 @implementation WebViewController
 
-+ (void)show:(UIViewController *)controller withUrl:(NSString *)url {
-    WebViewController *webview = [[WebViewController alloc] initWithUrl:url];
++ (void)show:(UIViewController *)controller withUrl:(NSString *)url shareTopic:(NSString *)topic {
+    WebViewController *webview = [[WebViewController alloc] initWithUrl:url shareTopic:topic];
     [controller.navigationController pushViewController:webview animated:YES];
 }
 
-- (id)initWithUrl:(NSString *)url {
+- (id)initWithUrl:(NSString *)url shareTopic:(NSString *)topic {
     if (self = [super init]) {
         _url = url;
+        _topic = topic;
     }
     
     return self;
@@ -142,7 +144,7 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
         image = [UIImage imageNamed:@"about_logo"];
     }
     
-    [[ShareManager shared] share:self topic:ShareTopicDecStrategy image:image ? image : [UIImage imageNamed:@"about_logo"] title:![self.webView.title isEmpty] ? self.webView.title : DefaultTitle description:self.articleDescription ? self.articleDescription : @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。" targetLink:self.webView.URL.absoluteString delegate:self];
+    [[ShareManager shared] share:self topic:self.topic image:image ? image : [UIImage imageNamed:@"about_logo"] title:![self.webView.title isEmpty] ? self.webView.title : DefaultTitle description:self.articleDescription ? self.articleDescription : @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。" targetLink:self.webView.URL.absoluteString delegate:self];
 }
 
 - (void)onClickBack {

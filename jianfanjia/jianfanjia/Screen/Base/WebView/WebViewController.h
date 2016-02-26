@@ -10,6 +10,6 @@
 
 @interface WebViewController : BaseViewController
 
-+ (void)show:(UIViewController *)controller withUrl:(NSString *)url;
++ (void)show:(UIViewController *)controller withUrl:(NSString *)url shareTopic:(NSString *)topic;
 
 @end
