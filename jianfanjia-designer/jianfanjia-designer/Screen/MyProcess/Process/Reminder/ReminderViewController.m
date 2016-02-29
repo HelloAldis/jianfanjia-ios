@@ -248,7 +248,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         [self.dataManager refreshNotificationWithProcess:self.processid type:kNotificationTypeReschedule status:kNotificationStatusUnread];
         [self.dataManager refreshSchedule:self.processid];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-        [self showNoNotification:self.dataManager.schedules.count == 0 image:@"no_reschedule_notification" text:@"您还没有付款提醒"];
+        [self showNoNotification:self.dataManager.schedules.count == 0 image:@"no_reschedule_notification" text:@"您还没有延期提醒"];
     } failure:^{
         
     } networkError:^{

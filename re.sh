@@ -9,7 +9,7 @@
 user_ipa_file='user.ipa'
 profession_ipa_file='profession.ipa'
 #the directory store the ipas,
-user_package_path='../packages_user'
+user_package_path='../了'
 profession_packages_path='../packages_pro'
 #workspace file path
 user_workspace='./jianfanjia/jianfanjia.xcworkspace'
