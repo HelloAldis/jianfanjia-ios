@@ -188,9 +188,9 @@ elif [[ $build_target = $profession_build_target ]]; then
     ipa build -w $profession_workspace -c Release -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$profession_packages_path/pro/$newVersion" --ipa $profession_ipa_file
   fi
 
-    outputPath = `$profession_packages_path/$build_type/$newVersion/$profession_ipa_file`
-    echo "$outputPath"
-  if [[ -e "$outputPath" ]]; then
+    outputPath="$profession_packages_path/$build_type/$newVersion/$profession_ipa_file"
+    echo $outputPath
+  if [[ -e $outputPath ]]; then
     echo 'build ipa successfully, commit code and tag'
     git commit -am "update profession build to version  $newVersion"
     git push
@@ -199,7 +199,7 @@ elif [[ $build_target = $profession_build_target ]]; then
 
     if [ $need_upload = "-upload" ]; then
         echo 'uploading...'
-        ipa distribute:itunesconnect -f "$outputPath" -a "$upload_account" -p "$upload_password" -i "$user_app_id" -u -w -e --save-keychain --verbose
+        ipa distribute:itunesconnect -f $outputPath -a $upload_account -p $upload_password -i $profession_app_id -u -w -e --save-keychain --verbose
     fi
   else
     echo 'build ipa failed, rollback info'
