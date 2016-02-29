@@ -1,6 +1,6 @@
 ################# Help ############################
-#run ./re.sh (debug|test|pro) user (-a|-b|-c) to make a user build
-#run ./re.sh (debug|test|pro) profession (-a|-b|-c) to make a profession build
+#run ./re.sh (debug|test|pro) user (-a|-b|-c) -upload appleId applePwd to make a user build
+#run ./re.sh (debug|test|pro) profession (-a|-b|-c) -upload appleId applePwd to make a profession build
 ################# End Help ############################
 
 
@@ -9,7 +9,7 @@
 user_ipa_file='user.ipa'
 profession_ipa_file='profession.ipa'
 #the directory store the ipas,
-user_package_path='../了'
+user_package_path='../'
 profession_packages_path='../packages_pro'
 #workspace file path
 user_workspace='./jianfanjia/jianfanjia.xcworkspace'
@@ -21,6 +21,8 @@ profession_info_plist='./jianfanjia-designer/jianfanjia-designer/info.plist'
 user_schema='jianfanjia'
 profession_schema='jianfanjia-designer'
 #IPA file name
+user_app_id = '1065725149'
+profession_app_id = '1078884606'
 
 ################# End Configuration ########################
 
@@ -45,6 +47,9 @@ c_build_version='-c'
 build_type=$1
 build_target=$2
 build_version_type=$3
+need_upload=$4
+upload_account=$5
+upload_password=$6
 
 echo $build_type
 echo $build_target
@@ -123,22 +128,31 @@ if [[ $build_target = $user_build_target ]]; then
 
   if [[ $build_type = $debug_build_type ]]; then
     echo 'build user dev build now, please wait.................'
+    outputPath = `$user_package_path/debug/$newVersion/$user_ipa_file`
     ipa build -w $user_workspace -c Debug -s $user_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS DEBUG=1 COCOAPODS=1"' -d "$user_package_path/debug/$newVersion" --ipa $user_ipa_file
   elif [[ $build_type = $test_build_type ]]; then
     echo 'build user test build now, please wait.................'
+    outputPath = `$user_package_path/test/$newVersion/$user_ipa_file`
     ipa build -w $user_workspace -c Release -s $user_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$user_package_path/test/$newVersion" --ipa $user_ipa_file
   elif [[ $build_type = $pro_build_type ]]; then
     echo 'build user pro build now, please wait.................'
+    outputPath = `$user_package_path/pro/$newVersion/$user_ipa_file`
     ipa build -w $user_workspace -c Release -s $user_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$user_package_path/pro/$newVersion" --ipa $user_ipa_file
   fi
 
   ipa info "$user_package_path/$build_type/$newVersion/$user_ipa_file"
   if [[ -e "$user_package_path/$build_type/$newVersion/$user_ipa_file" ]]; then
+    echo $outputPath
     echo 'build ipa successfully, commit code and tag'
     git commit -am "update user build to version  $newVersion"
     git push
     git tag "user_$newVersion"
     git push origin "user_$newVersion"
+
+    if [ $need_upload = "-upload" ]; then
+        echo 'uploading...'
+        ipa distribute:itunesconnect -f $outputPath -a $upload_account -p $upload_password -i profession_app_id -u -w -e --save-keychain --verbose
+    fi
   else
     echo 'build ipa failed, rollback info'
     git checkout $user_info_plist
@@ -164,22 +178,31 @@ elif [[ $build_target = $profession_build_target ]]; then
 
   if [[ $build_type = $debug_build_type ]]; then
     echo 'build profession dev build now, please wait.................'
+    outputPath = `$profession_packages_path/debug/$newVersion/$user_ipa_file`
     ipa build -w $profession_workspace -c Debug -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS DEBUG=1 COCOAPODS=1"' -d "$profession_packages_path/debug/$newVersion" --ipa $profession_ipa_file
   elif [[ $build_type = $test_build_type ]]; then
     echo 'build profession test build now, please wait.................'
+    outputPath = `$profession_packages_path/test/$newVersion/$user_ipa_file`
     ipa build -w $profession_workspace -c Release -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$profession_packages_path/test/$newVersion" --ipa $profession_ipa_file
   elif [[ $build_type = $pro_build_type ]]; then
     echo 'build profession pro build now, please wait.................'
+    outputPath = `$profession_packages_path/pro/$newVersion/$user_ipa_file`
     ipa build -w $profession_workspace -c Release -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$profession_packages_path/pro/$newVersion" --ipa $profession_ipa_file
   fi
 
   ipa info "$profession_packages_path/$build_type/$newVersion/$profession_ipa_file"
   if [[ -e "$profession_packages_path/$build_type/$newVersion/$profession_ipa_file" ]]; then
+    echo $outputPath
     echo 'build ipa successfully, commit code and tag'
     git commit -am "update profession build to version  $newVersion"
     git push
     git tag "profession_$newVersion"
     git push origin "profession_$newVersion"
+
+    if [ $need_upload = "-upload" ]; then
+        echo 'uploading...'
+        ipa distribute:itunesconnect -f $outputPath -a $upload_account -p $upload_password -i user_app_id -u -w -e --save-keychain --verbose
+    fi
   else
     echo 'build ipa failed, rollback info'
     git checkout $profession_info_plist
