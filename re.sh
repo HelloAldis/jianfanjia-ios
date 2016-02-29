@@ -24,8 +24,8 @@ profession_info_plist_rollback='jianfanjia-designer/jianfanjia-designer/info.pli
 user_schema='jianfanjia'
 profession_schema='jianfanjia-designer'
 #IPA file name
-user_app_id = '1065725149'
-profession_app_id = '1078884606'
+user_app_id='1065725149'
+profession_app_id='1078884606'
 
 ################# End Configuration ########################
 
