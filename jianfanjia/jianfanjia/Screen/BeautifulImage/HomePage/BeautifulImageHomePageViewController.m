@@ -8,6 +8,7 @@
 
 #import "BeautifulImageHomePageViewController.h"
 #import "BeautifulImageDataManager.h"
+#import "BeautifulImageCollectionCell.h"
 
 @interface BeautifulImageHomePageViewController ()
 
@@ -39,7 +40,7 @@
 
 @property (strong, nonatomic) id<BeautifulImageHomePageDataManagerProtocol> dataManager;
 @property (strong, nonatomic) BaseRequest<BeautifulImageHomePageLoadMoreRequestProtocol> *loadMoreRequest;
-@property (copy, nonatomic) HomePageDismissBlock dismissBlock;
+
 
 @property (nonatomic, strong) NSNumber *pageNumber;
 
@@ -48,7 +49,7 @@
 @implementation BeautifulImageHomePageViewController
 
 #pragma mark - init method
-- (id)initWithDataManager:(id<BeautifulImageHomePageDataManagerProtocol>)dataManager index:(NSInteger)index loadMore:(BaseRequest<BeautifulImageHomePageLoadMoreRequestProtocol> *)loadMoreRequest dismissBlock:(HomePageDismissBlock)dismissBlock {
+- (id)initWithDataManager:(id<BeautifulImageHomePageDataManagerProtocol>)dataManager index:(NSInteger)index loadMore:(BaseRequest<BeautifulImageHomePageLoadMoreRequestProtocol> *)loadMoreRequest {
     if (self = [super init]) {
         _index = index;
         _dataManager = dataManager;
@@ -56,7 +57,6 @@
         _beautifulImages = dataManager.beautifulImages;
         _beautifulImage = _beautifulImages[index];
         _total = dataManager.total;
-        _dismissBlock = dismissBlock;
         _pageNumber = @(20);
         _hasMoreBeautifulImage = _index == _total;
     }
@@ -88,10 +88,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    
-    if (self.dismissBlock) {
-        self.dismissBlock(self.index);
-    }
 }
 
 #pragma mark - ui
@@ -121,13 +117,18 @@
     self.btnDownload.hidden = YES;
     self.shareButton.enabled = NO;
     
+    LeafImage *leafImg = [self.beautifulImage leafImageAtIndex:0];
+    CGFloat scaleFactor = leafImg.width.integerValue / kScreenWidth;
+    CGFloat height = leafImg.height.integerValue / scaleFactor;
+    
     self.imageViewArray = [NSMutableArray arrayWithCapacity:3];
     self.subscrollViewArray = [NSMutableArray arrayWithCapacity:3];
     @weakify(self);
     for (int i = 0; i < 3; i++) {
-        UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+        UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height)];
         [w1 setContentMode:UIViewContentModeScaleAspectFit];
         UIScrollView *s = [[UIScrollView alloc] initWithFrame:CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenHeight)];
+        s.backgroundColor = [UIColor clearColor];
         s.maximumZoomScale = 3;
         s.minimumZoomScale = 1;
         [s setContentSize:CGSizeMake(kScreenWidth,  kScreenHeight)];
@@ -292,7 +293,9 @@
 
 #pragma mark - user action
 - (IBAction)onClickBackButton:(id)sender {
-    [self onClickBack];
+    if (self.dismissBlock) {
+        self.dismissBlock(self.index);
+    }
 }
 
 - (void)onClickFavoriteButton {
@@ -423,4 +426,59 @@
     self.hasMoreBeautifulImage = count < [self.pageNumber integerValue];
 }
 
+- (void)presentFromView:(UIView *)fromView fromController:(UIViewController *)controller {
+    UIView *toContainer = controller.navigationController.view;
+    CGRect fromFrame = [toContainer convertRect:fromView.bounds fromView:fromView];
+    
+    LeafImage *leafImg = [self.beautifulImage leafImageAtIndex:0];
+    UIImageView *fromViewImage = [[UIImageView alloc] initWithFrame:fromFrame];
+    [fromViewImage setImageWithId:leafImg.imageid withWidth:kScreenWidth];
+    
+    UIView *background = [[UIView alloc] initWithFrame:toContainer.bounds];
+    background.backgroundColor = [UIColor blackColor];
+    background.alpha = 0;
+
+    [toContainer addSubview:background];
+    [toContainer addSubview:fromViewImage];
+    
+    CGFloat scaleFactor = fromFrame.size.width / kScreenWidth;
+    CGFloat height = fromFrame.size.height / scaleFactor;
+    
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        background.alpha = 1;
+        fromViewImage.frame = CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height);
+    }completion:^(BOOL finished) {
+        [fromViewImage removeFromSuperview];
+        [background removeFromSuperview];
+        [controller.navigationController pushViewController:self animated:NO];
+    }];
+}
+
+- (void)dismissToRect:(CGRect)toFrame {
+    UIViewController *controller = self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2];
+    [self.navigationController popViewControllerAnimated:NO];
+    UIView *toContainer = controller.view;
+
+    LeafImage *leafImg = [self.beautifulImage leafImageAtIndex:0];
+    CGFloat scaleFactor = leafImg.width.integerValue / kScreenWidth;
+    CGFloat height = leafImg.height.integerValue / scaleFactor;
+    
+    UIImageView *toViewImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height)];
+    [toViewImage setImageWithId:leafImg.imageid withWidth:kScreenWidth];
+    
+    UIView *background = [[UIView alloc] initWithFrame:toContainer.bounds];
+    background.backgroundColor = [UIColor blackColor];
+    background.alpha = 1;
+    
+    [toContainer addSubview:background];
+    [toContainer addSubview:toViewImage];
+    
+    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        background.alpha = 0;
+        toViewImage.frame = toFrame;
+    }completion:^(BOOL finished) {
+        [toViewImage removeFromSuperview];
+        [background removeFromSuperview];
+    }];
+}
 @end

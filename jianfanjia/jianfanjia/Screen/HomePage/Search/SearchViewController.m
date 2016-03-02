@@ -181,13 +181,21 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.beautifulDataManager index:indexPath.row loadMore:[self loadMoreBeautifulImageRequest] dismissBlock:^(NSInteger index) {
+    BeautifulImageHomePageViewController *controller = [[BeautifulImageHomePageViewController alloc] initWithDataManager:self.beautifulDataManager index:indexPath.row loadMore:[self loadMoreBeautifulImageRequest]];
+    
+    @weakify(self, controller);
+    HomePageDismissBlock dismissBlock = ^(NSInteger index) {
+        @strongify(self, controller);
         [self.imgCollection reloadData];
         [self.imgCollection layoutIfNeeded];
+        
         UICollectionViewLayoutAttributes *layoutAttributes = self.imgCollectionLayout.allItemAttributes[index];
-        [self.imgCollection scrollRectToVisible:layoutAttributes.frame animated:YES];
-    }];
-    [self.navigationController pushViewController:controller animated:YES];
+        [self.imgCollection scrollRectToVisible:layoutAttributes.frame animated:NO];
+        CGRect rect = [self.view convertRect:layoutAttributes.frame fromView:self.imgCollection];
+        [controller dismissToRect:rect];
+    };
+    controller.dismissBlock = dismissBlock;
+    [controller presentFromView:[collectionView cellForItemAtIndexPath:indexPath] fromController:self];
 }
 
 - (CGFloat)fallFlowLayout:(CollectionFallsFlowLayout *)layout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath {

@@ -11,6 +11,7 @@
 
 @interface BeautifulImageCollectionCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *image;
 
 - (void)initWithImage:(BeautifulImage *)beautifulImage;
 
