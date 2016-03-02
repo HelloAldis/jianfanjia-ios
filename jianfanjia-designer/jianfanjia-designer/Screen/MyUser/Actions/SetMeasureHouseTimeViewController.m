@@ -106,7 +106,10 @@
 
 - (IBAction)onClickOk:(id)sender  {
     NSDate *now = [self getNowDate];
-    NSDate *selectedDate = [self.datePicker.date earlierDate:now] ? now : self.datePicker.date;
+    NSDate *selectedDate = self.datePicker.date;
+    if ([self.datePicker.date compare:now] == NSOrderedAscending) {
+        selectedDate = now;
+    }
     
     [HUDUtil showWait];
     DesignerRespondUser *request = [[DesignerRespondUser alloc] init];
