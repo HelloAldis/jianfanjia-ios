@@ -10,11 +10,17 @@
 #import "BeautifulImageHomePageProtocol.h"
 
 @class BeautifulImageDataManager;
+@class BeautifulImageCollectionCell;
 
 typedef void(^HomePageDismissBlock)(NSInteger index);
 
 @interface BeautifulImageHomePageViewController : BaseViewController<UIScrollViewDelegate>
 
-- (id)initWithDataManager:(id<BeautifulImageHomePageDataManagerProtocol>)dataManager index:(NSInteger)index loadMore:(BaseRequest<BeautifulImageHomePageLoadMoreRequestProtocol> *)loadMoreRequest dismissBlock:(HomePageDismissBlock)dismissBlock;
+@property (copy, nonatomic) HomePageDismissBlock dismissBlock;
+
+- (id)initWithDataManager:(id<BeautifulImageHomePageDataManagerProtocol>)dataManager index:(NSInteger)index loadMore:(BaseRequest<BeautifulImageHomePageLoadMoreRequestProtocol> *)loadMoreRequest;
+
+- (void)presentFromView:(UIView *)fromView fromController:(UIViewController *)controller;
+- (void)dismissToRect:(CGRect)toFrame;
 
 @end
