@@ -126,6 +126,7 @@
     @weakify(self);
     for (int i = 0; i < 3; i++) {
         UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height)];
+        w1.backgroundColor = kPlaceHolderColor;
         [w1 setContentMode:UIViewContentModeScaleAspectFit];
         UIScrollView *s = [[UIScrollView alloc] initWithFrame:CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenHeight)];
         s.backgroundColor = [UIColor clearColor];
@@ -174,9 +175,9 @@
     }
     
     [self resetUI];
-    NSString *preImageid = [self.beautifulImages[MAX(self.index-1, 0)] leafImageAtIndex:0].imageid;
-    NSString *curImageid = [self.beautifulImages[self.index] leafImageAtIndex:0].imageid;
-    NSString *nextImageid = [self.beautifulImages[MIN(self.index+1, self.beautifulImages.count-1)] leafImageAtIndex:0].imageid;
+    LeafImage *preImageid = [self.beautifulImages[MAX(self.index-1, 0)] leafImageAtIndex:0];
+    LeafImage *curImageid = [self.beautifulImages[self.index] leafImageAtIndex:0];
+    LeafImage *nextImageid = [self.beautifulImages[MIN(self.index+1, self.beautifulImages.count-1)] leafImageAtIndex:0];
     [self reloadImageView:self.imageViewArray[0] withImage:preImageid];
     [self reloadImageView:self.imageViewArray[1] withImage:curImageid];
     [self reloadImageView:self.imageViewArray[2] withImage:nextImageid];
@@ -196,19 +197,19 @@
     [self.subscrollViewArray[1] setZoomScale:1];
 }
 
-- (void)reloadImageView:(UIImageView *)imgView withImage:(NSString *)imageid {
+- (void)reloadImageView:(UIImageView *)imgView withImage:(LeafImage *)imageid {
+    LeafImage *leafImg = imageid;
+    CGFloat scaleFactor = leafImg.width.integerValue / kScreenWidth;
+    CGFloat height = leafImg.height.integerValue / scaleFactor;
+    imgView.frame = CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height);
+    
     @weakify(imgView);
-    [imgView setImageWithId:imageid withWidth:kScreenWidth completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
+    [imgView setImageWithId:leafImg.imageid withWidth:kScreenWidth completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
         @strongify(imgView);
         if (error == nil) {
-            CGFloat height = kScreenWidth / (image.size.width / image.size.height);
-            if (!isnan(height)) {
-                if (imgView == self.imageViewArray[1]) {
-                    self.btnDownload.hidden = NO;
-                    self.shareButton.enabled = YES;
-                }
-                
-                imgView.frame = CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height);
+            if (imgView == self.imageViewArray[1]) {
+                self.btnDownload.hidden = NO;
+                self.shareButton.enabled = YES;
             }
         }
     }];
@@ -432,6 +433,9 @@
     
     LeafImage *leafImg = [self.beautifulImage leafImageAtIndex:0];
     UIImageView *fromViewImage = [[UIImageView alloc] initWithFrame:fromFrame];
+    [fromViewImage setBackgroundColor:kPlaceHolderColor];
+    [fromViewImage setClipsToBounds:YES];
+    [fromViewImage setContentMode:UIViewContentModeScaleAspectFit];
     [fromViewImage setImageWithId:leafImg.imageid withWidth:kScreenWidth];
     
     UIView *background = [[UIView alloc] initWithFrame:toContainer.bounds];
@@ -464,6 +468,9 @@
     CGFloat height = leafImg.height.integerValue / scaleFactor;
     
     UIImageView *toViewImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height)];
+    [toViewImage setBackgroundColor:kPlaceHolderColor];
+    [toViewImage setClipsToBounds:YES];
+    [toViewImage setContentMode:UIViewContentModeScaleAspectFit];
     [toViewImage setImageWithId:leafImg.imageid withWidth:kScreenWidth];
     
     UIView *background = [[UIView alloc] initWithFrame:toContainer.bounds];

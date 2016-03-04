@@ -21,6 +21,7 @@
 
 - (void)awakeFromNib {
     [self.image setCornerRadius:5];
+    self.image.backgroundColor = kPlaceHolderColor;
 }
 
 - (void)initWithImage:(NSString *)imageid width:(CGFloat)width {
