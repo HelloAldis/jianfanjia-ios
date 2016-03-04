@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnSetting;
 @property (weak, nonatomic) IBOutlet UIImageView *userThumnail;
 
+@property (assign, nonatomic) CGFloat originUserImageHeight;
 @property (assign, nonatomic) BOOL isTabbarhide;
 
 @end
@@ -35,6 +36,7 @@
     [super viewDidLoad];
     [self.userThumnail setCornerRadius:self.userThumnail.frame.size.width / 2];
     [self.userThumnail setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
+    self.originUserImageHeight = CGRectGetHeight(self.userImageView.frame);
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
@@ -103,12 +105,20 @@
 
 - (IBAction)onClickContactCustomerService:(id)sender {
 //    CustomerServiceViewController *v = [[CustomerServiceViewController alloc] init];
-    [self.navigationController pushViewController:[CustomerServiceViewController instance] animated:YES];
+//    [self.navigationController pushViewController:[CustomerServiceViewController instance] animated:YES];
+//    
+    [ViewControllerContainer showMyComments];
 }
 
 - (IBAction)onClickSetting:(id)sender {
     SettingViewController *v = [[SettingViewController alloc] init];
     [self.navigationController pushViewController:v animated:YES];
+}
+
+#pragma mark - scroll view  delegate 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offsetY = scrollView.contentOffset.y;
+    self.userImageView.frame = CGRectMake(0, offsetY, CGRectGetWidth(self.userImageView.frame), self.originUserImageHeight - offsetY);
 }
 
 #pragma mark - Util

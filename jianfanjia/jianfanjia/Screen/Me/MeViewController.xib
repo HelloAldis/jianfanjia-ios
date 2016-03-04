@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -22,11 +22,11 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J6e-uE-ld4">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J6e-uE-ld4">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fq0-hI-rOM">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="481"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PTZ-eg-d8P">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="274"/>
@@ -35,25 +35,6 @@
                                         <constraint firstAttribute="height" constant="274" id="nzc-oK-WSf"/>
                                     </constraints>
                                 </imageView>
-                                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yO7-FM-HGG">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="274"/>
-                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.20000000000000001" contentMode="center" id="0GR-Kp-g33">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="274"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        <subviews>
-                                            <visualEffectView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LLb-95-Dkh">
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" id="Y8d-vH-GDV">
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                </view>
-                                                <vibrancyEffect>
-                                                    <blurEffect style="light"/>
-                                                </vibrancyEffect>
-                                            </visualEffectView>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <blurEffect style="light"/>
-                                </visualEffectView>
                                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9cg-x6-dc0">
                                     <rect key="frame" x="250" y="60" width="100" height="100"/>
                                     <constraints>
@@ -192,16 +173,12 @@
                             <constraints>
                                 <constraint firstItem="uaV-TI-THJ" firstAttribute="width" secondItem="Fq0-hI-rOM" secondAttribute="width" id="00W-kL-5J7"/>
                                 <constraint firstItem="PTZ-eg-d8P" firstAttribute="centerX" secondItem="Fq0-hI-rOM" secondAttribute="centerX" id="23q-ce-eMP"/>
-                                <constraint firstItem="yO7-FM-HGG" firstAttribute="height" secondItem="PTZ-eg-d8P" secondAttribute="height" id="37N-xQ-lyc"/>
                                 <constraint firstItem="PTZ-eg-d8P" firstAttribute="width" secondItem="Fq0-hI-rOM" secondAttribute="width" id="3nB-Hw-REW"/>
                                 <constraint firstItem="P4H-M2-NiH" firstAttribute="top" secondItem="itK-t4-gGr" secondAttribute="bottom" id="6Qt-Iu-wzL"/>
                                 <constraint firstItem="Tps-yf-6yL" firstAttribute="leading" secondItem="uaV-TI-THJ" secondAttribute="leading" id="8oL-XE-DrI"/>
-                                <constraint firstItem="yO7-FM-HGG" firstAttribute="top" secondItem="Fq0-hI-rOM" secondAttribute="top" id="BFs-Os-U7d"/>
-                                <constraint firstItem="yO7-FM-HGG" firstAttribute="width" secondItem="PTZ-eg-d8P" secondAttribute="width" id="BiL-Ug-fng"/>
                                 <constraint firstItem="FzH-qr-hRG" firstAttribute="top" secondItem="PTZ-eg-d8P" secondAttribute="bottom" id="DM7-m6-Q8n"/>
                                 <constraint firstItem="s3D-Md-m3S" firstAttribute="width" secondItem="Fq0-hI-rOM" secondAttribute="width" id="DTd-T6-ZLa"/>
                                 <constraint firstItem="EMc-N8-RcZ" firstAttribute="top" secondItem="uaV-TI-THJ" secondAttribute="bottom" constant="15" id="Dx6-M6-LgX"/>
-                                <constraint firstItem="yO7-FM-HGG" firstAttribute="leading" secondItem="Fq0-hI-rOM" secondAttribute="leading" id="FWj-rl-Pa2"/>
                                 <constraint firstItem="dgH-KV-wJY" firstAttribute="top" secondItem="9cg-x6-dc0" secondAttribute="top" constant="10" id="GX9-Ft-XSg"/>
                                 <constraint firstItem="9cg-x6-dc0" firstAttribute="top" secondItem="Fq0-hI-rOM" secondAttribute="top" constant="60" id="Ggn-2m-yqF"/>
                                 <constraint firstItem="ONG-aJ-7xX" firstAttribute="leading" secondItem="lsn-Jn-7gJ" secondAttribute="leading" id="Kcu-6K-8yB"/>
@@ -229,6 +206,7 @@
                                 <constraint firstItem="s3D-Md-m3S" firstAttribute="top" secondItem="dgH-KV-wJY" secondAttribute="bottom" constant="10" id="nTs-WU-fp5"/>
                                 <constraint firstItem="dgH-KV-wJY" firstAttribute="width" secondItem="Fq0-hI-rOM" secondAttribute="width" id="oMm-j4-ZuF"/>
                                 <constraint firstItem="lsn-Jn-7gJ" firstAttribute="centerY" secondItem="FzH-qr-hRG" secondAttribute="centerY" id="oMx-4u-NE9"/>
+                                <constraint firstAttribute="bottom" secondItem="Tps-yf-6yL" secondAttribute="bottom" id="r6O-KP-RDD"/>
                                 <constraint firstItem="Tps-yf-6yL" firstAttribute="top" secondItem="uaV-TI-THJ" secondAttribute="bottom" constant="15" id="tFb-W8-lrC"/>
                                 <constraint firstItem="PTZ-eg-d8P" firstAttribute="top" secondItem="Fq0-hI-rOM" secondAttribute="top" id="vwc-Qc-r3s"/>
                                 <constraint firstItem="dgH-KV-wJY" firstAttribute="centerX" secondItem="Fq0-hI-rOM" secondAttribute="centerX" id="zH0-M5-19e"/>
@@ -243,17 +221,28 @@
                             </variation>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="Fq0-hI-rOM" secondAttribute="trailing" id="38l-d9-dQv"/>
                         <constraint firstItem="Fq0-hI-rOM" firstAttribute="centerX" secondItem="J6e-uE-ld4" secondAttribute="centerX" id="3ko-jy-ABy"/>
                         <constraint firstAttribute="bottom" secondItem="Fq0-hI-rOM" secondAttribute="bottom" id="U9I-2C-RZS"/>
                         <constraint firstItem="Fq0-hI-rOM" firstAttribute="width" secondItem="J6e-uE-ld4" secondAttribute="width" id="Wuq-Ts-I0t"/>
                         <constraint firstItem="Fq0-hI-rOM" firstAttribute="centerY" secondItem="J6e-uE-ld4" secondAttribute="centerY" id="Xkf-cb-Eui"/>
+                        <constraint firstItem="Fq0-hI-rOM" firstAttribute="top" secondItem="J6e-uE-ld4" secondAttribute="top" id="aly-H4-f9c"/>
                         <constraint firstItem="Fq0-hI-rOM" firstAttribute="height" secondItem="J6e-uE-ld4" secondAttribute="height" id="ci0-Ar-w9k"/>
                     </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Xkf-cb-Eui"/>
+                            <exclude reference="ci0-Ar-w9k"/>
+                        </mask>
+                    </variation>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Moq-Ur-eVc"/>
+                    </connections>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="J6e-uE-ld4" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" id="JUE-fl-WRk"/>
                 <constraint firstItem="J6e-uE-ld4" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="i39-eJ-jqM"/>

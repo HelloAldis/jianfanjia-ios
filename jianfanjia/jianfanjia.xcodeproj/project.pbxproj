@@ -217,6 +217,11 @@
 		685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5E61C03178C00EC1991 /* MessageCell.m */; };
 		685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5E71C03178C00EC1991 /* MessageCell.xib */; };
 		685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5EB1C031D1C00EC1991 /* GetComments.m */; };
+		685DD4511C89761E00A76B9C /* CommentInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685DD44A1C89761E00A76B9C /* CommentInfoCell.m */; };
+		685DD4521C89761E00A76B9C /* CommentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685DD44B1C89761E00A76B9C /* CommentInfoCell.xib */; };
+		685DD4531C89761E00A76B9C /* CommentListDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 685DD44D1C89761E00A76B9C /* CommentListDataManager.m */; };
+		685DD4541C89761E00A76B9C /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685DD44F1C89761E00A76B9C /* CommentListViewController.m */; };
+		685DD4551C89761E00A76B9C /* CommentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685DD4501C89761E00A76B9C /* CommentListViewController.xib */; };
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
@@ -776,6 +781,14 @@
 		685CD5E71C03178C00EC1991 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		685CD5EA1C031D1C00EC1991 /* GetComments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetComments.h; sourceTree = "<group>"; };
 		685CD5EB1C031D1C00EC1991 /* GetComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetComments.m; sourceTree = "<group>"; };
+		685DD4491C89761E00A76B9C /* CommentInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInfoCell.h; sourceTree = "<group>"; };
+		685DD44A1C89761E00A76B9C /* CommentInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInfoCell.m; sourceTree = "<group>"; };
+		685DD44B1C89761E00A76B9C /* CommentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentInfoCell.xib; sourceTree = "<group>"; };
+		685DD44C1C89761E00A76B9C /* CommentListDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListDataManager.h; sourceTree = "<group>"; };
+		685DD44D1C89761E00A76B9C /* CommentListDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListDataManager.m; sourceTree = "<group>"; };
+		685DD44E1C89761E00A76B9C /* CommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListViewController.h; sourceTree = "<group>"; };
+		685DD44F1C89761E00A76B9C /* CommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListViewController.m; sourceTree = "<group>"; };
+		685DD4501C89761E00A76B9C /* CommentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentListViewController.xib; sourceTree = "<group>"; };
 		68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemImageCollectionView.h; sourceTree = "<group>"; };
 		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
 		689485CE1C1A6A05002310FC /* NotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDataManager.h; sourceTree = "<group>"; };
@@ -1567,6 +1580,21 @@
 			path = RequirementCreate;
 			sourceTree = "<group>";
 		};
+		685DD4481C89761E00A76B9C /* MyComment */ = {
+			isa = PBXGroup;
+			children = (
+				685DD44E1C89761E00A76B9C /* CommentListViewController.h */,
+				685DD44F1C89761E00A76B9C /* CommentListViewController.m */,
+				685DD4501C89761E00A76B9C /* CommentListViewController.xib */,
+				685DD4491C89761E00A76B9C /* CommentInfoCell.h */,
+				685DD44A1C89761E00A76B9C /* CommentInfoCell.m */,
+				685DD44B1C89761E00A76B9C /* CommentInfoCell.xib */,
+				685DD44C1C89761E00A76B9C /* CommentListDataManager.h */,
+				685DD44D1C89761E00A76B9C /* CommentListDataManager.m */,
+			);
+			path = MyComment;
+			sourceTree = "<group>";
+		};
 		689E71461C80588C0012BF3C /* WebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2136,6 +2164,7 @@
 		6E6D98B21BDF73D300D45F77 /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				685DD4481C89761E00A76B9C /* MyComment */,
 				6E06CC031C29231A00A08D15 /* MyFavoriate */,
 				6E4496471BFC82E800C90851 /* Info */,
 				68134A4A1C3F503E003C1C10 /* CustomerService */,
@@ -2496,6 +2525,7 @@
 				683FFB451C296288002A1AFE /* BeautifulImageViewController.xib in Resources */,
 				6E06CC131C29466700A08D15 /* FavoriateProductCell.xib in Resources */,
 				684A37031BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.xib in Resources */,
+				685DD4551C89761E00A76B9C /* CommentListViewController.xib in Resources */,
 				68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */,
 				6E6D98EC1BE345BC00D45F77 /* ProductInfoCell.xib in Resources */,
 				6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */,
@@ -2506,6 +2536,7 @@
 				6838400D1C158490004F456E /* UpdateMultipleLineTextViewController.xib in Resources */,
 				68123BAA1C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png in Resources */,
 				68123C611C4C8B99008FC9AB /* allprovince.js in Resources */,
+				685DD4521C89761E00A76B9C /* CommentInfoCell.xib in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */,
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
@@ -2679,6 +2710,7 @@
 				683FFB1F1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
 				6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */,
+				685DD4541C89761E00A76B9C /* CommentListViewController.m in Sources */,
 				AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */,
 				68123BA21C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.m in Sources */,
 				68134A3E1C3CFE44003C1C10 /* AccountBindViewController.m in Sources */,
@@ -2730,6 +2762,7 @@
 				68134A391C3CF444003C1C10 /* BindPhoneViewController.m in Sources */,
 				68134A451C3D0BD9003C1C10 /* BindWechat.m in Sources */,
 				6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */,
+				685DD4511C89761E00A76B9C /* CommentInfoCell.m in Sources */,
 				684A370C1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.m in Sources */,
 				6E44962D1BF9E32200C90851 /* SignupSuccessViewController.m in Sources */,
 				6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */,
@@ -2738,6 +2771,7 @@
 				6E4496211BF9B58800C90851 /* VerifyPhone.m in Sources */,
 				6E06CC1C1C294EE800A08D15 /* AddFavoriateProduct.m in Sources */,
 				68123B9A1C47D15C008FC9AB /* JYZSocialSnsAccountInfo.m in Sources */,
+				685DD4531C89761E00A76B9C /* CommentListDataManager.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
 				68123BA51C47D15C008FC9AB /* JYZSocialSnsUtil.m in Sources */,
 				684A37401BFD73DF00F7388C /* IntentDesignerCell.m in Sources */,

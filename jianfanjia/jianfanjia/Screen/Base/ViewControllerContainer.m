@@ -44,6 +44,7 @@
 #import "DesignerListViewController.h"
 #import "ProductCaseListViewController.h"
 #import "SearchViewController.h"
+#import "CommentListViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -362,6 +363,11 @@ static ViewControllerContainer *container;
 
 + (void)showReminder:(NSString *)processid refreshBlock:(void(^)(NSString *type))refreshBlock {
     ReminderViewController *v = [[ReminderViewController alloc] initWithProcess:processid refreshBlock:refreshBlock];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showMyComments {
+    CommentListViewController *v = [[CommentListViewController alloc] init];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
