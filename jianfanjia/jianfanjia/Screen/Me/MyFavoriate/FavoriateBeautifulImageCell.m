@@ -11,7 +11,6 @@
 
 @interface FavoriateBeautifulImageCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UIView *coverView;
 @property (weak, nonatomic) IBOutlet UIImageView *trashImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblDeleteMessage;
@@ -26,6 +25,7 @@
 
 - (void)awakeFromNib {
     [self.image setCornerRadius:5];
+    self.image.backgroundColor = kPlaceHolderColor;
     [self.coverView setCornerRadius:5];
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDelete)];
     [self.coverView addGestureRecognizer:tap];

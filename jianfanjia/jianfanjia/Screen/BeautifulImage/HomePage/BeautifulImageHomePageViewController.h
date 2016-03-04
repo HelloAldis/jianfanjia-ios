@@ -20,7 +20,7 @@ typedef void(^HomePageDismissBlock)(NSInteger index);
 
 - (id)initWithDataManager:(id<BeautifulImageHomePageDataManagerProtocol>)dataManager index:(NSInteger)index loadMore:(BaseRequest<BeautifulImageHomePageLoadMoreRequestProtocol> *)loadMoreRequest;
 
-- (void)presentFromView:(UIView *)fromView fromController:(UIViewController *)controller;
+- (void)presentFromImageView:(UIImageView *)fromImageView fromController:(UIViewController *)controller;
 - (void)dismissToRect:(CGRect)toFrame;
 
 @end

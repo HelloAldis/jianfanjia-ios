@@ -203,7 +203,8 @@ static NSMutableArray *decStyleDS;
         [controller dismissToRect:rect];
     };
     controller.dismissBlock = dismissBlock;
-    [controller presentFromView:[collectionView cellForItemAtIndexPath:indexPath] fromController:self];
+    BeautifulImageCollectionCell *cell = (BeautifulImageCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [controller presentFromImageView:cell.image fromController:self];
 }
 
 - (CGFloat)fallFlowLayout:(CollectionFallsFlowLayout *)layout heightForWidth:(CGFloat)width atIndexPath:(NSIndexPath *)indexPath {

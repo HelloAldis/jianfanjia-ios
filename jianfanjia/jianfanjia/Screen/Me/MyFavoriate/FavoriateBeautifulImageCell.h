@@ -11,6 +11,8 @@
 
 @interface FavoriateBeautifulImageCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+
 - (void)initWithImage:(BeautifulImage *)beautifulImage withDeleteBlock:(DeleteFavoriateBeautifulImageBlock)block;
 
 @end

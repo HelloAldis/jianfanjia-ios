@@ -427,16 +427,13 @@
     self.hasMoreBeautifulImage = count < [self.pageNumber integerValue];
 }
 
-- (void)presentFromView:(UIView *)fromView fromController:(UIViewController *)controller {
+- (void)presentFromImageView:(UIImageView *)fromImageView fromController:(UIViewController *)controller {
     UIView *toContainer = controller.navigationController.view;
-    CGRect fromFrame = [toContainer convertRect:fromView.bounds fromView:fromView];
+    CGRect fromFrame = [toContainer convertRect:fromImageView.bounds fromView:fromImageView];
     
-    LeafImage *leafImg = [self.beautifulImage leafImageAtIndex:0];
     UIImageView *fromViewImage = [[UIImageView alloc] initWithFrame:fromFrame];
+    [fromViewImage setImage:fromImageView.image];
     [fromViewImage setBackgroundColor:kPlaceHolderColor];
-    [fromViewImage setClipsToBounds:YES];
-    [fromViewImage setContentMode:UIViewContentModeScaleAspectFit];
-    [fromViewImage setImageWithId:leafImg.imageid withWidth:kScreenWidth];
     
     UIView *background = [[UIView alloc] initWithFrame:toContainer.bounds];
     background.backgroundColor = [UIColor blackColor];
@@ -463,15 +460,10 @@
     [self.navigationController popViewControllerAnimated:NO];
     UIView *toContainer = controller.view;
 
-    LeafImage *leafImg = [self.beautifulImage leafImageAtIndex:0];
-    CGFloat scaleFactor = leafImg.width.integerValue / kScreenWidth;
-    CGFloat height = leafImg.height.integerValue / scaleFactor;
-    
-    UIImageView *toViewImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height)];
+    UIImageView *enterImageView = self.imageViewArray[1];
+    UIImageView *toViewImage = [[UIImageView alloc] initWithFrame:enterImageView.frame];
+    [toViewImage setImage:enterImageView.image];
     [toViewImage setBackgroundColor:kPlaceHolderColor];
-    [toViewImage setClipsToBounds:YES];
-    [toViewImage setContentMode:UIViewContentModeScaleAspectFit];
-    [toViewImage setImageWithId:leafImg.imageid withWidth:kScreenWidth];
     
     UIView *background = [[UIView alloc] initWithFrame:toContainer.bounds];
     background.backgroundColor = [UIColor blackColor];
