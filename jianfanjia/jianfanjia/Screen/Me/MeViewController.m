@@ -23,7 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblPhone;
 @property (weak, nonatomic) IBOutlet UILabel *lblCache;
 
-@property (assign, nonatomic) CGFloat originUserImageHeight;
+@property (assign, nonatomic) CGRect originUserImageFrame;
+@property (assign, nonatomic) CGRect originAvatarImageFrame;
 @property (assign, nonatomic) BOOL isTabbarhide;
 
 @end
@@ -36,7 +37,8 @@
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     [self.userThumnail setCornerRadius:self.userThumnail.frame.size.width / 2];
     [self.userThumnail setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
-    self.originUserImageHeight = CGRectGetHeight(self.userImageView.frame);
+    self.originUserImageFrame = self.userImageView.frame;
+    self.originAvatarImageFrame = self.userThumnail.frame;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self updateCache];
 }
@@ -80,6 +82,10 @@
     
     [self.userImageView setImageWithId:[GVUserDefaults standardUserDefaults].imageid placeholderImage:[UIImage imageNamed:@"image_place_holder_3"]];
     [self.userThumnail setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
+}
+
+- (void)updateUnreadNumber {
+    
 }
 
 #pragma mark - user action
@@ -147,7 +153,19 @@
 #pragma mark - scroll view  delegate 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
-    self.userImageView.frame = CGRectMake(0, offsetY, CGRectGetWidth(self.userImageView.frame), self.originUserImageHeight - offsetY);
+    CGRect f = CGRectZero;
+    f.origin.y = offsetY;
+    f.size.width = MAX(kScreenWidth, kScreenWidth - offsetY);
+    f.size.height =  CGRectGetHeight(self.originUserImageFrame) - offsetY;
+    f.origin.x = MIN(0, offsetY / 2);
+    self.userImageView.frame = f;
+    
+//    f = CGRectZero;
+//    f.size.width = CGRectGetWidth(self.originAvatarImageFrame);
+//    f.size.height = CGRectGetHeight(self.originAvatarImageFrame);
+//    f.origin.y = (CGRectGetHeight(self.userImageView.frame) - f.size.height) / 2 + offsetY;
+//    f.origin.x = (kScreenWidth - f.size.width) / 2;
+//    self.userThumnail.frame = f;
 }
 
 #pragma mark - Util
@@ -171,7 +189,7 @@
 
 - (void)updateCache {
     YYImageCache *cache = [YYWebImageManager sharedManager].cache;
-    self.lblCache.text = [@((cache.memoryCache.totalCost + cache.diskCache.totalCost) /8 ) humSizeString];
+    self.lblCache.text = [@((cache.memoryCache.totalCost + cache.diskCache.totalCost) / 8) humSizeString];
 }
 
 @end
