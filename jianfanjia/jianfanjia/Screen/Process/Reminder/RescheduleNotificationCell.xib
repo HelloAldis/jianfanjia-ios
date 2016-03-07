@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="178" id="4dq-kC-p7P" customClass="RescheduleNotificationCell">
+            <rect key="frame" x="0.0" y="0.0" width="476" height="148"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4dq-kC-p7P" id="RLt-cd-dRp">
+                <rect key="frame" x="0.0" y="0.0" width="476" height="147"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="改期提醒" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhi-wf-7mB" userLabel="Lbl Cell">
+                        <rect key="frame" x="13" y="8" width="56" height="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小区名字" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIG-47-94f" userLabel="Lbl Cell">
+                        <rect key="frame" x="13" y="33" width="300" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="尊敬的业主，您即将进入下一轮付款环节，请及时与设计师联系" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbF-ql-siX">
+                        <rect key="frame" x="13" y="58" width="438" height="54"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfU-Aq-FR3">
+                        <rect key="frame" x="352" y="8" width="116" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="泥木阶段&gt;木地板测量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fr-wI-Y9m">
+                        <rect key="frame" x="333" y="33" width="135" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="Ki8-OL-uXf">
+                        <rect key="frame" x="461" y="67" width="7" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="7" id="0Rv-V9-lBs"/>
+                            <constraint firstAttribute="height" constant="13" id="gcS-4a-Z1g"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="尊敬的业主，您即将进入下一轮付款环节，请及时与设计师联系" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qa1-wa-Vd2">
+                        <rect key="frame" x="13" y="117" width="438" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="centerY" secondItem="FIG-47-94f" secondAttribute="centerY" id="0cE-gO-9My"/>
+                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="leading" secondItem="FIG-47-94f" secondAttribute="trailing" constant="20" id="1qF-6D-mp3"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="GbF-ql-siX" secondAttribute="trailing" id="53Q-0J-LXm"/>
+                    <constraint firstItem="GbF-ql-siX" firstAttribute="leading" secondItem="RLt-cd-dRp" secondAttribute="leadingMargin" constant="5" id="6KN-to-4LN"/>
+                    <constraint firstItem="FIG-47-94f" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="8" id="8gc-g4-pfF"/>
+                    <constraint firstItem="MfU-Aq-FR3" firstAttribute="centerY" secondItem="yhi-wf-7mB" secondAttribute="centerY" id="API-ck-85F"/>
+                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="top" secondItem="GbF-ql-siX" secondAttribute="bottom" constant="10" id="DAj-Mm-DdR"/>
+                    <constraint firstItem="yhi-wf-7mB" firstAttribute="top" secondItem="RLt-cd-dRp" secondAttribute="topMargin" id="Ef7-p2-3ik"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="yhi-wf-7mB" secondAttribute="trailing" id="ICQ-Ri-QB7"/>
+                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="trailing" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="Jm0-Ua-k9d"/>
+                    <constraint firstItem="Qa1-wa-Vd2" firstAttribute="trailing" secondItem="GbF-ql-siX" secondAttribute="trailing" id="KzY-1n-Vva"/>
+                    <constraint firstItem="Ki8-OL-uXf" firstAttribute="trailing" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="Lab-SQ-lu3"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8Fr-wI-Y9m" secondAttribute="bottom" id="NXn-xx-wLV"/>
+                    <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="8" id="QGW-Bz-Mz7"/>
+                    <constraint firstItem="Ki8-OL-uXf" firstAttribute="centerY" secondItem="RLt-cd-dRp" secondAttribute="centerY" id="Qrc-Wl-pk6"/>
+                    <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="FIG-47-94f" secondAttribute="bottom" constant="8" id="SeE-by-gpe"/>
+                    <constraint firstItem="Qa1-wa-Vd2" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="leading" id="UTI-Zb-LQX"/>
+                    <constraint firstItem="FIG-47-94f" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="leading" id="Wte-9W-7SZ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="evn-Ky-9Tt"/>
+                    <constraint firstItem="Ki8-OL-uXf" firstAttribute="leading" secondItem="GbF-ql-siX" secondAttribute="trailing" constant="10" id="g0W-8M-QNf"/>
+                    <constraint firstItem="MfU-Aq-FR3" firstAttribute="centerY" secondItem="8Fr-wI-Y9m" secondAttribute="centerY" id="g5s-ZD-ooU"/>
+                    <constraint firstItem="Qa1-wa-Vd2" firstAttribute="top" secondItem="GbF-ql-siX" secondAttribute="bottom" constant="5" id="jb1-gJ-ZJy"/>
+                    <constraint firstItem="yhi-wf-7mB" firstAttribute="leading" secondItem="RLt-cd-dRp" secondAttribute="leadingMargin" constant="5" id="kFJ-Ey-REQ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="GbF-ql-siX" secondAttribute="bottom" id="m00-n1-EDd"/>
+                    <constraint firstItem="FIG-47-94f" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="8" id="vME-0L-WUo"/>
+                    <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="FIG-47-94f" secondAttribute="bottom" constant="52" id="vpn-HY-jyc"/>
+                    <constraint firstItem="GbF-ql-siX" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="leading" id="xfI-AE-CFo"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Qa1-wa-Vd2" secondAttribute="bottom" constant="5" id="ycZ-2V-IpB"/>
+                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="leading" secondItem="GbF-ql-siX" secondAttribute="leading" id="yvG-zF-U8j"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="ICQ-Ri-QB7"/>
+                        <exclude reference="8gc-g4-pfF"/>
+                        <exclude reference="53Q-0J-LXm"/>
+                        <exclude reference="6KN-to-4LN"/>
+                        <exclude reference="QGW-Bz-Mz7"/>
+                        <exclude reference="m00-n1-EDd"/>
+                        <exclude reference="vpn-HY-jyc"/>
+                        <exclude reference="DAj-Mm-DdR"/>
+                        <exclude reference="NXn-xx-wLV"/>
+                        <exclude reference="yvG-zF-U8j"/>
+                        <exclude reference="g5s-ZD-ooU"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblCell" destination="yhi-wf-7mB" id="9Mo-En-ndn"/>
+                <outlet property="lblRequestTime" destination="MfU-Aq-FR3" id="AtA-L4-REf"/>
+                <outlet property="lblTitle" destination="GbF-ql-siX" id="z3w-DD-SkY"/>
+                <outlet property="lblWorkingPhase" destination="8Fr-wI-Y9m" id="51t-oT-fYD"/>
+            </connections>
+            <point key="canvasLocation" x="397" y="341"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bar_shape" width="7" height="13"/>
+    </resources>
+</document>

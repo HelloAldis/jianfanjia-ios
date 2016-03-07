@@ -114,8 +114,6 @@
 		683A6B561C0F01130071DF88 /* DBYSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683A6B541C0F01130071DF88 /* DBYSViewController.xib */; };
 		683A6B641C0F01190071DF88 /* PayNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A6B591C0F01190071DF88 /* PayNotificationCell.m */; };
 		683A6B651C0F01190071DF88 /* PayNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683A6B5A1C0F01190071DF88 /* PayNotificationCell.xib */; };
-		683A6B661C0F01190071DF88 /* PostponeNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A6B5C1C0F01190071DF88 /* PostponeNotificationCell.m */; };
-		683A6B671C0F01190071DF88 /* PostponeNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683A6B5D1C0F01190071DF88 /* PostponeNotificationCell.xib */; };
 		683A6B681C0F01190071DF88 /* PurchaseNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A6B5F1C0F01190071DF88 /* PurchaseNotificationCell.m */; };
 		683A6B691C0F01190071DF88 /* PurchaseNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683A6B601C0F01190071DF88 /* PurchaseNotificationCell.xib */; };
 		683A6B6A1C0F01190071DF88 /* ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A6B621C0F01190071DF88 /* ReminderViewController.m */; };
@@ -224,6 +222,12 @@
 		685DD4551C89761E00A76B9C /* CommentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685DD4501C89761E00A76B9C /* CommentListViewController.xib */; };
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
+		686799F61C8D638500B380D0 /* RequirementNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799F11C8D638500B380D0 /* RequirementNotificationCell.m */; };
+		686799F71C8D638500B380D0 /* RequirementNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 686799F21C8D638500B380D0 /* RequirementNotificationCell.xib */; };
+		686799F81C8D638500B380D0 /* SystemAnnouncementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799F41C8D638500B380D0 /* SystemAnnouncementCell.m */; };
+		686799F91C8D638500B380D0 /* SystemAnnouncementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 686799F51C8D638500B380D0 /* SystemAnnouncementCell.xib */; };
+		686799FD1C8D6A4800B380D0 /* RescheduleNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799FB1C8D6A4800B380D0 /* RescheduleNotificationCell.m */; };
+		686799FE1C8D6A4800B380D0 /* RescheduleNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 686799FC1C8D6A4800B380D0 /* RescheduleNotificationCell.xib */; };
 		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
 		689E714A1C80588C0012BF3C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689E71481C80588C0012BF3C /* WebViewController.m */; };
@@ -616,9 +620,6 @@
 		683A6B581C0F01190071DF88 /* PayNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayNotificationCell.h; sourceTree = "<group>"; };
 		683A6B591C0F01190071DF88 /* PayNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayNotificationCell.m; sourceTree = "<group>"; };
 		683A6B5A1C0F01190071DF88 /* PayNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayNotificationCell.xib; sourceTree = "<group>"; };
-		683A6B5B1C0F01190071DF88 /* PostponeNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostponeNotificationCell.h; sourceTree = "<group>"; };
-		683A6B5C1C0F01190071DF88 /* PostponeNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostponeNotificationCell.m; sourceTree = "<group>"; };
-		683A6B5D1C0F01190071DF88 /* PostponeNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostponeNotificationCell.xib; sourceTree = "<group>"; };
 		683A6B5E1C0F01190071DF88 /* PurchaseNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseNotificationCell.h; sourceTree = "<group>"; };
 		683A6B5F1C0F01190071DF88 /* PurchaseNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseNotificationCell.m; sourceTree = "<group>"; };
 		683A6B601C0F01190071DF88 /* PurchaseNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseNotificationCell.xib; sourceTree = "<group>"; };
@@ -794,6 +795,15 @@
 		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
+		686799F01C8D638500B380D0 /* RequirementNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementNotificationCell.h; sourceTree = "<group>"; };
+		686799F11C8D638500B380D0 /* RequirementNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementNotificationCell.m; sourceTree = "<group>"; };
+		686799F21C8D638500B380D0 /* RequirementNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementNotificationCell.xib; sourceTree = "<group>"; };
+		686799F31C8D638500B380D0 /* SystemAnnouncementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemAnnouncementCell.h; sourceTree = "<group>"; };
+		686799F41C8D638500B380D0 /* SystemAnnouncementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemAnnouncementCell.m; sourceTree = "<group>"; };
+		686799F51C8D638500B380D0 /* SystemAnnouncementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemAnnouncementCell.xib; sourceTree = "<group>"; };
+		686799FA1C8D6A4800B380D0 /* RescheduleNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RescheduleNotificationCell.h; sourceTree = "<group>"; };
+		686799FB1C8D6A4800B380D0 /* RescheduleNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RescheduleNotificationCell.m; sourceTree = "<group>"; };
+		686799FC1C8D6A4800B380D0 /* RescheduleNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RescheduleNotificationCell.xib; sourceTree = "<group>"; };
 		689485CE1C1A6A05002310FC /* NotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDataManager.h; sourceTree = "<group>"; };
 		689485CF1C1A6A05002310FC /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
@@ -1399,12 +1409,18 @@
 				683A6B581C0F01190071DF88 /* PayNotificationCell.h */,
 				683A6B591C0F01190071DF88 /* PayNotificationCell.m */,
 				683A6B5A1C0F01190071DF88 /* PayNotificationCell.xib */,
-				683A6B5B1C0F01190071DF88 /* PostponeNotificationCell.h */,
-				683A6B5C1C0F01190071DF88 /* PostponeNotificationCell.m */,
-				683A6B5D1C0F01190071DF88 /* PostponeNotificationCell.xib */,
+				686799FA1C8D6A4800B380D0 /* RescheduleNotificationCell.h */,
+				686799FB1C8D6A4800B380D0 /* RescheduleNotificationCell.m */,
+				686799FC1C8D6A4800B380D0 /* RescheduleNotificationCell.xib */,
 				683A6B5E1C0F01190071DF88 /* PurchaseNotificationCell.h */,
 				683A6B5F1C0F01190071DF88 /* PurchaseNotificationCell.m */,
 				683A6B601C0F01190071DF88 /* PurchaseNotificationCell.xib */,
+				686799F01C8D638500B380D0 /* RequirementNotificationCell.h */,
+				686799F11C8D638500B380D0 /* RequirementNotificationCell.m */,
+				686799F21C8D638500B380D0 /* RequirementNotificationCell.xib */,
+				686799F31C8D638500B380D0 /* SystemAnnouncementCell.h */,
+				686799F41C8D638500B380D0 /* SystemAnnouncementCell.m */,
+				686799F51C8D638500B380D0 /* SystemAnnouncementCell.xib */,
 				683B2A791C101CE900822715 /* ReminderDataManager.h */,
 				683B2A7A1C101CE900822715 /* ReminderDataManager.m */,
 			);
@@ -2491,9 +2507,10 @@
 				683FFB5F1C2A4144002A1AFE /* CollectDecStyleViewController.xib in Resources */,
 				684A375B1BFD73DF00F7388C /* SelectWorkTypeViewController.xib in Resources */,
 				6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */,
+				686799F71C8D638500B380D0 /* RequirementNotificationCell.xib in Resources */,
 				683FFB5A1C2A4135002A1AFE /* CollectDecPhaseViewController.xib in Resources */,
 				683595A91C04565300AD58E7 /* AgreementViewController.xib in Resources */,
-				683A6B671C0F01190071DF88 /* PostponeNotificationCell.xib in Resources */,
+				686799F91C8D638500B380D0 /* SystemAnnouncementCell.xib in Resources */,
 				6E78670D1BA920D900DE8B1B /* BannerCell.xib in Resources */,
 				684A37431BFD73DF00F7388C /* IntentDesignerSection.xib in Resources */,
 				684A37071BFD733500F7388C /* DesignerSubmittedPlanCell.xib in Resources */,
@@ -2501,6 +2518,7 @@
 				6E7867171BA944AF00DE8B1B /* ItemCell.xib in Resources */,
 				682E05141C58BDA700F1ACAA /* PlanPriceItemExpandCell.xib in Resources */,
 				684A37471BFD73DF00F7388C /* MatchDesignerSection.xib in Resources */,
+				686799FE1C8D6A4800B380D0 /* RescheduleNotificationCell.xib in Resources */,
 				6E20B2331B87223600E3A8DA /* Images.xcassets in Resources */,
 				682E05101C58BDA700F1ACAA /* PlanPriceDetailViewController.xib in Resources */,
 				68B10CA91C7819E3005866C1 /* ProductCaseCell.xib in Resources */,
@@ -2656,13 +2674,13 @@
 				AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */,
 				6E06CC2D1C2BF97800A08D15 /* FavoriteDesignerCell.m in Sources */,
 				68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */,
-				683A6B661C0F01190071DF88 /* PostponeNotificationCell.m in Sources */,
 				683FFB471C296288002A1AFE /* DropdownMenuCollectionCell.m in Sources */,
 				684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */,
 				683A6B6A1C0F01190071DF88 /* ReminderViewController.m in Sources */,
 				68123BAB1C47D15C008FC9AB /* JYZShareMenuCollectionCell.m in Sources */,
 				683A6B681C0F01190071DF88 /* PurchaseNotificationCell.m in Sources */,
 				6E7867161BA944AF00DE8B1B /* ItemCell.m in Sources */,
+				686799F61C8D638500B380D0 /* RequirementNotificationCell.m in Sources */,
 				6E6D98B01BDF736A00D45F77 /* RequirementListViewController.m in Sources */,
 				6E07DAAC1BD88DBE001461DD /* AccountBusiness.m in Sources */,
 				683840071C157E21004F456E /* UpdateOneLineTextViewController.m in Sources */,
@@ -2766,6 +2784,7 @@
 				6E07DABA1BD88DBE001461DD /* NSManagedObjectContext+Ex.m in Sources */,
 				68134A391C3CF444003C1C10 /* BindPhoneViewController.m in Sources */,
 				68134A451C3D0BD9003C1C10 /* BindWechat.m in Sources */,
+				686799F81C8D638500B380D0 /* SystemAnnouncementCell.m in Sources */,
 				6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */,
 				685DD4511C89761E00A76B9C /* CommentInfoCell.m in Sources */,
 				684A370C1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.m in Sources */,
@@ -2893,6 +2912,7 @@
 				68D536A61BFF563800D8F1B2 /* PlanPreviewViewController.m in Sources */,
 				6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */,
 				683669041BFF0B44006A5053 /* PlanListViewController.m in Sources */,
+				686799FD1C8D6A4800B380D0 /* RescheduleNotificationCell.m in Sources */,
 				6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */,
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
