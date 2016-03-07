@@ -15,6 +15,7 @@
 
 @interface MeViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblUsername;
 @property (weak, nonatomic) IBOutlet UILabel *lblPhone;
@@ -34,6 +35,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     [self.userThumnail setCornerRadius:self.userThumnail.frame.size.width / 2];
     [self.userThumnail setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
     self.originUserImageHeight = CGRectGetHeight(self.userImageView.frame);
