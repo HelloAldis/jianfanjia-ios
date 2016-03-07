@@ -8,9 +8,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeViewController">
             <connections>
-                <outlet property="btnFavoriateDesigner" destination="P4H-M2-NiH" id="q4h-U4-MsL"/>
-                <outlet property="btnNotification" destination="FzH-qr-hRG" id="n0E-1c-OKd"/>
-                <outlet property="btnSetting" destination="pYV-FT-WdW" id="3fp-e9-2Mi"/>
+                <outlet property="lblCache" destination="q4y-Kb-4Zn" id="1Ne-s6-UPU"/>
                 <outlet property="lblPhone" destination="s3D-Md-m3S" id="bD4-KW-O43"/>
                 <outlet property="lblUsername" destination="dgH-KV-wJY" id="Z6S-jj-4C9"/>
                 <outlet property="scrollView" destination="J6e-uE-ld4" id="hJg-4G-s0A"/>
@@ -66,9 +64,6 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
-                                    <connections>
-                                        <outletCollection property="gestureRecognizers" destination="H3v-Lp-ryO" appends="YES" id="HOm-Lh-HgD"/>
-                                    </connections>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2af-8E-hWh" userLabel="QuickView">
                                     <rect key="frame" x="0.0" y="220" width="600" height="100"/>
@@ -83,6 +78,9 @@
                                                         <constraint firstAttribute="width" secondItem="ikk-YY-Y7Z" secondAttribute="height" multiplier="1:1" id="qD0-KI-xQj"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="section_0_2"/>
+                                                    <connections>
+                                                        <action selector="onClickNotification:" destination="-1" eventType="touchUpInside" id="8yL-SI-4uZ"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rig-Ud-8Jm">
                                                     <rect key="frame" x="72" y="68" width="56" height="30"/>
@@ -119,6 +117,9 @@
                                                         <constraint firstAttribute="width" constant="56" id="ivo-KX-AlT"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="section_0_2"/>
+                                                    <connections>
+                                                        <action selector="onClickFavoriate:" destination="-1" eventType="touchUpInside" id="K1X-2H-tvo"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uab-Ek-1aa">
                                                     <rect key="frame" x="72" y="68" width="56" height="30"/>
@@ -150,6 +151,9 @@
                                                         <constraint firstAttribute="width" constant="56" id="v8I-qh-Wbe"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="section_0_2"/>
+                                                    <connections>
+                                                        <action selector="onClickComment:" destination="-1" eventType="touchUpInside" id="7Fa-jW-PZ5"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的评价" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgN-bY-nnD">
                                                     <rect key="frame" x="72" y="68" width="56" height="30"/>
@@ -207,7 +211,7 @@
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="onClickNotification:" destination="-1" eventType="touchUpInside" id="leh-2Y-sA2"/>
+                                                <action selector="onClickAcountBind:" destination="-1" eventType="touchUpInside" id="2uc-qc-sDo"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="buh-aK-8VY">
@@ -261,7 +265,7 @@
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="onClickNotification:" destination="-1" eventType="touchUpInside" id="fZ4-2K-FZR"/>
+                                                <action selector="onClickClearCache:" destination="-1" eventType="touchUpInside" id="mU0-cb-P8E"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="aqg-qd-hem">
@@ -313,7 +317,7 @@
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="onClickFavoriateDesigner:" destination="-1" eventType="touchUpInside" id="FUC-5c-xzo"/>
+                                                <action selector="onClickSuggestion:" destination="-1" eventType="touchUpInside" id="3Tc-MO-Pdx"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="ZZk-g9-40R">
@@ -352,7 +356,7 @@
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="onClickFavoriateDesigner:" destination="-1" eventType="touchUpInside" id="o4K-Rz-mrJ"/>
+                                                <action selector="onClickOnlineService:" destination="-1" eventType="touchUpInside" id="FBZ-en-GCl"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="rT3-SP-9Wu">
@@ -433,7 +437,7 @@
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="onClickContactCustomerService:" destination="-1" eventType="touchUpInside" id="zBn-5n-aE5"/>
+                                                <action selector="onClickMore:" destination="-1" eventType="touchUpInside" id="5a8-M3-Mh2"/>
                                             </connections>
                                         </button>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checked" translatesAutoresizingMaskIntoConstraints="NO" id="u5M-1J-cdd">
@@ -476,11 +480,11 @@
                                                 <constraint firstAttribute="height" constant="50" id="2Lp-bE-rhv"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <state key="normal" title="咨询热线：400-8515-67">
+                                            <state key="normal" title="咨询热线：400-8515-167">
                                                 <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                             </state>
                                             <connections>
-                                                <action selector="onClickSetting:" destination="-1" eventType="touchUpInside" id="sBw-aM-5We"/>
+                                                <action selector="onClickPhoneConsult:" destination="-1" eventType="touchUpInside" id="BH5-U9-H6A"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -552,19 +556,14 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
-        <tapGestureRecognizer id="FZ5-Bz-HJu">
+        <tapGestureRecognizer id="FZ5-Bz-HJu" userLabel="Tap Background Image">
             <connections>
                 <action selector="onTapUserImageView:" destination="-1" id="bYj-J9-zsN"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="fXy-TV-M3e">
+        <tapGestureRecognizer id="fXy-TV-M3e" userLabel="Tap Avatar Image">
             <connections>
                 <action selector="onTapUserImageView:" destination="-1" id="G4h-mw-9N2"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="H3v-Lp-ryO">
-            <connections>
-                <action selector="onTapUserImageView:" destination="-1" id="3Da-4H-4L3"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
