@@ -9,7 +9,7 @@
 #import "CommentInfoCell.h"
 #import "ViewControllerContainer.h"
 
-static const NSInteger imgWidth = 170;
+static const NSInteger imgWidth = 100;
 static const NSInteger imgSpace = 2;
 
 @interface CommentInfoCell ()
@@ -18,13 +18,12 @@ static const NSInteger imgSpace = 2;
 @property (weak, nonatomic) IBOutlet UILabel *lblName;
 @property (weak, nonatomic) IBOutlet UILabel *lblCommentTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblComment;
-@property (weak, nonatomic) IBOutlet UIButton *brnReply;
+@property (weak, nonatomic) IBOutlet UIButton *btnReply;
 @property (weak, nonatomic) IBOutlet UIView *linkView;
 @property (weak, nonatomic) IBOutlet UILabel *lblLinkTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblLinkTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblLinkStatus;
 @property (weak, nonatomic) IBOutlet UIScrollView *linkImageScrollView;
-@property (weak, nonatomic) IBOutlet UIView *linkImageContainerView;
 
 @end
 
@@ -32,11 +31,13 @@ static const NSInteger imgSpace = 2;
 
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:self.imgAvatar.bounds.size.width / 2];
+    [self.btnReply setBorder:1 andColor:kThemeTextColor.CGColor];
+    [self.btnReply setCornerRadius:5];
 //    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapCell)]];
 }
 
 - (void)initWithDesigner:(Designer *)designer {
-    
+    [self.imgAvatar setImageWithId:[GVUserDefaults standardUserDefaults].imageid withWidth:CGRectGetWidth(self.imgAvatar.bounds) / 2];
     
     [self.linkImageScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
 //    @weakify(self);
@@ -62,10 +63,10 @@ static const NSInteger imgSpace = 2;
     UIImageView *imgView = [[UIImageView alloc] init];
     imgView.clipsToBounds = YES;
     imgView.contentMode = UIViewContentModeScaleAspectFill;
-    imgView.frame = CGRectMake(0, 0, imgWidth, 170);
+    imgView.frame = CGRectMake(0, 0, imgWidth, imgWidth);
     imgView.image = [UIImage imageNamed:@"banner_1"];
     [self.linkImageScrollView addSubview:imgView];
-    self.linkImageScrollView.contentSize = CGSizeMake(imgWidth, 170);
+    self.linkImageScrollView.contentSize = CGSizeMake(imgWidth, imgWidth);
 }
 
 #pragma mark - gesture

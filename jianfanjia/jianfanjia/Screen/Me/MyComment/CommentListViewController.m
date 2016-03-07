@@ -44,7 +44,7 @@ static NSString *CommentInfoCellIdentifier = @"CommentInfoCell";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 300;
+    self.tableView.estimatedRowHeight = 1000;
     [self.tableView registerNib:[UINib nibWithNibName:CommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:CommentInfoCellIdentifier];
     
     @weakify(self);
