@@ -115,7 +115,6 @@
     self.btnConfirm.enabled = NO;
     StartDecorationProcess *request = [[StartDecorationProcess alloc] init];
     request.requirementid = self.requirement._id;
-    request.final_planid = self.requirement.final_planid;
     
     [API startDecoration:request success:^{
         [self.navigationController popToRootViewControllerAnimated:YES];
