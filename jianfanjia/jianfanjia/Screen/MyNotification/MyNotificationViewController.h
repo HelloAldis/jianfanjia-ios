@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 
-@interface ReminderViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
+@interface MyNotificationViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithProcess:(NSString *)processid refreshBlock:(void(^)(NSString *type))RefreshBlock;
 

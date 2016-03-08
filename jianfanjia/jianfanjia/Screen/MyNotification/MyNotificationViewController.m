@@ -6,13 +6,13 @@
 //  Copyright (c) 2015年 JYZ. All rights reserved.
 //
 
-#import "ReminderViewController.h"
+#import "MyNotificationViewController.h"
 #import "PurchaseNotificationCell.h"
 #import "PayNotificationCell.h"
 #import "RescheduleNotificationCell.h"
 #import "SystemAnnouncementCell.h"
 #import "RequirementNotificationCell.h"
-#import "ReminderDataManager.h"
+#import "MyNotificationDataManager.h"
 #import "API.h"
 
 typedef NS_ENUM(NSInteger, NotificationType) {
@@ -28,7 +28,7 @@ static NSString *PurchaseNotificationCellIdentifier = @"PurchaseNotificationCell
 static NSString *PayNotificationCellIdentifier = @"PayNotificationCell";
 static NSString *RescheduleNotificationCellIdentifier = @"RescheduleNotificationCell";
 
-@interface ReminderViewController ()
+@interface MyNotificationViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnNotifications;
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *reminderIcons;
@@ -40,7 +40,7 @@ static NSString *RescheduleNotificationCellIdentifier = @"RescheduleNotification
 @property (assign, nonatomic) NSInteger preSelectedButtonIndex;
 @property (assign, nonatomic) NSInteger selectedButtonIndex;
 @property (assign, nonatomic) NotificationType currentNotificationType;
-@property (strong ,nonatomic) ReminderDataManager *dataManager;
+@property (strong ,nonatomic) MyNotificationDataManager *dataManager;
 @property (strong ,nonatomic) NSString *processid;
 
 @property (assign, nonatomic) BOOL isNeedToRefresh;
@@ -48,14 +48,14 @@ static NSString *RescheduleNotificationCellIdentifier = @"RescheduleNotification
 
 @end
 
-@implementation ReminderViewController
+@implementation MyNotificationViewController
 
 #pragma mark - init method
 - (id)initWithProcess:(NSString *)processid refreshBlock:(void(^)(NSString *type))RefreshBlock {
     if (self = [super init]) {
         _processid = processid;
         _RefreshBlock = RefreshBlock;
-        _dataManager = [[ReminderDataManager alloc] init];
+        _dataManager = [[MyNotificationDataManager alloc] init];
     }
     
     return self;

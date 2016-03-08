@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ReminderDataManager : NSObject
+@interface MyNotificationDataManager : NSObject
 
 @property (strong, nonatomic) NSMutableArray *schedules;
 @property (strong, nonatomic) NSArray *notifications;

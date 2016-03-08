@@ -31,7 +31,7 @@
 #import "PlanPriceDetailViewController.h"
 #import "LeaveMessageViewController.h"
 #import "AgreementViewController.h"
-#import "ReminderViewController.h"
+#import "MyNotificationViewController.h"
 #import "DBYSViewController.h"
 #import "RequirementCreateViewController.h"
 #import "BeautifulImageViewController.h"
@@ -361,8 +361,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showReminder:(NSString *)processid refreshBlock:(void(^)(NSString *type))refreshBlock {
-    ReminderViewController *v = [[ReminderViewController alloc] initWithProcess:processid refreshBlock:refreshBlock];
++ (void)showMyNotification:(NSString *)processid refreshBlock:(void(^)(NSString *type))refreshBlock {
+    MyNotificationViewController *v = [[MyNotificationViewController alloc] initWithProcess:processid refreshBlock:refreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

@@ -6,9 +6,9 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "ReminderDataManager.h"
+#import "MyNotificationDataManager.h"
 
-@implementation ReminderDataManager
+@implementation MyNotificationDataManager
 
 - (void)refreshSchedule:(NSString *)processid {
     NSArray *arr = [DataManager shared].data;

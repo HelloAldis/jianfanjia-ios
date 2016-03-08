@@ -7,7 +7,7 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ReminderViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyNotificationViewController">
             <connections>
                 <outlet property="noNotificationImage" destination="Yqq-2M-MY0" id="lOQ-uN-4to"/>
                 <outlet property="noNotificationLabel" destination="1tj-LS-fcm" id="Ua9-BU-f4h"/>

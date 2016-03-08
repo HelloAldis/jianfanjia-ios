@@ -525,7 +525,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 #pragma mark - user action
 - (void)onClickReminder {
     @weakify(self);
-    [ViewControllerContainer showReminder:self.processid refreshBlock:^(NSString *type){
+    [ViewControllerContainer showMyNotification:self.processid refreshBlock:^(NSString *type){
         @strongify(self);
         if ([type isEqualToString:kNotificationTypePurchase]) {
             [self refreshProcess:NO];
