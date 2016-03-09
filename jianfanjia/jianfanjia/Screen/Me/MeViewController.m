@@ -37,8 +37,6 @@
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     [self.userThumnail setCornerRadius:self.userThumnail.frame.size.width / 2];
     [self.userThumnail setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
-    self.originUserImageFrame = self.userImageView.frame;
-    self.originAvatarImageFrame = self.userThumnail.frame;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self updateCache];
 }
@@ -58,6 +56,8 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    self.originUserImageFrame = self.userImageView.frame;
+    self.originAvatarImageFrame = self.userThumnail.frame;
     
     if (self.isTabbarhide) {
         [self showTabbar];
@@ -80,7 +80,6 @@
         self.lblPhone.hidden = YES;
     }
     
-    [self.userImageView setImageWithId:[GVUserDefaults standardUserDefaults].imageid placeholderImage:[UIImage imageNamed:@"image_place_holder_3"]];
     [self.userThumnail setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
 }
 

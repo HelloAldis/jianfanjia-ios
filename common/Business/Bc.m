@@ -185,3 +185,79 @@ NSString * const kWorkTypeHalf = @"0";
 NSString * const kWorkTypeWhole = @"1";
 NSString * const kWorkTypeDesign = @"2";
 
+
+/*
+ 业主的消息类型 user_message_type
+ * 0. 设计师提出改期提醒
+ * 1. 采购提醒
+ * 2. 付款提醒
+ * 3. 验收提醒
+ * 4. 平台通知
+ * 5. 方案评论
+ * 6. 装修小节点评论
+ * 7. 设计师响应
+ * 8. 设计师拒绝
+ * 9. 设计师上传了方案
+ * 10. 设计师配置了合同
+ * 11. 设计师拒绝改期
+ * 12. 设计师同意改期
+ **/
+//PN - Push Notification
+NSString * const kUserPNFromRescheduleRequest = @"0";
+NSString * const kUserPNFromPurchaseTip = @"1";
+NSString * const kUserPNFromPayTip = @"2";
+NSString * const kUserPNFromDBYSRequest = @"3";
+NSString * const kUserPNFromSystemMsg = @"4";
+NSString * const kUserPNFromPlanComment = @"5";
+NSString * const kUserPNFromDecItemComment = @"6";
+NSString * const kUserPNFromOrderRespond = @"7";
+NSString * const kUserPNFromOrderReject = @"8";
+NSString * const kUserPNFromPlanSubmit = @"9";
+NSString * const kUserPNFromAgreementConfigure = @"10";
+NSString * const kUserPNFromRescheduleReject = @"11";
+NSString * const kUserPNFromRescheduleAgree = @"12";
+
+/*
+ 设计师的消息类型 designer_message_type
+ * 0. 改期提醒
+ * 1. 采购提醒
+ * 2. 平台通知
+ * 3. 方案评论
+ * 4. 装修小节点评论
+ * 5. 基本信息审核通过
+ * 6. 基本信息审核不通过
+ * 7. 身份证和银行卡审核通过
+ * 8. 身份证和银行卡审核不通过
+ * 9. 工地审核通过
+ * 10. 工地审核不通过
+ * 11. 作品审核通过
+ * 12. 作品审核不通过
+ * 13. 作品违规被下线
+ * 14. 业主预约提醒
+ * 15. 业主确认量房提醒
+ * 16. 方案中标消息
+ * 17. 方案未中标消息
+ * 18. 业主确认合同消息
+ * 19. 业主拒绝改期
+ * 20. 业主师同意改期 **/
+NSString * const kDesignerPNFromRescheduleRequest = @"0";
+NSString * const kDesignerPNFromPurchaseTip = @"1";
+NSString * const kDesignerPNFromSystemMsg = @"2";
+NSString * const kDesignerPNFromPlanComment = @"3";
+NSString * const kDesignerPNFromDecItemComment = @"4";
+NSString * const kDesignerPNFromBasicInfoAuthPass = @"5";
+NSString * const kDesignerPNFromBasicInfoAuthNotPass = @"6";
+NSString * const kDesignerPNFromIDAuthPass = @"7";
+NSString * const kDesignerPNFromIDAuthNotPass = @"8";
+NSString * const kDesignerPNFromWorksiteAuthPass = @"9";
+NSString * const kDesignerPNFromWorksiteAuthNotPass = @"10";
+NSString * const kDesignerPNFromProductAuthPass = @"11";
+NSString * const kDesignerPNFromProductAuthNotPass = @"12";
+NSString * const kDesignerPNFromProductBreakRule = @"13";
+NSString * const kDesignerPNFromOrderTip = @"14";
+NSString * const kDesignerPNFromMeasureHouseConfirm = @"15";
+NSString * const kDesignerPNFromPlanChoose = @"16";
+NSString * const kDesignerPNFromPlanNotChoose = @"17";
+NSString * const kDesignerPNFromAgreementConfirm = @"18";
+NSString * const kDesignerPNFromRescheduleReject = @"19";
+NSString * const kDesignerPNFromRescheduleAgree = @"20";

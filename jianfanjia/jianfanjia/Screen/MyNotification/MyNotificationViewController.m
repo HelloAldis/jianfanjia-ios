@@ -13,6 +13,7 @@
 #import "SystemAnnouncementCell.h"
 #import "RequirementNotificationCell.h"
 #import "MyNotificationDataManager.h"
+#import "NotificationDetailViewController.h"
 #import "API.h"
 
 typedef NS_ENUM(NSInteger, NotificationType) {
@@ -218,6 +219,11 @@ static NSString *RescheduleNotificationCellIdentifier = @"RescheduleNotification
     SystemAnnouncementCell *cell = [tableView dequeueReusableCellWithIdentifier:SystemAnnouncementCellIdentifier forIndexPath:indexPath];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NotificationDetailViewController *controller = [[NotificationDetailViewController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - user actions
