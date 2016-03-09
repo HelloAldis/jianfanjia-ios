@@ -361,8 +361,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showMyNotification:(NSString *)processid refreshBlock:(void(^)(NSString *type))refreshBlock {
-    MyNotificationViewController *v = [[MyNotificationViewController alloc] initWithProcess:processid refreshBlock:refreshBlock];
++ (void)showMyNotification {
+    MyNotificationViewController *v = [[MyNotificationViewController alloc] init];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

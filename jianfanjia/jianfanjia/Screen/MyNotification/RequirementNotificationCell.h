@@ -10,6 +10,6 @@
 
 @interface RequirementNotificationCell : UITableViewCell
 
-- (void)initWithNotification:(Notification *)notification;
+- (void)initWithNotification:(UserNotification *)notification;
 
 @end

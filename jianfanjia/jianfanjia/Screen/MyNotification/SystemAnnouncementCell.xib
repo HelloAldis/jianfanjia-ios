@@ -40,7 +40,15 @@
                             <constraint firstAttribute="height" constant="13" id="w5C-l7-Zeq"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vjb-rs-jhT">
+                        <rect key="frame" x="0.0" y="90" width="491" height="1"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="52g-Tn-t4k"/>
+                        </constraints>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="7wh-Gq-7No" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="5" id="1xf-IR-GCC"/>
                     <constraint firstItem="JSs-L3-ozW" firstAttribute="centerY" secondItem="7wh-Gq-7No" secondAttribute="centerY" id="8cq-3a-RmQ"/>
@@ -62,6 +70,11 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Vjb-rs-jhT" secondAttribute="bottom" id="SS4-Hc-fZP"/>
+                <constraint firstAttribute="trailing" secondItem="Vjb-rs-jhT" secondAttribute="trailing" id="gOV-c8-joc"/>
+                <constraint firstItem="Vjb-rs-jhT" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" id="qCt-Kz-qAw"/>
+            </constraints>
             <connections>
                 <outlet property="lblCell" destination="7wh-Gq-7No" id="jXq-NI-jGI"/>
                 <outlet property="lblRequestTime" destination="JSs-L3-ozW" id="gnH-6A-TEs"/>

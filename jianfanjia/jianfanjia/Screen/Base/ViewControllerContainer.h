@@ -44,7 +44,7 @@
 + (void)showPlanPriceDetail:(Plan *)plan;
 + (void)showTab;
 + (void)showDBYS:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock;
-+ (void)showMyNotification:(NSString *)processid refreshBlock:(void(^)(NSString *type))refreshBlock;
++ (void)showMyNotification;
 + (void)showMyComments;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;

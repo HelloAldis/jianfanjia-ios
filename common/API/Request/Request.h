@@ -63,6 +63,7 @@
 #import "BindPhone.h"
 #import "BindWechat.h"
 #import "GetTopProducts.h"
+#import "SearchUserNotification.h"
 
 #pragma mark - designer request
 

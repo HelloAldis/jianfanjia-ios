@@ -6,9 +6,9 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "RescheduleNotificationCell.h"
+#import "WorksiteNotificationCell.h"
 
-@interface RescheduleNotificationCell ()
+@interface WorksiteNotificationCell ()
 @property (weak, nonatomic) IBOutlet UILabel *lblCell;
 @property (weak, nonatomic) IBOutlet UILabel *lblWorkingPhase;
 @property (weak, nonatomic) IBOutlet UILabel *lblContent;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation RescheduleNotificationCell
+@implementation WorksiteNotificationCell
 
 - (void)awakeFromNib {
     [self.reminderIcon setCornerRadius:self.reminderIcon.bounds.size.width / 2];
@@ -41,6 +41,10 @@
         @strongify(self);
         [self rejectChangeDate];
     }];
+}
+
+- (void)initWithNotification:(UserNotification *)notification {
+    
 }
 
 - (void)initWithSchedule:(Schedule *)schedule notification:(Notification *)notification refreshBlock:(void(^)(NSString *processid))Block {

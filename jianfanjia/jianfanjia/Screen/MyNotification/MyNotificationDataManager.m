@@ -8,72 +8,110 @@
 
 #import "MyNotificationDataManager.h"
 
-@implementation MyNotificationDataManager
+const NSArray *AllNotificationsFilter = nil;
+const NSArray *SystemAnnouncementFilter = nil;
+const NSArray *RequirmentNotificationFilter = nil;
+const NSArray *WorksiteNotificationFilter = nil;
 
-//- (void)refreshSchedule:(NSString *)processid {
-//    NSArray *arr = [DataManager shared].data;
-//    NSMutableArray *schedules = [NSMutableArray array];
-//    
-//    for (NSMutableDictionary *obj in arr) {
-//        Schedule *schedule = [[Schedule alloc] initWith:obj];
-//        schedule.process = [[Process alloc] initWith:[schedule.data objectForKey:@"process"]];
-//        
-//        if (processid) {
-//            if ([processid isEqualToString:schedule.process._id]) {
-//                [schedules addObject:schedule];
-//            }
-//        } else {
-//            [schedules addObject:schedule];
-//        }
-//    }
-//    
-//    self.schedules = schedules;
-//}
-//
-//- (void)refreshNotificationWithProcess:(NSString *)processid type:(NSString *)type status:(NSString *)status {
-//    self.notifications = [NotificationCD getNotificationsWithProcess:processid type:type status:status];
-//}
-//
-//- (void)refreshNotificationWithProcess:(NSString *)processid type:(NSString *)type {
-//    self.notifications = [NotificationCD getNotificationsWithProcess:processid type:type];
-//}
+@implementation MyNotificationDataManager
 
 + (void)initialize {
     if ([self class] == [MyNotificationDataManager class]) {
+        AllNotificationsFilter = @[kUserPNFromSystemMsg, kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure, kUserPNFromPurchaseTip, kUserPNFromPayTip, kUserPNFromDBYSRequest, kUserPNFromRescheduleRequest, kUserPNFromRescheduleReject, kUserPNFromRescheduleAgree];
         SystemAnnouncementFilter = @[kUserPNFromSystemMsg];
-        RequirmentNotificationFilter = @[kUserPNFromPlanComment, kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure];
+        RequirmentNotificationFilter = @[kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure];
         WorksiteNotificationFilter = @[kUserPNFromPurchaseTip, kUserPNFromPayTip, kUserPNFromDBYSRequest, kUserPNFromRescheduleRequest, kUserPNFromRescheduleReject, kUserPNFromRescheduleAgree];
     }
 }
 
-- (void)refreshAllActions {
-    NSArray* arr = [DataManager shared].data;
-    NSMutableArray *unprocessActions = [NSMutableArray array];
-    NSMutableArray *processingActions = [NSMutableArray array];
-    NSMutableArray *processedActions = [NSMutableArray array];
+- (NSInteger)refreshAllNotifications {
+    NSMutableArray *array = nil;
+    NSInteger count = [self refresh:&array];
+    self.allNotifications = array;
+    
+    return count;
+}
+
+- (NSInteger)loadMoreAllNotifications {
+    NSMutableArray *array = self.allNotifications;
+    NSInteger count = [self loadMore:&array];
+    self.allNotifications = array;
+    
+    return count;
+}
+
+- (NSInteger)refreshSystemAnnouncements {
+    NSMutableArray *array = nil;
+    NSInteger count = [self refresh:&array];
+    self.systemAnnouncements = array;
+    
+    return count;
+}
+
+- (NSInteger)loadMoreSystemAnnouncements {
+    NSMutableArray *array = self.systemAnnouncements;
+    NSInteger count = [self loadMore:&array];
+    self.systemAnnouncements = array;
+    
+    return count;
+}
+
+- (NSInteger)refreshRequirmentNotifications {
+    NSMutableArray *array = nil;
+    NSInteger count = [self refresh:&array];
+    self.requirmentNotifications = array;
+    
+    return count;
+}
+
+- (NSInteger)loadMoreRequirmentNotifications {
+    NSMutableArray *array = self.requirmentNotifications;
+    NSInteger count = [self loadMore:&array];
+    self.requirmentNotifications = array;
+    
+    return count;
+}
+
+- (NSInteger)refreshWorksiteNotifications {
+    NSMutableArray *array = nil;
+    NSInteger count = [self refresh:&array];
+    self.worksiteNotifications = array;
+    
+    return count;
+}
+
+- (NSInteger)loadMoreWorksiteNotifications {
+    NSMutableArray *array = self.worksiteNotifications;
+    NSInteger count = [self loadMore:&array];
+    self.worksiteNotifications = array;
+    
+    return count;
+}
+
+- (NSInteger)refresh:(NSMutableArray **)array {
+    NSArray* arr = [[DataManager shared].data objectForKey:@"list"];
+    NSMutableArray *notifications = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
-        Requirement *requirement = [[Requirement alloc] initWith:dict];
-        User *user = [[User alloc] initWith:[requirement.data objectForKey:@"user"]];
-        Plan *plan = [[Plan alloc] initWith:[requirement.data objectForKey:@"plan"]];
-        Designer *designer = [[Designer alloc] initWith:[requirement.data objectForKey:@"designer"]];
-        Evaluation *evaluation = [[Evaluation alloc] initWith:[requirement.data objectForKey:@"evaluation"]];
-        requirement.user = user;
-        requirement.plan = plan;
-        requirement.designer = designer;
-        requirement.evaluation = evaluation;
-        
-//        if ([unprocessStatusArr containsObject:requirement.plan.status]) {
-//            [unprocessActions addObject:requirement];
-//        } else if ([processingStatusArr containsObject:requirement.plan.status]) {
-//            if (![requirement.status isEqualToString:kRequirementStatusConfiguredWorkSite]
-//                && ![requirement.status isEqualToString:kRequirementStatusFinishedWorkSite]) {
-//                [processingActions addObject:requirement];
-//            }
-//        } else if ([processedStatusArr containsObject:requirement.plan.status]) {
-//            [processedActions addObject:requirement];
-//        }
+        UserNotification *notification = [[UserNotification alloc] initWith:dict];
+        [notifications addObject:notification];
     }
+    
+    *array = notifications;
+    return notifications.count;
+}
+
+- (NSInteger)loadMore:(NSMutableArray **)array {
+    NSArray* arr = [[DataManager shared].data objectForKey:@"list"];
+    NSMutableArray *notifications = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    
+    for (NSMutableDictionary *dict in arr) {
+        UserNotification *notification = [[UserNotification alloc] initWith:dict];
+        [notifications addObject:notification];
+    }
+
+    [*array addObjectsFromArray:notifications];
+    return notifications.count;
 }
 
 @end

@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-static NSArray *SystemAnnouncementFilter = nil;
-static NSArray *RequirmentNotificationFilter = nil;
-static NSArray *WorksiteNotificationFilter = nil;
+extern NSArray *AllNotificationsFilter;
+extern NSArray *SystemAnnouncementFilter;
+extern NSArray *RequirmentNotificationFilter;
+extern NSArray *WorksiteNotificationFilter;
 
 @interface MyNotificationDataManager : NSObject
 
@@ -23,21 +24,21 @@ static NSArray *WorksiteNotificationFilter = nil;
 //
 //
 
-@property (strong, nonatomic) NSMutableArray *allNotification;
+@property (strong, nonatomic) NSMutableArray *allNotifications;
 @property (strong, nonatomic) NSMutableArray *systemAnnouncements;
 @property (strong, nonatomic) NSMutableArray *requirmentNotifications;
 @property (strong, nonatomic) NSMutableArray *worksiteNotifications;
 
-- (void)refreshAllNotifications;
-- (void)loadMoreAllNotifications;
+- (NSInteger)refreshAllNotifications;
+- (NSInteger)loadMoreAllNotifications;
 
-- (void)refreshSystemAnnouncements;
-- (void)loadMoreSystemAnnouncements;
+- (NSInteger)refreshSystemAnnouncements;
+- (NSInteger)loadMoreSystemAnnouncements;
 
-- (void)refreshRequirmentNotifications;
-- (void)loadMoreRequirmentNotifications;
+- (NSInteger)refreshRequirmentNotifications;
+- (NSInteger)loadMoreRequirmentNotifications;
 
-- (void)refreshWorksiteNotifications;
-- (void)loadMoreWorksiteNotifications;
+- (NSInteger)refreshWorksiteNotifications;
+- (NSInteger)loadMoreWorksiteNotifications;
 
 @end

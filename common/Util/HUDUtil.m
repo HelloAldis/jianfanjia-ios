@@ -15,14 +15,14 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[AppDelegate sharedInstance].window animated:YES];
     hud.mode = MBProgressHUDModeText;
     hud.labelText = text;
-    [hud hide:YES afterDelay:2];
+    [hud hide:YES afterDelay:1.5];
 }
 
 + (void)showSuccessText:(NSString *)text {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[AppDelegate sharedInstance].window animated:YES];
     hud.mode = MBProgressHUDModeText;
     hud.labelText = text;
-    [hud hide:YES afterDelay:2];
+    [hud hide:YES afterDelay:1.5];
 }
 
 + (void)showWait {

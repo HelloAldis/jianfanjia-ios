@@ -94,7 +94,7 @@
 }
 
 - (IBAction)onClickNotification:(id)sender {
-    [ViewControllerContainer showMyNotification:nil refreshBlock:nil];
+    [ViewControllerContainer showMyNotification];
 }
 
 - (IBAction)onClickFavoriate:(id)sender {

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RescheduleNotificationCell : UITableViewCell
+@interface WorksiteNotificationCell : UITableViewCell
 
+- (void)initWithNotification:(UserNotification *)notification;
 - (void)initWithSchedule:(Schedule *)schedule notification:(Notification *)notification refreshBlock:(void(^)(NSString *processid))Block;
 
 @end

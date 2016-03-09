@@ -29,5 +29,6 @@
 #import "BeautifulImagePosition.h"
 #import "LeafImage.h"
 #import "SnsAccountInfo.h"
+#import "UserNotification.h"
 
 #endif /* Model_h */

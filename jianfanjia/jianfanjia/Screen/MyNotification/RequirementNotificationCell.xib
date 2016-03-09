@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="491" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="装修提醒" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twu-Yo-HmW" userLabel="Lbl Cell">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="需求提醒" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Twu-Yo-HmW" userLabel="Lbl Cell">
                         <rect key="frame" x="13" y="8" width="56" height="15"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -40,6 +40,13 @@
                             <constraint firstAttribute="height" constant="13" id="mbr-zY-8PA"/>
                         </constraints>
                     </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BSH-FM-PrG">
+                        <rect key="frame" x="0.0" y="90" width="491" height="1"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="YIE-zu-qFK"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="Bil-qT-yPe" secondAttribute="bottom" id="2Ts-WE-YZy"/>
@@ -62,6 +69,11 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="BSH-FM-PrG" firstAttribute="leading" secondItem="VbZ-8B-PW4" secondAttribute="leading" id="0Bf-QR-sDU"/>
+                <constraint firstAttribute="trailing" secondItem="BSH-FM-PrG" secondAttribute="trailing" id="Duf-Si-f5U"/>
+                <constraint firstAttribute="bottom" secondItem="BSH-FM-PrG" secondAttribute="bottom" id="puR-xr-Yif"/>
+            </constraints>
             <connections>
                 <outlet property="lblCell" destination="Twu-Yo-HmW" id="kQz-ez-8Fy"/>
                 <outlet property="lblRequestTime" destination="4qy-sl-kU1" id="voz-0u-DcJ"/>

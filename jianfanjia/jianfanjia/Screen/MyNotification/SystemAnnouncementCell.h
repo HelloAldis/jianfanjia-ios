@@ -10,6 +10,6 @@
 
 @interface SystemAnnouncementCell : UITableViewCell
 
-- (void)initWithNotification:(Notification *)notification;
+- (void)initWithNotification:(UserNotification *)notification;
 
 @end
