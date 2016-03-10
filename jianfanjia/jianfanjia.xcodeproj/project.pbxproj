@@ -228,6 +228,11 @@
 		68679A471C8EB49900B380D0 /* NotificationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68679A461C8EB49900B380D0 /* NotificationDetailViewController.xib */; };
 		6885175A1C8FF5E1000B01DB /* UserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517591C8FF5E1000B01DB /* UserNotification.m */; };
 		6885175D1C8FFB8A000B01DB /* SearchUserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885175C1C8FFB8A000B01DB /* SearchUserNotification.m */; };
+		688517601C91246D000B01DB /* UILabel+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885175F1C91246D000B01DB /* UILabel+Ex.m */; };
+		688517631C914B9C000B01DB /* GetUserNotificationDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517621C914B9C000B01DB /* GetUserNotificationDetail.m */; };
+		688517661C915862000B01DB /* NotificationBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517651C915862000B01DB /* NotificationBusiness.m */; };
+		688517691C9170BF000B01DB /* GetUserUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517681C9170BF000B01DB /* GetUserUnreadCount.m */; };
+		6885176C1C9183A8000B01DB /* UITabBarItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885176B1C9183A8000B01DB /* UITabBarItem+Badge.m */; };
 		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
 		689E714A1C80588C0012BF3C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689E71481C80588C0012BF3C /* WebViewController.m */; };
@@ -805,6 +810,16 @@
 		688517591C8FF5E1000B01DB /* UserNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNotification.m; sourceTree = "<group>"; };
 		6885175B1C8FFB8A000B01DB /* SearchUserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserNotification.h; sourceTree = "<group>"; };
 		6885175C1C8FFB8A000B01DB /* SearchUserNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchUserNotification.m; sourceTree = "<group>"; };
+		6885175E1C91246D000B01DB /* UILabel+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Ex.h"; sourceTree = "<group>"; };
+		6885175F1C91246D000B01DB /* UILabel+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Ex.m"; sourceTree = "<group>"; };
+		688517611C914B9C000B01DB /* GetUserNotificationDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserNotificationDetail.h; sourceTree = "<group>"; };
+		688517621C914B9C000B01DB /* GetUserNotificationDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserNotificationDetail.m; sourceTree = "<group>"; };
+		688517641C915862000B01DB /* NotificationBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationBusiness.h; sourceTree = "<group>"; };
+		688517651C915862000B01DB /* NotificationBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationBusiness.m; sourceTree = "<group>"; };
+		688517671C9170BF000B01DB /* GetUserUnreadCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserUnreadCount.h; sourceTree = "<group>"; };
+		688517681C9170BF000B01DB /* GetUserUnreadCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserUnreadCount.m; sourceTree = "<group>"; };
+		6885176A1C9183A8000B01DB /* UITabBarItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+Badge.h"; sourceTree = "<group>"; };
+		6885176B1C9183A8000B01DB /* UITabBarItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Badge.m"; sourceTree = "<group>"; };
 		689485CE1C1A6A05002310FC /* NotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDataManager.h; sourceTree = "<group>"; };
 		689485CF1C1A6A05002310FC /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
@@ -1837,6 +1852,10 @@
 				68B10C8B1C76F345005866C1 /* GetTopProducts.m */,
 				6885175B1C8FFB8A000B01DB /* SearchUserNotification.h */,
 				6885175C1C8FFB8A000B01DB /* SearchUserNotification.m */,
+				688517611C914B9C000B01DB /* GetUserNotificationDetail.h */,
+				688517621C914B9C000B01DB /* GetUserNotificationDetail.m */,
+				688517671C9170BF000B01DB /* GetUserUnreadCount.h */,
+				688517681C9170BF000B01DB /* GetUserUnreadCount.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -1858,6 +1877,8 @@
 				68342DF71BFC45EE0000EBBE /* RequirementBusiness.h */,
 				68342DF81BFC45EE0000EBBE /* RequirementBusiness.m */,
 				68134A491C3D1486003C1C10 /* EnumBusiness.h */,
+				688517641C915862000B01DB /* NotificationBusiness.h */,
+				688517651C915862000B01DB /* NotificationBusiness.m */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -1865,6 +1886,8 @@
 		6E07DA751BD88DBE001461DD /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				6885176A1C9183A8000B01DB /* UITabBarItem+Badge.h */,
+				6885176B1C9183A8000B01DB /* UITabBarItem+Badge.m */,
 				AB489B821C1B085E00E1BA4B /* UIBarButtonItem+Badge.h */,
 				AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */,
 				AB489B841C1B085E00E1BA4B /* UIButton+Badge.h */,
@@ -1906,6 +1929,8 @@
 				68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */,
 				68B10CCB1C7DAD34005866C1 /* CALayer+Ex.h */,
 				68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */,
+				6885175E1C91246D000B01DB /* UILabel+Ex.h */,
+				6885175F1C91246D000B01DB /* UILabel+Ex.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -2671,6 +2696,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				688517661C915862000B01DB /* NotificationBusiness.m in Sources */,
 				6E07DAC51BD88DBE001461DD /* Item.m in Sources */,
 				AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */,
 				6885175D1C8FFB8A000B01DB /* SearchUserNotification.m in Sources */,
@@ -2751,6 +2777,7 @@
 				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
 				68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */,
 				68123C641C4C8B99008FC9AB /* SelectCityViewController.m in Sources */,
+				688517631C914B9C000B01DB /* GetUserNotificationDetail.m in Sources */,
 				68134A2F1C3CA7CA003C1C10 /* WeChatLogin.m in Sources */,
 				6E06CC2F1C2BF97800A08D15 /* FavoriteDesignerData.m in Sources */,
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,
@@ -2826,6 +2853,7 @@
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
 				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
 				68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */,
+				688517691C9170BF000B01DB /* GetUserUnreadCount.m in Sources */,
 				68134A421C3D0BCA003C1C10 /* BindPhone.m in Sources */,
 				6855E6321BFAC78A00E789D4 /* RequirementCell.m in Sources */,
 				684A37611BFD80E800F7388C /* DesignerPlanStatusBaseCell.m in Sources */,
@@ -2862,6 +2890,7 @@
 				683FFB4B1C296288002A1AFE /* BeautifulImageHomePageViewController.m in Sources */,
 				6E6D98C31BE0665700D45F77 /* Requirement.m in Sources */,
 				683FFB431C296288002A1AFE /* BeautifulImageDataManager.m in Sources */,
+				6885176C1C9183A8000B01DB /* UITabBarItem+Badge.m in Sources */,
 				685C214B1BF9870B00D5D320 /* RACStream+Ex.m in Sources */,
 				6E07DAC31BD88DBE001461DD /* Comment.m in Sources */,
 				68134A351C3CAEC2003C1C10 /* SnsAccountInfo.m in Sources */,
@@ -2882,6 +2911,7 @@
 				683FFB721C2B9A70002A1AFE /* HouseRequirementCreateViewController.m in Sources */,
 				6E06CC0E1C29453000A08D15 /* ListFavoriateBeautifulImage.m in Sources */,
 				68B10C971C772824005866C1 /* SearchDesigner.m in Sources */,
+				688517601C91246D000B01DB /* UILabel+Ex.m in Sources */,
 				AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68123C5C1C4C8B99008FC9AB /* ImageDetailViewController.m in Sources */,

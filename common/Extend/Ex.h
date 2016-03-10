@@ -25,8 +25,10 @@
 #import "UIImagePickerController+Ex.h"
 #import "UIButton+Badge.h"
 #import "UIBarButtonItem+Badge.h"
+#import "UITabBarItem+Badge.h"
 #import "NSDictionary+Ex.h"
 #import "ProgressWebView.h"
 #import "CALayer+Ex.h"
+#import "UILabel+Ex.h"
 
 #endif

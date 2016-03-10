@@ -11,7 +11,7 @@
 #import "RequirementNotificationCell.h"
 #import "WorksiteNotificationCell.h"
 #import "MyNotificationDataManager.h"
-#import "NotificationDetailViewController.h"
+#import "ViewControllerContainer.h"
 #import "API.h"
 
 typedef NS_ENUM(NSInteger, NotificationType) {
@@ -51,6 +51,11 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
     [self initUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self switchButton:self.currentNotificationType forceRefresh:YES];
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
@@ -86,8 +91,6 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
         [obj addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
         [obj setExclusiveTouch:YES];
     }];
-    
-    [self switchToOtherButton:self.currentNotificationType];
 }
 
 #pragma mark - table view delegate
@@ -99,17 +102,17 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
     UserNotification *notification = self.dataSource[indexPath.row];
     NSString *type = notification.message_type;
     
-    if ([SystemAnnouncementFilter containsObject:type]) {
+    if ([[NotificationBusiness userSystemAnnouncementFilter] containsObject:type]) {
         SystemAnnouncementCell *cell = [tableView dequeueReusableCellWithIdentifier:SystemAnnouncementCellIdentifier forIndexPath:indexPath];
         [cell initWithNotification:notification];
         
         return cell;
-    } else if ([RequirmentNotificationFilter containsObject:type]) {
+    } else if ([[NotificationBusiness userRequirmentNotificationFilter] containsObject:type]) {
         RequirementNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:RequirementNotificationCellIdentifier forIndexPath:indexPath];
         [cell initWithNotification:notification];
         
         return cell;
-    } else if ([WorksiteNotificationFilter containsObject:type]) {
+    } else if ([[NotificationBusiness userWorksiteNotificationFilter] containsObject:type]) {
         WorksiteNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:WorksiteNotificationCellIdentifier forIndexPath:indexPath];
         [cell initWithNotification:notification];
         
@@ -120,16 +123,16 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NotificationDetailViewController *controller = [[NotificationDetailViewController alloc] init];
-    [self.navigationController pushViewController:controller animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [ViewControllerContainer showNotificationDetail:[self.dataSource[indexPath.row] _id]];
 }
 
 #pragma mark - user actions
 - (void)onClickButton:(UIButton *)button {
-    [self switchToOtherButton:[self.btnNotifications indexOfObject:button]];
+    [self switchButton:[self.btnNotifications indexOfObject:button] forceRefresh:NO];
 }
 
-- (void)switchToOtherButton:(NSInteger)buttonIndex {
+- (void)switchButton:(NSInteger)buttonIndex forceRefresh:(BOOL)forceRefresh {
     @weakify(self);
     [UIView animateWithDuration:0.3 animations:^{
         @strongify(self);
@@ -148,28 +151,28 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
         [self refreshDatasource];
         
         [self.tableView reloadData];
-        if (self.dataSource.count == 0) {
+//        if (forceRefresh || self.dataSource.count == 0) {
             [self refresh];
-        }
+//        }
     }];
 }
 
 - (void)refreshDatasource {
     switch (self.currentNotificationType) {
         case NotificationTypeAll:
-            self.filter = AllNotificationsFilter;
+            self.filter = [NotificationBusiness userAllNotificationsFilter];
             self.dataSource = self.dataManager.allNotifications;
             break;
         case NotificationTypeAnnouncement:
-            self.filter = SystemAnnouncementFilter;
+            self.filter = [NotificationBusiness userSystemAnnouncementFilter];
             self.dataSource = self.dataManager.systemAnnouncements;
             break;
         case NotificationTypeRequirement:
-            self.filter = RequirmentNotificationFilter;
+            self.filter = [NotificationBusiness userRequirmentNotificationFilter];
             self.dataSource = self.dataManager.requirmentNotifications;
             break;
         case NotificationTypeWorksite:
-            self.filter = WorksiteNotificationFilter;
+            self.filter = [NotificationBusiness userWorksiteNotificationFilter];
             self.dataSource = self.dataManager.worksiteNotifications;
             break;
             

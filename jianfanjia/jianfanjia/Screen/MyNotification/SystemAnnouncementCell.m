@@ -9,12 +9,10 @@
 #import "SystemAnnouncementCell.h"
 
 @interface SystemAnnouncementCell ()
-@property (weak, nonatomic) IBOutlet UILabel *lblCell;
-@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lblRequestTime;
-@property (weak, nonatomic) IBOutlet UILabel *lblWorkingPhase;
+@property (weak, nonatomic) IBOutlet UILabel *lblNotificationTitle;
+//@property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblContent;
-@property (weak, nonatomic) IBOutlet UIView *reminderIcon;
+@property (weak, nonatomic) IBOutlet UILabel *lblNotificationTime;
 
 @property (strong, nonatomic) UserNotification *notification;
 
@@ -22,21 +20,17 @@
 
 @implementation SystemAnnouncementCell
 
-- (void)awakeFromNib {
-    [self.reminderIcon setCornerRadius:self.reminderIcon.bounds.size.width / 2];
-}
-
 - (void)initWithNotification:(UserNotification *)notification {
-//    self.notification = notification;
-//    self.lblCell.text = self.notification.cell;
-//    self.lblContent.text = self.notification.content;
-//    self.lblRequestTime.text = [NSDate yyyy_MM_dd_HH_mm:self.notification.time];
-//    self.lblWorkingPhase.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:self.notification.section]];
-//    if ([self.notification.status isEqualToString:kNotificationStatusUnread]) {
-//        self.reminderIcon.alpha = 1.0;
-//    } else {
-//        self.reminderIcon.alpha = 0;
-//    }
+    self.notification = notification;
+    self.lblNotificationTitle.text = notification.title;
+//    self.lblTitle.text = notification.cell;
+    self.lblContent.text = notification.content;
+    self.lblNotificationTime.text = [notification.create_at humDateString];
+    
+    [NotificationBusiness markTextColor:self.lblNotificationTitle status:notification.status];
+//    [NotificationBusiness markTextColor:self.lblTitle status:notification.status];
+    [NotificationBusiness markTextColor:self.lblContent status:notification.status];
+    [NotificationBusiness markTextColor:self.lblNotificationTime status:notification.status];
 }
 
 @end

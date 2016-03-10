@@ -45,6 +45,7 @@
 #import "ProductCaseListViewController.h"
 #import "SearchViewController.h"
 #import "CommentListViewController.h"
+#import "NotificationDetailViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -363,6 +364,12 @@ static ViewControllerContainer *container;
 
 + (void)showMyNotification {
     MyNotificationViewController *v = [[MyNotificationViewController alloc] init];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showNotificationDetail:(NSString *)notificationid {
+    NotificationDetailViewController *v = [[NotificationDetailViewController alloc] init];
+    v.notificationId = notificationid;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

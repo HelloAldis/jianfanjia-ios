@@ -86,6 +86,7 @@ extern NSString * const kUserPNFromPlanSubmit;
 extern NSString * const kUserPNFromAgreementConfigure;
 extern NSString * const kUserPNFromRescheduleReject;
 extern NSString * const kUserPNFromRescheduleAgree;
+extern NSString * const kUserPNFromMeasureHouseConfirm;
 
 extern NSString * const kDesignerPNFromRescheduleRequest;
 extern NSString * const kDesignerPNFromPurchaseTip;

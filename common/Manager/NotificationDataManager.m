@@ -21,25 +21,14 @@
 
 #import "NotificationDataManager.h"
 
-static NSString *PROCESS = @"processid";
-static NSString *SET_PROCESS = @"setProcessid";
-
-static NSString *PROCESS_TYPE = @"processid_type";
-static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
-
 @interface NotificationDataManager ()
 
-@property (strong, nonatomic) NSMutableDictionary *data;
+@property (assign, nonatomic) NSInteger myNotificationUnreadCount;
+@property (assign, nonatomic) NSInteger myLeaveMsgUnreadCount;
 
 @end
 
 @implementation NotificationDataManager
-
-+ (void)initialize {
-    if ([self class] == [NotificationDataManager class]) {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationDidUpdate:) name:NSManagedObjectContextDidSaveNotification object:nil];
-    }
-}
 
 - (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine {
     if ([GVUserDefaults standardUserDefaults].isLogin) {
@@ -47,52 +36,15 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
         
         if (notification) {
             if (!offLine) {
-                NSString *backupContent = [notification.content copy];
-                if ([notification.type isEqualToString:kNotificationTypePurchase]) {
-                    notification.content = [NSString stringWithFormat:@"系统提醒您进入建材购买阶段，您需要购买的是：%@", notification.content];
-                }
-                [self showLocalNotification:notification];
-                notification.content = backupContent;
-            }
-            
-            if ([notification.type isEqualToString:kNotificationTypeDBYS]) {
-                [self broadcastNotification:notification];
-            } else {
-                [self insertNotification:notification];
+//                NSString *backupContent = [notification.content copy];
+//                if ([notification.type isEqualToString:kNotificationTypePurchase]) {
+//                    notification.content = [NSString stringWithFormat:@"系统提醒您进入建材购买阶段，您需要购买的是：%@", notification.content];
+//                }
+//                [self showLocalNotification:notification];
+//                notification.content = backupContent;
             }
         }
     }
-}
-
-- (void)refreshUnreadCount {
-    [[NSManagedObjectContext context] performBlock:^{
-        if ([GVUserDefaults standardUserDefaults].isLogin) {
-            [self.data removeAllObjects];
-            self.purchaseUnreadCount = [NotificationCD getNotificationsCountWithType:kNotificationTypePurchase status:kNotificationStatusUnread];
-            self.payUnreadCount = [NotificationCD getNotificationsCountWithType:kNotificationTypePay status:kNotificationStatusUnread];
-            self.rescheduleUnreadCount = [NotificationCD getNotificationsCountWithType:kNotificationTypeReschedule status:kNotificationStatusUnread];
-            self.totalUnreadCount = self.purchaseUnreadCount + self.payUnreadCount + self.rescheduleUnreadCount;
-            
-            NSArray *allProcessNotifications = [NotificationCD getNotificationsWithStatus:kNotificationStatusUnread];
-            for (Notification *notification in allProcessNotifications) {
-                NSString *processid = notification.processid;
-                NSString *type = notification.type;
-                
-                NSString *typeGetter = [self selStrWithProcess:processid type:type];
-                NSString *processGetter = [self selStrWithProcess:processid];
-                NSString *typeSetter = [self setSelStrWithProcess:processid type:type];
-                NSString *processSetter = [self setSelStrWithProcess:processid];
-                
-                NSNumber *type_unread_count = [self getValueFromProperty:typeGetter];
-                NSNumber *process_unread_count = [self getValueFromProperty:processGetter];
-                type_unread_count = type_unread_count ? type_unread_count : @(0);
-                process_unread_count = process_unread_count ? process_unread_count : @(0);
-                
-                [self setValue:@([type_unread_count integerValue] + 1) forProperty:typeSetter];
-                [self setValue:@([process_unread_count integerValue] + 1) forProperty:processSetter];
-            }
-        }
-    }];
 }
 
 - (Notification *)convertPayloadToObj:(NSData *)payload {
@@ -111,101 +63,57 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
     return notification;
 }
 
-+ (void)notificationDidUpdate:(NSNotification *)notification {
-    [[NotificationDataManager shared] refreshUnreadCount];
-}
-
-- (void)insertNotification:(Notification *)notification {
-    [NotificationCD insert:notification];
-}
-
-- (void)markToReadForType:(NSString *)type {
-    [[NSManagedObjectContext context] performBlock:^{
-        NSArray *notifications = [NotificationCD getNotificationsWithType:type status:kNotificationStatusUnread];
-        for (NotificationCD *notification in notifications) {
-            notification.status = kNotificationStatusReaded;
+- (void)subscribeMyNotificationUnreadCount:(NotificationUnreadUpdateBlock)block {
+    [[self rac_valuesAndChangesForKeyPath:@"myNotificationUnreadCount" options:NSKeyValueObservingOptionNew observer:self] subscribeNext:^(RACTuple *tuple) {
+        NSInteger unreadCount = [tuple.first integerValue];
+        if (block) {
+            block(unreadCount);
         }
-        
-        [NSManagedObjectContext save];
     }];
 }
 
-- (void)markToReadForProcess:(NSString *)processid type:(NSString *)type {
-    [[NSManagedObjectContext context] performBlock:^{
-        NSArray *notifications = [NotificationCD getNotificationsWithProcess:processid type:type status:kNotificationStatusUnread];
-        for (NotificationCD *notification in notifications) {
-            notification.status = kNotificationStatusReaded;
+- (void)subscribeMyLeaveMsgUnreadCount:(NotificationUnreadUpdateBlock)block {
+    [[self rac_valuesAndChangesForKeyPath:@"myLeaveMsgUnreadCount" options:NSKeyValueObservingOptionNew observer:self] subscribeNext:^(RACTuple *tuple) {
+        NSInteger unreadCount = [tuple.first integerValue];
+        if (block) {
+            block(unreadCount);
         }
-        
-        [NSManagedObjectContext save];
     }];
 }
 
-- (void)subscribePurchaseUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, purchaseUnreadCount)
-        subscribeNext:^(id x) {
-            if (block) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    block(x);
-                });
-            }
+- (void)subscribeAppBadgeNumber:(NotificationUnreadUpdateBlock)block {
+    [NotificationBusiness setAppBadge:5];
+//    [[[UIApplication sharedApplication] rac_valuesAndChangesForKeyPath:@"applicationIconBadgeNumber" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew observer:[UIApplication sharedApplication]] subscribeNext:^(RACTuple *tuple) {
+//        NSInteger badgeNumber = [tuple.first integerValue];
+//        if (block) {
+//            block(badgeNumber);
+//        }
+//    }];
+//    
+    
+    [RACObserve([UIApplication sharedApplication], applicationIconBadgeNumber) subscribeNext:^(id x) {
+        if (block) {
+            block([x integerValue]);
+        }
+    }];
+}
+
+- (void)refreshUnreadCount {
+    if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:kUserTypeUser]) {
+        GetUserUnreadCount *request = [GetUserUnreadCount requestWithTypes:@[[NotificationBusiness userAllNotificationsFilter], [NotificationBusiness userAllLeaveMsgFilter]]];
+        
+        [API getUserUnreadCount:request success:^{
+            NSArray *arr = [DataManager shared].data;
+            self.myNotificationUnreadCount = [arr[0] integerValue];
+            self.myLeaveMsgUnreadCount = [arr[1] integerValue];
+        } failure:^{
+            
+        } networkError:^{
+            
         }];
-}
-
-- (void)subscribePayUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, payUnreadCount)
-         subscribeNext:^(id x) {
-             if (block) {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     block(x);
-                 });
-             }
-         }];
-}
-
-- (void)subscribeRescheduleUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, rescheduleUnreadCount)
-         subscribeNext:^(id x) {
-             if (block) {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     block(x);
-                 });
-             }
-         }];
-}
-
-- (void)subscribeAllUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [RACObserve(self, totalUnreadCount)
-         subscribeNext:^(id x) {
-            [UIApplication sharedApplication].applicationIconBadgeNumber = [x integerValue];
-             if (block) {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     block(x);
-                 });
-             }
-        }];
-}
-
-- (void)subscribeUnreadCountForProcess:(NSString *)processid observer:(NotificationUnreadUpdateBlock)block  {
-    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid] observer:self.data]
-         subscribeNext:^(id x) {
-             if (block) {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     block(x);
-                 });
-             }
-        }];
-}
-
-- (void)subscribeUnreadCountForProcess:(NSString *)processid type:(NSString *)type observer:(NotificationUnreadUpdateBlock)block  {
-    [[self.data rac_valuesForKeyPath:[self selStrWithProcess:processid type:type] observer:self.data]
-         subscribeNext:^(id x) {
-             if (block) {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     block(x);
-                 });
-             }
-        }];
+    } else if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:kUserTypeDesigner]) {
+        
+    }
 }
 
 - (void)showLocalNoti:(NSDictionary *)userInfo {
@@ -246,113 +154,6 @@ static NSString *SET_PROCESS_TYPE = @"setProcessid_type";
 
 - (NSString *)generateNotificationKey:(Notification *)notification {
     return [NSString stringWithFormat:@"%@_%@", notification.userid, notification.type];
-}
-
-- (void)broadcastNotification:(Notification *)noti {
-    [[NSNotificationCenter defaultCenter] postNotificationName:NotificationDBYS object:noti];
-}
-
-#pragma mark - Getters and Setters for dynamic properties
-- (void)setValue:(id)value forProperty:(NSString *)selector {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    [self performSelector:NSSelectorFromString(selector) withObject:value];
-#pragma clang diagnostic pop
-}
-
-- (id)getValueFromProperty:(NSString *)selector {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    return [self performSelector:NSSelectorFromString(selector)];
-#pragma clang diagnostic pop
-}
-
-- (NSString *)selStrWithProcess:(NSString *)processid {
-    return [NSString stringWithFormat:@"%@_%@", PROCESS, processid];
-}
-
-- (NSString *)setSelStrWithProcess:(NSString *)processid {
-    return [NSString stringWithFormat:@"%@_%@:", SET_PROCESS, processid];
-}
-
-- (NSString *)selStrWithProcess:(NSString *)processid type:(NSString *)type {
-    return [NSString stringWithFormat:@"%@_%@_%@", PROCESS_TYPE, processid, type];
-}
-
-- (NSString *)setSelStrWithProcess:(NSString *)processid type:(NSString *)type {
-    return [NSString stringWithFormat:@"%@_%@_%@:", SET_PROCESS_TYPE, processid, type];
-}
-
-- (instancetype)init {
-    if (self = [super init]) {
-        _data = [[NSMutableDictionary alloc] init];
-    }
-    
-    return self;
-}
-
-- (void)setObject:(id)o forKey:(NSString *)key {
-    [[self data] setObject:o forKey:key];
-}
-
-- (id)objectForKey:(NSString *)key {
-    return [[self data] objectForKey:key];
-}
-
-/**
- Description: Save the properties in a dictionary.
- @param self Target
- @param _cmd A selector
- @param value The new values that will be saved in a dictionary
- */
-void notificationSetterImp(id self, SEL _cmd, id value) {
-    @try {
-        NSString *selStr = NSStringFromSelector(_cmd);
-        if ([[selStr substringToIndex:3] isEqualToString:@"set"])
-            selStr = [selStr substringFromIndex:3];
-        selStr = [[selStr substringWithoutLast:1] lowercaseFirstLetterString];
-        NSString *key = selStr;
-        [self setObject:value forKey:key];
-    }
-    @catch (NSException *exception) {}
-}
-
-/**
- Description: Get the properties value by specified key.
- @param self Target
- @param _cmd A selector
- */
-NSObject* notificationGetterImp(id self, SEL _cmd) {
-    @try {
-        NSString *key = NSStringFromSelector(_cmd);
-        id obj = [self objectForKey:key];
-        return obj;
-    }
-    @catch (NSException *exception) {
-        return nil;
-    }
-}
-
-#pragma mark - Dynamic adding properties
-/**
- Description: An instance method to add setter or getter method for a class.
- @param aSEL A selector
- */
-+ (BOOL)resolveInstanceMethod:(SEL)aSEL {
-    NSString *selStr = NSStringFromSelector(aSEL);
-    
-    if ([[selStr lowercaseString] containsString:PROCESS]
-        || [[selStr lowercaseString] containsString:PROCESS_TYPE]) {
-        if ([[selStr substringToIndex:3] isEqualToString:@"set"]) {
-            class_addMethod([self class], aSEL, (IMP) notificationSetterImp, "v@:@");
-            return YES;
-        } else {
-            class_addMethod([self class], aSEL, (IMP) notificationGetterImp, "@@:");
-            return YES;
-        }
-    }
-    
-    return [super resolveInstanceMethod:aSEL];
 }
 
 kSynthesizeSingletonForClass(NotificationDataManager)

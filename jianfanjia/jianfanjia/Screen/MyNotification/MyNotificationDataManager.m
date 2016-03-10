@@ -8,21 +8,7 @@
 
 #import "MyNotificationDataManager.h"
 
-const NSArray *AllNotificationsFilter = nil;
-const NSArray *SystemAnnouncementFilter = nil;
-const NSArray *RequirmentNotificationFilter = nil;
-const NSArray *WorksiteNotificationFilter = nil;
-
 @implementation MyNotificationDataManager
-
-+ (void)initialize {
-    if ([self class] == [MyNotificationDataManager class]) {
-        AllNotificationsFilter = @[kUserPNFromSystemMsg, kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure, kUserPNFromPurchaseTip, kUserPNFromPayTip, kUserPNFromDBYSRequest, kUserPNFromRescheduleRequest, kUserPNFromRescheduleReject, kUserPNFromRescheduleAgree];
-        SystemAnnouncementFilter = @[kUserPNFromSystemMsg];
-        RequirmentNotificationFilter = @[kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure];
-        WorksiteNotificationFilter = @[kUserPNFromPurchaseTip, kUserPNFromPayTip, kUserPNFromDBYSRequest, kUserPNFromRescheduleRequest, kUserPNFromRescheduleReject, kUserPNFromRescheduleAgree];
-    }
-}
 
 - (NSInteger)refreshAllNotifications {
     NSMutableArray *array = nil;

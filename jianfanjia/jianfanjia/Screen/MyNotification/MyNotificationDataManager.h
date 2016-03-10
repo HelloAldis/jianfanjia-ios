@@ -8,21 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSArray *AllNotificationsFilter;
-extern NSArray *SystemAnnouncementFilter;
-extern NSArray *RequirmentNotificationFilter;
-extern NSArray *WorksiteNotificationFilter;
-
 @interface MyNotificationDataManager : NSObject
-
-//@property (strong, nonatomic) NSMutableArray *schedules;
-//@property (strong, nonatomic) NSArray *notifications;
-
-//- (void)refreshSchedule:(NSString *)processid;
-//- (void)refreshNotificationWithProcess:(NSString *)processid type:(NSString *)type;
-//- (void)refreshNotificationWithProcess:(NSString *)processid type:(NSString *)type status:(NSString *)status;
-//
-//
 
 @property (strong, nonatomic) NSMutableArray *allNotifications;
 @property (strong, nonatomic) NSMutableArray *systemAnnouncements;

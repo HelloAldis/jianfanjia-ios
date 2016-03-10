@@ -289,6 +289,14 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"search_user_message" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)getUserNotificationDetail:(GetUserNotificationDetail *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"user_message_detail" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)getUserUnreadCount:(GetUserUnreadCount *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"unread_user_message_count" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 #pragma mark - designer api
 + (void)designerRefreshSession:(RefreshSession *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"designer_refresh_session" data:request.data handler:request success:success failure:failure networkError:error];

@@ -16,32 +16,32 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="改期提醒" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhi-wf-7mB" userLabel="Lbl Cell">
-                        <rect key="frame" x="18" y="15" width="56" height="17"/>
+                        <rect key="frame" x="8" y="8" width="56" height="17"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="小区名字" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIG-47-94f" userLabel="Lbl Cell">
-                        <rect key="frame" x="18" y="40" width="56" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="8" y="30" width="52" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="尊敬的业主，您即将进入下一轮付款环节，请及时与设计师联系" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbF-ql-siX">
-                        <rect key="frame" x="18" y="65" width="433" height="24"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="8" y="51" width="453" height="38"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfU-Aq-FR3">
-                        <rect key="frame" x="352" y="15" width="116" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="359" y="9" width="109" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="安装阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fr-wI-Y9m">
-                        <rect key="frame" x="89" y="40" width="379" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="70" y="30" width="398" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.48627450980392156" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -62,47 +62,21 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="8Fr-wI-Y9m" firstAttribute="centerY" secondItem="FIG-47-94f" secondAttribute="centerY" id="0cE-gO-9My"/>
-                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="leading" secondItem="FIG-47-94f" secondAttribute="trailing" constant="15" id="1qF-6D-mp3"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="GbF-ql-siX" secondAttribute="trailing" id="53Q-0J-LXm"/>
-                    <constraint firstItem="GbF-ql-siX" firstAttribute="leading" secondItem="RLt-cd-dRp" secondAttribute="leadingMargin" constant="5" id="6KN-to-4LN"/>
-                    <constraint firstItem="FIG-47-94f" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="8" id="8gc-g4-pfF"/>
+                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="leading" secondItem="FIG-47-94f" secondAttribute="trailing" constant="10" id="1qF-6D-mp3"/>
                     <constraint firstItem="MfU-Aq-FR3" firstAttribute="centerY" secondItem="yhi-wf-7mB" secondAttribute="centerY" id="API-ck-85F"/>
-                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="top" secondItem="GbF-ql-siX" secondAttribute="bottom" constant="10" id="DAj-Mm-DdR"/>
                     <constraint firstAttribute="bottomMargin" secondItem="GbF-ql-siX" secondAttribute="bottom" id="EWN-Bj-ejO"/>
-                    <constraint firstItem="yhi-wf-7mB" firstAttribute="top" secondItem="RLt-cd-dRp" secondAttribute="topMargin" constant="7" id="Ef7-p2-3ik"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="yhi-wf-7mB" secondAttribute="trailing" id="ICQ-Ri-QB7"/>
+                    <constraint firstItem="yhi-wf-7mB" firstAttribute="top" secondItem="RLt-cd-dRp" secondAttribute="topMargin" id="Ef7-p2-3ik"/>
                     <constraint firstItem="8Fr-wI-Y9m" firstAttribute="trailing" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="Jm0-Ua-k9d"/>
                     <constraint firstItem="Ki8-OL-uXf" firstAttribute="trailing" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="Lab-SQ-lu3"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="8Fr-wI-Y9m" secondAttribute="bottom" id="NXn-xx-wLV"/>
-                    <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="8" id="QGW-Bz-Mz7"/>
                     <constraint firstItem="Ki8-OL-uXf" firstAttribute="centerY" secondItem="RLt-cd-dRp" secondAttribute="centerY" id="Qrc-Wl-pk6"/>
-                    <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="FIG-47-94f" secondAttribute="bottom" constant="8" id="SeE-by-gpe"/>
+                    <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="FIG-47-94f" secondAttribute="bottom" constant="5" id="SeE-by-gpe"/>
                     <constraint firstItem="FIG-47-94f" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="leading" id="Wte-9W-7SZ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="evn-Ky-9Tt"/>
-                    <constraint firstItem="Ki8-OL-uXf" firstAttribute="leading" secondItem="GbF-ql-siX" secondAttribute="trailing" constant="10" id="g0W-8M-QNf"/>
-                    <constraint firstItem="MfU-Aq-FR3" firstAttribute="centerY" secondItem="8Fr-wI-Y9m" secondAttribute="centerY" id="g5s-ZD-ooU"/>
-                    <constraint firstItem="yhi-wf-7mB" firstAttribute="leading" secondItem="RLt-cd-dRp" secondAttribute="leadingMargin" constant="10" id="kFJ-Ey-REQ"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="GbF-ql-siX" secondAttribute="bottom" id="m00-n1-EDd"/>
-                    <constraint firstItem="FIG-47-94f" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="8" id="vME-0L-WUo"/>
-                    <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="FIG-47-94f" secondAttribute="bottom" constant="52" id="vpn-HY-jyc"/>
+                    <constraint firstItem="Ki8-OL-uXf" firstAttribute="leading" secondItem="GbF-ql-siX" secondAttribute="trailing" id="g0W-8M-QNf"/>
+                    <constraint firstItem="yhi-wf-7mB" firstAttribute="leading" secondItem="RLt-cd-dRp" secondAttribute="leadingMargin" id="kFJ-Ey-REQ"/>
+                    <constraint firstItem="FIG-47-94f" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="5" id="vME-0L-WUo"/>
                     <constraint firstItem="GbF-ql-siX" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="leading" id="xfI-AE-CFo"/>
-                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="leading" secondItem="GbF-ql-siX" secondAttribute="leading" id="yvG-zF-U8j"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="ICQ-Ri-QB7"/>
-                        <exclude reference="8gc-g4-pfF"/>
-                        <exclude reference="53Q-0J-LXm"/>
-                        <exclude reference="6KN-to-4LN"/>
-                        <exclude reference="QGW-Bz-Mz7"/>
-                        <exclude reference="m00-n1-EDd"/>
-                        <exclude reference="vpn-HY-jyc"/>
-                        <exclude reference="DAj-Mm-DdR"/>
-                        <exclude reference="NXn-xx-wLV"/>
-                        <exclude reference="yvG-zF-U8j"/>
-                        <exclude reference="g5s-ZD-ooU"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="zbW-Hi-f6N" secondAttribute="trailing" id="5nq-g9-6FQ"/>
@@ -110,10 +84,11 @@
                 <constraint firstAttribute="bottom" secondItem="zbW-Hi-f6N" secondAttribute="bottom" id="Rzt-m1-YWe"/>
             </constraints>
             <connections>
-                <outlet property="lblCell" destination="yhi-wf-7mB" id="9Mo-En-ndn"/>
-                <outlet property="lblRequestTime" destination="MfU-Aq-FR3" id="AtA-L4-REf"/>
-                <outlet property="lblTitle" destination="GbF-ql-siX" id="z3w-DD-SkY"/>
-                <outlet property="lblWorkingPhase" destination="8Fr-wI-Y9m" id="51t-oT-fYD"/>
+                <outlet property="lblContent" destination="GbF-ql-siX" id="GQs-P5-bbJ"/>
+                <outlet property="lblNotificationTime" destination="MfU-Aq-FR3" id="egx-dl-urb"/>
+                <outlet property="lblNotificationTitle" destination="yhi-wf-7mB" id="jla-pL-U7A"/>
+                <outlet property="lblSection" destination="8Fr-wI-Y9m" id="TFl-bC-1QI"/>
+                <outlet property="lblTitle" destination="FIG-47-94f" id="l7V-11-RIW"/>
             </connections>
             <point key="canvasLocation" x="397" y="316"/>
         </tableViewCell>

@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblPhone;
 @property (weak, nonatomic) IBOutlet UILabel *lblCache;
 
+@property (weak, nonatomic) IBOutlet UIButton *btnMyNotification;
+@property (weak, nonatomic) IBOutlet UIButton *btnMyLeaveMsg;
+
 @property (assign, nonatomic) CGRect originUserImageFrame;
 @property (assign, nonatomic) CGRect originAvatarImageFrame;
 @property (assign, nonatomic) BOOL isTabbarhide;
@@ -39,6 +42,7 @@
     [self.userThumnail setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self updateCache];
+    [self updateUnreadNumber];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -81,10 +85,17 @@
     }
     
     [self.userThumnail setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
+    [[NotificationDataManager shared] refreshUnreadCount];
 }
 
 - (void)updateUnreadNumber {
+    [[NotificationDataManager shared] subscribeMyNotificationUnreadCount:^(NSInteger count) {
+        self.btnMyNotification.badgeValue = [@(count) stringValue];
+    }];
     
+    [[NotificationDataManager shared] subscribeMyLeaveMsgUnreadCount:^(NSInteger count) {
+       self.btnMyLeaveMsg.badgeValue = [@(count) stringValue];
+    }];
 }
 
 #pragma mark - user action

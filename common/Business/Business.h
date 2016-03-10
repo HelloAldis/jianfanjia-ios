@@ -16,6 +16,7 @@
 #import "DesignerBusiness.h"
 #import "RequirementBusiness.h"
 #import "EnumBusiness.h"
+#import "NotificationBusiness.h"
 
 #define kThemeColor [UIColor colorWithRed:254/255.0f green:112/255.0f blue:3/255.0f alpha:1.0]
 #define kItemStatusNewColor [UIColor colorWithRed:191/255.0f green:186/255.0f blue:187/255.0f alpha:1.0]
@@ -30,5 +31,6 @@
 #define kReminderColor [UIColor colorWithR:0xff g:0x44 b:0x45]
 #define kViewBgColor [UIColor colorWithR:0xED g:0xEF b:0xF1]
 #define kPlaceHolderColor [UIColor colorWithR:0xD5 g:0xD5 b:0xD5]
+#define kNotificationReadColor [UIColor colorWithR:0x7A g:0x84 b:0x8A]
 
 #endif /* Type_h */

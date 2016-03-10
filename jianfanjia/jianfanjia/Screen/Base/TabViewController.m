@@ -34,13 +34,11 @@
     my = [my initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_my_default"] selectedImage:[UIImage imageNamed:@"tab_my_selected"]];
     my.titlePositionAdjustment = UIOffsetMake(0, -2);
     
-    [[NotificationDataManager shared] subscribeAllUnreadCount:^(id value) {
-        requirement.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
+    [[NotificationDataManager shared] subscribeAppBadgeNumber:^(NSInteger count) {
+        my.badgeCount = [@(1) stringValue];
     }];
     
-    [[NotificationDataManager shared] subscribeAllUnreadCount:^(id value) {
-        my.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
-    }];
+    
 }
 
 @end

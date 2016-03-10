@@ -8,6 +8,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MeViewController">
             <connections>
+                <outlet property="btnMyLeaveMsg" destination="MZX-JA-KcM" id="6Tr-a0-5lU"/>
+                <outlet property="btnMyNotification" destination="ikk-YY-Y7Z" id="dxK-cY-8id"/>
                 <outlet property="lblCache" destination="q4y-Kb-4Zn" id="1Ne-s6-UPU"/>
                 <outlet property="lblPhone" destination="s3D-Md-m3S" id="bD4-KW-O43"/>
                 <outlet property="lblUsername" destination="dgH-KV-wJY" id="Z6S-jj-4C9"/>

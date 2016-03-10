@@ -11,6 +11,7 @@
 @implementation UserNotification
 
 @dynamic _id;
+@dynamic cell;
 @dynamic title;
 @dynamic content;
 @dynamic message_type;
@@ -21,5 +22,10 @@
 @dynamic designerid;
 @dynamic planid;
 @dynamic requirementid;
+@dynamic processid;
+@dynamic section;
+@dynamic item;
+@dynamic topicid;
+@dynamic commentid;
 
 @end

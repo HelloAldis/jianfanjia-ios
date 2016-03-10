@@ -64,6 +64,8 @@
 #import "BindWechat.h"
 #import "GetTopProducts.h"
 #import "SearchUserNotification.h"
+#import "GetUserNotificationDetail.h"
+#import "GetUserUnreadCount.h"
 
 #pragma mark - designer request
 

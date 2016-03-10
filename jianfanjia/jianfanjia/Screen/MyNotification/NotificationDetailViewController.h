@@ -10,4 +10,6 @@
 
 @interface NotificationDetailViewController : BaseViewController
 
+@property (nonatomic, strong) NSString *notificationId;
+
 @end
