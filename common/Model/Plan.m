@@ -11,6 +11,7 @@
 @implementation Plan
 
 @dynamic _id;
+@dynamic name;
 @dynamic designerid;
 @dynamic requirementid;
 @dynamic userid;

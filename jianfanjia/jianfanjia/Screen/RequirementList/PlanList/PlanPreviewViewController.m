@@ -28,7 +28,6 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (strong, nonatomic) Plan *plan;
-@property (assign, nonatomic) NSInteger order;
 @property (strong, nonatomic) Requirement *requirement;
 
 @end
@@ -36,10 +35,9 @@
 @implementation PlanPreviewViewController
 
 #pragma mark - init method
-- (id)initWithPlan:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement {
+- (id)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement {
     if (self = [super init]) {
         _plan = plan;
-        _order = order;
         _requirement = requirement;
     }
     
@@ -61,7 +59,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"详细报价" style:UIBarButtonItemStylePlain target:self action:@selector(onChoosePriceDetail)];
     self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     
-    self.title = [NSString stringWithFormat:@"方案%ld", (long)self.order];
+    self.title = self.plan.name;
 }
 
 - (void)initUI {

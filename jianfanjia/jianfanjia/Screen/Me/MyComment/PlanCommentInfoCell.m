@@ -49,7 +49,7 @@ static const NSInteger imgSpace = 2;
 }
 
 - (void)updateLinkView {
-    self.lblLinkTitle.text = self.notification.requirement.cell;
+    self.lblLinkTitle.text = [NSString stringWithFormat:@"%@ %@", self.notification.requirement.cell, self.notification.plan.name];
     self.lblLinkStatus.text = [NameDict nameForPlanStatus:self.notification.plan.status];
     
     [self.linkImageScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
@@ -82,7 +82,7 @@ static const NSInteger imgSpace = 2;
 
 #pragma mark - gesture
 - (void)onTapPlan {
-    [ViewControllerContainer showPlanPerview:self.notification.plan withOrder:0 forRequirement:self.notification.requirement];
+    [ViewControllerContainer showPlanPerview:self.notification.plan forRequirement:self.notification.requirement];
 }
 
 @end

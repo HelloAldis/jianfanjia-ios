@@ -11,6 +11,6 @@
 
 @interface PlanPreviewViewController : BaseViewController <UIScrollViewDelegate>
 
-- (id)initWithPlan:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement;
+- (id)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement;
 
 @end

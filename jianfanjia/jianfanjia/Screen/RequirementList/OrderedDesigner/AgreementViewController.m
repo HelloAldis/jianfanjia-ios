@@ -38,16 +38,6 @@
     [self loadPage];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self printCookie];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self printCookie];
-}
-
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
@@ -123,16 +113,6 @@
     } networkError:^{
         self.btnConfirm.enabled = YES;
     }];
-}
-
-- (void)printCookie {
-    NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
-    NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@", components.host, components.port ? @":" : @"", components.port ? components.port : @""];
-    NSArray *cookieStorage = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[NSURL URLWithString:urlString]];
-    
-    for (NSHTTPCookie *cookie in cookieStorage) {
-        DDLogDebug(@"[===cookie property===] %@", cookie.properties);
-    }
 }
 
 @end

@@ -13,9 +13,9 @@
 @interface UserNotification : BaseModel
 
 @property (nonatomic, strong) NSString *_id;
-@property (nonatomic, strong) NSString *cell;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *content;
+@property (nonatomic, strong) NSString *html;
 @property (nonatomic, strong) NSString *message_type;
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSNumber *create_at;

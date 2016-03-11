@@ -332,8 +332,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showPlanPerview:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement {
-    PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan withOrder:order forRequirement:requirement];
++ (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement {
+    PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan forRequirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

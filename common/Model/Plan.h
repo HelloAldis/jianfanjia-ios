@@ -11,6 +11,7 @@
 @interface Plan : BaseModel
 
 @property(nonatomic, strong) NSString *_id;
+@property(nonatomic, strong) NSString *name;
 @property(nonatomic, strong) NSString *designerid;
 @property(nonatomic, strong) NSString *requirementid;
 @property(nonatomic, strong) NSString *userid;

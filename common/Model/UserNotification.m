@@ -11,9 +11,9 @@
 @implementation UserNotification
 
 @dynamic _id;
-@dynamic cell;
 @dynamic title;
 @dynamic content;
+@dynamic html;
 @dynamic message_type;
 @dynamic status;
 @dynamic create_at;
