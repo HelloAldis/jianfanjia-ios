@@ -123,8 +123,8 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     [ViewControllerContainer showNotificationDetail:[self.dataSource[indexPath.row] _id]];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 #pragma mark - user actions

@@ -103,7 +103,15 @@ static NSDictionary *NotificationTitles = nil;
     self.lblContent.text = self.notification.content;
     
     
-    NSString * htmlString = @"<html><head><meta name='viewport' content='width=device-width, initial-scale=1.0'></head><body> Some html string \n <font size=\"13\" color=\"red\">This is some text!</font> <img src='http://dev.jianfanjia.com/api/v2/web/image/5683a76bcc55fab534b2fd64'></body></html>";
+    NSString * htmlString = @"<html><body>\
+    <font size=\"4\" color=\"#7c8389\">\
+    <p>尊敬的业主您好：</p >\
+    <p>您的设计师戴涛希望将本阶段工期修改至</p >\
+    <p><font size=\"5\" color=\"#fe7003\">2016-04-01</font></p >\
+    <p>等待您的确认！如有问题请及时与设计师联系。</p >\
+    <p>也可以拨打我们的客服热线：<a href='tel://18107218595'>400-8515-167</a></p >\
+    </font>\
+    </body></html>";
     [self.lblBottom setHtml:htmlString]; 
     
     [self initButtons];
@@ -133,13 +141,20 @@ static NSDictionary *NotificationTitles = nil;
     [API getUserNotificationDetail:request success:^{
         [HUDUtil hideWait];
         [NotificationBusiness reduceOneBadge];
-        self.notification = [[UserNotification alloc] initWith:[DataManager shared].data];
+        [self initNotification];
         [self initData];
     } failure:^{
         [HUDUtil hideWait];
     } networkError:^{
         [HUDUtil hideWait];
     }];
+}
+
+- (void)initNotification {
+    self.notification = [[UserNotification alloc] initWith:[DataManager shared].data];
+    self.notification.process = [[Process alloc] initWith:self.notification.data[@"process"]];
+    self.notification.requirement = [[Requirement alloc] initWith:self.notification.data[@"requirement"]];
+    self.notification.reschedule = [[Reschedule alloc] initWith:self.notification.data[@"reschedule"]];
 }
 
 #pragma mark - user action

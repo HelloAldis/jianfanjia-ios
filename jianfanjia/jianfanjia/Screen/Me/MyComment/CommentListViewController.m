@@ -8,9 +8,11 @@
 
 #import "CommentListViewController.h"
 #import "CommentListDataManager.h"
-#import "CommentInfoCell.h"
+#import "PlanCommentInfoCell.h"
+#import "DecCommentInfoCell.h"
 
-static NSString *CommentInfoCellIdentifier = @"CommentInfoCell";
+static NSString *PlanCommentInfoCellIdentifier = @"PlanCommentInfoCell";
+static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
 
 @interface CommentListViewController ()
 
@@ -35,7 +37,7 @@ static NSString *CommentInfoCellIdentifier = @"CommentInfoCell";
 
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"我的评论";
+    self.title = @"我的留言";
     [self initLeftBackInNav];
 }
 
@@ -44,8 +46,9 @@ static NSString *CommentInfoCellIdentifier = @"CommentInfoCell";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 1000;
-    [self.tableView registerNib:[UINib nibWithNibName:CommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:CommentInfoCellIdentifier];
+    self.tableView.estimatedRowHeight = 200;
+    [self.tableView registerNib:[UINib nibWithNibName:PlanCommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:PlanCommentInfoCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:DecCommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:DecCommentInfoCellIdentifier];
     
     @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -63,13 +66,26 @@ static NSString *CommentInfoCellIdentifier = @"CommentInfoCell";
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return self.dataManager.comments.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CommentInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CommentInfoCellIdentifier];
-    [cell initWithDesigner:nil];
-    return cell;
+    UserNotification *notification = self.dataManager.comments[indexPath.row];
+    
+    if ([notification.message_type isEqualToString:kUserPNFromPlanComment]) {
+        PlanCommentInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:PlanCommentInfoCellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell initWithNotification:notification];
+        return cell;
+    } else if ([notification.message_type isEqualToString:kUserPNFromDecItemComment
+                ]) {
+        DecCommentInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecCommentInfoCellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell initWithNotification:notification];
+        return cell;
+    }
+
+    return nil;
 }
 
 #pragma mark - api request
@@ -77,48 +93,45 @@ static NSString *CommentInfoCellIdentifier = @"CommentInfoCell";
     [self resetNoDataTip];
     [self.tableView.footer resetNoMoreData];
     
-//    SearchDesigner *request = [[SearchDesigner alloc] init];
-//    request.query = [self getQueryDic];
-//    request.from = @0;
-//    request.limit = @20;
-//    
-//    [API searchDesigner:request success:^{
-//        [self.tableView.header endRefreshing];
-//        NSInteger count = [self.dataManager refresh];
-//        
-//        if (count == 0) {
-//            [self handleNoDesigner];
-//        } else if (request.limit.integerValue > count) {
-//            [self.tableView.footer noticeNoMoreData];
-//        }
-//        
-//        [self.tableView reloadData];
-//    } failure:^{
-//        [self.tableView.header endRefreshing];
-//    } networkError:^{
-//        [self.tableView.header endRefreshing];
-//    }];
+    SearchUserComment *request = [[SearchUserComment alloc] init];
+    request.from = @0;
+    request.limit = @20;
+    
+    [API searchUserComment:request success:^{
+        [self.tableView.header endRefreshing];
+        NSInteger count = [self.dataManager refresh];
+        if (count == 0) {
+            [self handleNoDesigner];
+        } else if (request.limit.integerValue > count) {
+            [self.tableView.footer noticeNoMoreData];
+        }
+        
+        [self.tableView reloadData];
+    } failure:^{
+        [self.tableView.header endRefreshing];
+    } networkError:^{
+        [self.tableView.header endRefreshing];
+    }];
 }
 
 - (void)loadMore {
-//    SearchDesigner *request = [[SearchDesigner alloc] init];
-//    request.query = [self getQueryDic];
-//    request.from = @(self.dataManager.designers.count);
-//    request.limit = @20;
-//    
-//    [API searchDesigner:request success:^{
-//        [self.tableView.footer endRefreshing];
-//        NSInteger count = [self.dataManager loadMore];
-//        if (request.limit.integerValue > count) {
-//            [self.tableView.footer noticeNoMoreData];
-//        }
-//        
-//        [self.tableView reloadData];
-//    } failure:^{
-//        [self.tableView.footer endRefreshing];
-//    } networkError:^{
-//        [self.tableView.footer endRefreshing];
-//    }];
+    SearchUserComment *request = [[SearchUserComment alloc] init];
+    request.from = @(self.dataManager.comments.count);
+    request.limit = @20;
+    
+    [API searchUserComment:request success:^{
+        [self.tableView.header endRefreshing];
+        NSInteger count = [self.dataManager loadMore];
+        if (request.limit.integerValue > count) {
+            [self.tableView.footer noticeNoMoreData];
+        }
+
+        [self.tableView reloadData];
+    } failure:^{
+        [self.tableView.header endRefreshing];
+    } networkError:^{
+        [self.tableView.header endRefreshing];
+    }];
 }
 
 - (void)resetNoDataTip {

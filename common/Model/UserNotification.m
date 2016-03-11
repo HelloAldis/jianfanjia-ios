@@ -23,9 +23,9 @@
 @dynamic planid;
 @dynamic requirementid;
 @dynamic processid;
+@dynamic topicid;
 @dynamic section;
 @dynamic item;
-@dynamic topicid;
 @dynamic commentid;
 
 @end

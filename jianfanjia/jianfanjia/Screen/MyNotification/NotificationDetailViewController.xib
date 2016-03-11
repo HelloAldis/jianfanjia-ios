@@ -104,7 +104,7 @@
                                     <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还未处理本次改期申请，如果问题请及时与您的设计师或项目经理联系，也可以拨打我们的客服电话400-5200-036您还未处理本次改期申请，如果问题请及时与您的设计师或项目经理联系，也可以拨打我们的客服电话400-5200-036" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yR-pJ-pVG">
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还未处理本次改期申请，如果问题请及时与您的设计师或项目经理联系，也可以拨打我们的客服电话400-5200-036您还未处理本次改期申请，如果问题请及时与您的设计师或项目经理联系，也可以拨打我们的客服电话400-5200-036" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yR-pJ-pVG">
                                     <rect key="frame" x="20" y="142" width="560" height="47"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>

@@ -38,6 +38,7 @@ static const CGFloat kMaxMessageHeight = 100;
 @property (strong, nonatomic) RequirementDataManager *requirementDataManager;
 
 @property (strong, nonatomic) NSString *processid;
+@property (strong, nonatomic) NSString *designerid;
 @property (strong, nonatomic) NSString *section;
 @property (strong, nonatomic) NSString *item;
 @property (copy, nonatomic) void(^RefreshBlock)(void);
@@ -59,11 +60,12 @@ static const CGFloat kMaxMessageHeight = 100;
     return self;
 }
 
-- (id)initWithProcess:(NSString *)processid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
+- (id)initWithProcess:(NSString *)processid designer:(NSString *)designerid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
     if (self = [super init]) {
         _commentType = CommentTypeProcess;
         _RefreshBlock = RefreshBlock;
         _processid = processid;
+        _designerid = designerid;
         _section = section;
         _item = item;
         _requirementDataManager = [[RequirementDataManager alloc] init];
@@ -203,6 +205,7 @@ static const CGFloat kMaxMessageHeight = 100;
         request.topictype = kTopicTypeProcess;
         request.section = self.section;
         request.item = self.item;
+        request.to = self.designerid;
         request.content = self.tvMessage.text;
     }
     

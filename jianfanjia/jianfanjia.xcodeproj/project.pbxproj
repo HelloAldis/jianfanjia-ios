@@ -208,8 +208,8 @@
 		685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5E61C03178C00EC1991 /* MessageCell.m */; };
 		685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685CD5E71C03178C00EC1991 /* MessageCell.xib */; };
 		685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */ = {isa = PBXBuildFile; fileRef = 685CD5EB1C031D1C00EC1991 /* GetComments.m */; };
-		685DD4511C89761E00A76B9C /* CommentInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685DD44A1C89761E00A76B9C /* CommentInfoCell.m */; };
-		685DD4521C89761E00A76B9C /* CommentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685DD44B1C89761E00A76B9C /* CommentInfoCell.xib */; };
+		685DD4511C89761E00A76B9C /* PlanCommentInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685DD44A1C89761E00A76B9C /* PlanCommentInfoCell.m */; };
+		685DD4521C89761E00A76B9C /* PlanCommentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685DD44B1C89761E00A76B9C /* PlanCommentInfoCell.xib */; };
 		685DD4531C89761E00A76B9C /* CommentListDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 685DD44D1C89761E00A76B9C /* CommentListDataManager.m */; };
 		685DD4541C89761E00A76B9C /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685DD44F1C89761E00A76B9C /* CommentListViewController.m */; };
 		685DD4551C89761E00A76B9C /* CommentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685DD4501C89761E00A76B9C /* CommentListViewController.xib */; };
@@ -234,6 +234,9 @@
 		688517691C9170BF000B01DB /* GetUserUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517681C9170BF000B01DB /* GetUserUnreadCount.m */; };
 		6885176C1C9183A8000B01DB /* UITabBarItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885176B1C9183A8000B01DB /* UITabBarItem+Badge.m */; };
 		6885176F1C9258D1000B01DB /* UIView+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885176E1C9258D1000B01DB /* UIView+Badge.m */; };
+		688517731C926FDC000B01DB /* DecCommentInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517711C926FDC000B01DB /* DecCommentInfoCell.m */; };
+		688517741C926FDC000B01DB /* DecCommentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 688517721C926FDC000B01DB /* DecCommentInfoCell.xib */; };
+		6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517791C927A30000B01DB /* SearchUserComment.m */; };
 		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
 		689E714A1C80588C0012BF3C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689E71481C80588C0012BF3C /* WebViewController.m */; };
@@ -777,9 +780,9 @@
 		685CD5E71C03178C00EC1991 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		685CD5EA1C031D1C00EC1991 /* GetComments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetComments.h; sourceTree = "<group>"; };
 		685CD5EB1C031D1C00EC1991 /* GetComments.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetComments.m; sourceTree = "<group>"; };
-		685DD4491C89761E00A76B9C /* CommentInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentInfoCell.h; sourceTree = "<group>"; };
-		685DD44A1C89761E00A76B9C /* CommentInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentInfoCell.m; sourceTree = "<group>"; };
-		685DD44B1C89761E00A76B9C /* CommentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentInfoCell.xib; sourceTree = "<group>"; };
+		685DD4491C89761E00A76B9C /* PlanCommentInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanCommentInfoCell.h; sourceTree = "<group>"; };
+		685DD44A1C89761E00A76B9C /* PlanCommentInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanCommentInfoCell.m; sourceTree = "<group>"; };
+		685DD44B1C89761E00A76B9C /* PlanCommentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanCommentInfoCell.xib; sourceTree = "<group>"; };
 		685DD44C1C89761E00A76B9C /* CommentListDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListDataManager.h; sourceTree = "<group>"; };
 		685DD44D1C89761E00A76B9C /* CommentListDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListDataManager.m; sourceTree = "<group>"; };
 		685DD44E1C89761E00A76B9C /* CommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListViewController.h; sourceTree = "<group>"; };
@@ -822,6 +825,11 @@
 		6885176B1C9183A8000B01DB /* UITabBarItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Badge.m"; sourceTree = "<group>"; };
 		6885176D1C9258D1000B01DB /* UIView+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Badge.h"; sourceTree = "<group>"; };
 		6885176E1C9258D1000B01DB /* UIView+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Badge.m"; sourceTree = "<group>"; };
+		688517701C926FDC000B01DB /* DecCommentInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecCommentInfoCell.h; sourceTree = "<group>"; };
+		688517711C926FDC000B01DB /* DecCommentInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecCommentInfoCell.m; sourceTree = "<group>"; };
+		688517721C926FDC000B01DB /* DecCommentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecCommentInfoCell.xib; sourceTree = "<group>"; };
+		688517781C927A30000B01DB /* SearchUserComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserComment.h; sourceTree = "<group>"; };
+		688517791C927A30000B01DB /* SearchUserComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchUserComment.m; sourceTree = "<group>"; };
 		689485CE1C1A6A05002310FC /* NotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDataManager.h; sourceTree = "<group>"; };
 		689485CF1C1A6A05002310FC /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
@@ -1594,9 +1602,12 @@
 				685DD44E1C89761E00A76B9C /* CommentListViewController.h */,
 				685DD44F1C89761E00A76B9C /* CommentListViewController.m */,
 				685DD4501C89761E00A76B9C /* CommentListViewController.xib */,
-				685DD4491C89761E00A76B9C /* CommentInfoCell.h */,
-				685DD44A1C89761E00A76B9C /* CommentInfoCell.m */,
-				685DD44B1C89761E00A76B9C /* CommentInfoCell.xib */,
+				685DD4491C89761E00A76B9C /* PlanCommentInfoCell.h */,
+				685DD44A1C89761E00A76B9C /* PlanCommentInfoCell.m */,
+				685DD44B1C89761E00A76B9C /* PlanCommentInfoCell.xib */,
+				688517701C926FDC000B01DB /* DecCommentInfoCell.h */,
+				688517711C926FDC000B01DB /* DecCommentInfoCell.m */,
+				688517721C926FDC000B01DB /* DecCommentInfoCell.xib */,
 				685DD44C1C89761E00A76B9C /* CommentListDataManager.h */,
 				685DD44D1C89761E00A76B9C /* CommentListDataManager.m */,
 			);
@@ -1856,6 +1867,8 @@
 				688517621C914B9C000B01DB /* GetUserNotificationDetail.m */,
 				688517671C9170BF000B01DB /* GetUserUnreadCount.h */,
 				688517681C9170BF000B01DB /* GetUserUnreadCount.m */,
+				688517781C927A30000B01DB /* SearchUserComment.h */,
+				688517791C927A30000B01DB /* SearchUserComment.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2586,7 +2599,7 @@
 				6838400D1C158490004F456E /* UpdateMultipleLineTextViewController.xib in Resources */,
 				68123BAA1C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png in Resources */,
 				68123C611C4C8B99008FC9AB /* allprovince.js in Resources */,
-				685DD4521C89761E00A76B9C /* CommentInfoCell.xib in Resources */,
+				685DD4521C89761E00A76B9C /* PlanCommentInfoCell.xib in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */,
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
@@ -2613,6 +2626,7 @@
 				68123C621C4C8B99008FC9AB /* city2area.js in Resources */,
 				68123C5F1C4C8B99008FC9AB /* ImageEditorViewController.xib in Resources */,
 				68134A591C44D152003C1C10 /* MultipleLineTextTableViewCell.xib in Resources */,
+				688517741C926FDC000B01DB /* DecCommentInfoCell.xib in Resources */,
 				68C3C26C1C75C41200EEEBD8 /* HomePageProductItem.xib in Resources */,
 				683FFB421C296288002A1AFE /* BeautifulImageCollectionCell.xib in Resources */,
 				68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */,
@@ -2814,7 +2828,7 @@
 				68134A391C3CF444003C1C10 /* BindPhoneViewController.m in Sources */,
 				68134A451C3D0BD9003C1C10 /* BindWechat.m in Sources */,
 				6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */,
-				685DD4511C89761E00A76B9C /* CommentInfoCell.m in Sources */,
+				685DD4511C89761E00A76B9C /* PlanCommentInfoCell.m in Sources */,
 				68679A411C8E730F00B380D0 /* SystemAnnouncementCell.m in Sources */,
 				684A370C1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.m in Sources */,
 				6E44962D1BF9E32200C90851 /* SignupSuccessViewController.m in Sources */,
@@ -2878,6 +2892,7 @@
 				680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
+				6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */,
 				68123C581C4C8B99008FC9AB /* ImageBrowerViewController.m in Sources */,
 				684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */,
 				683626951C05545E005F2C30 /* StartDecorationProcess.m in Sources */,
@@ -2966,6 +2981,7 @@
 				684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */,
 				682E05111C58BDA700F1ACAA /* PlanPriceItemCell.m in Sources */,
 				68679A3F1C8E730F00B380D0 /* WorksiteNotificationCell.m in Sources */,
+				688517731C926FDC000B01DB /* DecCommentInfoCell.m in Sources */,
 				68123C531C4C8B99008FC9AB /* DateAlertViewController.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
 				6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */,

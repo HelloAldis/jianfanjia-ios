@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CommentInfoCell : UITableViewCell
+@interface PlanCommentInfoCell : UITableViewCell
 
-- (void)initWithDesigner:(Designer *)designer;
+- (void)initWithNotification:(UserNotification *)notification;
 
 @end

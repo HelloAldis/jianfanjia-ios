@@ -11,29 +11,37 @@
 @implementation CommentListDataManager
 
 - (NSInteger)refresh {
-    NSArray* arr = [[DataManager shared].data objectForKey:@"designers"];
-    NSMutableArray *designers = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    NSArray* arr = [[DataManager shared].data objectForKey:@"list"];
+    NSMutableArray *notifications = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
-        Designer *designer = [[Designer alloc] initWith:dict];
-        [designers addObject:designer];
+        UserNotification *notification = [[UserNotification alloc] initWith:dict];
+        notification.process = [[Process alloc] initWith:notification.data[@"process"]];
+        notification.requirement = [[Requirement alloc] initWith:notification.data[@"requirement"]];
+        notification.designer = [[Designer alloc] initWith:notification.data[@"designer"]];
+        notification.plan = [[Plan alloc] initWith:notification.data[@"plan"]];
+        [notifications addObject:notification];
     }
     
-    self.designers = designers;
-    return designers.count;
+    self.comments = notifications;
+    return notifications.count;
 }
 
 - (NSInteger)loadMore {
-    NSArray* arr = [[DataManager shared].data objectForKey:@"designers"];
-    NSMutableArray *designers = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    NSArray* arr = [[DataManager shared].data objectForKey:@"list"];
+    NSMutableArray *notifications = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
-        Designer *designer = [[Designer alloc] initWith:dict];
-        [designers addObject:designer];
+        UserNotification *notification = [[UserNotification alloc] initWith:dict];
+        notification.process = [[Process alloc] initWith:notification.data[@"process"]];
+        notification.requirement = [[Requirement alloc] initWith:notification.data[@"requirement"]];
+        notification.designer = [[Designer alloc] initWith:notification.data[@"designer"]];
+        notification.plan = [[Plan alloc] initWith:notification.data[@"plan"]];
+        [notifications addObject:notification];
     }
     
-    [self.designers addObjectsFromArray:designers];
-    return designers.count;
+    [self.comments addObjectsFromArray:notifications];
+    return notifications.count;
 }
 
 @end

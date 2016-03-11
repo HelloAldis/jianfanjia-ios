@@ -327,8 +327,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)leaveMessage:(NSString *)processid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
-    LeaveMessageViewController *v = [[LeaveMessageViewController alloc] initWithProcess:processid section:section item:item block:RefreshBlock];
++ (void)leaveMessage:(NSString *)processid designer:(NSString *)designerid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
+    LeaveMessageViewController *v = [[LeaveMessageViewController alloc] initWithProcess:processid designer:designerid section:section item:item block:RefreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

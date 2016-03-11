@@ -80,6 +80,8 @@
     
     for (NSMutableDictionary *dict in arr) {
         UserNotification *notification = [[UserNotification alloc] initWith:dict];
+        notification.process = [[Process alloc] initWith:notification.data[@"process"]];
+        notification.requirement = [[Requirement alloc] initWith:notification.data[@"requirement"]];
         [notifications addObject:notification];
     }
     
@@ -93,6 +95,8 @@
     
     for (NSMutableDictionary *dict in arr) {
         UserNotification *notification = [[UserNotification alloc] initWith:dict];
+        notification.process = [[Process alloc] initWith:notification.data[@"process"]];
+        notification.requirement = [[Requirement alloc] initWith:notification.data[@"requirement"]];
         [notifications addObject:notification];
     }
 

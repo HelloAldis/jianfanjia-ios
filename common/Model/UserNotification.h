@@ -8,6 +8,8 @@
 
 #import "BaseModel.h"
 
+@class Reschedule;
+
 @interface UserNotification : BaseModel
 
 @property (nonatomic, strong) NSString *_id;
@@ -23,9 +25,16 @@
 @property (nonatomic, strong) NSString *planid;
 @property (nonatomic, strong) NSString *requirementid;
 @property (nonatomic, strong) NSString *processid;
+@property (nonatomic, strong) NSString *topicid;
 @property (nonatomic, strong) NSString *section;
 @property (nonatomic, strong) NSString *item;
-@property (nonatomic, strong) NSString *topicid;
 @property (nonatomic, strong) NSString *commentid;
+
+//不动态属性
+@property (nonatomic, strong) Process *process;
+@property (nonatomic, strong) Requirement *requirement;
+@property (nonatomic, strong) Reschedule *reschedule;
+@property (nonatomic, strong) Designer *designer;
+@property (nonatomic, strong) Plan *plan;
 
 @end

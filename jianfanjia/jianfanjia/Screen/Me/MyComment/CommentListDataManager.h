@@ -10,7 +10,7 @@
 
 @interface CommentListDataManager : NSObject
 
-@property (nonatomic, strong) NSMutableArray *designers;
+@property (nonatomic, strong) NSMutableArray *comments;
 
 - (NSInteger)refresh;
 - (NSInteger)loadMore;

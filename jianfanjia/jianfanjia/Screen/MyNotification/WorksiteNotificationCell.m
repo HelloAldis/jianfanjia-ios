@@ -24,9 +24,9 @@
 - (void)initWithNotification:(UserNotification *)notification {
     self.notification = notification;
     self.lblNotificationTitle.text = notification.title;
-    self.lblTitle.text = notification.cell;
+    self.lblTitle.text = notification.process.cell;
     self.lblContent.text = notification.content;
-    self.lblSection.text = notification.section;
+    self.lblSection.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:self.notification.section]];
     self.lblNotificationTime.text = [notification.create_at humDateString];
     
     [NotificationBusiness markTextColor:self.lblNotificationTitle status:notification.status];
