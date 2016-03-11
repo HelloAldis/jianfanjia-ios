@@ -8,29 +8,25 @@
 
 #import "UITabBarItem+Badge.h"
 
-NSString const *UITabBarItem_badgeValueKey = @"UITabBarItem_badgeValueKey";
+NSString const *UITabBarItem_badgeNumberKey = @"UITabBarItem_badgeValueKey";
 
 @implementation UITabBarItem (Badge)
 
-@dynamic badgeCount;
+@dynamic badgeNumber;
 
 // Badge value to be display
--(NSString *)badgeCount {
-    return objc_getAssociatedObject(self, &UITabBarItem_badgeValueKey);
+-(NSString *)badgeNumber {
+    return objc_getAssociatedObject(self, &UITabBarItem_badgeNumberKey);
 }
 
--(void)setBadgeCount:(NSString *)badgeCount {
-    objc_setAssociatedObject(self, &UITabBarItem_badgeValueKey, badgeCount, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+-(void)setBadgeNumber:(NSString *)badgeNumber {
+    objc_setAssociatedObject(self, &UITabBarItem_badgeNumberKey, badgeNumber, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     // When changing the badge value check if we need to remove the badge
     if ([self respondsToSelector:@selector(view)] && [(id)self view]) {
-        UIButton *button = (UIButton *)[(id)self view];
-//        button.badgeValue = badgeCount;
-//        CGPoint originPointInWindow = [button convertPoint:button.badge.frame.origin toView:[UIApplication sharedApplication].keyWindow];
-//        DDLogDebug(@"%@", NSStringFromCGPoint(originPointInWindow));
-//        DDLogDebug(@"%@", NSStringFromCGRect(button.badge.frame));
-//        CGFloat distance = (originPointInWindow.x + button.badge.bounds.size.width + button.badgePadding) - kScreenWidth;
-//        button.badgeOriginX = distance > 0 ?  button.badgeOriginX - distance : button.badgeOriginX;
+        UIView *view = (UIView *)[(id)self view];
+        UIImageView *imageView = (UIImageView *)[view getFirstSubview:[UIImageView class]];
+        imageView.badgeNumber = badgeNumber;
     }
 }
 

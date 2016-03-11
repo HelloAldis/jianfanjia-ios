@@ -37,6 +37,21 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
     return nil;
 }
 
+- (UIView *)getFirstSubview:(Class)aClass {
+    if ([self isKindOfClass:aClass]) {
+        return self;
+    }
+    
+    for (UIView *view in self.subviews) {
+        id subview = [view getFirstSubview:[view class]];
+        if (subview) {
+            return subview;
+        }
+    }
+    
+    return nil;
+}
+
 #pragma mark - tap animation
 
 + (void)playBounceAnimationFor:(UIView *)view completion:(void(^)(void))completion {

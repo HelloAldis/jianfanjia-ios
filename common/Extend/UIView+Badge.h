@@ -1,19 +1,21 @@
 //
-//  UIBarButtonItem+Badge.h
-//  therichest
+//  UIView+Badge.h
+//  jianfanjia
 //
-//  Created by Mike on 2014-05-05.
-//  Copyright (c) 2014 Valnet Inc. All rights reserved.
+//  Created by Karos on 16/3/11.
+//  Copyright © 2016年 JYZ. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (Badge)
+extern NSString *kBadgeStyleDot;
+
+@interface UIView (Badge)
 
 @property (strong, nonatomic) UILabel *badge;
 
 // Badge value to be display
-@property (nonatomic) NSString *badgeValue;
+@property (nonatomic) NSString *badgeNumber;
 // Badge background color
 @property (nonatomic) UIColor *badgeBGColor;
 // Badge text color

@@ -8,29 +8,25 @@
 #import <objc/runtime.h>
 #import "UIBarButtonItem+Badge.h"
 
-NSString const *UIBarButtonItem_badgeValueKey = @"UIBarButtonItem_badgeValueKey";
+NSString const *UIBarButtonItem_badgeNumberKey = @"UIBarButtonItem_badgeNumberKey";
 
 @implementation UIBarButtonItem (Badge)
 
-@dynamic badgeValue;
+@dynamic badgeNumber;
 
 // Badge value to be display
--(NSString *)badgeValue {
-    return objc_getAssociatedObject(self, &UIBarButtonItem_badgeValueKey);
+-(NSString *)badgeNumber {
+    return objc_getAssociatedObject(self, &UIBarButtonItem_badgeNumberKey);
 }
 
--(void) setBadgeValue:(NSString *)badgeValue {
-    objc_setAssociatedObject(self, &UIBarButtonItem_badgeValueKey, badgeValue, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+-(void)setBadgeNumber:(NSString *)badgeNumber {
+    objc_setAssociatedObject(self, &UIBarButtonItem_badgeNumberKey, badgeNumber, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
     // When changing the badge value check if we need to remove the badge
     if ([self respondsToSelector:@selector(view)] && [(id)self view]) {
-        UIButton *button = (UIButton *)[(id)self view];
-        button.badgeValue = badgeValue;
-        CGPoint originPointInWindow = [button convertPoint:button.badge.frame.origin toView:[UIApplication sharedApplication].keyWindow];
-        DDLogDebug(@"%@", NSStringFromCGPoint(originPointInWindow));
-        DDLogDebug(@"%@", NSStringFromCGRect(button.badge.frame));
-        CGFloat distance = (originPointInWindow.x + button.badge.bounds.size.width + button.badgePadding) - kScreenWidth;
-        button.badgeOriginX = distance > 0 ?  button.badgeOriginX - distance : button.badgeOriginX;
+        UIView *view = (UIView *)[(id)self view];
+        UIImageView *imageView = (UIImageView *)[view getFirstSubview:[UIImageView class]];
+        imageView.badgeNumber = badgeNumber;
     }
 }
 

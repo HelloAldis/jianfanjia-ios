@@ -233,6 +233,7 @@
 		688517661C915862000B01DB /* NotificationBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517651C915862000B01DB /* NotificationBusiness.m */; };
 		688517691C9170BF000B01DB /* GetUserUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517681C9170BF000B01DB /* GetUserUnreadCount.m */; };
 		6885176C1C9183A8000B01DB /* UITabBarItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885176B1C9183A8000B01DB /* UITabBarItem+Badge.m */; };
+		6885176F1C9258D1000B01DB /* UIView+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885176E1C9258D1000B01DB /* UIView+Badge.m */; };
 		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
 		689E714A1C80588C0012BF3C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689E71481C80588C0012BF3C /* WebViewController.m */; };
@@ -419,7 +420,6 @@
 		6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D831C1174DD00C6957E /* StringUtil.m */; };
 		AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */; };
 		AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */; };
-		AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = AB489B851C1B085E00E1BA4B /* UIButton+Badge.m */; };
 		AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF871C0F2F76003680BA /* SectionDone.m */; };
 		AB4CAF8B1C0F35E8003680BA /* GetRescheduleNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8A1C0F35E8003680BA /* GetRescheduleNotification.m */; };
 		AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8D1C0F361B003680BA /* Reschedule.m */; };
@@ -820,6 +820,8 @@
 		688517681C9170BF000B01DB /* GetUserUnreadCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserUnreadCount.m; sourceTree = "<group>"; };
 		6885176A1C9183A8000B01DB /* UITabBarItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+Badge.h"; sourceTree = "<group>"; };
 		6885176B1C9183A8000B01DB /* UITabBarItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Badge.m"; sourceTree = "<group>"; };
+		6885176D1C9258D1000B01DB /* UIView+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Badge.h"; sourceTree = "<group>"; };
+		6885176E1C9258D1000B01DB /* UIView+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Badge.m"; sourceTree = "<group>"; };
 		689485CE1C1A6A05002310FC /* NotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDataManager.h; sourceTree = "<group>"; };
 		689485CF1C1A6A05002310FC /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
@@ -1159,8 +1161,6 @@
 		AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectionViewController.m; sourceTree = "<group>"; };
 		AB489B821C1B085E00E1BA4B /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
 		AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
-		AB489B841C1B085E00E1BA4B /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
-		AB489B851C1B085E00E1BA4B /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		AB4CAF861C0F2F76003680BA /* SectionDone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionDone.h; sourceTree = "<group>"; };
 		AB4CAF871C0F2F76003680BA /* SectionDone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionDone.m; sourceTree = "<group>"; };
 		AB4CAF891C0F35E8003680BA /* GetRescheduleNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRescheduleNotification.h; sourceTree = "<group>"; };
@@ -1886,12 +1886,12 @@
 		6E07DA751BD88DBE001461DD /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				6885176D1C9258D1000B01DB /* UIView+Badge.h */,
+				6885176E1C9258D1000B01DB /* UIView+Badge.m */,
 				6885176A1C9183A8000B01DB /* UITabBarItem+Badge.h */,
 				6885176B1C9183A8000B01DB /* UITabBarItem+Badge.m */,
 				AB489B821C1B085E00E1BA4B /* UIBarButtonItem+Badge.h */,
 				AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */,
-				AB489B841C1B085E00E1BA4B /* UIButton+Badge.h */,
-				AB489B851C1B085E00E1BA4B /* UIButton+Badge.m */,
 				6E4496501BFD7DDE00C90851 /* NSNumber+Ex.h */,
 				6E4496511BFD7DDE00C90851 /* NSNumber+Ex.m */,
 				6E07DA761BD88DBE001461DD /* Ex.h */,
@@ -2713,6 +2713,7 @@
 				683840031C157216004F456E /* UpdateUserInfo.m in Sources */,
 				683FFB591C2A4135002A1AFE /* CollectDecPhaseViewController.m in Sources */,
 				6E07DACA1BD88DBE001461DD /* BaseDynamicObject.m in Sources */,
+				6885176F1C9258D1000B01DB /* UIView+Badge.m in Sources */,
 				6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */,
 				684A374A1BFD73DF00F7388C /* DecorationStyleCell.m in Sources */,
 				682E05151C58BDA700F1ACAA /* PlanPriceItemSection.m in Sources */,
@@ -2933,7 +2934,6 @@
 				6838400C1C158490004F456E /* UpdateMultipleLineTextViewController.m in Sources */,
 				68123BA31C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.m in Sources */,
 				68123F241C4CC70E008FC9AB /* CollectionFallsFlowLayout.m in Sources */,
-				AB489B871C1B085E00E1BA4B /* UIButton+Badge.m in Sources */,
 				684A37561BFD73DF00F7388C /* SelectPopulationViewController.m in Sources */,
 				682E050F1C58BDA700F1ACAA /* PlanPriceDetailViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,

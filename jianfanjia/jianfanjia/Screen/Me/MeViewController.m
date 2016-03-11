@@ -90,11 +90,13 @@
 
 - (void)updateUnreadNumber {
     [[NotificationDataManager shared] subscribeMyNotificationUnreadCount:^(NSInteger count) {
-        self.btnMyNotification.badgeValue = [@(count) stringValue];
+        self.btnMyNotification.shouldHideBadgeAtZero = YES;
+        self.btnMyNotification.badgeNumber = [@(count) stringValue];
     }];
     
     [[NotificationDataManager shared] subscribeMyLeaveMsgUnreadCount:^(NSInteger count) {
-       self.btnMyLeaveMsg.badgeValue = [@(count) stringValue];
+        self.btnMyLeaveMsg.shouldHideBadgeAtZero = YES;
+        self.btnMyLeaveMsg.badgeNumber = [@(count) stringValue];
     }];
 }
 

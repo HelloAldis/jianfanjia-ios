@@ -110,9 +110,9 @@ static NSDictionary *NotificationTitles = nil;
 }
 
 - (void)initButtons {
-    self.actionView.hidden = ![self.notification.status isEqualToString:kNotificationUnread];
-    self.actionViewHeightConst.constant = [self.notification.status isEqualToString:kNotificationUnread] ? : 0;
-    
+//    self.actionView.hidden = ![self.notification.status isEqualToString:kNotificationUnread];
+//    self.actionViewHeightConst.constant = [self.notification.status isEqualToString:kNotificationUnread] ? : 0;
+//    
     if ([self.notification.message_type isEqualToString:kUserPNFromRescheduleRequest]) {
         self.btnAgree.hidden = NO;
         self.btnReject.hidden = NO;

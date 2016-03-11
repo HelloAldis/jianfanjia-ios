@@ -11,6 +11,6 @@
 @interface UIBarButtonItem (Badge)
 
 // Badge value to be display
-@property (nonatomic) NSString *badgeValue;
+@property (nonatomic) NSString *badgeNumber;
 
 @end

@@ -35,10 +35,8 @@
     my.titlePositionAdjustment = UIOffsetMake(0, -2);
     
     [[NotificationDataManager shared] subscribeAppBadgeNumber:^(NSInteger count) {
-        my.badgeCount = [@(1) stringValue];
+        my.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
     }];
-    
-    
 }
 
 @end

@@ -11,6 +11,6 @@
 @interface UITabBarItem (Badge)
 
 // Badge value to be display
-@property (nonatomic) NSString *badgeCount;
+@property (nonatomic) NSString *badgeNumber;
 
 @end
