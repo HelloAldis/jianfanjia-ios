@@ -179,31 +179,24 @@
 }
 
 #pragma mark - APP运行中接收到通知(推送)处理
-/** APP已经接收到“远程”通知(推送) - (App运行在后台/App运行在前台) */
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    application.applicationIconBadgeNumber = 0;        // 标签
-    DDLogDebug(@"\n>>>[Receive RemoteNotification]:%@\n\n",userInfo);
-}
-
 /** APP已经接收到“远程”通知(推送) - 透传推送消息  */
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
     // 处理APN
     DDLogDebug(@"\n>>>[Receive RemoteNotification - Background Fetch]:%@\n\n",userInfo);
-    
+
     if(application.applicationState == UIApplicationStateInactive) {
-        DDLogDebug(@"Inactive");
-        //Show the view with the content of the push
+        [[NotificationDataManager shared] triggerToShowDetail:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
     } else if (application.applicationState == UIApplicationStateBackground) {
-        DDLogDebug(@"Background");
-        //Refresh the local model
-//        [[NotificationDataManager shared] showLocalNoti:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
     } else {
-        DDLogDebug(@"Active");
-        //Show an in-app banner
+        [[NotificationDataManager shared] showLocalNotification:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
     }
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    [[NotificationDataManager shared] triggerToShowDetail:notification.userInfo];
 }
 
 #pragma mark - GeTuiSdkDelegate
@@ -233,7 +226,9 @@
     
     NSString *msg = [NSString stringWithFormat:@" payloadId=%@,taskId=%@,messageId:%@,payloadMsg:%@%@",payloadId,taskId,aMsgId,payloadMsg,offLine ? @"<离线消息>" : @""];
     DDLogDebug(@"\n>>>[GexinSdk ReceivePayload]:%@\n\n", msg);
-    [[NotificationDataManager shared] receiveNotification:payload andOffLine:offLine];
+    if (offLine) {
+        [[NotificationDataManager shared] refreshUnreadCount];
+    }
     
     /**
      *汇报个推自定义事件

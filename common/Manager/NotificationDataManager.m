@@ -9,16 +9,22 @@
 //
 // Notification Data structure
 /**
+ {
+ aps =     {
+ alert = "\U5c0a\U656c\U7684\U4e1a\U4e3b\U60a8\U597d\Uff1a\U60a8\U7684\U8bbe\U8ba1\U5e08\U5468\U5fd7\U6587\U5e0c\U671b\U5c06\U672c\U9636\U6bb5\U5de5\U671f\U4fee\U6539\U81f32017-03-06\Uff0c\U7b49\U5f85\U60a8\U7684\U786e\U8ba4\Uff01\U5982\U6709\U95ee\U9898\U8bf7\U53ca\U65f6\U4e0e\U8bbe\U8ba1\U5e08\U8054\U7cfb\Uff0c\U4e5f\U53ef\U4ee5\U62e8\U6253\U6211\U4eec\U7684\U5ba2\U670d\U70ed\U7ebf\Uff1a400-8515-167";
  badge = 1;
- content = "\U5c0a\U656c\U7684\U4e1a\U4e3b\U60a8\U597d\Uff1a\U60a8\U7684\U8bbe\U8ba1\U5e08\U5468\U5fd7\U6587\U5e0c\U671b\U5c06\U672c\U9636\U6bb5\U5de5\U671f\U4fee\U6539\U81f32017-03-06\Uff0c\U7b49\U5f85\U60a8\U7684\U786e\U8ba4\Uff01\U5982\U6709\U95ee\U9898\U8bf7\U53ca\U65f6\U4e0e\U8bbe\U8ba1\U5e08\U8054\U7cfb\Uff0c\U4e5f\U53ef\U4ee5\U62e8\U6253\U6211\U4eec\U7684\U5ba2\U670d\U70ed\U7ebf\Uff1a400-8515-167";
- messageid = 56e6707de9cbb7a128f3016a;
- status = 0;
- time = 1457942653384;
- type = 0;
- userid = 568494454ade4cb02eeff7c5;
+ category = "ACTION 1";
+ "content-available" = 1;
+ sound = default;
+ };
+ payload1 = "{\"content\":\"\U5c0a\U656c\U7684\U4e1a\U4e3b\U60a8\U597d\Uff1a\U60a8\U7684\U8bbe\U8ba1\U5e08\U5468\U5fd7\U6587\U5e0c\U671b\U5c06\U672c\U9636\U6bb5\U5de5\U671f\U4fee\U6539\U81f32017-03-06\Uff0c\U7b49\U5f85\U60a8\U7684\U786e\U8ba4\Uff01\U5982\U6709\U95ee\U9898\U8bf7\U53ca\U65f6\U4e0e\U8bbe\U8ba1\U5e08\U8054\U7cfb\Uff0c\U4e5f\U53ef\U4ee5\U62e8\U6253\U6211\U4eec\U7684\U5ba2\U670d\U70ed\U7ebf\Uff1a400-8515-167\",\"type\":\"0\",\"time\":1457947115524,\"messageid\":\"56e681eb75f744e665b39c85\",\"badge\":1}";
+ }
  */
 
 #import "NotificationDataManager.h"
+
+NSString const * kLocalNotificationKey = @"LocalNotification";
+NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 
 @interface NotificationDataManager ()
 
@@ -30,36 +36,25 @@
 
 @implementation NotificationDataManager
 
-- (id)init {
-    [RACObserve([UIApplication sharedApplication], applicationIconBadgeNumber) subscribeNext:^(id x) {
-        [self refreshUnreadCount];
-    }];
-    return [super init];
+- (instancetype)init {
+    if (self = [super init]) {
+        [RACObserve([UIApplication sharedApplication], applicationIconBadgeNumber) subscribeNext:^(id x) {
+            [self refreshUnreadCount];
+        }];
+    }
+    
+    return self;
 }
 
-- (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine {
-    if ([GVUserDefaults standardUserDefaults].isLogin) {
-        if (offLine) {
-            [self refreshUnreadCount];
-        }
-        
-        Notification *notification = [self convertPayloadToObj:payload];
-        
-        if (notification) {
-            
-            
-//            [NotificationBusiness setAppBadge:notification.badge.integerValue];
-            
-            if (!offLine) {
-//                NSString *backupContent = [notification.content copy];
-//                if ([notification.type isEqualToString:kNotificationTypePurchase]) {
-//                    notification.content = [NSString stringWithFormat:@"系统提醒您进入建材购买阶段，您需要购买的是：%@", notification.content];
-//                }
-//                [self showLocalNotification:notification];
-//                notification.content = backupContent;
-            }
-        }
+- (void)triggerToShowDetail:(NSDictionary *)userInfo {
+    NSDictionary *info = nil;
+    NSString *payload = [userInfo objectForKey:@"payload1"];
+    if (payload) {
+        Notification *notification = [self convertPayloadToObj:[payload dataUsingEncoding:NSUTF8StringEncoding]];
+        info = notification.data;
     }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowNotificationDetail object:self userInfo:info];
 }
 
 - (Notification *)convertPayloadToObj:(NSData *)payload {
@@ -72,9 +67,6 @@
     }
     
     Notification *notification = [[Notification alloc] initWith:json];
-    notification.userid = [GVUserDefaults standardUserDefaults].userid;
-    notification.status = kNotificationStatusUnread;
-    
     return notification;
 }
 
@@ -124,23 +116,7 @@
     }
 }
 
-- (void)showLocalNoti:(NSDictionary *)userInfo {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        if ([GVUserDefaults standardUserDefaults].isLogin) {
-            NSString *alert = [[userInfo objectForKey:@"aps"] objectForKey:@"alert"];
-            NSString *payload = [userInfo objectForKey:@"payload1"];
-            if (payload) {
-                Notification *notification = [self convertPayloadToObj:[payload dataUsingEncoding:NSUTF8StringEncoding]];
-                if (notification) {
-                    notification.content = [NSString stringWithFormat:@"%@ %@", alert, notification.content];
-                    [self showLocalNotification:notification];
-                }
-            }
-        }
-    });
-}
-
-- (void)showLocalNotification:(Notification *)noti {
+- (void)showLocalNotification:(NSDictionary *)userInfo {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     // 设置触发通知的时间
     NSDate *fireDate = [NSDate date];
@@ -150,18 +126,14 @@
     // 设置重复的间隔
     notification.repeatInterval = 0;
     // 通知内容
-    notification.alertBody = noti.content;
+    notification.alertBody = userInfo[@"aps"][@"alert"];
     // 通知被触发时播放的声音
     notification.soundName = UILocalNotificationDefaultSoundName;
     // 通知参数
-    NSDictionary *userDict = [NSDictionary dictionaryWithObject:noti.content forKey:[self generateNotificationKey:noti]];
+    NSDictionary *userDict = [NSDictionary dictionaryWithObject:userInfo forKey:kLocalNotificationKey];
     notification.userInfo = userDict;
     // 执行通知注册
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
-}
-
-- (NSString *)generateNotificationKey:(Notification *)notification {
-    return [NSString stringWithFormat:@"%@_%@", notification.userid, notification.type];
 }
 
 kSynthesizeSingletonForClass(NotificationDataManager)

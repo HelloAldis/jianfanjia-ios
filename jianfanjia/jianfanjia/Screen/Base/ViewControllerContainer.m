@@ -71,10 +71,15 @@ static ViewControllerContainer *container;
 - (instancetype)init {
     if (self = [super init]) {
         self.window = [AppDelegate sharedInstance].window;
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:kShowNotificationDetail object:nil];
     }
     
     return self;
+}
+
+- (void)receiveNotification:(NSNotification *)notification {
+    Notification *noti = [[Notification alloc] initWith:(NSMutableDictionary *)notification.userInfo];
+    [ViewControllerContainer showNotificationDetail:noti.messageid readBlock:nil];
 }
 
 + (void)showAfterLanching {

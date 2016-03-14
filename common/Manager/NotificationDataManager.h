@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString const * kLocalNotificationKey;
+extern NSString *kShowNotificationDetail;
+
 typedef void (^NotificationUnreadUpdateBlock)(NSInteger count);
 
 @interface NotificationDataManager : NSObject
@@ -17,8 +20,8 @@ typedef void (^NotificationUnreadUpdateBlock)(NSInteger count);
 - (void)subscribeAppBadgeNumber:(NotificationUnreadUpdateBlock)block;
 - (void)refreshUnreadCount;
 
-- (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine;
-- (void)showLocalNoti:(NSDictionary *)userInfo;
+- (void)showLocalNotification:(NSDictionary *)userInfo;
+- (void)triggerToShowDetail:(NSDictionary *)userinfo;
 
 kSynthesizeSingletonForHeader(NotificationDataManager)
 
