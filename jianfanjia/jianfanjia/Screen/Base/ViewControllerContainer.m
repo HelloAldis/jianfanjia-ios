@@ -79,7 +79,12 @@ static ViewControllerContainer *container;
 
 - (void)receiveNotification:(NSNotification *)notification {
     Notification *noti = [[Notification alloc] initWith:(NSMutableDictionary *)notification.userInfo];
-    [ViewControllerContainer showNotificationDetail:noti.messageid readBlock:nil];
+    
+    if ([[NotificationBusiness userAllNotificationsFilter] containsObject:noti.type]) {
+        [ViewControllerContainer showNotificationDetail:noti.messageid readBlock:nil];
+    } else {
+        [ViewControllerContainer showMyComments];
+    }
 }
 
 + (void)showAfterLanching {
