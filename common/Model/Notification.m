@@ -11,15 +11,12 @@
 @implementation Notification
 
 @dynamic objectId;
+@dynamic messageid;
 @dynamic userid;
 @dynamic type;
-@dynamic processid;
-@dynamic section;
-@dynamic cell;
 @dynamic time;
 @dynamic content;
 @dynamic status;
-
 @dynamic badge;
 
 @end

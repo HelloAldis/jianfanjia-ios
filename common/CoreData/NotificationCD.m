@@ -20,7 +20,7 @@
     [[NSManagedObjectContext context] performBlock:^{
         NotificationCD *notificationCD = [NotificationCD insertOne];
         notificationCD.userid = notification.userid;
-        notificationCD.processid = notification.processid;
+//        notificationCD.processid = notification.processid;
         notificationCD.type = notification.type;
         notificationCD.time = notification.time;
         notificationCD.status = notification.status;
@@ -33,7 +33,7 @@
 - (Notification *)notification {
     Notification *notification = [[Notification alloc] initWith:self.info];
     notification.userid = self.userid;
-    notification.processid = self.processid;
+//    notification.processid = self.processid;
     notification.type = self.type;
     notification.time = self.time;
     notification.status = self.status;

@@ -8,16 +8,15 @@
 //
 //
 // Notification Data structure
-// {"content":"测试一下离线的","section":"section","type":"type","time":1449800214981,"cell":"cell","processid":"566798dab6c449fd05969fef"}
-//
-// Purchase notification
-// {"content":"水电材料","section":"shui_dian","cell":"复古","type":"1","time":1449881177142,"processid":"566b6dd2e1029ffe2f0b1d24"}
-//
-// Reschedule notification
-// {"content":"设计师唐冕向您提出了改期, 希望可以将验收改期到2015-12-23","type":"0","time":1449900703466,"section":"shui_dian","status":"3","cell":"复古","processid":"566b6dd2e1029ffe2f0b1d24"}
-//
-// Info notification
-// {"content":"设计师已经上传所有验收图片，您可以前往对比验收","type":"3","time":1449902755533,"section":"shui_dian","cell":"复古","processid":"566b6dd2e1029ffe2f0b1d24"}
+/**
+ badge = 1;
+ content = "\U5c0a\U656c\U7684\U4e1a\U4e3b\U60a8\U597d\Uff1a\U60a8\U7684\U8bbe\U8ba1\U5e08\U5468\U5fd7\U6587\U5e0c\U671b\U5c06\U672c\U9636\U6bb5\U5de5\U671f\U4fee\U6539\U81f32017-03-06\Uff0c\U7b49\U5f85\U60a8\U7684\U786e\U8ba4\Uff01\U5982\U6709\U95ee\U9898\U8bf7\U53ca\U65f6\U4e0e\U8bbe\U8ba1\U5e08\U8054\U7cfb\Uff0c\U4e5f\U53ef\U4ee5\U62e8\U6253\U6211\U4eec\U7684\U5ba2\U670d\U70ed\U7ebf\Uff1a400-8515-167";
+ messageid = 56e6707de9cbb7a128f3016a;
+ status = 0;
+ time = 1457942653384;
+ type = 0;
+ userid = 568494454ade4cb02eeff7c5;
+ */
 
 #import "NotificationDataManager.h"
 

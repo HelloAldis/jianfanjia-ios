@@ -59,9 +59,6 @@ extern NSString * const kSectionStatusChangeDateRequest;
 extern NSString * const kSectionStatusChangeDateAgree;
 extern NSString * const kSectionStatusChangeDateDecline;
 
-extern NSString * const kNotificationStatusUnread;
-extern NSString * const kNotificationStatusReaded;
-
 extern NSString * const kNotificationTypePurchase;
 extern NSString * const kNotificationTypePay;
 extern NSString * const kNotificationTypeReschedule;

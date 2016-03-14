@@ -8,8 +8,13 @@
 
 #import "NotificationBusiness.h"
 
-NSString *kNotificationRead = @"1";
-NSString *kNotificationUnread = @"0";
+/*
+ 推送消息类型 message_status
+ * 0. 未读
+ * 1. 已读
+ **/
+NSString * const kNotificationStatusUnread = @"0";
+NSString * const kNotificationStatusReaded = @"1";
 
 static NSArray *_UserAllNotificationsFilter;
 static NSArray *_UserSystemAnnouncementFilter;
@@ -48,7 +53,7 @@ static NSArray *_UserAllLeaveMsgFilter;
 }
 
 + (void)markTextColor:(UILabel *)label status:(NSString *)status {
-    label.textColor = [status isEqualToString:kNotificationRead] ? kNotificationReadColor : kThemeTextColor;
+    label.textColor = [status isEqualToString:kNotificationStatusReaded] ? kNotificationReadColor : kThemeTextColor;
 }
 
 + (NSInteger)appBadge {

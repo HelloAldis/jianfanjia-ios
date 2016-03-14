@@ -148,14 +148,6 @@ NSString * const kSectionStatusChangeDateAgree = @"4";
 NSString * const kSectionStatusChangeDateDecline = @"5";
 
 /*
- 推送消息类型 message_status
- * 0. 未读
- * 1. 已读
- **/
-NSString * const kNotificationStatusUnread = @"0";
-NSString * const kNotificationStatusReaded = @"1";
-
-/*
  推送消息类型 message_type
  * 0. 延期提醒
  * 1. 采购提醒

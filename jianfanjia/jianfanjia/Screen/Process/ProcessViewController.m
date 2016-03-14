@@ -528,10 +528,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 #pragma mark - notification 
 - (void)receiveNotification:(NSNotification *)notification {
-    Notification *noti = notification.object;
-    if ([noti.processid isEqualToString:self.processid]) {
-        [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
-    }
+//    Notification *noti = notification.object;
+//    if ([noti.processid isEqualToString:self.processid]) {
+//        [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
+//    }
 }
 
 @end

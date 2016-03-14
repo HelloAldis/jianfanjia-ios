@@ -126,7 +126,7 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [ViewControllerContainer showNotificationDetail:[self.dataSource[indexPath.row] _id] readBlock:^{
         UserNotification *notification = self.dataSource[indexPath.row];
-        notification.status = kNotificationRead;
+        notification.status = kNotificationStatusReaded;
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

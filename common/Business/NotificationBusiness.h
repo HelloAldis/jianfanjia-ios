@@ -10,8 +10,8 @@
 
 typedef void(^NotificationReadBlock)(void);
 
-extern NSString *kNotificationRead;
-extern NSString *kNotificationUnread;
+extern NSString * const kNotificationStatusUnread;
+extern NSString * const kNotificationStatusReaded;
 
 @interface NotificationBusiness : NSObject
 
