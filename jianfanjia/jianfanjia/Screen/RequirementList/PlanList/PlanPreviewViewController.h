@@ -11,6 +11,6 @@
 
 @interface PlanPreviewViewController : BaseViewController <UIScrollViewDelegate>
 
-- (id)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement from:(PlanSource)from refresh:(void(^)(void))refreshBlock;
+- (id)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock;
 
 @end

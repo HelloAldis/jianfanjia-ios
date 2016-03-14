@@ -204,7 +204,7 @@ static NSDictionary *NotificationTitles = nil;
     @weakify(self);
     self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [ViewControllerContainer showPlanPerview:self.notification.plan forRequirement:self.notification.requirement from:PlanSourceOther refresh:^{
+        [ViewControllerContainer showPlanPerview:self.notification.plan forRequirement:self.notification.requirement popTo:nil refresh:^{
             self.notification.plan.status = kPlanStatusPlanWasChoosed;
         }];
     }];
@@ -260,7 +260,9 @@ static NSDictionary *NotificationTitles = nil;
     @weakify(self);
     self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [ViewControllerContainer showAgreement:self.notification.requirement];
+        [ViewControllerContainer showAgreement:self.notification.requirement popTo:nil refresh:^{
+            [self getNotificationDetail];
+        }];
     }];
 }
 

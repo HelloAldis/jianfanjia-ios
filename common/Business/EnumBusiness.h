@@ -20,9 +20,4 @@ typedef NS_ENUM(NSInteger, BindPhoneEvent) {
     BindPhoneEventOrderDesigner,
 };
 
-typedef NS_ENUM(NSInteger, PlanSource) {
-    PlanSourceOrderDesignder,
-    PlanSourceOther,
-};
-
 #endif /* EnumBusiness_h */

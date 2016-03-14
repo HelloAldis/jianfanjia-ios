@@ -17,14 +17,18 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnConfirm;
 
 @property (strong, nonatomic) Requirement *requirement;
+@property (strong, nonatomic) UIViewController *popTo;
+@property (copy, nonatomic) void(^refreshBlock)(void);
 
 @end
 
 @implementation AgreementViewController
 
-- (id)initWithRequirement:(Requirement *)requirement {
+- (id)initWithRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
     if (self = [super init]) {
         _requirement = requirement;
+        _popTo = popTo;
+        _refreshBlock = refreshBlock;
     }
     
     return self;
@@ -107,7 +111,15 @@
     request.requirementid = self.requirement._id;
     
     [API startDecoration:request success:^{
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        if (self.refreshBlock) {
+            self.refreshBlock();
+        }
+        
+        if (self.popTo) {
+            [self.navigationController popToViewController:self.popTo animated:YES];
+        } else {
+            [self clickBack];
+        }
     } failure:^{
         self.btnConfirm.enabled = YES;
     } networkError:^{

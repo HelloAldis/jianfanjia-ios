@@ -60,7 +60,7 @@
 }
 
 - (void)onClickViewAgreementButton {
-    [ViewControllerContainer showAgreement:self.requirement];
+    [ViewControllerContainer showAgreement:self.requirement popTo:[ViewControllerContainer getCurrentTapController].navigationController.viewControllers.firstObject refresh:nil];
 }
 
 @end

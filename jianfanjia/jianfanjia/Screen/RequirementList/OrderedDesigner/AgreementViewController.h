@@ -10,6 +10,6 @@
 
 @interface AgreementViewController : BaseViewController
 
-- (id)initWithRequirement:(Requirement *)requirement;
+- (id)initWithRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock;
 
 @end

@@ -29,7 +29,7 @@
 
 @property (strong, nonatomic) Plan *plan;
 @property (strong, nonatomic) Requirement *requirement;
-@property (assign, nonatomic) PlanSource from;
+@property (strong, nonatomic) UIViewController *popTo;
 @property (copy, nonatomic) void(^refreshBlock)(void);
 
 @end
@@ -37,11 +37,11 @@
 @implementation PlanPreviewViewController
 
 #pragma mark - init method
-- (id)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement from:(PlanSource)from refresh:(void(^)(void))refreshBlock {
+- (id)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
     if (self = [super init]) {
         _plan = plan;
         _requirement = requirement;
-        _from = from;
+        _popTo = popTo;
         _refreshBlock = refreshBlock;
     }
     
@@ -159,8 +159,8 @@
                 self.refreshBlock();
             }
             
-            if (self.from == PlanSourceOrderDesignder) {
-                [self navigateToOrderedDesignerScreen];
+            if (self.popTo) {
+                [self.navigationController popToViewController:self.popTo animated:YES];
             } else {
                 [self onClickBack];
             }
@@ -170,19 +170,6 @@
             
         }];
     }];
-}
-
-- (void)navigateToOrderedDesignerScreen {
-    NSArray *controllers = [[self.navigationController.viewControllers reverseObjectEnumerator] allObjects];
-    UIViewController *purposeController = nil;
-    for (UIViewController *controller in controllers) {
-        if ([controller isKindOfClass:[OrderedDesignerViewController class]]) {
-            purposeController = controller;
-            break;
-        }
-    }
-    
-    [self.navigationController popToViewController:purposeController animated:YES];
 }
 
 @end

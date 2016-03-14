@@ -332,8 +332,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement from:(PlanSource)from refresh:(void(^)(void))refreshBlock {
-    PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan forRequirement:requirement from:from refresh:refreshBlock];
++ (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
+    PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan forRequirement:requirement popTo:popTo refresh:refreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
@@ -352,8 +352,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showAgreement:(Requirement *)requirement {
-    AgreementViewController *v = [[AgreementViewController alloc] initWithRequirement:requirement];
++ (void)showAgreement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
+    AgreementViewController *v = [[AgreementViewController alloc] initWithRequirement:requirement popTo:popTo refresh:refreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

@@ -8,6 +8,7 @@
 
 #import "PlanCell.h"
 #import "ViewControllerContainer.h"
+#import "OrderedDesignerViewController.h"
 
 static const NSInteger imgWidth = 170;
 static const NSInteger imgSpace = 2;
@@ -94,7 +95,20 @@ static const NSInteger imgSpace = 2;
 }
 
 - (void)onClickPlanPreviewButton {
-    [ViewControllerContainer showPlanPerview:self.plan forRequirement:self.requirement from:PlanSourceOrderDesignder refresh:nil];
+    [ViewControllerContainer showPlanPerview:self.plan forRequirement:self.requirement popTo:[self getPurposeTopController] refresh:nil];
+}
+
+- (UIViewController *)getPurposeTopController {
+    NSArray *controllers = [[[ViewControllerContainer getCurrentTapController].navigationController.viewControllers reverseObjectEnumerator] allObjects];
+    UIViewController *purposeController = nil;
+    for (UIViewController *controller in controllers) {
+        if ([controller isKindOfClass:[OrderedDesignerViewController class]]) {
+            purposeController = controller;
+            break;
+        }
+    }
+    
+    return purposeController;
 }
 
 @end

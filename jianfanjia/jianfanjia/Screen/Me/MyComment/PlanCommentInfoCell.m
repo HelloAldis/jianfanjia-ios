@@ -8,6 +8,7 @@
 
 #import "PlanCommentInfoCell.h"
 #import "ViewControllerContainer.h"
+#import "OrderedDesignerViewController.h"
 
 static const NSInteger imgWidth = 140;
 static const NSInteger imgSpace = 2;
@@ -82,7 +83,7 @@ static const NSInteger imgSpace = 2;
 
 #pragma mark - gesture
 - (void)onTapPlan {
-    [ViewControllerContainer showPlanPerview:self.notification.plan forRequirement:self.notification.requirement from:PlanSourceOther refresh:^{
+    [ViewControllerContainer showPlanPerview:self.notification.plan forRequirement:self.notification.requirement popTo:nil  refresh:^{
         self.notification.requirement.plan.status = kPlanStatusPlanWasChoosed;
     }];
 }
