@@ -188,6 +188,7 @@
 		684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37631BFDDCB100F7388C /* ConfirmMeasuringHouse.m */; };
 		684A37671BFDE24900F7388C /* EvaluateDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37661BFDE24900F7388C /* EvaluateDesignerViewController.m */; };
 		684A37691BFDE25E00F7388C /* EvaluateDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A37681BFDE25E00F7388C /* EvaluateDesignerViewController.xib */; };
+		684B03B61C968A450053FFDF /* BaseNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03B51C968A450053FFDF /* BaseNotificationCell.m */; };
 		685272C31C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */; };
 		685272C71C2D1602002E62EC /* SelectBusinessTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */; };
 		685272C81C2D1602002E62EC /* SelectBusinessTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C61C2D1602002E62EC /* SelectBusinessTypeViewController.xib */; };
@@ -745,6 +746,8 @@
 		684A37651BFDE24900F7388C /* EvaluateDesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EvaluateDesignerViewController.h; sourceTree = "<group>"; };
 		684A37661BFDE24900F7388C /* EvaluateDesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EvaluateDesignerViewController.m; sourceTree = "<group>"; };
 		684A37681BFDE25E00F7388C /* EvaluateDesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateDesignerViewController.xib; sourceTree = "<group>"; };
+		684B03B41C968A450053FFDF /* BaseNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNotificationCell.h; sourceTree = "<group>"; };
+		684B03B51C968A450053FFDF /* BaseNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNotificationCell.m; sourceTree = "<group>"; };
 		685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessRequirementCreateViewController.xib; sourceTree = "<group>"; };
 		685272C41C2D1602002E62EC /* SelectBusinessTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBusinessTypeViewController.h; sourceTree = "<group>"; };
 		685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBusinessTypeViewController.m; sourceTree = "<group>"; };
@@ -1634,6 +1637,8 @@
 				68679A431C8EB48100B380D0 /* NotificationDetailViewController.h */,
 				68679A441C8EB48100B380D0 /* NotificationDetailViewController.m */,
 				68679A461C8EB49900B380D0 /* NotificationDetailViewController.xib */,
+				684B03B41C968A450053FFDF /* BaseNotificationCell.h */,
+				684B03B51C968A450053FFDF /* BaseNotificationCell.m */,
 			);
 			path = MyNotification;
 			sourceTree = "<group>";
@@ -2828,6 +2833,7 @@
 				68134A391C3CF444003C1C10 /* BindPhoneViewController.m in Sources */,
 				68134A451C3D0BD9003C1C10 /* BindWechat.m in Sources */,
 				6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */,
+				684B03B61C968A450053FFDF /* BaseNotificationCell.m in Sources */,
 				685DD4511C89761E00A76B9C /* PlanCommentInfoCell.m in Sources */,
 				68679A411C8E730F00B380D0 /* SystemAnnouncementCell.m in Sources */,
 				684A370C1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.m in Sources */,

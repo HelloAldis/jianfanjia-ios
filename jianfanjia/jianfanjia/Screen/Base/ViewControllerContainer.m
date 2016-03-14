@@ -332,8 +332,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement {
-    PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan forRequirement:requirement];
++ (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement from:(PlanSource)from refresh:(void(^)(void))refreshBlock {
+    PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan forRequirement:requirement from:from refresh:refreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
@@ -367,9 +367,10 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showNotificationDetail:(NSString *)notificationid {
++ (void)showNotificationDetail:(NSString *)notificationid readBlock:(NotificationReadBlock)readBlock {
     NotificationDetailViewController *v = [[NotificationDetailViewController alloc] init];
     v.notificationId = notificationid;
+    v.readBlock = readBlock;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

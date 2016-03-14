@@ -40,12 +40,12 @@
 + (void)showPlanList:(NSString *)designerid forRequirement:(Requirement *)requirement;
 + (void)leaveMessage:(Plan *)plan;
 + (void)leaveMessage:(NSString *)processid designer:(NSString *)designerid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock;
-+ (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement;
++ (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement from:(PlanSource)from refresh:(void(^)(void))refreshBlock;
 + (void)showPlanPriceDetail:(Plan *)plan;
 + (void)showTab;
 + (void)showDBYS:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock;
 + (void)showMyNotification;
-+ (void)showNotificationDetail:(NSString *)notificationid;
++ (void)showNotificationDetail:(NSString *)notificationid readBlock:(NotificationReadBlock)readBlock;
 + (void)showMyComments;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;

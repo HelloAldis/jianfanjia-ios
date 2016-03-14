@@ -82,15 +82,6 @@
 }
 
 - (void)subscribeAppBadgeNumber:(NotificationUnreadUpdateBlock)block {
-    [NotificationBusiness setAppBadge:5];
-//    [[[UIApplication sharedApplication] rac_valuesAndChangesForKeyPath:@"applicationIconBadgeNumber" options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew observer:[UIApplication sharedApplication]] subscribeNext:^(RACTuple *tuple) {
-//        NSInteger badgeNumber = [tuple.first integerValue];
-//        if (block) {
-//            block(badgeNumber);
-//        }
-//    }];
-//    
-    
     [RACObserve([UIApplication sharedApplication], applicationIconBadgeNumber) subscribeNext:^(id x) {
         if (block) {
             block([x integerValue]);

@@ -60,8 +60,9 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    self.originUserImageFrame = self.userImageView.frame;
-    self.originAvatarImageFrame = self.userThumnail.frame;
+    if (CGRectGetHeight(self.originUserImageFrame) == 0) {
+        self.originUserImageFrame = self.userImageView.frame;
+    }
     
     if (self.isTabbarhide) {
         [self showTabbar];
@@ -171,13 +172,6 @@
     f.size.height =  CGRectGetHeight(self.originUserImageFrame) - offsetY;
     f.origin.x = MIN(0, offsetY / 2);
     self.userImageView.frame = f;
-    
-//    f = CGRectZero;
-//    f.size.width = CGRectGetWidth(self.originAvatarImageFrame);
-//    f.size.height = CGRectGetHeight(self.originAvatarImageFrame);
-//    f.origin.y = (CGRectGetHeight(self.userImageView.frame) - f.size.height) / 2 + offsetY;
-//    f.origin.x = (kScreenWidth - f.size.width) / 2;
-//    self.userThumnail.frame = f;
 }
 
 #pragma mark - Util

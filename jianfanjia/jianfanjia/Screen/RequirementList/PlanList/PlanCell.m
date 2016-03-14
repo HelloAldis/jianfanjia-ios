@@ -94,7 +94,7 @@ static const NSInteger imgSpace = 2;
 }
 
 - (void)onClickPlanPreviewButton {
-    [ViewControllerContainer showPlanPerview:self.plan forRequirement:self.requirement];
+    [ViewControllerContainer showPlanPerview:self.plan forRequirement:self.requirement from:PlanSourceOrderDesignder refresh:nil];
 }
 
 @end

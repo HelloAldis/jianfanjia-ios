@@ -12,5 +12,7 @@
 
 - (void)setDisableAlpha;
 - (void)setEnableAlpha;
+- (void)disable;
+- (void)disable:(NSString *)text;
 
 @end

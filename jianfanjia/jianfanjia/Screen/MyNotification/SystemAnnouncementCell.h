@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseNotificationCell.h"
 
-@interface SystemAnnouncementCell : UITableViewCell
+@interface SystemAnnouncementCell : BaseNotificationCell
 
 - (void)initWithNotification:(UserNotification *)notification;
 

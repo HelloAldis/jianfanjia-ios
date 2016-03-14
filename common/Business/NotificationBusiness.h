@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^NotificationReadBlock)(void);
+
 extern NSString *kNotificationRead;
 extern NSString *kNotificationUnread;
 

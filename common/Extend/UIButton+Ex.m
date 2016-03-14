@@ -20,4 +20,18 @@
     self.alpha = 1;
 }
 
+- (void)disable {
+    [self disable:nil];
+}
+
+- (void)disable:(NSString *)text {
+    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self setBackgroundColor:kUntriggeredColor];
+    if (text) {
+        [self setTitle:text forState:UIControlStateNormal];
+    }
+
+    [self setEnabled:NO];
+}
+
 @end

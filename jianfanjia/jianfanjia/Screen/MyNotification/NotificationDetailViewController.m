@@ -9,6 +9,7 @@
 #import "NotificationDetailViewController.h"
 #import <SafariServices/SafariServices.h>
 #import <Foundation/Foundation.h>
+#import "ViewControllerContainer.h"
 
 @import WebKit;
 
@@ -30,6 +31,9 @@ static NSDictionary *NotificationTitles = nil;
 @property (weak, nonatomic) IBOutlet UIButton *btnAgree;
 @property (weak, nonatomic) IBOutlet UIButton *btnReject;
 
+@property (weak, nonatomic) RACDisposable *okDisposable;
+@property (assign, nonatomic) BOOL wasRead;
+
 @property (strong, nonatomic) UserNotification *notification;
 
 @end
@@ -38,13 +42,20 @@ static NSDictionary *NotificationTitles = nil;
 
 + (void)initialize {
     if ([self class] == [NotificationDetailViewController class]) {
-        NotificationTitles = @{kUserPNFromPayTip:@"付款提醒",
-                               kUserPNFromPurchaseTip:@"采购提醒",
-                               kUserPNFromRescheduleAgree:@"改期提醒",
-                               kUserPNFromRescheduleReject:@"改期提醒",
-                               kUserPNFromRescheduleRequest:@"改期提醒",
-                               kUserPNFromDBYSRequest:@"验收提醒",
-                               };
+        NotificationTitles = @{
+                               kUserPNFromRescheduleRequest:@"改期",
+                               kUserPNFromRescheduleAgree:@"改期",
+                               kUserPNFromRescheduleReject:@"改期",
+                               kUserPNFromPurchaseTip:@"采购",
+                               kUserPNFromPayTip:@"付款",
+                               kUserPNFromDBYSRequest:@"验收",
+                               kUserPNFromSystemMsg:@"公告",
+                               kUserPNFromOrderRespond:@"需求",
+                               kUserPNFromOrderReject:@"需求",
+                               kUserPNFromPlanSubmit:@"需求",
+                               kUserPNFromAgreementConfigure:@"需求",
+                               kUserPNFromMeasureHouseConfirm:@"需求",
+                            };
     }
 }
 
@@ -58,6 +69,17 @@ static NSDictionary *NotificationTitles = nil;
     [self getNotificationDetail];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+
+    if (self.wasRead) {
+        [NotificationBusiness reduceOneBadge];
+        if (self.readBlock) {
+            self.readBlock();
+        }
+    }
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
@@ -66,26 +88,16 @@ static NSDictionary *NotificationTitles = nil;
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.notificationTitleBG setCornerRadius:8];
-    [self.btnOk setCornerRadius:8];
-    [self.btnAgree setCornerRadius:8];
-    [self.btnReject setCornerRadius:8];
+    [self.notificationTitleBG setCornerRadius:5];
+    [self.btnOk setCornerRadius:5];
+    [self.btnAgree setCornerRadius:5];
+    [self.btnReject setCornerRadius:5];
     [self.btnReject setBorder:1 andColor:kThemeColor.CGColor];
-    
+
     @weakify(self);
-    [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [self onClickOk];
-    }];
-    
-    [[self.btnAgree rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        [self agreeChangeDate];
-    }];
-
-    [[self.btnReject rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        [self rejectChangeDate];
     }];
 }
 
@@ -96,7 +108,9 @@ static NSDictionary *NotificationTitles = nil;
     meta.name = 'viewport'; \
     meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'; \
     var head = document.getElementsByTagName('head')[0];\
-    head.appendChild(meta);";
+    head.appendChild(meta);\
+    var body = document.getElementsByTagName('body')[0];\
+    body.style.backgroundColor='#F0F0F0';";
     
     WKUserScript *script = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
     WKUserContentController *userContentController = [WKUserContentController new];
@@ -113,20 +127,24 @@ static NSDictionary *NotificationTitles = nil;
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_webView]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
-    _webView.scrollView.contentInset = UIEdgeInsetsMake(164, 0, 50, 0);
-    self.headerView.frame = CGRectMake(0, -100, kScreenWidth, 100);
+    _webView.scrollView.contentInset = UIEdgeInsetsMake(64 + self.headerView.frame.size.height, 0, 50, 0);
+    self.headerView.frame = CGRectMake(0, -self.headerView.frame.size.height, kScreenWidth, self.headerView.frame.size.height);
     [_webView.scrollView addSubview:self.headerView];
     _webView.scrollView.backgroundColor = self.headerView.backgroundColor;
     self.headerView.hidden = YES;
 }
 
 - (void)initData {
+    self.lblNotificationTitle.text = NotificationTitles[self.notification.message_type];
     if ([[NotificationBusiness userRequirmentNotificationFilter] containsObject:self.notification.message_type]) {
         self.lblCell.text = self.notification.requirement.cell;
+        self.notificationTitleBG.backgroundColor = kExcutionStatusColor;
     } else if ([[NotificationBusiness userWorksiteNotificationFilter] containsObject:self.notification.message_type]) {
         self.lblCell.text = self.notification.process.cell;
+        self.notificationTitleBG.backgroundColor = kThemeColor;
     } else {
         self.lblCell.hidden = YES;
+        self.notificationTitleBG.backgroundColor = kReminderColor;
     }
 
     self.lblSection.hidden = ![[NotificationBusiness userWorksiteNotificationFilter] containsObject:self.notification.message_type];
@@ -139,17 +157,111 @@ static NSDictionary *NotificationTitles = nil;
 }
 
 - (void)initButtons {
-//    self.actionViewHeightConst.constant = [self.notification.status isEqualToString:kNotificationUnread] ? : 0;
-//    
     if ([self.notification.message_type isEqualToString:kUserPNFromRescheduleRequest]) {
+        [self handleReschedule];
+    } else if ([self.notification.message_type isEqualToString:kUserPNFromPlanSubmit]) {
+        [self handlePlanSubmit];
+    } else if ([self.notification.message_type isEqualToString:kUserPNFromDBYSRequest]) {
+        [self handleDBYSRequest];
+    } else if ([self.notification.message_type isEqualToString:kUserPNFromMeasureHouseConfirm]) {
+        [self handleMeasureHouseConfirm];
+    } else if ([self.notification.message_type isEqualToString:kUserPNFromAgreementConfigure]) {
+        [self handleAgreementConfigure];
+    } else {
+        [self displayDefaultOk];
+    }
+}
+
+- (void)handleReschedule {
+    Schedule *schedule = self.notification.schedule;
+    if ([schedule.status isEqualToString:kSectionStatusChangeDateRequest]) {
         self.btnAgree.hidden = NO;
         self.btnReject.hidden = NO;
-        self.btnOk.hidden = YES;
-    } else {
-        self.btnAgree.hidden = YES;
-        self.btnReject.hidden = YES;
+        [self.btnAgree addTarget:self action:@selector(agreeChangeDate) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnReject addTarget:self action:@selector(rejectChangeDate) forControlEvents:UIControlEventTouchUpInside];
+    } else if ([schedule.status isEqualToString:kSectionStatusChangeDateAgree]
+               && ![[GVUserDefaults standardUserDefaults].usertype isEqualToString:schedule.request_role]) {
         self.btnOk.hidden = NO;
+        [self.btnOk disable:@"已同意"];
+    } else if ([schedule.status isEqualToString:kSectionStatusChangeDateDecline]
+               && ![[GVUserDefaults standardUserDefaults].usertype isEqualToString:schedule.request_role]) {
+        self.btnOk.hidden = NO;
+        [self.btnOk disable:@"已拒绝"];
+    } else {
+        [self displayDefaultOk];
     }
+}
+
+- (void)displayDefaultOk {
+    self.btnOk.hidden = NO;
+    [self.btnOk setTitle:@"朕，知道了" forState:UIControlStateNormal];
+}
+
+- (void)handlePlanSubmit {
+    [self.okDisposable dispose];
+    self.btnOk.hidden = NO;
+    [self.btnOk setTitle:@"查看方案" forState:UIControlStateNormal];
+    @weakify(self);
+    self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [ViewControllerContainer showPlanPerview:self.notification.plan forRequirement:self.notification.requirement from:PlanSourceOther refresh:^{
+            self.notification.plan.status = kPlanStatusPlanWasChoosed;
+        }];
+    }];
+}
+
+- (void)handleDBYSRequest {
+    [self.okDisposable dispose];
+    self.btnOk.hidden = NO;
+    [self.btnOk setTitle:@"对比验收" forState:UIControlStateNormal];
+    
+    NSPredicate *sectionPre = [NSPredicate predicateWithFormat:@"SELF.name == %@", self.notification.section];
+    NSArray *sections = [self.notification.process.sections filteredArrayUsingPredicate:sectionPre];
+    if (sections.count > 0) {
+        Section *section = [[Section alloc] initWith:sections[0]];
+        section.ys = [[Ys alloc] initWith:[section.data objectForKey:@"ys"]];
+        
+        @weakify(self);
+        self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+            @strongify(self);
+            [ViewControllerContainer showDBYS:section process:self.notification.processid refresh:^{
+                section.status = kSectionStatusAlreadyFinished;
+            }];
+        }];
+    }
+}
+
+- (void)handleMeasureHouseConfirm {
+    [self.okDisposable dispose];
+    self.btnOk.hidden = NO;
+    [self.btnOk setTitle:@"确认量房" forState:UIControlStateNormal];
+    
+    @weakify(self);
+    self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        ConfirmMeasuringHouse *request = [[ConfirmMeasuringHouse alloc] init];
+        request.designerid = self.notification.designer._id;
+        request.requirementid = self.notification.requirement._id;
+        
+        [API confirmMeasuringHouse:request success:^{
+            [self clickBack];
+        } failure:^{
+            
+        } networkError:^{
+            
+        }];
+    }];
+}
+
+- (void)handleAgreementConfigure {
+    [self.okDisposable dispose];
+    self.btnOk.hidden = NO;
+    [self.btnOk setTitle:@"查看合同" forState:UIControlStateNormal];
+    @weakify(self);
+    self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [ViewControllerContainer showAgreement:self.notification.requirement];
+    }];
 }
 
 #pragma mark - api request
@@ -160,7 +272,7 @@ static NSDictionary *NotificationTitles = nil;
     
     [API getUserNotificationDetail:request success:^{
         [HUDUtil hideWait];
-        [NotificationBusiness reduceOneBadge];
+        self.wasRead = YES;
         [self initNotification];
         [self initData];
     } failure:^{
@@ -174,12 +286,13 @@ static NSDictionary *NotificationTitles = nil;
     self.notification = [[UserNotification alloc] initWith:[DataManager shared].data];
     self.notification.process = [[Process alloc] initWith:self.notification.data[@"process"]];
     self.notification.requirement = [[Requirement alloc] initWith:self.notification.data[@"requirement"]];
-    self.notification.reschedule = [[Reschedule alloc] initWith:self.notification.data[@"reschedule"]];
+    self.notification.schedule = [[Schedule alloc] initWith:self.notification.data[@"reschedule"]];
+    self.notification.plan = [[Plan alloc] initWith:self.notification.data[@"plan"]];
 }
 
 #pragma mark - user action
 - (void)onClickOk {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self clickBack];
 }
 
 - (void)agreeChangeDate {
@@ -189,7 +302,7 @@ static NSDictionary *NotificationTitles = nil;
 
     [API agreeReschedule:request success:^{
         [HUDUtil hideWait];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self clickBack];
     } failure:^{
         [HUDUtil hideWait];
     } networkError:^{
@@ -204,7 +317,7 @@ static NSDictionary *NotificationTitles = nil;
 
     [API rejectReschedule:request success:^{
         [HUDUtil hideWait];
-        [self.navigationController popViewControllerAnimated:YES];
+        [self clickBack];
     } failure:^{
         [HUDUtil hideWait];
     } networkError:^{

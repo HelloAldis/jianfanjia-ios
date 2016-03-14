@@ -11,5 +11,6 @@
 @interface NotificationDetailViewController : BaseViewController
 
 @property (nonatomic, strong) NSString *notificationId;
+@property (nonatomic, copy) NotificationReadBlock readBlock;
 
 @end

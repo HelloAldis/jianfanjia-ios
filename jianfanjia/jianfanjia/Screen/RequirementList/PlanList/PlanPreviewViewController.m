@@ -29,16 +29,20 @@
 
 @property (strong, nonatomic) Plan *plan;
 @property (strong, nonatomic) Requirement *requirement;
+@property (assign, nonatomic) PlanSource from;
+@property (copy, nonatomic) void(^refreshBlock)(void);
 
 @end
 
 @implementation PlanPreviewViewController
 
 #pragma mark - init method
-- (id)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement {
+- (id)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement from:(PlanSource)from refresh:(void(^)(void))refreshBlock {
     if (self = [super init]) {
         _plan = plan;
         _requirement = requirement;
+        _from = from;
+        _refreshBlock = refreshBlock;
     }
     
     return self;
@@ -151,7 +155,15 @@
         request.requirementid = self.plan.requirementid;
         
         [API choosePlan:request success:^{
-            [self navigateToOrderedDesignerScreen];
+            if (self.refreshBlock) {
+                self.refreshBlock();
+            }
+            
+            if (self.from == PlanSourceOrderDesignder) {
+                [self navigateToOrderedDesignerScreen];
+            } else {
+                [self onClickBack];
+            }
         } failure:^{
             
         } networkError:^{

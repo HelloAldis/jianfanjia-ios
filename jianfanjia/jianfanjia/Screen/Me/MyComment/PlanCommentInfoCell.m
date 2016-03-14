@@ -82,7 +82,9 @@ static const NSInteger imgSpace = 2;
 
 #pragma mark - gesture
 - (void)onTapPlan {
-    [ViewControllerContainer showPlanPerview:self.notification.plan forRequirement:self.notification.requirement];
+    [ViewControllerContainer showPlanPerview:self.notification.plan forRequirement:self.notification.requirement from:PlanSourceOther refresh:^{
+        self.notification.requirement.plan.status = kPlanStatusPlanWasChoosed;
+    }];
 }
 
 @end

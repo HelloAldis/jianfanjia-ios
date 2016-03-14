@@ -53,7 +53,6 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self switchButton:self.currentNotificationType forceRefresh:YES];
 }
 
 #pragma mark - UI
@@ -67,7 +66,7 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.tableFooterView = [[UIView alloc] init];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 120;
+    self.tableView.estimatedRowHeight = 83;
     self.tableView.contentInset = UIEdgeInsetsMake(6, 0, 0, 0);
     
     [self.tableView registerNib:[UINib nibWithNibName:SystemAnnouncementCellIdentifier bundle:nil] forCellReuseIdentifier:SystemAnnouncementCellIdentifier];
@@ -91,6 +90,8 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
         [obj addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
         [obj setExclusiveTouch:YES];
     }];
+    
+    [self switchButton:self.currentNotificationType forceRefresh:YES];
 }
 
 #pragma mark - table view delegate
@@ -123,7 +124,11 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [ViewControllerContainer showNotificationDetail:[self.dataSource[indexPath.row] _id]];
+    [ViewControllerContainer showNotificationDetail:[self.dataSource[indexPath.row] _id] readBlock:^{
+        UserNotification *notification = self.dataSource[indexPath.row];
+        notification.status = kNotificationRead;
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
