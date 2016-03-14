@@ -25,16 +25,32 @@
 
 @property (assign, nonatomic) NSInteger myNotificationUnreadCount;
 @property (assign, nonatomic) NSInteger myLeaveMsgUnreadCount;
+@property (assign, nonatomic) NSInteger myTotalUnreadCount;
 
 @end
 
 @implementation NotificationDataManager
 
+- (id)init {
+    [RACObserve([UIApplication sharedApplication], applicationIconBadgeNumber) subscribeNext:^(id x) {
+        [self refreshUnreadCount];
+    }];
+    return [super init];
+}
+
 - (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine {
     if ([GVUserDefaults standardUserDefaults].isLogin) {
+        if (offLine) {
+            [self refreshUnreadCount];
+        }
+        
         Notification *notification = [self convertPayloadToObj:payload];
         
         if (notification) {
+            
+            
+//            [NotificationBusiness setAppBadge:notification.badge.integerValue];
+            
             if (!offLine) {
 //                NSString *backupContent = [notification.content copy];
 //                if ([notification.type isEqualToString:kNotificationTypePurchase]) {
@@ -82,9 +98,10 @@
 }
 
 - (void)subscribeAppBadgeNumber:(NotificationUnreadUpdateBlock)block {
-    [RACObserve([UIApplication sharedApplication], applicationIconBadgeNumber) subscribeNext:^(id x) {
+    [[self rac_valuesAndChangesForKeyPath:@"myTotalUnreadCount" options:NSKeyValueObservingOptionNew observer:self] subscribeNext:^(RACTuple *tuple) {
+        NSInteger unreadCount = [tuple.first integerValue];
         if (block) {
-            block([x integerValue]);
+            block(unreadCount);
         }
     }];
 }
@@ -97,6 +114,7 @@
             NSArray *arr = [DataManager shared].data;
             self.myNotificationUnreadCount = [arr[0] integerValue];
             self.myLeaveMsgUnreadCount = [arr[1] integerValue];
+            self.myTotalUnreadCount = self.myNotificationUnreadCount + self.myLeaveMsgUnreadCount;
         } failure:^{
             
         } networkError:^{

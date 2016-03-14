@@ -20,4 +20,6 @@
 @property (strong, nonatomic) NSString *content;
 @property (strong, nonatomic) NSString *status;
 
+@property (strong, nonatomic) NSNumber *badge;
+
 @end

@@ -20,4 +20,6 @@
 @dynamic content;
 @dynamic status;
 
+@dynamic badge;
+
 @end
