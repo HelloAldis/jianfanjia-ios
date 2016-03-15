@@ -43,7 +43,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self updateCache];
     [self updateUnreadNumber];
-    [[NotificationDataManager shared] refreshUnreadCount];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -87,6 +86,7 @@
     }
     
     [self.userThumnail setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
+    [[NotificationDataManager shared] refreshUnreadCount];
 }
 
 - (void)updateUnreadNumber {

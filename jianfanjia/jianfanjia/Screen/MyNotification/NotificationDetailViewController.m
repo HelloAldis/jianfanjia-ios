@@ -73,7 +73,6 @@ static NSDictionary *NotificationTitles = nil;
     [super viewWillDisappear:animated];
 
     if (self.wasRead) {
-        [NotificationBusiness reduceOneBadge];
         if (self.readBlock) {
             self.readBlock();
         }
