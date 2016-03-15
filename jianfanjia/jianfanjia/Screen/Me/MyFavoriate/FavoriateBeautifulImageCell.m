@@ -48,7 +48,7 @@
         self.trashImageView.hidden = YES;
         self.lblDeleteMessage.hidden = YES;
         LeafImage *leafImage = [self.beautifulImage leafImageAtIndex:0];
-        [self.image setImageWithId:leafImage.imageid withWidth:self.bounds.size.width];
+        [self.image setImageWithId:leafImage.imageid withWidth:kScreenWidth];
     }
 }
 
