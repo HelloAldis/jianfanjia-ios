@@ -96,7 +96,6 @@
                     if (self.refreshBlock) {
                         self.refreshBlock();
                     }
-                    [[NotificationDataManager shared] markToReadForProcess:self.dataManager.process._id type:kNotificationTypeReschedule];
                 } failure:^{
 
                 } networkError:^{
@@ -112,7 +111,6 @@
                     if (self.refreshBlock) {
                         self.refreshBlock();
                     }
-                    [[NotificationDataManager shared] markToReadForProcess:self.dataManager.process._id type:kNotificationTypeReschedule];
                 } failure:^{
 
                 } networkError:^{

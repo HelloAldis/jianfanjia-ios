@@ -134,7 +134,6 @@
 		681240151C4CDA06008FC9AB /* NSNumber+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240031C4CDA06008FC9AB /* NSNumber+Ex.m */; };
 		681240161C4CDA06008FC9AB /* RACStream+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240051C4CDA06008FC9AB /* RACStream+Ex.m */; };
 		681240171C4CDA06008FC9AB /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240071C4CDA06008FC9AB /* UIBarButtonItem+Badge.m */; };
-		681240181C4CDA06008FC9AB /* UIButton+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240091C4CDA06008FC9AB /* UIButton+Badge.m */; };
 		681240191C4CDA06008FC9AB /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812400B1C4CDA06008FC9AB /* UIColor+Ex.m */; };
 		6812401A1C4CDA06008FC9AB /* UIImage+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812400D1C4CDA06008FC9AB /* UIImage+Ex.m */; };
 		6812401B1C4CDA06008FC9AB /* UIImagePickerController+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812400F1C4CDA06008FC9AB /* UIImagePickerController+Ex.m */; };
@@ -259,6 +258,10 @@
 		682E04FD1C588A6100F1ACAA /* NoRequirementImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E04FB1C588A6100F1ACAA /* NoRequirementImageView.m */; };
 		682E04FE1C588A6100F1ACAA /* NoRequirementImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682E04FC1C588A6100F1ACAA /* NoRequirementImageView.xib */; };
 		68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68425C2F1C55B0CC004D33F4 /* DesignerDoneSectionItem.m */; };
+		684B03D21C98141F0053FFDF /* UITabBarItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03CF1C98141F0053FFDF /* UITabBarItem+Badge.m */; };
+		684B03D31C98141F0053FFDF /* UIView+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03D11C98141F0053FFDF /* UIView+Badge.m */; };
+		684B03FA1C9818CF0053FFDF /* NotificationBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03F91C9818CF0053FFDF /* NotificationBusiness.m */; };
+		684B03FD1C98193B0053FFDF /* GetUserUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03FC1C98193B0053FFDF /* GetUserUnreadCount.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
 		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
@@ -544,8 +547,6 @@
 		681240051C4CDA06008FC9AB /* RACStream+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RACStream+Ex.m"; sourceTree = "<group>"; };
 		681240061C4CDA06008FC9AB /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
 		681240071C4CDA06008FC9AB /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
-		681240081C4CDA06008FC9AB /* UIButton+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Badge.h"; sourceTree = "<group>"; };
-		681240091C4CDA06008FC9AB /* UIButton+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Badge.m"; sourceTree = "<group>"; };
 		6812400A1C4CDA06008FC9AB /* UIColor+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ex.h"; sourceTree = "<group>"; };
 		6812400B1C4CDA06008FC9AB /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
 		6812400C1C4CDA06008FC9AB /* UIImage+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Ex.h"; sourceTree = "<group>"; };
@@ -767,6 +768,14 @@
 		682E04FC1C588A6100F1ACAA /* NoRequirementImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoRequirementImageView.xib; sourceTree = "<group>"; };
 		68425C2E1C55B0CC004D33F4 /* DesignerDoneSectionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDoneSectionItem.h; sourceTree = "<group>"; };
 		68425C2F1C55B0CC004D33F4 /* DesignerDoneSectionItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDoneSectionItem.m; sourceTree = "<group>"; };
+		684B03CE1C98141F0053FFDF /* UITabBarItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+Badge.h"; sourceTree = "<group>"; };
+		684B03CF1C98141F0053FFDF /* UITabBarItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Badge.m"; sourceTree = "<group>"; };
+		684B03D01C98141F0053FFDF /* UIView+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Badge.h"; sourceTree = "<group>"; };
+		684B03D11C98141F0053FFDF /* UIView+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Badge.m"; sourceTree = "<group>"; };
+		684B03F81C9818CF0053FFDF /* NotificationBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationBusiness.h; sourceTree = "<group>"; };
+		684B03F91C9818CF0053FFDF /* NotificationBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationBusiness.m; sourceTree = "<group>"; };
+		684B03FB1C98193B0053FFDF /* GetUserUnreadCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserUnreadCount.h; sourceTree = "<group>"; };
+		684B03FC1C98193B0053FFDF /* GetUserUnreadCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserUnreadCount.m; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -1438,6 +1447,8 @@
 		6E378CD11BDA2D2E00908B77 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				684B03FB1C98193B0053FFDF /* GetUserUnreadCount.h */,
+				684B03FC1C98193B0053FFDF /* GetUserUnreadCount.m */,
 				681240361C4CE471008FC9AB /* AddFavoriateDesigner.h */,
 				681240371C4CE471008FC9AB /* AddFavoriateDesigner.m */,
 				681240381C4CE471008FC9AB /* AddFavoriateProduct.h */,
@@ -1568,6 +1579,8 @@
 		6E378CDF1BDA2D2E00908B77 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				684B03F81C9818CF0053FFDF /* NotificationBusiness.h */,
+				684B03F91C9818CF0053FFDF /* NotificationBusiness.m */,
 				68123FE51C4CCFFF008FC9AB /* DesignerBusiness.h */,
 				68123FE61C4CCFFF008FC9AB /* DesignerBusiness.m */,
 				68123FE71C4CCFFF008FC9AB /* EnumBusiness.h */,
@@ -1622,6 +1635,12 @@
 		6E378CFE1BDA2D2E00908B77 /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				684B03D01C98141F0053FFDF /* UIView+Badge.h */,
+				684B03D11C98141F0053FFDF /* UIView+Badge.m */,
+				684B03CE1C98141F0053FFDF /* UITabBarItem+Badge.h */,
+				684B03CF1C98141F0053FFDF /* UITabBarItem+Badge.m */,
+				681240061C4CDA06008FC9AB /* UIBarButtonItem+Badge.h */,
+				681240071C4CDA06008FC9AB /* UIBarButtonItem+Badge.m */,
 				68123FFC1C4CDA06008FC9AB /* NSArray+Ex.h */,
 				68123FFD1C4CDA06008FC9AB /* NSArray+Ex.m */,
 				68123FFE1C4CDA06008FC9AB /* NSDate+Ex.h */,
@@ -1632,10 +1651,6 @@
 				681240031C4CDA06008FC9AB /* NSNumber+Ex.m */,
 				681240041C4CDA06008FC9AB /* RACStream+Ex.h */,
 				681240051C4CDA06008FC9AB /* RACStream+Ex.m */,
-				681240061C4CDA06008FC9AB /* UIBarButtonItem+Badge.h */,
-				681240071C4CDA06008FC9AB /* UIBarButtonItem+Badge.m */,
-				681240081C4CDA06008FC9AB /* UIButton+Badge.h */,
-				681240091C4CDA06008FC9AB /* UIButton+Badge.m */,
 				6812400A1C4CDA06008FC9AB /* UIColor+Ex.h */,
 				6812400B1C4CDA06008FC9AB /* UIColor+Ex.m */,
 				6812400C1C4CDA06008FC9AB /* UIImage+Ex.h */,
@@ -1792,6 +1807,7 @@
 				6E0426661BC757C500F984B8 /* Frameworks */,
 				6E0426671BC757C500F984B8 /* Resources */,
 				45979C66F15B98C50131D533 /* Copy Pods Resources */,
+				F2FFC1B6C7BED1D5EE919F5F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2007,6 +2023,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F2FFC1B6C7BED1D5EE919F5F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FAEC158761BA3641FD7CF367 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2047,6 +2078,7 @@
 				6EA0C19D1C577F7500D04A4F /* PlanPriceItemSection.m in Sources */,
 				681240E81C4CF2CC008FC9AB /* ProcessCell.m in Sources */,
 				681240CA1C4CE471008FC9AB /* ReplaceOrderedDesigner.m in Sources */,
+				684B03D21C98141F0053FFDF /* UITabBarItem+Badge.m in Sources */,
 				68123CA91C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m in Sources */,
 				681240AE1C4CE471008FC9AB /* DeleteFavoriteDesigner.m in Sources */,
 				6E378D4D1BDA2D2E00908B77 /* BaseModel.m in Sources */,
@@ -2082,6 +2114,7 @@
 				68123FF41C4CD1E3008FC9AB /* EvaluateDesignerViewController.m in Sources */,
 				68123CE41C4C99C9008FC9AB /* HUDUtil.m in Sources */,
 				681240BF1C4CE471008FC9AB /* HomePageDesigners.m in Sources */,
+				684B03FA1C9818CF0053FFDF /* NotificationBusiness.m in Sources */,
 				681241331C4CF2D5008FC9AB /* SectionView.m in Sources */,
 				68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */,
 				681240D91C4CE471008FC9AB /* UserSignup.m in Sources */,
@@ -2111,7 +2144,6 @@
 				6812401B1C4CDA06008FC9AB /* UIImagePickerController+Ex.m in Sources */,
 				681240CE1C4CE471008FC9AB /* SendAddRequirement.m in Sources */,
 				681240C81C4CE471008FC9AB /* RefreshSession.m in Sources */,
-				681240181C4CDA06008FC9AB /* UIButton+Badge.m in Sources */,
 				68123F111C4CBE79008FC9AB /* SelectSexTypeViewController.m in Sources */,
 				68123F0F1C4CBE79008FC9AB /* SelectPopulationViewController.m in Sources */,
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
@@ -2134,6 +2166,7 @@
 				681240B21C4CE471008FC9AB /* DesignerLogin.m in Sources */,
 				681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */,
 				6E378D481BDA2D2E00908B77 /* UIButton+Ex.m in Sources */,
+				684B03D31C98141F0053FFDF /* UIView+Badge.m in Sources */,
 				682E04FD1C588A6100F1ACAA /* NoRequirementImageView.m in Sources */,
 				681240C71C4CE471008FC9AB /* QueryProduct.m in Sources */,
 				6812401C1C4CDA06008FC9AB /* UIScrollView+Ex.m in Sources */,
@@ -2186,6 +2219,7 @@
 				6E378D4B1BDA2D2E00908B77 /* DataManager.m in Sources */,
 				6E378D2F1BDA2D2E00908B77 /* API.m in Sources */,
 				681240BB1C4CE471008FC9AB /* GetProcess.m in Sources */,
+				684B03FD1C98193B0053FFDF /* GetUserUnreadCount.m in Sources */,
 				681240DA1C4CE471008FC9AB /* VerifyPhone.m in Sources */,
 				68123EF01C4CBE79008FC9AB /* PlanPreviewViewController.m in Sources */,
 				68123FE41C4CCF4A008FC9AB /* Schedule.m in Sources */,

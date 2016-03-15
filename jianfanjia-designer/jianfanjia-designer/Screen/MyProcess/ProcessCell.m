@@ -66,13 +66,6 @@
     self.lblCellNameVal.text = process.cell;
     self.lblProcessStatusVal.text = [process.going_on isEqualToString:@"done"] ? @"已竣工" : [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:process.going_on]];
     
-    @weakify(self);
-    [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.process._id observer:^(id value) {
-        @strongify(self);
-        self.lblGoToWorkspace.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
-        self.lblGoToWorkspace.badgeOriginY = -11;
-    }];
-    
     [self updateSections:process];
 }
 

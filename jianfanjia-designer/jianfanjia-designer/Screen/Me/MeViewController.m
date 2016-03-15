@@ -56,13 +56,6 @@
     if (self.isTabbarhide) {
         [self showTabbar];
     }
-    
-    @weakify(self);
-    [[NotificationDataManager shared] subscribeAllUnreadCount:^(id value) {
-        @strongify(self);
-        self.btnNotification.badgeValue = [value intValue] > 0 ? [value stringValue] : nil;
-        [self.btnNotification adjustBadgeToCloseText];
-    }];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

@@ -28,10 +28,10 @@
 
 - (void)initWithNotification:(Notification *)notification {
     self.notification = notification;
-    self.lblCell.text = self.notification.cell;
+//    self.lblCell.text = self.notification.cell;
     self.lblContent.text = self.notification.content;
     self.lblRequestTime.text = [NSDate yyyy_MM_dd_HH_mm:self.notification.time];
-    self.lblWorkingPhase.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:self.notification.section]];
+//    self.lblWorkingPhase.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:self.notification.section]];
     if ([self.notification.status isEqualToString:kNotificationStatusUnread]) {
         self.reminderIcon.alpha = 1.0;
     } else {

@@ -56,33 +56,10 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     
     [self initNav];
     [self initUI];
-    [self initNotification];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    
-    NSString *badgeValue = [self.btnNotifications[self.currentNotificationType] badgeValue];
-    if ([badgeValue intValue] > 0) {
-        [self markToReadForProcess:self.processid type:[NSString stringWithFormat:@"%@", self.currentNotificationType == NotificationTypePurchase ? kNotificationTypePurchase : kNotificationTypeReschedule]];
-    }
-    
-    if (self.isNeedToRefresh && self.RefreshBlock) {
-        NSString *notificationType;
-        switch (self.currentNotificationType) {
-            case NotificationTypePostpone:
-                notificationType = kNotificationTypeReschedule;
-                break;
-            case NotificationTypePurchase:
-                notificationType = kNotificationTypePurchase;
-                break;
-                
-            default:
-                break;
-        }
-        
-        self.RefreshBlock(notificationType);
-    }
 }
 
 #pragma mark - UI
@@ -114,35 +91,6 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
     [self switchToOtherButton:NotificationTypePurchase];
 }
 
-- (void)initNotification {
-    @weakify(self);
-    if (self.processid) {
-        [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid type:kNotificationTypePurchase observer:^(id value) {
-            @strongify(self);
-            [self setBtn:self.btnNotifications[0] badgeValue:value];
-        }];
-        
-        [[NotificationDataManager shared] subscribeUnreadCountForProcess:self.processid type:kNotificationTypeReschedule observer:^(id value) {
-            @strongify(self);
-            [self setBtn:self.btnNotifications[1] badgeValue:value];
-        }];
-    } else  {
-        [[NotificationDataManager shared] subscribePurchaseUnreadCount:^(id value) {
-            @strongify(self);
-            [self setBtn:self.btnNotifications[0] badgeValue:value];
-        }];
-        
-        [[NotificationDataManager shared] subscribeRescheduleUnreadCount:^(id value) {
-            @strongify(self);
-            [self setBtn:self.btnNotifications[1] badgeValue:value];
-        }];
-    }
-}
-
-- (void)setBtn:(UIButton *)btn badgeValue:(NSNumber *)value {
-    [btn setBadgeValue:[value intValue] > 0 ? [value stringValue] : nil];
-}
-
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (self.currentNotificationType == NotificationTypePurchase) {
@@ -172,7 +120,6 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         [cell initWithSchedule:self.dataManager.schedules[indexPath.row] notification:notification refreshBlock:^(NSString *processid) {
             @strongify(self);
             [self refresh];
-            [self markToReadForProcess:processid type:kNotificationTypeReschedule];
 
         }];
         return cell;
@@ -200,13 +147,6 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
         @strongify(self);
         NotificationType preNotificationType = self.currentNotificationType;
         self.currentNotificationType = buttonIndex;
-        
-        if (preNotificationType != self.currentNotificationType) {
-            NSString *badgeValue = [self.btnNotifications[preNotificationType] badgeValue];
-            if ([badgeValue intValue] > 0) {
-                [self markToReadForProcess:self.processid type:preNotificationType == NotificationTypePurchase ? kNotificationTypePurchase : kNotificationTypeReschedule];
-            }
-        }
 
         if (self.currentNotificationType == NotificationTypePurchase) {
             self.tableView.header = nil;
@@ -235,7 +175,7 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 
 - (void)refreshPurchases {
     [self.dataManager refreshNotificationWithProcess:self.processid type:kNotificationTypePurchase];
-    self.dataManager.notifications = [self descendNotifications:self.dataManager.notifications];
+//    self.dataManager.notifications = [self descendNotifications:self.dataManager.notifications];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self showNoNotification:self.dataManager.notifications.count == 0 image:@"no_purchase_notification" text:@"您还没有采购提醒"];
 }
@@ -257,30 +197,6 @@ static NSString *PostponeNotificationCellIdentifier = @"PostponeNotificationCell
 }
 
 #pragma mark - util
-- (void)markToReadForProcess:(NSString *)processid type:(NSString *)type {
-    if (processid) {
-        [[NotificationDataManager shared] markToReadForProcess:processid type:type];
-    } else {
-        [[NotificationDataManager shared] markToReadForType:type];
-    }
-
-    if ([type isEqualToString:kNotificationTypeReschedule] || [type isEqualToString:kNotificationTypePurchase]) {
-        self.isNeedToRefresh = YES;
-    }
-}
-
-- (NSArray *)descendNotifications:(NSArray *)notifications {
-    return [notifications sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(NotificationCD*  _Nonnull obj1, NotificationCD*  _Nonnull obj2) {
-        if ([obj1.time compare:obj2.time] == NSOrderedAscending) {
-            return NSOrderedDescending;
-        } else if ([obj1.time compare:obj2.time] == NSOrderedDescending) {
-            return NSOrderedAscending;
-        } else {
-            return NSOrderedSame;
-        }
-    }];
-}
-
 - (void)showNoNotification:(BOOL)show image:(NSString *)image text:(NSString *)text {
     self.noNotificationImage.image = [UIImage imageNamed:image];
     self.noNotificationLabel.text = text;
