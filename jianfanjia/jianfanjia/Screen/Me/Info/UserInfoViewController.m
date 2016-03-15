@@ -119,10 +119,6 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
-- (IBAction)onClickAccountBind:(id)sender {
-    [ViewControllerContainer showAccountBind];
-}
-
 - (IBAction)onClickDetailLocation:(id)sender {
     @weakify(self);
     UpdateMultipleLineTextViewController *controller = [[UpdateMultipleLineTextViewController alloc] initWithName:@"详细地址" value:self.lblDetailLocation.text max:120 done:^(id value) {
