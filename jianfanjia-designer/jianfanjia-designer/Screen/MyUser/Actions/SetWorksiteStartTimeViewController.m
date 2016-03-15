@@ -133,7 +133,7 @@
     [HUDUtil showWait];
     DesignerConfigAgreement *request = [[DesignerConfigAgreement alloc] init];
     request.requirementid = self.requirement._id;
-    request.start_at = @([self.datePicker.date timeIntervalSince1970] * 1000);
+    request.start_at = @([self.datePicker.date getLongMilSecond]);
     
     [API designerConfigAgreement:request success:^{
         [HUDUtil hideWait];

@@ -10,6 +10,10 @@
 
 @implementation NSDate (Ex)
 
+- (long long)getLongMilSecond {
+    return [@([self timeIntervalSince1970] * 1000) longLongValue];
+}
+
 - (NSString *)yyyy_Nian_MM_Yue_dd_Ri_HH_mm {
     NSDateFormatter *formate = [[NSDateFormatter alloc] init];
     [formate setDateFormat:@"yyyy年MM月dd日 HH:mm"];

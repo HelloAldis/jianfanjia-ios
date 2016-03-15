@@ -114,7 +114,7 @@
     [HUDUtil showWait];
     DesignerRespondUser *request = [[DesignerRespondUser alloc] init];
     request.requirementid = self.requirement._id;
-    request.house_check_time = @([selectedDate timeIntervalSince1970] * 1000);
+    request.house_check_time = @([selectedDate getLongMilSecond]);
     
     [API designerRespondUser:request success:^{
         [HUDUtil hideWait];

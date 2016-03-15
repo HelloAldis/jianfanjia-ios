@@ -10,6 +10,7 @@
 
 @interface NSDate (Ex)
 
+- (long long)getLongMilSecond;
 - (NSString *)yyyy_Nian_MM_Yue_dd_Ri;
 - (NSString *)yyyy_Nian_MM_Yue_dd_Ri_HH_mm;
 - (NSString *)yyyy_MM_dd;

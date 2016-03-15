@@ -66,7 +66,7 @@
                 request.userid = self.dataManager.process.userid;
                 request.designerid = self.dataManager.process.final_designerid;
                 request.section = self.dataManager.selectedSection.name;
-                request.updated_date = @([date timeIntervalSince1970] * 1000);
+                request.updated_date = @([date getLongMilSecond]);
                 
                 [API reschedule:request success:^{
                     if (self.refreshBlock) {
