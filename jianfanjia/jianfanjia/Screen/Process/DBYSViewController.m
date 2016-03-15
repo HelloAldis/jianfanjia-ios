@@ -98,15 +98,15 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
             request.section = self.section.name;
             
             [API sectionDone:request success:^{
+                self.section.status = kSectionStatusAlreadyFinished;
+                [self initButtons];
+                
                 if (self.refreshBlock) {
                     self.refreshBlock();
                 }
                 
                 if (self.popTo) {
                     [self.navigationController popToViewController:self.popTo animated:YES];
-                } else {
-                    self.section.status = kSectionStatusAlreadyFinished;
-                    [self initButtons];
                 }
             } failure:^{
                 

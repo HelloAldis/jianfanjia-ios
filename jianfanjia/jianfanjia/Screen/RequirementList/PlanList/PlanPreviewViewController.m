@@ -154,15 +154,15 @@
         request.requirementid = self.plan.requirementid;
         
         [API choosePlan:request success:^{
+            self.plan.status = kPlanStatusPlanWasChoosed;
+            [self initButtons];
+            
             if (self.refreshBlock) {
                 self.refreshBlock();
             }
             
             if (self.popTo) {
                 [self.navigationController popToViewController:self.popTo animated:YES];
-            } else {
-                self.plan.status = kPlanStatusPlanWasChoosed;
-                [self initButtons];
             }
         } failure:^{
             

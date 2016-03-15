@@ -115,15 +115,15 @@
     request.requirementid = self.requirement._id;
     
     [API startDecoration:request success:^{
+        self.requirement.status = kRequirementStatusConfiguredWorkSite;
+        [self initButtons];
+        
         if (self.refreshBlock) {
             self.refreshBlock();
         }
         
         if (self.popTo) {
             [self.navigationController popToViewController:self.popTo animated:YES];
-        } else {
-            self.requirement.status = kRequirementStatusConfiguredWorkSite;
-            [self initButtons];
         }
     } failure:^{
         self.btnConfirm.enabled = YES;
