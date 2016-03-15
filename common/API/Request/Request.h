@@ -67,6 +67,7 @@
 #import "GetUserNotificationDetail.h"
 #import "GetUserUnreadCount.h"
 #import "SearchUserComment.h"
+#import "SearchDecLive.h"
 
 #pragma mark - designer request
 

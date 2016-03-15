@@ -25,6 +25,7 @@
 + (void)showSearch;
 + (void)showDesignerList;
 + (void)showProductCaseList;
++ (void)showDecLiveList;
 + (void)showBeautifulImage;
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;

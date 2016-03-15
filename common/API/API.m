@@ -301,6 +301,10 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"search_user_comment" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)searchDecLive:(SearchDecLive *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"search_share" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 #pragma mark - designer api
 + (void)designerRefreshSession:(RefreshSession *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"designer_refresh_session" data:request.data handler:request success:success failure:failure networkError:error];

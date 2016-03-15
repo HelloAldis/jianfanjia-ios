@@ -30,5 +30,7 @@
 #import "LeafImage.h"
 #import "SnsAccountInfo.h"
 #import "UserNotification.h"
+#import "DecLive.h"
+#import "DecLiveSection.h"
 
 #endif /* Model_h */

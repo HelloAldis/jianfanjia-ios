@@ -189,6 +189,14 @@
 		684A37671BFDE24900F7388C /* EvaluateDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684A37661BFDE24900F7388C /* EvaluateDesignerViewController.m */; };
 		684A37691BFDE25E00F7388C /* EvaluateDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684A37681BFDE25E00F7388C /* EvaluateDesignerViewController.xib */; };
 		684B03B61C968A450053FFDF /* BaseNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03B51C968A450053FFDF /* BaseNotificationCell.m */; };
+		684B03C01C96C3DE0053FFDF /* DecLiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03B91C96C3DE0053FFDF /* DecLiveCell.m */; };
+		684B03C11C96C3DE0053FFDF /* DecLiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B03BA1C96C3DE0053FFDF /* DecLiveCell.xib */; };
+		684B03C21C96C3DE0053FFDF /* DecLiveListDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03BC1C96C3DE0053FFDF /* DecLiveListDataManager.m */; };
+		684B03C31C96C3DE0053FFDF /* DecLiveListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03BE1C96C3DE0053FFDF /* DecLiveListViewController.m */; };
+		684B03C41C96C3DE0053FFDF /* DecLiveListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B03BF1C96C3DE0053FFDF /* DecLiveListViewController.xib */; };
+		684B03C71C96CB2B0053FFDF /* SearchDecLive.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03C61C96CB2B0053FFDF /* SearchDecLive.m */; };
+		684B03CC1C979EAA0053FFDF /* DecLive.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03C91C979EAA0053FFDF /* DecLive.m */; };
+		684B03CD1C979EAA0053FFDF /* DecLiveSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03CB1C979EAA0053FFDF /* DecLiveSection.m */; };
 		685272C31C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */; };
 		685272C71C2D1602002E62EC /* SelectBusinessTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */; };
 		685272C81C2D1602002E62EC /* SelectBusinessTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C61C2D1602002E62EC /* SelectBusinessTypeViewController.xib */; };
@@ -748,6 +756,20 @@
 		684A37681BFDE25E00F7388C /* EvaluateDesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EvaluateDesignerViewController.xib; sourceTree = "<group>"; };
 		684B03B41C968A450053FFDF /* BaseNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNotificationCell.h; sourceTree = "<group>"; };
 		684B03B51C968A450053FFDF /* BaseNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNotificationCell.m; sourceTree = "<group>"; };
+		684B03B81C96C3DE0053FFDF /* DecLiveCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecLiveCell.h; sourceTree = "<group>"; };
+		684B03B91C96C3DE0053FFDF /* DecLiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecLiveCell.m; sourceTree = "<group>"; };
+		684B03BA1C96C3DE0053FFDF /* DecLiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecLiveCell.xib; sourceTree = "<group>"; };
+		684B03BB1C96C3DE0053FFDF /* DecLiveListDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecLiveListDataManager.h; sourceTree = "<group>"; };
+		684B03BC1C96C3DE0053FFDF /* DecLiveListDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecLiveListDataManager.m; sourceTree = "<group>"; };
+		684B03BD1C96C3DE0053FFDF /* DecLiveListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecLiveListViewController.h; sourceTree = "<group>"; };
+		684B03BE1C96C3DE0053FFDF /* DecLiveListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecLiveListViewController.m; sourceTree = "<group>"; };
+		684B03BF1C96C3DE0053FFDF /* DecLiveListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecLiveListViewController.xib; sourceTree = "<group>"; };
+		684B03C51C96CB2B0053FFDF /* SearchDecLive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDecLive.h; sourceTree = "<group>"; };
+		684B03C61C96CB2B0053FFDF /* SearchDecLive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDecLive.m; sourceTree = "<group>"; };
+		684B03C81C979EAA0053FFDF /* DecLive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecLive.h; sourceTree = "<group>"; };
+		684B03C91C979EAA0053FFDF /* DecLive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecLive.m; sourceTree = "<group>"; };
+		684B03CA1C979EAA0053FFDF /* DecLiveSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecLiveSection.h; sourceTree = "<group>"; };
+		684B03CB1C979EAA0053FFDF /* DecLiveSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecLiveSection.m; sourceTree = "<group>"; };
 		685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessRequirementCreateViewController.xib; sourceTree = "<group>"; };
 		685272C41C2D1602002E62EC /* SelectBusinessTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBusinessTypeViewController.h; sourceTree = "<group>"; };
 		685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBusinessTypeViewController.m; sourceTree = "<group>"; };
@@ -1599,6 +1621,21 @@
 			path = RequirementCreate;
 			sourceTree = "<group>";
 		};
+		684B03B71C96C3DE0053FFDF /* DecLive */ = {
+			isa = PBXGroup;
+			children = (
+				684B03BD1C96C3DE0053FFDF /* DecLiveListViewController.h */,
+				684B03BE1C96C3DE0053FFDF /* DecLiveListViewController.m */,
+				684B03BF1C96C3DE0053FFDF /* DecLiveListViewController.xib */,
+				684B03B81C96C3DE0053FFDF /* DecLiveCell.h */,
+				684B03B91C96C3DE0053FFDF /* DecLiveCell.m */,
+				684B03BA1C96C3DE0053FFDF /* DecLiveCell.xib */,
+				684B03BB1C96C3DE0053FFDF /* DecLiveListDataManager.h */,
+				684B03BC1C96C3DE0053FFDF /* DecLiveListDataManager.m */,
+			);
+			path = DecLive;
+			sourceTree = "<group>";
+		};
 		685DD4481C89761E00A76B9C /* MyComment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1620,11 +1657,11 @@
 		68679A211C8E730F00B380D0 /* MyNotification */ = {
 			isa = PBXGroup;
 			children = (
-				68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */,
-				68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */,
 				68679A241C8E730F00B380D0 /* MyNotificationViewController.h */,
 				68679A251C8E730F00B380D0 /* MyNotificationViewController.m */,
 				68679A261C8E730F00B380D0 /* MyNotificationViewController.xib */,
+				68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */,
+				68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */,
 				68679A2D1C8E730F00B380D0 /* RequirementNotificationCell.h */,
 				68679A2E1C8E730F00B380D0 /* RequirementNotificationCell.m */,
 				68679A2F1C8E730F00B380D0 /* RequirementNotificationCell.xib */,
@@ -1874,6 +1911,8 @@
 				688517681C9170BF000B01DB /* GetUserUnreadCount.m */,
 				688517781C927A30000B01DB /* SearchUserComment.h */,
 				688517791C927A30000B01DB /* SearchUserComment.m */,
+				684B03C51C96CB2B0053FFDF /* SearchDecLive.h */,
+				684B03C61C96CB2B0053FFDF /* SearchDecLive.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -2017,6 +2056,10 @@
 				68134A341C3CAEC2003C1C10 /* SnsAccountInfo.m */,
 				688517581C8FF5E1000B01DB /* UserNotification.h */,
 				688517591C8FF5E1000B01DB /* UserNotification.m */,
+				684B03C81C979EAA0053FFDF /* DecLive.h */,
+				684B03C91C979EAA0053FFDF /* DecLive.m */,
+				684B03CA1C979EAA0053FFDF /* DecLiveSection.h */,
+				684B03CB1C979EAA0053FFDF /* DecLiveSection.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2180,6 +2223,7 @@
 		6E6D98A61BDF732A00D45F77 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				684B03B71C96C3DE0053FFDF /* DecLive */,
 				68B10CAC1C781C10005866C1 /* Search */,
 				68B10CA11C7819E3005866C1 /* ProductCaseList */,
 				68B10C811C76D489005866C1 /* DesignerList */,
@@ -2602,6 +2646,7 @@
 				68134A3A1C3CF444003C1C10 /* BindPhoneViewController.xib in Resources */,
 				68123BA91C47D15C008FC9AB /* JYZ_wechat_session_icon@2x.png in Resources */,
 				6838400D1C158490004F456E /* UpdateMultipleLineTextViewController.xib in Resources */,
+				684B03C11C96C3DE0053FFDF /* DecLiveCell.xib in Resources */,
 				68123BAA1C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png in Resources */,
 				68123C611C4C8B99008FC9AB /* allprovince.js in Resources */,
 				685DD4521C89761E00A76B9C /* PlanCommentInfoCell.xib in Resources */,
@@ -2645,6 +2690,7 @@
 				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
 				68123BA81C47D15C008FC9AB /* JYZ_sina_icon@2x.png in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
+				684B03C41C96C3DE0053FFDF /* DecLiveListViewController.xib in Resources */,
 				684A37691BFDE25E00F7388C /* EvaluateDesignerViewController.xib in Resources */,
 				6E44962E1BF9E32200C90851 /* SignupSuccessViewController.xib in Resources */,
 				68123C5B1C4C8B99008FC9AB /* ThumbnailCell.xib in Resources */,
@@ -2771,6 +2817,7 @@
 				689E714A1C80588C0012BF3C /* WebViewController.m in Sources */,
 				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
 				6E4496451BFC562900C90851 /* AboutViewController.m in Sources */,
+				684B03C71C96CB2B0053FFDF /* SearchDecLive.m in Sources */,
 				684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */,
 				6EBBA15B1C15866200057688 /* Feedback.m in Sources */,
 				68134A321C3CA840003C1C10 /* RefreshSession.m in Sources */,
@@ -2793,6 +2840,7 @@
 				6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */,
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
 				6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */,
+				684B03CD1C979EAA0053FFDF /* DecLiveSection.m in Sources */,
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
 				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
 				68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */,
@@ -2860,6 +2908,7 @@
 				6E07DAA91BD88DBE001461DD /* UserLogin.m in Sources */,
 				AB5F1EC61C0C8B32009203DF /* UIImagePickerController+Ex.m in Sources */,
 				6885175A1C8FF5E1000B01DB /* UserNotification.m in Sources */,
+				684B03CC1C979EAA0053FFDF /* DecLive.m in Sources */,
 				68B10C851C76D489005866C1 /* DesignerListViewController.m in Sources */,
 				AB4CAF911C0F36D2003680BA /* AgreeReschedule.m in Sources */,
 				6E4496251BF9BA2600C90851 /* VerifyPhoneViewController.m in Sources */,
@@ -2909,6 +2958,7 @@
 				684A37671BFDE24900F7388C /* EvaluateDesignerViewController.m in Sources */,
 				68123C5A1C4C8B99008FC9AB /* ThumbnailCell.m in Sources */,
 				6E7E4A691B9A90BA00503B35 /* LoginViewController.m in Sources */,
+				684B03C21C96C3DE0053FFDF /* DecLiveListDataManager.m in Sources */,
 				683FFB4B1C296288002A1AFE /* BeautifulImageHomePageViewController.m in Sources */,
 				6E6D98C31BE0665700D45F77 /* Requirement.m in Sources */,
 				683FFB431C296288002A1AFE /* BeautifulImageDataManager.m in Sources */,
@@ -2963,9 +3013,11 @@
 				684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */,
 				684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */,
 				685CD5DF1C030F1400EC1991 /* LeaveComment.m in Sources */,
+				684B03C01C96C3DE0053FFDF /* DecLiveCell.m in Sources */,
 				68D536A61BFF563800D8F1B2 /* PlanPreviewViewController.m in Sources */,
 				6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */,
 				683669041BFF0B44006A5053 /* PlanListViewController.m in Sources */,
+				684B03C31C96C3DE0053FFDF /* DecLiveListViewController.m in Sources */,
 				6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */,
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,

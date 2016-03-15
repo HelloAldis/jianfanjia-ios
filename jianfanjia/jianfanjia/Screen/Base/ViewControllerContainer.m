@@ -46,6 +46,7 @@
 #import "SearchViewController.h"
 #import "CommentListViewController.h"
 #import "NotificationDetailViewController.h"
+#import "DecLiveListViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -204,6 +205,12 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
++ (void)showDecLiveList {
+    DecLiveListViewController *v = [[DecLiveListViewController alloc] initWithNibName:nil bundle:nil];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
+
 + (void)showBeautifulImage {
     container.tab.selectedViewController = container.navTapPrettyImg;
 }
@@ -280,9 +287,9 @@ static ViewControllerContainer *container;
 
 + (void)showRequirementCreate:(Requirement *)requirement {
     if (container.tab.selectedViewController != container.navTapRequirement) {
+        [container.tab.selectedViewController popToRootViewControllerAnimated:NO];
         container.tab.selectedViewController = container.navTapRequirement;
     }
-    
     
     //if has reqirement create secreen pop to
     UINavigationController* nav =  container.tab.selectedViewController;

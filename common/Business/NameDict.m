@@ -27,6 +27,7 @@ static NSDictionary *userType = nil;
 static NSDictionary *sectionStatusDic = nil;
 static NSArray *beautifulTypeArr = nil;
 static NSDictionary *businessTypeDict = nil;
+static NSDictionary *decLiveSectionDict = nil;
 
 + (void)initialize {
     houseTypeDict = @{@"0":@"一室",
@@ -150,6 +151,17 @@ static NSDictionary *businessTypeDict = nil;
                        @"6":@"幼儿园",
                        @"7":@"酒店",
                        @"9999":@"其他",};
+    
+    decLiveSectionDict = @{
+                           @"0":@"量房",
+                           @"1":@"开工",
+                           @"2":@"拆改",
+                           @"3":@"水电",
+                           @"4":@"泥木",
+                           @"5":@"油漆",
+                           @"6":@"安装",
+                           @"7":@"竣工",
+                           };
 }
 
 + (NSDictionary *)getAllHouseType {
@@ -262,6 +274,10 @@ static NSDictionary *businessTypeDict = nil;
 
 + (NSString *)nameForBusinessType:(NSString *)status {
     return [businessTypeDict objectForKey:status];
+}
+
++ (NSString *)nameForDecLiveSectionType:(NSString *)status {
+    return [decLiveSectionDict objectForKey:status];
 }
 
 @end

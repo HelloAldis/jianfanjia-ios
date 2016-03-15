@@ -14,6 +14,7 @@ NSString * const ShareTopicBeautifulImage = @"BeautifulImage";
 NSString * const ShareTopicApp = @"APP";
 NSString * const ShareTopicDecStrategy = @"DecStrategy";
 NSString * const ShareTopicActivity = @"Activity";
+NSString * const ShareTopicDecLive = @"DecLive";
 
 @implementation ShareManager
 

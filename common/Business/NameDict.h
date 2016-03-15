@@ -39,5 +39,6 @@
 + (NSString *)nameForRequirementStatus:(NSString *)status;
 + (NSString *)nameForSectionStatus:(NSString *)status;
 + (NSString *)nameForBusinessType:(NSString *)status;
++ (NSString *)nameForDecLiveSectionType:(NSString *)status;
 
 @end
