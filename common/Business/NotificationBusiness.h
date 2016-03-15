@@ -25,5 +25,6 @@ extern NSString * const kNotificationStatusReaded;
 + (NSInteger)appBadge;
 + (void)setAppBadge:(NSInteger)appBdge;
 + (void)reduceOneBadge;
++ (void)addOneBadge;
 
 @end

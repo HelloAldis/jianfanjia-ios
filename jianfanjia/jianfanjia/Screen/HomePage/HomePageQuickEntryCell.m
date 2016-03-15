@@ -45,7 +45,7 @@ static NSArray const *quickEntryTexts;
         HomePageQuickEntryMassDesigner = @"海量设计师";
         
         quickEntryTexts = @[HomePageQuickEntryFreePlan, HomePageQuickEntryDecStrategy, HomePageQuickEntryDecLive, HomePageQuickEntryMassDesigner];
-        quickEntryImages = @[@"icon_publish_requirement", @"icon_dec_guide", @"icon_dec_beautiful_img", @"icon_mass_designer"];
+        quickEntryImages = @[@"icon_publish_requirement", @"icon_dec_guide", @"icon_dec_live", @"icon_mass_designer"];
         
         kHomePageQuickEntryCellHeight = ITEM_HEIGHT + SECTION_HEIGHT * 2 + HEADER_HEIGHT + FOOTER_HEIGHT;
     }

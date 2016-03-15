@@ -46,7 +46,20 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
     return self;
 }
 
-- (void)triggerToShowDetail:(NSDictionary *)userInfo {
+- (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine {
+    if ([GVUserDefaults standardUserDefaults].isLogin) {
+        Notification *notification = [self convertPayloadToObj:payload];
+        
+        if (notification) {
+            if (!offLine) {
+                [NotificationBusiness addOneBadge];
+                [self showLocalNotification:notification];
+            }
+        }
+    }
+}
+
+- (void)remoteTriggerToShowDetail:(NSDictionary *)userInfo {
     NSDictionary *info = nil;
     NSString *payload = [userInfo objectForKey:@"payload1"];
     if (payload) {
@@ -55,6 +68,10 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
     }
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kShowNotificationDetail object:self userInfo:info];
+}
+
+- (void)localTriggerToShowDetail:(NSDictionary *)userInfo {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kShowNotificationDetail object:self userInfo:userInfo];
 }
 
 - (Notification *)convertPayloadToObj:(NSData *)payload {
@@ -116,7 +133,7 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
     }
 }
 
-- (void)showLocalNotification:(NSDictionary *)userInfo {
+- (void)showLocalNotification:(Notification *)noti {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     // 设置触发通知的时间
     NSDate *fireDate = [NSDate date];
@@ -126,11 +143,11 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
     // 设置重复的间隔
     notification.repeatInterval = 0;
     // 通知内容
-    notification.alertBody = userInfo[@"aps"][@"alert"];
+    notification.alertBody = noti.content;
     // 通知被触发时播放的声音
     notification.soundName = UILocalNotificationDefaultSoundName;
     // 通知参数
-    NSDictionary *userDict = [NSDictionary dictionaryWithObject:userInfo forKey:kLocalNotificationKey];
+    NSDictionary *userDict = [NSDictionary dictionaryWithObject:noti.data forKey:kLocalNotificationKey];
     notification.userInfo = userDict;
     // 执行通知注册
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];

@@ -157,6 +157,10 @@ static NSDictionary *NotificationTitles = nil;
 }
 
 - (void)initButtons {
+    self.btnOk.hidden = YES;
+    self.btnAgree.hidden = YES;
+    self.btnReject.hidden = YES;
+    
     if ([self.notification.message_type isEqualToString:kUserPNFromRescheduleRequest]) {
         [self handleReschedule];
     } else if ([self.notification.message_type isEqualToString:kUserPNFromPlanSubmit]) {
@@ -204,9 +208,7 @@ static NSDictionary *NotificationTitles = nil;
     @weakify(self);
     self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [ViewControllerContainer showPlanPerview:self.notification.plan forRequirement:self.notification.requirement popTo:nil refresh:^{
-            self.notification.plan.status = kPlanStatusPlanWasChoosed;
-        }];
+        [ViewControllerContainer showPlanPerview:self.notification.plan forRequirement:self.notification.requirement popTo:nil refresh:nil];
     }];
 }
 
@@ -224,9 +226,7 @@ static NSDictionary *NotificationTitles = nil;
         @weakify(self);
         self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
             @strongify(self);
-            [ViewControllerContainer showDBYS:section process:self.notification.processid refresh:^{
-                section.status = kSectionStatusAlreadyFinished;
-            }];
+            [ViewControllerContainer showDBYS:section process:self.notification.processid popTo:nil refresh:nil];
         }];
     }
 }
@@ -260,9 +260,7 @@ static NSDictionary *NotificationTitles = nil;
     @weakify(self);
     self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [ViewControllerContainer showAgreement:self.notification.requirement popTo:nil refresh:^{
-            [self getNotificationDetail];
-        }];
+        [ViewControllerContainer showAgreement:self.notification.requirement popTo:nil refresh:nil];
     }];
 }
 
@@ -304,7 +302,8 @@ static NSDictionary *NotificationTitles = nil;
 
     [API agreeReschedule:request success:^{
         [HUDUtil hideWait];
-        [self clickBack];
+        self.notification.schedule.status = kSectionStatusChangeDateAgree;
+        [self initButtons];
     } failure:^{
         [HUDUtil hideWait];
     } networkError:^{
@@ -319,7 +318,8 @@ static NSDictionary *NotificationTitles = nil;
 
     [API rejectReschedule:request success:^{
         [HUDUtil hideWait];
-        [self clickBack];
+        self.notification.schedule.status = kSectionStatusChangeDateDecline;
+        [self initButtons];
     } failure:^{
         [HUDUtil hideWait];
     } networkError:^{

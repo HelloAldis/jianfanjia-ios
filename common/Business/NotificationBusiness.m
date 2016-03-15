@@ -68,4 +68,8 @@ static NSArray *_UserAllLeaveMsgFilter;
     [UIApplication sharedApplication].applicationIconBadgeNumber -= 1;
 }
 
++ (void)addOneBadge {
+    [UIApplication sharedApplication].applicationIconBadgeNumber += 1;
+}
+
 @end

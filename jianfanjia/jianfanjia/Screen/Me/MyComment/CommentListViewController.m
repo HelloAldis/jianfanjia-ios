@@ -141,8 +141,8 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
 }
 
 - (void)handleNoDesigner {
-    self.lblNoData.text = @"没有找到任何匹配的设计师";
-    self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_designer"];
+    self.lblNoData.text = @"您还没有收到留言";
+    self.noDataImageView.image = [UIImage imageNamed:@"img_no_leave_msg"];
     self.lblNoData.hidden = NO;
     self.noDataImageView.hidden = NO;
 }

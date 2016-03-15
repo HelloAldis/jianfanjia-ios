@@ -20,8 +20,9 @@ typedef void (^NotificationUnreadUpdateBlock)(NSInteger count);
 - (void)subscribeAppBadgeNumber:(NotificationUnreadUpdateBlock)block;
 - (void)refreshUnreadCount;
 
-- (void)showLocalNotification:(NSDictionary *)userInfo;
-- (void)triggerToShowDetail:(NSDictionary *)userinfo;
+- (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine;
+- (void)remoteTriggerToShowDetail:(NSDictionary *)userInfo;
+- (void)localTriggerToShowDetail:(NSDictionary *)userInfo;
 
 kSynthesizeSingletonForHeader(NotificationDataManager)
 

@@ -81,11 +81,13 @@ static ViewControllerContainer *container;
 - (void)receiveNotification:(NSNotification *)notification {
     Notification *noti = [[Notification alloc] initWith:(NSMutableDictionary *)notification.userInfo];
     
-    if ([[NotificationBusiness userAllNotificationsFilter] containsObject:noti.type]) {
-        [ViewControllerContainer showNotificationDetail:noti.messageid readBlock:nil];
-    } else {
-        [ViewControllerContainer showMyComments];
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if ([[NotificationBusiness userAllNotificationsFilter] containsObject:noti.type]) {
+            [ViewControllerContainer showNotificationDetail:noti.messageid readBlock:nil];
+        } else {
+            [ViewControllerContainer showMyComments];
+        }
+    });
 }
 
 + (void)showAfterLanching {
@@ -374,8 +376,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showDBYS:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock {
-    DBYSViewController *v = [[DBYSViewController alloc] initWithSection:section process:processid refresh:refreshBlock];
++ (void)showDBYS:(Section *)section process:(NSString *)processid popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
+    DBYSViewController *v = [[DBYSViewController alloc] initWithSection:section process:processid popTo:popTo refresh:refreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

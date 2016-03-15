@@ -124,8 +124,8 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [ViewControllerContainer showNotificationDetail:[self.dataSource[indexPath.row] _id] readBlock:^{
-        UserNotification *notification = self.dataSource[indexPath.row];
+    UserNotification *notification = self.dataSource[indexPath.row];
+    [ViewControllerContainer showNotificationDetail:notification._id readBlock:^{
         notification.status = kNotificationStatusReaded;
         [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     }];
@@ -209,22 +209,29 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 }
 
 - (void)refreshData:(NotificationType)type {
+    [self resetNoDataTip];
+    
+    NSString *noDataText;
     NSInteger count;
     switch (type) {
         case NotificationTypeAll: {
                 count = [self.dataManager refreshAllNotifications];
+                noDataText = @"您还没有任何通知";
             }
             break;
         case NotificationTypeAnnouncement: {
                 count = [self.dataManager refreshSystemAnnouncements];
+                noDataText = @"当前还没有系统公告";
             }
             break;
         case NotificationTypeRequirement: {
                 count = [self.dataManager refreshRequirmentNotifications];
+                noDataText = @"您还没有需求相关的通知";
             }
             break;
         case NotificationTypeWorksite: {
                 count = [self.dataManager refreshWorksiteNotifications];
+                noDataText = @"您还没有工地相关的通知";
             }
             break;
             
@@ -232,7 +239,9 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
             break;
     }
     
-    if (count < 20) {
+    if (count == 0) {
+        [self handleNoData:noDataText];
+    } else if (count < 20) {
         [self.tableView.footer noticeNoMoreData];
     }
     
@@ -290,11 +299,15 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
     [self.tableView reloadData];
 }
 
-- (void)showNoNotification:(BOOL)show image:(NSString *)image text:(NSString *)text {
-    self.noNotificationImage.image = [UIImage imageNamed:image];
+- (void)resetNoDataTip {
+    self.noNotificationLabel.hidden = YES;
+    self.noNotificationImage.hidden = YES;
+}
+
+- (void)handleNoData:(NSString *)text {
     self.noNotificationLabel.text = text;
-    self.noNotificationImage.hidden = !show;
-    self.noNotificationLabel.hidden = !show;
+    self.noNotificationLabel.hidden = NO;
+    self.noNotificationImage.hidden = NO;
 }
 
 @end

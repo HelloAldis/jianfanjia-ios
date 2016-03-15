@@ -111,13 +111,12 @@
         [self onChoosePlan];
     }];
     
+    [self initButtons];
+}
+
+- (void)initButtons {
     NSString *status = self.plan.status;
-    NSString *requiremntStatus = self.requirement.status;
-    if ([status isEqualToString:kPlanStatusPlanWasChoosed]
-        || [requiremntStatus isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
-        || [requiremntStatus isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
-        || [requiremntStatus isEqualToString:kRequirementStatusConfiguredWorkSite]
-        || [requiremntStatus isEqualToString:kRequirementStatusFinishedWorkSite]) {
+    if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
         self.btnChoosePlan.enabled = NO;
         self.btnChoosePlan.backgroundColor = kUntriggeredColor;
     } else {
@@ -162,7 +161,8 @@
             if (self.popTo) {
                 [self.navigationController popToViewController:self.popTo animated:YES];
             } else {
-                [self onClickBack];
+                self.plan.status = kPlanStatusPlanWasChoosed;
+                [self initButtons];
             }
         } failure:^{
             

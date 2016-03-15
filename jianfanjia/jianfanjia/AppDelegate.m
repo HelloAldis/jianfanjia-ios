@@ -185,18 +185,19 @@
     DDLogDebug(@"\n>>>[Receive RemoteNotification - Background Fetch]:%@\n\n",userInfo);
 
     if(application.applicationState == UIApplicationStateInactive) {
-        [[NotificationDataManager shared] triggerToShowDetail:userInfo];
+        [[NotificationDataManager shared] remoteTriggerToShowDetail:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
     } else if (application.applicationState == UIApplicationStateBackground) {
         completionHandler(UIBackgroundFetchResultNewData);
     } else {
-        [[NotificationDataManager shared] showLocalNotification:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
     }
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    [[NotificationDataManager shared] triggerToShowDetail:notification.userInfo];
+    if(application.applicationState == UIApplicationStateInactive) {
+        [[NotificationDataManager shared] localTriggerToShowDetail:notification.userInfo];
+    }
 }
 
 #pragma mark - GeTuiSdkDelegate
@@ -226,9 +227,7 @@
     
     NSString *msg = [NSString stringWithFormat:@" payloadId=%@,taskId=%@,messageId:%@,payloadMsg:%@%@",payloadId,taskId,aMsgId,payloadMsg,offLine ? @"<离线消息>" : @""];
     DDLogDebug(@"\n>>>[GexinSdk ReceivePayload]:%@\n\n", msg);
-    if (offLine) {
-        [[NotificationDataManager shared] refreshUnreadCount];
-    }
+    [[NotificationDataManager shared] receiveNotification:payload andOffLine:offLine];
     
     /**
      *汇报个推自定义事件

@@ -41,7 +41,7 @@
     @weakify(self);
     [[self.btnDBYS rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [ViewControllerContainer showDBYS:self.dataManager.selectedSection process:self.dataManager.process._id refresh:^{
+        [ViewControllerContainer showDBYS:self.dataManager.selectedSection process:self.dataManager.process._id popTo:[ViewControllerContainer getCurrentTapController] refresh:^{
             if (self.refreshBlock) {
                 self.refreshBlock();
             }

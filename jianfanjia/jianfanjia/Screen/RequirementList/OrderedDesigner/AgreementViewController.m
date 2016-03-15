@@ -47,6 +47,10 @@
     [self initLeftBackInNav];
     self.title = @"施工合同";
     
+    [self initButtons];
+}
+
+- (void)initButtons {
     if (![self.requirement.work_type isEqualToString:kWorkTypeDesign]) {
         if ([kRequirementStatusConfiguredAgreementWithoutWorkSite isEqualToString:self.requirement.status]) {
             self.btnConfirm.enabled = YES;
@@ -118,7 +122,8 @@
         if (self.popTo) {
             [self.navigationController popToViewController:self.popTo animated:YES];
         } else {
-            [self clickBack];
+            self.requirement.status = kRequirementStatusConfiguredWorkSite;
+            [self initButtons];
         }
     } failure:^{
         self.btnConfirm.enabled = YES;

@@ -192,7 +192,7 @@
                         <outlet property="delegate" destination="-1" id="PMm-60-mHS"/>
                     </connections>
                 </tableView>
-                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_purchase_notification" translatesAutoresizingMaskIntoConstraints="NO" id="Yqq-2M-MY0">
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_no_notification" translatesAutoresizingMaskIntoConstraints="NO" id="Yqq-2M-MY0">
                     <rect key="frame" x="224" y="304" width="44" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="ClS-dO-92i"/>
@@ -200,8 +200,8 @@
                     </constraints>
                 </imageView>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您还没有采购提醒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1tj-LS-fcm">
-                    <rect key="frame" x="186" y="359" width="120" height="18"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <rect key="frame" x="190" y="359" width="112" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -226,6 +226,6 @@
         </view>
     </objects>
     <resources>
-        <image name="no_purchase_notification" width="44" height="40"/>
+        <image name="img_no_notification" width="38" height="30"/>
     </resources>
 </document>

@@ -29,6 +29,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 @property (strong, nonatomic) Section *section;
 @property (strong, nonatomic) NSString *processid;
+@property (strong, nonatomic) UIViewController *popTo;
 @property (copy, nonatomic) void(^refreshBlock)(void);
 
 @property (strong, nonatomic) NSMutableArray *imgArray;
@@ -38,10 +39,11 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 @implementation DBYSViewController
 
 #pragma mark - init method
-- (id)initWithSection:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock {
+- (id)initWithSection:(Section *)section process:(NSString *)processid popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
     if (self = [super init]) {
         _section = section;
         _processid = processid;
+        _popTo = popTo;
         _refreshBlock = refreshBlock;
     }
     
@@ -99,7 +101,13 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
                 if (self.refreshBlock) {
                     self.refreshBlock();
                 }
-                [self clickBack];
+                
+                if (self.popTo) {
+                    [self.navigationController popToViewController:self.popTo animated:YES];
+                } else {
+                    self.section.status = kSectionStatusAlreadyFinished;
+                    [self initButtons];
+                }
             } failure:^{
                 
             } networkError:^{
@@ -108,6 +116,10 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         }];
     }];
     
+    [self initButtons];
+}
+
+- (void)initButtons {
     NSInteger totalCount = [self getDBYSImageCount:self.section];
     NSInteger count = [self getCurrentImageCount];
     
