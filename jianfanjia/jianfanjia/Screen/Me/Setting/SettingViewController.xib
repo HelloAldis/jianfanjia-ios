@@ -22,7 +22,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h5t-Bb-6WN">
-                                    <rect key="frame" x="0.0" y="15" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="10" width="600" height="44"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MuM-go-4hH">
                                             <rect key="frame" x="20" y="0.0" width="580" height="44"/>
@@ -55,33 +55,8 @@
                                         <constraint firstAttribute="height" constant="44" id="xNH-es-W6C"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HrG-vU-8OW">
-                                    <rect key="frame" x="0.0" y="133" width="600" height="44"/>
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gb-Q6-r0r">
-                                            <rect key="frame" x="20" y="0.0" width="560" height="44"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="goO-Ve-tv8"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <state key="normal" title="退出登录">
-                                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="onClickLogout:" destination="-1" eventType="touchUpInside" id="wBz-dR-QjL"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstItem="8gb-Q6-r0r" firstAttribute="leading" secondItem="HrG-vU-8OW" secondAttribute="leading" constant="20" id="HFa-cM-KUk"/>
-                                        <constraint firstAttribute="height" constant="44" id="VfO-JR-nbK"/>
-                                        <constraint firstAttribute="trailing" secondItem="8gb-Q6-r0r" secondAttribute="trailing" constant="20" id="egZ-mq-r6j"/>
-                                        <constraint firstItem="8gb-Q6-r0r" firstAttribute="top" secondItem="HrG-vU-8OW" secondAttribute="top" id="gAv-nU-Q72"/>
-                                    </constraints>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9bL-59-b37">
-                                    <rect key="frame" x="0.0" y="74" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w60-x4-fBq">
                                             <rect key="frame" x="20" y="0.0" width="580" height="44"/>
@@ -126,18 +101,43 @@
                                         </mask>
                                     </variation>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HrG-vU-8OW">
+                                    <rect key="frame" x="0.0" y="118" width="600" height="44"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gb-Q6-r0r">
+                                            <rect key="frame" x="20" y="0.0" width="560" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="goO-Ve-tv8"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <state key="normal" title="退出登录">
+                                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onClickLogout:" destination="-1" eventType="touchUpInside" id="wBz-dR-QjL"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstItem="8gb-Q6-r0r" firstAttribute="leading" secondItem="HrG-vU-8OW" secondAttribute="leading" constant="20" id="HFa-cM-KUk"/>
+                                        <constraint firstAttribute="height" constant="44" id="VfO-JR-nbK"/>
+                                        <constraint firstAttribute="trailing" secondItem="8gb-Q6-r0r" secondAttribute="trailing" constant="20" id="egZ-mq-r6j"/>
+                                        <constraint firstItem="8gb-Q6-r0r" firstAttribute="top" secondItem="HrG-vU-8OW" secondAttribute="top" id="gAv-nU-Q72"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="9bL-59-b37" firstAttribute="width" secondItem="h5t-Bb-6WN" secondAttribute="width" id="0wX-Ma-glz"/>
-                                <constraint firstItem="h5t-Bb-6WN" firstAttribute="top" secondItem="xrJ-SX-GUS" secondAttribute="top" constant="15" id="Bvk-PN-a7b"/>
+                                <constraint firstItem="h5t-Bb-6WN" firstAttribute="top" secondItem="xrJ-SX-GUS" secondAttribute="top" constant="10" id="Bvk-PN-a7b"/>
                                 <constraint firstItem="h5t-Bb-6WN" firstAttribute="centerX" secondItem="xrJ-SX-GUS" secondAttribute="centerX" id="GJM-YK-3kl"/>
-                                <constraint firstItem="9bL-59-b37" firstAttribute="top" secondItem="h5t-Bb-6WN" secondAttribute="bottom" constant="15" id="TwJ-MZ-8eb"/>
+                                <constraint firstItem="9bL-59-b37" firstAttribute="top" secondItem="h5t-Bb-6WN" secondAttribute="bottom" constant="10" id="TwJ-MZ-8eb"/>
                                 <constraint firstItem="HrG-vU-8OW" firstAttribute="width" secondItem="h5t-Bb-6WN" secondAttribute="width" id="e7n-q2-KoG"/>
                                 <constraint firstItem="9bL-59-b37" firstAttribute="leading" secondItem="h5t-Bb-6WN" secondAttribute="leading" id="sc6-dm-MKA"/>
                                 <constraint firstItem="HrG-vU-8OW" firstAttribute="leading" secondItem="h5t-Bb-6WN" secondAttribute="leading" id="tMq-dA-Fh4"/>
                                 <constraint firstItem="h5t-Bb-6WN" firstAttribute="width" secondItem="xrJ-SX-GUS" secondAttribute="width" id="xMa-FH-Mtd"/>
-                                <constraint firstItem="HrG-vU-8OW" firstAttribute="top" secondItem="9bL-59-b37" secondAttribute="bottom" constant="15" id="y5C-Ct-Uj6"/>
+                                <constraint firstItem="HrG-vU-8OW" firstAttribute="top" secondItem="9bL-59-b37" secondAttribute="bottom" constant="10" id="y5C-Ct-Uj6"/>
                             </constraints>
                         </view>
                     </subviews>

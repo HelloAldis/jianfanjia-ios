@@ -20,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmh-hp-vyZ">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nmh-hp-vyZ">
                     <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9L-CY-RMQ">
@@ -254,6 +254,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="h9L-CY-RMQ" firstAttribute="width" secondItem="nmh-hp-vyZ" secondAttribute="width" id="986-Yh-9dI"/>
                         <constraint firstItem="h9L-CY-RMQ" firstAttribute="height" secondItem="nmh-hp-vyZ" secondAttribute="height" id="Ill-RD-gNR"/>
@@ -264,7 +265,7 @@
                     </constraints>
                 </scrollView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="nmh-hp-vyZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FVR-Ei-nB5"/>
                 <constraint firstAttribute="trailing" secondItem="nmh-hp-vyZ" secondAttribute="trailing" id="G84-bx-RpD"/>
