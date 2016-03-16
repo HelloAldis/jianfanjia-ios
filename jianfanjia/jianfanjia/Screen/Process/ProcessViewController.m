@@ -94,7 +94,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"工地管理";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"notification-bell"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickReminder)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"notification-bell"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickMyNotification)];
 }
 
 - (void)initUI {
@@ -118,6 +118,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     [self configureHeaderToTableView:YES];
     self.isFirstEnter = YES;
+    
+    [[NotificationDataManager shared] subscribeAppBadgeNumber:^(NSInteger count) {
+        self.navigationItem.rightBarButtonItem.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
+    }];
 }
 
 #pragma mark - scroll view delegate
@@ -521,7 +525,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 #pragma mark - user action
-- (void)onClickReminder {
+- (void)onClickMyNotification {
     self.wasEnterMyNotification = YES;
     [ViewControllerContainer showMyNotification];
 }

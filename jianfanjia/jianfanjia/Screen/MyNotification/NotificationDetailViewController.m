@@ -175,6 +175,11 @@ static NSDictionary *NotificationTitles = nil;
     }
 }
 
+- (void)displayDefaultOk {
+    self.btnOk.hidden = NO;
+    [self.btnOk setTitle:@"朕，知道了" forState:UIControlStateNormal];
+}
+
 - (void)handleReschedule {
     Schedule *schedule = self.notification.schedule;
     if ([schedule.status isEqualToString:kSectionStatusChangeDateRequest]) {
@@ -193,11 +198,6 @@ static NSDictionary *NotificationTitles = nil;
     } else {
         [self displayDefaultOk];
     }
-}
-
-- (void)displayDefaultOk {
-    self.btnOk.hidden = NO;
-    [self.btnOk setTitle:@"朕，知道了" forState:UIControlStateNormal];
 }
 
 - (void)handlePlanSubmit {

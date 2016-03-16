@@ -10,6 +10,8 @@
 #import <SafariServices/SafariServices.h>
 #import <Foundation/Foundation.h>
 #import "ViewControllerContainer.h"
+#import "RejectUserAlertViewController.h"
+#import "SetMeasureHouseTimeViewController.h"
 
 @import WebKit;
 
@@ -142,10 +144,10 @@ static NSDictionary *NotificationTitles = nil;
 
 - (void)initData {
     self.lblNotificationTitle.text = NotificationTitles[self.notification.message_type];
-    if ([[NotificationBusiness userRequirmentNotificationFilter] containsObject:self.notification.message_type]) {
+    if ([[NotificationBusiness designerRequirmentNotificationFilter] containsObject:self.notification.message_type]) {
         self.lblCell.text = self.notification.requirement.cell;
         self.notificationTitleBG.backgroundColor = kExcutionStatusColor;
-    } else if ([[NotificationBusiness userWorksiteNotificationFilter] containsObject:self.notification.message_type]) {
+    } else if ([[NotificationBusiness designerWorksiteNotificationFilter] containsObject:self.notification.message_type]) {
         self.lblCell.text = self.notification.process.cell;
         self.notificationTitleBG.backgroundColor = kThemeColor;
     } else {
@@ -153,7 +155,7 @@ static NSDictionary *NotificationTitles = nil;
         self.notificationTitleBG.backgroundColor = kReminderColor;
     }
 
-    self.lblSection.hidden = ![[NotificationBusiness userWorksiteNotificationFilter] containsObject:self.notification.message_type];
+    self.lblSection.hidden = ![[NotificationBusiness designerWorksiteNotificationFilter] containsObject:self.notification.message_type];
     self.lblSection.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:self.notification.section]];
     self.lblNotificationTime.text = [self.notification.create_at humDateString];
     self.headerView.hidden = NO;
@@ -167,15 +169,22 @@ static NSDictionary *NotificationTitles = nil;
     self.btnAgree.hidden = YES;
     self.btnReject.hidden = YES;
     
-    if ([self.notification.message_type isEqualToString:kUserPNFromRescheduleRequest]) {
+    if ([self.notification.message_type isEqualToString:kDesignerPNFromRescheduleRequest]) {
         [self handleReschedule];
     } else if ([self.notification.message_type isEqualToString:kDesignerPNFromPlanChoose]) {
         [self handlePlanChoose];
     } else if ([self.notification.message_type isEqualToString:kDesignerPNFromPlanNotChoose]) {
         [self handlePlanNotChoose];
+    }  else if ([self.notification.message_type isEqualToString:kDesignerPNFromOrderTip]) {
+        [self handleOrderTip];
     } else {
         [self displayDefaultOk];
     }
+}
+
+- (void)displayDefaultOk {
+    self.btnOk.hidden = NO;
+    [self.btnOk setTitle:@"朕，知道了" forState:UIControlStateNormal];
 }
 
 - (void)handleReschedule {
@@ -198,11 +207,6 @@ static NSDictionary *NotificationTitles = nil;
     }
 }
 
-- (void)displayDefaultOk {
-    self.btnOk.hidden = NO;
-    [self.btnOk setTitle:@"朕，知道了" forState:UIControlStateNormal];
-}
-
 - (void)handlePlanChoose {
     [self.okDisposable dispose];
     self.btnOk.hidden = NO;
@@ -216,6 +220,26 @@ static NSDictionary *NotificationTitles = nil;
 
 - (void)handlePlanNotChoose {
     [self handlePlanChoose];
+}
+
+- (void)handleOrderTip {
+    Plan *plan = self.notification.plan;
+    if ([plan.status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
+        self.btnAgree.hidden = NO;
+        self.btnReject.hidden = NO;
+        [self.btnAgree setTitle:@"响应" forState:UIControlStateNormal];
+        [self.btnReject setTitle:@"拒绝" forState:UIControlStateNormal];
+        [self.btnAgree addTarget:self action:@selector(respondOrder) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnReject addTarget:self action:@selector(rejectOrder) forControlEvents:UIControlEventTouchUpInside];
+    } else if ([plan.status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]) {
+        self.btnOk.hidden = NO;
+        [self.btnOk disable:@"已响应"];
+    } else if ([plan.status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]) {
+        self.btnOk.hidden = NO;
+        [self.btnOk disable:@"已拒绝"];
+    } else {
+        [self displayDefaultOk];
+    }
 }
 
 #pragma mark - api request
@@ -240,6 +264,7 @@ static NSDictionary *NotificationTitles = nil;
     self.notification = [[DesignerNotification alloc] initWith:[DataManager shared].data];
     self.notification.process = [[Process alloc] initWith:self.notification.data[@"process"]];
     self.notification.requirement = [[Requirement alloc] initWith:self.notification.data[@"requirement"]];
+    self.notification.requirement.user = [[User alloc] initWith:self.notification.data[@"user"]];
     self.notification.schedule = [[Schedule alloc] initWith:self.notification.data[@"reschedule"]];
     self.notification.plan = [[Plan alloc] initWith:self.notification.data[@"plan"]];
 }
@@ -249,6 +274,7 @@ static NSDictionary *NotificationTitles = nil;
     [self clickBack];
 }
 
+#pragma mark - reschedule
 - (void)agreeChangeDate {
     [HUDUtil showWait];
     AgreeReschedule *request = [[AgreeReschedule alloc] init];
@@ -278,6 +304,44 @@ static NSDictionary *NotificationTitles = nil;
         [HUDUtil hideWait];
     } networkError:^{
         [HUDUtil hideWait];
+    }];
+}
+
+#pragma mark - respond order
+- (void)rejectOrder {
+    @weakify(self);
+    [RejectUserAlertViewController presentAlert:@"拒绝接单原因" msg:@"PS：以下收集的信息，将不会向业主展示，麻烦您耐心填写拒绝接单原因，以便我们合作更加紧密。" conform:^(NSString *reason) {
+        @strongify(self);
+        if (reason) {
+            [HUDUtil showWait];
+            DesignerRejectUser *request = [[DesignerRejectUser alloc] init];
+            request.requirementid = self.notification.requirementid;
+            request.reject_respond_msg = reason;
+            [API designerRejectUser:request success:^{
+                [HUDUtil hideWait];
+                self.notification.plan.status = kPlanStatusDesignerDeclineHomeOwner;
+                [self initButtons];
+            } failure:^{
+                [HUDUtil hideWait];
+            } networkError:^{
+                [HUDUtil hideWait];
+            }];
+        }
+    }];
+}
+
+- (void)respondOrder {
+    DesignerRespondUser *request = [[DesignerRespondUser alloc] init];
+    request.requirementid = self.notification.requirementid;
+    [API designerRespondUser:request success:nil failure:nil networkError:nil];
+    
+    @weakify(self);
+    [SetMeasureHouseTimeViewController showSetMeasureHouseTime:self.notification.requirement completion:^(BOOL completion) {
+        @strongify(self);
+        if (completion) {
+            self.notification.plan.status = kPlanStatusDesignerRespondedWithoutMeasureHouse;
+            [self initButtons];
+        }
     }];
 }
 

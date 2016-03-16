@@ -38,6 +38,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 @property (strong, nonatomic) NSIndexPath *lastSelectedIndexPath;
 @property (assign, nonatomic) BOOL isHeaderHidden;
 @property (assign, nonatomic) BOOL isFirstEnter;
+@property (assign, nonatomic) BOOL wasEnterMyNotification;
 
 @property (strong, nonatomic) UIView *minDistanceFromLeftEdgeView;
 
@@ -75,6 +76,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    if (self.wasEnterMyNotification) {
+        self.wasEnterMyNotification = NO;
+        [self refreshProcess:NO];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -87,7 +93,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"工地管理";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"notification-bell"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickReminder)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"notification-bell"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickMyNotification)];
 }
 
 - (void)initUI {
@@ -111,6 +117,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     [self configureHeaderToTableView:YES];
     self.isFirstEnter = YES;
+    
+    [[NotificationDataManager shared] subscribeAppBadgeNumber:^(NSInteger count) {
+        self.navigationItem.rightBarButtonItem.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
+    }];
 }
 
 #pragma mark - scroll view delegate
@@ -514,18 +524,9 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 #pragma mark - user action
-- (void)onClickReminder {
-//    @weakify(self);
-//    [ViewControllerContainer showReminder:self.processid refreshBlock:^(NSString *type){
-//        @strongify(self);
-//        if ([type isEqualToString:kNotificationTypePurchase]) {
-//            [self refreshProcess:NO];
-//        } else if ([type isEqualToString:kNotificationTypeReschedule]) {
-//            [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
-//        }
-//    }];
-    
-    
+- (void)onClickMyNotification {
+    self.wasEnterMyNotification = YES;
+    [ViewControllerContainer showMyNotification];
 }
 
 #pragma mark - notification 
