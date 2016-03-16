@@ -160,7 +160,7 @@
 }
 
 - (IBAction)onClickPhoneConsult:(id)sender {
-    [PhoneUtil call:@"4008515167"];
+    [PhoneUtil call:kConsultPhone];
 }
 
 #pragma mark - scroll view  delegate 

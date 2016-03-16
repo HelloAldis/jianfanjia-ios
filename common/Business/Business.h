@@ -33,4 +33,6 @@
 #define kPlaceHolderColor [UIColor colorWithR:0xD5 g:0xD5 b:0xD5]
 #define kNotificationReadColor [UIColor colorWithR:0x7A g:0x84 b:0x8A]
 
+#define kConsultPhone @"4008515167"
+
 #endif /* Type_h */
