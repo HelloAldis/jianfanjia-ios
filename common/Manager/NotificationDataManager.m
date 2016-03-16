@@ -129,7 +129,18 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
             
         }];
     } else if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:kUserTypeDesigner]) {
+        GetDesignerUnreadCount *request = [GetDesignerUnreadCount requestWithTypes:@[[NotificationBusiness designerAllNotificationsFilter], [NotificationBusiness designerAllLeaveMsgFilter]]];
         
+        [API getDesignerUnreadCount:request success:^{
+            NSArray *arr = [DataManager shared].data;
+            self.myNotificationUnreadCount = [arr[0] integerValue];
+            self.myLeaveMsgUnreadCount = [arr[1] integerValue];
+            self.myTotalUnreadCount = self.myNotificationUnreadCount + self.myLeaveMsgUnreadCount;
+        } failure:^{
+            
+        } networkError:^{
+            
+        }];
     }
 }
 

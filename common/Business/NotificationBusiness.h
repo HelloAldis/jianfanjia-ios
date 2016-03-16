@@ -21,6 +21,12 @@ extern NSString * const kNotificationStatusReaded;
 + (NSArray *)userWorksiteNotificationFilter;
 + (NSArray *)userAllLeaveMsgFilter;
 
++ (NSArray *)designerAllNotificationsFilter;
++ (NSArray *)designerSystemAnnouncementFilter;
++ (NSArray *)designerRequirmentNotificationFilter;
++ (NSArray *)designerWorksiteNotificationFilter;
++ (NSArray *)designerAllLeaveMsgFilter;
+
 + (void)markTextColor:(UILabel *)label status:(NSString *)status;
 + (NSInteger)appBadge;
 + (void)setAppBadge:(NSInteger)appBdge;

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="128" id="4dq-kC-p7P" customClass="WorksiteNotificationCell">
+            <rect key="frame" x="0.0" y="0.0" width="476" height="98"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4dq-kC-p7P" id="RLt-cd-dRp">
+                <rect key="frame" x="0.0" y="0.0" width="476" height="97"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="改期提醒" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhi-wf-7mB" userLabel="Lbl Cell">
+                        <rect key="frame" x="8" y="8" width="56" height="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="小区名字" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIG-47-94f" userLabel="Lbl Cell">
+                        <rect key="frame" x="8" y="30" width="52" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="尊敬的业主，您即将进入下一轮付款环节，请及时与设计师联系" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbF-ql-siX">
+                        <rect key="frame" x="8" y="51" width="453" height="38"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfU-Aq-FR3">
+                        <rect key="frame" x="359" y="9" width="109" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="安装阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fr-wI-Y9m">
+                        <rect key="frame" x="70" y="30" width="398" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.0" green="0.48627450980392156" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="Ki8-OL-uXf">
+                        <rect key="frame" x="461" y="42" width="7" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="7" id="0Rv-V9-lBs"/>
+                            <constraint firstAttribute="height" constant="13" id="gcS-4a-Z1g"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zbW-Hi-f6N">
+                        <rect key="frame" x="0.0" y="97" width="476" height="1"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="3PC-IT-b3T"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="centerY" secondItem="FIG-47-94f" secondAttribute="centerY" id="0cE-gO-9My"/>
+                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="leading" secondItem="FIG-47-94f" secondAttribute="trailing" constant="10" id="1qF-6D-mp3"/>
+                    <constraint firstItem="MfU-Aq-FR3" firstAttribute="centerY" secondItem="yhi-wf-7mB" secondAttribute="centerY" id="API-ck-85F"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="GbF-ql-siX" secondAttribute="bottom" id="EWN-Bj-ejO"/>
+                    <constraint firstItem="yhi-wf-7mB" firstAttribute="top" secondItem="RLt-cd-dRp" secondAttribute="topMargin" id="Ef7-p2-3ik"/>
+                    <constraint firstItem="8Fr-wI-Y9m" firstAttribute="trailing" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="Jm0-Ua-k9d"/>
+                    <constraint firstItem="Ki8-OL-uXf" firstAttribute="trailing" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="Lab-SQ-lu3"/>
+                    <constraint firstItem="Ki8-OL-uXf" firstAttribute="centerY" secondItem="RLt-cd-dRp" secondAttribute="centerY" id="Qrc-Wl-pk6"/>
+                    <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="FIG-47-94f" secondAttribute="bottom" constant="5" id="SeE-by-gpe"/>
+                    <constraint firstItem="FIG-47-94f" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="leading" id="Wte-9W-7SZ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="evn-Ky-9Tt"/>
+                    <constraint firstItem="Ki8-OL-uXf" firstAttribute="leading" secondItem="GbF-ql-siX" secondAttribute="trailing" id="g0W-8M-QNf"/>
+                    <constraint firstItem="yhi-wf-7mB" firstAttribute="leading" secondItem="RLt-cd-dRp" secondAttribute="leadingMargin" id="kFJ-Ey-REQ"/>
+                    <constraint firstItem="FIG-47-94f" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="5" id="vME-0L-WUo"/>
+                    <constraint firstItem="GbF-ql-siX" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="leading" id="xfI-AE-CFo"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="zbW-Hi-f6N" secondAttribute="trailing" id="5nq-g9-6FQ"/>
+                <constraint firstItem="zbW-Hi-f6N" firstAttribute="leading" secondItem="4dq-kC-p7P" secondAttribute="leading" id="Jry-nh-XSa"/>
+                <constraint firstAttribute="bottom" secondItem="zbW-Hi-f6N" secondAttribute="bottom" id="Rzt-m1-YWe"/>
+            </constraints>
+            <connections>
+                <outlet property="lblContent" destination="GbF-ql-siX" id="GQs-P5-bbJ"/>
+                <outlet property="lblNotificationTime" destination="MfU-Aq-FR3" id="egx-dl-urb"/>
+                <outlet property="lblNotificationTitle" destination="yhi-wf-7mB" id="jla-pL-U7A"/>
+                <outlet property="lblSection" destination="8Fr-wI-Y9m" id="TFl-bC-1QI"/>
+                <outlet property="lblTitle" destination="FIG-47-94f" id="l7V-11-RIW"/>
+            </connections>
+            <point key="canvasLocation" x="397" y="316"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="bar_shape" width="7" height="13"/>
+    </resources>
+</document>

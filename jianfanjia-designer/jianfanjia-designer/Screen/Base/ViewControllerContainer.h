@@ -28,8 +28,9 @@
 + (void)showPlanPriceDetail:(Plan *)plan;
 + (void)showTab;
 + (void)showDBYS:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock;
++ (void)showMyNotification;
++ (void)showNotificationDetail:(NSString *)notificationid readBlock:(NotificationReadBlock)readBlock;
 + (void)showMyComments;
-+ (void)showReminder:(NSString *)processid refreshBlock:(void(^)(NSString *type))refreshBlock;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
 + (void)showRefresh;

@@ -22,6 +22,12 @@ static NSArray *_UserRequirmentNotificationFilter;
 static NSArray *_UserWorksiteNotificationFilter;
 static NSArray *_UserAllLeaveMsgFilter;
 
+static NSArray *_DesignerAllNotificationsFilter;
+static NSArray *_DesignerSystemAnnouncementFilter;
+static NSArray *_DesignerRequirmentNotificationFilter;
+static NSArray *_DesignerWorksiteNotificationFilter;
+static NSArray *_DesignerAllLeaveMsgFilter;
+
 @implementation NotificationBusiness
 
 + (void)initialize {
@@ -30,6 +36,12 @@ static NSArray *_UserAllLeaveMsgFilter;
     _UserRequirmentNotificationFilter = @[kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure];
     _UserWorksiteNotificationFilter = @[kUserPNFromPurchaseTip, kUserPNFromPayTip, kUserPNFromDBYSRequest, kUserPNFromRescheduleRequest, kUserPNFromRescheduleReject, kUserPNFromRescheduleAgree];
     _UserAllLeaveMsgFilter = @[kUserPNFromPlanComment, kUserPNFromDecItemComment];
+    
+    _DesignerAllNotificationsFilter = @[kDesignerPNFromSystemMsg, kDesignerPNFromBasicInfoAuthPass, kDesignerPNFromBasicInfoAuthNotPass, kDesignerPNFromIDAuthPass, kDesignerPNFromIDAuthNotPass,kDesignerPNFromWorksiteAuthPass, kDesignerPNFromWorksiteAuthNotPass, kDesignerPNFromProductAuthPass, kDesignerPNFromProductAuthNotPass, kDesignerPNFromProductBreakRule, kDesignerPNFromOrderTip, kDesignerPNFromMeasureHouseConfirm, kDesignerPNFromPlanChoose, kDesignerPNFromPlanNotChoose, kDesignerPNFromAgreementConfirm, kDesignerPNFromPurchaseTip, kDesignerPNFromRescheduleRequest, kDesignerPNFromRescheduleReject, kDesignerPNFromRescheduleAgree];
+    _DesignerSystemAnnouncementFilter = @[kDesignerPNFromSystemMsg, kDesignerPNFromBasicInfoAuthPass, kDesignerPNFromBasicInfoAuthNotPass, kDesignerPNFromIDAuthPass, kDesignerPNFromIDAuthNotPass,kDesignerPNFromWorksiteAuthPass, kDesignerPNFromWorksiteAuthNotPass, kDesignerPNFromProductAuthPass, kDesignerPNFromProductAuthNotPass, kDesignerPNFromProductBreakRule];
+    _DesignerRequirmentNotificationFilter = @[kDesignerPNFromOrderTip, kDesignerPNFromMeasureHouseConfirm, kDesignerPNFromPlanChoose, kDesignerPNFromPlanNotChoose, kDesignerPNFromAgreementConfirm];
+    _DesignerWorksiteNotificationFilter = @[kDesignerPNFromPurchaseTip, kDesignerPNFromRescheduleRequest, kDesignerPNFromRescheduleReject, kDesignerPNFromRescheduleAgree];
+    _DesignerAllLeaveMsgFilter = @[kDesignerPNFromPlanComment, kDesignerPNFromDecItemComment];
 }
 
 + (NSArray *)userAllNotificationsFilter {
@@ -50,6 +62,26 @@ static NSArray *_UserAllLeaveMsgFilter;
 
 + (NSArray *)userAllLeaveMsgFilter {
     return _UserAllLeaveMsgFilter;
+}
+
++ (NSArray *)designerAllNotificationsFilter {
+    return _DesignerAllNotificationsFilter;
+}
+
++ (NSArray *)designerSystemAnnouncementFilter {
+    return _DesignerSystemAnnouncementFilter;
+}
+
++ (NSArray *)designerRequirmentNotificationFilter {
+    return _DesignerRequirmentNotificationFilter;
+}
+
++ (NSArray *)designerWorksiteNotificationFilter {
+    return _DesignerWorksiteNotificationFilter;
+}
+
++ (NSArray *)designerAllLeaveMsgFilter {
+    return _DesignerAllLeaveMsgFilter;
 }
 
 + (void)markTextColor:(UILabel *)label status:(NSString *)status {

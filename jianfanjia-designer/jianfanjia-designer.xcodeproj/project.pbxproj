@@ -207,13 +207,6 @@
 		681241271C4CF2D5008FC9AB /* ProcessDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241011C4CF2D5008FC9AB /* ProcessDataManager.m */; };
 		681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241031C4CF2D5008FC9AB /* ProcessViewController.m */; };
 		681241291C4CF2D5008FC9AB /* ProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681241041C4CF2D5008FC9AB /* ProcessViewController.xib */; };
-		6812412C1C4CF2D5008FC9AB /* PostponeNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812410A1C4CF2D5008FC9AB /* PostponeNotificationCell.m */; };
-		6812412D1C4CF2D5008FC9AB /* PostponeNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6812410B1C4CF2D5008FC9AB /* PostponeNotificationCell.xib */; };
-		6812412E1C4CF2D5008FC9AB /* PurchaseNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812410D1C4CF2D5008FC9AB /* PurchaseNotificationCell.m */; };
-		6812412F1C4CF2D5008FC9AB /* PurchaseNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6812410E1C4CF2D5008FC9AB /* PurchaseNotificationCell.xib */; };
-		681241301C4CF2D5008FC9AB /* ReminderDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241101C4CF2D5008FC9AB /* ReminderDataManager.m */; };
-		681241311C4CF2D5008FC9AB /* ReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241121C4CF2D5008FC9AB /* ReminderViewController.m */; };
-		681241321C4CF2D5008FC9AB /* ReminderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681241131C4CF2D5008FC9AB /* ReminderViewController.xib */; };
 		681241331C4CF2D5008FC9AB /* SectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241151C4CF2D5008FC9AB /* SectionView.m */; };
 		681241341C4CF2D5008FC9AB /* SectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681241161C4CF2D5008FC9AB /* SectionView.xib */; };
 		681241351C4CF2D5008FC9AB /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241181C4CF2D5008FC9AB /* UIItemImageCollectionView.m */; };
@@ -268,6 +261,18 @@
 		684B041D1C98FB580053FFDF /* GetDesignerUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04171C98FB580053FFDF /* GetDesignerUnreadCount.m */; };
 		684B041E1C98FB580053FFDF /* SearchDesignerComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04191C98FB580053FFDF /* SearchDesignerComment.m */; };
 		684B041F1C98FB580053FFDF /* SearchDesignerNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B041B1C98FB580053FFDF /* SearchDesignerNotification.m */; };
+		684B04341C990E910053FFDF /* BaseNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04221C990E910053FFDF /* BaseNotificationCell.m */; };
+		684B04351C990E910053FFDF /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04241C990E910053FFDF /* MyNotificationDataManager.m */; };
+		684B04361C990E910053FFDF /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04261C990E910053FFDF /* MyNotificationViewController.m */; };
+		684B04371C990E910053FFDF /* MyNotificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B04271C990E910053FFDF /* MyNotificationViewController.xib */; };
+		684B04381C990E910053FFDF /* NotificationDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04291C990E910053FFDF /* NotificationDetailViewController.m */; };
+		684B04391C990E910053FFDF /* NotificationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B042A1C990E910053FFDF /* NotificationDetailViewController.xib */; };
+		684B043A1C990E910053FFDF /* RequirementNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B042C1C990E910053FFDF /* RequirementNotificationCell.m */; };
+		684B043B1C990E910053FFDF /* RequirementNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B042D1C990E910053FFDF /* RequirementNotificationCell.xib */; };
+		684B043C1C990E910053FFDF /* SystemAnnouncementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B042F1C990E910053FFDF /* SystemAnnouncementCell.m */; };
+		684B043D1C990E910053FFDF /* SystemAnnouncementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B04301C990E910053FFDF /* SystemAnnouncementCell.xib */; };
+		684B043E1C990E910053FFDF /* WorksiteNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04321C990E910053FFDF /* WorksiteNotificationCell.m */; };
+		684B043F1C990E910053FFDF /* WorksiteNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B04331C990E910053FFDF /* WorksiteNotificationCell.xib */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
 		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
@@ -692,17 +697,6 @@
 		681241021C4CF2D5008FC9AB /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
 		681241031C4CF2D5008FC9AB /* ProcessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessViewController.m; sourceTree = "<group>"; };
 		681241041C4CF2D5008FC9AB /* ProcessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProcessViewController.xib; sourceTree = "<group>"; };
-		681241091C4CF2D5008FC9AB /* PostponeNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostponeNotificationCell.h; sourceTree = "<group>"; };
-		6812410A1C4CF2D5008FC9AB /* PostponeNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostponeNotificationCell.m; sourceTree = "<group>"; };
-		6812410B1C4CF2D5008FC9AB /* PostponeNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostponeNotificationCell.xib; sourceTree = "<group>"; };
-		6812410C1C4CF2D5008FC9AB /* PurchaseNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PurchaseNotificationCell.h; sourceTree = "<group>"; };
-		6812410D1C4CF2D5008FC9AB /* PurchaseNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PurchaseNotificationCell.m; sourceTree = "<group>"; };
-		6812410E1C4CF2D5008FC9AB /* PurchaseNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PurchaseNotificationCell.xib; sourceTree = "<group>"; };
-		6812410F1C4CF2D5008FC9AB /* ReminderDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderDataManager.h; sourceTree = "<group>"; };
-		681241101C4CF2D5008FC9AB /* ReminderDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderDataManager.m; sourceTree = "<group>"; };
-		681241111C4CF2D5008FC9AB /* ReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderViewController.h; sourceTree = "<group>"; };
-		681241121C4CF2D5008FC9AB /* ReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderViewController.m; sourceTree = "<group>"; };
-		681241131C4CF2D5008FC9AB /* ReminderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReminderViewController.xib; sourceTree = "<group>"; };
 		681241141C4CF2D5008FC9AB /* SectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionView.h; sourceTree = "<group>"; };
 		681241151C4CF2D5008FC9AB /* SectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionView.m; sourceTree = "<group>"; };
 		681241161C4CF2D5008FC9AB /* SectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionView.xib; sourceTree = "<group>"; };
@@ -794,6 +788,25 @@
 		684B04191C98FB580053FFDF /* SearchDesignerComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDesignerComment.m; sourceTree = "<group>"; };
 		684B041A1C98FB580053FFDF /* SearchDesignerNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDesignerNotification.h; sourceTree = "<group>"; };
 		684B041B1C98FB580053FFDF /* SearchDesignerNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDesignerNotification.m; sourceTree = "<group>"; };
+		684B04211C990E910053FFDF /* BaseNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNotificationCell.h; sourceTree = "<group>"; };
+		684B04221C990E910053FFDF /* BaseNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNotificationCell.m; sourceTree = "<group>"; };
+		684B04231C990E910053FFDF /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
+		684B04241C990E910053FFDF /* MyNotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNotificationDataManager.m; sourceTree = "<group>"; };
+		684B04251C990E910053FFDF /* MyNotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationViewController.h; sourceTree = "<group>"; };
+		684B04261C990E910053FFDF /* MyNotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNotificationViewController.m; sourceTree = "<group>"; };
+		684B04271C990E910053FFDF /* MyNotificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyNotificationViewController.xib; sourceTree = "<group>"; };
+		684B04281C990E910053FFDF /* NotificationDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDetailViewController.h; sourceTree = "<group>"; };
+		684B04291C990E910053FFDF /* NotificationDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDetailViewController.m; sourceTree = "<group>"; };
+		684B042A1C990E910053FFDF /* NotificationDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationDetailViewController.xib; sourceTree = "<group>"; };
+		684B042B1C990E910053FFDF /* RequirementNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementNotificationCell.h; sourceTree = "<group>"; };
+		684B042C1C990E910053FFDF /* RequirementNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementNotificationCell.m; sourceTree = "<group>"; };
+		684B042D1C990E910053FFDF /* RequirementNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementNotificationCell.xib; sourceTree = "<group>"; };
+		684B042E1C990E910053FFDF /* SystemAnnouncementCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemAnnouncementCell.h; sourceTree = "<group>"; };
+		684B042F1C990E910053FFDF /* SystemAnnouncementCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemAnnouncementCell.m; sourceTree = "<group>"; };
+		684B04301C990E910053FFDF /* SystemAnnouncementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SystemAnnouncementCell.xib; sourceTree = "<group>"; };
+		684B04311C990E910053FFDF /* WorksiteNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorksiteNotificationCell.h; sourceTree = "<group>"; };
+		684B04321C990E910053FFDF /* WorksiteNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorksiteNotificationCell.m; sourceTree = "<group>"; };
+		684B04331C990E910053FFDF /* WorksiteNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorksiteNotificationCell.xib; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -1034,6 +1047,7 @@
 				68123D441C4CBE79008FC9AB /* Base */,
 				68123DCB1C4CBE79008FC9AB /* Refresh */,
 				68123DCF1C4CBE79008FC9AB /* RequirementList */,
+				684B04201C990E910053FFDF /* MyNotification */,
 				68123E5D1C4CBE79008FC9AB /* Welcome */,
 			);
 			path = Screen;
@@ -1255,7 +1269,6 @@
 		681240EA1C4CF2D5008FC9AB /* Process */ = {
 			isa = PBXGroup;
 			children = (
-				681241051C4CF2D5008FC9AB /* Reminder */,
 				681241021C4CF2D5008FC9AB /* ProcessViewController.h */,
 				681241031C4CF2D5008FC9AB /* ProcessViewController.m */,
 				681241041C4CF2D5008FC9AB /* ProcessViewController.xib */,
@@ -1289,24 +1302,6 @@
 				681241181C4CF2D5008FC9AB /* UIItemImageCollectionView.m */,
 			);
 			path = Process;
-			sourceTree = "<group>";
-		};
-		681241051C4CF2D5008FC9AB /* Reminder */ = {
-			isa = PBXGroup;
-			children = (
-				681241091C4CF2D5008FC9AB /* PostponeNotificationCell.h */,
-				6812410A1C4CF2D5008FC9AB /* PostponeNotificationCell.m */,
-				6812410B1C4CF2D5008FC9AB /* PostponeNotificationCell.xib */,
-				6812410C1C4CF2D5008FC9AB /* PurchaseNotificationCell.h */,
-				6812410D1C4CF2D5008FC9AB /* PurchaseNotificationCell.m */,
-				6812410E1C4CF2D5008FC9AB /* PurchaseNotificationCell.xib */,
-				6812410F1C4CF2D5008FC9AB /* ReminderDataManager.h */,
-				681241101C4CF2D5008FC9AB /* ReminderDataManager.m */,
-				681241111C4CF2D5008FC9AB /* ReminderViewController.h */,
-				681241121C4CF2D5008FC9AB /* ReminderViewController.m */,
-				681241131C4CF2D5008FC9AB /* ReminderViewController.xib */,
-			);
-			path = Reminder;
 			sourceTree = "<group>";
 		};
 		681241451C4E4451008FC9AB /* Actions */ = {
@@ -1370,6 +1365,32 @@
 				684B04091C98F7060053FFDF /* PlanCommentInfoCell.xib */,
 			);
 			path = MyComment;
+			sourceTree = "<group>";
+		};
+		684B04201C990E910053FFDF /* MyNotification */ = {
+			isa = PBXGroup;
+			children = (
+				684B04211C990E910053FFDF /* BaseNotificationCell.h */,
+				684B04221C990E910053FFDF /* BaseNotificationCell.m */,
+				684B04231C990E910053FFDF /* MyNotificationDataManager.h */,
+				684B04241C990E910053FFDF /* MyNotificationDataManager.m */,
+				684B04251C990E910053FFDF /* MyNotificationViewController.h */,
+				684B04261C990E910053FFDF /* MyNotificationViewController.m */,
+				684B04271C990E910053FFDF /* MyNotificationViewController.xib */,
+				684B04281C990E910053FFDF /* NotificationDetailViewController.h */,
+				684B04291C990E910053FFDF /* NotificationDetailViewController.m */,
+				684B042A1C990E910053FFDF /* NotificationDetailViewController.xib */,
+				684B042B1C990E910053FFDF /* RequirementNotificationCell.h */,
+				684B042C1C990E910053FFDF /* RequirementNotificationCell.m */,
+				684B042D1C990E910053FFDF /* RequirementNotificationCell.xib */,
+				684B042E1C990E910053FFDF /* SystemAnnouncementCell.h */,
+				684B042F1C990E910053FFDF /* SystemAnnouncementCell.m */,
+				684B04301C990E910053FFDF /* SystemAnnouncementCell.xib */,
+				684B04311C990E910053FFDF /* WorksiteNotificationCell.h */,
+				684B04321C990E910053FFDF /* WorksiteNotificationCell.m */,
+				684B04331C990E910053FFDF /* WorksiteNotificationCell.xib */,
+			);
+			path = MyNotification;
 			sourceTree = "<group>";
 		};
 		6E0426601BC757C500F984B8 = {
@@ -1951,7 +1972,9 @@
 				68123F0C1C4CBE79008FC9AB /* SelectDecorationTypeViewController.xib in Resources */,
 				68123EEB1C4CBE79008FC9AB /* MessageCell.xib in Resources */,
 				681241A81C4F3B1C008FC9AB /* RejectActionCell.xib in Resources */,
+				684B04371C990E910053FFDF /* MyNotificationViewController.xib in Resources */,
 				68123F021C4CBE79008FC9AB /* MultipleLineTextTableViewCell.xib in Resources */,
+				684B043B1C990E910053FFDF /* RequirementNotificationCell.xib in Resources */,
 				68123F0A1C4CBE79008FC9AB /* SelectDecorationStyleViewController.xib in Resources */,
 				6812411C1C4CF2D5008FC9AB /* ItemCell.xib in Resources */,
 				68123EEF1C4CBE79008FC9AB /* PlanListViewController.xib in Resources */,
@@ -1977,7 +2000,7 @@
 				681241221C4CF2D5008FC9AB /* ItemImageCollectionCell.xib in Resources */,
 				68123E751C4CBE79008FC9AB /* SignupSuccessViewController.xib in Resources */,
 				682E04F41C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.xib in Resources */,
-				681241321C4CF2D5008FC9AB /* ReminderViewController.xib in Resources */,
+				684B043D1C990E910053FFDF /* SystemAnnouncementCell.xib in Resources */,
 				68123C9B1C4C9772008FC9AB /* province2city.js in Resources */,
 				681241A21C4F3B1C008FC9AB /* ChoosedPlanActionCell.xib in Resources */,
 				68123F121C4CBE79008FC9AB /* SelectSexTypeViewController.xib in Resources */,
@@ -1988,7 +2011,6 @@
 				68123C8E1C4C9772008FC9AB /* MessageAlertViewController.xib in Resources */,
 				68123F211C4CBE79008FC9AB /* WelcomeViewController.xib in Resources */,
 				68123F0E1C4CBE79008FC9AB /* SelectHouseTypeViewController.xib in Resources */,
-				6812412F1C4CF2D5008FC9AB /* PurchaseNotificationCell.xib in Resources */,
 				684B040C1C98F7060053FFDF /* CommentListViewController.xib in Resources */,
 				681241AF1C4F3BCF008FC9AB /* SubmitedPlanActionCell.xib in Resources */,
 				684B04101C98F7060053FFDF /* PlanCommentInfoCell.xib in Resources */,
@@ -2000,6 +2022,7 @@
 				68123E711C4CBE79008FC9AB /* LoginViewController.xib in Resources */,
 				68123E771C4CBE79008FC9AB /* VerifyPhoneViewController.xib in Resources */,
 				6EA0C1A31C57827A00D04A4F /* PlanPriceTotalCell.xib in Resources */,
+				684B043F1C990E910053FFDF /* WorksiteNotificationCell.xib in Resources */,
 				68123E921C4CBE79008FC9AB /* AboutViewController.xib in Resources */,
 				681241B41C4F3D31008FC9AB /* UnchoosedPlanActionCell.xib in Resources */,
 				68123EFE1C4CBE79008FC9AB /* DecorationStyleCell.xib in Resources */,
@@ -2013,11 +2036,11 @@
 				68123C971C4C9772008FC9AB /* ImageEditorViewController.xib in Resources */,
 				68123F081C4CBE79008FC9AB /* SelectCommunicationTypeViewController.xib in Resources */,
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
+				684B04391C990E910053FFDF /* NotificationDetailViewController.xib in Resources */,
 				6EA0C19E1C577F7500D04A4F /* PlanPriceItemSection.xib in Resources */,
 				68123F101C4CBE79008FC9AB /* SelectPopulationViewController.xib in Resources */,
 				68123E941C4CBE79008FC9AB /* FeedbackViewController.xib in Resources */,
 				68123C9A1C4C9772008FC9AB /* city2area.js in Resources */,
-				6812412D1C4CF2D5008FC9AB /* PostponeNotificationCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2107,6 +2130,7 @@
 				68123FE01C4CCF4A008FC9AB /* PriceItem.m in Sources */,
 				6EA0C19D1C577F7500D04A4F /* PlanPriceItemSection.m in Sources */,
 				681240E81C4CF2CC008FC9AB /* ProcessCell.m in Sources */,
+				684B04341C990E910053FFDF /* BaseNotificationCell.m in Sources */,
 				681240CA1C4CE471008FC9AB /* ReplaceOrderedDesigner.m in Sources */,
 				684B03D21C98141F0053FFDF /* UITabBarItem+Badge.m in Sources */,
 				68123CA91C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m in Sources */,
@@ -2127,12 +2151,14 @@
 				681241B71C4F6BBB008FC9AB /* BaseActionCell.m in Sources */,
 				68123EBD1C4CBE79008FC9AB /* RefreshViewController.m in Sources */,
 				681240B81C4CE471008FC9AB /* GetComments.m in Sources */,
+				684B04351C990E910053FFDF /* MyNotificationDataManager.m in Sources */,
 				6E378D471BDA2D2E00908B77 /* NSString+Ex.m in Sources */,
 				6E378D3A1BDA2D2E00908B77 /* DesignerCD+CoreDataProperties.m in Sources */,
 				681241A91C4F3B1C008FC9AB /* RespondedActionCell.m in Sources */,
 				6E378D3F1BDA2D2E00908B77 /* ProcessCD.m in Sources */,
 				681240D61C4CE471008FC9AB /* UploadImageToProcess.m in Sources */,
 				6E378D541BDA2D2E00908B77 /* Ys.m in Sources */,
+				684B043C1C990E910053FFDF /* SystemAnnouncementCell.m in Sources */,
 				6812417F1C4F22B0008FC9AB /* DesignerGetUserRequirements.m in Sources */,
 				68123CE21C4C99C9008FC9AB /* Aspects.m in Sources */,
 				681240C01C4CE471008FC9AB /* LeaveComment.m in Sources */,
@@ -2152,7 +2178,6 @@
 				681240D91C4CE471008FC9AB /* UserSignup.m in Sources */,
 				68123FE21C4CCF4A008FC9AB /* ProductImage.m in Sources */,
 				68123F071C4CBE79008FC9AB /* SelectCommunicationTypeViewController.m in Sources */,
-				6812412E1C4CF2D5008FC9AB /* PurchaseNotificationCell.m in Sources */,
 				681241A71C4F3B1C008FC9AB /* RejectActionCell.m in Sources */,
 				68123E6E1C4CBE79008FC9AB /* TabViewController.m in Sources */,
 				68123E911C4CBE79008FC9AB /* AboutViewController.m in Sources */,
@@ -2162,6 +2187,7 @@
 				681240141C4CDA06008FC9AB /* NSDictionary+Ex.m in Sources */,
 				68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */,
 				68123C921C4C9772008FC9AB /* ThumbnailCell.m in Sources */,
+				684B043A1C990E910053FFDF /* RequirementNotificationCell.m in Sources */,
 				681240D81C4CE471008FC9AB /* UserLogin.m in Sources */,
 				684B040A1C98F7060053FFDF /* CommentListDataManager.m in Sources */,
 				68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */,
@@ -2173,7 +2199,6 @@
 				681240DB1C4CE471008FC9AB /* WeChatLogin.m in Sources */,
 				681241BA1C4F8C5F008FC9AB /* DesignerGetRequirementPlans.m in Sources */,
 				68123E931C4CBE79008FC9AB /* FeedbackViewController.m in Sources */,
-				681241311C4CF2D5008FC9AB /* ReminderViewController.m in Sources */,
 				6E378D511BDA2D2E00908B77 /* Process.m in Sources */,
 				681240B71C4CE471008FC9AB /* GetBeautifulImageHomepage.m in Sources */,
 				6812401B1C4CDA06008FC9AB /* UIImagePickerController+Ex.m in Sources */,
@@ -2197,6 +2222,7 @@
 				681240151C4CDA06008FC9AB /* NSNumber+Ex.m in Sources */,
 				682E04F31C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.m in Sources */,
 				6E378D3B1BDA2D2E00908B77 /* DesignerCD.m in Sources */,
+				684B04361C990E910053FFDF /* MyNotificationViewController.m in Sources */,
 				681240B21C4CE471008FC9AB /* DesignerLogin.m in Sources */,
 				681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */,
 				684B041E1C98FB580053FFDF /* SearchDesignerComment.m in Sources */,
@@ -2236,7 +2262,6 @@
 				681241231C4CF2D5008FC9AB /* ItemsBackgroundView.m in Sources */,
 				68123E6D1C4CBE79008FC9AB /* BaseViewController.m in Sources */,
 				68123CF41C4C9A34008FC9AB /* Notification.m in Sources */,
-				6812412C1C4CF2D5008FC9AB /* PostponeNotificationCell.m in Sources */,
 				681240DE1C4CED53008FC9AB /* GetDesignerProcess.m in Sources */,
 				681240B11C4CE471008FC9AB /* DesignerHomePage.m in Sources */,
 				682E04EE1C55FA9100F1ACAA /* NotifyUserToDBYS.m in Sources */,
@@ -2277,6 +2302,7 @@
 				681241A51C4F3B1C008FC9AB /* SubmitPlanExpiredActionCell.m in Sources */,
 				681240D31C4CE471008FC9AB /* UpdatePass.m in Sources */,
 				681240A81C4CE471008FC9AB /* BaseRequest.m in Sources */,
+				684B043E1C990E910053FFDF /* WorksiteNotificationCell.m in Sources */,
 				681240B91C4CE471008FC9AB /* GetOrderableDesigners.m in Sources */,
 				681240121C4CDA06008FC9AB /* NSArray+Ex.m in Sources */,
 				6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */,
@@ -2290,7 +2316,6 @@
 				681241C51C5073FE008FC9AB /* DesignerRespondUser.m in Sources */,
 				68123E781C4CBE79008FC9AB /* CustomerServiceViewController.m in Sources */,
 				681241191C4CF2D5008FC9AB /* DBYSViewController.m in Sources */,
-				681241301C4CF2D5008FC9AB /* ReminderDataManager.m in Sources */,
 				68123F051C4CBE79008FC9AB /* SelectBusinessTypeViewController.m in Sources */,
 				68123CA81C4C97BC008FC9AB /* NotificationCD.m in Sources */,
 				6E378D4F1BDA2D2E00908B77 /* Designer.m in Sources */,
@@ -2300,6 +2325,7 @@
 				6E378D461BDA2D2E00908B77 /* NSObject+Ex.m in Sources */,
 				68123FEB1C4CCFFF008FC9AB /* NameDict.m in Sources */,
 				681240A71C4CE471008FC9AB /* AgreeReschedule.m in Sources */,
+				684B04381C990E910053FFDF /* NotificationDetailViewController.m in Sources */,
 				681241C21C5073DB008FC9AB /* DesignerRejectUser.m in Sources */,
 				6E378D491BDA2D2E00908B77 /* UIImageView+Ex.m in Sources */,
 				681240131C4CDA06008FC9AB /* NSDate+Ex.m in Sources */,

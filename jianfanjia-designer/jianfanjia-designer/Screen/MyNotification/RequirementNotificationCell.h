@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseNotificationCell.h"
 
-@interface PurchaseNotificationCell : UITableViewCell
+@interface RequirementNotificationCell : BaseNotificationCell
 
-- (void)initWithNotification:(Notification *)notification;
+- (void)initWithNotification:(DesignerNotification *)notification;
 
 @end

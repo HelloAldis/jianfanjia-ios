@@ -24,12 +24,13 @@
 #import "PlanPreviewViewController.h"
 #import "PlanPriceDetailViewController.h"
 #import "LeaveMessageViewController.h"
-#import "ReminderViewController.h"
 #import "DBYSViewController.h"
 #import "RequirementCreateViewController.h"
 #import "MyUserViewController.h"
 #import "MyProcessViewController.h"
 #import "CommentListViewController.h"
+#import "MyNotificationViewController.h"
+#import "NotificationDetailViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -179,6 +180,19 @@ static ViewControllerContainer *container;
     DBYSViewController *v = [[DBYSViewController alloc] initWithSection:section process:processid refresh:refreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
+
++ (void)showMyNotification {
+    MyNotificationViewController *v = [[MyNotificationViewController alloc] init];
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
++ (void)showNotificationDetail:(NSString *)notificationid readBlock:(NotificationReadBlock)readBlock {
+    NotificationDetailViewController *v = [[NotificationDetailViewController alloc] init];
+    v.notificationId = notificationid;
+    v.readBlock = readBlock;
+    [container.tab.selectedViewController pushViewController:v animated:YES];
+}
+
 
 + (void)showMyComments {
     CommentListViewController *v = [[CommentListViewController alloc] init];
