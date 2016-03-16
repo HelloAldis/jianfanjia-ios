@@ -55,10 +55,22 @@ static ViewControllerContainer *container;
 - (instancetype)init {
     if (self = [super init]) {
         self.window = [AppDelegate sharedInstance].window;
-        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:kShowNotificationDetail object:nil];
     }
     
     return self;
+}
+
+- (void)receiveNotification:(NSNotification *)notification {
+    Notification *noti = [[Notification alloc] initWith:(NSMutableDictionary *)notification.userInfo];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if ([[NotificationBusiness designerAllNotificationsFilter] containsObject:noti.type]) {
+            [ViewControllerContainer showNotificationDetail:noti.messageid readBlock:nil];
+        } else {
+            [ViewControllerContainer showMyComments];
+        }
+    });
 }
 
 + (void)showAfterLanching {

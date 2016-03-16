@@ -32,11 +32,10 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.userImageView setCornerRadius:30];
     [self initUIData];
+    [self refreshUserInfo];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
+- (void)refreshUserInfo {
     UserGetInfo *request = [[UserGetInfo alloc] init];
     [API userGetInfo:request success:^{
         [self initUIData];

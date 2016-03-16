@@ -36,23 +36,13 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 
 @implementation NotificationDataManager
 
-- (instancetype)init {
-    if (self = [super init]) {
-        [RACObserve([UIApplication sharedApplication], applicationIconBadgeNumber) subscribeNext:^(id x) {
-            [self refreshUnreadCount];
-        }];
-    }
-    
-    return self;
-}
-
 - (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine {
     if ([GVUserDefaults standardUserDefaults].isLogin) {
         Notification *notification = [self convertPayloadToObj:payload];
         
         if (notification) {
             if (!offLine) {
-                [NotificationBusiness addOneBadge];
+                [self refreshUnreadCount];
                 [self showLocalNotification:notification];
             }
         }
@@ -111,6 +101,7 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
         if (block) {
             block(unreadCount);
         }
+        [NotificationBusiness setAppBadge:unreadCount];
     }];
 }
 

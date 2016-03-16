@@ -197,6 +197,7 @@
 		684B03C71C96CB2B0053FFDF /* SearchDecLive.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03C61C96CB2B0053FFDF /* SearchDecLive.m */; };
 		684B03CC1C979EAA0053FFDF /* DecLive.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03C91C979EAA0053FFDF /* DecLive.m */; };
 		684B03CD1C979EAA0053FFDF /* DecLiveSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03CB1C979EAA0053FFDF /* DecLiveSection.m */; };
+		684B04421C9943AC0053FFDF /* GetDesignerUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04411C9943AC0053FFDF /* GetDesignerUnreadCount.m */; };
 		685272C31C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */; };
 		685272C71C2D1602002E62EC /* SelectBusinessTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */; };
 		685272C81C2D1602002E62EC /* SelectBusinessTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C61C2D1602002E62EC /* SelectBusinessTypeViewController.xib */; };
@@ -770,6 +771,8 @@
 		684B03C91C979EAA0053FFDF /* DecLive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecLive.m; sourceTree = "<group>"; };
 		684B03CA1C979EAA0053FFDF /* DecLiveSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecLiveSection.h; sourceTree = "<group>"; };
 		684B03CB1C979EAA0053FFDF /* DecLiveSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecLiveSection.m; sourceTree = "<group>"; };
+		684B04401C9943AC0053FFDF /* GetDesignerUnreadCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDesignerUnreadCount.h; sourceTree = "<group>"; };
+		684B04411C9943AC0053FFDF /* GetDesignerUnreadCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDesignerUnreadCount.m; sourceTree = "<group>"; };
 		685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessRequirementCreateViewController.xib; sourceTree = "<group>"; };
 		685272C41C2D1602002E62EC /* SelectBusinessTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBusinessTypeViewController.h; sourceTree = "<group>"; };
 		685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBusinessTypeViewController.m; sourceTree = "<group>"; };
@@ -1791,6 +1794,8 @@
 		6E07DA481BD88DBE001461DD /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				684B04401C9943AC0053FFDF /* GetDesignerUnreadCount.h */,
+				684B04411C9943AC0053FFDF /* GetDesignerUnreadCount.m */,
 				6E07DA491BD88DBE001461DD /* BaseRequest.h */,
 				6E07DA4A1BD88DBE001461DD /* BaseRequest.m */,
 				6E07DA4B1BD88DBE001461DD /* GetProcess.h */,
@@ -2893,6 +2898,7 @@
 				6E06CC1C1C294EE800A08D15 /* AddFavoriateProduct.m in Sources */,
 				68123B9A1C47D15C008FC9AB /* JYZSocialSnsAccountInfo.m in Sources */,
 				685DD4531C89761E00A76B9C /* CommentListDataManager.m in Sources */,
+				684B04421C9943AC0053FFDF /* GetDesignerUnreadCount.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
 				68123BA51C47D15C008FC9AB /* JYZSocialSnsUtil.m in Sources */,
 				684A37401BFD73DF00F7388C /* IntentDesignerCell.m in Sources */,

@@ -32,22 +32,15 @@
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    
     if ([GVUserDefaults standardUserDefaults].isLogin) {
         NSString *todoy = [[NSDate date] yyyy_MM_dd];
         if (![todoy isEqualToString:[GVUserDefaults standardUserDefaults].loginDate]) {
@@ -57,7 +50,6 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 + (AppDelegate *)sharedInstance {
@@ -145,32 +137,25 @@
 }
 
 #pragma mark - APP运行中接收到通知(推送)处理
-/** APP已经接收到“远程”通知(推送) - (App运行在后台/App运行在前台) */
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    application.applicationIconBadgeNumber = 0;        // 标签
-    DDLogDebug(@"\n>>>[Receive RemoteNotification]:%@\n\n",userInfo);
-}
-
 /** APP已经接收到“远程”通知(推送) - 透传推送消息  */
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
     // 处理APN
     DDLogDebug(@"\n>>>[Receive RemoteNotification - Background Fetch]:%@\n\n",userInfo);
     
     if(application.applicationState == UIApplicationStateInactive) {
-        DDLogDebug(@"Inactive");
-        //Show the view with the content of the push
+        [[NotificationDataManager shared] remoteTriggerToShowDetail:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
     } else if (application.applicationState == UIApplicationStateBackground) {
-        DDLogDebug(@"Background");
-        //Refresh the local model
-//        [[NotificationDataManager shared] showLocalNoti:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
     } else {
-        DDLogDebug(@"Active");
-        //Show an in-app banner
         completionHandler(UIBackgroundFetchResultNewData);
     }
-    [[NotificationDataManager shared] refreshUnreadCount];
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+    if(application.applicationState == UIApplicationStateInactive) {
+        [[NotificationDataManager shared] localTriggerToShowDetail:notification.userInfo];
+    }
 }
 
 #pragma mark - GeTuiSdkDelegate
