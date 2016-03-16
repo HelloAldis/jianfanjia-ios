@@ -53,12 +53,6 @@
 		68123E771C4CBE79008FC9AB /* VerifyPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D571C4CBE79008FC9AB /* VerifyPhoneViewController.xib */; };
 		68123E781C4CBE79008FC9AB /* CustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D5B1C4CBE79008FC9AB /* CustomerServiceViewController.m */; };
 		68123E791C4CBE79008FC9AB /* CustomerServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D5C1C4CBE79008FC9AB /* CustomerServiceViewController.xib */; };
-		68123E7E1C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D651C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.m */; };
-		68123E7F1C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D661C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.xib */; };
-		68123E801C4CBE79008FC9AB /* UpdateOneLineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D681C4CBE79008FC9AB /* UpdateOneLineTextViewController.m */; };
-		68123E811C4CBE79008FC9AB /* UpdateOneLineTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D691C4CBE79008FC9AB /* UpdateOneLineTextViewController.xib */; };
-		68123E821C4CBE79008FC9AB /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D6B1C4CBE79008FC9AB /* UserInfoViewController.m */; };
-		68123E831C4CBE79008FC9AB /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D6C1C4CBE79008FC9AB /* UserInfoViewController.xib */; };
 		68123E841C4CBE79008FC9AB /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D6E1C4CBE79008FC9AB /* MeViewController.m */; };
 		68123E851C4CBE79008FC9AB /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D6F1C4CBE79008FC9AB /* MeViewController.xib */; };
 		68123E911C4CBE79008FC9AB /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D851C4CBE79008FC9AB /* AboutViewController.m */; };
@@ -414,15 +408,6 @@
 		68123D5A1C4CBE79008FC9AB /* CustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerServiceViewController.h; sourceTree = "<group>"; };
 		68123D5B1C4CBE79008FC9AB /* CustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerServiceViewController.m; sourceTree = "<group>"; };
 		68123D5C1C4CBE79008FC9AB /* CustomerServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewController.xib; sourceTree = "<group>"; };
-		68123D641C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateMultipleLineTextViewController.h; sourceTree = "<group>"; };
-		68123D651C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMultipleLineTextViewController.m; sourceTree = "<group>"; };
-		68123D661C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateMultipleLineTextViewController.xib; sourceTree = "<group>"; };
-		68123D671C4CBE79008FC9AB /* UpdateOneLineTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateOneLineTextViewController.h; sourceTree = "<group>"; };
-		68123D681C4CBE79008FC9AB /* UpdateOneLineTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateOneLineTextViewController.m; sourceTree = "<group>"; };
-		68123D691C4CBE79008FC9AB /* UpdateOneLineTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateOneLineTextViewController.xib; sourceTree = "<group>"; };
-		68123D6A1C4CBE79008FC9AB /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
-		68123D6B1C4CBE79008FC9AB /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
-		68123D6C1C4CBE79008FC9AB /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		68123D6D1C4CBE79008FC9AB /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		68123D6E1C4CBE79008FC9AB /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		68123D6F1C4CBE79008FC9AB /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
@@ -1057,7 +1042,6 @@
 			isa = PBXGroup;
 			children = (
 				68123D591C4CBE79008FC9AB /* CustomerService */,
-				68123D5D1C4CBE79008FC9AB /* Info */,
 				68123D6D1C4CBE79008FC9AB /* MeViewController.h */,
 				68123D6E1C4CBE79008FC9AB /* MeViewController.m */,
 				68123D6F1C4CBE79008FC9AB /* MeViewController.xib */,
@@ -1074,22 +1058,6 @@
 				68123D5C1C4CBE79008FC9AB /* CustomerServiceViewController.xib */,
 			);
 			path = CustomerService;
-			sourceTree = "<group>";
-		};
-		68123D5D1C4CBE79008FC9AB /* Info */ = {
-			isa = PBXGroup;
-			children = (
-				68123D641C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.h */,
-				68123D651C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.m */,
-				68123D661C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.xib */,
-				68123D671C4CBE79008FC9AB /* UpdateOneLineTextViewController.h */,
-				68123D681C4CBE79008FC9AB /* UpdateOneLineTextViewController.m */,
-				68123D691C4CBE79008FC9AB /* UpdateOneLineTextViewController.xib */,
-				68123D6A1C4CBE79008FC9AB /* UserInfoViewController.h */,
-				68123D6B1C4CBE79008FC9AB /* UserInfoViewController.m */,
-				68123D6C1C4CBE79008FC9AB /* UserInfoViewController.xib */,
-			);
-			path = Info;
 			sourceTree = "<group>";
 		};
 		68123D831C4CBE79008FC9AB /* Setting */ = {
@@ -1919,7 +1887,6 @@
 				68123C951C4C9772008FC9AB /* ImageDetailViewController.xib in Resources */,
 				68123F0C1C4CBE79008FC9AB /* SelectDecorationTypeViewController.xib in Resources */,
 				68123EEB1C4CBE79008FC9AB /* MessageCell.xib in Resources */,
-				68123E811C4CBE79008FC9AB /* UpdateOneLineTextViewController.xib in Resources */,
 				681241A81C4F3B1C008FC9AB /* RejectActionCell.xib in Resources */,
 				68123F021C4CBE79008FC9AB /* MultipleLineTextTableViewCell.xib in Resources */,
 				68123F0A1C4CBE79008FC9AB /* SelectDecorationStyleViewController.xib in Resources */,
@@ -1934,7 +1901,6 @@
 				68123EE91C4CBE79008FC9AB /* LeaveMessageViewController.xib in Resources */,
 				6812411A1C4CF2D5008FC9AB /* DBYSViewController.xib in Resources */,
 				68FB6ED21C50DC81001C0613 /* SetWorksiteStartTimeViewController.xib in Resources */,
-				68123E7F1C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.xib in Resources */,
 				68123EFC1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.xib in Resources */,
 				6EA0C1A81C585C5B00D04A4F /* PlanPriceItemExpandCell.xib in Resources */,
 				681241A41C4F3B1C008FC9AB /* MeasuredHouseActionCell.xib in Resources */,
@@ -1976,7 +1942,6 @@
 				68123F141C4CBE79008FC9AB /* SelectWorkTypeViewController.xib in Resources */,
 				68123C911C4C9772008FC9AB /* ImageBrowerViewController.xib in Resources */,
 				68123F2A1C4CCBF9008FC9AB /* MyUserViewController.xib in Resources */,
-				68123E831C4CBE79008FC9AB /* UserInfoViewController.xib in Resources */,
 				68123F061C4CBE79008FC9AB /* SelectBusinessTypeViewController.xib in Resources */,
 				68123F191C4CBE79008FC9AB /* W1View.xib in Resources */,
 				6812411E1C4CF2D5008FC9AB /* ItemExpandCheckCell.xib in Resources */,
@@ -2092,7 +2057,6 @@
 				68123F291C4CCBF9008FC9AB /* MyUserViewController.m in Sources */,
 				68123F151C4CBE79008FC9AB /* RequirementDataManager.m in Sources */,
 				68123FE11C4CCF4A008FC9AB /* Product.m in Sources */,
-				68123E7E1C4CBE79008FC9AB /* UpdateMultipleLineTextViewController.m in Sources */,
 				681241B71C4F6BBB008FC9AB /* BaseActionCell.m in Sources */,
 				68123EBD1C4CBE79008FC9AB /* RefreshViewController.m in Sources */,
 				681240B81C4CE471008FC9AB /* GetComments.m in Sources */,
@@ -2149,7 +2113,6 @@
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
 				68123FDC1C4CCF4A008FC9AB /* BeautifulImage.m in Sources */,
 				681241251C4CF2D5008FC9AB /* LeftViewController.m in Sources */,
-				68123E821C4CBE79008FC9AB /* UserInfoViewController.m in Sources */,
 				68123EFA1C4CBE79008FC9AB /* BaseSelectionViewController.m in Sources */,
 				6EA0C1A71C585C5B00D04A4F /* PlanPriceItemExpandCell.m in Sources */,
 				6E378D3E1BDA2D2E00908B77 /* ProcessCD+CoreDataProperties.m in Sources */,
@@ -2234,7 +2197,6 @@
 				6812411D1C4CF2D5008FC9AB /* ItemExpandCheckCell.m in Sources */,
 				681241AE1C4F3BCF008FC9AB /* SubmitedPlanActionCell.m in Sources */,
 				6E378D441BDA2D2E00908B77 /* NSManagedObject+Ex.m in Sources */,
-				68123E801C4CBE79008FC9AB /* UpdateOneLineTextViewController.m in Sources */,
 				6E0426711BC757C500F984B8 /* AppDelegate.m in Sources */,
 				68123F201C4CBE79008FC9AB /* WelcomeViewController.m in Sources */,
 				68123C9C1C4C9772008FC9AB /* SelectCityViewController.m in Sources */,

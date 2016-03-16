@@ -27,7 +27,7 @@
     my_process.titlePositionAdjustment = UIOffsetMake(0, -2);
     
     UITabBarItem *my = [self.tabBar.items objectAtIndex:2];
-    my = [my initWithTitle:@"更多" image:[UIImage imageNamed:@"tab_my_default"] selectedImage:[UIImage imageNamed:@"tab_my_selected"]];
+    my = [my initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_my_default"] selectedImage:[UIImage imageNamed:@"tab_my_selected"]];
     my.titlePositionAdjustment = UIOffsetMake(0, -2);
 }
 
