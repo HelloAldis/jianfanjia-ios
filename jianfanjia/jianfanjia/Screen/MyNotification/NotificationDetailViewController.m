@@ -87,10 +87,10 @@ static NSDictionary *NotificationTitles = nil;
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.notificationTitleBG setCornerRadius:5];
-    [self.btnOk setCornerRadius:5];
-    [self.btnAgree setCornerRadius:5];
-    [self.btnReject setCornerRadius:5];
+    [self.notificationTitleBG setCornerRadius:self.notificationTitleBG.frame.size.height / 2];
+    [self.btnOk setCornerRadius:self.btnOk.frame.size.height / 2];
+    [self.btnAgree setCornerRadius:self.btnAgree.frame.size.height / 2];
+    [self.btnReject setCornerRadius:self.btnReject.frame.size.height / 2];
     [self.btnReject setBorder:1 andColor:kThemeColor.CGColor];
 
     @weakify(self);
