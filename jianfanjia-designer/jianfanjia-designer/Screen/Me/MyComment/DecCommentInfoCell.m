@@ -24,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblLinkItem;
 @property (weak, nonatomic) IBOutlet UILabel *lblLinkStatus;
 
-@property (strong, nonatomic) UserNotification *notification;
+@property (strong, nonatomic) DesignerNotification *notification;
 
 @end
 
@@ -37,10 +37,10 @@
     [self.linkView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDec)]];
 }
 
-- (void)initWithNotification:(UserNotification *)notification {
+- (void)initWithNotification:(DesignerNotification *)notification {
     self.notification = notification;
-    [self.imgAvatar setImageWithId:notification.designer.imageid withWidth:CGRectGetWidth(self.imgAvatar.bounds) / 2];
-    self.lblName.text = notification.designer.username;
+    [self.imgAvatar setImageWithId:notification.user.imageid withWidth:CGRectGetWidth(self.imgAvatar.bounds) / 2];
+    self.lblName.text = notification.user.username;
     self.lblCommentTime.text = [notification.create_at humDateString];
     self.lblComment.text = notification.content;
     
@@ -86,7 +86,7 @@
 
 #pragma mark - user action
 - (IBAction)onClickReply:(id)sender {
-    self.notification.process.final_designerid = self.notification.designerid;
+    self.notification.process.userid = self.notification.userid;
     [ViewControllerContainer leaveMessage:self.notification.process section:self.notification.section item:self.notification.item block:nil];
 }
 

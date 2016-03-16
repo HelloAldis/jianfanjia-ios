@@ -8,7 +8,6 @@
 
 #import "PlanCommentInfoCell.h"
 #import "ViewControllerContainer.h"
-#import "OrderedDesignerViewController.h"
 
 static const NSInteger imgWidth = 140;
 static const NSInteger imgSpace = 2;
@@ -26,7 +25,7 @@ static const NSInteger imgSpace = 2;
 @property (weak, nonatomic) IBOutlet UILabel *lblLinkStatus;
 @property (weak, nonatomic) IBOutlet UIScrollView *linkImageScrollView;
 
-@property (strong, nonatomic) UserNotification *notification;
+@property (strong, nonatomic) DesignerNotification *notification;
 
 @end
 
@@ -39,10 +38,10 @@ static const NSInteger imgSpace = 2;
     [self.linkView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapPlan)]];
 }
 
-- (void)initWithNotification:(UserNotification *)notification {
+- (void)initWithNotification:(DesignerNotification *)notification {
     self.notification = notification;
-    [self.imgAvatar setImageWithId:notification.designer.imageid withWidth:CGRectGetWidth(self.imgAvatar.bounds) / 2];
-    self.lblName.text = notification.designer.username;
+    [self.imgAvatar setImageWithId:notification.user.imageid withWidth:CGRectGetWidth(self.imgAvatar.bounds) / 2];
+    self.lblName.text = notification.user.username;
     self.lblCommentTime.text = [notification.create_at humDateString];
     self.lblComment.text = notification.content;
     

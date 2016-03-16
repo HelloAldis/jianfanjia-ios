@@ -106,7 +106,7 @@
 }
 
 - (IBAction)onClickComment:(id)sender {
-//    [ViewControllerContainer showMyComments];
+    [ViewControllerContainer showMyComments];
 }
 
 - (IBAction)onClickClearCache:(id)sender {

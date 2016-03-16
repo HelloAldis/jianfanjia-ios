@@ -84,5 +84,9 @@
 #import "UploadYsImageToProcess.h"
 #import "DeleteYsImageFromProcess.h"
 #import "NotifyUserToDBYS.h"
+#import "SearchDesignerComment.h"
+#import "SearchDesignerNotification.h"
+#import "GetDesignerNotificationDetail.h"
+#import "GetDesignerUnreadCount.h"
 
 #endif

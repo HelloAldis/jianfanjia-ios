@@ -27,19 +27,21 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (strong, nonatomic) Plan *plan;
-@property (assign, nonatomic) NSInteger order;
 @property (strong, nonatomic) Requirement *requirement;
+@property (strong, nonatomic) UIViewController *popTo;
+@property (copy, nonatomic) void(^refreshBlock)(void);
 
 @end
 
 @implementation PlanPreviewViewController
 
 #pragma mark - init method
-- (id)initWithPlan:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement {
+- (id)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
     if (self = [super init]) {
         _plan = plan;
-        _order = order;
         _requirement = requirement;
+        _popTo = popTo;
+        _refreshBlock = refreshBlock;
     }
     
     return self;
@@ -60,7 +62,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"详细报价" style:UIBarButtonItemStylePlain target:self action:@selector(onChoosePriceDetail)];
     self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     
-    self.title = self.order > 0 ? [NSString stringWithFormat:@"方案%ld", (long)self.order] : @"方案详情";
+    self.title = self.plan.name;
 }
 
 - (void)initUI {

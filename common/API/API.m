@@ -362,6 +362,22 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"process/can_ys" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)searchDesignerNotification:(SearchDesignerNotification *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"search_designer_message" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)getDesignerNotificationDetail:(GetDesignerNotificationDetail *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer_message_detail" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)getDesignerUnreadCount:(GetDesignerUnreadCount *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"unread_designer_message_count" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)searchDesignerComment:(SearchDesignerComment *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"search_designer_comment" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 

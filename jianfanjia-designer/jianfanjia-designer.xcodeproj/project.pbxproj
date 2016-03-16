@@ -256,6 +256,18 @@
 		684B03D31C98141F0053FFDF /* UIView+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03D11C98141F0053FFDF /* UIView+Badge.m */; };
 		684B03FA1C9818CF0053FFDF /* NotificationBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03F91C9818CF0053FFDF /* NotificationBusiness.m */; };
 		684B03FD1C98193B0053FFDF /* GetUserUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03FC1C98193B0053FFDF /* GetUserUnreadCount.m */; };
+		684B040A1C98F7060053FFDF /* CommentListDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04001C98F7060053FFDF /* CommentListDataManager.m */; };
+		684B040B1C98F7060053FFDF /* CommentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04021C98F7060053FFDF /* CommentListViewController.m */; };
+		684B040C1C98F7060053FFDF /* CommentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B04031C98F7060053FFDF /* CommentListViewController.xib */; };
+		684B040D1C98F7060053FFDF /* DecCommentInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04051C98F7060053FFDF /* DecCommentInfoCell.m */; };
+		684B040E1C98F7060053FFDF /* DecCommentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B04061C98F7060053FFDF /* DecCommentInfoCell.xib */; };
+		684B040F1C98F7060053FFDF /* PlanCommentInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04081C98F7060053FFDF /* PlanCommentInfoCell.m */; };
+		684B04101C98F7060053FFDF /* PlanCommentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B04091C98F7060053FFDF /* PlanCommentInfoCell.xib */; };
+		684B04131C98F8240053FFDF /* DesignerNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04121C98F8240053FFDF /* DesignerNotification.m */; };
+		684B041C1C98FB580053FFDF /* GetDesignerNotificationDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04151C98FB580053FFDF /* GetDesignerNotificationDetail.m */; };
+		684B041D1C98FB580053FFDF /* GetDesignerUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04171C98FB580053FFDF /* GetDesignerUnreadCount.m */; };
+		684B041E1C98FB580053FFDF /* SearchDesignerComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04191C98FB580053FFDF /* SearchDesignerComment.m */; };
+		684B041F1C98FB580053FFDF /* SearchDesignerNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B041B1C98FB580053FFDF /* SearchDesignerNotification.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
 		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
@@ -761,6 +773,27 @@
 		684B03F91C9818CF0053FFDF /* NotificationBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationBusiness.m; sourceTree = "<group>"; };
 		684B03FB1C98193B0053FFDF /* GetUserUnreadCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserUnreadCount.h; sourceTree = "<group>"; };
 		684B03FC1C98193B0053FFDF /* GetUserUnreadCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserUnreadCount.m; sourceTree = "<group>"; };
+		684B03FF1C98F7060053FFDF /* CommentListDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListDataManager.h; sourceTree = "<group>"; };
+		684B04001C98F7060053FFDF /* CommentListDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListDataManager.m; sourceTree = "<group>"; };
+		684B04011C98F7060053FFDF /* CommentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentListViewController.h; sourceTree = "<group>"; };
+		684B04021C98F7060053FFDF /* CommentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentListViewController.m; sourceTree = "<group>"; };
+		684B04031C98F7060053FFDF /* CommentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentListViewController.xib; sourceTree = "<group>"; };
+		684B04041C98F7060053FFDF /* DecCommentInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecCommentInfoCell.h; sourceTree = "<group>"; };
+		684B04051C98F7060053FFDF /* DecCommentInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecCommentInfoCell.m; sourceTree = "<group>"; };
+		684B04061C98F7060053FFDF /* DecCommentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecCommentInfoCell.xib; sourceTree = "<group>"; };
+		684B04071C98F7060053FFDF /* PlanCommentInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanCommentInfoCell.h; sourceTree = "<group>"; };
+		684B04081C98F7060053FFDF /* PlanCommentInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanCommentInfoCell.m; sourceTree = "<group>"; };
+		684B04091C98F7060053FFDF /* PlanCommentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanCommentInfoCell.xib; sourceTree = "<group>"; };
+		684B04111C98F8240053FFDF /* DesignerNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerNotification.h; sourceTree = "<group>"; };
+		684B04121C98F8240053FFDF /* DesignerNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerNotification.m; sourceTree = "<group>"; };
+		684B04141C98FB580053FFDF /* GetDesignerNotificationDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDesignerNotificationDetail.h; sourceTree = "<group>"; };
+		684B04151C98FB580053FFDF /* GetDesignerNotificationDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDesignerNotificationDetail.m; sourceTree = "<group>"; };
+		684B04161C98FB580053FFDF /* GetDesignerUnreadCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDesignerUnreadCount.h; sourceTree = "<group>"; };
+		684B04171C98FB580053FFDF /* GetDesignerUnreadCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDesignerUnreadCount.m; sourceTree = "<group>"; };
+		684B04181C98FB580053FFDF /* SearchDesignerComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDesignerComment.h; sourceTree = "<group>"; };
+		684B04191C98FB580053FFDF /* SearchDesignerComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDesignerComment.m; sourceTree = "<group>"; };
+		684B041A1C98FB580053FFDF /* SearchDesignerNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDesignerNotification.h; sourceTree = "<group>"; };
+		684B041B1C98FB580053FFDF /* SearchDesignerNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDesignerNotification.m; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -1041,11 +1074,12 @@
 		68123D581C4CBE79008FC9AB /* Me */ = {
 			isa = PBXGroup;
 			children = (
+				684B03FE1C98F7060053FFDF /* MyComment */,
 				68123D591C4CBE79008FC9AB /* CustomerService */,
+				68123D831C4CBE79008FC9AB /* Setting */,
 				68123D6D1C4CBE79008FC9AB /* MeViewController.h */,
 				68123D6E1C4CBE79008FC9AB /* MeViewController.m */,
 				68123D6F1C4CBE79008FC9AB /* MeViewController.xib */,
-				68123D831C4CBE79008FC9AB /* Setting */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1320,6 +1354,24 @@
 			path = Actions;
 			sourceTree = "<group>";
 		};
+		684B03FE1C98F7060053FFDF /* MyComment */ = {
+			isa = PBXGroup;
+			children = (
+				684B03FF1C98F7060053FFDF /* CommentListDataManager.h */,
+				684B04001C98F7060053FFDF /* CommentListDataManager.m */,
+				684B04011C98F7060053FFDF /* CommentListViewController.h */,
+				684B04021C98F7060053FFDF /* CommentListViewController.m */,
+				684B04031C98F7060053FFDF /* CommentListViewController.xib */,
+				684B04041C98F7060053FFDF /* DecCommentInfoCell.h */,
+				684B04051C98F7060053FFDF /* DecCommentInfoCell.m */,
+				684B04061C98F7060053FFDF /* DecCommentInfoCell.xib */,
+				684B04071C98F7060053FFDF /* PlanCommentInfoCell.h */,
+				684B04081C98F7060053FFDF /* PlanCommentInfoCell.m */,
+				684B04091C98F7060053FFDF /* PlanCommentInfoCell.xib */,
+			);
+			path = MyComment;
+			sourceTree = "<group>";
+		};
 		6E0426601BC757C500F984B8 = {
 			isa = PBXGroup;
 			children = (
@@ -1415,6 +1467,14 @@
 		6E378CD11BDA2D2E00908B77 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				684B04141C98FB580053FFDF /* GetDesignerNotificationDetail.h */,
+				684B04151C98FB580053FFDF /* GetDesignerNotificationDetail.m */,
+				684B04161C98FB580053FFDF /* GetDesignerUnreadCount.h */,
+				684B04171C98FB580053FFDF /* GetDesignerUnreadCount.m */,
+				684B04181C98FB580053FFDF /* SearchDesignerComment.h */,
+				684B04191C98FB580053FFDF /* SearchDesignerComment.m */,
+				684B041A1C98FB580053FFDF /* SearchDesignerNotification.h */,
+				684B041B1C98FB580053FFDF /* SearchDesignerNotification.m */,
 				684B03FB1C98193B0053FFDF /* GetUserUnreadCount.h */,
 				684B03FC1C98193B0053FFDF /* GetUserUnreadCount.m */,
 				681240361C4CE471008FC9AB /* AddFavoriateDesigner.h */,
@@ -1665,6 +1725,8 @@
 		6E378D141BDA2D2E00908B77 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				684B04111C98F8240053FFDF /* DesignerNotification.h */,
+				684B04121C98F8240053FFDF /* DesignerNotification.m */,
 				68123FCA1C4CCF4A008FC9AB /* BeautifulImage.h */,
 				68123FCB1C4CCF4A008FC9AB /* BeautifulImage.m */,
 				68123FCC1C4CCF4A008FC9AB /* Evaluation.h */,
@@ -1877,6 +1939,7 @@
 			files = (
 				68123F001C4CBE79008FC9AB /* HouseRequirementCreateViewController.xib in Resources */,
 				681241261C4CF2D5008FC9AB /* LeftViewController.xib in Resources */,
+				684B040E1C98F7060053FFDF /* DecCommentInfoCell.xib in Resources */,
 				6EA0C19C1C577F7500D04A4F /* PlanPriceItemCell.xib in Resources */,
 				68123E791C4CBE79008FC9AB /* CustomerServiceViewController.xib in Resources */,
 				68123E961C4CBE79008FC9AB /* SettingViewController.xib in Resources */,
@@ -1926,7 +1989,9 @@
 				68123F211C4CBE79008FC9AB /* WelcomeViewController.xib in Resources */,
 				68123F0E1C4CBE79008FC9AB /* SelectHouseTypeViewController.xib in Resources */,
 				6812412F1C4CF2D5008FC9AB /* PurchaseNotificationCell.xib in Resources */,
+				684B040C1C98F7060053FFDF /* CommentListViewController.xib in Resources */,
 				681241AF1C4F3BCF008FC9AB /* SubmitedPlanActionCell.xib in Resources */,
+				684B04101C98F7060053FFDF /* PlanCommentInfoCell.xib in Resources */,
 				68123C931C4C9772008FC9AB /* ThumbnailCell.xib in Resources */,
 				681241241C4CF2D5008FC9AB /* ItemsBackgroundView.xib in Resources */,
 				681241341C4CF2D5008FC9AB /* SectionView.xib in Resources */,
@@ -2047,9 +2112,11 @@
 				68123CA91C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m in Sources */,
 				681240AE1C4CE471008FC9AB /* DeleteFavoriteDesigner.m in Sources */,
 				6E378D4D1BDA2D2E00908B77 /* BaseModel.m in Sources */,
+				684B040D1C98F7060053FFDF /* DecCommentInfoCell.m in Sources */,
 				6E378D421BDA2D2E00908B77 /* UserCD.m in Sources */,
 				68123E841C4CBE79008FC9AB /* MeViewController.m in Sources */,
 				681240AA1C4CE471008FC9AB /* BindWechat.m in Sources */,
+				684B040F1C98F7060053FFDF /* PlanCommentInfoCell.m in Sources */,
 				681240AD1C4CE471008FC9AB /* DeleteFavoriateProduct.m in Sources */,
 				6812401A1C4CDA06008FC9AB /* UIImage+Ex.m in Sources */,
 				68123E721C4CBE79008FC9AB /* ResetPassViewController.m in Sources */,
@@ -2070,6 +2137,7 @@
 				68123CE21C4C99C9008FC9AB /* Aspects.m in Sources */,
 				681240C01C4CE471008FC9AB /* LeaveComment.m in Sources */,
 				681240C51C4CE471008FC9AB /* ProcessList.m in Sources */,
+				684B041D1C98FB580053FFDF /* GetDesignerUnreadCount.m in Sources */,
 				68123CE31C4C99C9008FC9AB /* BaseDynamicObject.m in Sources */,
 				682E04EF1C55FA9100F1ACAA /* UploadYsImageToProcess.m in Sources */,
 				68123CE61C4C99C9008FC9AB /* LogFormatter.m in Sources */,
@@ -2095,10 +2163,13 @@
 				68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */,
 				68123C921C4C9772008FC9AB /* ThumbnailCell.m in Sources */,
 				681240D81C4CE471008FC9AB /* UserLogin.m in Sources */,
+				684B040A1C98F7060053FFDF /* CommentListDataManager.m in Sources */,
 				68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */,
 				681241BE1C4F97D1008FC9AB /* RejectUserAlertViewController.m in Sources */,
 				68123C981C4C9772008FC9AB /* OverlayView.m in Sources */,
+				684B041F1C98FB580053FFDF /* SearchDesignerNotification.m in Sources */,
 				681240AB1C4CE471008FC9AB /* ChoosePlan.m in Sources */,
+				684B041C1C98FB580053FFDF /* GetDesignerNotificationDetail.m in Sources */,
 				681240DB1C4CE471008FC9AB /* WeChatLogin.m in Sources */,
 				681241BA1C4F8C5F008FC9AB /* DesignerGetRequirementPlans.m in Sources */,
 				68123E931C4CBE79008FC9AB /* FeedbackViewController.m in Sources */,
@@ -2128,6 +2199,7 @@
 				6E378D3B1BDA2D2E00908B77 /* DesignerCD.m in Sources */,
 				681240B21C4CE471008FC9AB /* DesignerLogin.m in Sources */,
 				681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */,
+				684B041E1C98FB580053FFDF /* SearchDesignerComment.m in Sources */,
 				6E378D481BDA2D2E00908B77 /* UIButton+Ex.m in Sources */,
 				684B03D31C98141F0053FFDF /* UIView+Badge.m in Sources */,
 				682E04FD1C588A6100F1ACAA /* NoRequirementImageView.m in Sources */,
@@ -2149,6 +2221,7 @@
 				681240B41C4CE471008FC9AB /* EvaluateDesigner.m in Sources */,
 				6E378D4E1BDA2D2E00908B77 /* Comment.m in Sources */,
 				681240A61C4CE471008FC9AB /* AddFavoriateProduct.m in Sources */,
+				684B04131C98F8240053FFDF /* DesignerNotification.m in Sources */,
 				681241351C4CF2D5008FC9AB /* UIItemImageCollectionView.m in Sources */,
 				6E378D371BDA2D2E00908B77 /* Bc.m in Sources */,
 				681240C61C4CE471008FC9AB /* ProductHomePage.m in Sources */,
@@ -2244,6 +2317,7 @@
 				681240161C4CDA06008FC9AB /* RACStream+Ex.m in Sources */,
 				68123EEA1C4CBE79008FC9AB /* MessageCell.m in Sources */,
 				681240D11C4CE471008FC9AB /* StartDecorationProcess.m in Sources */,
+				684B040B1C98F7060053FFDF /* CommentListViewController.m in Sources */,
 				6E378D381BDA2D2E00908B77 /* ProcessBusiness.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

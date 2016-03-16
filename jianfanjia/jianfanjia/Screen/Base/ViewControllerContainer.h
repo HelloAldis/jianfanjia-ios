@@ -40,7 +40,7 @@
 + (void)showAgreement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock;
 + (void)showPlanList:(NSString *)designerid forRequirement:(Requirement *)requirement;
 + (void)leaveMessage:(Plan *)plan;
-+ (void)leaveMessage:(NSString *)processid designer:(NSString *)designerid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock;
++ (void)leaveMessage:(Process *)process section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock;
 + (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock;
 + (void)showPlanPriceDetail:(Plan *)plan;
 + (void)showTab;

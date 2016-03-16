@@ -29,6 +29,7 @@
 #import "RequirementCreateViewController.h"
 #import "MyUserViewController.h"
 #import "MyProcessViewController.h"
+#import "CommentListViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -154,13 +155,13 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)leaveMessage:(NSString *)processid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
-    LeaveMessageViewController *v = [[LeaveMessageViewController alloc] initWithProcess:processid section:section item:item block:RefreshBlock];
++ (void)leaveMessage:(Process *)process section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
+    LeaveMessageViewController *v = [[LeaveMessageViewController alloc] initWithProcess:process section:section item:item block:RefreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showPlanPerview:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement {
-    PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan withOrder:order forRequirement:requirement];
++ (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
+    PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan forRequirement:requirement popTo:popTo refresh:refreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
@@ -179,8 +180,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showReminder:(NSString *)processid refreshBlock:(void(^)(NSString *type))refreshBlock {
-    ReminderViewController *v = [[ReminderViewController alloc] initWithProcess:processid refreshBlock:refreshBlock];
++ (void)showMyComments {
+    CommentListViewController *v = [[CommentListViewController alloc] init];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

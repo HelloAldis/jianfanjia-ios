@@ -12,6 +12,6 @@
 @interface LeaveMessageViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
 - (id)initWithPlan:(Plan *)plan;
-- (id)initWithProcess:(NSString *)processid designer:(NSString *)designerid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock;
+- (id)initWithProcess:(Process *)process section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock;
 
 @end

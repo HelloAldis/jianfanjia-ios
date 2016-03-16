@@ -32,5 +32,6 @@
 #import "UserNotification.h"
 #import "DecLive.h"
 #import "DecLiveSection.h"
+#import "DesignerNotification.h"
 
 #endif /* Model_h */

@@ -240,7 +240,7 @@ static CGFloat imgCellWidth;
 - (void)handleTapLeaveIconGesture:(UITapGestureRecognizer *)gesture {
     [self endShaking];
     @weakify(self);
-    [ViewControllerContainer leaveMessage:self.dataManager.process._id designer:self.dataManager.process.final_designerid section:self.dataManager.selectedSection.name item:self.item.name block:^{
+    [ViewControllerContainer leaveMessage:self.dataManager.process section:self.dataManager.selectedSection.name item:self.item.name block:^{
         @strongify(self);
         if (self.refreshBlock) {
             self.refreshBlock(YES);

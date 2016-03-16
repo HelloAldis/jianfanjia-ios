@@ -37,7 +37,7 @@ static const CGFloat kMaxMessageHeight = 100;
 @property (strong, nonatomic) Plan *plan;
 @property (strong, nonatomic) RequirementDataManager *requirementDataManager;
 
-@property (strong, nonatomic) NSString *processid;
+@property (strong, nonatomic) Process *process;
 @property (strong, nonatomic) NSString *section;
 @property (strong, nonatomic) NSString *item;
 @property (copy, nonatomic) void(^RefreshBlock)(void);
@@ -59,11 +59,11 @@ static const CGFloat kMaxMessageHeight = 100;
     return self;
 }
 
-- (id)initWithProcess:(NSString *)processid section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
+- (id)initWithProcess:(Process *)process section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
     if (self = [super init]) {
         _commentType = CommentTypeProcess;
         _RefreshBlock = RefreshBlock;
-        _processid = processid;
+        _process = process;
         _section = section;
         _item = item;
         _requirementDataManager = [[RequirementDataManager alloc] init];
@@ -192,13 +192,14 @@ static const CGFloat kMaxMessageHeight = 100;
     if (self.commentType == CommentTypePlan) {
         request.topicid = self.plan._id;
         request.topictype = kTopicTypePlan;
-        request.to = self.plan.designerid;
+        request.to = self.plan.userid;
         request.content = self.tvMessage.text;
     } else if (self.commentType == CommentTypeProcess) {
-        request.topicid = self.processid;
+        request.topicid = self.process._id;
         request.topictype = kTopicTypeProcess;
         request.section = self.section;
         request.item = self.item;
+        request.to = self.process.userid;
         request.content = self.tvMessage.text;
     }
     
@@ -224,7 +225,7 @@ static const CGFloat kMaxMessageHeight = 100;
     if (self.commentType == CommentTypePlan) {
         request.topicid = self.plan._id;
     } else if (self.commentType == CommentTypeProcess) {
-        request.topicid = self.processid;
+        request.topicid = self.process._id;
         request.section = self.section;
         request.item = self.item;
     }
@@ -251,7 +252,7 @@ static const CGFloat kMaxMessageHeight = 100;
     if (self.commentType == CommentTypePlan) {
         request.topicid = self.plan._id;
     } else if (self.commentType == CommentTypeProcess) {
-        request.topicid = self.processid;
+        request.topicid = self.process._id;
         request.section = self.section;
         request.item = self.item;
     }
