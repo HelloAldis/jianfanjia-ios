@@ -8,9 +8,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationDetailViewController">
             <connections>
                 <outlet property="actionView" destination="e7i-O7-Ix4" id="Wm4-Dk-GpZ"/>
-                <outlet property="btnAgree" destination="Ee7-Qm-dx4" id="lK9-xf-Fd2"/>
+                <outlet property="btnAgree" destination="wl1-If-L52" id="VSs-y8-bxU"/>
                 <outlet property="btnOk" destination="buk-ja-oXO" id="L59-LU-38D"/>
-                <outlet property="btnReject" destination="wl1-If-L52" id="4Wb-Mv-YWU"/>
+                <outlet property="btnReject" destination="Ee7-Qm-dx4" id="DEI-qY-fe5"/>
                 <outlet property="headerView" destination="6Vg-Dr-8sQ" id="11Z-wI-yEL"/>
                 <outlet property="lblCell" destination="VbV-jf-7b3" id="6LU-FK-mJQ"/>
                 <outlet property="lblNotificationTime" destination="8Cq-Zg-g1l" id="okO-N0-7Kc"/>
@@ -45,21 +45,21 @@
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ee7-Qm-dx4">
                             <rect key="frame" x="20" y="5" width="270" height="40"/>
-                            <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="9ah-MX-JUF"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="同意">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <state key="normal" title="拒绝">
+                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                         </button>
                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wl1-If-L52">
                             <rect key="frame" x="310" y="5" width="270" height="40"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="拒绝">
-                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <state key="normal" title="同意">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
                     </subviews>

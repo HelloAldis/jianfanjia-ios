@@ -110,6 +110,8 @@
 
 #pragma mark - 用户通知(推送) _自定义方法
 - (void)initNotification:(NSDictionary *)launchOptions {
+    [[NotificationDataManager shared] refreshUnreadCount];
+    
     // 通过个推平台分配的appId、 appKey 、appSecret 启动SDK，注：该方法需要在主线程中调用
     [GeTuiSdk startSdkWithAppId:kGtAppId appKey:kGtAppKey appSecret:kGtAppSecret delegate:self];
     // 注册APNS

@@ -38,11 +38,11 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 
 - (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine {
     if ([GVUserDefaults standardUserDefaults].isLogin) {
+        [self refreshUnreadCount];
         Notification *notification = [self convertPayloadToObj:payload];
         
         if (notification) {
             if (!offLine) {
-                [self refreshUnreadCount];
                 [self showLocalNotification:notification];
             }
         }
