@@ -84,12 +84,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
@@ -528,14 +522,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)onClickMyNotification {
     self.wasEnterMyNotification = YES;
     [ViewControllerContainer showMyNotification];
-}
-
-#pragma mark - notification 
-- (void)receiveNotification:(NSNotification *)notification {
-//    Notification *noti = notification.object;
-//    if ([noti.processid isEqualToString:self.processid]) {
-//        [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
-//    }
 }
 
 @end
