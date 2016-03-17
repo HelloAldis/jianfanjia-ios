@@ -79,16 +79,13 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y8S-bQ-L7c">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="90"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikk-YY-Y7Z">
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ikk-YY-Y7Z">
                                                     <rect key="frame" x="77" y="12" width="46" height="46"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="46" id="ftN-NK-ctQ"/>
                                                         <constraint firstAttribute="width" secondItem="ikk-YY-Y7Z" secondAttribute="height" multiplier="1:1" id="qD0-KI-xQj"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="icon_my_notification"/>
-                                                    <connections>
-                                                        <action selector="onClickNotification:" destination="-1" eventType="touchUpInside" id="8yL-SI-4uZ"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的通知" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rig-Ud-8Jm">
                                                     <rect key="frame" x="72" y="58" width="56" height="30"/>
@@ -107,6 +104,9 @@
                                                 <constraint firstItem="rig-Ud-8Jm" firstAttribute="centerX" secondItem="ikk-YY-Y7Z" secondAttribute="centerX" id="sZQ-iI-GjG"/>
                                                 <constraint firstItem="rig-Ud-8Jm" firstAttribute="top" secondItem="ikk-YY-Y7Z" secondAttribute="bottom" id="ybM-sW-2zC"/>
                                             </constraints>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="ya4-J3-E9H" appends="YES" id="ewG-Bj-mEP"/>
+                                            </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arn-ID-jPJ" userLabel="line">
                                             <rect key="frame" x="199" y="10" width="1" height="71"/>
@@ -118,7 +118,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4kv-js-Jx7">
                                             <rect key="frame" x="200" y="0.0" width="200" height="90"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2O-xC-L1n">
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a2O-xC-L1n">
                                                     <rect key="frame" x="77" y="12" width="46" height="46"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="a2O-xC-L1n" secondAttribute="height" multiplier="1:1" id="bir-r6-dDx"/>
@@ -130,9 +130,6 @@
                                                             <exclude reference="ivo-KX-AlT"/>
                                                         </mask>
                                                     </variation>
-                                                    <connections>
-                                                        <action selector="onClickFavoriate:" destination="-1" eventType="touchUpInside" id="K1X-2H-tvo"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uab-Ek-1aa">
                                                     <rect key="frame" x="72" y="58" width="56" height="30"/>
@@ -146,6 +143,9 @@
                                                 <constraint firstItem="uab-Ek-1aa" firstAttribute="centerX" secondItem="a2O-xC-L1n" secondAttribute="centerX" id="3wH-ym-TiL"/>
                                                 <constraint firstItem="a2O-xC-L1n" firstAttribute="centerX" secondItem="4kv-js-Jx7" secondAttribute="centerX" id="7kn-5y-cjO"/>
                                             </constraints>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="yjN-gH-0n2" appends="YES" id="V2Z-nb-jb4"/>
+                                            </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oDQ-EQ-OXL" userLabel="line">
                                             <rect key="frame" x="399" y="10" width="1" height="71"/>
@@ -157,7 +157,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xH2-x0-eDJ">
                                             <rect key="frame" x="400" y="0.0" width="200" height="90"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZX-JA-KcM">
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZX-JA-KcM">
                                                     <rect key="frame" x="77" y="12" width="46" height="46"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="MZX-JA-KcM" secondAttribute="height" multiplier="1:1" id="Jqc-WS-sv6"/>
@@ -169,9 +169,6 @@
                                                             <exclude reference="v8I-qh-Wbe"/>
                                                         </mask>
                                                     </variation>
-                                                    <connections>
-                                                        <action selector="onClickComment:" destination="-1" eventType="touchUpInside" id="7Fa-jW-PZ5"/>
-                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的留言" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgN-bY-nnD">
                                                     <rect key="frame" x="72" y="58" width="56" height="30"/>
@@ -185,6 +182,9 @@
                                                 <constraint firstItem="MZX-JA-KcM" firstAttribute="centerX" secondItem="xH2-x0-eDJ" secondAttribute="centerX" id="HuM-MH-5Rs"/>
                                                 <constraint firstItem="jgN-bY-nnD" firstAttribute="centerX" secondItem="MZX-JA-KcM" secondAttribute="centerX" id="OAh-Mk-PKP"/>
                                             </constraints>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="gVu-2F-5v3" appends="YES" id="mHQ-lD-au8"/>
+                                            </connections>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -630,6 +630,21 @@
         <tapGestureRecognizer id="fXy-TV-M3e" userLabel="Tap Avatar Image">
             <connections>
                 <action selector="onTapUserImageView:" destination="-1" id="G4h-mw-9N2"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="ya4-J3-E9H" userLabel="Tap My Notification">
+            <connections>
+                <action selector="onClickNotification:" destination="-1" id="2rg-98-kA8"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="yjN-gH-0n2" userLabel="Tap My Favoriate">
+            <connections>
+                <action selector="onClickFavoriate:" destination="-1" id="tGg-8W-dR3"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="gVu-2F-5v3" userLabel="Tap My Leave Msg">
+            <connections>
+                <action selector="onClickComment:" destination="-1" id="c4P-Wt-89Q"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
