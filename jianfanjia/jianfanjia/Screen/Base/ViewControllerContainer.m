@@ -287,21 +287,7 @@ static ViewControllerContainer *container;
     }
 }
 
-+ (void)showRequirementCreate:(Requirement *)requirement {
-    if (container.tab.selectedViewController != container.navTapRequirement) {
-        [container.tab.selectedViewController popToRootViewControllerAnimated:NO];
-        container.tab.selectedViewController = container.navTapRequirement;
-    }
-    
-    //if has reqirement create secreen pop to
-    UINavigationController* nav =  container.tab.selectedViewController;
-    for (UIViewController *v in nav.viewControllers) {
-        if ([v isKindOfClass:[RequirementCreateViewController class]]) {
-            [nav popToViewController:v animated:YES];
-            return;
-        }
-    }
-    
++ (void)showRequirementCreate:(Requirement *)requirement {    
     //no reqirement create
     if (requirement) {
         RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToViewRequirement:requirement];
