@@ -73,7 +73,7 @@ static CGFloat imgCellWidth;
         self.lblLeaveMessageTitle.text = self.item.comment_count.stringValue;
         self.imgViewLeaveMessageIcon.image = [UIImage imageNamed:@"btn_leave_msg_pressed"];
     } else {
-        self.lblLeaveMessageTitle.text = @"评论";
+        self.lblLeaveMessageTitle.text = @"留言";
         self.imgViewLeaveMessageIcon.image = [UIImage imageNamed:@"btn_leave_msg_normal"];
     }
     
