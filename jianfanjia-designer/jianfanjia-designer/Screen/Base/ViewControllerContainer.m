@@ -207,6 +207,15 @@ static ViewControllerContainer *container;
 
 
 + (void)showMyComments {
+    //if has designer order screen pop to
+    UINavigationController* nav =  container.tab.selectedViewController;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[CommentListViewController class]]) {
+            [nav popToViewController:v animated:YES];
+            return;
+        }
+    }
+    
     CommentListViewController *v = [[CommentListViewController alloc] init];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
