@@ -24,6 +24,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 
 @property (assign, nonatomic) CGFloat preY;
 @property (assign, nonatomic) BOOL isTabbarhide;
+@property (assign, nonatomic) BOOL wasInBindPhoneProcess;
 
 @end
 
@@ -44,6 +45,11 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];    
     [self refreshRequirements:YES];
+    
+    if (self.wasInBindPhoneProcess && [GVUserDefaults standardUserDefaults].phone) {
+        self.wasInBindPhoneProcess = NO;
+        [self onClickCreate:nil];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -138,6 +144,12 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 
 #pragma mark - actions
 - (IBAction)onClickCreate:(id)sender {
+    if (![GVUserDefaults standardUserDefaults].phone) {
+        self.wasInBindPhoneProcess = YES;
+        [ViewControllerContainer showBindPhone:BindPhoneEventOrderDesigner];
+        return;
+    }
+    
     [ViewControllerContainer showRequirementCreate:nil];
 }
 

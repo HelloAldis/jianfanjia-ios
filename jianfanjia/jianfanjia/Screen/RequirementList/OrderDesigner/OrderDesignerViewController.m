@@ -29,7 +29,6 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 @property (assign, nonatomic) NSInteger orderableCount;
 
 @property (assign, nonatomic) BOOL wasChooseAll;
-@property (assign, nonatomic) BOOL wasInBindPhoneProcess;
 @property (assign, nonatomic) BOOL wasClickMore;
 
 @property (strong, nonatomic) NSArray<NSIndexPath *> *currentSelectedIndexs;
@@ -79,11 +78,6 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     if (self.wasClickMore) {
         self.wasClickMore = NO;
         [self refreshOrderableList];
-    }
-    
-    if (self.wasInBindPhoneProcess && [GVUserDefaults standardUserDefaults].phone) {
-        self.wasInBindPhoneProcess = NO;
-        [self onClickDone];
     }
 }
 
@@ -211,12 +205,6 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     NSInteger selectedCount = [self.tableView indexPathsForSelectedRows].count;
     
     if (selectedCount == 0) {
-        return;
-    }
-    
-    if (![GVUserDefaults standardUserDefaults].phone) {
-        self.wasInBindPhoneProcess = YES;
-        [ViewControllerContainer showBindPhone:BindPhoneEventOrderDesigner];
         return;
     }
     
