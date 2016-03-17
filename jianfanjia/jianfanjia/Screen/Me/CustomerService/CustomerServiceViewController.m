@@ -62,7 +62,7 @@ static BOOL isReload;
     var head = document.getElementsByTagName('head')[0];\
     head.appendChild(meta);";
     
-    WKUserScript *script = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+    WKUserScript *script = [[WKUserScript alloc] initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:YES];
     // Create the user content controller and add the script to it
     WKUserContentController *userContentController = [WKUserContentController new];
     [userContentController addUserScript:script];
