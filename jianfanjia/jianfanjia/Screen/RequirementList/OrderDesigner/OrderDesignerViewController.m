@@ -32,6 +32,8 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 @property (assign, nonatomic) BOOL wasInBindPhoneProcess;
 @property (assign, nonatomic) BOOL wasClickMore;
 
+@property (strong, nonatomic) NSArray<NSIndexPath *> *currentSelectedIndexs;
+
 @end
 
 @implementation OrderDesignerViewController
@@ -202,6 +204,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 - (void)onClickMore {
     [ViewControllerContainer showDesignerList];
     self.wasClickMore = YES;
+    self.currentSelectedIndexs = [self.tableView indexPathsForSelectedRows];
 }
 
 - (void)onClickDone {
@@ -273,6 +276,10 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     [API getOrderableDesigners:request success:^{
         [self.requirementDataManager refreshOrderableDesigners];
         [self.tableView reloadData];
+        
+        [self.currentSelectedIndexs enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [self.tableView selectRowAtIndexPath:obj animated:YES scrollPosition:UITableViewScrollPositionBottom];
+        }];
     } failure:^{
     
     } networkError:^{
