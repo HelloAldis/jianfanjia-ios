@@ -118,7 +118,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self configureHeaderToTableView:YES];
     self.isFirstEnter = YES;
     
-    [[NotificationDataManager shared] subscribeAppBadgeNumber:^(NSInteger count) {
+    [[NotificationDataManager shared] subscribeMyNotificationUnreadCount:^(NSInteger count) {
         self.navigationItem.rightBarButtonItem.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
     }];
 }

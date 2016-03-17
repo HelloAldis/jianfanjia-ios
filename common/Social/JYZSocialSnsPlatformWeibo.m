@@ -57,7 +57,7 @@ static NSString *RedirectURI;
 //        message.mediaObject = webpage;
 //    } else {
         WBImageObject *image = [WBImageObject object];
-        image.imageData = [UIImage imageNamed:@"about_logo"].data;
+        image.imageData = shareImage.data;
         message.imageObject = image;
 //    }
 
