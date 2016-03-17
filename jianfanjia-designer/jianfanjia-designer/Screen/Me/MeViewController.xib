@@ -99,7 +99,7 @@
                                                 <constraint firstItem="aox-O0-xmS" firstAttribute="centerY" secondItem="lvv-Zn-qTj" secondAttribute="centerY" constant="-10" id="rgq-ox-jG2"/>
                                             </constraints>
                                             <connections>
-                                                <outletCollection property="gestureRecognizers" destination="2yJ-nr-Ife" appends="YES" id="Yyp-4v-rcc"/>
+                                                <outletCollection property="gestureRecognizers" destination="2yJ-nr-Ife" appends="YES" id="RHt-dv-Y9V"/>
                                             </connections>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pM-T4-vYk" userLabel="line">
@@ -138,7 +138,7 @@
                                                 <constraint firstItem="N1a-B3-D0A" firstAttribute="centerX" secondItem="wuT-Pm-pTJ" secondAttribute="centerX" id="bzF-OV-HOD"/>
                                             </constraints>
                                             <connections>
-                                                <outletCollection property="gestureRecognizers" destination="2yJ-nr-Ife" appends="YES" id="XNn-J9-O8M"/>
+                                                <outletCollection property="gestureRecognizers" destination="M5o-jp-li8" appends="YES" id="zwU-j1-48m"/>
                                             </connections>
                                         </view>
                                     </subviews>
@@ -502,7 +502,7 @@
         </tapGestureRecognizer>
         <tapGestureRecognizer id="M5o-jp-li8" userLabel="Tap My Leave Msg">
             <connections>
-                <action selector="onClickComment:" destination="-1" id="2dc-TR-Bzr"/>
+                <action selector="onClickComment:" destination="-1" id="bfs-cp-6an"/>
             </connections>
         </tapGestureRecognizer>
     </objects>
