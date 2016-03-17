@@ -22,7 +22,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="尊敬的业主，您即将进入下一轮付款环节，请及时与设计师联系" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYY-Gd-w1l">
-                        <rect key="frame" x="13" y="39" width="443" height="50"/>
+                        <rect key="frame" x="13" y="39" width="428" height="50"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="BhJ-Xm-ogY">
-                        <rect key="frame" x="456" y="42" width="7" height="13"/>
+                        <rect key="frame" x="456" y="58" width="7" height="13"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="4hD-bh-iTn"/>
                             <constraint firstAttribute="width" constant="7" id="vMf-oC-iKk"/>
@@ -49,14 +49,14 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="BhJ-Xm-ogY" firstAttribute="leading" secondItem="DYY-Gd-w1l" secondAttribute="trailing" id="4fa-vk-UrH"/>
+                    <constraint firstItem="BhJ-Xm-ogY" firstAttribute="leading" secondItem="DYY-Gd-w1l" secondAttribute="trailing" constant="15" id="4fa-vk-UrH"/>
                     <constraint firstItem="uxx-fc-JWs" firstAttribute="leading" secondItem="acq-6O-lqE" secondAttribute="leadingMargin" constant="5" id="Dyf-XG-AVs"/>
                     <constraint firstAttribute="trailingMargin" secondItem="uOh-mE-dKO" secondAttribute="trailing" constant="5" id="J0r-GF-hZn"/>
                     <constraint firstAttribute="bottomMargin" secondItem="DYY-Gd-w1l" secondAttribute="bottom" id="NTC-mt-oYK"/>
                     <constraint firstItem="BhJ-Xm-ogY" firstAttribute="trailing" secondItem="uOh-mE-dKO" secondAttribute="trailing" id="OgC-2w-Vpu"/>
                     <constraint firstItem="uxx-fc-JWs" firstAttribute="top" secondItem="acq-6O-lqE" secondAttribute="topMargin" constant="5" id="S8F-2f-0Iq"/>
                     <constraint firstItem="uOh-mE-dKO" firstAttribute="centerY" secondItem="uxx-fc-JWs" secondAttribute="centerY" id="bRY-2j-Dkh"/>
-                    <constraint firstItem="BhJ-Xm-ogY" firstAttribute="centerY" secondItem="acq-6O-lqE" secondAttribute="centerY" id="rwI-ng-cLl"/>
+                    <constraint firstItem="BhJ-Xm-ogY" firstAttribute="centerY" secondItem="DYY-Gd-w1l" secondAttribute="centerY" id="nXJ-5V-i5n"/>
                     <constraint firstItem="DYY-Gd-w1l" firstAttribute="leading" secondItem="uxx-fc-JWs" secondAttribute="leading" id="t1c-xw-cU4"/>
                     <constraint firstItem="DYY-Gd-w1l" firstAttribute="top" secondItem="uxx-fc-JWs" secondAttribute="bottom" constant="8" id="z1Q-Ul-uSK"/>
                 </constraints>
