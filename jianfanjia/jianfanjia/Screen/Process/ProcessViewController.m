@@ -77,6 +77,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [[NotificationDataManager shared] refreshUnreadCount];
     
     if (self.wasEnterMyNotification) {
         self.wasEnterMyNotification = NO;
@@ -88,7 +89,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"工地管理";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"notification-bell"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickMyNotification)];
+
+    UIButton *bellButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    [bellButton setImage:[UIImage imageNamed:@"notification-bell"] forState:UIControlStateNormal];
+    [bellButton addTarget:self action:@selector(onClickMyNotification) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:bellButton];
 }
 
 - (void)initUI {

@@ -22,11 +22,8 @@ NSString const *UIBarButtonItem_badgeNumberKey = @"UIBarButtonItem_badgeNumberKe
 -(void)setBadgeNumber:(NSString *)badgeNumber {
     objc_setAssociatedObject(self, &UIBarButtonItem_badgeNumberKey, badgeNumber, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    // When changing the badge value check if we need to remove the badge
-    if ([self respondsToSelector:@selector(view)] && [(id)self view]) {
-        UIView *view = (UIView *)[(id)self view];
-        UIImageView *imageView = (UIImageView *)[view getFirstSubview:[UIImageView class]];
-        imageView.badgeNumber = badgeNumber;
+    if (self.customView) {
+        self.customView.badgeNumber = badgeNumber;
     }
 }
 

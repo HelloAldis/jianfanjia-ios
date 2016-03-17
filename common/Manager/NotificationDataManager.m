@@ -78,8 +78,8 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 }
 
 - (void)subscribeMyNotificationUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [[self rac_valuesAndChangesForKeyPath:@"myNotificationUnreadCount" options:NSKeyValueObservingOptionNew observer:self] subscribeNext:^(RACTuple *tuple) {
-        NSInteger unreadCount = [tuple.first integerValue];
+    [RACObserve(self, myNotificationUnreadCount) subscribeNext:^(id x) {
+        NSInteger unreadCount = [x integerValue];
         if (block) {
             block(unreadCount);
         }
@@ -87,8 +87,8 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 }
 
 - (void)subscribeMyLeaveMsgUnreadCount:(NotificationUnreadUpdateBlock)block {
-    [[self rac_valuesAndChangesForKeyPath:@"myLeaveMsgUnreadCount" options:NSKeyValueObservingOptionNew observer:self] subscribeNext:^(RACTuple *tuple) {
-        NSInteger unreadCount = [tuple.first integerValue];
+    [RACObserve(self, myLeaveMsgUnreadCount) subscribeNext:^(id x) {
+        NSInteger unreadCount = [x integerValue];
         if (block) {
             block(unreadCount);
         }
@@ -96,43 +96,48 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 }
 
 - (void)subscribeAppBadgeNumber:(NotificationUnreadUpdateBlock)block {
-    [[self rac_valuesAndChangesForKeyPath:@"myTotalUnreadCount" options:NSKeyValueObservingOptionNew observer:self] subscribeNext:^(RACTuple *tuple) {
-        NSInteger unreadCount = [tuple.first integerValue];
-        if (block) {
-            block(unreadCount);
-        }
+    [RACObserve(self, myTotalUnreadCount) subscribeNext:^(id x) {
+        NSInteger unreadCount = [x integerValue];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block(unreadCount);
+            }
+        });
+
         [NotificationBusiness setAppBadge:unreadCount];
     }];
 }
 
 - (void)refreshUnreadCount {
-    if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:kUserTypeUser]) {
-        GetUserUnreadCount *request = [GetUserUnreadCount requestWithTypes:@[[NotificationBusiness userAllNotificationsFilter], [NotificationBusiness userAllLeaveMsgFilter]]];
-        
-        [API getUserUnreadCount:request success:^{
-            NSArray *arr = [DataManager shared].data;
-            self.myNotificationUnreadCount = [arr[0] integerValue];
-            self.myLeaveMsgUnreadCount = [arr[1] integerValue];
-            self.myTotalUnreadCount = self.myNotificationUnreadCount + self.myLeaveMsgUnreadCount;
-        } failure:^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:kUserTypeUser]) {
+            GetUserUnreadCount *request = [GetUserUnreadCount requestWithTypes:@[[NotificationBusiness userAllNotificationsFilter], [NotificationBusiness userAllLeaveMsgFilter]]];
             
-        } networkError:^{
+            [API getUserUnreadCount:request success:^{
+                NSArray *arr = [DataManager shared].data;
+                self.myNotificationUnreadCount = [arr[0] integerValue];
+                self.myLeaveMsgUnreadCount = [arr[1] integerValue];
+                self.myTotalUnreadCount = self.myNotificationUnreadCount + self.myLeaveMsgUnreadCount;
+            } failure:^{
+                
+            } networkError:^{
+                
+            }];
+        } else if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:kUserTypeDesigner]) {
+            GetDesignerUnreadCount *request = [GetDesignerUnreadCount requestWithTypes:@[[NotificationBusiness designerAllNotificationsFilter], [NotificationBusiness designerAllLeaveMsgFilter]]];
             
-        }];
-    } else if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:kUserTypeDesigner]) {
-        GetDesignerUnreadCount *request = [GetDesignerUnreadCount requestWithTypes:@[[NotificationBusiness designerAllNotificationsFilter], [NotificationBusiness designerAllLeaveMsgFilter]]];
-        
-        [API getDesignerUnreadCount:request success:^{
-            NSArray *arr = [DataManager shared].data;
-            self.myNotificationUnreadCount = [arr[0] integerValue];
-            self.myLeaveMsgUnreadCount = [arr[1] integerValue];
-            self.myTotalUnreadCount = self.myNotificationUnreadCount + self.myLeaveMsgUnreadCount;
-        } failure:^{
-            
-        } networkError:^{
-            
-        }];
-    }
+            [API getDesignerUnreadCount:request success:^{
+                NSArray *arr = [DataManager shared].data;
+                self.myNotificationUnreadCount = [arr[0] integerValue];
+                self.myLeaveMsgUnreadCount = [arr[1] integerValue];
+                self.myTotalUnreadCount = self.myNotificationUnreadCount + self.myLeaveMsgUnreadCount;
+            } failure:^{
+                
+            } networkError:^{
+                
+            }];
+        }
+    });
 }
 
 - (void)showLocalNotification:(Notification *)noti {

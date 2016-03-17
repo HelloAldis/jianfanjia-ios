@@ -198,6 +198,7 @@
 		684B03CC1C979EAA0053FFDF /* DecLive.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03C91C979EAA0053FFDF /* DecLive.m */; };
 		684B03CD1C979EAA0053FFDF /* DecLiveSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03CB1C979EAA0053FFDF /* DecLiveSection.m */; };
 		684B04421C9943AC0053FFDF /* GetDesignerUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04411C9943AC0053FFDF /* GetDesignerUnreadCount.m */; };
+		684B04491C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04481C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m */; };
 		685272C31C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */; };
 		685272C71C2D1602002E62EC /* SelectBusinessTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */; };
 		685272C81C2D1602002E62EC /* SelectBusinessTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C61C2D1602002E62EC /* SelectBusinessTypeViewController.xib */; };
@@ -432,7 +433,6 @@
 		6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D7E1C0EEA5A00C6957E /* NotificationToData.m */; };
 		6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D831C1174DD00C6957E /* StringUtil.m */; };
 		AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */; };
-		AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */; };
 		AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF871C0F2F76003680BA /* SectionDone.m */; };
 		AB4CAF8B1C0F35E8003680BA /* GetRescheduleNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8A1C0F35E8003680BA /* GetRescheduleNotification.m */; };
 		AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8D1C0F361B003680BA /* Reschedule.m */; };
@@ -773,6 +773,7 @@
 		684B03CB1C979EAA0053FFDF /* DecLiveSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecLiveSection.m; sourceTree = "<group>"; };
 		684B04401C9943AC0053FFDF /* GetDesignerUnreadCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDesignerUnreadCount.h; sourceTree = "<group>"; };
 		684B04411C9943AC0053FFDF /* GetDesignerUnreadCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDesignerUnreadCount.m; sourceTree = "<group>"; };
+		684B04481C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessRequirementCreateViewController.xib; sourceTree = "<group>"; };
 		685272C41C2D1602002E62EC /* SelectBusinessTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBusinessTypeViewController.h; sourceTree = "<group>"; };
 		685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBusinessTypeViewController.m; sourceTree = "<group>"; };
@@ -1196,7 +1197,6 @@
 		AB0084E51C146E0C00B23C7D /* BaseSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectionViewController.h; sourceTree = "<group>"; };
 		AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectionViewController.m; sourceTree = "<group>"; };
 		AB489B821C1B085E00E1BA4B /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
-		AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		AB4CAF861C0F2F76003680BA /* SectionDone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionDone.h; sourceTree = "<group>"; };
 		AB4CAF871C0F2F76003680BA /* SectionDone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionDone.m; sourceTree = "<group>"; };
 		AB4CAF891C0F35E8003680BA /* GetRescheduleNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRescheduleNotification.h; sourceTree = "<group>"; };
@@ -1953,7 +1953,7 @@
 				6885176A1C9183A8000B01DB /* UITabBarItem+Badge.h */,
 				6885176B1C9183A8000B01DB /* UITabBarItem+Badge.m */,
 				AB489B821C1B085E00E1BA4B /* UIBarButtonItem+Badge.h */,
-				AB489B831C1B085E00E1BA4B /* UIBarButtonItem+Badge.m */,
+				684B04481C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m */,
 				6E4496501BFD7DDE00C90851 /* NSNumber+Ex.h */,
 				6E4496511BFD7DDE00C90851 /* NSNumber+Ex.m */,
 				6E07DA761BD88DBE001461DD /* Ex.h */,
@@ -2844,6 +2844,7 @@
 				683A6B551C0F01130071DF88 /* DBYSViewController.m in Sources */,
 				6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */,
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
+				684B04491C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m in Sources */,
 				6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */,
 				684B03CD1C979EAA0053FFDF /* DecLiveSection.m in Sources */,
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
@@ -2990,7 +2991,6 @@
 				6E06CC0E1C29453000A08D15 /* ListFavoriateBeautifulImage.m in Sources */,
 				68B10C971C772824005866C1 /* SearchDesigner.m in Sources */,
 				688517601C91246D000B01DB /* UILabel+Ex.m in Sources */,
-				AB489B861C1B085E00E1BA4B /* UIBarButtonItem+Badge.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68123C5C1C4C8B99008FC9AB /* ImageDetailViewController.m in Sources */,
 				680F492A1C240F910055C16C /* LeafImage.m in Sources */,

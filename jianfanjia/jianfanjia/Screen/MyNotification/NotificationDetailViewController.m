@@ -326,7 +326,7 @@ static NSDictionary *NotificationTitles = nil;
 
 - (void)confirmMeasureHouse {
     ConfirmMeasuringHouse *request = [[ConfirmMeasuringHouse alloc] init];
-    request.designerid = self.notification.designer._id;
+    request.designerid = self.notification.designerid;
     request.requirementid = self.notification.requirement._id;
     
     [API confirmMeasuringHouse:request success:^{
