@@ -56,6 +56,10 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="ZiL-yD-G0q">
                         <rect key="frame" x="507" y="323" width="16" height="16"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="16" id="faX-Xj-2zd"/>
+                            <constraint firstAttribute="height" constant="16" id="pAm-1B-jL4"/>
+                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="将军华府" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUI-5N-Hgs">
                         <rect key="frame" x="20" y="292" width="443" height="17"/>
@@ -109,6 +113,7 @@
                 <outlet property="lblLiveTime" destination="WrQ-Th-XAe" id="Xgt-18-xyF"/>
                 <outlet property="lblSection" destination="C8m-e9-HRh" id="dAe-u3-oxO"/>
                 <outlet property="productImageView" destination="4TU-tu-Q62" id="p9c-ML-CfP"/>
+                <outlet property="sectionView" destination="RZS-rP-hlB" id="WaT-YN-qFo"/>
                 <outlet property="vImageView" destination="ZiL-yD-G0q" id="1UT-zh-FBD"/>
             </connections>
             <point key="canvasLocation" x="293.5" y="221"/>

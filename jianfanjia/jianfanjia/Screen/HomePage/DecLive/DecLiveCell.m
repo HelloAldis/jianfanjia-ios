@@ -15,6 +15,7 @@ CGFloat kDecLiveCellHeight;
 @interface DecLiveCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
+@property (weak, nonatomic) IBOutlet UIView *sectionView;
 @property (weak, nonatomic) IBOutlet UILabel *lblSection;
 @property (weak, nonatomic) IBOutlet UIImageView *designerImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *vImageView;
@@ -72,6 +73,12 @@ CGFloat kDecLiveCellHeight;
                            [NameDict nameForDecType:declive.dec_type],
                            [NameDict nameForWorkType:declive.work_type]];
     self.lblLiveTime.text = [NSString stringWithFormat:@"直播时间：%@", [NSDate yyyy_MM_dd:declive.create_at]];
+    
+    if ([declive.progress isEqualToString:@"1"]) {
+        self.sectionView.backgroundColor = kPassStatusColor;
+    } else {
+        self.sectionView.backgroundColor = kThemeColor;
+    }
 }
 
 - (void)onTapProductImage:(UIGestureRecognizer *)sender {
