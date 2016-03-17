@@ -31,9 +31,9 @@ static NSArray *_DesignerAllLeaveMsgFilter;
 @implementation NotificationBusiness
 
 + (void)initialize {
-    _UserAllNotificationsFilter = @[kUserPNFromSystemMsg, kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure, kUserPNFromPurchaseTip, kUserPNFromPayTip, kUserPNFromDBYSRequest, kUserPNFromRescheduleRequest, kUserPNFromRescheduleReject, kUserPNFromRescheduleAgree];
+    _UserAllNotificationsFilter = @[kUserPNFromSystemMsg, kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure, kUserPNFromMeasureHouseConfirm, kUserPNFromPurchaseTip, kUserPNFromPayTip, kUserPNFromDBYSRequest, kUserPNFromRescheduleRequest, kUserPNFromRescheduleReject, kUserPNFromRescheduleAgree];
     _UserSystemAnnouncementFilter = @[kUserPNFromSystemMsg];
-    _UserRequirmentNotificationFilter = @[kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure];
+    _UserRequirmentNotificationFilter = @[kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure, kUserPNFromMeasureHouseConfirm];
     _UserWorksiteNotificationFilter = @[kUserPNFromPurchaseTip, kUserPNFromPayTip, kUserPNFromDBYSRequest, kUserPNFromRescheduleRequest, kUserPNFromRescheduleReject, kUserPNFromRescheduleAgree];
     _UserAllLeaveMsgFilter = @[kUserPNFromPlanComment, kUserPNFromDecItemComment];
     

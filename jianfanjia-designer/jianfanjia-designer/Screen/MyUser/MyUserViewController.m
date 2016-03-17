@@ -61,11 +61,11 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     
     [self initNav];
     [self initUI];
-    [self refresh:YES];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self refresh:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

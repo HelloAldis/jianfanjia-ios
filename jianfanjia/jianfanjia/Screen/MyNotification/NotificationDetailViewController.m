@@ -231,25 +231,23 @@ static NSDictionary *NotificationTitles = nil;
 }
 
 - (void)handleMeasureHouseConfirm {
-    [self.okDisposable dispose];
-    self.btnOk.hidden = NO;
-    [self.btnOk setTitle:@"确认量房" forState:UIControlStateNormal];
-    
-    @weakify(self);
-    self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        ConfirmMeasuringHouse *request = [[ConfirmMeasuringHouse alloc] init];
-        request.designerid = self.notification.designer._id;
-        request.requirementid = self.notification.requirement._id;
+    Plan *plan = self.notification.plan;
+    if ([plan.status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]) {
+        [self.okDisposable dispose];
+        self.btnOk.hidden = NO;
+        [self.btnOk setTitle:@"确认量房" forState:UIControlStateNormal];
         
-        [API confirmMeasuringHouse:request success:^{
-            [self clickBack];
-        } failure:^{
-            
-        } networkError:^{
-            
+        @weakify(self);
+        self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+            @strongify(self);
+            [self confirmMeasureHouse];
         }];
-    }];
+    } else if ([plan.status isEqualToString:kPlanStatusDesignerMeasureHouseWithoutPlan]) {
+        self.btnOk.hidden = NO;
+        [self.btnOk disable:@"已量房"];
+    } else {
+        [self displayDefaultOk];
+    }
 }
 
 - (void)handleAgreementConfigure {
@@ -323,6 +321,19 @@ static NSDictionary *NotificationTitles = nil;
         [HUDUtil hideWait];
     } networkError:^{
         [HUDUtil hideWait];
+    }];
+}
+
+- (void)confirmMeasureHouse {
+    ConfirmMeasuringHouse *request = [[ConfirmMeasuringHouse alloc] init];
+    request.designerid = self.notification.designer._id;
+    request.requirementid = self.notification.requirement._id;
+    
+    [API confirmMeasuringHouse:request success:^{
+        self.notification.plan.status = kPlanStatusDesignerMeasureHouseWithoutPlan;
+        [self initButtons];
+    } failure:^{
+    } networkError:^{
     }];
 }
 

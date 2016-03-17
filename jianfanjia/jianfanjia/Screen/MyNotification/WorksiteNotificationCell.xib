@@ -16,37 +16,37 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="改期提醒" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhi-wf-7mB" userLabel="Lbl Cell">
-                        <rect key="frame" x="8" y="8" width="56" height="17"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <rect key="frame" x="13" y="13" width="60" height="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="小区名字" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIG-47-94f" userLabel="Lbl Cell">
-                        <rect key="frame" x="8" y="30" width="52" height="16"/>
+                        <rect key="frame" x="13" y="39" width="52" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="尊敬的业主，您即将进入下一轮付款环节，请及时与设计师联系" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GbF-ql-siX">
-                        <rect key="frame" x="8" y="51" width="453" height="38"/>
+                        <rect key="frame" x="13" y="63" width="440" height="26"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfU-Aq-FR3">
-                        <rect key="frame" x="359" y="9" width="109" height="16"/>
+                        <rect key="frame" x="351" y="14" width="109" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="安装阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fr-wI-Y9m">
-                        <rect key="frame" x="70" y="30" width="398" height="16"/>
+                        <rect key="frame" x="75" y="39" width="385" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.0" green="0.48627450980392156" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="Ki8-OL-uXf">
-                        <rect key="frame" x="461" y="42" width="7" height="13"/>
+                        <rect key="frame" x="453" y="42" width="7" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="7" id="0Rv-V9-lBs"/>
                             <constraint firstAttribute="height" constant="13" id="gcS-4a-Z1g"/>
@@ -65,16 +65,16 @@
                     <constraint firstItem="8Fr-wI-Y9m" firstAttribute="leading" secondItem="FIG-47-94f" secondAttribute="trailing" constant="10" id="1qF-6D-mp3"/>
                     <constraint firstItem="MfU-Aq-FR3" firstAttribute="centerY" secondItem="yhi-wf-7mB" secondAttribute="centerY" id="API-ck-85F"/>
                     <constraint firstAttribute="bottomMargin" secondItem="GbF-ql-siX" secondAttribute="bottom" id="EWN-Bj-ejO"/>
-                    <constraint firstItem="yhi-wf-7mB" firstAttribute="top" secondItem="RLt-cd-dRp" secondAttribute="topMargin" id="Ef7-p2-3ik"/>
+                    <constraint firstItem="yhi-wf-7mB" firstAttribute="top" secondItem="RLt-cd-dRp" secondAttribute="topMargin" constant="5" id="Ef7-p2-3ik"/>
                     <constraint firstItem="8Fr-wI-Y9m" firstAttribute="trailing" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="Jm0-Ua-k9d"/>
                     <constraint firstItem="Ki8-OL-uXf" firstAttribute="trailing" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="Lab-SQ-lu3"/>
                     <constraint firstItem="Ki8-OL-uXf" firstAttribute="centerY" secondItem="RLt-cd-dRp" secondAttribute="centerY" id="Qrc-Wl-pk6"/>
-                    <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="FIG-47-94f" secondAttribute="bottom" constant="5" id="SeE-by-gpe"/>
+                    <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="FIG-47-94f" secondAttribute="bottom" constant="8" id="SeE-by-gpe"/>
                     <constraint firstItem="FIG-47-94f" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="leading" id="Wte-9W-7SZ"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="MfU-Aq-FR3" secondAttribute="trailing" id="evn-Ky-9Tt"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="MfU-Aq-FR3" secondAttribute="trailing" constant="8" id="evn-Ky-9Tt"/>
                     <constraint firstItem="Ki8-OL-uXf" firstAttribute="leading" secondItem="GbF-ql-siX" secondAttribute="trailing" id="g0W-8M-QNf"/>
-                    <constraint firstItem="yhi-wf-7mB" firstAttribute="leading" secondItem="RLt-cd-dRp" secondAttribute="leadingMargin" id="kFJ-Ey-REQ"/>
-                    <constraint firstItem="FIG-47-94f" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="5" id="vME-0L-WUo"/>
+                    <constraint firstItem="yhi-wf-7mB" firstAttribute="leading" secondItem="RLt-cd-dRp" secondAttribute="leadingMargin" constant="5" id="kFJ-Ey-REQ"/>
+                    <constraint firstItem="FIG-47-94f" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="8" id="vME-0L-WUo"/>
                     <constraint firstItem="GbF-ql-siX" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="leading" id="xfI-AE-CFo"/>
                 </constraints>
             </tableViewCellContentView>

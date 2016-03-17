@@ -22,6 +22,9 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblMeasureHouseTime;
 @property (weak, nonatomic) IBOutlet UIButton *btnContact;
+@property (weak, nonatomic) IBOutlet UIButton *btnNotifyUserToConfirmMeasureHouse;
+@property (weak, nonatomic) IBOutlet UILabel *lblNotifyUserToConfirmMeasureHouse;
+@property (weak, nonatomic) IBOutlet UIImageView *iconBell;
 
 @end
 
@@ -36,12 +39,42 @@
         @strongify(self);
         [self onClickContact];
     }];
+    
+    [[self.btnNotifyUserToConfirmMeasureHouse rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickNotifyUserToConfirmMeasureHouse];
+    }];
 }
 
 - (void)initWithRequirement:(Requirement *)requirement actionBlock:(ActionBlock)actionBlock {
     [super initWithRequirement:requirement actionBlock:actionBlock];
     [self initHeaderData:self.imgHomeOwner gender:self.imgUserGender name:self.lblUserName cell:self.lblCellNameVal info:self.lblRequirementfInfo updateTime:self.lblUpdateTimeVal];
-    self.lblMeasureHouseTime.text = [NSString stringWithFormat:@"量房时间：%@", [NSDate yyyy_Nian_MM_Yue_dd_Ri_HH_mm:self.requirement.plan.house_check_time]];
+    
+    if ([[NSDate date] timeIntervalSince1970] * 1000 > [self.requirement.plan.house_check_time longLongValue]) {
+        [self displayMeasureTime:NO];
+    } else {
+        [self displayMeasureTime:YES];
+        self.lblMeasureHouseTime.text = [NSString stringWithFormat:@"量房时间：%@", [NSDate yyyy_Nian_MM_Yue_dd_Ri_HH_mm:self.requirement.plan.house_check_time]];
+    }
+}
+
+- (void)displayMeasureTime:(BOOL)display {
+    self.lblMeasureHouseTime.hidden = !display;
+    self.btnNotifyUserToConfirmMeasureHouse.hidden = display;
+    self.lblNotifyUserToConfirmMeasureHouse.hidden = display;
+    self.iconBell.hidden = display;
+}
+
+#pragma mark - user action
+- (void)onClickNotifyUserToConfirmMeasureHouse {
+    DesignerNotifyUserToConfirmMeasureHouse *request = [[DesignerNotifyUserToConfirmMeasureHouse alloc] init];
+    request.planid = self.requirement.plan._id;
+    request.userid = self.requirement.user._id;
+    
+    [API designerNotifyUserToConfirmMeasureHouse:request success:^{
+    } failure:^{
+    } networkError:^{
+    }];
 }
 
 @end

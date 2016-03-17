@@ -88,5 +88,6 @@
 #import "SearchDesignerNotification.h"
 #import "GetDesignerNotificationDetail.h"
 #import "GetDesignerUnreadCount.h"
+#import "DesignerNotifyUserToConfirmMeasureHouse.h"
 
 #endif

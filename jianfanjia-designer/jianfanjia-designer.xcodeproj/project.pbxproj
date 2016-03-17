@@ -273,6 +273,7 @@
 		684B043D1C990E910053FFDF /* SystemAnnouncementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B04301C990E910053FFDF /* SystemAnnouncementCell.xib */; };
 		684B043E1C990E910053FFDF /* WorksiteNotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04321C990E910053FFDF /* WorksiteNotificationCell.m */; };
 		684B043F1C990E910053FFDF /* WorksiteNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B04331C990E910053FFDF /* WorksiteNotificationCell.xib */; };
+		684B04451C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04441C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
 		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
@@ -807,6 +808,8 @@
 		684B04311C990E910053FFDF /* WorksiteNotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorksiteNotificationCell.h; sourceTree = "<group>"; };
 		684B04321C990E910053FFDF /* WorksiteNotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorksiteNotificationCell.m; sourceTree = "<group>"; };
 		684B04331C990E910053FFDF /* WorksiteNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WorksiteNotificationCell.xib; sourceTree = "<group>"; };
+		684B04431C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerNotifyUserToConfirmMeasureHouse.h; sourceTree = "<group>"; };
+		684B04441C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerNotifyUserToConfirmMeasureHouse.m; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -1488,6 +1491,8 @@
 		6E378CD11BDA2D2E00908B77 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				684B04431C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.h */,
+				684B04441C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.m */,
 				684B04141C98FB580053FFDF /* GetDesignerNotificationDetail.h */,
 				684B04151C98FB580053FFDF /* GetDesignerNotificationDetail.m */,
 				684B04161C98FB580053FFDF /* GetDesignerUnreadCount.h */,
@@ -2265,6 +2270,7 @@
 				681240DE1C4CED53008FC9AB /* GetDesignerProcess.m in Sources */,
 				681240B11C4CE471008FC9AB /* DesignerHomePage.m in Sources */,
 				682E04EE1C55FA9100F1ACAA /* NotifyUserToDBYS.m in Sources */,
+				684B04451C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.m in Sources */,
 				6E378D531BDA2D2E00908B77 /* User.m in Sources */,
 				681240C41C4CE471008FC9AB /* OrderDesignder.m in Sources */,
 				68123C901C4C9772008FC9AB /* ImageBrowerViewController.m in Sources */,
