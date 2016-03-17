@@ -10,6 +10,7 @@
 
 @interface HUDUtil : NSObject
 
++ (void)showText:(NSString *)text delayHide:(CGFloat)delay;
 + (void)showErrText:(NSString *) text;
 + (void)showSuccessText:(NSString *) text;
 + (void)showWait;

@@ -11,18 +11,19 @@
 
 @implementation HUDUtil
 
-+ (void)showErrText:(NSString *)text {
++ (void)showText:(NSString *)text delayHide:(CGFloat)delay {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[AppDelegate sharedInstance].window animated:YES];
     hud.mode = MBProgressHUDModeText;
     hud.labelText = text;
-    [hud hide:YES afterDelay:1.5];
+    [hud hide:YES afterDelay:delay];
+}
+
++ (void)showErrText:(NSString *)text {
+    [HUDUtil showText:text delayHide:1.5];
 }
 
 + (void)showSuccessText:(NSString *)text {
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[AppDelegate sharedInstance].window animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.labelText = text;
-    [hud hide:YES afterDelay:1.5];
+    [HUDUtil showText:text delayHide:1.5];
 }
 
 + (void)showWait {
