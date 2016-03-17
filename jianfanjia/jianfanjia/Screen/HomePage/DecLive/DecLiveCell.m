@@ -66,7 +66,7 @@ CGFloat kDecLiveCellHeight;
 
     self.lblSection.text = [NameDict nameForDecLiveSectionType:declive.curSection.name];
     self.lblCell.text = declive.cell;
-    self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@, %@, %@",
+    self.lblDetail.text = [NSString stringWithFormat:@"%@m² %@ %@ %@ %@",
                            declive.house_area,
                            [NameDict nameForHouseType:declive.house_type],
                            [NameDict nameForDecStyle:declive.dec_style],

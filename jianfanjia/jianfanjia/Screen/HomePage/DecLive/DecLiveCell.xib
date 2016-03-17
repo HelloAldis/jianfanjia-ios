@@ -62,13 +62,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="将军华府" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zUI-5N-Hgs">
-                        <rect key="frame" x="20" y="292" width="443" height="17"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                        <rect key="frame" x="20" y="283" width="443" height="18"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="110m，家装，三室，地中海风格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxp-bE-vFe">
-                        <rect key="frame" x="20" y="314" width="443" height="16"/>
+                        <rect key="frame" x="20" y="309" width="443" height="16"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
                     <constraint firstItem="sxp-bE-vFe" firstAttribute="leading" secondItem="WrQ-Th-XAe" secondAttribute="leading" id="2XW-yL-WSy"/>
                     <constraint firstItem="CEx-81-PVU" firstAttribute="leading" secondItem="WrQ-Th-XAe" secondAttribute="trailing" constant="20" id="42b-Va-tZG"/>
                     <constraint firstItem="4TU-tu-Q62" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-7" id="43V-se-gbq"/>
-                    <constraint firstItem="sxp-bE-vFe" firstAttribute="top" secondItem="zUI-5N-Hgs" secondAttribute="bottom" constant="5" id="4yi-oV-tJB"/>
+                    <constraint firstItem="sxp-bE-vFe" firstAttribute="top" secondItem="zUI-5N-Hgs" secondAttribute="bottom" constant="8" id="4yi-oV-tJB"/>
                     <constraint firstItem="4TU-tu-Q62" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="BRu-mz-zKD"/>
                     <constraint firstAttribute="bottomMargin" secondItem="B8Q-gs-ADd" secondAttribute="bottom" constant="10" id="NCi-MM-0gn"/>
                     <constraint firstItem="zUI-5N-Hgs" firstAttribute="trailing" secondItem="WrQ-Th-XAe" secondAttribute="trailing" id="NI9-sc-otz"/>
@@ -95,7 +95,7 @@
                     <constraint firstItem="RZS-rP-hlB" firstAttribute="top" secondItem="4TU-tu-Q62" secondAttribute="top" id="b22-U6-yBE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="B8Q-gs-ADd" secondAttribute="trailing" constant="10" id="cgk-AR-oTD"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4TU-tu-Q62" secondAttribute="trailing" constant="-8" id="diQ-63-ato"/>
-                    <constraint firstItem="WrQ-Th-XAe" firstAttribute="top" secondItem="sxp-bE-vFe" secondAttribute="bottom" constant="3" id="eU2-sr-AEw"/>
+                    <constraint firstItem="WrQ-Th-XAe" firstAttribute="top" secondItem="sxp-bE-vFe" secondAttribute="bottom" constant="8" id="eU2-sr-AEw"/>
                     <constraint firstItem="ZiL-yD-G0q" firstAttribute="trailing" secondItem="B8Q-gs-ADd" secondAttribute="trailing" id="okR-0h-S89"/>
                     <constraint firstItem="CEx-81-PVU" firstAttribute="centerY" secondItem="B8Q-gs-ADd" secondAttribute="centerY" id="tYE-Fr-mlC"/>
                     <constraint firstItem="RZS-rP-hlB" firstAttribute="centerX" secondItem="B8Q-gs-ADd" secondAttribute="centerX" id="uDs-pH-CEd"/>

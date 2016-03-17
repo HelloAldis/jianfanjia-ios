@@ -201,7 +201,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="120M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hds-IJ-pVZ">
-                                            <rect key="frame" x="537" y="7" width="36" height="30"/>
+                                            <rect key="frame" x="532" y="7" width="36" height="30"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="pfW-LR-tzM"/>
                                             </constraints>
@@ -210,7 +210,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="w7g-Em-Bw6">
-                                            <rect key="frame" x="583" y="16" width="7" height="13"/>
+                                            <rect key="frame" x="578" y="16" width="7" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="13" id="Jc5-4J-MW9"/>
                                                 <constraint firstAttribute="width" constant="7" id="vy1-9l-nn7"/>
@@ -259,7 +259,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="uwh-92-p7i">
-                                            <rect key="frame" x="583" y="60" width="7" height="13"/>
+                                            <rect key="frame" x="578" y="60" width="7" height="13"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6nS-OP-4Cr" userLabel="line">
                                             <rect key="frame" x="0.0" y="87" width="600" height="1"/>
@@ -304,7 +304,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="NVk-wi-Omg">
-                                            <rect key="frame" x="583" y="104" width="7" height="13"/>
+                                            <rect key="frame" x="578" y="104" width="7" height="13"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -330,7 +330,7 @@
                                         <constraint firstItem="rpg-zF-cN1" firstAttribute="leading" secondItem="ubI-5U-Ns6" secondAttribute="trailing" constant="15" id="H63-hZ-oNm"/>
                                         <constraint firstItem="NVk-wi-Omg" firstAttribute="trailing" secondItem="w7g-Em-Bw6" secondAttribute="trailing" id="JG3-LX-o3O"/>
                                         <constraint firstItem="YUb-eq-2YH" firstAttribute="top" secondItem="NLO-M5-9XB" secondAttribute="top" id="Jvc-f0-Gn8"/>
-                                        <constraint firstItem="w7g-Em-Bw6" firstAttribute="trailing" secondItem="YUb-eq-2YH" secondAttribute="trailing" constant="-10" id="N4j-zW-tIk"/>
+                                        <constraint firstItem="w7g-Em-Bw6" firstAttribute="trailing" secondItem="YUb-eq-2YH" secondAttribute="trailing" constant="-15" id="N4j-zW-tIk"/>
                                         <constraint firstItem="ubI-5U-Ns6" firstAttribute="leading" secondItem="0lh-S0-ajP" secondAttribute="leading" id="PDl-5w-c4u"/>
                                         <constraint firstAttribute="trailing" secondItem="YUb-eq-2YH" secondAttribute="trailing" id="PTG-sd-DcB"/>
                                         <constraint firstItem="euT-Gd-wmm" firstAttribute="centerY" secondItem="fek-so-fxr" secondAttribute="centerY" id="QWZ-gP-Wnl"/>
@@ -398,7 +398,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="whA-kZ-bEA">
-                                            <rect key="frame" x="583" y="16" width="7" height="13"/>
+                                            <rect key="frame" x="578" y="16" width="7" height="13"/>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
