@@ -49,7 +49,7 @@ static NSDictionary *NotificationTitles = nil;
                                kUserPNFromPurchaseTip:@"采购",
                                kUserPNFromPayTip:@"付款",
                                kUserPNFromDBYSRequest:@"验收",
-                               kUserPNFromSystemMsg:@"公告",
+                               kUserPNFromSystemMsg:@"系统",
                                kUserPNFromOrderRespond:@"需求",
                                kUserPNFromOrderReject:@"需求",
                                kUserPNFromPlanSubmit:@"需求",

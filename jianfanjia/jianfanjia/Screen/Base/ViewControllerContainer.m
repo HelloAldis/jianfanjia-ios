@@ -80,11 +80,11 @@ static ViewControllerContainer *container;
 
 - (void)receiveNotification:(NSNotification *)notification {
     Notification *noti = [[Notification alloc] initWith:(NSMutableDictionary *)notification.userInfo];
-    
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if ([[NotificationBusiness userAllNotificationsFilter] containsObject:noti.type]) {
             [ViewControllerContainer showNotificationDetail:noti.messageid readBlock:nil];
-        } else {
+        } else if ([[NotificationBusiness userAllLeaveMsgFilter] containsObject:noti.type]) {
             [ViewControllerContainer showMyComments];
         }
     });

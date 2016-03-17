@@ -233,7 +233,9 @@ NSString * const kUserPNFromMeasureHouseConfirm = @"13";
  * 17. 方案未中标消息
  * 18. 业主确认合同消息
  * 19. 业主拒绝改期
- * 20. 业主师同意改期 **/
+ * 20. 业主师同意改期
+ * 21. 业主确认对比验收
+ **/
 NSString * const kDesignerPNFromRescheduleRequest = @"0";
 NSString * const kDesignerPNFromPurchaseTip = @"1";
 NSString * const kDesignerPNFromSystemMsg = @"2";
@@ -255,3 +257,4 @@ NSString * const kDesignerPNFromPlanNotChoose = @"17";
 NSString * const kDesignerPNFromAgreementConfirm = @"18";
 NSString * const kDesignerPNFromRescheduleReject = @"19";
 NSString * const kDesignerPNFromRescheduleAgree = @"20";
+NSString * const kDesignerPNFromDBYSConfirm = @"21";

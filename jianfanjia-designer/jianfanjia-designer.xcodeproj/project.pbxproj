@@ -1373,25 +1373,25 @@
 		684B04201C990E910053FFDF /* MyNotification */ = {
 			isa = PBXGroup;
 			children = (
-				684B04211C990E910053FFDF /* BaseNotificationCell.h */,
-				684B04221C990E910053FFDF /* BaseNotificationCell.m */,
-				684B04231C990E910053FFDF /* MyNotificationDataManager.h */,
-				684B04241C990E910053FFDF /* MyNotificationDataManager.m */,
 				684B04251C990E910053FFDF /* MyNotificationViewController.h */,
 				684B04261C990E910053FFDF /* MyNotificationViewController.m */,
 				684B04271C990E910053FFDF /* MyNotificationViewController.xib */,
-				684B04281C990E910053FFDF /* NotificationDetailViewController.h */,
-				684B04291C990E910053FFDF /* NotificationDetailViewController.m */,
-				684B042A1C990E910053FFDF /* NotificationDetailViewController.xib */,
+				684B04231C990E910053FFDF /* MyNotificationDataManager.h */,
+				684B04241C990E910053FFDF /* MyNotificationDataManager.m */,
 				684B042B1C990E910053FFDF /* RequirementNotificationCell.h */,
 				684B042C1C990E910053FFDF /* RequirementNotificationCell.m */,
 				684B042D1C990E910053FFDF /* RequirementNotificationCell.xib */,
-				684B042E1C990E910053FFDF /* SystemAnnouncementCell.h */,
-				684B042F1C990E910053FFDF /* SystemAnnouncementCell.m */,
-				684B04301C990E910053FFDF /* SystemAnnouncementCell.xib */,
 				684B04311C990E910053FFDF /* WorksiteNotificationCell.h */,
 				684B04321C990E910053FFDF /* WorksiteNotificationCell.m */,
 				684B04331C990E910053FFDF /* WorksiteNotificationCell.xib */,
+				684B042E1C990E910053FFDF /* SystemAnnouncementCell.h */,
+				684B042F1C990E910053FFDF /* SystemAnnouncementCell.m */,
+				684B04301C990E910053FFDF /* SystemAnnouncementCell.xib */,
+				684B04281C990E910053FFDF /* NotificationDetailViewController.h */,
+				684B04291C990E910053FFDF /* NotificationDetailViewController.m */,
+				684B042A1C990E910053FFDF /* NotificationDetailViewController.xib */,
+				684B04211C990E910053FFDF /* BaseNotificationCell.h */,
+				684B04221C990E910053FFDF /* BaseNotificationCell.m */,
 			);
 			path = MyNotification;
 			sourceTree = "<group>";
