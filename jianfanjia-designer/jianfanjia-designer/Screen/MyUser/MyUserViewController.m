@@ -305,8 +305,8 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 - (void)hideTabbar {
     if (!self.isTabbarhide) {
         self.isTabbarhide = YES;
-        [UIView animateWithDuration:0.6 animations:^{
-            self.tabBarController.tabBar.frame = CGRectOffset(self.tabBarController.tabBar.frame, 0, 50);
+        [UIView animateWithDuration:0.5 animations:^{
+            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight, CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
         }];
     }
 }
@@ -314,8 +314,8 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 - (void)showTabbar {
     if (self.isTabbarhide) {
         self.isTabbarhide = NO;
-        [UIView animateWithDuration:0.6 animations:^{
-            self.tabBarController.tabBar.frame = CGRectOffset(self.tabBarController.tabBar.frame, 0, -50);
+        [UIView animateWithDuration:0.5 animations:^{
+            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight - CGRectGetHeight(self.tabBarController.tabBar.frame), CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
         }];
     }
 }
