@@ -71,7 +71,7 @@ CGFloat kDecLiveCellHeight;
                            [NameDict nameForDecStyle:declive.dec_style],
                            [NameDict nameForDecType:declive.dec_type],
                            [NameDict nameForWorkType:declive.work_type]];
-    self.lblLiveTime.text = [NSString stringWithFormat:@"直播时间：%@", [NSDate yyyy_MM_dd_HH_mm:declive.start_at]];
+    self.lblLiveTime.text = [NSString stringWithFormat:@"直播时间：%@", [NSDate yyyy_MM_dd:declive.create_at]];
 }
 
 - (void)onTapProductImage:(UIGestureRecognizer *)sender {
