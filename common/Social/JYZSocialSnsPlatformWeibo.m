@@ -41,6 +41,11 @@ static NSString *RedirectURI;
     
     WBMessageObject *message = [WBMessageObject message];
     message.text = [NSString stringWithFormat:@"%@ %@", description, targetLink];
+    if (message.text.length > 140) {
+        description = [description substringToIndex:140 - targetLink.length - 1];
+        description = [description stringByReplacingCharactersInRange:NSMakeRange(description.length - 3, 3) withString:@"..."];
+        message.text = [NSString stringWithFormat:@"%@ %@", description, targetLink];
+    }
     
 //    if (targetLink) {
 //        WBWebpageObject *webpage = [WBWebpageObject object];
@@ -52,7 +57,7 @@ static NSString *RedirectURI;
 //        message.mediaObject = webpage;
 //    } else {
         WBImageObject *image = [WBImageObject object];
-        image.imageData = shareImage.data;
+        image.imageData = [UIImage imageNamed:@"about_logo"].data;
         message.imageObject = image;
 //    }
 
