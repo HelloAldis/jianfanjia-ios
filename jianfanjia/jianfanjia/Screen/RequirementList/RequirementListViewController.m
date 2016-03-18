@@ -12,7 +12,7 @@
 #import "RequirementCell.h"
 #import "ViewControllerContainer.h"
 
-static NSString *requirementCellId = @"PubulishedRequirementCell";
+static NSString *RequirementCellIdentifier = @"RequirementCell";
 
 @interface RequirementListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -63,7 +63,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 60, 0);
-    [self.tableView registerNib:[UINib nibWithNibName:@"RequirementCell" bundle:nil] forCellReuseIdentifier:requirementCellId];
+    [self.tableView registerNib:[UINib nibWithNibName:RequirementCellIdentifier bundle:nil] forCellReuseIdentifier:RequirementCellIdentifier];
     @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         @strongify(self);
@@ -111,7 +111,7 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 
 #pragma mark - table view delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    RequirementCell *cell = [tableView dequeueReusableCellWithIdentifier:requirementCellId forIndexPath:indexPath];
+    RequirementCell *cell = [tableView dequeueReusableCellWithIdentifier:RequirementCellIdentifier forIndexPath:indexPath];
     [cell initWithRequirement:self.requirementDataManager.requirements[indexPath.row]];
     
     return cell;
