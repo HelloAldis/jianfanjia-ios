@@ -140,10 +140,10 @@ static NSDictionary *NotificationTitles = nil;
         self.notificationTitleBG.backgroundColor = kExcutionStatusColor;
     } else if ([NotificationBusiness contains:self.notification.message_type inFilter:[NotificationBusiness userWorksiteNotificationFilter]]) {
         self.lblCell.text = self.notification.process.cell;
-        self.notificationTitleBG.backgroundColor = kThemeColor;
+        self.notificationTitleBG.backgroundColor = kPassStatusColor;
     } else {
         self.lblCell.hidden = YES;
-        self.notificationTitleBG.backgroundColor = kReminderColor;
+        self.notificationTitleBG.backgroundColor = kThemeColor;
     }
 
     self.lblSection.hidden = ![NotificationBusiness contains:self.notification.message_type inFilter:[NotificationBusiness userWorksiteNotificationFilter]];
