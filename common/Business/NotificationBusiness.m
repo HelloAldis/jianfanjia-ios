@@ -104,4 +104,15 @@ static NSArray *_DesignerAllLeaveMsgFilter;
     [UIApplication sharedApplication].applicationIconBadgeNumber += 1;
 }
 
+#pragma mark - util
++ (BOOL)contains:(NSString *)type inFilter:(NSArray *)filter {
+    NSUInteger result = [filter indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        BOOL flag = [type isEqualToString:obj];
+        *stop = flag;
+        return flag;
+    }];
+    
+    return result != NSNotFound;
+}
+
 @end

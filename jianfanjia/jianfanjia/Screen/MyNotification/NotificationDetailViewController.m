@@ -135,10 +135,10 @@ static NSDictionary *NotificationTitles = nil;
 
 - (void)initData {
     self.lblNotificationTitle.text = NotificationTitles[self.notification.message_type];
-    if ([[NotificationBusiness userRequirmentNotificationFilter] containsObject:self.notification.message_type]) {
+    if ([NotificationBusiness contains:self.notification.message_type inFilter:[NotificationBusiness userRequirmentNotificationFilter]]) {
         self.lblCell.text = self.notification.requirement.cell;
         self.notificationTitleBG.backgroundColor = kExcutionStatusColor;
-    } else if ([[NotificationBusiness userWorksiteNotificationFilter] containsObject:self.notification.message_type]) {
+    } else if ([NotificationBusiness contains:self.notification.message_type inFilter:[NotificationBusiness userWorksiteNotificationFilter]]) {
         self.lblCell.text = self.notification.process.cell;
         self.notificationTitleBG.backgroundColor = kThemeColor;
     } else {
@@ -146,7 +146,7 @@ static NSDictionary *NotificationTitles = nil;
         self.notificationTitleBG.backgroundColor = kReminderColor;
     }
 
-    self.lblSection.hidden = ![[NotificationBusiness userWorksiteNotificationFilter] containsObject:self.notification.message_type];
+    self.lblSection.hidden = ![NotificationBusiness contains:self.notification.message_type inFilter:[NotificationBusiness userWorksiteNotificationFilter]];
     self.lblSection.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:self.notification.section]];
     self.lblNotificationTime.text = [self.notification.create_at humDateString];
     self.headerView.hidden = NO;

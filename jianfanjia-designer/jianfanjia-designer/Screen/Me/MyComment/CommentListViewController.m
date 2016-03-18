@@ -35,6 +35,11 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
     [self initUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self refresh];
+}
+
 #pragma mark - UI
 - (void)initNav {
     self.title = @"我的留言";

@@ -65,9 +65,9 @@ static ViewControllerContainer *container;
     Notification *noti = [[Notification alloc] initWith:(NSMutableDictionary *)notification.userInfo];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if ([[NotificationBusiness designerAllNotificationsFilter] containsObject:noti.type]) {
+        if ([NotificationBusiness contains:noti.type inFilter:[NotificationBusiness designerAllNotificationsFilter]]) {
             [ViewControllerContainer showNotificationDetail:noti.messageid readBlock:nil];
-        } else if ([[NotificationBusiness designerAllLeaveMsgFilter] containsObject:noti.type]) {
+        } else if ([NotificationBusiness contains:noti.type inFilter:[NotificationBusiness designerAllLeaveMsgFilter]]) {
             [ViewControllerContainer showMyComments];
         }
     });

@@ -33,4 +33,6 @@ extern NSString * const kNotificationStatusReaded;
 + (void)reduceOneBadge;
 + (void)addOneBadge;
 
++ (BOOL)contains:(NSString *)type inFilter:(NSArray *)filter;
+
 @end

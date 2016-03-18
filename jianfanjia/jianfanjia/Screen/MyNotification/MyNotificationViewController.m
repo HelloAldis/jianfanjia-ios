@@ -103,17 +103,17 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
     UserNotification *notification = self.dataSource[indexPath.row];
     NSString *type = notification.message_type;
     
-    if ([[NotificationBusiness userSystemAnnouncementFilter] containsObject:type]) {
+    if ([NotificationBusiness contains:type inFilter:[NotificationBusiness userSystemAnnouncementFilter]]) {
         SystemAnnouncementCell *cell = [tableView dequeueReusableCellWithIdentifier:SystemAnnouncementCellIdentifier forIndexPath:indexPath];
         [cell initWithNotification:notification];
         
         return cell;
-    } else if ([[NotificationBusiness userRequirmentNotificationFilter] containsObject:type]) {
+    } else if ([NotificationBusiness contains:type inFilter:[NotificationBusiness userRequirmentNotificationFilter]]) {
         RequirementNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:RequirementNotificationCellIdentifier forIndexPath:indexPath];
         [cell initWithNotification:notification];
         
         return cell;
-    } else if ([[NotificationBusiness userWorksiteNotificationFilter] containsObject:type]) {
+    } else if ([NotificationBusiness contains:type inFilter:[NotificationBusiness userWorksiteNotificationFilter]]) {
         WorksiteNotificationCell *cell = [tableView dequeueReusableCellWithIdentifier:WorksiteNotificationCellIdentifier forIndexPath:indexPath];
         [cell initWithNotification:notification];
         
