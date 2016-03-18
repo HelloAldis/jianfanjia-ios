@@ -17,4 +17,8 @@
     [HUDUtil showErrText:@"您今天已经提醒过了"];
 }
 
+- (void)success {
+    [HUDUtil showErrText:@"提醒成功"];
+}
+
 @end
