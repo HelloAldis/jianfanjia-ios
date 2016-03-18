@@ -31,6 +31,7 @@
 + (void)showProcess:(NSString *)processid;
 + (void)showProduct:(NSString *)productid;
 + (void)showProduct:(NSString *)productid isModal:(BOOL)isModal;
++ (void)showRequirementList;
 + (void)showRequirementCreate:(Requirement *)requirement;
 + (void)showDesigner:(NSString *)designerid;
 + (void)showOrderDesigner:(Requirement *)requirement;

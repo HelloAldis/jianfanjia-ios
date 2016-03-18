@@ -287,6 +287,15 @@ static ViewControllerContainer *container;
     }
 }
 
++ (void)showRequirementList {
+    if (container.tab.selectedViewController != container.navTapRequirement) {
+        [container.tab.selectedViewController popToRootViewControllerAnimated:NO];
+        container.tab.selectedViewController = container.navTapRequirement;
+    }
+    
+    [container.tab.selectedViewController popToRootViewControllerAnimated:YES];
+}
+
 + (void)showRequirementCreate:(Requirement *)requirement {    
     //no reqirement create
     if (requirement) {

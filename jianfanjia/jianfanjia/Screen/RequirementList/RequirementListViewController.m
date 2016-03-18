@@ -21,9 +21,6 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 @property (weak, nonatomic) IBOutlet UILabel *lblNoRequirement;
 
 @property (strong, nonatomic) RequirementDataManager *requirementDataManager;
-
-@property (assign, nonatomic) CGFloat preY;
-@property (assign, nonatomic) BOOL isTabbarhide;
 @property (assign, nonatomic) BOOL wasInBindPhoneProcess;
 
 @end
@@ -38,8 +35,6 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
     
     [self initUI];
     [self initNav];
-    self.preY = 0;
-    self.isTabbarhide = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -54,14 +49,12 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.isTabbarhide) {
-        [self showTabbar];
-    }
+    [self showTabbar];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    if (!self.isTabbarhide && self.navigationController.viewControllers.count > 1) {
+    if (self.navigationController.viewControllers.count > 1) {
         [self hideTabbar];
     }
 }
@@ -99,47 +92,6 @@ static NSString *requirementCellId = @"PubulishedRequirementCell";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate:)];
     self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
     self.title = @"装修需求";
-}
-
-#pragma mark - scroll view delegate
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    if (self.preY > scrollView.contentOffset.y) {
-//        //下滑
-//        if (!self.tableView.footer.isRefreshing) {
-//            [self showTabbar];
-//        }
-//    } else if (self.preY < scrollView.contentOffset.y && scrollView.contentOffset.y > 0) {
-//        //上滑
-//        [self hideTabbar];
-//        
-//    }
-//    
-//    NSInteger maxOffset = scrollView.contentSize.height - scrollView.bounds.size.height;
-//    //是否有滑动超过边界
-//    if (scrollView.contentOffset.y > 0 && scrollView.contentOffset.y > maxOffset) {
-//        self.preY = maxOffset;
-//    } else {
-//        self.preY = scrollView.contentOffset.y;
-//    }
-//}
-
-#pragma mark - Util
-- (void)hideTabbar {
-    if (!self.isTabbarhide) {
-        self.isTabbarhide = YES;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight, CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
-    }
-}
-
-- (void)showTabbar {
-    if (self.isTabbarhide) {
-        self.isTabbarhide = NO;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight - CGRectGetHeight(self.tabBarController.tabBar.frame), CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
-    }
 }
 
 #pragma mark - actions

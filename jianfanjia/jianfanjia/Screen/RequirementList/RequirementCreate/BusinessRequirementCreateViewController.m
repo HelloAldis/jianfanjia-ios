@@ -13,6 +13,7 @@
 #import "SelectWorkTypeViewController.h"
 #import "SelectSexTypeViewController.h"
 #import "SelectDecorationStyleViewController.h"
+#import "ViewControllerContainer.h"
 
 @interface BusinessRequirementCreateViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -372,7 +373,7 @@
         SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
         
         [API sendAddRequirement:sendAddRequirement success:^{
-            [self.navigationController popViewControllerAnimated:YES];
+            [ViewControllerContainer showRequirementList];
             [DataManager shared].homePageNeedRefresh = YES;
         } failure:^{
             [self enableRightBarItem:YES];
@@ -383,7 +384,7 @@
         SendUpdateRequirement *sendUpdateRequirement = [[SendUpdateRequirement alloc] initWithRequirement:self.editingRequirement];
         
         [API sendUpdateRequirement:sendUpdateRequirement success:^{
-            [self.navigationController popViewControllerAnimated:YES];
+            [ViewControllerContainer showRequirementList];
         } failure:^{
             [self enableRightBarItem:YES];
         } networkError:^{

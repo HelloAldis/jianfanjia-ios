@@ -47,8 +47,6 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 @property (assign, nonatomic) PlanType currentPlanType;
 @property (strong ,nonatomic) MyUserDataManager *dataManager;
 
-@property (assign, nonatomic) CGFloat preY;
-@property (assign, nonatomic) BOOL isTabbarhide;
 @property (assign, nonatomic) BOOL isFirstEnter;
 
 @end
@@ -70,14 +68,12 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.isTabbarhide) {
-        [self showTabbar];
-    }
+    [self showTabbar];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    if (!self.isTabbarhide && self.navigationController.viewControllers.count > 1) {
+    if (self.navigationController.viewControllers.count > 1) {
         [self hideTabbar];
     }
 }
@@ -88,8 +84,6 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 }
 
 - (void)initUI {
-    self.preY = 0;
-    self.isTabbarhide = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.dataManager = [[MyUserDataManager alloc] init];
     self.tableViews = [NSMutableArray array];
@@ -300,24 +294,6 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     [self.tableViews enumerateObjectsUsingBlock:^(UITableView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [obj.header endRefreshing];
     }];
-}
-
-- (void)hideTabbar {
-    if (!self.isTabbarhide) {
-        self.isTabbarhide = YES;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight, CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
-    }
-}
-
-- (void)showTabbar {
-    if (self.isTabbarhide) {
-        self.isTabbarhide = NO;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight - CGRectGetHeight(self.tabBarController.tabBar.frame), CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
-    }
 }
 
 - (void)reloadData {

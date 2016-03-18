@@ -16,4 +16,7 @@
 - (void)onClickBack;
 - (void)clickBack;
 
+- (void)hideTabbar;
+- (void)showTabbar;
+
 @end

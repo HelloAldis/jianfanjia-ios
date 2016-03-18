@@ -28,7 +28,6 @@
 
 @property (assign, nonatomic) CGRect originUserImageFrame;
 @property (assign, nonatomic) CGRect originAvatarImageFrame;
-@property (assign, nonatomic) BOOL isTabbarhide;
 
 @end
 
@@ -60,18 +59,16 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self showTabbar];
+    
     if (CGRectGetHeight(self.originUserImageFrame) == 0) {
         self.originUserImageFrame = self.userImageView.frame;
-    }
-    
-    if (self.isTabbarhide) {
-        [self showTabbar];
     }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    if (!self.isTabbarhide && self.navigationController.viewControllers.count > 1) {
+    if (self.navigationController.viewControllers.count > 1) {
         [self hideTabbar];
     }
 }
@@ -172,25 +169,6 @@
     f.size.height =  CGRectGetHeight(self.originUserImageFrame) - offsetY;
     f.origin.x = MIN(0, offsetY / 2);
     self.userImageView.frame = f;
-}
-
-#pragma mark - Util
-- (void)hideTabbar {
-    if (!self.isTabbarhide) {
-        self.isTabbarhide = YES;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight, CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
-    }
-}
-
-- (void)showTabbar {
-    if (self.isTabbarhide) {
-        self.isTabbarhide = NO;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight - CGRectGetHeight(self.tabBarController.tabBar.frame), CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
-    }
 }
 
 - (void)updateCache {

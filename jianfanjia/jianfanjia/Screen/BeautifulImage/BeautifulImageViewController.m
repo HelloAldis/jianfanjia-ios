@@ -45,7 +45,6 @@ static NSMutableArray *decStyleDS;
 @property (strong, nonatomic) BeautifulImageDataManager *dataManager;
 
 @property (assign, nonatomic) CGFloat preY;
-@property (assign, nonatomic) BOOL isTabbarhide;
 
 @end
 
@@ -78,15 +77,12 @@ static NSMutableArray *decStyleDS;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-
-    if (self.isTabbarhide) {
-        [self showTabbar];
-    }
+    [self showTabbar];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    if (!self.isTabbarhide && self.navigationController.viewControllers.count > 1) {
+    if (self.navigationController.viewControllers.count > 1) {
         [self hideTabbar];
     }
 }
@@ -99,7 +95,6 @@ static NSMutableArray *decStyleDS;
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.preY = 0;
-    self.isTabbarhide = NO;
     self.dataManager = [[BeautifulImageDataManager alloc] init];
     self.imgCollection.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
     [self.imgCollection registerNib:[UINib nibWithNibName:BeautifulImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:BeautifulImageCollectionCellIdentifier];
@@ -146,32 +141,6 @@ static NSMutableArray *decStyleDS;
         self.preY = maxOffset;
     } else {
         self.preY = scrollView.contentOffset.y;
-    }
-
-//    CGFloat offsetY = scrollView.contentOffset.y;
-//    offsetY -= -scrollView.contentInset.top;
-//    if (offsetY >= -64 && offsetY <= 150) {
-//        self.navigationController.navigationBar.frame = CGRectMake(0, MIN(20, MAX(-offsetY + 20, -44)), self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height);
-//        self.headerView.frame = CGRectMake(0, CGRectGetMaxY(self.navigationController.navigationBar.frame), CGRectGetWidth(self.headerView.frame), CGRectGetHeight(self.headerView.frame));
-//    }
-}
-
-#pragma mark - Util
-- (void)hideTabbar {
-    if (!self.isTabbarhide) {
-        self.isTabbarhide = YES;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight, CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
-    }
-}
-
-- (void)showTabbar {
-    if (self.isTabbarhide) {
-        self.isTabbarhide = NO;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight - CGRectGetHeight(self.tabBarController.tabBar.frame), CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
     }
 }
 

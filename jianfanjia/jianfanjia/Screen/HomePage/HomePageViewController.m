@@ -46,14 +46,12 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.isTabbarhide) {
-        [self showTabbar];
-    }
+    [self showTabbar];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    if (!self.isTabbarhide && self.navigationController.viewControllers.count > 1) {
+    if (self.navigationController.viewControllers.count > 1) {
         [self hideTabbar];
     }
 }
@@ -141,25 +139,6 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
             targetContentOffset->x = targetOffset.x;
             targetContentOffset->y = targetOffset.y;
         }
-    }
-}
-
-#pragma mark - Util
-- (void)hideTabbar {
-    if (!self.isTabbarhide) {
-        self.isTabbarhide = YES;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight, CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
-    }
-}
-
-- (void)showTabbar {
-    if (self.isTabbarhide) {
-        self.isTabbarhide = NO;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight - CGRectGetHeight(self.tabBarController.tabBar.frame), CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
     }
 }
 

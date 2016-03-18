@@ -21,9 +21,6 @@ static NSString *ProcessCellId = @"ProcessCell";
 
 @property (strong, nonatomic) ProcessDataManager *dataManager;
 
-@property (assign, nonatomic) CGFloat preY;
-@property (assign, nonatomic) BOOL isTabbarhide;
-
 @end
 
 @implementation MyProcessViewController
@@ -36,8 +33,6 @@ static NSString *ProcessCellId = @"ProcessCell";
     
     [self initUI];
     [self initNav];
-    self.preY = 0;
-    self.isTabbarhide = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -48,14 +43,12 @@ static NSString *ProcessCellId = @"ProcessCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    if (self.isTabbarhide) {
-        [self showTabbar];
-    }
+    [self showTabbar];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    if (!self.isTabbarhide && self.navigationController.viewControllers.count > 1) {
+    if (self.navigationController.viewControllers.count > 1) {
         [self hideTabbar];
     }
 }
@@ -80,55 +73,6 @@ static NSString *ProcessCellId = @"ProcessCell";
 #pragma mark - nav
 - (void)initNav {
     self.title = @"工地管理";
-}
-
-#pragma mark - scroll view delegate
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    if (self.preY > scrollView.contentOffset.y) {
-//        //下滑
-//        if (!self.tableView.footer.isRefreshing) {
-//            [self showTabbar];
-//        }
-//    } else if (self.preY < scrollView.contentOffset.y && scrollView.contentOffset.y > 0) {
-//        //上滑
-//        [self hideTabbar];
-//        
-//    }
-//    
-//    NSInteger maxOffset = scrollView.contentSize.height - scrollView.bounds.size.height;
-//    //是否有滑动超过边界
-//    if (scrollView.contentOffset.y > 0 && scrollView.contentOffset.y > maxOffset) {
-//        self.preY = maxOffset;
-//    } else {
-//        self.preY = scrollView.contentOffset.y;
-//    }
-//}
-
-#pragma mark - Util
-- (void)hideTabbar {
-    if (!self.isTabbarhide) {
-        self.isTabbarhide = YES;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight, CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
-    }
-}
-
-- (void)showTabbar {
-    if (self.isTabbarhide) {
-        self.isTabbarhide = NO;
-        [UIView animateWithDuration:0.5 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight - CGRectGetHeight(self.tabBarController.tabBar.frame), CGRectGetWidth(self.tabBarController.tabBar.frame), CGRectGetHeight(self.tabBarController.tabBar.frame));
-        }];
-    }
-}
-
-- (void)showNoProcessImage:(BOOL)show {
-    [UIView animateWithDuration:0.3 animations:^{
-        self.lblNoProcessDesc.text = @"由于您的工地还没有开工，请及时查看需求状态，\n如果您想查看装修流程，我们已为您精心准备了工地模版";
-        self.noProcessImageView.alpha = show ? 1 : 0;
-        self.tableView.alpha = !show ? 1 : 0;
-    } completion:nil];
 }
 
 #pragma mark - table view delegate
@@ -177,5 +121,14 @@ static NSString *ProcessCellId = @"ProcessCell";
         [self.noProcessImageView.header endRefreshing];
     }];
 }
+
+- (void)showNoProcessImage:(BOOL)show {
+    [UIView animateWithDuration:0.3 animations:^{
+        self.lblNoProcessDesc.text = @"由于您的工地还没有开工，请及时查看需求状态，\n如果您想查看装修流程，我们已为您精心准备了工地模版";
+        self.noProcessImageView.alpha = show ? 1 : 0;
+        self.tableView.alpha = !show ? 1 : 0;
+    } completion:nil];
+}
+
 
 @end
