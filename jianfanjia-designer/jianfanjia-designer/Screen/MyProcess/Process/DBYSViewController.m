@@ -63,7 +63,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     [self initLeftBackInNav];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
     
     self.title = @"对比验收";
 }

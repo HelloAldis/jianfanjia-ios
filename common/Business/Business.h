@@ -33,5 +33,6 @@
 #define kNotificationReadColor [UIColor colorWithR:0xC1 g:0xC6 b:0xC8]
 
 #define kConsultPhone @"4008515167"
+#define kRightNavItemFontSize 15
 
 #endif /* Type_h */

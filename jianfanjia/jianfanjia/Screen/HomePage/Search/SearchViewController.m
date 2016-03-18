@@ -74,7 +74,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
     self.navigationItem.hidesBackButton = YES;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
     
     UISearchBar *searchBar = [[UISearchBar alloc] init];
     searchBar.backgroundImage = [[UIImage alloc] init];

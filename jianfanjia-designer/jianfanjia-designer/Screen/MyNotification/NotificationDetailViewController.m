@@ -352,7 +352,7 @@ static NSDictionary *NotificationTitles = nil;
 - (void)initViewRequirementItem {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"查看需求" style:UIBarButtonItemStylePlain target:self action:@selector(onClickViewRequirement)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
 
 - (void)onClickViewRequirement {
