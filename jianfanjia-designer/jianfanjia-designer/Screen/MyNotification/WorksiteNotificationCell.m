@@ -31,7 +31,7 @@
     
     [NotificationBusiness markTextColor:self.lblNotificationTitle status:notification.status];
     [NotificationBusiness markTextColor:self.lblTitle status:notification.status];
-    [NotificationBusiness markTextColor:self.lblSection status:notification.status];
+    [NotificationBusiness markTextColor:self.lblSection status:notification.status unread:kExcutionStatusColor];
     [NotificationBusiness markTextColor:self.lblContent status:notification.status];
     [NotificationBusiness markTextColor:self.lblNotificationTime status:notification.status];
 }

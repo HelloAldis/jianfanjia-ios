@@ -28,6 +28,8 @@ extern NSString * const kNotificationStatusReaded;
 + (NSArray *)designerAllLeaveMsgFilter;
 
 + (void)markTextColor:(UILabel *)label status:(NSString *)status;
++ (void)markTextColor:(UILabel *)label status:(NSString *)status unread:(UIColor *)unread;
+
 + (NSInteger)appBadge;
 + (void)setAppBadge:(NSInteger)appBdge;
 + (void)reduceOneBadge;

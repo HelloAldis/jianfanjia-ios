@@ -85,7 +85,15 @@ static NSArray *_DesignerAllLeaveMsgFilter;
 }
 
 + (void)markTextColor:(UILabel *)label status:(NSString *)status {
-    label.textColor = [status isEqualToString:kNotificationStatusReaded] ? kNotificationReadColor : kThemeTextColor;
+    [self markTextColor:label status:status read:kNotificationReadColor unread:kThemeTextColor];
+}
+
++ (void)markTextColor:(UILabel *)label status:(NSString *)status unread:(UIColor *)unread {
+    [self markTextColor:label status:status read:kNotificationReadColor unread:unread];
+}
+
++ (void)markTextColor:(UILabel *)label status:(NSString *)status read:(UIColor *)read unread:(UIColor *)unread {
+    label.textColor = [status isEqualToString:kNotificationStatusReaded] ? read : unread;
 }
 
 + (NSInteger)appBadge {
