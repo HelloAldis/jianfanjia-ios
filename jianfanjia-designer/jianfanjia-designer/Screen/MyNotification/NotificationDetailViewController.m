@@ -232,6 +232,8 @@ static NSDictionary *NotificationTitles = nil;
         [self.btnReject setTitle:@"拒绝" forState:UIControlStateNormal];
         [self.btnAgree addTarget:self action:@selector(respondOrder) forControlEvents:UIControlEventTouchUpInside];
         [self.btnReject addTarget:self action:@selector(rejectOrder) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self initViewRequirementItem];
     } else if ([plan.status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]) {
         self.btnOk.hidden = NO;
         [self.btnOk disable:@"已响应"];
@@ -344,6 +346,17 @@ static NSDictionary *NotificationTitles = nil;
             [self initButtons];
         }
     }];
+}
+
+#pragma mark - requirement
+- (void)initViewRequirementItem {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"查看需求" style:UIBarButtonItemStylePlain target:self action:@selector(onClickViewRequirement)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
+}
+
+- (void)onClickViewRequirement {
+    [ViewControllerContainer showRequirementCreate:self.notification.requirement];
 }
 
 @end

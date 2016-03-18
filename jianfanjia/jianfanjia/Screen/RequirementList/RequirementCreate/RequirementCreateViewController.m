@@ -77,7 +77,8 @@
     } else {
         if ([self.editingRequirement.status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
-            self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
+            self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+            [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
         }
     }
     
@@ -113,7 +114,8 @@
 
 - (void)displayDoneButton {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
-    self.navigationItem.rightBarButtonItem.tintColor = kFinishedColor;
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 

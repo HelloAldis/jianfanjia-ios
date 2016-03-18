@@ -18,8 +18,7 @@
 #import "EnumBusiness.h"
 #import "NotificationBusiness.h"
 
-#define kThemeColor [UIColor colorWithRed:254/255.0f green:112/255.0f blue:3/255.0f alpha:1.0]
-#define kItemStatusNewColor [UIColor colorWithRed:191/255.0f green:186/255.0f blue:187/255.0f alpha:1.0]
+#define kThemeColor [UIColor colorWithR:0xfe g:0x70 b:0x04]
 
 #define kUntriggeredColor [UIColor colorWithR:0xb5 g:0xb9 b:0xbc]
 #define kPassStatusColor [UIColor colorWithR:0x11 g:0xbe b:0x62]

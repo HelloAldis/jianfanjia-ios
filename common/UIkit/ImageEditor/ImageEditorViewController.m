@@ -81,6 +81,7 @@
     item = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(onClickDone)];
     item.tintColor = kThemeColor;
     self.navigationItem.rightBarButtonItem = item;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
 }
 
 - (void)initImageView {
