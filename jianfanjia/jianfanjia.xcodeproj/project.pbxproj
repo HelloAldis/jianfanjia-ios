@@ -350,8 +350,6 @@
 		6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496301BFAD68B00C90851 /* ResetPassViewController.m */; };
 		6E4496331BFAD68B00C90851 /* ResetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4496311BFAD68B00C90851 /* ResetPassViewController.xib */; };
 		6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496351BFB029E00C90851 /* UpdatePass.m */; };
-		6E44963B1BFC2DA900C90851 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496391BFC2DA900C90851 /* SettingViewController.m */; };
-		6E44963C1BFC2DA900C90851 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E44963A1BFC2DA900C90851 /* SettingViewController.xib */; };
 		6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44963E1BFC53CE00C90851 /* FeedbackViewController.m */; };
 		6E4496411BFC53CE00C90851 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E44963F1BFC53CE00C90851 /* FeedbackViewController.xib */; };
 		6E4496451BFC562900C90851 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496431BFC562900C90851 /* AboutViewController.m */; };
@@ -1051,9 +1049,6 @@
 		6E4496311BFAD68B00C90851 /* ResetPassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPassViewController.xib; sourceTree = "<group>"; };
 		6E4496341BFB029E00C90851 /* UpdatePass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdatePass.h; sourceTree = "<group>"; };
 		6E4496351BFB029E00C90851 /* UpdatePass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdatePass.m; sourceTree = "<group>"; };
-		6E4496381BFC2DA900C90851 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
-		6E4496391BFC2DA900C90851 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
-		6E44963A1BFC2DA900C90851 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
 		6E44963D1BFC53CE00C90851 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
 		6E44963E1BFC53CE00C90851 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
 		6E44963F1BFC53CE00C90851 /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
@@ -2160,9 +2155,6 @@
 		6E4496371BFC2D8F00C90851 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				6E4496381BFC2DA900C90851 /* SettingViewController.h */,
-				6E4496391BFC2DA900C90851 /* SettingViewController.m */,
-				6E44963A1BFC2DA900C90851 /* SettingViewController.xib */,
 				6E44963D1BFC53CE00C90851 /* FeedbackViewController.h */,
 				6E44963E1BFC53CE00C90851 /* FeedbackViewController.m */,
 				6E44963F1BFC53CE00C90851 /* FeedbackViewController.xib */,
@@ -2660,7 +2652,6 @@
 				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
 				684A37411BFD73DF00F7388C /* IntentDesignerCell.xib in Resources */,
 				683FFB481C296288002A1AFE /* DropdownMenuCollectionCell.xib in Resources */,
-				6E44963C1BFC2DA900C90851 /* SettingViewController.xib in Resources */,
 				683A5D691C0EECD40071DF88 /* ItemExpandCheckCell.xib in Resources */,
 				684A37531BFD73DF00F7388C /* SelectDecorationTypeViewController.xib in Resources */,
 				6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */,
@@ -2805,7 +2796,6 @@
 				AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */,
 				68123B9C1C47D15C008FC9AB /* JYZSocialSnsBaseResp.m in Sources */,
 				68B10C9C1C772A73005866C1 /* DesignerSimpleInfoCell.m in Sources */,
-				6E44963B1BFC2DA900C90851 /* SettingViewController.m in Sources */,
 				680F490D1C2160990055C16C /* ItemsBackgroundView.m in Sources */,
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
 				684A374E1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m in Sources */,

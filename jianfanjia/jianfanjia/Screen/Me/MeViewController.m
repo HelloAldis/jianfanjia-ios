@@ -7,7 +7,7 @@
 //
 
 #import "MeViewController.h"
-#import "SettingViewController.h"
+#import "AboutViewController.h"
 #import "UserInfoViewController.h"
 #import "ViewControllerContainer.h"
 #import "MyFavoriateViewController.h"
@@ -152,7 +152,7 @@
 }
 
 - (IBAction)onClickMore:(id)sender {
-    SettingViewController *v = [[SettingViewController alloc] init];
+    AboutViewController *v = [[AboutViewController alloc] init];
     [self.navigationController pushViewController:v animated:YES];
 }
 

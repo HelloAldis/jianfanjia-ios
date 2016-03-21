@@ -82,7 +82,7 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kMApiUrl];
-    NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", self.url];
+    NSString *urlString = [self.url containsString:@"http:"] ? self.url : [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", self.url];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
 

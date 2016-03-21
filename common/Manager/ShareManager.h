@@ -13,6 +13,7 @@ extern NSString * const ShareTopicApp;
 extern NSString * const ShareTopicDecStrategy;
 extern NSString * const ShareTopicActivity;
 extern NSString * const ShareTopicDecLive;
+extern NSString * const ShareTopicFocusWeibo;
 
 @class SnsAccountInfo;
 
