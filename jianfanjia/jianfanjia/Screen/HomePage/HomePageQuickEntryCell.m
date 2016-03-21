@@ -9,7 +9,6 @@
 #import "HomePageQuickEntryCell.h"
 #import "HomePageQuickEntryItem.h"
 #import "ViewControllerContainer.h"
-#import "WebViewController.h"
 
 CGFloat kHomePageQuickEntryCellHeight;
 

@@ -250,8 +250,6 @@
 		6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517791C927A30000B01DB /* SearchUserComment.m */; };
 		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
-		689E714A1C80588C0012BF3C /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689E71481C80588C0012BF3C /* WebViewController.m */; };
-		689E714B1C80588C0012BF3C /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689E71491C80588C0012BF3C /* WebViewController.xib */; };
 		68B10C851C76D489005866C1 /* DesignerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C831C76D489005866C1 /* DesignerListViewController.m */; };
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
@@ -273,6 +271,8 @@
 		68B10CBD1C78686E005866C1 /* ProductCaseListDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CBC1C78686E005866C1 /* ProductCaseListDataManager.m */; };
 		68B10CC71C7B1A3F005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC61C7B1A3F005866C1 /* ProgressWebView.m */; };
 		68B10CCD1C7DAD34005866C1 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */; };
+		68BA50831C9FD8BB002E5572 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50811C9FD8BB002E5572 /* WebViewController.m */; };
+		68BA50841C9FD8BB002E5572 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50821C9FD8BB002E5572 /* WebViewController.xib */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C25A1C75891F00EEEBD8 /* HomePageQuickEntryCell.m */; };
 		68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C3C25B1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib */; };
@@ -861,9 +861,6 @@
 		689485CF1C1A6A05002310FC /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		689485D21C1A70A7002310FC /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
-		689E71471C80588C0012BF3C /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		689E71481C80588C0012BF3C /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		689E71491C80588C0012BF3C /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
 		68B10C831C76D489005866C1 /* DesignerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerListViewController.m; sourceTree = "<group>"; };
 		68B10C841C76D489005866C1 /* DesignerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerListViewController.xib; sourceTree = "<group>"; };
@@ -902,6 +899,9 @@
 		68B10CCB1C7DAD34005866C1 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
 		68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Ex.m"; sourceTree = "<group>"; };
 		68B10CCE1C7EFF9E005866C1 /* BeautifulImageHomePageProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImageHomePageProtocol.h; sourceTree = "<group>"; };
+		68BA50801C9FD8BB002E5572 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		68BA50811C9FD8BB002E5572 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		68BA50821C9FD8BB002E5572 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1309,6 +1309,7 @@
 		68123C301C4C8B99008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				68BA507F1C9FD8BB002E5572 /* WebView */,
 				68123C311C4C8B99008FC9AB /* CustomAlert */,
 				68123C381C4C8B99008FC9AB /* CustomScroll */,
 				68123C3B1C4C8B99008FC9AB /* ImageBrower */,
@@ -1678,16 +1679,6 @@
 			path = MyNotification;
 			sourceTree = "<group>";
 		};
-		689E71461C80588C0012BF3C /* WebView */ = {
-			isa = PBXGroup;
-			children = (
-				689E71471C80588C0012BF3C /* WebViewController.h */,
-				689E71481C80588C0012BF3C /* WebViewController.m */,
-				689E71491C80588C0012BF3C /* WebViewController.xib */,
-			);
-			path = WebView;
-			sourceTree = "<group>";
-		};
 		68B10C811C76D489005866C1 /* DesignerList */ = {
 			isa = PBXGroup;
 			children = (
@@ -1732,6 +1723,16 @@
 				68B10CB71C785659005866C1 /* SearchProductCaseDataManager.m */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		68BA507F1C9FD8BB002E5572 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				68BA50801C9FD8BB002E5572 /* WebViewController.h */,
+				68BA50811C9FD8BB002E5572 /* WebViewController.m */,
+				68BA50821C9FD8BB002E5572 /* WebViewController.xib */,
+			);
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		6E06CC031C29231A00A08D15 /* MyFavoriate */ = {
@@ -2385,7 +2386,6 @@
 		6E7E4A621B9A8FA700503B35 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				689E71461C80588C0012BF3C /* WebView */,
 				6E7E4A631B9A902500503B35 /* BaseViewController.h */,
 				6E7E4A641B9A902500503B35 /* BaseViewController.m */,
 				6E7E4A7B1B9D325400503B35 /* ViewControllerContainer.h */,
@@ -2679,10 +2679,10 @@
 				68679A401C8E730F00B380D0 /* WorksiteNotificationCell.xib in Resources */,
 				68123B5D1C47BBBD008FC9AB /* DropdownMenuView.xib in Resources */,
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
-				689E714B1C80588C0012BF3C /* WebViewController.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				683FFB691C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib in Resources */,
 				680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */,
+				68BA50841C9FD8BB002E5572 /* WebViewController.xib in Resources */,
 				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
 				68123BA81C47D15C008FC9AB /* JYZ_sina_icon@2x.png in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
@@ -2809,7 +2809,6 @@
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,
-				689E714A1C80588C0012BF3C /* WebViewController.m in Sources */,
 				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
 				6E4496451BFC562900C90851 /* AboutViewController.m in Sources */,
 				684B03C71C96CB2B0053FFDF /* SearchDecLive.m in Sources */,
@@ -2844,6 +2843,7 @@
 				688517631C914B9C000B01DB /* GetUserNotificationDetail.m in Sources */,
 				68134A2F1C3CA7CA003C1C10 /* WeChatLogin.m in Sources */,
 				6E06CC2F1C2BF97800A08D15 /* FavoriteDesignerData.m in Sources */,
+				68BA50831C9FD8BB002E5572 /* WebViewController.m in Sources */,
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,
 				683626991C059C72005F2C30 /* ItemExpandImageCell.m in Sources */,
 				6E06CC071C29235500A08D15 /* MyFavoriateViewController.m in Sources */,

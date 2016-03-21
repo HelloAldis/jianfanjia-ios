@@ -23,7 +23,6 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
 
 @property (strong, nonatomic) NSString *url;
 @property (strong, nonatomic) NSString *topic;
-@property (assign, nonatomic) BOOL needShare;
 
 @end
 
@@ -38,7 +37,6 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
     if (self = [super init]) {
         _url = url;
         _topic = topic;
-        _needShare = topic != nil;
     }
     
     return self;
@@ -55,13 +53,10 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
+    self.navigationItem.rightBarButtonItem.enabled = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
-    if (self.needShare) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
-        self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    }
 }
 
 #pragma mark - load page
@@ -87,7 +82,7 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
     NSURLComponents *components = [[NSURLComponents alloc] initWithString:kMApiUrl];
-    NSString *urlString = [self.url containsString:@"http:"] ? self.url : [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", self.url];
+    NSString *urlString = [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", self.url];
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
 
@@ -98,30 +93,27 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     self.title = ![self.webView.title isEmpty] ? self.webView.title : DefaultTitle;
-    
-    if (self.needShare) {
-        [self.webView evaluateJavaScript:@"\
-                         var nodelist = document.getElementsByTagName('meta');\
-                         var description;\
-                         for(var i = 0; i < nodelist.length; i++) {\
-                         var node = nodelist[i];\
-                         if (node.getAttribute('name') == 'description') {\
-                         description = node.getAttribute('content');\
-                         }\
-                         }\
-                         var imglist = document.getElementsByTagName('img');\
-                         var imgurl;\
-                         if (imglist.length > 0) {\
-                         imgurl = imglist[0].src;\
-                         }\
-                         sendMessageToNative({'msgtype':'share', 'description':description, 'imgurl':imgurl});\
-                         "
-                       completionHandler:^(id _Nullable value, NSError * _Nullable error) {
-                           if (error) {
-                               [self showError:error];
-                           }
-                       }];
-    }
+    [self.webView evaluateJavaScript:@"\
+                     var nodelist = document.getElementsByTagName('meta');\
+                     var description;\
+                     for(var i = 0; i < nodelist.length; i++) {\
+                        var node = nodelist[i];\
+                        if (node.getAttribute('name') == 'description') {\
+                            description = node.getAttribute('content');\
+                        }\
+                     }\
+                     var imglist = document.getElementsByTagName('img');\
+                     var imgurl;\
+                     if (imglist.length > 0) {\
+                        imgurl = imglist[0].src;\
+                     }\
+                     sendMessageToNative({'msgtype':'share', 'description':description, 'imgurl':imgurl});\
+                     "
+                   completionHandler:^(id _Nullable value, NSError * _Nullable error) {
+                       if (error) {
+                           [self showError:error];
+                       }
+                   }];
 }
 
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
@@ -148,7 +140,10 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
 #pragma mark - user action
 - (void)onClickShare {
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:self.articleImgUrl]]];
-
+    if (![self.webView canGoBack]) {
+        image = [UIImage imageNamed:@"about_logo"];
+    }
+    
     [[ShareManager shared] share:self topic:self.topic image:image ? image : [UIImage imageNamed:@"about_logo"] title:![self.webView.title isEmpty] ? self.webView.title : DefaultTitle description:self.articleDescription ? self.articleDescription : @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。" targetLink:self.webView.URL.absoluteString delegate:self];
 }
 

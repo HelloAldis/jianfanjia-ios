@@ -8,7 +8,6 @@
 
 #import "DecLiveCell.h"
 #import "ViewControllerContainer.h"
-#import "WebViewController.h"
 
 CGFloat kDecLiveCellHeight;
 
