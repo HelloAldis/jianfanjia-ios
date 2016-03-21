@@ -153,4 +153,18 @@
     }];
 }
 
+- (IBAction)onClickLogout:(id)sender {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定退出？" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //Do nothing
+    }];
+    UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [ViewControllerContainer logout];
+    }];
+    
+    [alert addAction:cancel];
+    [alert addAction:done];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 @end

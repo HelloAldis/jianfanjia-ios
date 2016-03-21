@@ -122,6 +122,10 @@
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="7vD-WA-CjX">
                                             <rect key="frame" x="573" y="142" width="7" height="13"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="7" id="FSp-ey-eKn"/>
+                                                <constraint firstAttribute="height" constant="13" id="RZj-eM-uFD"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SBB-M2-hfI">
                                             <rect key="frame" x="360" y="138" width="200" height="21"/>
@@ -163,6 +167,10 @@
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="001-rG-Ap2">
                                             <rect key="frame" x="573" y="187" width="7" height="13"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="13" id="8C5-xk-hBq"/>
+                                                <constraint firstAttribute="width" constant="7" id="u34-AF-6hp"/>
+                                            </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mio-Ui-iI1">
                                             <rect key="frame" x="20" y="216" width="560" height="44"/>
@@ -245,12 +253,40 @@
                                         <constraint firstItem="cXq-HB-pch" firstAttribute="leading" secondItem="fQg-oO-NKk" secondAttribute="leading" id="zmv-g9-kIQ"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kED-78-iNg">
+                                    <rect key="frame" x="0.0" y="280" width="600" height="44"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXe-X0-4H4">
+                                            <rect key="frame" x="20" y="0.0" width="560" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="Y4u-3d-UFD"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <state key="normal" title="退出登录">
+                                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onClickLogout:" destination="-1" eventType="touchUpInside" id="D1p-35-JXX"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="qXe-X0-4H4" secondAttribute="trailing" constant="20" id="964-7M-poY"/>
+                                        <constraint firstItem="qXe-X0-4H4" firstAttribute="leading" secondItem="kED-78-iNg" secondAttribute="leading" constant="20" id="ClV-4f-XZb"/>
+                                        <constraint firstItem="qXe-X0-4H4" firstAttribute="top" secondItem="kED-78-iNg" secondAttribute="top" id="Fdg-6u-hce"/>
+                                        <constraint firstAttribute="height" constant="44" id="TSZ-gH-lAF"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstItem="kED-78-iNg" firstAttribute="leading" secondItem="h9L-CY-RMQ" secondAttribute="leading" id="4Du-Aj-Uwe"/>
                                 <constraint firstItem="tNF-tY-CKV" firstAttribute="top" secondItem="h9L-CY-RMQ" secondAttribute="top" constant="10" id="AzR-Xy-247"/>
                                 <constraint firstItem="tNF-tY-CKV" firstAttribute="leading" secondItem="h9L-CY-RMQ" secondAttribute="leading" id="Fjg-Z9-qoG"/>
+                                <constraint firstAttribute="trailing" secondItem="kED-78-iNg" secondAttribute="trailing" id="HE4-Jz-Yf7"/>
                                 <constraint firstItem="tNF-tY-CKV" firstAttribute="width" secondItem="h9L-CY-RMQ" secondAttribute="width" id="Jha-yT-J8N"/>
+                                <constraint firstItem="kED-78-iNg" firstAttribute="top" secondItem="tNF-tY-CKV" secondAttribute="bottom" constant="10" id="dUV-Gx-5tZ"/>
                             </constraints>
                         </view>
                     </subviews>

@@ -71,7 +71,7 @@
                                                 <action selector="btnAbout:" destination="-1" eventType="touchUpInside" id="tdA-DJ-Rs5"/>
                                             </connections>
                                         </button>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="qo6-at-Tt9">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="bar_shape" translatesAutoresizingMaskIntoConstraints="NO" id="qo6-at-Tt9">
                                             <rect key="frame" x="583" y="16" width="7" height="13"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4je-WU-N8A">
