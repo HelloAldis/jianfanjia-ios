@@ -7,6 +7,7 @@
 //
 
 #import "AboutViewController.h"
+#import "WebViewWithoutShareController.h"
 
 @interface AboutViewController ()
 
@@ -47,14 +48,11 @@
 }
 
 - (IBAction)onClickOfficialWeibo:(id)sender {
-//    [WebViewController show:self withUrl:@"http://weibo.com/u/5691975473?topnav=1&wvr=6&topsug=1&is_all=1" shareTopic:nil];
-}
-
-- (IBAction)onClickShareToFriend:(id)sender {
+    [WebViewWithoutShareController show:self withUrl:@"http://weibo.com/u/5691975473?topnav=1&wvr=6&topsug=1&is_all=1"];
 }
 
 - (IBAction)onClickEvaluateUsInAppStore:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/jian-fan-jia/id1065725149?l=cn&mt=8"]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/jian-fan-jia-zhuan-ye-ban/id1078884606?l=cn&mt=8"]];
 }
 
 @end
