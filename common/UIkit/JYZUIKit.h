@@ -17,6 +17,5 @@
 #import "ImageEditorViewController.h"
 #import "SelectCityViewController.h"
 #import "CollectionFallsFlowLayout.h"
-#import "WebViewController.h"
 
 #endif /* JYZUIKit_h */

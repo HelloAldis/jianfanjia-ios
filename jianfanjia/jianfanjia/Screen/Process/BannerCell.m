@@ -8,6 +8,7 @@
 
 #import "BannerCell.h"
 #import "ViewControllerContainer.h"
+#import "WebViewController.h"
 
 CGFloat kBannerCellHeight;
 

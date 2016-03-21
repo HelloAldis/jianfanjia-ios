@@ -273,6 +273,8 @@
 		68B10CCD1C7DAD34005866C1 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */; };
 		68BA50831C9FD8BB002E5572 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50811C9FD8BB002E5572 /* WebViewController.m */; };
 		68BA50841C9FD8BB002E5572 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50821C9FD8BB002E5572 /* WebViewController.xib */; };
+		68BA50F31C9FE56B002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50F11C9FE56B002E5572 /* WebViewWithoutShareController.m */; };
+		68BA50F41C9FE56B002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50F21C9FE56B002E5572 /* WebViewWithoutShareController.xib */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C25A1C75891F00EEEBD8 /* HomePageQuickEntryCell.m */; };
 		68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C3C25B1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib */; };
@@ -902,6 +904,9 @@
 		68BA50801C9FD8BB002E5572 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		68BA50811C9FD8BB002E5572 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		68BA50821C9FD8BB002E5572 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		68BA50F01C9FE56B002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
+		68BA50F11C9FE56B002E5572 /* WebViewWithoutShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewWithoutShareController.m; sourceTree = "<group>"; };
+		68BA50F21C9FE56B002E5572 /* WebViewWithoutShareController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewWithoutShareController.xib; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1728,6 +1733,9 @@
 		68BA507F1C9FD8BB002E5572 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				68BA50F01C9FE56B002E5572 /* WebViewWithoutShareController.h */,
+				68BA50F11C9FE56B002E5572 /* WebViewWithoutShareController.m */,
+				68BA50F21C9FE56B002E5572 /* WebViewWithoutShareController.xib */,
 				68BA50801C9FD8BB002E5572 /* WebViewController.h */,
 				68BA50811C9FD8BB002E5572 /* WebViewController.m */,
 				68BA50821C9FD8BB002E5572 /* WebViewController.xib */,
@@ -2632,6 +2640,7 @@
 				685272C81C2D1602002E62EC /* SelectBusinessTypeViewController.xib in Resources */,
 				68123C561C4C8B99008FC9AB /* MessageAlertViewController.xib in Resources */,
 				683FFB451C296288002A1AFE /* BeautifulImageViewController.xib in Resources */,
+				68BA50F41C9FE56B002E5572 /* WebViewWithoutShareController.xib in Resources */,
 				6E06CC131C29466700A08D15 /* FavoriateProductCell.xib in Resources */,
 				684A37031BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.xib in Resources */,
 				685DD4551C89761E00A76B9C /* CommentListViewController.xib in Resources */,
@@ -2843,6 +2852,7 @@
 				688517631C914B9C000B01DB /* GetUserNotificationDetail.m in Sources */,
 				68134A2F1C3CA7CA003C1C10 /* WeChatLogin.m in Sources */,
 				6E06CC2F1C2BF97800A08D15 /* FavoriteDesignerData.m in Sources */,
+				68BA50F31C9FE56B002E5572 /* WebViewWithoutShareController.m in Sources */,
 				68BA50831C9FD8BB002E5572 /* WebViewController.m in Sources */,
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,
 				683626991C059C72005F2C30 /* ItemExpandImageCell.m in Sources */,

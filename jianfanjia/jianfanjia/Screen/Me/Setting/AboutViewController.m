@@ -7,6 +7,7 @@
 //
 
 #import "AboutViewController.h"
+#import "WebViewWithoutShareController.h"
 
 @interface AboutViewController ()
 
@@ -47,7 +48,7 @@
 }
 
 - (IBAction)onClickOfficialWeibo:(id)sender {
-    [WebViewController show:self withUrl:@"http://weibo.com/u/5691975473?topnav=1&wvr=6&topsug=1&is_all=1" shareTopic:nil];
+    [WebViewWithoutShareController show:self withUrl:@"http://weibo.com/u/5691975473?topnav=1&wvr=6&topsug=1&is_all=1"];
 }
 
 - (IBAction)onClickShareToFriend:(id)sender {
