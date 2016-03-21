@@ -67,7 +67,7 @@
                         <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浏览数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVX-LH-45b">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浏览" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YVX-LH-45b">
                         <rect key="frame" x="0.0" y="166" width="107" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="nHo-8z-vY0"/>
@@ -81,7 +81,7 @@
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作品数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-R1-5OW">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="案例" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckb-R1-5OW">
                         <rect key="frame" x="107" y="166" width="107" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="kX5-7X-5cQ"/>
@@ -95,7 +95,7 @@
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预约数" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66y-dg-tGe">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预约" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="66y-dg-tGe">
                         <rect key="frame" x="213" y="166" width="107" height="16"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="Naw-lV-Pmz"/>
@@ -164,7 +164,6 @@
                     <constraint firstItem="APo-Do-Qtc" firstAttribute="leading" secondItem="klb-Hh-jFa" secondAttribute="trailing" constant="2" id="4aH-ln-x3f"/>
                     <constraint firstItem="APo-Do-Qtc" firstAttribute="centerX" secondItem="CmF-aq-MHT" secondAttribute="centerX" id="6YD-n0-aYi"/>
                     <constraint firstItem="2j2-Zi-RyX" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="2/3" id="8tk-g7-Rzv"/>
-                    <constraint firstItem="YVX-LH-45b" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/3" id="ANR-4f-naL"/>
                     <constraint firstItem="hl6-9h-8CQ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/3" id="BGD-s8-GCk"/>
                     <constraint firstItem="hl6-9h-8CQ" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="bottom" constant="10" id="CUq-fT-5p8"/>
                     <constraint firstItem="YVX-LH-45b" firstAttribute="leading" secondItem="hl6-9h-8CQ" secondAttribute="leading" id="DqI-Wj-zje"/>
@@ -183,21 +182,16 @@
                     <constraint firstItem="TUP-pj-qDe" firstAttribute="leading" secondItem="lcs-IN-5uf" secondAttribute="trailing" constant="2" id="ZxE-V0-het"/>
                     <constraint firstItem="CYy-TQ-OFB" firstAttribute="top" secondItem="hl6-9h-8CQ" secondAttribute="top" id="anE-od-WjK"/>
                     <constraint firstItem="66y-dg-tGe" firstAttribute="width" secondItem="lfI-S9-rNX" secondAttribute="width" id="azE-BK-NhR"/>
-                    <constraint firstItem="ckb-R1-5OW" firstAttribute="top" secondItem="CYy-TQ-OFB" secondAttribute="bottom" id="b1i-ie-OCx"/>
                     <constraint firstItem="CYy-TQ-OFB" firstAttribute="width" secondItem="hl6-9h-8CQ" secondAttribute="width" id="bLL-qc-mXr"/>
                     <constraint firstAttribute="bottomMargin" secondItem="2j2-Zi-RyX" secondAttribute="bottom" constant="10" id="buQ-hC-Hup"/>
                     <constraint firstItem="TUP-pj-qDe" firstAttribute="top" secondItem="lcs-IN-5uf" secondAttribute="top" id="dBZ-y5-yLM"/>
                     <constraint firstItem="2j2-Zi-RyX" firstAttribute="top" secondItem="ckb-R1-5OW" secondAttribute="bottom" constant="19" id="g6Z-U5-XPA"/>
                     <constraint firstItem="lfI-S9-rNX" firstAttribute="top" secondItem="CYy-TQ-OFB" secondAttribute="top" id="ghm-c6-vlZ"/>
-                    <constraint firstItem="klb-Hh-jFa" firstAttribute="baseline" secondItem="APo-Do-Qtc" secondAttribute="baseline" id="gwb-pp-6rH"/>
                     <constraint firstItem="klb-Hh-jFa" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="top" id="hNV-Kw-evt"/>
-                    <constraint firstItem="YVX-LH-45b" firstAttribute="top" secondItem="hl6-9h-8CQ" secondAttribute="bottom" constant="1" id="jSM-3D-9qw"/>
                     <constraint firstItem="APo-Do-Qtc" firstAttribute="top" secondItem="CmF-aq-MHT" secondAttribute="bottom" constant="8" id="kNC-Np-hOY"/>
                     <constraint firstItem="ckb-R1-5OW" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="bottom" constant="33" id="kO0-hS-Fvn"/>
-                    <constraint firstItem="2j2-Zi-RyX" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="m7U-bP-rq5"/>
                     <constraint firstItem="lfI-S9-rNX" firstAttribute="leading" secondItem="CYy-TQ-OFB" secondAttribute="trailing" constant="-1" id="mjL-Wg-PYE"/>
                     <constraint firstItem="ckb-R1-5OW" firstAttribute="width" secondItem="CYy-TQ-OFB" secondAttribute="width" id="nkD-2Z-VlT"/>
-                    <constraint firstItem="klb-Hh-jFa" firstAttribute="baseline" secondItem="APo-Do-Qtc" secondAttribute="baseline" id="ojm-he-owV"/>
                     <constraint firstItem="66y-dg-tGe" firstAttribute="top" secondItem="ckb-R1-5OW" secondAttribute="top" id="pUt-oN-fl3"/>
                     <constraint firstItem="CmF-aq-MHT" firstAttribute="top" secondItem="NSd-gx-JPd" secondAttribute="bottom" constant="10" id="tEi-4d-rME"/>
                     <constraint firstItem="lfI-S9-rNX" firstAttribute="width" secondItem="hl6-9h-8CQ" secondAttribute="width" id="wbA-6E-ABm"/>
@@ -205,16 +199,6 @@
                     <constraint firstItem="2j2-Zi-RyX" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="yvA-Co-w8t"/>
                     <constraint firstItem="klb-Hh-jFa" firstAttribute="leading" secondItem="cFW-DK-YKk" secondAttribute="trailing" constant="2" id="zIT-qD-foZ"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="ANR-4f-naL"/>
-                        <exclude reference="jSM-3D-9qw"/>
-                        <exclude reference="gwb-pp-6rH"/>
-                        <exclude reference="ojm-he-owV"/>
-                        <exclude reference="b1i-ie-OCx"/>
-                        <exclude reference="m7U-bP-rq5"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <connections>
