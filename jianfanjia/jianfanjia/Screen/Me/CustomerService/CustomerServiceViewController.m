@@ -49,7 +49,7 @@ static BOOL isReload;
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"客服中心";
+    self.title = @"在线客服";
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 

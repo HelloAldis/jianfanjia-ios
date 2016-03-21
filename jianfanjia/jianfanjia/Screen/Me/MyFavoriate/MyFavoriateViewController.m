@@ -420,7 +420,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 }
 
 - (void)handleNoFavoriateProduct {
-    self.lblNoData.text = @"您还没有收藏任何作品";
+    self.lblNoData.text = @"您还没有收藏任何案例";
     self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_product"];
     self.lblNoData.hidden = NO;
     self.noDataImageView.hidden = NO;

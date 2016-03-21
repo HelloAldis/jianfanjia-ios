@@ -35,7 +35,7 @@
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"用户反馈";
+    self.title = @"意见反馈";
 }
 
 - (IBAction)onClickDone:(id)sender {
