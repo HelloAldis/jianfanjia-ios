@@ -154,8 +154,7 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
     // 通知被触发时播放的声音
     notification.soundName = UILocalNotificationDefaultSoundName;
     // 通知参数
-    NSDictionary *userDict = [NSDictionary dictionaryWithObject:noti.data forKey:kLocalNotificationKey];
-    notification.userInfo = userDict;
+    notification.userInfo = noti.data;
     // 执行通知注册
     [[UIApplication sharedApplication] scheduleLocalNotification:notification];
 }
