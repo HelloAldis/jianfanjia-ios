@@ -54,7 +54,7 @@
         return;
     }
     
-    [ViewControllerContainer showBindPhone:BindPhoneEventDefault];
+    [ViewControllerContainer showBindPhone:BindPhoneEventDefault callback:nil];
 }
 
 - (IBAction)onClickWechat:(id)sender {

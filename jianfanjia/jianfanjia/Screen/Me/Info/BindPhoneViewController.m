@@ -103,7 +103,7 @@
         req.phone = request.phone;
         [API sendVerifyCode:req success:^{
             [DataManager shared].signupPagePhone = request.phone;
-            [ViewControllerContainer showVerifyPhone:VerfityPhoneEventBindPhone];
+            [ViewControllerContainer showVerifyPhone:VerfityPhoneEventBindPhone callback:self.callback];
         } failure:^{
             
         } networkError:^{

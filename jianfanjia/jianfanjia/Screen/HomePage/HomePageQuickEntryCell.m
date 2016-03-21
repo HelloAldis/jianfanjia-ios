@@ -100,6 +100,13 @@ static NSArray const *quickEntryTexts;
     } else if ([entry isEqualToString:HomePageQuickEntryDecLive]) {
         [ViewControllerContainer showDecLiveList];
     } else if ([entry isEqualToString:HomePageQuickEntryFreePlan]) {
+        if (![GVUserDefaults standardUserDefaults].phone) {
+            [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
+                [ViewControllerContainer showRequirementCreate:nil];
+            }];
+            return;
+        }
+        
         [ViewControllerContainer showRequirementCreate:nil];
     } else if ([entry isEqualToString:HomePageQuickEntryDecStrategy]) {
         [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:@"view/article/" shareTopic:ShareTopicDecStrategy];

@@ -10,6 +10,8 @@
 
 @interface BindPhoneViewController : BaseViewController
 
+@property (nonatomic, copy) void (^callback)(void);
+
 - (id)initWithEvent:(BindPhoneEvent)bindPhoneEvent;
 
 @end

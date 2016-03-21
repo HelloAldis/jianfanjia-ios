@@ -122,7 +122,11 @@
                 [API bindPhone:request success:^{
                     [GVUserDefaults standardUserDefaults].phone = request.phone;
                     [HUDUtil showSuccessText:@"绑定成功"];
-                    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+                    [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
+                        if (self.callback) {
+                            self.callback();
+                        }
+                    }];
                 } failure:^{
                     
                 } networkError:^{

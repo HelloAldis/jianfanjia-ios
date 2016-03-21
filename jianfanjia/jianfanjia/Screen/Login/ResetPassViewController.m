@@ -81,7 +81,7 @@
     
     [HUDUtil showWait];
     [API sendVerifyCode:req success:^{
-        [ViewControllerContainer showVerifyPhone:VerfityPhoneEventResetPassword];
+        [ViewControllerContainer showVerifyPhone:VerfityPhoneEventResetPassword callback:nil];
     } failure:^{
 
     } networkError:^{

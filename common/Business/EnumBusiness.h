@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger, VerfityPhoneEvent) {
 typedef NS_ENUM(NSInteger, BindPhoneEvent) {
     BindPhoneEventDefault,
     BindPhoneEventOrderDesigner,
+    BindPhoneEventPublishRequirement,
 };
 
 #endif /* EnumBusiness_h */

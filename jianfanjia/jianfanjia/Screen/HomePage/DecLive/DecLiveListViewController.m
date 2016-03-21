@@ -142,6 +142,13 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
 }
 
 - (IBAction)onClickCreateMyWorksite:(id)sender {
+    if (![GVUserDefaults standardUserDefaults].phone) {
+        [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
+            [ViewControllerContainer showRequirementCreate:nil];
+        }];
+        return;
+    }
+    
     [ViewControllerContainer showRequirementCreate:nil];
 }
 

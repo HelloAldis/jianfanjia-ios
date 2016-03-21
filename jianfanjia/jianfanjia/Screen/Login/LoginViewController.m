@@ -265,7 +265,7 @@
         SendVerifyCode *req = [[SendVerifyCode alloc] init];
         req.phone = [DataManager shared].signupPagePhone;
         [API sendVerifyCode:req success:^{
-            [ViewControllerContainer showVerifyPhone:VerfityPhoneEventSignup];
+            [ViewControllerContainer showVerifyPhone:VerfityPhoneEventSignup callback:nil];
         } failure:^{
             
         } networkError:^{

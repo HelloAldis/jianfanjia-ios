@@ -16,8 +16,8 @@
 + (void)showLogin;
 + (void)showSignup;
 + (void)showAccountBind;
-+ (void)showBindPhone:(BindPhoneEvent)bindPhoneEvent;
-+ (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent;
++ (void)showBindPhone:(BindPhoneEvent)bindPhoneEvent callback:(void(^)(void))callback;
++ (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent callback:(void(^)(void))callback;
 + (void)showResetPass;
 + (void)showCollectDecPhase;
 + (void)showCollectDecStyle;

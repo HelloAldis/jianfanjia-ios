@@ -21,7 +21,6 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 @property (weak, nonatomic) IBOutlet UILabel *lblNoRequirement;
 
 @property (strong, nonatomic) RequirementDataManager *requirementDataManager;
-@property (assign, nonatomic) BOOL wasInBindPhoneProcess;
 
 @end
 
@@ -40,11 +39,6 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];    
     [self refreshRequirements:YES];
-    
-    if (self.wasInBindPhoneProcess && [GVUserDefaults standardUserDefaults].phone) {
-        self.wasInBindPhoneProcess = NO;
-        [self onClickCreate:nil];
-    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -99,11 +93,12 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 #pragma mark - actions
 - (IBAction)onClickCreate:(id)sender {
     if (![GVUserDefaults standardUserDefaults].phone) {
-        self.wasInBindPhoneProcess = YES;
-        [ViewControllerContainer showBindPhone:BindPhoneEventOrderDesigner];
+        [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
+            [ViewControllerContainer showRequirementCreate:nil];
+        }];
         return;
     }
-    
+
     [ViewControllerContainer showRequirementCreate:nil];
 }
 

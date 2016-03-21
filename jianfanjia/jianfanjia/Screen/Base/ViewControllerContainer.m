@@ -147,8 +147,9 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showBindPhone:(BindPhoneEvent)bindPhoneEvent {
++ (void)showBindPhone:(BindPhoneEvent)bindPhoneEvent callback:(void(^)(void))callback {
     BindPhoneViewController *v = [[BindPhoneViewController alloc] initWithEvent:bindPhoneEvent];
+    v.callback = callback;
     
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
     
@@ -157,8 +158,9 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController presentViewController:navi animated:YES completion:nil];
 }
 
-+ (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent {
++ (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent callback:(void(^)(void))callback {
     VerifyPhoneViewController *v = [[VerifyPhoneViewController alloc] initWithEvent:verfityPhoneEvent];
+    v.callback = callback;
     
     if (verfityPhoneEvent == VerfityPhoneEventBindPhone) {
         [((id)container.tab.selectedViewController.presentedViewController) pushViewController:v animated:YES];
