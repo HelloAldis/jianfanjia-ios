@@ -391,7 +391,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
 }
 
 - (void)handleNoProduct {
-    self.lblNoData.text = @"没有找到任何匹配的作品";
+    self.lblNoData.text = @"没有找到任何匹配的案例";
     self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_product"];
     self.lblNoData.hidden = NO;
     self.noDataImageView.hidden = NO;
