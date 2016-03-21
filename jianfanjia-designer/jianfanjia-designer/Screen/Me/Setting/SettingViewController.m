@@ -27,7 +27,7 @@
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"设置";
+    self.title = @"更多";
 }
 
 #pragma mark - user action
