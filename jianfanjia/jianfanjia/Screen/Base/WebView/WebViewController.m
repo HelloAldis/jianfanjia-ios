@@ -23,6 +23,7 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
 
 @property (strong, nonatomic) NSString *url;
 @property (strong, nonatomic) NSString *topic;
+@property (assign, nonatomic) BOOL needShare;
 
 @end
 
@@ -37,6 +38,7 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
     if (self = [super init]) {
         _url = url;
         _topic = topic;
+        _needShare = topic != nil;
     }
     
     return self;
@@ -53,10 +55,13 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
-    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
-    self.navigationItem.rightBarButtonItem.enabled = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    if (self.needShare) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
+        self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
 }
 
 #pragma mark - load page
@@ -93,27 +98,30 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(null_unspecified WKNavigation *)navigation {
     self.title = ![self.webView.title isEmpty] ? self.webView.title : DefaultTitle;
-    [self.webView evaluateJavaScript:@"\
-                     var nodelist = document.getElementsByTagName('meta');\
-                     var description;\
-                     for(var i = 0; i < nodelist.length; i++) {\
-                        var node = nodelist[i];\
-                        if (node.getAttribute('name') == 'description') {\
-                            description = node.getAttribute('content');\
-                        }\
-                     }\
-                     var imglist = document.getElementsByTagName('img');\
-                     var imgurl;\
-                     if (imglist.length > 0) {\
-                        imgurl = imglist[0].src;\
-                     }\
-                     sendMessageToNative({'msgtype':'share', 'description':description, 'imgurl':imgurl});\
-                     "
-                   completionHandler:^(id _Nullable value, NSError * _Nullable error) {
-                       if (error) {
-                           [self showError:error];
-                       }
-                   }];
+    
+    if (self.needShare) {
+        [self.webView evaluateJavaScript:@"\
+                         var nodelist = document.getElementsByTagName('meta');\
+                         var description;\
+                         for(var i = 0; i < nodelist.length; i++) {\
+                         var node = nodelist[i];\
+                         if (node.getAttribute('name') == 'description') {\
+                         description = node.getAttribute('content');\
+                         }\
+                         }\
+                         var imglist = document.getElementsByTagName('img');\
+                         var imgurl;\
+                         if (imglist.length > 0) {\
+                         imgurl = imglist[0].src;\
+                         }\
+                         sendMessageToNative({'msgtype':'share', 'description':description, 'imgurl':imgurl});\
+                         "
+                       completionHandler:^(id _Nullable value, NSError * _Nullable error) {
+                           if (error) {
+                               [self showError:error];
+                           }
+                       }];
+    }
 }
 
 - (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(null_unspecified WKNavigation *)navigation withError:(NSError *)error {
