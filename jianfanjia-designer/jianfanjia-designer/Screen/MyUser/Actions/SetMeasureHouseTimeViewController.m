@@ -82,12 +82,13 @@
 - (NSDate *)getNowDate {
     NSDate *now = [NSDate date];
     NSCalendar *cal = [NSCalendar currentCalendar];
-    NSDateComponents *components = [cal components:NSCalendarUnitMinute fromDate:now];
+    NSDateComponents *components = [cal components:NSCalendarUnitMinute | NSCalendarUnitSecond fromDate:now];
     NSInteger minute = components.minute;
-    minute = minute + 10 - minute % 10;
+    NSInteger second = components.second;
+    minute = 10 - minute % 10;
     
-    now = [cal dateBySettingUnit:NSCalendarUnitMinute value:minute ofDate:now options:0];
-    now = [cal dateBySettingUnit:NSCalendarUnitSecond value:0 ofDate:now options:0];
+    now = [cal dateByAddingUnit:NSCalendarUnitMinute value:minute toDate:now options:0];
+    now = [cal dateByAddingUnit:NSCalendarUnitSecond value:-second toDate:now options:0];
     
     return now;
 }
