@@ -117,14 +117,16 @@
 
 - (void)initButtons {
     NSString *status = self.plan.status;
-    NSString *requiremntStatus = self.requirement.status;
     if ([status isEqualToString:kPlanStatusPlanWasChoosed]
-        || [requiremntStatus isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
-        || [requiremntStatus isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
-        || [requiremntStatus isEqualToString:kRequirementStatusConfiguredWorkSite]
-        || [requiremntStatus isEqualToString:kRequirementStatusFinishedWorkSite]) {
+        || [status isEqualToString:kPlanStatusPlanWasNotChoosed]) {
         self.btnChoosePlan.enabled = NO;
         self.btnChoosePlan.backgroundColor = kUntriggeredColor;
+        
+        if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
+            [self.btnChoosePlan setTitle:@"已选定该方案" forState:UIControlStateNormal];
+        } else if ([status isEqualToString:kPlanStatusPlanWasNotChoosed]) {
+            [self.btnChoosePlan setTitle:@"该方案未中标" forState:UIControlStateNormal];
+        }
     } else {
         self.btnChoosePlan.enabled = YES;
         self.btnChoosePlan.backgroundColor = kFinishedColor;
