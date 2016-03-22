@@ -39,7 +39,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 @property (strong, nonatomic) NSIndexPath *lastSelectedIndexPath;
 @property (assign, nonatomic) BOOL isHeaderHidden;
 @property (assign, nonatomic) BOOL isFirstEnter;
-@property (assign, nonatomic) BOOL wasEnterMyNotification;
 
 @property (strong, nonatomic) UIView *minDistanceFromLeftEdgeView;
 
@@ -79,9 +78,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [super viewWillAppear:animated];
     [[NotificationDataManager shared] refreshUnreadCount];
     
-    if (self.wasEnterMyNotification) {
-        self.wasEnterMyNotification = NO;
-        [self refreshProcess:NO];
+    if (!self.isFirstEnter) {
+        [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
     }
 }
 
@@ -525,7 +523,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 #pragma mark - user action
 - (void)onClickMyNotification {
-    self.wasEnterMyNotification = YES;
     [ViewControllerContainer showMyNotification];
 }
 
