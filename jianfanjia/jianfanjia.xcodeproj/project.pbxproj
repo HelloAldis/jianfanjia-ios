@@ -275,6 +275,7 @@
 		68BA50841C9FD8BB002E5572 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50821C9FD8BB002E5572 /* WebViewController.xib */; };
 		68BA50F31C9FE56B002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50F11C9FE56B002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50F41C9FE56B002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50F21C9FE56B002E5572 /* WebViewWithoutShareController.xib */; };
+		68BA51021CA0ED75002E5572 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA51011CA0ED75002E5572 /* TouchDelegateView.m */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C25A1C75891F00EEEBD8 /* HomePageQuickEntryCell.m */; };
 		68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C3C25B1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib */; };
@@ -907,6 +908,8 @@
 		68BA50F01C9FE56B002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
 		68BA50F11C9FE56B002E5572 /* WebViewWithoutShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewWithoutShareController.m; sourceTree = "<group>"; };
 		68BA50F21C9FE56B002E5572 /* WebViewWithoutShareController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewWithoutShareController.xib; sourceTree = "<group>"; };
+		68BA51001CA0ED75002E5572 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
+		68BA51011CA0ED75002E5572 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
 		68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeautifulImagePosition.m; sourceTree = "<group>"; };
 		68C3C2591C75891F00EEEBD8 /* HomePageQuickEntryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageQuickEntryCell.h; sourceTree = "<group>"; };
@@ -1323,6 +1326,8 @@
 				68123C4C1C4C8B99008FC9AB /* SelectCity */,
 				68123F221C4CC70E008FC9AB /* CollectionFallsFlowLayout.h */,
 				68123F231C4CC70E008FC9AB /* CollectionFallsFlowLayout.m */,
+				68BA51001CA0ED75002E5572 /* TouchDelegateView.h */,
+				68BA51011CA0ED75002E5572 /* TouchDelegateView.m */,
 				68123C661C4C8C0C008FC9AB /* JYZUIKit.h */,
 			);
 			path = UIkit;
@@ -3044,6 +3049,7 @@
 				683669091BFF0C05006A5053 /* PlanCell.m in Sources */,
 				684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */,
 				682E05111C58BDA700F1ACAA /* PlanPriceItemCell.m in Sources */,
+				68BA51021CA0ED75002E5572 /* TouchDelegateView.m in Sources */,
 				68679A3F1C8E730F00B380D0 /* WorksiteNotificationCell.m in Sources */,
 				688517731C926FDC000B01DB /* DecCommentInfoCell.m in Sources */,
 				68123C531C4C8B99008FC9AB /* DateAlertViewController.m in Sources */,

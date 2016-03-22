@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -9,7 +9,7 @@
             <connections>
                 <outlet property="btnNext" destination="Uh0-3o-tLY" id="YXb-vf-HEq"/>
                 <outlet property="lblDecStyleVal" destination="hUO-sY-QfB" id="WFg-pI-GHP"/>
-                <outlet property="scrollView" destination="tvb-Di-RQZ" id="Ie5-7i-glG"/>
+                <outlet property="styleView" destination="LXm-Rf-nFr" id="Zdg-pE-Jgb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,6 +18,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXm-Rf-nFr" customClass="TouchDelegateView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="408"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uh0-3o-tLY">
                     <rect key="frame" x="20" y="490" width="560" height="50"/>
                     <color key="backgroundColor" red="0.70980392160000005" green="0.72549019609999998" blue="0.73725490199999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -41,27 +45,20 @@
                     <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tvb-Di-RQZ">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="408"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="4xl-c0-oZK"/>
-                    </connections>
-                </scrollView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Uh0-3o-tLY" secondAttribute="bottom" constant="60" id="8c1-9D-rnh"/>
+                <constraint firstItem="LXm-Rf-nFr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9sv-f9-Yp1"/>
+                <constraint firstItem="w3d-Hs-dwf" firstAttribute="top" secondItem="LXm-Rf-nFr" secondAttribute="bottom" constant="20" id="Bmr-gL-p6F"/>
                 <constraint firstItem="Uh0-3o-tLY" firstAttribute="top" secondItem="hUO-sY-QfB" secondAttribute="bottom" constant="15" id="BtM-CL-n4B"/>
-                <constraint firstItem="w3d-Hs-dwf" firstAttribute="top" secondItem="tvb-Di-RQZ" secondAttribute="bottom" constant="20" id="CwL-X6-2Cy"/>
                 <constraint firstItem="hUO-sY-QfB" firstAttribute="centerX" secondItem="Uh0-3o-tLY" secondAttribute="centerX" id="FPE-AA-JHz"/>
-                <constraint firstItem="tvb-Di-RQZ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="Ipy-oO-4vq"/>
-                <constraint firstItem="tvb-Di-RQZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Otz-97-jsW"/>
                 <constraint firstItem="Uh0-3o-tLY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="RJq-gi-lHt"/>
                 <constraint firstItem="hUO-sY-QfB" firstAttribute="top" secondItem="w3d-Hs-dwf" secondAttribute="bottom" constant="10" id="SS2-YT-Gb3"/>
+                <constraint firstAttribute="trailing" secondItem="LXm-Rf-nFr" secondAttribute="trailing" id="WJ4-mi-svN"/>
                 <constraint firstItem="w3d-Hs-dwf" firstAttribute="centerX" secondItem="Uh0-3o-tLY" secondAttribute="centerX" id="gbG-MS-IlN"/>
+                <constraint firstItem="LXm-Rf-nFr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="kPz-5a-XCu"/>
                 <constraint firstItem="Uh0-3o-tLY" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="v7Z-fa-Hg8"/>
-                <constraint firstItem="tvb-Di-RQZ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="vqF-tm-vIA"/>
             </constraints>
             <point key="canvasLocation" x="158" y="420"/>
         </view>

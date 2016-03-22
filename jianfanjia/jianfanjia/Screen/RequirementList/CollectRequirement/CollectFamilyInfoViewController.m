@@ -8,23 +8,22 @@
 
 #import "CollectFamilyInfoViewController.h"
 #import "ViewControllerContainer.h"
+#import "TouchDelegateView.h"
 
 static const NSInteger FamilyInfoCount = 4;
 static const NSInteger FamilyInfoWidth = 240;
+static const NSInteger FamilyInfoItemSpace = 30;
 static const NSInteger MaxCollectedFamilyInfoCount = 1;
 
 @interface CollectFamilyInfoViewController () <UIScrollViewDelegate>
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet TouchDelegateView *styleView;
+@property (strong, nonatomic) UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *lblDecStyleVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
 
-@property (assign, nonatomic) NSInteger itemSpace;
-
 @property (strong, nonatomic) NSMutableArray *buttonArray;
 @property (strong, nonatomic) NSMutableArray *curCollectedFamilys;
-
-@property (assign, nonatomic) NSInteger curPage;
-@property (assign, nonatomic) CGFloat preOffsetX;
+@property (assign, nonatomic) NSInteger pageSize;
 
 @end
 
@@ -35,11 +34,12 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
     [super viewDidLoad];
     
     [self initNav];
+    [self initUI];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self initUI];
+    [self initData];
 }
 
 #pragma mark - init UI
@@ -52,7 +52,9 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    
+}
+
+- (void)initUI {
     [self.btnNext setCornerRadius:5];
     [self.btnNext setBackgroundColor:kUntriggeredColor];
     self.btnNext.enabled = NO;
@@ -64,21 +66,25 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
     }];
     
     self.curCollectedFamilys = [NSMutableArray array];
-    self.scrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+    self.pageSize = FamilyInfoWidth + FamilyInfoItemSpace;
+    
+    self.scrollView = [[UIScrollView alloc] init];
+    self.scrollView.showsHorizontalScrollIndicator = NO;
+    self.scrollView.showsVerticalScrollIndicator = NO;
+    self.scrollView.clipsToBounds = NO;
+    self.scrollView.pagingEnabled = YES;
+    [self.styleView addSubview:self.scrollView];
+    self.styleView.touchDelegateView = self.scrollView;
 }
 
-- (void)initUI {
+- (void)initData {
     if (self.scrollView.contentSize.width != 0)
         return;
-    
-    CGFloat scrollWidth = CGRectGetWidth(self.scrollView.frame);
-    CGFloat firstItemX = (scrollWidth - FamilyInfoWidth) / 2;
-    CGFloat space = [self getBestSpace];
-    self.itemSpace = space;
+    self.scrollView.frame = CGRectMake((CGRectGetWidth(self.styleView.frame) - self.pageSize) / 2, (CGRectGetHeight(self.styleView.frame) - self.pageSize) / 2, self.pageSize, self.pageSize);
     
     self.buttonArray = [NSMutableArray arrayWithCapacity:FamilyInfoCount];
     for (NSInteger i = 0; i < FamilyInfoCount; i++) {
-        CGFloat itemX = (FamilyInfoWidth + space) * i + (kIsPad ? 0 : firstItemX);
+        CGFloat itemX = (self.pageSize) * i + FamilyInfoItemSpace / 2;
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(itemX, (CGRectGetHeight(self.scrollView.frame) - FamilyInfoWidth) / 2, FamilyInfoWidth, FamilyInfoWidth)];
         [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"collect_family_info_%@", @(i)]] forState:UIControlStateNormal];
@@ -88,15 +94,9 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
         [button setCornerRadius:FamilyInfoWidth / 2];
     }
     
-    if (!kIsPad) {
-        self.scrollView.contentSize = CGSizeMake(firstItemX * 2 + (FamilyInfoWidth + space) * FamilyInfoCount - space, FamilyInfoWidth);
-    } else {
-        self.scrollView.contentSize = CGSizeMake((FamilyInfoWidth + space) * FamilyInfoCount - space, FamilyInfoWidth);
-    }
-    
-    self.scrollView.showsHorizontalScrollIndicator = NO;
-    self.scrollView.showsVerticalScrollIndicator = NO;
-    self.scrollView.bounces = NO;
+    CGFloat scrollWidth = CGRectGetWidth(self.scrollView.frame);
+    CGFloat lastItemExtraContentWidth = scrollWidth - FamilyInfoWidth;
+    self.scrollView.contentSize = CGSizeMake((self.pageSize) * FamilyInfoCount - FamilyInfoItemSpace + lastItemExtraContentWidth, FamilyInfoWidth);
 }
 
 #pragma mark - user action
@@ -173,53 +173,6 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
     } networkError:^{
         [HUDUtil hideWait];
     }];
-}
-
-#pragma mark - util
-- (CGFloat)getBestSpace {
-    CGFloat bestSpace = 30;
-    CGFloat scrollWidth = CGRectGetWidth(self.scrollView.frame);
-    if (!kIsPad) {
-        CGFloat firstItemX = (scrollWidth - FamilyInfoWidth) / 2;
-        CGFloat secondItemX = scrollWidth - FamilyInfoWidth / 8;
-        CGFloat space = secondItemX - firstItemX - FamilyInfoWidth;
-        
-        if (space > bestSpace) {
-            bestSpace = space;
-        }
-    } else {
-        bestSpace = 30;
-    }
-    
-    return bestSpace;
-}
-
-#pragma mark - scroll view delegate
-- (CGPoint)nearestTargetOffset:(CGPoint)curOffset {
-    if (curOffset.x > self.preOffsetX) {
-        self.curPage++;
-    } else if (curOffset.x < self.preOffsetX) {
-        self.curPage--;
-    }
-    
-    if (self.curPage < 0) {
-        self.curPage = 0;
-    }
-    
-    if (self.curPage > FamilyInfoCount - 1) {
-        self.curPage = FamilyInfoCount - 1;
-    }
-
-    CGFloat pageSize = FamilyInfoWidth + self.itemSpace;
-    CGFloat targetX = pageSize * self.curPage;
-    self.preOffsetX = targetX;
-    return CGPointMake(targetX, curOffset.y);
-}
-
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    CGPoint targetOffset = [self nearestTargetOffset:scrollView.contentOffset];
-    targetContentOffset->x = targetOffset.x;
-    targetContentOffset->y = targetOffset.y;
 }
 
 @end
