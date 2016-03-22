@@ -83,7 +83,7 @@
     }
     
     [self.userThumnail setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
-//    [[NotificationDataManager shared] refreshUnreadCount];
+    [[NotificationDataManager shared] refreshUnreadCount];
 }
 
 - (void)updateUnreadNumber {
