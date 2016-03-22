@@ -40,6 +40,11 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
     [self refresh];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NotificationDataManager shared] refreshUnreadCount];
+}
+
 #pragma mark - UI
 - (void)initNav {
     self.title = @"我的留言";

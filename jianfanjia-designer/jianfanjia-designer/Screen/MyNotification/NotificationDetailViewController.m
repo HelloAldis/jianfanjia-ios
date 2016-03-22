@@ -83,6 +83,7 @@ static NSDictionary *NotificationTitles = nil;
     [super viewWillDisappear:animated];
 
     if (self.wasRead) {
+        [[NotificationDataManager shared] refreshUnreadCount];
         if (self.readBlock) {
             self.readBlock();
         }
