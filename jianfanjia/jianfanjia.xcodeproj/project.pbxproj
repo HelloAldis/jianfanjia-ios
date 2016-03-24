@@ -364,14 +364,6 @@
 		6E676A541C461F2900E91C01 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E676A4D1C461F2900E91C01 /* TencentOpenAPI.framework */; };
 		6E676A551C461F2900E91C01 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E676A4F1C461F2900E91C01 /* libWeChatSDK.a */; };
 		6E676A561C461F2900E91C01 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6E676A501C461F2900E91C01 /* read_me.txt */; };
-		6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D988C1BDDC9C800D45F77 /* W1View.m */; };
-		6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D988E1BDDC9DC00D45F77 /* W1View.xib */; };
-		6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98901BDDFD9700D45F77 /* W2View.xib */; };
-		6E6D98941BDDFDAB00D45F77 /* W2View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98931BDDFDAB00D45F77 /* W2View.m */; };
-		6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98951BDDFE5500D45F77 /* W3View.xib */; };
-		6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98971BDDFE6A00D45F77 /* W3View.m */; };
-		6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D989A1BDDFEC900D45F77 /* W4View.xib */; };
-		6E6D989E1BDDFF1B00D45F77 /* W4View.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D989D1BDDFF1B00D45F77 /* W4View.m */; };
 		6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98A01BDF5EBE00D45F77 /* TabViewController.m */; };
 		6E6D98AA1BDF733F00D45F77 /* HomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98A81BDF733F00D45F77 /* HomePageViewController.m */; };
 		6E6D98AB1BDF733F00D45F77 /* HomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98A91BDF733F00D45F77 /* HomePageViewController.xib */; };
@@ -1077,18 +1069,6 @@
 		6E676A511C461F2900E91C01 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		6E676A521C461F2900E91C01 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		6E676A531C461F2900E91C01 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		6E6D988B1BDDC9C800D45F77 /* W1View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W1View.h; sourceTree = "<group>"; };
-		6E6D988C1BDDC9C800D45F77 /* W1View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W1View.m; sourceTree = "<group>"; };
-		6E6D988E1BDDC9DC00D45F77 /* W1View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W1View.xib; sourceTree = "<group>"; };
-		6E6D98901BDDFD9700D45F77 /* W2View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W2View.xib; sourceTree = "<group>"; };
-		6E6D98921BDDFDAB00D45F77 /* W2View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W2View.h; sourceTree = "<group>"; };
-		6E6D98931BDDFDAB00D45F77 /* W2View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W2View.m; sourceTree = "<group>"; };
-		6E6D98951BDDFE5500D45F77 /* W3View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W3View.xib; sourceTree = "<group>"; };
-		6E6D98971BDDFE6A00D45F77 /* W3View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W3View.m; sourceTree = "<group>"; };
-		6E6D98991BDDFE7200D45F77 /* W3View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W3View.h; sourceTree = "<group>"; };
-		6E6D989A1BDDFEC900D45F77 /* W4View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = W4View.xib; sourceTree = "<group>"; };
-		6E6D989C1BDDFF1B00D45F77 /* W4View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = W4View.h; sourceTree = "<group>"; };
-		6E6D989D1BDDFF1B00D45F77 /* W4View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = W4View.m; sourceTree = "<group>"; };
 		6E6D989F1BDF5EBE00D45F77 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
 		6E6D98A01BDF5EBE00D45F77 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		6E6D98A71BDF733F00D45F77 /* HomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageViewController.h; sourceTree = "<group>"; };
@@ -2415,18 +2395,6 @@
 				6E7E4A861B9EC2D700503B35 /* WelcomeViewController.h */,
 				6E7E4A871B9EC2D700503B35 /* WelcomeViewController.m */,
 				6E7E4A881B9EC2D700503B35 /* WelcomeViewController.xib */,
-				6E6D988B1BDDC9C800D45F77 /* W1View.h */,
-				6E6D988C1BDDC9C800D45F77 /* W1View.m */,
-				6E6D988E1BDDC9DC00D45F77 /* W1View.xib */,
-				6E6D98921BDDFDAB00D45F77 /* W2View.h */,
-				6E6D98931BDDFDAB00D45F77 /* W2View.m */,
-				6E6D98901BDDFD9700D45F77 /* W2View.xib */,
-				6E6D98991BDDFE7200D45F77 /* W3View.h */,
-				6E6D98971BDDFE6A00D45F77 /* W3View.m */,
-				6E6D98951BDDFE5500D45F77 /* W3View.xib */,
-				6E6D989C1BDDFF1B00D45F77 /* W4View.h */,
-				6E6D989D1BDDFF1B00D45F77 /* W4View.m */,
-				6E6D989A1BDDFEC900D45F77 /* W4View.xib */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -2601,7 +2569,6 @@
 				684A37451BFD73DF00F7388C /* MatchDesignerCell.xib in Resources */,
 				6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */,
 				682E05161C58BDA700F1ACAA /* PlanPriceItemSection.xib in Resources */,
-				6E6D988F1BDDC9DC00D45F77 /* W1View.xib in Resources */,
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
 				6E4496461BFC562900C90851 /* AboutViewController.xib in Resources */,
 				68123BA71C47D15C008FC9AB /* JYZ_qzone_icon@2x.png in Resources */,
@@ -2663,7 +2630,6 @@
 				685DD4521C89761E00A76B9C /* PlanCommentInfoCell.xib in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */,
-				6E6D98961BDDFE5500D45F77 /* W3View.xib in Resources */,
 				684A37411BFD73DF00F7388C /* IntentDesignerCell.xib in Resources */,
 				683FFB481C296288002A1AFE /* DropdownMenuCollectionCell.xib in Resources */,
 				683A5D691C0EECD40071DF88 /* ItemExpandCheckCell.xib in Resources */,
@@ -2704,7 +2670,6 @@
 				684A37691BFDE25E00F7388C /* EvaluateDesignerViewController.xib in Resources */,
 				6E44962E1BF9E32200C90851 /* SignupSuccessViewController.xib in Resources */,
 				68123C5B1C4C8B99008FC9AB /* ThumbnailCell.xib in Resources */,
-				6E6D989B1BDDFEC900D45F77 /* W4View.xib in Resources */,
 				684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */,
 				684A374F1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib in Resources */,
 				6E06CC2E1C2BF97800A08D15 /* FavoriteDesignerCell.xib in Resources */,
@@ -2714,7 +2679,6 @@
 				683FFB4C1C296288002A1AFE /* BeautifulImageHomePageViewController.xib in Resources */,
 				6E4496331BFAD68B00C90851 /* ResetPassViewController.xib in Resources */,
 				68123C541C4C8B99008FC9AB /* DateAlertViewController.xib in Resources */,
-				6E6D98911BDDFD9700D45F77 /* W2View.xib in Resources */,
 				6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */,
 				685272C31C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib in Resources */,
 				68123BAC1C47D15C008FC9AB /* JYZShareMenuCollectionCell.xib in Resources */,
@@ -2915,7 +2879,6 @@
 				6EE34D541C0EC5C200C6957E /* UserGetInfo.m in Sources */,
 				6E07DAC91BD88DBE001461DD /* Ys.m in Sources */,
 				6E07DAAA1BD88DBE001461DD /* ProcessList.m in Sources */,
-				6E6D989E1BDDFF1B00D45F77 /* W4View.m in Sources */,
 				68679A3D1C8E730F00B380D0 /* RequirementNotificationCell.m in Sources */,
 				6E07DAA91BD88DBE001461DD /* UserLogin.m in Sources */,
 				AB5F1EC61C0C8B32009203DF /* UIImagePickerController+Ex.m in Sources */,
@@ -2942,7 +2905,6 @@
 				6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */,
 				680F49271C240E400055C16C /* BeautifulImage.m in Sources */,
 				6E07DAC41BD88DBE001461DD /* Designer.m in Sources */,
-				6E6D98941BDDFDAB00D45F77 /* W2View.m in Sources */,
 				683840001C156716004F456E /* SendUpdateRequirement.m in Sources */,
 				6E6D98B61BDF73DE00D45F77 /* MeViewController.m in Sources */,
 				6E78670C1BA920D900DE8B1B /* BannerCell.m in Sources */,
@@ -2985,7 +2947,6 @@
 				AB5852531C074252004B054E /* ItemImageCollectionCell.m in Sources */,
 				68123C5E1C4C8B99008FC9AB /* ImageEditorViewController.m in Sources */,
 				689485D31C1A70A7002310FC /* Notification.m in Sources */,
-				6E6D98981BDDFE6A00D45F77 /* W3View.m in Sources */,
 				683A5D6C1C0EFBAE0071DF88 /* YsImage.m in Sources */,
 				684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */,
 				68B10C981C772824005866C1 /* SearchProduct.m in Sources */,
@@ -3059,7 +3020,6 @@
 				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,
 				683FFB1C1C280E9D002A1AFE /* FavoriteBeautifulImage.m in Sources */,
 				6EE34D7B1C0EE97D00C6957E /* NotificationCD+CoreDataProperties.m in Sources */,
-				6E6D988D1BDDC9C800D45F77 /* W1View.m in Sources */,
 				685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */,
 				684A37541BFD73DF00F7388C /* SelectHouseTypeViewController.m in Sources */,
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,

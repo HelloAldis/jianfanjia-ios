@@ -91,16 +91,12 @@ static ViewControllerContainer *container;
 }
 
 + (void)showAfterLanching {
-    if ([GVUserDefaults standardUserDefaults].welcomeVersion < kWelconeVersion) {
-        //显示welcome
-        WelcomeViewController *pages =[[WelcomeViewController alloc] initWithNibName:nil bundle:nil];
-        container.window.rootViewController = pages;
-    } else if ([GVUserDefaults standardUserDefaults].isLogin) {
+    if ([GVUserDefaults standardUserDefaults].isLogin) {
         //显示首页
         [self showTab];
     } else {
-        //显示登录
-        [self showLogin];
+        //显示welcome
+        [self showWelcome];
     }
 }
 
@@ -129,6 +125,11 @@ static ViewControllerContainer *container;
     
     container.tab.viewControllers = @[container.navTapHome, container.navTapPrettyImg, container.navTapRequirement, container.navTapMy];
     container.window.rootViewController = container.tab;
+}
+
++ (void)showWelcome {
+    WelcomeViewController *pages =[[WelcomeViewController alloc] initWithNibName:nil bundle:nil];
+    container.window.rootViewController = pages;
 }
 
 + (void)showLogin {
@@ -473,7 +474,7 @@ static ViewControllerContainer *container;
     [DataManager shared].homePageDesigners = nil;
     [DataManager shared].homePageRequirement = nil;
     [DataManager shared].homePageRequirementDesigners = nil;
-    [ViewControllerContainer showLogin];
+    [ViewControllerContainer showWelcome];
 }
 
 @end
