@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6804A7011CA5312400E7A9AF /* AutoScrollUIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */; };
 		680F490D1C2160990055C16C /* ItemsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F490C1C2160990055C16C /* ItemsBackgroundView.m */; };
 		680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F490E1C2160BF0055C16C /* ItemsBackgroundView.xib */; };
 		680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchBeautifulImage.m */; };
@@ -450,6 +451,8 @@
 
 /* Begin PBXFileReference section */
 		44D2BD40530E2CA1D84D921D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6804A6FF1CA5312400E7A9AF /* AutoScrollUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollUIScrollView.h; sourceTree = "<group>"; };
+		6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollUIScrollView.m; sourceTree = "<group>"; };
 		680F490B1C2160990055C16C /* ItemsBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsBackgroundView.h; sourceTree = "<group>"; };
 		680F490C1C2160990055C16C /* ItemsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsBackgroundView.m; sourceTree = "<group>"; };
 		680F490E1C2160BF0055C16C /* ItemsBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsBackgroundView.xib; sourceTree = "<group>"; };
@@ -1982,6 +1985,8 @@
 				68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */,
 				6885175E1C91246D000B01DB /* UILabel+Ex.h */,
 				6885175F1C91246D000B01DB /* UILabel+Ex.m */,
+				6804A6FF1CA5312400E7A9AF /* AutoScrollUIScrollView.h */,
+				6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -2932,6 +2937,7 @@
 				684A37671BFDE24900F7388C /* EvaluateDesignerViewController.m in Sources */,
 				68123C5A1C4C8B99008FC9AB /* ThumbnailCell.m in Sources */,
 				6E7E4A691B9A90BA00503B35 /* LoginViewController.m in Sources */,
+				6804A7011CA5312400E7A9AF /* AutoScrollUIScrollView.m in Sources */,
 				684B03C21C96C3DE0053FFDF /* DecLiveListDataManager.m in Sources */,
 				683FFB4B1C296288002A1AFE /* BeautifulImageHomePageViewController.m in Sources */,
 				6E6D98C31BE0665700D45F77 /* Requirement.m in Sources */,

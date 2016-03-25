@@ -48,7 +48,7 @@
     self.imgViews = [NSMutableArray array];
     for (NSInteger i = 0; i < 3; i++) {
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(kScreenWidth * i, 0, kScreenWidth, height)];
-        imgView.contentMode = UIViewContentModeScaleAspectFill;
+        imgView.contentMode = UIViewContentModeScaleAspectFit;
         imgView.clipsToBounds = YES;
         
         [self.scrollView addSubview:imgView];

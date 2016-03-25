@@ -9,12 +9,13 @@
 #import "LoginViewController.h"
 #import "ViewControllerContainer.h"
 #import "AppDelegate.h"
+#import "AutoScrollUIScrollView.h"
 
 static CGFloat kImageOriginHight = 0;
 
 @interface LoginViewController ()
 
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet AutoScrollUIScrollView *scrollView;
 @property (strong, nonatomic) UIImageView *topImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *loginAngleUp;
 @property (weak, nonatomic) IBOutlet UIImageView *signupAngleUp;
@@ -23,6 +24,7 @@ static CGFloat kImageOriginHight = 0;
 @property (weak, nonatomic) IBOutlet UITextField *fldPhone;
 @property (weak, nonatomic) IBOutlet UIButton *btnTitleLogin;
 @property (weak, nonatomic) IBOutlet UIButton *btnTitleSignup;
+@property (weak, nonatomic) IBOutlet UIButton *btnForgetPwd;
 @property (weak, nonatomic) IBOutlet UIView *viewLogin;
 @property (weak, nonatomic) IBOutlet UIView *viewSignup;
 
@@ -30,7 +32,9 @@ static CGFloat kImageOriginHight = 0;
 @property (weak, nonatomic) IBOutlet UITextField *fldSignupPassword;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
 
-@property (assign, nonatomic) BOOL isUp;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextTopConstraint;
+
 @property (assign, nonatomic) BOOL isShowingLogin;
 
 @end
@@ -47,9 +51,9 @@ static CGFloat kImageOriginHight = 0;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    [self.navigationController setNavigationBarHidden:YES];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -80,6 +84,8 @@ static CGFloat kImageOriginHight = 0;
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.scrollView.disableAutoScroll = YES;
+    self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     
     @weakify(self);
     [RACObserve(self.btnLogin, enabled) subscribeNext:^(NSNumber *newValue) {
@@ -148,7 +154,6 @@ static CGFloat kImageOriginHight = 0;
     self.btnLogin.enabled = NO;
     [self.btnNext setCornerRadius:5];
     self.btnNext.enabled = NO;
-    self.isUp = NO;
     self.isShowingLogin = YES;
     self.loginAngleUp.hidden = !self.isShowingLogin;
     self.signupAngleUp.hidden = self.isShowingLogin;
@@ -159,6 +164,11 @@ static CGFloat kImageOriginHight = 0;
     [self setLeftPadding:self.fldSignupPassword withImage:[UIImage imageNamed:@"icon_account_pwd"]];
     
     [self initTopImageView];
+    
+    if (kIs35inchScreen || kIs40inchScreen) {
+        self.loginTopConstraint.constant = 30;
+        self.nextTopConstraint.constant = 30;
+    }
 }
 
 - (void)initTopImageView {
@@ -191,15 +201,11 @@ static CGFloat kImageOriginHight = 0;
         f.origin.y = yOffset;
         f.size.height =  -yOffset;
         self.topImageView.frame = f;
-    } else if (yOffset >= 0) {
-        scrollView.contentOffset = CGPointMake(0, 0);
     }
 }
 
-#pragma mark - user actions
+#pragma mark - gesture
 - (IBAction)swipeRight:(id)sender {
-    [self.view endEditing:YES];
-   
     if (!self.isShowingLogin) {
         self.isShowingLogin = YES;
         
@@ -230,8 +236,6 @@ static CGFloat kImageOriginHight = 0;
 }
 
 - (IBAction)swipeLeft:(id)sender {
-    [self.view endEditing:YES];
-    
     if (self.isShowingLogin) {
         self.isShowingLogin = NO;
         
@@ -261,48 +265,7 @@ static CGFloat kImageOriginHight = 0;
     }
 }
 
-//- (void)keyboardWillShow:(NSNotification *)notification {
-//    if (!self.isUp) {
-//        NSDictionary *userInfo = [notification userInfo];
-//        
-//        // get keyboard rect in windwo coordinate
-//    DDLogDebug(@"%@", [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey]);
-//        
-//        // get keybord anmation duration
-//        NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-//        
-//        [UIView animateWithDuration:animationDuration
-//                              delay:0 usingSpringWithDamping:1.0
-//              initialSpringVelocity:1.0
-//                            options:UIViewAnimationOptionCurveLinear animations:^{
-//                                [self.view layoutIfNeeded];
-//                            } completion:nil];
-//        
-//        self.isUp = YES;
-//    }
-//
-//}
-//
-//- (void) keyboardWillHide:(NSNotification *)notification {
-//    if (self.isUp) {
-//        NSDictionary *userInfo = [notification userInfo];
-//        
-//        // get keyboard rect in windwo coordinate
-//        
-//        // get keybord anmation duration
-//        NSTimeInterval animationDuration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-//        
-//        [UIView animateWithDuration:animationDuration
-//                              delay:0 usingSpringWithDamping:1.0
-//              initialSpringVelocity:1.0
-//                            options:UIViewAnimationOptionCurveLinear animations:^{
-//                                [self.view layoutIfNeeded];
-//                            } completion:nil];
-//
-//        self.isUp = NO;
-//    }
-//}
-
+#pragma mark - user actions
 - (IBAction)onClickForgetPass:(id)sender {
     [ViewControllerContainer showResetPass];
 }
@@ -359,6 +322,25 @@ static CGFloat kImageOriginHight = 0;
 
 - (IBAction)onClickTitleSignup:(id)sender {
     [self swipeLeft:nil];
+}
+
+#pragma mark - keyboard
+- (void)keyboardWillShow:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    CGFloat keyboardHeight = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    if (keyboardHeight > 0) {
+        self.scrollView.contentInset = UIEdgeInsetsMake(kImageOriginHight, 0, keyboardHeight, 0);
+        CGFloat offsetY = self.scrollView.contentSize.height - (kScreenHeight - keyboardHeight);
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.scrollView setContentOffset:CGPointMake(0, offsetY) animated:NO];
+        }];
+    }
+}
+
+- (void) keyboardWillHide:(NSNotification *)notification {
+    [self.view endEditing:YES];
+    self.scrollView.contentInset = UIEdgeInsetsMake(kImageOriginHight, 0, 0, 0);
 }
 
 @end

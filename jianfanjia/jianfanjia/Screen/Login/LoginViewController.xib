@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
             <connections>
+                <outlet property="btnForgetPwd" destination="F2M-jo-bza" id="Hdm-J8-t9i"/>
                 <outlet property="btnLogin" destination="IFj-Kc-4IV" id="DEh-ww-2Vi"/>
                 <outlet property="btnNext" destination="xZS-OG-s2c" id="dtR-0r-Ibg"/>
                 <outlet property="btnTitleLogin" destination="htK-kK-3ht" id="Kga-ku-qsp"/>
@@ -16,6 +17,8 @@
                 <outlet property="fldSignupPassword" destination="X1F-UE-Nki" id="rCb-Ss-kED"/>
                 <outlet property="fldSignupPhone" destination="lbg-vE-wFX" id="5cg-fE-jkE"/>
                 <outlet property="loginAngleUp" destination="RfE-vs-sen" id="Ncf-d6-kwv"/>
+                <outlet property="loginTopConstraint" destination="BXm-sX-ZM4" id="0xj-5b-7wB"/>
+                <outlet property="nextTopConstraint" destination="lOc-8g-BUw" id="t7d-gW-YFP"/>
                 <outlet property="scrollView" destination="PgO-PL-AKu" id="x7E-Vu-kI9"/>
                 <outlet property="signupAngleUp" destination="8Ri-Vj-4m3" id="5WO-jY-ZBX"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -28,7 +31,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PgO-PL-AKu">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PgO-PL-AKu" customClass="AutoScrollUIScrollView">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YQs-EM-GnM" userLabel="HeadView">
@@ -90,7 +93,7 @@
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdg-FF-mT7">
-                            <rect key="frame" x="0.0" y="70" width="600" height="600"/>
+                            <rect key="frame" x="0.0" y="70" width="600" height="348"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入帐号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjd-6l-haU">
                                     <rect key="frame" x="70" y="40" width="470" height="50"/>
@@ -128,7 +131,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IFj-Kc-4IV">
-                                    <rect key="frame" x="70" y="285" width="470" height="48"/>
+                                    <rect key="frame" x="70" y="265" width="470" height="48"/>
                                     <color key="backgroundColor" red="0.99607843137254903" green="0.4392156862745098" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="hCE-6N-xba">
@@ -144,7 +147,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F2M-jo-bza">
-                                    <rect key="frame" x="260" y="339" width="80" height="29"/>
+                                    <rect key="frame" x="260" y="319" width="80" height="29"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="80" id="kqC-YW-Pmj">
                                             <variation key="widthClass=compact" constant="100"/>
@@ -161,8 +164,9 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstAttribute="bottom" secondItem="F2M-jo-bza" secondAttribute="bottom" id="7lS-KQ-d4E"/>
                                 <constraint firstItem="IFj-Kc-4IV" firstAttribute="leading" secondItem="Gjd-6l-haU" secondAttribute="leading" id="ANJ-Sq-vTS"/>
-                                <constraint firstItem="IFj-Kc-4IV" firstAttribute="top" secondItem="Kew-9D-ggw" secondAttribute="bottom" constant="120" id="BXm-sX-ZM4"/>
+                                <constraint firstItem="IFj-Kc-4IV" firstAttribute="top" secondItem="Kew-9D-ggw" secondAttribute="bottom" constant="100" id="BXm-sX-ZM4"/>
                                 <constraint firstItem="F2M-jo-bza" firstAttribute="centerX" secondItem="Vdg-FF-mT7" secondAttribute="centerX" id="DNa-wo-iLM"/>
                                 <constraint firstItem="Kew-9D-ggw" firstAttribute="width" secondItem="Gjd-6l-haU" secondAttribute="width" id="E8U-RF-H4K"/>
                                 <constraint firstItem="Kew-9D-ggw" firstAttribute="top" secondItem="Gjd-6l-haU" secondAttribute="bottom" constant="25" id="Eq7-ld-CHf"/>
@@ -186,7 +190,7 @@
                             </constraints>
                         </view>
                         <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtY-DG-Q1p">
-                            <rect key="frame" x="0.0" y="70" width="600" height="600"/>
+                            <rect key="frame" x="0.0" y="70" width="600" height="348"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lbg-vE-wFX">
                                     <rect key="frame" x="70" y="40" width="470" height="50"/>
@@ -224,7 +228,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZS-OG-s2c">
-                                    <rect key="frame" x="70" y="285" width="470" height="48"/>
+                                    <rect key="frame" x="70" y="265" width="470" height="48"/>
                                     <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="48" id="hkG-y3-HSB">
@@ -258,7 +262,7 @@
                                 <constraint firstItem="reN-K2-KAn" firstAttribute="top" secondItem="lbg-vE-wFX" secondAttribute="bottom" id="Zuy-se-G3H"/>
                                 <constraint firstItem="lbg-vE-wFX" firstAttribute="top" secondItem="dtY-DG-Q1p" secondAttribute="top" constant="40" id="g2w-4X-phE"/>
                                 <constraint firstItem="X1F-UE-Nki" firstAttribute="leading" secondItem="lbg-vE-wFX" secondAttribute="leading" id="jER-Yg-Vvn"/>
-                                <constraint firstItem="xZS-OG-s2c" firstAttribute="top" secondItem="X1F-UE-Nki" secondAttribute="bottom" constant="120" id="lOc-8g-BUw"/>
+                                <constraint firstItem="xZS-OG-s2c" firstAttribute="top" secondItem="X1F-UE-Nki" secondAttribute="bottom" constant="100" id="lOc-8g-BUw"/>
                                 <constraint firstItem="yxl-ul-cMo" firstAttribute="width" secondItem="lbg-vE-wFX" secondAttribute="width" constant="20" id="vEL-37-Us8"/>
                                 <constraint firstItem="X1F-UE-Nki" firstAttribute="width" secondItem="lbg-vE-wFX" secondAttribute="width" id="xhr-tW-k4g"/>
                                 <constraint firstItem="reN-K2-KAn" firstAttribute="width" secondItem="lbg-vE-wFX" secondAttribute="width" constant="20" id="xyx-b9-Wyh"/>
@@ -276,7 +280,6 @@
                         <constraint firstItem="dtY-DG-Q1p" firstAttribute="leading" secondItem="Vdg-FF-mT7" secondAttribute="leading" id="b3d-FZ-BSj"/>
                         <constraint firstAttribute="bottom" secondItem="Vdg-FF-mT7" secondAttribute="bottom" id="hSF-gj-aX5"/>
                         <constraint firstAttribute="trailing" secondItem="Vdg-FF-mT7" secondAttribute="trailing" id="iHT-Wz-784"/>
-                        <constraint firstItem="Vdg-FF-mT7" firstAttribute="height" secondItem="PgO-PL-AKu" secondAttribute="height" id="iqU-li-hg0"/>
                         <constraint firstItem="dtY-DG-Q1p" firstAttribute="trailing" secondItem="Vdg-FF-mT7" secondAttribute="trailing" id="ogf-no-jZd"/>
                         <constraint firstItem="YQs-EM-GnM" firstAttribute="width" secondItem="PgO-PL-AKu" secondAttribute="width" id="pN0-Zn-5ix"/>
                         <constraint firstItem="dtY-DG-Q1p" firstAttribute="top" secondItem="Vdg-FF-mT7" secondAttribute="top" id="tB4-vu-nin"/>
