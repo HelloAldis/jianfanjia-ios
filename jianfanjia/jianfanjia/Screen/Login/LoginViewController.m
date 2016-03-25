@@ -221,6 +221,7 @@ static CGFloat kImageOriginHight = 0;
 
 #pragma mark - gesture
 - (IBAction)swipeRight:(id)sender {
+    [self.view endEditing:YES];
     if (!self.isShowingLogin) {
         self.isShowingLogin = YES;
         
@@ -251,6 +252,7 @@ static CGFloat kImageOriginHight = 0;
 }
 
 - (IBAction)swipeLeft:(id)sender {
+    [self.view endEditing:YES];
     if (self.isShowingLogin) {
         self.isShowingLogin = NO;
         
