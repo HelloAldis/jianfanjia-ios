@@ -16,11 +16,16 @@
                 <outlet property="fldPhone" destination="Gjd-6l-haU" id="cgf-hM-v3J"/>
                 <outlet property="fldSignupPassword" destination="X1F-UE-Nki" id="rCb-Ss-kED"/>
                 <outlet property="fldSignupPhone" destination="lbg-vE-wFX" id="5cg-fE-jkE"/>
+                <outlet property="headViewHeightConstraint" destination="27c-nk-fUx" id="EOD-e8-vRO"/>
                 <outlet property="loginAngleUp" destination="RfE-vs-sen" id="Ncf-d6-kwv"/>
+                <outlet property="loginPhoneFldTopConstraint" destination="TGC-v2-2bY" id="Hjo-4D-7SR"/>
+                <outlet property="loginPwdFldTopConstraint" destination="Eq7-ld-CHf" id="K7s-37-pEK"/>
                 <outlet property="loginTopConstraint" destination="BXm-sX-ZM4" id="0xj-5b-7wB"/>
                 <outlet property="nextTopConstraint" destination="lOc-8g-BUw" id="t7d-gW-YFP"/>
                 <outlet property="scrollView" destination="PgO-PL-AKu" id="x7E-Vu-kI9"/>
                 <outlet property="signupAngleUp" destination="8Ri-Vj-4m3" id="5WO-jY-ZBX"/>
+                <outlet property="signupPhoneFldTopConstraint" destination="g2w-4X-phE" id="HqG-lg-Cmv"/>
+                <outlet property="signupPwdFldTopConstraint" destination="UBk-Yn-Yip" id="0V1-N0-9uR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewLogin" destination="Vdg-FF-mT7" id="LNN-eR-ATW"/>
                 <outlet property="viewSignup" destination="dtY-DG-Q1p" id="XmR-Qa-s2T"/>

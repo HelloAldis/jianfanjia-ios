@@ -180,8 +180,7 @@ static ViewControllerContainer *container;
 
 + (void)showResetPass {
     ResetPassViewController *v = [[ResetPassViewController alloc] init];
-    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
-    [nav pushViewController:v animated:YES];
+    [((id)container.window.rootViewController.presentedViewController) pushViewController:v animated:YES];
 }
 
 + (void)showCollectDecPhase {

@@ -32,6 +32,13 @@ static CGFloat kImageOriginHight = 0;
 @property (weak, nonatomic) IBOutlet UITextField *fldSignupPassword;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginPhoneFldTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *signupPhoneFldTopConstraint;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginPwdFldTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *signupPwdFldTopConstraint;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *loginTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *nextTopConstraint;
 
@@ -166,8 +173,13 @@ static CGFloat kImageOriginHight = 0;
     [self initTopImageView];
     
     if (kIs35inchScreen || kIs40inchScreen) {
-        self.loginTopConstraint.constant = 30;
-        self.nextTopConstraint.constant = 30;
+        self.headViewHeightConstraint.constant = 50;
+        self.loginPhoneFldTopConstraint.constant = 5;
+        self.loginPwdFldTopConstraint.constant = 5;
+        self.loginTopConstraint.constant = 25;
+        self.signupPhoneFldTopConstraint.constant = 5;
+        self.signupPwdFldTopConstraint.constant = 5;
+        self.nextTopConstraint.constant = 25;
     }
 }
 

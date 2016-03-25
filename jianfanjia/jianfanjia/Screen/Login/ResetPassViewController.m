@@ -73,6 +73,7 @@
 
 #pragma mark - user actions
 - (IBAction)onClickNext:(id)sender {
+    [self.view endEditing:YES];
     [DataManager shared].signupPagePhone = self.fldPhone.text;
     [DataManager shared].signupPagePass = self.fldPassword.text;
     
