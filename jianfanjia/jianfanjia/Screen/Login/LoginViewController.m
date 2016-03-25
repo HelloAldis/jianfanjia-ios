@@ -66,7 +66,11 @@ static CGFloat kImageOriginHight = 0;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (self.showSignup) {
+        self.isShowingLogin = YES;
         [self swipeLeft:nil];
+    } else {
+        self.isShowingLogin = NO;
+        [self swipeRight:nil];
     }
 }
 
@@ -161,7 +165,6 @@ static CGFloat kImageOriginHight = 0;
     self.btnLogin.enabled = NO;
     [self.btnNext setCornerRadius:5];
     self.btnNext.enabled = NO;
-    self.isShowingLogin = YES;
     self.loginAngleUp.hidden = !self.isShowingLogin;
     self.signupAngleUp.hidden = self.isShowingLogin;
     
@@ -225,9 +228,9 @@ static CGFloat kImageOriginHight = 0;
         frame.origin.x = -kScreenWidth;
         self.viewLogin.frame = frame;
         self.viewLogin.alpha = 1;
-        self.viewSignup.alpha = 1;
+        self.viewSignup.alpha = 0;
 
-        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [UIView animateWithDuration:1.5 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             CGRect frame = self.viewLogin.frame;
             frame.origin.x = 0;
             self.viewLogin.frame = frame;
@@ -236,13 +239,13 @@ static CGFloat kImageOriginHight = 0;
             frame.origin.x = kScreenWidth;
             self.viewSignup.frame = frame;
             
-            self.loginAngleUp.hidden = !self.isShowingLogin;
-            self.signupAngleUp.hidden = self.isShowingLogin;
+            self.loginAngleUp.hidden = NO;
+            self.signupAngleUp.hidden = YES;
             
             [self.btnTitleLogin setEnableAlpha];
             [self.btnTitleSignup setDisableAlpha];
         } completion:^(BOOL finished) {
-            self.viewSignup.alpha = 0;
+            
         }];
     }
 }
@@ -255,9 +258,9 @@ static CGFloat kImageOriginHight = 0;
         frame.origin.x = kScreenWidth;
         self.viewSignup.frame = frame;
         self.viewSignup.alpha = 1;
-        self.viewLogin.alpha = 1;
+        self.viewLogin.alpha = 0;
         
-        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [UIView animateWithDuration:1.5 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             CGRect frame = self.viewSignup.frame;
             frame.origin.x = 0;
             self.viewSignup.frame = frame;
@@ -266,13 +269,13 @@ static CGFloat kImageOriginHight = 0;
             frame.origin.x = -kScreenWidth;
             self.viewLogin.frame = frame;
             
-            self.loginAngleUp.hidden = !self.isShowingLogin;
-            self.signupAngleUp.hidden = self.isShowingLogin;
+            self.loginAngleUp.hidden = YES;
+            self.signupAngleUp.hidden = NO;
             
             [self.btnTitleSignup setEnableAlpha];
             [self.btnTitleLogin setDisableAlpha];
         } completion:^(BOOL finished) {
-            self.viewLogin.alpha = 0;
+            
         }];
     }
 }

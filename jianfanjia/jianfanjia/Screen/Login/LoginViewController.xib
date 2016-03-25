@@ -97,7 +97,7 @@
                                 <constraint firstItem="8Ri-Vj-4m3" firstAttribute="bottom" secondItem="bRy-b7-0Gn" secondAttribute="bottom" id="zv1-Yv-xYv"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdg-FF-mT7">
+                        <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vdg-FF-mT7">
                             <rect key="frame" x="0.0" y="70" width="600" height="348"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入帐号" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gjd-6l-haU">
