@@ -10,29 +10,28 @@
 #import "ViewControllerContainer.h"
 #import "AppDelegate.h"
 
+static CGFloat kImageOriginHight = 0;
+
 @interface LoginViewController ()
 
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) UIImageView *topImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *loginAngleUp;
+@property (weak, nonatomic) IBOutlet UIImageView *signupAngleUp;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
 @property (weak, nonatomic) IBOutlet UITextField *fldPassword;
 @property (weak, nonatomic) IBOutlet UITextField *fldPhone;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 @property (weak, nonatomic) IBOutlet UIButton *btnTitleLogin;
 @property (weak, nonatomic) IBOutlet UIButton *btnTitleSignup;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *centerForBtnTitleLogin;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftForBtnTitleSignup;
 @property (weak, nonatomic) IBOutlet UIView *viewLogin;
 @property (weak, nonatomic) IBOutlet UIView *viewSignup;
-
 
 @property (weak, nonatomic) IBOutlet UITextField *fldSignupPhone;
 @property (weak, nonatomic) IBOutlet UITextField *fldSignupPassword;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
-@property (weak, nonatomic) IBOutlet UIButton *btnWechatLogin;
-@property (weak, nonatomic) IBOutlet UIImageView *wechatIcon;
 
 @property (assign, nonatomic) BOOL isUp;
-@property (strong, nonatomic) NSLayoutConstraint *leftForBtnTitleLogin;
-@property (strong, nonatomic) NSLayoutConstraint *centerForBtnTitleSignup;
+@property (assign, nonatomic) BOOL isShowingLogin;
 
 @end
 
@@ -41,6 +40,46 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self initNav];
+    [self initUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    [self.navigationController setNavigationBarHidden:YES];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.showSignup) {
+        [self swipeLeft:nil];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - UI
+- (void)initNav {
+    [self initLeftBackInNav];
+    
+    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+}
+
+- (void)onClickBack {
+    [self.view endEditing:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     
     @weakify(self);
     [RACObserve(self.btnLogin, enabled) subscribeNext:^(NSNumber *newValue) {
@@ -59,7 +98,7 @@
         } else {
             [self.btnNext setBackgroundColor:kUntriggeredColor];
         }
-    }]; 
+    }];
     
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
         return YES;
@@ -100,113 +139,127 @@
                                    }];
     
     RAC(self.btnNext, enabled) = [RACSignal
-                                   combineLatest:@[self.fldSignupPhone.rac_textSignal, self.fldSignupPassword.rac_textSignal]
-                                   reduce:^(NSString *phone, NSString *password) {
-                                       return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
-                                   }];
+                                  combineLatest:@[self.fldSignupPhone.rac_textSignal, self.fldSignupPassword.rac_textSignal]
+                                  reduce:^(NSString *phone, NSString *password) {
+                                      return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
+                                  }];
     
     [self.btnLogin setCornerRadius:5];
     self.btnLogin.enabled = NO;
     [self.btnNext setCornerRadius:5];
     self.btnNext.enabled = NO;
     self.isUp = NO;
-    [self.btnWechatLogin setCornerRadius:5];
-    [self.btnWechatLogin setBorder:1 andColor:kPassStatusColor.CGColor];
-    [self.btnWechatLogin setTitleColor:kPassStatusColor forState:UIControlStateNormal];
-    [self.wechatIcon setTintColor:kPassStatusColor];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-
-    if (kIs35inchScreen) {
-        self.topConstraint.constant = 10;
-    } else {
-        self.topConstraint.constant = (kScreenHeight - 480)/2 - 20;
-    }
+    self.isShowingLogin = YES;
+    self.loginAngleUp.hidden = !self.isShowingLogin;
+    self.signupAngleUp.hidden = self.isShowingLogin;
     
-    self.btnWechatLogin.hidden = ![JYZSocialSnsConfigCenter isWXAppInstalled];
-    self.wechatIcon.hidden = ![JYZSocialSnsConfigCenter isWXAppInstalled];
+    [self setLeftPadding:self.fldPhone withImage:[UIImage imageNamed:@"icon_account_phone"]];
+    [self setLeftPadding:self.fldPassword withImage:[UIImage imageNamed:@"icon_account_pwd"]];
+    [self setLeftPadding:self.fldSignupPhone withImage:[UIImage imageNamed:@"icon_account_phone"]];
+    [self setLeftPadding:self.fldSignupPassword withImage:[UIImage imageNamed:@"icon_account_pwd"]];
+    
+    [self initTopImageView];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (self.showSignup) {
-        [self swipeLeft:nil];
+- (void)initTopImageView {
+    CGFloat aspect =  414.0 / kScreenWidth;
+    kImageOriginHight = round(270 / aspect);
+    self.topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -kImageOriginHight, kScreenWidth, kImageOriginHight)];
+    self.topImageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.topImageView.image = [UIImage imageNamed:@"bg_login"];
+    self.scrollView.contentInset = UIEdgeInsetsMake(kImageOriginHight, 0, 0, 0);
+    [self.scrollView addSubview:self.topImageView];
+}
+
+- (void)setLeftPadding:(UITextField *)textField withImage:(UIImage *)image {
+    CGRect frame = textField.frame;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
+    frame.size.width = 30;
+    UIImageView *leftview = [[UIImageView alloc] initWithFrame:frame];
+    leftview.image = image;
+    leftview.contentMode = UIViewContentModeLeft;
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    textField.leftView = leftview;
+}
+
+#pragma mark - scroll view delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    CGFloat yOffset  = scrollView.contentOffset.y;
+    if (yOffset < -kImageOriginHight) {
+        CGRect f = self.topImageView.frame;
+        f.origin.y = yOffset;
+        f.size.height =  -yOffset;
+        self.topImageView.frame = f;
+    } else if (yOffset >= 0) {
+        scrollView.contentOffset = CGPointMake(0, 0);
     }
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - UI
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleDefault;
 }
 
 #pragma mark - user actions
 - (IBAction)swipeRight:(id)sender {
     [self.view endEditing:YES];
-    self.centerForBtnTitleSignup.active = NO;
-    if (!self.centerForBtnTitleLogin) {
-        self.centerForBtnTitleLogin = [NSLayoutConstraint constraintWithItem:self.btnTitleLogin
-                                                                    attribute:NSLayoutAttributeCenterX
-                                                                    relatedBy:NSLayoutRelationEqual
-                                                                       toItem:self.view
-                                                                    attribute:NSLayoutAttributeCenterX
-                                                                   multiplier:1
-                                                                     constant:0];
-    }
-    self.centerForBtnTitleLogin.active = YES;
-    [UIView animateWithDuration:0.6
-                          delay:0 usingSpringWithDamping:1.0
-          initialSpringVelocity:1.0
-                        options:UIViewAnimationOptionCurveLinear animations:^{
-                            [self.btnTitleLogin setEnableAlpha];
-                            [self.btnTitleSignup setDisableAlpha];
-                            self.viewLogin.alpha = 1.0;
-                            self.viewSignup.alpha = 0.0;
-                            [self.view layoutIfNeeded];
-                        } completion:nil];
+   
+    if (!self.isShowingLogin) {
+        self.isShowingLogin = YES;
+        
+        CGRect frame = self.viewLogin.frame;
+        frame.origin.x = -kScreenWidth;
+        self.viewLogin.frame = frame;
+        self.viewLogin.alpha = 1;
+        self.viewSignup.alpha = 1;
 
-    
+        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            CGRect frame = self.viewLogin.frame;
+            frame.origin.x = 0;
+            self.viewLogin.frame = frame;
+            
+            frame = self.viewSignup.frame;
+            frame.origin.x = kScreenWidth;
+            self.viewSignup.frame = frame;
+            
+            self.loginAngleUp.hidden = !self.isShowingLogin;
+            self.signupAngleUp.hidden = self.isShowingLogin;
+            
+            [self.btnTitleLogin setEnableAlpha];
+            [self.btnTitleSignup setDisableAlpha];
+        } completion:^(BOOL finished) {
+            self.viewSignup.alpha = 0;
+        }];
+    }
 }
+
 - (IBAction)swipeLeft:(id)sender {
     [self.view endEditing:YES];
-    self.centerForBtnTitleLogin.active = NO;
-    if (!self.centerForBtnTitleSignup) {
-        self.centerForBtnTitleSignup = [NSLayoutConstraint constraintWithItem:self.btnTitleSignup
-                                                                    attribute:NSLayoutAttributeCenterX
-                                                                    relatedBy:NSLayoutRelationEqual
-                                                                       toItem:self.view
-                                                                    attribute:NSLayoutAttributeCenterX
-                                                                   multiplier:1
-                                                                     constant:0];
-//        [self.view addConstraint:self.centerForBtnTitleSignup];
-    }
-
-    self.centerForBtnTitleSignup.active = YES;
     
-    [UIView animateWithDuration:0.6
-                          delay:0 usingSpringWithDamping:1.0
-          initialSpringVelocity:1.0
-                        options:UIViewAnimationOptionCurveLinear animations:^{
-                            [self.btnTitleSignup setEnableAlpha];
-                            [self.btnTitleLogin setDisableAlpha];
-//                            self.viewLogin.hidden = YES;
-//                            self.viewSignup.hidden = NO;
-                            self.viewLogin.alpha = 0.0;
-                            self.viewSignup.alpha = 1.0;
-                            [self.view layoutIfNeeded];
-                        } completion:nil];
+    if (self.isShowingLogin) {
+        self.isShowingLogin = NO;
+        
+        CGRect frame = self.viewSignup.frame;
+        frame.origin.x = kScreenWidth;
+        self.viewSignup.frame = frame;
+        self.viewSignup.alpha = 1;
+        self.viewLogin.alpha = 1;
+        
+        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            CGRect frame = self.viewSignup.frame;
+            frame.origin.x = 0;
+            self.viewSignup.frame = frame;
+            
+            frame = self.viewLogin.frame;
+            frame.origin.x = -kScreenWidth;
+            self.viewLogin.frame = frame;
+            
+            self.loginAngleUp.hidden = !self.isShowingLogin;
+            self.signupAngleUp.hidden = self.isShowingLogin;
+            
+            [self.btnTitleSignup setEnableAlpha];
+            [self.btnTitleLogin setDisableAlpha];
+        } completion:^(BOOL finished) {
+            self.viewLogin.alpha = 0;
+        }];
+    }
 }
-
-
 
 //- (void)keyboardWillShow:(NSNotification *)notification {
 //    if (!self.isUp) {
@@ -300,50 +353,12 @@
     }];
 }
 
-- (IBAction)onClickWeChat:(id)sender {
-    [[ShareManager shared] wechatLogin:self compeletion:^(SnsAccountInfo *snsAccount, NSString *error) {
-        if (error == nil) {
-            WeChatLogin *request = [[WeChatLogin alloc] init];
-            request.username = snsAccount.userName;
-            request.sex = snsAccount.gender;
-            request.image_url = snsAccount.iconURL;
-            request.wechat_openid = snsAccount.usid;
-            request.wechat_unionid = snsAccount.unionId;
-            
-            [HUDUtil showWait];
-            [API wechatLogin:request success:^{
-                [HUDUtil hideWait];
-                if ([DataManager shared].isWechatFirstLogin) {
-                    [ViewControllerContainer showCollectDecPhase];
-                } else {
-                    UserGetInfo *getUser = [[UserGetInfo alloc] init];
-                    [API userGetInfo:getUser success:^{
-                        [ViewControllerContainer showTab];
-                    } failure:^{
-                    } networkError:^{
-                    }];
-                }
-            } failure:^{
-                [HUDUtil hideWait];
-            } networkError:^{
-                [HUDUtil hideWait];
-            }];
-        } else {
-            [HUDUtil showErrText:error];
-        }
-    }];
-}
-
 - (IBAction)onClickTitleLogin:(id)sender {
-    if (self.viewLogin.alpha == 0.0) {
-        [self swipeRight:nil];
-    }
+    [self swipeRight:nil];
 }
 
 - (IBAction)onClickTitleSignup:(id)sender {
-    if (self.viewSignup.alpha == 0.0) {
-        [self swipeLeft:nil];
-    }
+    [self swipeLeft:nil];
 }
 
 @end

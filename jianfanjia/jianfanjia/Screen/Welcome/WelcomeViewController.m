@@ -111,6 +111,40 @@
 }
 
 #pragma mark - user actions
+- (IBAction)onClickWeChat:(id)sender {
+    [[ShareManager shared] wechatLogin:self compeletion:^(SnsAccountInfo *snsAccount, NSString *error) {
+        if (error == nil) {
+            WeChatLogin *request = [[WeChatLogin alloc] init];
+            request.username = snsAccount.userName;
+            request.sex = snsAccount.gender;
+            request.image_url = snsAccount.iconURL;
+            request.wechat_openid = snsAccount.usid;
+            request.wechat_unionid = snsAccount.unionId;
+            
+            [HUDUtil showWait];
+            [API wechatLogin:request success:^{
+                [HUDUtil hideWait];
+                if ([DataManager shared].isWechatFirstLogin) {
+                    [ViewControllerContainer showCollectDecPhase];
+                } else {
+                    UserGetInfo *getUser = [[UserGetInfo alloc] init];
+                    [API userGetInfo:getUser success:^{
+                        [ViewControllerContainer showTab];
+                    } failure:^{
+                    } networkError:^{
+                    }];
+                }
+            } failure:^{
+                [HUDUtil hideWait];
+            } networkError:^{
+                [HUDUtil hideWait];
+            }];
+        } else {
+            [HUDUtil showErrText:error];
+        }
+    }];
+}
+
 - (IBAction)onClickLogin:(id)sender {
     [ViewControllerContainer showLogin];
 }

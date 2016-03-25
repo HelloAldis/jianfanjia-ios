@@ -133,14 +133,22 @@ static ViewControllerContainer *container;
 }
 
 + (void)showLogin {
-    container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:
-                                           [[LoginViewController alloc] initWithNibName:nil bundle:nil]];
+    LoginViewController *v = [[LoginViewController alloc] init];
+    
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
+    v.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    v.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [container.window.rootViewController presentViewController:navi animated:YES completion:nil];
 }
 
 + (void)showSignup {
-    LoginViewController *v = [[LoginViewController alloc] initWithNibName:nil bundle:nil];
+    LoginViewController *v = [[LoginViewController alloc] init];
     v.showSignup = YES;
-    container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:v];
+    
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
+    v.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    v.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    [container.window.rootViewController presentViewController:navi animated:YES completion:nil];
 }
 
 + (void)showAccountBind {
