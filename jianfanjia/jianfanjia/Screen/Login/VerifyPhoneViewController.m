@@ -75,6 +75,7 @@
 
 #pragma mark - user action
 - (IBAction)onClickSignup:(id)sender {
+    [self.view endEditing:YES];
     switch (self.verfityPhoneEvent) {
         case VerfityPhoneEventResetPassword: {
                 UpdatePass *request = [[UpdatePass alloc] init];

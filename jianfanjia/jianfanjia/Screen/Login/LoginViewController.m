@@ -271,6 +271,7 @@ static CGFloat kImageOriginHight = 0;
 }
 
 - (IBAction)onClickSignup:(id)sender {
+    [self.view endEditing:YES];
     [DataManager shared].signupPagePhone = [self.fldSignupPhone.text trim];
     [DataManager shared].signupPagePass = [self.fldSignupPassword.text trim];
     VerifyPhone *request = [[VerifyPhone alloc] init];

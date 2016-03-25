@@ -171,11 +171,10 @@ static ViewControllerContainer *container;
     VerifyPhoneViewController *v = [[VerifyPhoneViewController alloc] initWithEvent:verfityPhoneEvent];
     v.callback = callback;
     
-    if (verfityPhoneEvent == VerfityPhoneEventBindPhone) {
+    if (container.window.rootViewController == container.tab) {
         [((id)container.tab.selectedViewController.presentedViewController) pushViewController:v animated:YES];
     } else {
-        UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
-        [nav pushViewController:v animated:YES];
+        [((id)container.window.rootViewController.presentedViewController) pushViewController:v animated:YES];
     }
 }
 
@@ -187,8 +186,7 @@ static ViewControllerContainer *container;
 
 + (void)showCollectDecPhase {
     CollectDecPhaseViewController *v = [[CollectDecPhaseViewController alloc] init];
-    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
-    [nav pushViewController:v animated:YES];
+    container.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:v];
 }
 
 + (void)showCollectDecStyle {
