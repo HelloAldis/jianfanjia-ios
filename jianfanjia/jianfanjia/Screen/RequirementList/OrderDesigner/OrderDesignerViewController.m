@@ -28,7 +28,6 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 @property (assign, nonatomic) OrderDesignerOrderType orderType;
 @property (assign, nonatomic) NSInteger orderableCount;
 
-@property (assign, nonatomic) BOOL wasChooseAll;
 @property (assign, nonatomic) BOOL wasClickMore;
 
 @property (strong, nonatomic) NSArray<NSIndexPath *> *currentSelectedIndexs;
@@ -192,8 +191,11 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 
 #pragma mark - user action
 - (void)onChooseAll {
-    self.wasChooseAll = YES;
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    @weakify(self);
+    [self.requirementDataManager.recommendedDesigners enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:idx inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
+    }];
 }
 
 - (void)onClickMore {

@@ -13,8 +13,11 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
 @property (weak, nonatomic) IBOutlet UIImageView *authIcon;
-@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *stars;
 @property (weak, nonatomic) IBOutlet UIImageView *imgCheck;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgIdCardChecked;
+@property (weak, nonatomic) IBOutlet UIImageView *imgBaseInfoChecked;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *evaluatedStars;
 
 @end
 
@@ -39,8 +42,11 @@
     self.designer = designer;
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
+    
     [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
-    [DesignerBusiness setStars:self.stars withStar:(double)(designer.respond_speed.doubleValue + designer.service_attitude.doubleValue) / 2 fullStar:[UIImage imageNamed:@"star_middle"] emptyStar:[UIImage imageNamed:@"star_middle_empty"]];
+    [DesignerBusiness setIdCardCheck:self.imgIdCardChecked withAuthType:designer.uid_auth_type];
+    [DesignerBusiness setBaseInfoCheck:self.imgBaseInfoChecked withAuthType:designer.auth_type];
+    [DesignerBusiness setStars:self.evaluatedStars withStar:(designer.respond_speed.floatValue +  designer.service_attitude.floatValue) / 2 fullStar:[UIImage imageNamed:@"star_small"] emptyStar:[UIImage imageNamed:@"star_small_empty"]];
 }
 
 - (void)onClickDesignerAvatar {

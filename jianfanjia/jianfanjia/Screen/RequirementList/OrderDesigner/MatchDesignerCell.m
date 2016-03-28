@@ -16,6 +16,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblMatchVal;
 @property (weak, nonatomic) IBOutlet UIImageView *imgCheck;
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgIdCardChecked;
+@property (weak, nonatomic) IBOutlet UIImageView *imgBaseInfoChecked;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *evaluatedStars;
+
 @end
 
 @implementation MatchDesignerCell
@@ -40,7 +44,12 @@
     [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = designer.username;
     self.lblMatchVal.text = [NSString stringWithFormat:@"%@%%", designer.match];
+    
     [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
+    [DesignerBusiness setIdCardCheck:self.imgIdCardChecked withAuthType:designer.uid_auth_type];
+    [DesignerBusiness setBaseInfoCheck:self.imgBaseInfoChecked withAuthType:designer.auth_type];
+    [DesignerBusiness setStars:self.evaluatedStars withStar:(designer.respond_speed.floatValue +  designer.service_attitude.floatValue) / 2 fullStar:[UIImage imageNamed:@"star_small"] emptyStar:[UIImage imageNamed:@"star_small_empty"]];
+
 }
 
 - (void)onClickDesignerAvatar {
