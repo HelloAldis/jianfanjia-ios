@@ -16,6 +16,7 @@
 #import "ProcessDataManager.h"
 #import "ViewControllerContainer.h"
 #import "ItemsBackgroundView.h"
+#import "TouchDelegateView.h"
 
 typedef NS_ENUM(NSInteger, WorkSiteMode) {
     WorkSiteModePreview,
@@ -28,19 +29,19 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 @interface ProcessViewController ()
 
-@property (weak, nonatomic) IBOutlet InfiniteScrollView *sectionScrollView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollViewTopToSuper;
+
+@property (strong, nonatomic) TouchDelegateView *containerView;
+@property (strong, nonatomic) UIScrollView *sectionScrollView;
+@property (strong, nonatomic) NSMutableArray *sectionViewArr;
 
 @property (strong, nonatomic) NSString *processid;
 @property (assign, nonatomic) WorkSiteMode workSiteMode;
-@property (strong, nonatomic) ProcessDataManager *processDataManager;
+@property (strong, nonatomic) ProcessDataManager *dataManager;
 
 @property (strong, nonatomic) NSIndexPath *lastSelectedIndexPath;
 @property (assign, nonatomic) BOOL isHeaderHidden;
 @property (assign, nonatomic) BOOL isFirstEnter;
-
-@property (strong, nonatomic) UIView *minDistanceFromLeftEdgeView;
 
 @end
 
@@ -51,7 +52,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     if (self = [super init]) {
         _workSiteMode = mode;
         _processid = processid;
-        _processDataManager = [[ProcessDataManager alloc] init];
+        _dataManager = [[ProcessDataManager alloc] init];
     }
     
     return self;
@@ -96,10 +97,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.sectionScrollView.showsHorizontalScrollIndicator = NO;
-    self.sectionScrollView.delegate = self;
-    self.sectionScrollView.infiniteDelegate = self;
-//    self.sectionScrollView.decelerationRate = UIScrollViewDecelerationRateFast;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:ItemCellIdentifier bundle:nil] forCellReuseIdentifier:ItemCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCheckCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCheckCellIdentifier];
+    [self configureHeaderToTableView:YES];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -108,12 +110,26 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     self.tableView.backgroundColor = self.view.backgroundColor;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 90;
+    self.tableView.contentInset = UIEdgeInsetsMake(64+SectionViewHeight, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 0, 0);
     
-    [self.tableView registerNib:[UINib nibWithNibName:ItemCellIdentifier bundle:nil] forCellReuseIdentifier:ItemCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCellIdentifier];
-    [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCheckCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCheckCellIdentifier];
+    self.containerView = [[TouchDelegateView alloc] initWithFrame:CGRectMake(0, -SectionViewHeight, kScreenWidth, SectionViewHeight)];
+    self.containerView.backgroundColor = [UIColor whiteColor];
+    [self.tableView addSubview:self.containerView];
     
-    [self configureHeaderToTableView:YES];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SectionViewWidth, SectionViewHeight)];
+    scrollView.showsHorizontalScrollIndicator = NO;
+    scrollView.showsVerticalScrollIndicator = NO;
+    scrollView.bounces = NO;
+    scrollView.alwaysBounceHorizontal = NO;
+    scrollView.clipsToBounds = NO;
+    scrollView.pagingEnabled = YES;
+    scrollView.delegate = self;
+    
+    self.sectionScrollView = scrollView;
+    [self.containerView addSubview:scrollView];
+    self.containerView.touchDelegateView = scrollView;
+    
     self.isFirstEnter = YES;
     
     [[NotificationDataManager shared] subscribeMyNotificationUnreadCount:^(NSInteger count) {
@@ -122,135 +138,54 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 #pragma mark - scroll view delegate
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    if (scrollView == self.sectionScrollView) {
-        CGPoint targetOffset = [self getLeftestViewToLeftEdge];
-        
-        targetContentOffset->x = targetOffset.x;
-        targetContentOffset->y = targetOffset.y;
-    }
-}
-
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (scrollView == self.sectionScrollView) {
         if (!decelerate) {
-            NSInteger index = [self getIndexInScrollViewForSubview:self.minDistanceFromLeftEdgeView];
-            [self reloadItemsForSection:index];
+            NSUInteger index = self.sectionScrollView.contentOffset.x / SectionViewWidth;
+            NSUInteger curIndex = self.dataManager.selectedSectionIndex;
+            if (index != curIndex) {
+                [self reloadItemsForSection:index];
+            }
         }
     }
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.sectionScrollView) {
-        NSInteger index = [self getIndexInScrollViewForSubview:self.minDistanceFromLeftEdgeView];
-        [self reloadItemsForSection:index];
-    }
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (scrollView == self.tableView) {
-        static CGFloat minScroll = 30;
-        if (scrollView.contentOffset.y < -minScroll) {
-            //下滑
-            [self showScrollView];
-        } else if (scrollView.contentOffset.y > minScroll) {
-            //上滑
-            [self hideScrollView];
+        NSUInteger index = self.sectionScrollView.contentOffset.x / SectionViewWidth;
+        NSUInteger curIndex = self.dataManager.selectedSectionIndex;
+        if (index != curIndex) {
+            [self reloadItemsForSection:index];
         }
-    }
-}
-
-#pragma mark - scroll view operation
-- (CGPoint)getLeftestViewToLeftEdge {
-    CGPoint offset = self.sectionScrollView.contentOffset;
-    
-    __block CGFloat minDistanceFromLeftEdge = MAXFLOAT;
-    __block UIView *minDistanceFromLeftEdgeView;
-    
-    @weakify(self);
-    [self.sectionScrollView.visibleViews enumerateObjectsUsingBlock:^(id  _Nonnull view, NSUInteger idx, BOOL * _Nonnull stop) {
-        @strongify(self);
-        if (idx == self.sectionScrollView.visibleViews.count / 2)
-            *stop = YES;
-        
-        CGFloat distanceToLeftEdge = [self.sectionScrollView getDistanceToLeftEdgeForSubview:view];
-        if (distanceToLeftEdge > -SectionViewWidth / 2 && distanceToLeftEdge < minDistanceFromLeftEdge) {
-            minDistanceFromLeftEdge = distanceToLeftEdge;
-            minDistanceFromLeftEdgeView = view;
-        }
-    }];
-    
-    self.minDistanceFromLeftEdgeView = minDistanceFromLeftEdgeView;
-    CGFloat targetX = offset.x + minDistanceFromLeftEdge;
-    CGPoint targetOffset = CGPointMake(targetX, offset.y);
-    
-    return targetOffset;
-}
-
-- (void)hideScrollView {
-    if (!self.isHeaderHidden) {
-        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.scrollViewTopToSuper.constant = -52;
-            [self configureHeaderToTableView:NO];
-            [self.view setNeedsLayout];
-            [self.view layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            self.isHeaderHidden = YES;
-        }];
-    }
-}
-
-- (void)showScrollView {
-    if (self.isHeaderHidden) {
-        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-            self.scrollViewTopToSuper.constant = 64;
-            [self configureHeaderToTableView:YES];
-            [self.view setNeedsLayout];
-            [self.view layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            self.isHeaderHidden = NO;
-        }];
     }
 }
 
 #pragma mark - getures
 - (void)handleTapSectionViewGesture:(UITapGestureRecognizer *)gesture {
     SectionView *sectionView = (SectionView *)gesture.view;
-    NSInteger index = [self getIndexInScrollViewForSubview:sectionView];
-    CGPoint currentOffset = self.sectionScrollView.contentOffset;
-    CGFloat distanceFromLeftEdge = [self.sectionScrollView getDistanceToLeftEdgeForSubview:sectionView];
-    
-    [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + distanceFromLeftEdge, 0) animated:YES];
+    NSInteger index = [self.sectionViewArr indexOfObject:sectionView];
+    [self.sectionScrollView setContentOffset:CGPointMake(index * SectionViewWidth, 0) animated:YES];
     [self reloadItemsForSection:index];
-}
-
-#pragma mark - util
-- (NSInteger)getIndexInScrollViewForSubview:(UIView *)subview {
-    NSInteger indexInScrollView = [self.sectionScrollView.allViews indexOfObject:subview];
-    NSInteger sectionsCount = self.processDataManager.sections.count;
-    NSInteger index = indexInScrollView < sectionsCount ? indexInScrollView : indexInScrollView % sectionsCount;
-    
-    return index;
 }
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.processDataManager.selectedItems.count;
+    return self.dataManager.selectedItems.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Item *item = self.processDataManager.selectedItems[indexPath.row];
+    Item *item = self.dataManager.selectedItems[indexPath.row];
     
     if (item.itemCellStatus == ItemCellStatusClosed) {
         ItemCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemCellIdentifier forIndexPath:indexPath];
-        [cell initWithItem:item withDataManager:self.processDataManager];
+        [cell initWithItem:item withDataManager:self.dataManager];
         [self configureCellProperties:cell];
         return cell;
     } else {
         if ([item.name isEqualToString:DBYS]) {
             ItemExpandCheckCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCheckCellIdentifier forIndexPath:indexPath];
             @weakify(self);
-            [cell initWithItem:item withDataManager:self.processDataManager withBlock:^{
+            [cell initWithItem:item withDataManager:self.dataManager withBlock:^{
                 @strongify(self);
                 [self refreshForIndexPath:indexPath isExpand:YES];
             }];
@@ -259,7 +194,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         } else {
             ItemExpandImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCellIdentifier forIndexPath:indexPath];
             @weakify(self);
-            [cell initWithItem:item withDataManager:self.processDataManager withBlock:^(BOOL isNeedReload) {
+            [cell initWithItem:item withDataManager:self.dataManager withBlock:^(BOOL isNeedReload) {
                 @strongify(self);
                 if (isNeedReload) {
                     [self refreshForIndexPath:indexPath isExpand:YES];
@@ -275,23 +210,23 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusUnStart]) {
+    if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusUnStart]) {
         self.lastSelectedIndexPath = indexPath;
         return;
     }
     
     if (self.lastSelectedIndexPath && self.lastSelectedIndexPath.row != indexPath.row) {
-        Item *item = self.processDataManager.selectedItems[indexPath.row];
+        Item *item = self.dataManager.selectedItems[indexPath.row];
         item.itemCellStatus = ItemCellStatusExpaned;
         
-        Item *lastItem = self.processDataManager.selectedItems[self.lastSelectedIndexPath.row];
+        Item *lastItem = self.dataManager.selectedItems[self.lastSelectedIndexPath.row];
         lastItem.itemCellStatus = ItemCellStatusClosed;
         
         [tableView beginUpdates];
         [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:self.lastSelectedIndexPath, indexPath, nil] withRowAnimation:UITableViewRowAnimationAutomatic];
         [tableView endUpdates];
     } else  {
-        Item *item = self.processDataManager.selectedItems[indexPath.row];
+        Item *item = self.dataManager.selectedItems[indexPath.row];
         [item switchItemCellStatus];
         
         [tableView beginUpdates];
@@ -306,27 +241,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-#pragma mark - infiniteScrollView delegate
-/*
- 获取需要显示的一组view的数目
- */
-- (NSInteger)numberOfGroupInInfiniteScrollView:(InfiniteScrollView *)scrollView {
-    return self.processDataManager.sections.count;
-}
-
-/*
- 获取需要显示的view， 必须要创建一个新的view当回调发生时
- */
-- (UIView *)infiniteScrollView:(InfiniteScrollView *)scrollView viewAtIndex:(NSInteger)index {
-    NSArray *sections = self.processDataManager.sections;
-    Section *section = sections[index];
-    SectionView *sectionView = [SectionView sectionView];
-    [sectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSectionViewGesture:)]];
-    
-    [self updateSection:section forView:sectionView index:index total:sections.count];
-    return sectionView;
-}
-
 #pragma mark - refresh
 - (void)configureHeaderToTableView:(BOOL)needConfigure {
     if (self.workSiteMode == WorkSiteModeReal && needConfigure) {
@@ -336,6 +250,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
                 @strongify(self);
                 [self refreshProcess:NO];
             }];
+            self.tableView.header.ignoredScrollViewContentInsetTop = SectionViewHeight;
         }
     } else {
         self.tableView.header = nil;
@@ -344,7 +259,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)refreshProcess:(BOOL)showPlsWait {
     if (self.workSiteMode == WorkSiteModePreview) {
-        [self.processDataManager refreshSections:[ProcessBusiness defaultProcess]];
+        [self.dataManager refreshSections:[ProcessBusiness defaultProcess]];
         [self refreshSectionView];
         [self reloadItemsForSection:0];
     } else {
@@ -357,10 +272,10 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [API getProcess:request success:^{
             [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
-            [self.processDataManager refreshProcess];
+            [self.dataManager refreshProcess];
             [self refreshSectionView];
             [self scrollToOngoingSection];
-            [self reloadItemsForSection:self.processDataManager.selectedSectionIndex];
+            [self reloadItemsForSection:self.dataManager.selectedSectionIndex];
         } failure:^{
             [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
@@ -380,14 +295,14 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     request.processid = self.processid;
     
     [API getProcess:request success:^{
-        [self.processDataManager refreshProcess];
+        [self.dataManager refreshProcess];
         [self refreshSectionView];
         BOOL goToNextSection = [self scrollToOngoingSection];
         if (goToNextSection) {
-            [self reloadItemsForSection:self.processDataManager.selectedSectionIndex];
+            [self reloadItemsForSection:self.dataManager.selectedSectionIndex];
         } else {
-            [self.processDataManager switchToSelectedSection:self.processDataManager.selectedSectionIndex];
-            Item *item = self.processDataManager.selectedItems[indexPath.row];
+            [self.dataManager switchToSelectedSection:self.dataManager.selectedSectionIndex];
+            Item *item = self.dataManager.selectedItems[indexPath.row];
             if (isExpand) {
                 item.itemCellStatus = ItemCellStatusExpaned;
             } else {
@@ -406,36 +321,58 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }];
 }
 
+#pragma mark - refresh section
 - (void)refreshSectionView {
     if (self.isFirstEnter) {
         self.isFirstEnter = NO;
-        self.title = self.processDataManager.process.cell;
-        [self.sectionScrollView reloadData];
+        self.title = self.dataManager.process.cell;
+        [self initSectionView];
     } else {
-        NSArray *sections = self.processDataManager.sections;
-        for (NSInteger i = 0; i < self.sectionScrollView.allViews.count; i++) {
-            SectionView *view = self.sectionScrollView.allViews[i];
-            NSInteger index = [self getIndexInScrollViewForSubview:view];
-            Section *section = sections[index];
-            [self updateSection:section forView:view index:index total:sections.count];
-        }
+        [self updateSectionView];
     }
 }
 
 - (BOOL)scrollToOngoingSection {
-    if (self.processDataManager.preOngoingSectionIndex == self.processDataManager.ongoingSectionIndex) {
+    if (self.dataManager.preOngoingSectionIndex == self.dataManager.ongoingSectionIndex) {
         return NO;
     }
     
-    self.processDataManager.selectedSectionIndex = self.processDataManager.ongoingSectionIndex;
-    [self showScrollView];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        CGPoint currentOffset = self.sectionScrollView.contentOffset;
-        [self.sectionScrollView setContentOffset:CGPointMake(currentOffset.x + (self.processDataManager.ongoingSectionIndex - self.processDataManager.preOngoingSectionIndex) * SectionViewWidth, 0) animated:YES];
-        [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
-    });
-    
+    self.dataManager.selectedSectionIndex = self.dataManager.ongoingSectionIndex;
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.sectionScrollView setContentOffset:CGPointMake(self.dataManager.selectedSectionIndex * SectionViewWidth, 0) animated:NO];
+    }];
+
     return YES;
+}
+
+#pragma mark - update section
+- (void)initSectionView {
+    NSArray *sections = self.dataManager.sections;
+    self.sectionViewArr = [NSMutableArray arrayWithCapacity:sections.count];
+    self.sectionScrollView.contentSize = CGSizeMake(sections.count * SectionViewWidth, SectionViewHeight);
+    
+    @weakify(self);
+    [sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        Section *section = sections[idx];
+        SectionView *sectionView = [SectionView sectionView];
+        sectionView.frame = CGRectMake(idx * SectionViewWidth, 0, SectionViewWidth, SectionViewHeight);
+        [sectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSectionViewGesture:)]];
+        
+        [self updateSection:section forView:sectionView index:idx total:sections.count];
+        [self.sectionScrollView addSubview:sectionView];
+        [self.sectionViewArr addObject:sectionView];
+    }];
+}
+
+- (void)updateSectionView {
+    NSArray *sections = self.dataManager.sections;
+    
+    @weakify(self);
+    [self.sectionViewArr enumerateObjectsUsingBlock:^(SectionView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        @strongify(self);
+        [self updateSection:sections[idx] forView:obj index:idx total:self.sectionViewArr.count];
+    }];
 }
 
 - (void)updateSection:(Section *)section forView:(SectionView *)sectionView index:(NSInteger)index total:(NSInteger)total {
@@ -445,8 +382,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         sectionView.rightLine.hidden = YES;
     }
     
-    Section *preSection = self.processDataManager.sections[index - 1 < 0 ? 0 : index - 1];
-    Section *nextSection = self.processDataManager.sections[index + 1 > total - 1 ? total - 1 : index + 1];
+    Section *preSection = self.dataManager.sections[index - 1 < 0 ? 0 : index - 1];
+    Section *nextSection = self.dataManager.sections[index + 1 > total - 1 ? total - 1 : index + 1];
     if ([preSection.status isEqualToString:kSectionStatusAlreadyFinished] && [section.status isEqualToString:kSectionStatusAlreadyFinished]) {
         sectionView.leftLine.backgroundColor = kFinishedColor;
     }
@@ -460,8 +397,9 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     sectionView.durationLabel.text = [NSString stringWithFormat:@"%@-%@", [NSDate M_dot_dd:section.start_at], [NSDate M_dot_dd:section.end_at]];
 }
 
+#pragma mark - reload items
 - (void)reloadItemsForSection:(NSInteger)sectionIndex {
-    [self.processDataManager switchToSelectedSection:sectionIndex];
+    [self.dataManager switchToSelectedSection:sectionIndex];
     [self initItemsStatus];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -470,7 +408,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self refreshSectionBackground];
     
     self.lastSelectedIndexPath = nil;
-    if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusUnStart]) {
+    if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusUnStart]) {
         return;
     }
     
@@ -478,7 +416,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     __block NSInteger latestUpdateItem = -1;
     __block NSInteger dbysItem = -1;
     __block NSInteger subSectionsFinishedCount = 0;
-    [self.processDataManager.selectedItems enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Item *  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.dataManager.selectedItems enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Item *  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
         NSTimeInterval itemTime = item.date.doubleValue;
         if (itemTime > latestUpdateTime) {
             latestUpdateTime = itemTime;
@@ -495,11 +433,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }];
     
     // 如果当前工序下的子工序都完工了，进入工地管理时，就要展开对比验收子工序。
-    if (dbysItem >= 0 && subSectionsFinishedCount + 1 == self.processDataManager.selectedItems.count) {
+    if (dbysItem >= 0 && subSectionsFinishedCount + 1 == self.dataManager.selectedItems.count) {
         latestUpdateItem = dbysItem;
     }
     
-    [self.processDataManager.selectedItems enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Item *  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.dataManager.selectedItems enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Item *  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
         if (latestUpdateItem == idx) {
             item.itemCellStatus = ItemCellStatusExpaned;
         } else {
@@ -514,7 +452,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)refreshSectionBackground {
     id backgroundView = self.tableView.backgroundView;
-    if ([self.processDataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
+    if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
         [backgroundView statusLine].backgroundColor = kFinishedColor;
     } else {
         [backgroundView statusLine].backgroundColor = kUntriggeredColor;

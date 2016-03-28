@@ -19,7 +19,7 @@
                     <rect key="frame" x="76" y="43" width="10" height="1"/>
                     <color key="backgroundColor" red="0.70980392160000005" green="0.72941176470000002" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="section_1_0" translatesAutoresizingMaskIntoConstraints="NO" id="iY0-45-bDH">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="section_1_0" translatesAutoresizingMaskIntoConstraints="NO" id="iY0-45-bDH">
                     <rect key="frame" x="10" y="10" width="66" height="66"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="开工" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9T-wD-9Ty">
