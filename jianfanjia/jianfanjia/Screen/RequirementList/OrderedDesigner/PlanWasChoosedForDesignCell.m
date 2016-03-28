@@ -6,10 +6,10 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "PlanWasChoosedCell.h"
+#import "PlanWasChoosedForDesignCell.h"
 #import "ViewControllerContainer.h"
 
-@interface PlanWasChoosedCell ()
+@interface PlanWasChoosedForDesignCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewEvaluate;
@@ -22,7 +22,7 @@
 
 @end
 
-@implementation PlanWasChoosedCell
+@implementation PlanWasChoosedForDesignCell
 
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
@@ -48,6 +48,14 @@
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock {
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
+    
+    if ([requirement.work_type isEqualToString:kWorkTypeDesign]) {
+        self.btnViewAgreement.enabled = NO;
+        [self.btnViewAgreement setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+    } else {
+        self.btnViewAgreement.enabled = YES;
+        [self.btnViewAgreement setTitleColor:kThemeColor forState:UIControlStateNormal];
+    }
 }
 
 - (void)onClickEvaluateButton {

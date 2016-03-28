@@ -15,6 +15,7 @@
 #import "ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.h"
 #import "HomeOwnerOrderedWithoutResponseCell.h"
 #import "PlanWasChoosedCell.h"
+#import "PlanWasChoosedForDesignCell.h"
 #import "PlanWasNotChoosedCell.h"
 #import "DesignerPlanStatusBaseCell.h"
 #import "RequirementDataManager.h"
@@ -27,6 +28,7 @@ static NSString *ExpiredAsDesignerDidNotRespond = @"ExpiredAsDesignerDidNotRespo
 static NSString *ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime = @"ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell";
 static NSString *HomeOwnerOrderedWithoutResponse = @"HomeOwnerOrderedWithoutResponseCell";
 static NSString *PlanWasChoosed = @"PlanWasChoosedCell";
+static NSString *PlanWasChoosedForDesign = @"PlanWasChoosedForDesignCell";
 static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
 
 @interface OrderedDesignerViewController ()
@@ -64,6 +66,7 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
     [self.tableView registerNib:[UINib nibWithNibName:ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime bundle:nil] forCellReuseIdentifier:ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime];
     [self.tableView registerNib:[UINib nibWithNibName:HomeOwnerOrderedWithoutResponse bundle:nil] forCellReuseIdentifier:HomeOwnerOrderedWithoutResponse];
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosed bundle:nil] forCellReuseIdentifier:PlanWasChoosed];
+    [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosedForDesign bundle:nil] forCellReuseIdentifier:PlanWasChoosedForDesign];
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasNotChoosed bundle:nil] forCellReuseIdentifier:PlanWasNotChoosed];
     @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -126,7 +129,8 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
     } else if ([status isEqualToString:kPlanStatusDesignerSubmittedPlan]) {
         cellIdentifier = DesignerSubmittedPlan;
     } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
-        cellIdentifier = PlanWasChoosed;
+        NSString *work_type = self.requirement.work_type;
+        cellIdentifier = [work_type isEqualToString:kWorkTypeDesign] ? PlanWasChoosedForDesign : PlanWasChoosed;
     } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]) {
         cellIdentifier = DesignerDeclineHomeOwner;
     } else if ([status isEqualToString:kPlanStatusPlanWasNotChoosed]) {
