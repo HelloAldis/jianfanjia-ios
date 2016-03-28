@@ -37,12 +37,12 @@
     [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
     
     if ([[NSDate date] timeIntervalSince1970] > designer.plan.house_check_time.longLongValue / 1000) {
-        self.btnConfirmMeasureHouse.userInteractionEnabled = YES;
+        self.btnConfirmMeasureHouse.enabled = YES;
         [self.btnConfirmMeasureHouse setTitle:@"确认量房" forState:UIControlStateNormal];
         [self.btnConfirmMeasureHouse setTitleColor:kThemeColor forState:UIControlStateNormal];
         [self.btnConfirmMeasureHouse.titleLabel setFont:[UIFont systemFontOfSize:14 weight:UIFontWeightBold]];
     } else {
-        self.btnConfirmMeasureHouse.userInteractionEnabled = NO;
+        self.btnConfirmMeasureHouse.enabled = NO;
         [self.btnConfirmMeasureHouse setTitle:[NSString stringWithFormat:@"量房时间：%@", [NSDate yyyy_MM_dd_HH_mm:designer.plan.house_check_time]] forState:UIControlStateNormal];
         [self.btnConfirmMeasureHouse setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
         [self.btnConfirmMeasureHouse.titleLabel setFont:[UIFont systemFontOfSize:14]];
