@@ -116,7 +116,8 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return kRequirementellHeight;
+    Requirement *requirement = self.requirementDataManager.requirements[indexPath.row];
+    return [requirement.work_type isEqualToString:kWorkTypeDesign] ? 244 : 289;
 }
 
 #pragma mark - send request 
