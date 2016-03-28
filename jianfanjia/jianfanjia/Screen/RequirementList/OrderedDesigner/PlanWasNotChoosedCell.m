@@ -11,9 +11,12 @@
 
 @interface PlanWasNotChoosedCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
-@property (weak, nonatomic) IBOutlet UIImageView *authIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgIdCardChecked;
+@property (weak, nonatomic) IBOutlet UIImageView *imgBaseInfoChecked;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *evaluatedStars;
 
 @end
 
@@ -21,26 +24,21 @@
 
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
-    [self.btnViewPlan setBorder:1 andColor:kFinishedColor.CGColor];
-    [self.btnViewPlan setCornerRadius:5];
+    [self.imgAvatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickDesignerAvatar)]];
     
     @weakify(self);
     [[self.btnViewPlan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [self onClickButton];
+        [self onClickViewPlanButton];
     }];
-    
-    [self.imgAvatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickDesignerAvatar)]];
 }
 
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock {
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
-    [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
-    self.lblUserNameVal.text = designer.username;
-    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
+    [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
 }
 
-- (void)onClickButton {
+- (void)onClickViewPlanButton {
     [ViewControllerContainer showPlanList:self.designer._id forRequirement:self.requirement];
 }
 

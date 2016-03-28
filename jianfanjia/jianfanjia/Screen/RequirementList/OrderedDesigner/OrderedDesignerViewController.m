@@ -95,7 +95,7 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 90;
+    return 146;
 }
 
 #pragma mark - send request 

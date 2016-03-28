@@ -11,10 +11,14 @@
 
 @interface PlanWasChoosedCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
-@property (weak, nonatomic) IBOutlet UIImageView *authIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
+@property (weak, nonatomic) IBOutlet UIButton *btnViewEvaluate;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAgreement;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgIdCardChecked;
+@property (weak, nonatomic) IBOutlet UIImageView *imgBaseInfoChecked;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *evaluatedStars;
 
 @end
 
@@ -22,11 +26,14 @@
 
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
-    [self.btnViewAgreement setCornerRadius:5];
-    [self.btnViewPlan setBorder:1 andColor:kFinishedColor.CGColor];
-    [self.btnViewPlan setCornerRadius:5];
+    [self.imgAvatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickDesignerAvatar)]];
     
     @weakify(self);
+    [[self.btnViewEvaluate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickEvaluateButton];
+    }];
+    
     [[self.btnViewPlan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [self onClickViewPlanButton];
@@ -36,23 +43,23 @@
         @strongify(self);
         [self onClickViewAgreementButton];
     }];
-    
-    [self.imgAvatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickDesignerAvatar)]];
 }
 
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock {
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
-    [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
-    self.lblUserNameVal.text = designer.username;
-    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
+    [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
     
     if ([requirement.work_type isEqualToString:kWorkTypeDesign]) {
         self.btnViewAgreement.enabled = NO;
-        self.btnViewAgreement.backgroundColor = kUntriggeredColor;
+        [self.btnViewAgreement setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
     } else {
         self.btnViewAgreement.enabled = YES;
-        self.btnViewAgreement.backgroundColor = kFinishedColor;
+        [self.btnViewAgreement setTitleColor:kThemeColor forState:UIControlStateNormal];
     }
+}
+
+- (void)onClickEvaluateButton {
+    [ViewControllerContainer showEvaluateDesigner:self.designer withRequirement:self.requirement._id];
 }
 
 - (void)onClickViewPlanButton {

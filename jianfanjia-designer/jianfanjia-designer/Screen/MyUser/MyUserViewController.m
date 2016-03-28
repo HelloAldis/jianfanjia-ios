@@ -111,6 +111,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         
         tableView.backgroundColor = kViewBgColor;
         tableView.tableFooterView = [[UIView alloc] init];
+        tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [tableView registerNib:[UINib nibWithNibName:UnrespondActionCellIdentifier bundle:nil] forCellReuseIdentifier:UnrespondActionCellIdentifier];
         [tableView registerNib:[UINib nibWithNibName:RejectActionCellIdentifier bundle:nil] forCellReuseIdentifier:RejectActionCellIdentifier];
         [tableView registerNib:[UINib nibWithNibName:RespondedActionCellIdentifier bundle:nil] forCellReuseIdentifier:RespondedActionCellIdentifier];

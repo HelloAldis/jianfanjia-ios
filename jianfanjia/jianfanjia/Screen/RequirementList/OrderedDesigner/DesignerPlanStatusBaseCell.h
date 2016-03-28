@@ -16,6 +16,7 @@ typedef void (^PlanStatusRefreshBlock)(void);
 @property (strong, nonatomic) Requirement *requirement;
 
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock;
+- (void)initHeader:(UIImageView *)avatar name:(UILabel *)name idCheck:(UIImageView *)idCheck infoCheck:(UIImageView *)infoCheck stars:(NSArray <UIImageView *> *)evaluatedStars;
 - (void)refresh;
 - (void)onClickDesignerAvatar;
 

@@ -10,11 +10,12 @@
 
 @interface DesignerRespondedWithoutMeasureHouseCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
-@property (weak, nonatomic) IBOutlet UIImageView *authIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
-@property (weak, nonatomic) IBOutlet UILabel *lblMeasureHouseTime;
-@property (weak, nonatomic) IBOutlet UILabel *lblMeasureHouseTimeVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnConfirmMeasureHouse;
+
+@property (weak, nonatomic) IBOutlet UIImageView *imgIdCardChecked;
+@property (weak, nonatomic) IBOutlet UIImageView *imgBaseInfoChecked;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *evaluatedStars;
 
 @end
 
@@ -22,31 +23,27 @@
 
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
-    [self.btnConfirmMeasureHouse setCornerRadius:5];
+    [self.imgAvatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickDesignerAvatar)]];
     
     @weakify(self);
     [[self.btnConfirmMeasureHouse rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [self onClickButton];
     }];
-    
-    [self.imgAvatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickDesignerAvatar)]];
 }
 
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock {
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
-    [self.imgAvatar setImageWithId:designer.imageid withWidth:self.imgAvatar.bounds.size.width];
-    self.lblUserNameVal.text = designer.username;
-    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
-    self.lblMeasureHouseTimeVal.text = [NSDate yyyy_MM_dd_HH_mm:designer.plan.house_check_time];
+    [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
+    
     if ([[NSDate date] timeIntervalSince1970] > designer.plan.house_check_time.longLongValue / 1000) {
-        self.btnConfirmMeasureHouse.hidden = NO;
-        self.lblMeasureHouseTime.hidden = YES;
-        self.lblMeasureHouseTimeVal.hidden = YES;
+        self.btnConfirmMeasureHouse.userInteractionEnabled = YES;
+        [self.btnConfirmMeasureHouse setTitle:@"确认量房" forState:UIControlStateNormal];
+        [self.btnConfirmMeasureHouse setTitleColor:kThemeColor forState:UIControlStateNormal];
     } else {
-        self.btnConfirmMeasureHouse.hidden = YES;
-        self.lblMeasureHouseTime.hidden = NO;
-        self.lblMeasureHouseTimeVal.hidden = NO;
+        self.btnConfirmMeasureHouse.userInteractionEnabled = NO;
+        [self.btnConfirmMeasureHouse setTitle:[NSString stringWithFormat:@"量房时间：%@", [NSDate yyyy_MM_dd_HH_mm:designer.plan.house_check_time]] forState:UIControlStateNormal];
+        [self.btnConfirmMeasureHouse setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
     }
 }
 
