@@ -40,10 +40,12 @@
         self.btnConfirmMeasureHouse.userInteractionEnabled = YES;
         [self.btnConfirmMeasureHouse setTitle:@"确认量房" forState:UIControlStateNormal];
         [self.btnConfirmMeasureHouse setTitleColor:kThemeColor forState:UIControlStateNormal];
+        [self.btnConfirmMeasureHouse.titleLabel setFont:[UIFont systemFontOfSize:14 weight:UIFontWeightBold]];
     } else {
         self.btnConfirmMeasureHouse.userInteractionEnabled = NO;
         [self.btnConfirmMeasureHouse setTitle:[NSString stringWithFormat:@"量房时间：%@", [NSDate yyyy_MM_dd_HH_mm:designer.plan.house_check_time]] forState:UIControlStateNormal];
         [self.btnConfirmMeasureHouse setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+        [self.btnConfirmMeasureHouse.titleLabel setFont:[UIFont systemFontOfSize:14]];
     }
 }
 
