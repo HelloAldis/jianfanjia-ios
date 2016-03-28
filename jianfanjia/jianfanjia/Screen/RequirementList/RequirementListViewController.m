@@ -56,8 +56,8 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 #pragma mark - init ui
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 60, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 55, 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 49, 0);
     [self.tableView registerNib:[UINib nibWithNibName:RequirementCellIdentifier bundle:nil] forCellReuseIdentifier:RequirementCellIdentifier];
     @weakify(self);
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
