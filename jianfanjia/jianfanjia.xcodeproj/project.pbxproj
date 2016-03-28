@@ -227,6 +227,7 @@
 		685DD4551C89761E00A76B9C /* CommentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685DD4501C89761E00A76B9C /* CommentListViewController.xib */; };
 		685F2D501CA917C600DC4D43 /* PlanWasChoosedForDesignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D4E1CA917C600DC4D43 /* PlanWasChoosedForDesignCell.m */; };
 		685F2D511CA917C600DC4D43 /* PlanWasChoosedForDesignCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D4F1CA917C600DC4D43 /* PlanWasChoosedForDesignCell.xib */; };
+		685F2D551CA9209500DC4D43 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D541CA9209500DC4D43 /* iTunesArtwork */; };
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
@@ -343,7 +344,6 @@
 		6E20B2421B87223600E3A8DA /* jianfanjiaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E20B2411B87223600E3A8DA /* jianfanjiaTests.m */; };
 		6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E2DCAAB1BB5207400591A16 /* LeftViewController.m */; };
 		6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E2DCAAC1BB5207400591A16 /* LeftViewController.xib */; };
-		6E3361D31C181E07006D6868 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 6E3361D21C181E07006D6868 /* iTunesArtwork */; };
 		6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496171BF717B100C90851 /* DesignerBusiness.m */; };
 		6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44961A1BF72F3600C90851 /* ProductPageData.m */; };
 		6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44961D1BF7368900C90851 /* DesignerPageData.m */; };
@@ -818,6 +818,7 @@
 		685F2D4D1CA917C600DC4D43 /* PlanWasChoosedForDesignCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanWasChoosedForDesignCell.h; sourceTree = "<group>"; };
 		685F2D4E1CA917C600DC4D43 /* PlanWasChoosedForDesignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanWasChoosedForDesignCell.m; sourceTree = "<group>"; };
 		685F2D4F1CA917C600DC4D43 /* PlanWasChoosedForDesignCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanWasChoosedForDesignCell.xib; sourceTree = "<group>"; };
+		685F2D541CA9209500DC4D43 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemImageCollectionView.h; sourceTree = "<group>"; };
 		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -1035,7 +1036,6 @@
 		6E2DCAAA1BB5207400591A16 /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
 		6E2DCAAB1BB5207400591A16 /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
 		6E2DCAAC1BB5207400591A16 /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewController.xib; sourceTree = "<group>"; };
-		6E3361D21C181E07006D6868 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		6E4496161BF717B100C90851 /* DesignerBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerBusiness.h; sourceTree = "<group>"; };
 		6E4496171BF717B100C90851 /* DesignerBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerBusiness.m; sourceTree = "<group>"; };
 		6E4496191BF72F3600C90851 /* ProductPageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductPageData.h; sourceTree = "<group>"; };
@@ -2095,8 +2095,8 @@
 		6E20B2191B87223600E3A8DA = {
 			isa = PBXGroup;
 			children = (
+				685F2D541CA9209500DC4D43 /* iTunesArtwork */,
 				6E676A4B1C461F2900E91C01 /* third */,
-				6E3361D21C181E07006D6868 /* iTunesArtwork */,
 				6E20B2241B87223600E3A8DA /* jianfanjia */,
 				6E20B23E1B87223600E3A8DA /* jianfanjiaTests */,
 				6E20B2231B87223600E3A8DA /* Products */,
@@ -2658,7 +2658,6 @@
 				6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */,
 				685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */,
 				68679A3E1C8E730F00B380D0 /* RequirementNotificationCell.xib in Resources */,
-				6E3361D31C181E07006D6868 /* iTunesArtwork in Resources */,
 				684A37131BFD733500F7388C /* PlanWasNotChoosedCell.xib in Resources */,
 				6E06CC271C2BA51800A08D15 /* FavoriateBeautifulImageCell.xib in Resources */,
 				6E4496411BFC53CE00C90851 /* FeedbackViewController.xib in Resources */,
@@ -2686,6 +2685,7 @@
 				68123C5B1C4C8B99008FC9AB /* ThumbnailCell.xib in Resources */,
 				684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */,
 				684A374F1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib in Resources */,
+				685F2D551CA9209500DC4D43 /* iTunesArtwork in Resources */,
 				6E06CC2E1C2BF97800A08D15 /* FavoriteDesignerCell.xib in Resources */,
 				6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */,
 				684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */,
