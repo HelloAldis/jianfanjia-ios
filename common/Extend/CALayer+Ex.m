@@ -46,4 +46,16 @@
     return layer;
 }
 
++ (CALayer *)createRoundBottomLayer:(CGRect)frame cornerRadii:(CGSize)cornerRadii {
+    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:frame byRoundingCorners:UIRectCornerBottomLeft | UIRectCornerBottomRight cornerRadii:cornerRadii];
+    
+    CAShapeLayer *shape = [CAShapeLayer layer];
+    shape.fillColor = [UIColor whiteColor].CGColor;
+    shape.strokeColor = [UIColor whiteColor].CGColor;
+    shape.path = path.CGPath;
+    shape.frame = frame;
+    
+    return shape;
+}
+
 @end

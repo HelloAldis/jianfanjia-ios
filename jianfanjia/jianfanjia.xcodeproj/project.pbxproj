@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6804A7011CA5312400E7A9AF /* AutoScrollUIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */; };
-		680F490D1C2160990055C16C /* ItemsBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F490C1C2160990055C16C /* ItemsBackgroundView.m */; };
-		680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F490E1C2160BF0055C16C /* ItemsBackgroundView.xib */; };
 		680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchBeautifulImage.m */; };
 		680F49271C240E400055C16C /* BeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49261C240E400055C16C /* BeautifulImage.m */; };
 		680F492A1C240F910055C16C /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49291C240F910055C16C /* LeafImage.m */; };
@@ -228,6 +226,8 @@
 		685F2D501CA917C600DC4D43 /* PlanWasChoosedForDesignCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D4E1CA917C600DC4D43 /* PlanWasChoosedForDesignCell.m */; };
 		685F2D511CA917C600DC4D43 /* PlanWasChoosedForDesignCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D4F1CA917C600DC4D43 /* PlanWasChoosedForDesignCell.xib */; };
 		685F2D551CA9209500DC4D43 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D541CA9209500DC4D43 /* iTunesArtwork */; };
+		685F2D5C1CAA31BA00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5A1CAA31BA00DC4D43 /* SectionActionView.m */; };
+		685F2D5D1CAA31BA00DC4D43 /* SectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D5B1CAA31BA00DC4D43 /* SectionActionView.xib */; };
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
@@ -455,9 +455,6 @@
 		44D2BD40530E2CA1D84D921D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6804A6FF1CA5312400E7A9AF /* AutoScrollUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollUIScrollView.h; sourceTree = "<group>"; };
 		6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollUIScrollView.m; sourceTree = "<group>"; };
-		680F490B1C2160990055C16C /* ItemsBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsBackgroundView.h; sourceTree = "<group>"; };
-		680F490C1C2160990055C16C /* ItemsBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsBackgroundView.m; sourceTree = "<group>"; };
-		680F490E1C2160BF0055C16C /* ItemsBackgroundView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemsBackgroundView.xib; sourceTree = "<group>"; };
 		680F49221C2408130055C16C /* SearchBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBeautifulImage.h; sourceTree = "<group>"; };
 		680F49231C2408130055C16C /* SearchBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBeautifulImage.m; sourceTree = "<group>"; };
 		680F49251C240E400055C16C /* BeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImage.h; sourceTree = "<group>"; };
@@ -819,6 +816,9 @@
 		685F2D4E1CA917C600DC4D43 /* PlanWasChoosedForDesignCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanWasChoosedForDesignCell.m; sourceTree = "<group>"; };
 		685F2D4F1CA917C600DC4D43 /* PlanWasChoosedForDesignCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanWasChoosedForDesignCell.xib; sourceTree = "<group>"; };
 		685F2D541CA9209500DC4D43 /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		685F2D591CAA31BA00DC4D43 /* SectionActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionActionView.h; sourceTree = "<group>"; };
+		685F2D5A1CAA31BA00DC4D43 /* SectionActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionActionView.m; sourceTree = "<group>"; };
+		685F2D5B1CAA31BA00DC4D43 /* SectionActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionActionView.xib; sourceTree = "<group>"; };
 		68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemImageCollectionView.h; sourceTree = "<group>"; };
 		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -2344,6 +2344,9 @@
 				6E7867241BAA534400DE8B1B /* SectionView.h */,
 				6E7867251BAA534400DE8B1B /* SectionView.m */,
 				6E7867271BAA538E00DE8B1B /* SectionView.xib */,
+				685F2D591CAA31BA00DC4D43 /* SectionActionView.h */,
+				685F2D5A1CAA31BA00DC4D43 /* SectionActionView.m */,
+				685F2D5B1CAA31BA00DC4D43 /* SectionActionView.xib */,
 				6E7867131BA944AF00DE8B1B /* ItemCell.h */,
 				6E7867141BA944AF00DE8B1B /* ItemCell.m */,
 				6E7867151BA944AF00DE8B1B /* ItemCell.xib */,
@@ -2363,9 +2366,6 @@
 				AB5852521C074252004B054E /* ItemImageCollectionCell.xib */,
 				68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */,
 				68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */,
-				680F490B1C2160990055C16C /* ItemsBackgroundView.h */,
-				680F490C1C2160990055C16C /* ItemsBackgroundView.m */,
-				680F490E1C2160BF0055C16C /* ItemsBackgroundView.xib */,
 			);
 			path = Process;
 			sourceTree = "<group>";
@@ -2674,7 +2674,6 @@
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				683FFB691C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib in Resources */,
-				680F490F1C2160BF0055C16C /* ItemsBackgroundView.xib in Resources */,
 				68BA50841C9FD8BB002E5572 /* WebViewController.xib in Resources */,
 				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
 				68123BA81C47D15C008FC9AB /* JYZ_sina_icon@2x.png in Resources */,
@@ -2687,6 +2686,7 @@
 				684A374F1BFD73DF00F7388C /* SelectCommunicationTypeViewController.xib in Resources */,
 				685F2D551CA9209500DC4D43 /* iTunesArtwork in Resources */,
 				6E06CC2E1C2BF97800A08D15 /* FavoriteDesignerCell.xib in Resources */,
+				685F2D5D1CAA31BA00DC4D43 /* SectionActionView.xib in Resources */,
 				6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */,
 				684A37011BFD733500F7388C /* DesignerDeclineHomeOwnerCell.xib in Resources */,
 				684A37511BFD73DF00F7388C /* SelectDecorationStyleViewController.xib in Resources */,
@@ -2773,6 +2773,7 @@
 				6EE1E4371C082A8300883184 /* UIImage+Ex.m in Sources */,
 				683FFB701C2B9A70002A1AFE /* BusinessRequirementCreateViewController.m in Sources */,
 				68123B9E1C47D15C008FC9AB /* JYZSocialSnsConfigCenter.m in Sources */,
+				685F2D5C1CAA31BA00DC4D43 /* SectionActionView.m in Sources */,
 				6E44964B1BFC82F500C90851 /* UserInfoViewController.m in Sources */,
 				68123BA01C47D15C008FC9AB /* JYZSocialSnsPlatform.m in Sources */,
 				68123C571C4C8B99008FC9AB /* InfiniteScrollView.m in Sources */,
@@ -2788,7 +2789,6 @@
 				AD89AE501BF4960000B24959 /* NSDate+Ex.m in Sources */,
 				68123B9C1C47D15C008FC9AB /* JYZSocialSnsBaseResp.m in Sources */,
 				68B10C9C1C772A73005866C1 /* DesignerSimpleInfoCell.m in Sources */,
-				680F490D1C2160990055C16C /* ItemsBackgroundView.m in Sources */,
 				6E7867261BAA534400DE8B1B /* SectionView.m in Sources */,
 				684A374E1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m in Sources */,
 				68123B9F1C47D15C008FC9AB /* JYZSocialSnsConstant.m in Sources */,

@@ -18,6 +18,7 @@
 @property (nonatomic, strong) Section *selectedSection;
 @property (nonatomic, assign) NSInteger selectedSectionIndex;
 @property (nonatomic, strong) NSArray *selectedItems;
+@property (nonatomic, strong) Item *ysItem;
 
 - (void)refreshProcessList;
 - (void)refreshProcess;

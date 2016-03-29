@@ -8,13 +8,13 @@
 
 #import "ProcessViewController.h"
 #import "SectionView.h"
+#import "SectionActionView.h"
 #import "ItemCell.h"
 #import "ItemExpandImageCell.h"
 #import "ItemExpandCheckCell.h"
 #import "API.h"
 #import "ProcessDataManager.h"
 #import "ViewControllerContainer.h"
-#import "ItemsBackgroundView.h"
 #import "TouchDelegateView.h"
 
 typedef NS_ENUM(NSInteger, WorkSiteMode) {
@@ -26,12 +26,21 @@ static NSString *ItemExpandCellIdentifier = @"ItemExpandImageCell";
 static NSString *ItemExpandCheckCellIdentifier = @"ItemExpandCheckCell";
 static NSString *ItemCellIdentifier = @"ItemCell";
 
+const CGFloat kSectionExpandWidth = 30;
+const CGFloat kSectionExpandHeight = 20;
+
 @interface ProcessViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (weak, nonatomic) IBOutlet UIView *statusLine;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *statusLineTopConstraint;
 @property (strong, nonatomic) TouchDelegateView *containerView;
 @property (strong, nonatomic) UIScrollView *sectionScrollView;
+@property (strong, nonatomic) CALayer *arrowImageLayer;
+@property (strong, nonatomic) SectionActionView *sectionActionView;
+@property (strong, nonatomic) UIView *sectionExpandIcon;
+@property (strong, nonatomic) UIImageView *sectionActionMark;
+
 @property (strong, nonatomic) NSMutableArray *sectionViewArr;
 
 @property (strong, nonatomic) NSString *processid;
@@ -39,8 +48,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 @property (strong, nonatomic) ProcessDataManager *dataManager;
 
 @property (strong, nonatomic) NSIndexPath *lastSelectedIndexPath;
-@property (assign, nonatomic) BOOL isHeaderHidden;
-@property (assign, nonatomic) BOOL isFirstEnter;
+@property (assign, nonatomic) BOOL wasFirstEnter;
+@property (assign, nonatomic) BOOL wasExpandAction;
 
 @end
 
@@ -78,9 +87,13 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [super viewWillAppear:animated];
     [[NotificationDataManager shared] refreshUnreadCount];
     
-    if (!self.isFirstEnter) {
+    if (self.wasFirstEnter) {
         [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
     }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
 }
 
 #pragma mark - UI
@@ -97,26 +110,28 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    [self configureHeaderToTableView:YES];
     [self.tableView registerNib:[UINib nibWithNibName:ItemCellIdentifier bundle:nil] forCellReuseIdentifier:ItemCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:ItemExpandCheckCellIdentifier bundle:nil] forCellReuseIdentifier:ItemExpandCheckCellIdentifier];
-    [self configureHeaderToTableView:YES];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.backgroundView = [ItemsBackgroundView itemsBackgroundView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.backgroundColor = self.view.backgroundColor;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 90;
-    self.tableView.contentInset = UIEdgeInsetsMake(64+SectionViewHeight, 0, 0, 0);
-    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 0, 0);
-    
-    self.containerView = [[TouchDelegateView alloc] initWithFrame:CGRectMake(0, -SectionViewHeight, kScreenWidth, SectionViewHeight)];
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + kSectionViewHeight + kSectionExpandHeight, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
+    self.tableView.header.ignoredScrollViewContentInsetTop = kSectionViewHeight + kSectionExpandHeight;
+    self.tableView.header.backgroundColor = self.view.backgroundColor;
+
+    //init container view
+    self.containerView = [[TouchDelegateView alloc] initWithFrame:CGRectMake(0, -kSectionViewHeight - kSectionExpandHeight, kScreenWidth, kSectionViewHeight)];
     self.containerView.backgroundColor = [UIColor whiteColor];
     [self.tableView addSubview:self.containerView];
     
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SectionViewWidth, SectionViewHeight)];
+    //init section scroll view
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, kSectionViewWidth, kSectionViewHeight)];
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator = NO;
     scrollView.bounces = NO;
@@ -129,18 +144,116 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self.containerView addSubview:scrollView];
     self.containerView.touchDelegateView = scrollView;
     
-    self.isFirstEnter = YES;
+    //init container bottom line and section mark arrow
+    UIView *bottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.containerView.frame) - 1, CGRectGetWidth(self.containerView.frame), 1)];
+    bottomLine.backgroundColor = kViewBgColor;
+    [self.containerView addSubview:bottomLine];
     
+    self.sectionActionMark = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"section_action_mark"]];
+    self.sectionActionMark.frame = CGRectMake((kSectionViewWidth - 15) / 2, kSectionViewHeight - 7, 15, 7);
+    [self.containerView addSubview:self.sectionActionMark];
+    
+    //init section expand
+    self.sectionExpandIcon = [[UIView alloc] initWithFrame:CGRectMake((kSectionViewWidth -  kSectionExpandWidth) / 2, -kSectionExpandHeight, kSectionExpandWidth, kSectionExpandHeight)];
+    [self.sectionExpandIcon.layer addSublayer:[CALayer createRoundBottomLayer:CGRectMake(0, 0, kSectionExpandWidth, kSectionExpandHeight) cornerRadii:CGSizeMake(3, 3)]];
+    self.arrowImageLayer = [CALayer createLayer:CGRectMake((kSectionExpandWidth - 11) / 2, (kSectionExpandHeight - 7) / 2, 11, 7) image:[UIImage imageNamed:@"section_action_expand"]];
+    [self.sectionExpandIcon.layer addSublayer:self.arrowImageLayer];
+    [self.sectionExpandIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSectionExpand:)]];
+    [self.tableView addSubview:self.sectionExpandIcon];
+    
+    //init section action view
+    self.sectionActionView = [[SectionActionView alloc] initWithFrame:CGRectMake(CGRectGetMinX(self.containerView.frame), CGRectGetMaxY(self.containerView.frame) - kSectionActionViewHeight, CGRectGetWidth(self.containerView.frame), kSectionActionViewHeight)];
+    [self.tableView insertSubview:self.sectionActionView belowSubview:self.containerView];
+    
+    self.wasFirstEnter = NO;
     [[NotificationDataManager shared] subscribeMyNotificationUnreadCount:^(NSInteger count) {
         self.navigationItem.rightBarButtonItem.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
     }];
 }
 
+#pragma mark - gesture 
+- (void)onTapSectionExpand:(UITapGestureRecognizer *)g {
+    if (!self.wasExpandAction) {
+        [self showExpandActionView];
+    } else {
+        [self hideExpandActionView];
+    }
+}
+
+#pragma mark - section action operations
+- (void)showExpandActionView {
+    if (!self.wasExpandAction) {
+        self.wasExpandAction = YES;
+        [self expandActionView:kSectionActionViewHeight];
+    }
+}
+
+- (void)hideExpandActionView {
+    if (self.wasExpandAction) {
+        self.wasExpandAction = NO;
+        [self expandActionView:-kSectionActionViewHeight];
+    }
+}
+
+- (void)expandActionView:(CGFloat)delta {
+    [UIView animateWithDuration:0.3 animations:^{
+        UIEdgeInsets insets = self.tableView.contentInset;
+        insets.top += delta;
+        self.tableView.contentInset = insets;
+        [self.tableView setContentOffset:CGPointMake(0, -self.tableView.contentInset.top)];
+        
+        CGRect frame = self.containerView.frame;
+        frame.origin.y -= delta;
+        self.containerView.frame = frame;
+        self.arrowImageLayer.transform = CATransform3DRotate(self.arrowImageLayer.transform, M_PI, 0, 0, 1);
+
+        if (delta > 0) {
+            self.sectionActionView.frame = CGRectMake(0, CGRectGetMaxY(self.containerView.frame), CGRectGetWidth(self.containerView.frame), kSectionActionViewHeight);
+        } else {
+            self.sectionActionView.frame = CGRectMake(0, CGRectGetMaxY(self.containerView.frame) - kSectionActionViewHeight, CGRectGetWidth(self.containerView.frame), kSectionActionViewHeight);
+        }
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+    self.tableView.header.ignoredScrollViewContentInsetTop += delta;
+    [self.tableView.header setNeedsLayout];
+    [self.tableView.header layoutIfNeeded];
+}
+
+- (void)updateSectionActionStatus {
+    if (self.dataManager.ysItem) {
+        Item *item = self.dataManager.ysItem;
+        if ([item.name isEqualToString:DBYS]) {
+            @weakify(self);
+            [self.sectionActionView updateData:item withMgr:self.dataManager refresh:^{
+                @strongify(self);
+                [self refreshForIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] isExpand:YES];
+            }];
+        }
+        
+        self.sectionExpandIcon.hidden = NO;
+        self.sectionActionMark.hidden = NO;
+        [self showExpandActionView];
+    } else {
+        self.sectionExpandIcon.hidden = YES;
+        self.sectionActionMark.hidden = YES;
+        [self hideExpandActionView];
+    }
+}
+
 #pragma mark - scroll view delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (scrollView == self.tableView) {
+        CGFloat offsetY = scrollView.contentOffset.y + self.tableView.contentInset.top;
+        self.statusLineTopConstraint.constant = kNavWithStatusBarHeight + kSectionViewHeight - kSectionExpandHeight - offsetY;
+    }
+}
+
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (scrollView == self.sectionScrollView) {
         if (!decelerate) {
-            NSUInteger index = self.sectionScrollView.contentOffset.x / SectionViewWidth;
+            NSUInteger index = self.sectionScrollView.contentOffset.x / kSectionViewWidth;
             NSUInteger curIndex = self.dataManager.selectedSectionIndex;
             if (index != curIndex) {
                 [self reloadItemsForSection:index];
@@ -151,7 +264,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     if (scrollView == self.sectionScrollView) {
-        NSUInteger index = self.sectionScrollView.contentOffset.x / SectionViewWidth;
+        NSUInteger index = self.sectionScrollView.contentOffset.x / kSectionViewWidth;
         NSUInteger curIndex = self.dataManager.selectedSectionIndex;
         if (index != curIndex) {
             [self reloadItemsForSection:index];
@@ -163,7 +276,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)handleTapSectionViewGesture:(UITapGestureRecognizer *)gesture {
     SectionView *sectionView = (SectionView *)gesture.view;
     NSInteger index = [self.sectionViewArr indexOfObject:sectionView];
-    [self.sectionScrollView setContentOffset:CGPointMake(index * SectionViewWidth, 0) animated:YES];
+    [self.sectionScrollView setContentOffset:CGPointMake(index * kSectionViewWidth, 0) animated:YES];
     [self reloadItemsForSection:index];
 }
 
@@ -181,30 +294,19 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [self configureCellProperties:cell];
         return cell;
     } else {
-        if ([item.name isEqualToString:DBYS]) {
-            ItemExpandCheckCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCheckCellIdentifier forIndexPath:indexPath];
-            @weakify(self);
-            [cell initWithItem:item withDataManager:self.dataManager withBlock:^{
-                @strongify(self);
+        ItemExpandImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCellIdentifier forIndexPath:indexPath];
+        @weakify(self);
+        [cell initWithItem:item withDataManager:self.dataManager withBlock:^(BOOL isNeedReload) {
+            @strongify(self);
+            if (isNeedReload) {
                 [self refreshForIndexPath:indexPath isExpand:YES];
-            }];
-            [self configureCellProperties:cell];
-            return cell;
-        } else {
-            ItemExpandImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ItemExpandCellIdentifier forIndexPath:indexPath];
-            @weakify(self);
-            [cell initWithItem:item withDataManager:self.dataManager withBlock:^(BOOL isNeedReload) {
-                @strongify(self);
-                if (isNeedReload) {
-                    [self refreshForIndexPath:indexPath isExpand:YES];
-                } else {
-                    [self.tableView beginUpdates];
-                    [self.tableView endUpdates];
-                }
-            }];
-            [self configureCellProperties:cell];
-            return cell;
-        }
+            } else {
+                [self.tableView beginUpdates];
+                [self.tableView endUpdates];
+            }
+        }];
+        [self configureCellProperties:cell];
+        return cell;
     }
 }
 
@@ -249,7 +351,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
                 @strongify(self);
                 [self refreshProcess:NO];
             }];
-            self.tableView.header.ignoredScrollViewContentInsetTop = SectionViewHeight;
         }
     } else {
         self.tableView.header = nil;
@@ -261,6 +362,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [self.dataManager refreshSections:[ProcessBusiness defaultProcess]];
         [self refreshSectionView];
         [self reloadItemsForSection:0];
+        self.sectionActionView.userInteractionEnabled = NO;
     } else {
         if (showPlsWait) {
             [HUDUtil showWait];
@@ -322,10 +424,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 #pragma mark - refresh section
 - (void)refreshSectionView {
-    if (self.isFirstEnter) {
-        self.isFirstEnter = NO;
+    if (!self.wasFirstEnter) {
+        self.wasFirstEnter = YES;
         self.title = self.dataManager.process.cell;
         [self initSectionView];
+        [self showExpandActionView];
     } else {
         [self updateSectionView];
     }
@@ -338,7 +441,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     self.dataManager.selectedSectionIndex = self.dataManager.ongoingSectionIndex;
     [UIView animateWithDuration:0.5 animations:^{
-        [self.sectionScrollView setContentOffset:CGPointMake(self.dataManager.selectedSectionIndex * SectionViewWidth, 0) animated:NO];
+        [self.sectionScrollView setContentOffset:CGPointMake(self.dataManager.selectedSectionIndex * kSectionViewWidth, 0) animated:NO];
     }];
 
     return YES;
@@ -348,14 +451,14 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)initSectionView {
     NSArray *sections = self.dataManager.sections;
     self.sectionViewArr = [NSMutableArray arrayWithCapacity:sections.count];
-    self.sectionScrollView.contentSize = CGSizeMake(sections.count * SectionViewWidth, SectionViewHeight);
+    self.sectionScrollView.contentSize = CGSizeMake(sections.count * kSectionViewWidth, kSectionViewHeight);
     
     @weakify(self);
     [sections enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         Section *section = sections[idx];
         SectionView *sectionView = [SectionView sectionView];
-        sectionView.frame = CGRectMake(idx * SectionViewWidth, 0, SectionViewWidth, SectionViewHeight);
+        sectionView.frame = CGRectMake(idx * kSectionViewWidth, 0, kSectionViewWidth, kSectionViewHeight);
         [sectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapSectionViewGesture:)]];
         
         [self updateSection:section forView:sectionView index:idx total:sections.count];
@@ -399,6 +502,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 #pragma mark - reload items
 - (void)reloadItemsForSection:(NSInteger)sectionIndex {
     [self.dataManager switchToSelectedSection:sectionIndex];
+    [self updateSectionActionStatus];
     [self initItemsStatus];
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -450,12 +554,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 - (void)refreshSectionBackground {
-    id backgroundView = self.tableView.backgroundView;
-    if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
-        [backgroundView statusLine].backgroundColor = kFinishedColor;
-    } else {
-        [backgroundView statusLine].backgroundColor = kUntriggeredColor;
-    }
+    self.statusLine.backgroundColor = [self.dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished] ? kThemeColor : kUntriggeredColor;
 }
 
 #pragma mark - user action

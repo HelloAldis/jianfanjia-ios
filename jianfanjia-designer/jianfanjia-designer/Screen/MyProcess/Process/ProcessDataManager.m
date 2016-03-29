@@ -71,10 +71,11 @@
         Item *item = [[Item alloc] init];
         item.name = DBYS;
         item.status = self.selectedSection.status;
-        [itemArr insertObject:item atIndex:0];
+        self.ysItem = item;
         self.selectedSection.ys = [[Ys alloc] initWith:[self.selectedSection.data objectForKey:@"ys"]];
         self.selectedSection.schedule = [[Schedule alloc] initWith:[self.selectedSection.data objectForKey:@"reschedule"]];
     } else {
+        self.ysItem = nil;
         self.selectedSection.ys = nil;
     }
     

@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-extern CGFloat const SectionViewWidth;
-extern CGFloat const SectionViewHeight;
+extern const CGFloat kSectionViewWidth;
+extern const CGFloat kSectionViewHeight;
 
 @interface SectionView : UIView
 

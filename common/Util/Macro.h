@@ -24,6 +24,9 @@ shared##className = [[self alloc] init]; \
 return shared##className; \
 }
 
+#define kStatusBarHeight 20
+#define kNavBarHeight 44
+#define kNavWithStatusBarHeight (kStatusBarHeight + kNavBarHeight)
 #define kScreenFullFrame [UIScreen mainScreen].bounds
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height

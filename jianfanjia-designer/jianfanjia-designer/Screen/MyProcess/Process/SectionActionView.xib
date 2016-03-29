@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gJh-Em-3we" customClass="SectionActionView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsL-mi-ljX">
+                    <rect key="frame" x="305" y="15" width="285" height="40"/>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="iLL-Fx-sgS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <state key="normal" title="对比验收">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="iLL-Fx-sgS"/>
+                        </mask>
+                    </variation>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KO-gc-jbF">
+                    <rect key="frame" x="10" y="15" width="285" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="B7h-Sx-aVO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <state key="normal" title="申请改期">
+                        <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-rl-X07">
+                    <rect key="frame" x="10" y="15" width="580" height="40"/>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="mlk-Yb-aHc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <state key="normal" title="您有未处理的改期">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="mlk-Yb-aHc"/>
+                        </mask>
+                    </variation>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Fuv-rl-X07" firstAttribute="height" secondItem="5KO-gc-jbF" secondAttribute="height" id="22k-LR-eVJ"/>
+                <constraint firstItem="SsL-mi-ljX" firstAttribute="leading" secondItem="5KO-gc-jbF" secondAttribute="trailing" constant="10" id="Auw-Cx-Imc"/>
+                <constraint firstItem="5KO-gc-jbF" firstAttribute="height" secondItem="SsL-mi-ljX" secondAttribute="height" id="EOw-A4-KQ2"/>
+                <constraint firstAttribute="trailing" secondItem="Fuv-rl-X07" secondAttribute="trailing" constant="10" id="Go2-ek-B69"/>
+                <constraint firstItem="Fuv-rl-X07" firstAttribute="leading" secondItem="gJh-Em-3we" secondAttribute="leading" constant="10" id="KNb-Pw-nDA"/>
+                <constraint firstItem="Fuv-rl-X07" firstAttribute="leading" secondItem="5KO-gc-jbF" secondAttribute="leading" id="OwM-pN-FhD"/>
+                <constraint firstAttribute="bottom" secondItem="5KO-gc-jbF" secondAttribute="bottom" constant="15" id="YUw-WT-f8Q"/>
+                <constraint firstItem="Fuv-rl-X07" firstAttribute="trailing" secondItem="SsL-mi-ljX" secondAttribute="trailing" id="bCk-7e-DC0"/>
+                <constraint firstItem="Fuv-rl-X07" firstAttribute="centerY" secondItem="5KO-gc-jbF" secondAttribute="centerY" id="d4u-RG-hXh"/>
+                <constraint firstItem="SsL-mi-ljX" firstAttribute="centerY" secondItem="5KO-gc-jbF" secondAttribute="centerY" id="dRb-uR-bA7"/>
+                <constraint firstItem="SsL-mi-ljX" firstAttribute="width" secondItem="5KO-gc-jbF" secondAttribute="width" id="mLH-uf-LYl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="btnChangeDate" destination="5KO-gc-jbF" id="OKE-DX-cX3"/>
+                <outlet property="btnDBYS" destination="SsL-mi-ljX" id="3tY-yP-M4y"/>
+                <outlet property="btnUnresolvedChangeDate" destination="Fuv-rl-X07" id="a19-QU-CLW"/>
+            </connections>
+        </view>
+    </objects>
+</document>

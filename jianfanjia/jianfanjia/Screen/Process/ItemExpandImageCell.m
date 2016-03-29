@@ -48,7 +48,6 @@ static CGFloat imgCellWidth;
 
 #pragma mark - life cycle
 - (void)awakeFromNib {
-    DDLogDebug(@"ItemExpandImageCell %@", self);
     [self.imgCollection registerNib:[UINib nibWithNibName:ImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:ImageCollectionCellIdentifier];
     self.imgCollectionLayout.minimumLineSpacing = CELL_SPACE;
     self.imgCollectionLayout.minimumInteritemSpacing = CELL_SPACE;
@@ -56,7 +55,7 @@ static CGFloat imgCellWidth;
     [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
     [self.imgCollection addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)]];
     [self.leaveMsgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLeaveIconGesture:)]];
-    imgCollectionWidth = kScreenWidth - 85;
+    imgCollectionWidth = kScreenWidth - 87;
     imgCellWidth = (imgCollectionWidth - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
 }
 

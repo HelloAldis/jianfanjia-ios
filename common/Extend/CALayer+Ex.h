@@ -13,5 +13,6 @@
 + (CALayer *)createMask:(CGRect)frame withTransparentHole:(CGRect)hole;
 + (CALayer *)createMask:(CGRect)frame;
 + (CALayer *)createLayer:(CGRect)frame image:(UIImage *)img;
++ (CALayer *)createRoundBottomLayer:(CGRect)frame cornerRadii:(CGSize)cornerRadii;
 
 @end

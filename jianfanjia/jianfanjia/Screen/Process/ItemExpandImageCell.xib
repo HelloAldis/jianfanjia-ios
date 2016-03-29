@@ -17,14 +17,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hde-wy-FiP">
-                        <rect key="frame" x="40" y="0.0" width="1" height="310"/>
+                        <rect key="frame" x="42" y="0.0" width="1" height="310"/>
                         <color key="backgroundColor" red="0.74901960784313726" green="0.72941176470588232" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="1" id="mx3-Ua-BDc"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aUu-Au-cqk">
-                        <rect key="frame" x="57" y="8" width="365" height="294"/>
+                        <rect key="frame" x="59" y="8" width="363" height="294"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="现场交底" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AfC-lp-QFN">
                                 <rect key="frame" x="10" y="15" width="56" height="17"/>
@@ -33,7 +33,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5Ke-h7-UIP" customClass="UIItemImageCollectionView">
-                                <rect key="frame" x="10" y="47" width="345" height="207"/>
+                                <rect key="frame" x="10" y="47" width="343" height="207"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IWu-aw-IlC">
                                     <size key="itemSize" width="50" height="50"/>
@@ -53,13 +53,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未开工" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="poH-el-VK9">
-                                <rect key="frame" x="313" y="15" width="42" height="17"/>
+                                <rect key="frame" x="311" y="15" width="42" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xSw-PD-T7A" userLabel="LeaveMsgView">
-                                <rect key="frame" x="330" y="254" width="25" height="40"/>
+                                <rect key="frame" x="328" y="254" width="25" height="40"/>
                                 <subviews>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_leave_msg_normal" translatesAutoresizingMaskIntoConstraints="NO" id="upI-5d-dQY">
                                         <rect key="frame" x="0.0" y="14" width="12" height="13"/>
@@ -103,14 +103,14 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQQ-4g-xdG">
-                        <rect key="frame" x="57" y="8" width="2" height="294"/>
+                        <rect key="frame" x="59" y="8" width="2" height="294"/>
                         <color key="backgroundColor" red="0.74901960779999999" green="0.72941176470000002" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="2" id="QNz-fH-VAO"/>
                         </constraints>
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item_status_0" translatesAutoresizingMaskIntoConstraints="NO" id="i3E-BS-wi3">
-                        <rect key="frame" x="33" y="24" width="16" height="16"/>
+                        <rect key="frame" x="35" y="24" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="i3E-BS-wi3" secondAttribute="height" multiplier="1:1" id="0vJ-oq-jXs"/>
                             <constraint firstAttribute="width" constant="16" id="EnW-Ub-gtg"/>
@@ -127,7 +127,7 @@
                     <constraint firstItem="aUu-Au-cqk" firstAttribute="leading" secondItem="Hde-wy-FiP" secondAttribute="trailing" constant="16" id="QAu-mK-bQW"/>
                     <constraint firstItem="i3E-BS-wi3" firstAttribute="centerX" secondItem="Hde-wy-FiP" secondAttribute="centerX" id="Spt-wO-cAD"/>
                     <constraint firstAttribute="bottomMargin" secondItem="aUu-Au-cqk" secondAttribute="bottom" id="XPn-ca-hCO"/>
-                    <constraint firstItem="Hde-wy-FiP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="32" id="cox-jU-sIf"/>
+                    <constraint firstItem="Hde-wy-FiP" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="34" id="cox-jU-sIf"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Hde-wy-FiP" secondAttribute="bottom" constant="-8" id="hxf-xm-rP4"/>
                     <constraint firstItem="aUu-Au-cqk" firstAttribute="leading" secondItem="bQQ-4g-xdG" secondAttribute="leading" id="lzn-bp-3oh"/>
                     <constraint firstItem="Hde-wy-FiP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="xsz-QD-ksm"/>
