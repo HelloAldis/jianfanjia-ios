@@ -304,7 +304,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             [self handleNoFavoriateDesigner];
         } else {
             if (request.limit.integerValue > count) {
-                [self.designerTableView.footer noticeNoMoreData];
+                [self.designerTableView.footer endRefreshingWithNoMoreData];
             }
         }
         
@@ -329,7 +329,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         NSInteger count = [self.favoriateDesignerPageData loadMoreDesigner];
         [self.designerTableView.footer endRefreshing];
         if (request.limit.integerValue > count) {
-            [self.designerTableView.footer noticeNoMoreData];
+            [self.designerTableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.designerTableView reloadData];
@@ -377,7 +377,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             [self handleNoFavoriateProduct];
         } else {
             if (request.limit.integerValue > count) {
-                [self.productTableView.footer noticeNoMoreData];
+                [self.productTableView.footer endRefreshingWithNoMoreData];
             }
         }
         
@@ -402,7 +402,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         [self.productTableView.footer endRefreshing];
         NSInteger count = [self.favoriateProductPageData loadMoreProduct];
         if (request.limit.integerValue > count) {
-            [self.productTableView.footer noticeNoMoreData];
+            [self.productTableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.productTableView reloadData];
@@ -444,7 +444,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             [self handleNoFavoriateBeautifulImage];
         } else {
             if (request.limit.integerValue > count) {
-                [self.beautifulImageCollectionView.footer noticeNoMoreData];
+                [self.beautifulImageCollectionView.footer endRefreshingWithNoMoreData];
             }
         }
         
@@ -467,7 +467,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         NSInteger count = [self.favoriateBeautifulImageData loadMoreBeautifulImages];
         [self.beautifulImageCollectionView.footer endRefreshing];
         if (request.limit.integerValue > count) {
-            [self.beautifulImageCollectionView.footer noticeNoMoreData];
+            [self.beautifulImageCollectionView.footer endRefreshingWithNoMoreData];
         }
         
         [self.beautifulImageCollectionView reloadData];

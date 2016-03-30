@@ -241,7 +241,7 @@ static NSMutableArray *designFeeDS;
         if (count == 0) {
             [self handleNoDesigner];
         } else if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
@@ -262,7 +262,7 @@ static NSMutableArray *designFeeDS;
         [self.tableView.footer endRefreshing];
         NSInteger count = [self.dataManager loadMore];
         if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];

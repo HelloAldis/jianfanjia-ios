@@ -112,7 +112,7 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
         if (count == 0) {
             [self handleNoDesigner];
         } else if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
@@ -132,7 +132,7 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
         [self.tableView.header endRefreshing];
         NSInteger count = [self.dataManager loadMore];
         if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
 
         [self.tableView reloadData];

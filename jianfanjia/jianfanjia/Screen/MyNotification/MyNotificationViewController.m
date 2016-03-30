@@ -242,7 +242,7 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
     if (count == 0) {
         [self handleNoData:noDataText];
     } else if (count < 20) {
-        [self.tableView.footer noticeNoMoreData];
+        [self.tableView.footer endRefreshingWithNoMoreData];
     }
     
     [self refreshDatasource];
@@ -293,7 +293,7 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
     }
     
     if (count < 20) {
-        [self.tableView.footer noticeNoMoreData];
+        [self.tableView.footer endRefreshingWithNoMoreData];
     }
     
     [self.tableView reloadData];

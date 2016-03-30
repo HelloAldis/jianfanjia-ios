@@ -194,7 +194,7 @@
         NSInteger count = [self.designerPageData refreshProduct];
         [self.tableView.footer endRefreshing];
         if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         };
         
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -217,7 +217,7 @@
         NSInteger count = [self.designerPageData loadMoreProduct];
         [self.tableView.footer endRefreshing];
         if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         };
         
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];

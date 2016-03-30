@@ -296,7 +296,7 @@ static NSMutableArray *decStyleDS;
         if (count == 0) {
             [self handleNoBeautifulImage];
         } else if (request.limit.integerValue > count) {
-            [self.imgCollection.footer noticeNoMoreData];
+            [self.imgCollection.footer endRefreshingWithNoMoreData];
         }
         
         [self.imgCollection reloadData];
@@ -314,7 +314,7 @@ static NSMutableArray *decStyleDS;
         [self.imgCollection.footer endRefreshing];
         NSInteger count = [self.dataManager loadMoreBeautifulImages];
         if (request.limit.integerValue > count) {
-            [self.imgCollection.footer noticeNoMoreData];
+            [self.imgCollection.footer endRefreshingWithNoMoreData];
         }
         
         [self.imgCollection reloadData];

@@ -297,7 +297,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
         if (count == 0) {
             [self handleNoDesigner];
         } else if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
@@ -318,7 +318,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
         [self.tableView.footer endRefreshing];
         NSInteger count = [self.designerDataManager loadMore];
         if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
@@ -358,7 +358,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
         if (count == 0) {
             [self handleNoProduct];
         } else if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
@@ -379,7 +379,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
         [self.tableView.footer endRefreshing];
         NSInteger count = [self.productCaseDataManager loadMore];
         if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
@@ -414,7 +414,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
         if (count == 0) {
             [self handleNoBeautifulImage];
         } else if (request.limit.integerValue > count) {
-            [self.imgCollection.footer noticeNoMoreData];
+            [self.imgCollection.footer endRefreshingWithNoMoreData];
         }
         
         [self.imgCollection reloadData];
@@ -432,7 +432,7 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
         [self.imgCollection.footer endRefreshing];
         NSInteger count = [self.beautifulDataManager loadMoreBeautifulImages];
         if (request.limit.integerValue > count) {
-            [self.imgCollection.footer noticeNoMoreData];
+            [self.imgCollection.footer endRefreshingWithNoMoreData];
         }
         
         [self.imgCollection reloadData];

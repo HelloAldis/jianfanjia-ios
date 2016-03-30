@@ -240,7 +240,7 @@ static NSMutableArray *decStyleDS;
         if (count == 0) {
             [self handleNoProduct];
         } else if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
@@ -261,7 +261,7 @@ static NSMutableArray *decStyleDS;
         [self.tableView.footer endRefreshing];
         NSInteger count = [self.dataManager loadMore];
         if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];

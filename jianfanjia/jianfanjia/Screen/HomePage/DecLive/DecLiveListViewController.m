@@ -186,7 +186,7 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
         if (count == 0) {
             [self handleNoOngoingDecLive];
         } else if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
@@ -207,7 +207,7 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
         [self.tableView.footer endRefreshing];
         NSInteger count = [self.dataManager loadMoreOngoingDeclives];
         if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
@@ -235,7 +235,7 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
         if (count == 0) {
             [self handleNoFinishDecLive];
         } else if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
@@ -256,7 +256,7 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
         [self.tableView.footer endRefreshing];
         NSInteger count = [self.dataManager loadMoreFinishDeclives];
         if (request.limit.integerValue > count) {
-            [self.tableView.footer noticeNoMoreData];
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
         [self.tableView reloadData];
