@@ -276,6 +276,8 @@
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
 		685F2D651CAA8DDE00DC4D43 /* SectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D631CAA8DDE00DC4D43 /* SectionActionView.xib */; };
+		685F2D6E1CABC0A900DC4D43 /* UnexpandSectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D6C1CABC0A900DC4D43 /* UnexpandSectionActionView.m */; };
+		685F2D6F1CABC0A900DC4D43 /* UnexpandSectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D6D1CABC0A900DC4D43 /* UnexpandSectionActionView.xib */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -818,6 +820,9 @@
 		685F2D611CAA8DDE00DC4D43 /* SectionActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionActionView.h; sourceTree = "<group>"; };
 		685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionActionView.m; sourceTree = "<group>"; };
 		685F2D631CAA8DDE00DC4D43 /* SectionActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionActionView.xib; sourceTree = "<group>"; };
+		685F2D6B1CABC0A900DC4D43 /* UnexpandSectionActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnexpandSectionActionView.h; sourceTree = "<group>"; };
+		685F2D6C1CABC0A900DC4D43 /* UnexpandSectionActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnexpandSectionActionView.m; sourceTree = "<group>"; };
+		685F2D6D1CABC0A900DC4D43 /* UnexpandSectionActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnexpandSectionActionView.xib; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -1295,6 +1300,9 @@
 				681241141C4CF2D5008FC9AB /* SectionView.h */,
 				681241151C4CF2D5008FC9AB /* SectionView.m */,
 				681241161C4CF2D5008FC9AB /* SectionView.xib */,
+				685F2D6B1CABC0A900DC4D43 /* UnexpandSectionActionView.h */,
+				685F2D6C1CABC0A900DC4D43 /* UnexpandSectionActionView.m */,
+				685F2D6D1CABC0A900DC4D43 /* UnexpandSectionActionView.xib */,
 				685F2D611CAA8DDE00DC4D43 /* SectionActionView.h */,
 				685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */,
 				685F2D631CAA8DDE00DC4D43 /* SectionActionView.xib */,
@@ -2046,6 +2054,7 @@
 				681241AF1C4F3BCF008FC9AB /* SubmitedPlanActionCell.xib in Resources */,
 				684B04101C98F7060053FFDF /* PlanCommentInfoCell.xib in Resources */,
 				68123C931C4C9772008FC9AB /* ThumbnailCell.xib in Resources */,
+				685F2D6F1CABC0A900DC4D43 /* UnexpandSectionActionView.xib in Resources */,
 				681241341C4CF2D5008FC9AB /* SectionView.xib in Resources */,
 				68123C991C4C9772008FC9AB /* allprovince.js in Resources */,
 				681241CA1C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib in Resources */,
@@ -2330,6 +2339,7 @@
 				681241AE1C4F3BCF008FC9AB /* SubmitedPlanActionCell.m in Sources */,
 				6E378D441BDA2D2E00908B77 /* NSManagedObject+Ex.m in Sources */,
 				6E0426711BC757C500F984B8 /* AppDelegate.m in Sources */,
+				685F2D6E1CABC0A900DC4D43 /* UnexpandSectionActionView.m in Sources */,
 				68123F201C4CBE79008FC9AB /* WelcomeViewController.m in Sources */,
 				68123C9C1C4C9772008FC9AB /* SelectCityViewController.m in Sources */,
 				68123EFD1C4CBE79008FC9AB /* DecorationStyleCell.m in Sources */,

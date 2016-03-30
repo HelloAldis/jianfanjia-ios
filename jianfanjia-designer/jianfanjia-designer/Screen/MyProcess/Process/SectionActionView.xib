@@ -8,72 +8,103 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="gJh-Em-3we" customClass="SectionActionView">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsL-mi-ljX">
-                    <rect key="frame" x="305" y="15" width="285" height="40"/>
-                    <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieG-J5-eMn">
+                    <rect key="frame" x="28" y="60" width="30" height="30"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="section_action_expand" translatesAutoresizingMaskIntoConstraints="NO" id="MvF-os-7Wo">
+                            <rect key="frame" x="10" y="17" width="11" height="7"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="7" id="fdQ-nj-cmH"/>
+                                <constraint firstAttribute="width" constant="11" id="opB-dJ-0hN"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="iLL-Fx-sgS"/>
+                        <constraint firstAttribute="height" constant="30" id="0ZY-2X-dp8"/>
+                        <constraint firstAttribute="width" constant="30" id="OUd-wB-qYa"/>
+                        <constraint firstItem="MvF-os-7Wo" firstAttribute="centerY" secondItem="ieG-J5-eMn" secondAttribute="centerY" constant="5" id="kA4-65-FPU"/>
+                        <constraint firstItem="MvF-os-7Wo" firstAttribute="centerX" secondItem="ieG-J5-eMn" secondAttribute="centerX" id="qEY-WU-CHm"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                    <state key="normal" title="对比验收">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="iLL-Fx-sgS"/>
-                        </mask>
-                    </variation>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KO-gc-jbF">
-                    <rect key="frame" x="10" y="15" width="285" height="40"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xGh-Db-BYk">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KO-gc-jbF">
+                            <rect key="frame" x="10" y="15" width="285" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="B7h-Sx-aVO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <state key="normal" title="申请改期">
+                                <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SsL-mi-ljX">
+                            <rect key="frame" x="305" y="15" width="285" height="40"/>
+                            <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <state key="normal" title="对比验收">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-rl-X07">
+                            <rect key="frame" x="10" y="15" width="580" height="40"/>
+                            <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <state key="normal" title="您有未处理的改期">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Krs-nV-kH8" userLabel="Line">
+                            <rect key="frame" x="0.0" y="69" width="600" height="1"/>
+                            <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="cxg-qU-kbL"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="B7h-Sx-aVO"/>
+                        <constraint firstItem="SsL-mi-ljX" firstAttribute="leading" secondItem="5KO-gc-jbF" secondAttribute="trailing" constant="10" id="0xf-49-BGA"/>
+                        <constraint firstAttribute="bottom" secondItem="Krs-nV-kH8" secondAttribute="bottom" id="1eN-ol-CUx"/>
+                        <constraint firstItem="SsL-mi-ljX" firstAttribute="height" secondItem="5KO-gc-jbF" secondAttribute="height" id="3DJ-Vq-5Ly"/>
+                        <constraint firstAttribute="height" constant="70" id="9gK-1H-BMx"/>
+                        <constraint firstItem="Fuv-rl-X07" firstAttribute="leading" secondItem="5KO-gc-jbF" secondAttribute="leading" id="H12-Zc-qlp"/>
+                        <constraint firstItem="5KO-gc-jbF" firstAttribute="centerY" secondItem="xGh-Db-BYk" secondAttribute="centerY" id="JnG-mm-clZ"/>
+                        <constraint firstItem="SsL-mi-ljX" firstAttribute="width" secondItem="5KO-gc-jbF" secondAttribute="width" id="LOU-xP-4RW"/>
+                        <constraint firstAttribute="trailing" secondItem="Krs-nV-kH8" secondAttribute="trailing" id="MeZ-6z-3uL"/>
+                        <constraint firstItem="Fuv-rl-X07" firstAttribute="height" secondItem="5KO-gc-jbF" secondAttribute="height" id="N3d-nu-EnD"/>
+                        <constraint firstItem="Fuv-rl-X07" firstAttribute="centerY" secondItem="5KO-gc-jbF" secondAttribute="centerY" id="Nb6-qh-Tyo"/>
+                        <constraint firstAttribute="trailing" secondItem="SsL-mi-ljX" secondAttribute="trailing" constant="10" id="UIc-hY-awO"/>
+                        <constraint firstItem="5KO-gc-jbF" firstAttribute="leading" secondItem="xGh-Db-BYk" secondAttribute="leading" constant="10" id="Wg4-M0-aY7"/>
+                        <constraint firstItem="SsL-mi-ljX" firstAttribute="centerY" secondItem="5KO-gc-jbF" secondAttribute="centerY" id="fWw-g1-wM3"/>
+                        <constraint firstItem="Krs-nV-kH8" firstAttribute="leading" secondItem="xGh-Db-BYk" secondAttribute="leading" id="lBA-ws-k61"/>
+                        <constraint firstItem="Fuv-rl-X07" firstAttribute="trailing" secondItem="SsL-mi-ljX" secondAttribute="trailing" id="unS-uf-g86"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                    <state key="normal" title="申请改期">
-                        <color key="titleColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fuv-rl-X07">
-                    <rect key="frame" x="10" y="15" width="580" height="40"/>
-                    <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="mlk-Yb-aHc"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                    <state key="normal" title="您有未处理的改期">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="mlk-Yb-aHc"/>
-                        </mask>
-                    </variation>
-                </button>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Fuv-rl-X07" firstAttribute="height" secondItem="5KO-gc-jbF" secondAttribute="height" id="22k-LR-eVJ"/>
-                <constraint firstItem="SsL-mi-ljX" firstAttribute="leading" secondItem="5KO-gc-jbF" secondAttribute="trailing" constant="10" id="Auw-Cx-Imc"/>
-                <constraint firstItem="5KO-gc-jbF" firstAttribute="height" secondItem="SsL-mi-ljX" secondAttribute="height" id="EOw-A4-KQ2"/>
-                <constraint firstAttribute="trailing" secondItem="Fuv-rl-X07" secondAttribute="trailing" constant="10" id="Go2-ek-B69"/>
-                <constraint firstItem="Fuv-rl-X07" firstAttribute="leading" secondItem="gJh-Em-3we" secondAttribute="leading" constant="10" id="KNb-Pw-nDA"/>
-                <constraint firstItem="Fuv-rl-X07" firstAttribute="leading" secondItem="5KO-gc-jbF" secondAttribute="leading" id="OwM-pN-FhD"/>
-                <constraint firstAttribute="bottom" secondItem="5KO-gc-jbF" secondAttribute="bottom" constant="15" id="YUw-WT-f8Q"/>
-                <constraint firstItem="Fuv-rl-X07" firstAttribute="trailing" secondItem="SsL-mi-ljX" secondAttribute="trailing" id="bCk-7e-DC0"/>
-                <constraint firstItem="Fuv-rl-X07" firstAttribute="centerY" secondItem="5KO-gc-jbF" secondAttribute="centerY" id="d4u-RG-hXh"/>
-                <constraint firstItem="SsL-mi-ljX" firstAttribute="centerY" secondItem="5KO-gc-jbF" secondAttribute="centerY" id="dRb-uR-bA7"/>
-                <constraint firstItem="SsL-mi-ljX" firstAttribute="width" secondItem="5KO-gc-jbF" secondAttribute="width" id="mLH-uf-LYl"/>
+                <constraint firstItem="ieG-J5-eMn" firstAttribute="top" secondItem="xGh-Db-BYk" secondAttribute="bottom" constant="-10" id="5k5-CB-x1I"/>
+                <constraint firstItem="xGh-Db-BYk" firstAttribute="leading" secondItem="gJh-Em-3we" secondAttribute="leading" id="6n8-9T-cSh"/>
+                <constraint firstAttribute="trailing" secondItem="xGh-Db-BYk" secondAttribute="trailing" id="Lv8-T3-qRO"/>
+                <constraint firstItem="ieG-J5-eMn" firstAttribute="leading" secondItem="gJh-Em-3we" secondAttribute="leading" constant="28" id="gh5-7Z-6hN"/>
+                <constraint firstItem="xGh-Db-BYk" firstAttribute="top" secondItem="gJh-Em-3we" secondAttribute="top" id="oEt-SC-q6u"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="btnChangeDate" destination="5KO-gc-jbF" id="OKE-DX-cX3"/>
                 <outlet property="btnDBYS" destination="SsL-mi-ljX" id="3tY-yP-M4y"/>
                 <outlet property="btnUnresolvedChangeDate" destination="Fuv-rl-X07" id="a19-QU-CLW"/>
+                <outlet property="expandIcon" destination="MvF-os-7Wo" id="bXL-Dp-y7w"/>
+                <outlet property="expandView" destination="ieG-J5-eMn" id="jnD-ik-5I3"/>
             </connections>
         </view>
     </objects>
+    <resources>
+        <image name="section_action_expand" width="11" height="6"/>
+    </resources>
 </document>

@@ -228,6 +228,8 @@
 		685F2D551CA9209500DC4D43 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D541CA9209500DC4D43 /* iTunesArtwork */; };
 		685F2D5C1CAA31BA00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5A1CAA31BA00DC4D43 /* SectionActionView.m */; };
 		685F2D5D1CAA31BA00DC4D43 /* SectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D5B1CAA31BA00DC4D43 /* SectionActionView.xib */; };
+		685F2D691CAB77E000DC4D43 /* UnexpandSectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D671CAB77E000DC4D43 /* UnexpandSectionActionView.m */; };
+		685F2D6A1CAB77E000DC4D43 /* UnexpandSectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D681CAB77E000DC4D43 /* UnexpandSectionActionView.xib */; };
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
@@ -819,6 +821,9 @@
 		685F2D591CAA31BA00DC4D43 /* SectionActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionActionView.h; sourceTree = "<group>"; };
 		685F2D5A1CAA31BA00DC4D43 /* SectionActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionActionView.m; sourceTree = "<group>"; };
 		685F2D5B1CAA31BA00DC4D43 /* SectionActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SectionActionView.xib; sourceTree = "<group>"; };
+		685F2D661CAB77E000DC4D43 /* UnexpandSectionActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnexpandSectionActionView.h; sourceTree = "<group>"; };
+		685F2D671CAB77E000DC4D43 /* UnexpandSectionActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnexpandSectionActionView.m; sourceTree = "<group>"; };
+		685F2D681CAB77E000DC4D43 /* UnexpandSectionActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnexpandSectionActionView.xib; sourceTree = "<group>"; };
 		68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemImageCollectionView.h; sourceTree = "<group>"; };
 		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -2344,6 +2349,9 @@
 				6E7867241BAA534400DE8B1B /* SectionView.h */,
 				6E7867251BAA534400DE8B1B /* SectionView.m */,
 				6E7867271BAA538E00DE8B1B /* SectionView.xib */,
+				685F2D661CAB77E000DC4D43 /* UnexpandSectionActionView.h */,
+				685F2D671CAB77E000DC4D43 /* UnexpandSectionActionView.m */,
+				685F2D681CAB77E000DC4D43 /* UnexpandSectionActionView.xib */,
 				685F2D591CAA31BA00DC4D43 /* SectionActionView.h */,
 				685F2D5A1CAA31BA00DC4D43 /* SectionActionView.m */,
 				685F2D5B1CAA31BA00DC4D43 /* SectionActionView.xib */,
@@ -2623,6 +2631,7 @@
 				6E6D98AB1BDF733F00D45F77 /* HomePageViewController.xib in Resources */,
 				68B10CB11C781C10005866C1 /* SearchViewController.xib in Resources */,
 				685272C81C2D1602002E62EC /* SelectBusinessTypeViewController.xib in Resources */,
+				685F2D6A1CAB77E000DC4D43 /* UnexpandSectionActionView.xib in Resources */,
 				68123C561C4C8B99008FC9AB /* MessageAlertViewController.xib in Resources */,
 				683FFB451C296288002A1AFE /* BeautifulImageViewController.xib in Resources */,
 				68BA50F41C9FE56B002E5572 /* WebViewWithoutShareController.xib in Resources */,
@@ -2828,6 +2837,7 @@
 				684B04491C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m in Sources */,
 				6EE34D7F1C0EEA5A00C6957E /* NotificationToData.m in Sources */,
 				684B03CD1C979EAA0053FFDF /* DecLiveSection.m in Sources */,
+				685F2D691CAB77E000DC4D43 /* UnexpandSectionActionView.m in Sources */,
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
 				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
 				68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */,

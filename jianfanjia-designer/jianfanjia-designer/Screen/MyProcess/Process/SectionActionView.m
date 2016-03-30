@@ -9,7 +9,7 @@
 #import "SectionActionView.h"
 #import "ViewControllerContainer.h"
 
-const CGFloat kSectionActionViewHeight = 70;
+const CGFloat kSectionActionViewHeight = 90;
 
 @interface SectionActionView()
 
@@ -28,6 +28,9 @@ const CGFloat kSectionActionViewHeight = 70;
 }
 
 - (void)initUI {
+    self.clipsToBounds = YES;
+    self.expandIcon.transform = CGAffineTransformMakeRotation(M_PI);
+    [self.expandView setCornerRadius:5];
     [self.btnDBYS setCornerRadius:5];
     [self.btnChangeDate setCornerRadius:5];
     [self.btnUnresolvedChangeDate setCornerRadius:5];

@@ -16,6 +16,8 @@ extern CGFloat const kSectionActionViewHeight;
 @property (weak, nonatomic) IBOutlet UIButton *btnDBYS;
 @property (weak, nonatomic) IBOutlet UIButton *btnChangeDate;
 @property (weak, nonatomic) IBOutlet UIButton *btnUnresolvedChangeDate;
+@property (weak, nonatomic) IBOutlet UIView *expandView;
+@property (weak, nonatomic) IBOutlet UIImageView *expandIcon;
 
 @property (weak, nonatomic) ProcessDataManager *dataManager;
 @property (weak, nonatomic) Item *item;

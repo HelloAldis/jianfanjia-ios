@@ -103,6 +103,21 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
     objc_setAssociatedObject(self, &UIView_TapBlock, tapBlock, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
+#pragma mark - rotation animation 
+- (void)playRotationZAnimation:(CGFloat)duration angle:(CGFloat)angle completion:(void(^)(void))completion {
+    [CATransaction begin];
+    [CATransaction setCompletionBlock:completion];
+    
+    CABasicAnimation *rotateAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotateAnimation.fromValue = [NSNumber numberWithFloat:0.0];
+    rotateAnimation.toValue = [NSNumber numberWithFloat:angle];
+    rotateAnimation.repeatCount = 1;
+    rotateAnimation.duration = duration;
+    [self.layer addAnimation:rotateAnimation forKey:@"rotateAnimation"];
+    
+    [CATransaction commit];
+}
+
 - (UIImage *)snapshotImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
