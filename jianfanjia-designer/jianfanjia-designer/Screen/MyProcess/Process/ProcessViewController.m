@@ -25,9 +25,6 @@ static NSString *ItemExpandCellIdentifier = @"ItemExpandImageCell";
 static NSString *ItemExpandCheckCellIdentifier = @"ItemExpandCheckCell";
 static NSString *ItemCellIdentifier = @"ItemCell";
 
-const CGFloat kSectionExpandWidth = 30;
-const CGFloat kSectionExpandHeight = 20;
-
 @interface ProcessViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
