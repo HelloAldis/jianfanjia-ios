@@ -420,6 +420,10 @@ const CGFloat kSectionExpandHeight = 20;
 }
 
 - (void)refreshForIndexPath:(NSIndexPath *)indexPath isExpand:(BOOL)isExpand {
+    if (self.workSiteMode != WorkSiteModeReal) {
+        return;
+    }
+    
     GetProcess *request = [[GetProcess alloc] init];
     request.processid = self.processid;
     
