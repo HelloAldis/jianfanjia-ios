@@ -54,7 +54,7 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
     self.dataManager = [[DecLiveListDataManager alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.btnCreateMyWorksite setCornerRadius:self.btnCreateMyWorksite.frame.size.height / 2];
-    self.tableView.contentInset = UIEdgeInsetsMake(64+45, 0, CGRectGetHeight(self.actionView.frame), 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + CGRectGetHeight(self.headerView.frame), 0, CGRectGetHeight(self.actionView.frame), 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     [self.tableView registerNib:[UINib nibWithNibName:DecLiveCellIdentifier bundle:nil] forCellReuseIdentifier:DecLiveCellIdentifier];
     

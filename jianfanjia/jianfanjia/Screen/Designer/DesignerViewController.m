@@ -32,7 +32,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerInfoCell" bundle:nil] forCellReuseIdentifier:@"DesignerInfoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerDetailCell" bundle:nil] forCellReuseIdentifier:@"DesignerDetailCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerProductCell" bundle:nil] forCellReuseIdentifier:@"DesignerProductCell"];
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.estimatedRowHeight = 260;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
 
@@ -59,7 +60,7 @@
 }
 
 - (void)adjustTopView {
-    if (self.tableView.contentOffset.y >= -64 && self.tableView.contentOffset.y <= 200) {
+    if (self.tableView.contentOffset.y >= -kNavWithStatusBarHeight && self.tableView.contentOffset.y <= 200) {
         CGFloat dy = self.tableView.contentOffset.y - 110;
         self.title = dy > 0 ? self.designerPageData.designer.username : nil;
     }

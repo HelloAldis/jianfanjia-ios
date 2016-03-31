@@ -50,36 +50,36 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     [self.designerTableView registerNib:[UINib nibWithNibName:@"FavoriteDesignerCell" bundle:nil] forCellReuseIdentifier:@"FavoriteDesignerCell"];
     [self.productTableView registerNib:[UINib nibWithNibName:@"FavoriateProductCell" bundle:nil] forCellReuseIdentifier:@"FavoriateProductCell"];
     [self.beautifulImageCollectionView registerNib:[UINib nibWithNibName:@"FavoriateBeautifulImageCell"bundle:nil] forCellWithReuseIdentifier:@"FavoriateBeautifulImageCell"];
-    self.designerTableView.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
-    self.productTableView.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
-    self.beautifulImageCollectionView.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
+    self.designerTableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
+    self.productTableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
+    self.beautifulImageCollectionView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
     self.designerTableView.tableFooterView = [[UIView alloc] init];
     
     @weakify(self);
     [RACObserve(self.designerTableView, hidden) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnDesigner setTitleColor:[UIColor colorWithR:170 g:177 b:182] forState:UIControlStateNormal];
+            [self.btnDesigner setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
         } else {
-            [self.btnDesigner setTitleColor:[UIColor colorWithR:52 g:74 b:93] forState:UIControlStateNormal];
+            [self.btnDesigner setTitleColor:kThemeTextColor forState:UIControlStateNormal];
         }
     }];
     
     [RACObserve(self.productTableView, hidden) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnProduct setTitleColor:[UIColor colorWithR:170 g:177 b:182] forState:UIControlStateNormal];
+            [self.btnProduct setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
         } else {
-            [self.btnProduct setTitleColor:[UIColor colorWithR:52 g:74 b:93] forState:UIControlStateNormal];
+            [self.btnProduct setTitleColor:kThemeTextColor forState:UIControlStateNormal];
         }
     }];
     
     [RACObserve(self.beautifulImageCollectionView, hidden) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnBeautifulImage setTitleColor:[UIColor colorWithR:170 g:177 b:182] forState:UIControlStateNormal];
+            [self.btnBeautifulImage setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
         } else {
-            [self.btnBeautifulImage setTitleColor:[UIColor colorWithR:52 g:74 b:93] forState:UIControlStateNormal];
+            [self.btnBeautifulImage setTitleColor:kThemeTextColor forState:UIControlStateNormal];
         }
     }];
     

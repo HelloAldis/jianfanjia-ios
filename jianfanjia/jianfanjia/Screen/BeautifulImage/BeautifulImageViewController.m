@@ -96,7 +96,8 @@ static NSMutableArray *decStyleDS;
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.preY = 0;
     self.dataManager = [[BeautifulImageDataManager alloc] init];
-    self.imgCollection.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
+    self.imgCollection.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + CGRectGetHeight(self.headerView.frame), 0, 0, 0);
+    self.imgCollection.scrollIndicatorInsets = self.imgCollection.contentInset;
     [self.imgCollection registerNib:[UINib nibWithNibName:BeautifulImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:BeautifulImageCollectionCellIdentifier];
     self.imgCollectionLayout.delegate = self;
     

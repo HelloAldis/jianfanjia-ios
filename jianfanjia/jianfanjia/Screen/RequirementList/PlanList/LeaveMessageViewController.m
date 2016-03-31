@@ -294,7 +294,7 @@ static const CGFloat kMaxMessageHeight = 100;
           initialSpringVelocity:1
                         options:UIViewAnimationOptionCurveLinear animations:^{
                             self.view.frame = CGRectMake(self.view.frame.origin.x, -kKeyboardHeight, self.view.frame.size.width, self.view.frame.size.height);;
-                            self.tableViewTopToSuperView.constant = 64 + kKeyboardHeight;
+                            self.tableViewTopToSuperView.constant = kNavWithStatusBarHeight + kKeyboardHeight;
                             [self.view layoutIfNeeded];
                         } completion:nil];
 }
@@ -305,7 +305,7 @@ static const CGFloat kMaxMessageHeight = 100;
           initialSpringVelocity:1.0
                         options:UIViewAnimationOptionCurveLinear animations:^{
                             self.view.frame = CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height);;
-                            self.tableViewTopToSuperView.constant = 64;
+                            self.tableViewTopToSuperView.constant = kNavWithStatusBarHeight;
                             [self.view layoutIfNeeded];
                         } completion:nil];
 }

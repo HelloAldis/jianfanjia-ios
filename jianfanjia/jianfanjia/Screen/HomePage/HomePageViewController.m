@@ -73,7 +73,8 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 - (void)initUI {
     self.dataManager = [[HomePageDataManager alloc] init];
     self.isTabbarhide = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 44, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.decelerationRate = UIScrollViewDecelerationRateFast;
     [self.tableView registerNib:[UINib nibWithNibName:BannerCellIdentifier bundle:nil] forCellReuseIdentifier:BannerCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:HomePageQuickEntryCellIdentifier bundle:nil] forCellReuseIdentifier:HomePageQuickEntryCellIdentifier];
@@ -122,10 +123,10 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 - (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
     CGPoint targetOffset;
     CGFloat contentHeight = scrollView.contentSize.height;
-    CGFloat productOffsetY = contentHeight - kScreenHeight + 44;
+    CGFloat productOffsetY = contentHeight - kScreenHeight + kTabBarHeight;
     CGPoint curOffset = scrollView.contentOffset;
     
-    if (!self.isShowProduct && curOffset.y > -64) {
+    if (!self.isShowProduct && curOffset.y > -kNavWithStatusBarHeight) {
         self.isShowProduct = YES;
         [self.tableView reloadData];
         targetOffset = CGPointMake(curOffset.x, productOffsetY);
@@ -135,7 +136,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
         if (curOffset.y < productOffsetY) {
             self.isShowProduct = NO;
             [self.tableView reloadData];
-            targetOffset = CGPointMake(curOffset.x, -64);
+            targetOffset = CGPointMake(curOffset.x, -kNavWithStatusBarHeight);
             targetContentOffset->x = targetOffset.x;
             targetContentOffset->y = targetOffset.y;
         }

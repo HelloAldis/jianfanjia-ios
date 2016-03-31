@@ -24,7 +24,7 @@
     [self initNav];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
     NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     self.lblVersion.text = [NSString stringWithFormat:@"版本号：%@", version];

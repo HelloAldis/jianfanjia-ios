@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kHomePageProductItemHeight (kScreenHeight - 64 - 44)
+#define kHomePageProductItemHeight (kScreenHeight - kNavWithStatusBarHeight - kTabBarHeight)
 
 @interface HomePageProductItem : UICollectionViewCell
 

@@ -36,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
+    self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
     [self.userThumnail setCornerRadius:self.userThumnail.frame.size.width / 2];
     [self.userThumnail setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
     self.automaticallyAdjustsScrollViewInsets = NO;

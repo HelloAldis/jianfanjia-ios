@@ -96,7 +96,7 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
         UIImage *img = [UIImage imageNamed:@"img_swipe_up"];
         self.guideView = [[UIView alloc] initWithFrame:window.bounds];
-        [self.guideView.layer addSublayer:[CALayer createMask:window.bounds withTransparentHole:CGRectOffset(self.iconProduct.frame, 0, 64 - self.lblTitle.frame.size.height)]];
+        [self.guideView.layer addSublayer:[CALayer createMask:window.bounds withTransparentHole:CGRectOffset(self.iconProduct.frame, 0, kNavWithStatusBarHeight - self.lblTitle.frame.size.height)]];
         [self.guideView.layer addSublayer:[CALayer createLayer:CGRectMake((kScreenWidth - img.size.width) / 2, (kScreenHeight - img.size.height) / 2, img.size.width, img.size.height) image:img]];
         [window addSubview:self.guideView];
         [self.guideView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showProduct:)]];

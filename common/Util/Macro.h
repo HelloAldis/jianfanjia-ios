@@ -27,6 +27,8 @@ return shared##className; \
 #define kStatusBarHeight 20
 #define kNavBarHeight 44
 #define kNavWithStatusBarHeight (kStatusBarHeight + kNavBarHeight)
+#define kTabBarHeight 49
+
 #define kScreenFullFrame [UIScreen mainScreen].bounds
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight [UIScreen mainScreen].bounds.size.height

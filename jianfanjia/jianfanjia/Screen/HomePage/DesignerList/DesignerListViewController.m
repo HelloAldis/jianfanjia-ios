@@ -80,7 +80,8 @@ static NSMutableArray *designFeeDS;
 - (void)initUI {
     self.dataManager = [[DesignerListDataManager alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(64+45, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + CGRectGetHeight(self.headerView.frame), 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     [self.tableView registerNib:[UINib nibWithNibName:DesignerSimpleInfoCellIdentifier bundle:nil] forCellReuseIdentifier:DesignerSimpleInfoCellIdentifier];
     
     @weakify(self);

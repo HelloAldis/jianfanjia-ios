@@ -127,8 +127,9 @@ static NSDictionary *NotificationTitles = nil;
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_webView]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_webView]|" options:0 metrics:nil views:views]];
     
-    _webView.scrollView.contentInset = UIEdgeInsetsMake(64 + self.headerView.frame.size.height, 0, 50, 0);
-    self.headerView.frame = CGRectMake(0, -self.headerView.frame.size.height, kScreenWidth, self.headerView.frame.size.height);
+    _webView.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + CGRectGetHeight(self.headerView.frame), 0, CGRectGetHeight(self.actionView.frame), 0);
+    _webView.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, CGRectGetHeight(self.actionView.frame), 0);
+    self.headerView.frame = CGRectMake(0, -CGRectGetHeight(self.headerView.frame), kScreenWidth, CGRectGetHeight(self.headerView.frame));
     [_webView.scrollView addSubview:self.headerView];
     _webView.scrollView.backgroundColor = self.headerView.backgroundColor;
     self.headerView.hidden = YES;

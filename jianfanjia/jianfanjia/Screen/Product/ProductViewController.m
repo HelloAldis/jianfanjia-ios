@@ -72,7 +72,8 @@
     [self.designerImageView setCornerRadius:15];
     [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
 
 - (void)initUIData {
