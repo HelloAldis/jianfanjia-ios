@@ -231,6 +231,7 @@
 		685F2D691CAB77E000DC4D43 /* UnexpandSectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D671CAB77E000DC4D43 /* UnexpandSectionActionView.m */; };
 		685F2D6A1CAB77E000DC4D43 /* UnexpandSectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D681CAB77E000DC4D43 /* UnexpandSectionActionView.xib */; };
 		685F2D731CABDC4C00DC4D43 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D721CABDC4C00DC4D43 /* BrushGifHeader.m */; };
+		685F2D761CACD21400DC4D43 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D751CACD21400DC4D43 /* DIYGifHeader.m */; };
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
@@ -827,6 +828,8 @@
 		685F2D681CAB77E000DC4D43 /* UnexpandSectionActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnexpandSectionActionView.xib; sourceTree = "<group>"; };
 		685F2D711CABDC4C00DC4D43 /* BrushGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushGifHeader.h; sourceTree = "<group>"; };
 		685F2D721CABDC4C00DC4D43 /* BrushGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushGifHeader.m; sourceTree = "<group>"; };
+		685F2D741CACD21400DC4D43 /* DIYGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYGifHeader.h; sourceTree = "<group>"; };
+		685F2D751CACD21400DC4D43 /* DIYGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYGifHeader.m; sourceTree = "<group>"; };
 		68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemImageCollectionView.h; sourceTree = "<group>"; };
 		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -1666,6 +1669,8 @@
 		685F2D701CABDC0D00DC4D43 /* RefreshComponent */ = {
 			isa = PBXGroup;
 			children = (
+				685F2D741CACD21400DC4D43 /* DIYGifHeader.h */,
+				685F2D751CACD21400DC4D43 /* DIYGifHeader.m */,
 				685F2D711CABDC4C00DC4D43 /* BrushGifHeader.h */,
 				685F2D721CABDC4C00DC4D43 /* BrushGifHeader.m */,
 			);
@@ -2845,6 +2850,7 @@
 				684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */,
 				6EBBA15B1C15866200057688 /* Feedback.m in Sources */,
 				68134A321C3CA840003C1C10 /* RefreshSession.m in Sources */,
+				685F2D761CACD21400DC4D43 /* DIYGifHeader.m in Sources */,
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
 				683FFB1F1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,

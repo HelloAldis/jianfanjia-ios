@@ -6,8 +6,8 @@
 //  Copyright © 2016年 JYZ. All rights reserved.
 //
 
-#import <MJRefresh/MJRefresh.h>
+#import "DIYGifHeader.h"
 
-@interface BrushGifHeader : MJRefreshGifHeader
+@interface BrushGifHeader : DIYGifHeader
 
 @end
