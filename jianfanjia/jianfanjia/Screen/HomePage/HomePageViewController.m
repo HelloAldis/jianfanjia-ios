@@ -80,7 +80,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
     [self.tableView registerNib:[UINib nibWithNibName:HomePageProductCellIdentifier bundle:nil] forCellReuseIdentifier:HomePageProductCellIdentifier];
     
     @weakify(self);
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refresh:NO];
     }];

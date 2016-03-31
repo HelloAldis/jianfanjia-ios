@@ -230,6 +230,7 @@
 		685F2D5D1CAA31BA00DC4D43 /* SectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D5B1CAA31BA00DC4D43 /* SectionActionView.xib */; };
 		685F2D691CAB77E000DC4D43 /* UnexpandSectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D671CAB77E000DC4D43 /* UnexpandSectionActionView.m */; };
 		685F2D6A1CAB77E000DC4D43 /* UnexpandSectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D681CAB77E000DC4D43 /* UnexpandSectionActionView.xib */; };
+		685F2D731CABDC4C00DC4D43 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D721CABDC4C00DC4D43 /* BrushGifHeader.m */; };
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
@@ -824,6 +825,8 @@
 		685F2D661CAB77E000DC4D43 /* UnexpandSectionActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnexpandSectionActionView.h; sourceTree = "<group>"; };
 		685F2D671CAB77E000DC4D43 /* UnexpandSectionActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnexpandSectionActionView.m; sourceTree = "<group>"; };
 		685F2D681CAB77E000DC4D43 /* UnexpandSectionActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnexpandSectionActionView.xib; sourceTree = "<group>"; };
+		685F2D711CABDC4C00DC4D43 /* BrushGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushGifHeader.h; sourceTree = "<group>"; };
+		685F2D721CABDC4C00DC4D43 /* BrushGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushGifHeader.m; sourceTree = "<group>"; };
 		68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemImageCollectionView.h; sourceTree = "<group>"; };
 		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -1310,6 +1313,7 @@
 		68123C301C4C8B99008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				685F2D701CABDC0D00DC4D43 /* RefreshComponent */,
 				68BA507F1C9FD8BB002E5572 /* WebView */,
 				68123C311C4C8B99008FC9AB /* CustomAlert */,
 				68123C381C4C8B99008FC9AB /* CustomScroll */,
@@ -1657,6 +1661,15 @@
 				685DD44D1C89761E00A76B9C /* CommentListDataManager.m */,
 			);
 			path = MyComment;
+			sourceTree = "<group>";
+		};
+		685F2D701CABDC0D00DC4D43 /* RefreshComponent */ = {
+			isa = PBXGroup;
+			children = (
+				685F2D711CABDC4C00DC4D43 /* BrushGifHeader.h */,
+				685F2D721CABDC4C00DC4D43 /* BrushGifHeader.m */,
+			);
+			path = RefreshComponent;
 			sourceTree = "<group>";
 		};
 		68679A211C8E730F00B380D0 /* MyNotification */ = {
@@ -2962,6 +2975,7 @@
 				680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
+				685F2D731CABDC4C00DC4D43 /* BrushGifHeader.m in Sources */,
 				6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */,
 				68123C581C4C8B99008FC9AB /* ImageBrowerViewController.m in Sources */,
 				684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */,

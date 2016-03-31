@@ -17,5 +17,6 @@
 #import "ImageEditorViewController.h"
 #import "SelectCityViewController.h"
 #import "CollectionFallsFlowLayout.h"
+#import "BrushGifHeader.h"
 
 #endif /* JYZUIKit_h */
