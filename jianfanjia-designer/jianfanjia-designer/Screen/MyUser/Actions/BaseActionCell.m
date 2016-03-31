@@ -20,7 +20,7 @@
     [imgHomeOwner setUserImageWithId:_requirement.user.imageid];
     imgUserGender.image = [_requirement.user.sex isEqualToString:@"1"] ? [UIImage imageNamed:@"icon_user_woman"] : [UIImage imageNamed:@"icon_user_man"];
     lblUserName.text = _requirement.user.username;
-    lblCellNameVal.text = [_requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", _requirement.cell, _requirement.cell_phase] : _requirement.cell;
+    lblCellNameVal.text = _requirement.basic_address;
     lblRequirementfInfo.text = [NSString stringWithFormat:@"%@%@m², %@, 装修预算%@万",
                                 [_requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@, ", [NameDict nameForHouseType:_requirement.house_type]] : @"",
                                 _requirement.house_area,

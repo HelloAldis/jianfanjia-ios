@@ -62,7 +62,7 @@ static NSString *PlanCellIdentifier = @"PlanCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PlanCell *cell = [tableView dequeueReusableCellWithIdentifier:PlanCellIdentifier forIndexPath:indexPath];
-    [cell initWithPlan:self.requirementDataManager.requirementPlans[indexPath.section] withOrder:indexPath.section + 1 forRequirement:self.requirement];
+    [cell initWithPlan:self.requirementDataManager.requirementPlans[indexPath.section] forRequirement:self.requirement];
     
     return cell;
 }

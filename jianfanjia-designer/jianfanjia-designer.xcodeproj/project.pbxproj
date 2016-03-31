@@ -278,6 +278,8 @@
 		685F2D651CAA8DDE00DC4D43 /* SectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D631CAA8DDE00DC4D43 /* SectionActionView.xib */; };
 		685F2D6E1CABC0A900DC4D43 /* UnexpandSectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D6C1CABC0A900DC4D43 /* UnexpandSectionActionView.m */; };
 		685F2D6F1CABC0A900DC4D43 /* UnexpandSectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D6D1CABC0A900DC4D43 /* UnexpandSectionActionView.xib */; };
+		685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */; };
+		685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -823,6 +825,10 @@
 		685F2D6B1CABC0A900DC4D43 /* UnexpandSectionActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnexpandSectionActionView.h; sourceTree = "<group>"; };
 		685F2D6C1CABC0A900DC4D43 /* UnexpandSectionActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnexpandSectionActionView.m; sourceTree = "<group>"; };
 		685F2D6D1CABC0A900DC4D43 /* UnexpandSectionActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UnexpandSectionActionView.xib; sourceTree = "<group>"; };
+		685F2D781CAD0DD400DC4D43 /* BrushGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushGifHeader.h; sourceTree = "<group>"; };
+		685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushGifHeader.m; sourceTree = "<group>"; };
+		685F2D7A1CAD0DD400DC4D43 /* DIYGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYGifHeader.h; sourceTree = "<group>"; };
+		685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYGifHeader.m; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -973,6 +979,7 @@
 		68123C671C4C9772008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				685F2D771CAD0DD400DC4D43 /* RefreshComponent */,
 				68BA50F51C9FE815002E5572 /* WebView */,
 				68123C681C4C9772008FC9AB /* CustomAlert */,
 				68123C6F1C4C9772008FC9AB /* CustomScroll */,
@@ -1416,6 +1423,17 @@
 				684B04221C990E910053FFDF /* BaseNotificationCell.m */,
 			);
 			path = MyNotification;
+			sourceTree = "<group>";
+		};
+		685F2D771CAD0DD400DC4D43 /* RefreshComponent */ = {
+			isa = PBXGroup;
+			children = (
+				685F2D781CAD0DD400DC4D43 /* BrushGifHeader.h */,
+				685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */,
+				685F2D7A1CAD0DD400DC4D43 /* DIYGifHeader.h */,
+				685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */,
+			);
+			path = RefreshComponent;
 			sourceTree = "<group>";
 		};
 		68BA50F51C9FE815002E5572 /* WebView */ = {
@@ -2168,6 +2186,7 @@
 				681240AF1C4CE471008FC9AB /* DeleteImageFromProcess.m in Sources */,
 				681240C91C4CE471008FC9AB /* RejectReschedule.m in Sources */,
 				6E378D361BDA2D2E00908B77 /* AccountBusiness.m in Sources */,
+				685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */,
 				68123FE01C4CCF4A008FC9AB /* PriceItem.m in Sources */,
 				6EA0C19D1C577F7500D04A4F /* PlanPriceItemSection.m in Sources */,
 				681240E81C4CF2CC008FC9AB /* ProcessCell.m in Sources */,
@@ -2354,6 +2373,7 @@
 				68123E761C4CBE79008FC9AB /* VerifyPhoneViewController.m in Sources */,
 				68123C961C4C9772008FC9AB /* ImageEditorViewController.m in Sources */,
 				681241211C4CF2D5008FC9AB /* ItemImageCollectionCell.m in Sources */,
+				685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */,
 				6E04266E1BC757C500F984B8 /* main.m in Sources */,
 				681240BE1C4CE471008FC9AB /* GetUserRequirement.m in Sources */,
 				6E378D521BDA2D2E00908B77 /* Section.m in Sources */,

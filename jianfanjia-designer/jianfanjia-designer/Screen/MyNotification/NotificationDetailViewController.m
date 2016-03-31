@@ -147,10 +147,10 @@ static NSDictionary *NotificationTitles = nil;
 - (void)initData {
     self.lblNotificationTitle.text = NotificationTitles[self.notification.message_type];
     if ([NotificationBusiness contains:self.notification.message_type inFilter:[NotificationBusiness designerRequirmentNotificationFilter]]) {
-        self.lblCell.text = self.notification.requirement.cell;
+        self.lblCell.text = self.notification.requirement.basic_address;
         self.notificationTitleBG.backgroundColor = kExcutionStatusColor;
     } else if ([NotificationBusiness contains:self.notification.message_type inFilter:[NotificationBusiness designerWorksiteNotificationFilter]]) {
-        self.lblCell.text = self.notification.process.cell;
+        self.lblCell.text = self.notification.process.basic_address;
         self.notificationTitleBG.backgroundColor = kPassStatusColor;
     } else {
         self.lblCell.hidden = YES;

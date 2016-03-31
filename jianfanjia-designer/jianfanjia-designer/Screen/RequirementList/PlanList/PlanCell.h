@@ -10,6 +10,6 @@
 
 @interface PlanCell : UITableViewCell
 
-- (void)initWithPlan:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement;
+- (void)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement;
 
 @end

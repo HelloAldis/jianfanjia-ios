@@ -21,7 +21,6 @@ static const NSInteger imgSpace = 2;
 @property (weak, nonatomic) IBOutlet UIScrollView *imgScrollView;
 
 @property (strong, nonatomic) Plan *plan;
-@property (assign, nonatomic) NSInteger order;
 @property (strong, nonatomic) Requirement *requirement;
 
 @end
@@ -43,11 +42,10 @@ static const NSInteger imgSpace = 2;
     [self.imgScrollView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickPlanPreviewButton)]];
 }
 
-- (void)initWithPlan:(Plan *)plan withOrder:(NSInteger)order forRequirement:(Requirement *)requirement  {
+- (void)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement  {
     self.plan = plan;
-    self.order = order;
     self.requirement = requirement;
-    self.lblPlanTitleVal.text = [NSString stringWithFormat:@"%@ 方案%@", [requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", requirement.cell, requirement.cell_phase] : requirement.cell, @(order)];
+    self.lblPlanTitleVal.text = [NSString stringWithFormat:@"%@ %@", requirement.basic_address, self.plan.name];
     self.lblPlanTimeVal.text = [NSDate yyyy_MM_dd:plan.last_status_update_time];
     
     if ([plan.status isEqualToString:kPlanStatusPlanWasChoosed] || [plan.status isEqualToString:kPlanStatusPlanWasNotChoosed]) {

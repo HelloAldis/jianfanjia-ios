@@ -23,7 +23,7 @@
 - (void)initWithNotification:(DesignerNotification *)notification {
     self.notification = notification;
     self.lblNotificationTitle.text = notification.title;
-    self.lblTitle.text = notification.requirement.cell;
+    self.lblTitle.text = notification.requirement.basic_address;
     self.lblContent.text = notification.content;
     self.lblNotificationTime.text = [notification.create_at humDateString];
     

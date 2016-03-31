@@ -13,16 +13,14 @@
 #import "SelectWorkTypeViewController.h"
 #import "SelectSexTypeViewController.h"
 #import "SelectDecorationStyleViewController.h"
+#import "ViewControllerContainer.h"
 
 @interface HouseRequirementCreateViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *btnSelectCity;
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectCityVal;
-@property (weak, nonatomic) IBOutlet UITextField *fldCellVal;
-@property (weak, nonatomic) IBOutlet UITextField *fldPhaseVal;
-@property (weak, nonatomic) IBOutlet UITextField *fldBuildingVal;
-@property (weak, nonatomic) IBOutlet UITextField *fldUnitVal;
-@property (weak, nonatomic) IBOutlet UITextField *fldRoomVal;
+@property (weak, nonatomic) IBOutlet UITextField *fldBasicAddresVal;
+@property (weak, nonatomic) IBOutlet UITextField *fldDetailAddresVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnSelectHouseType;
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectHouseTypeVal;
 @property (weak, nonatomic) IBOutlet UITextField *fldDecorationAreaVal;
@@ -134,11 +132,8 @@
                                                            RACObserve(self.lblSelectWorkTypeVal, text),
                                                            RACObserve(self.lblSelectPopulationVal, text),
                                                            RACObserve(self.lblSelectPreferredStyleVal, text),
-                                                           self.fldCellVal.rac_textSignal,
-                                                           self.fldPhaseVal.rac_textSignal,
-                                                           self.fldBuildingVal.rac_textSignal,
-                                                           self.fldUnitVal.rac_textSignal,
-                                                           self.fldRoomVal.rac_textSignal,
+                                                           self.fldBasicAddresVal.rac_textSignal,
+                                                           self.fldDetailAddresVal.rac_textSignal,
                                                            self.fldDecorationAreaVal.rac_textSignal,
                                                            self.fldDecorationBudgetVal.rac_textSignal
                                                            ]
@@ -149,11 +144,8 @@
                                                               NSString *workType,
                                                               NSString *population,
                                                               NSString *decStyle,
-                                                              NSString *cell,
-                                                              NSString *phase,
-                                                              NSString *building,
-                                                              NSString *unit,
-                                                              NSString *room,
+                                                              NSString *basicAddress,
+                                                              NSString *detailAddress,
                                                               NSNumber *decArea,
                                                               NSNumber *decBudget) {
                                                        
@@ -162,11 +154,8 @@
                                                                     && workType.length > 0
                                                                     && population.length > 0
                                                                     && decStyle.length > 0
-                                                                    && cell.length > 0
-                                                                    && phase.length > 0
-                                                                    && building.length > 0
-                                                                    && unit.length > 0
-                                                                    && room.length > 0
+                                                                    && basicAddress.length > 0
+                                                                    && detailAddress.length > 0
                                                                     && [decArea intValue] > 0
                                                                     && [decBudget intValue] > 0) {
                                                                     return @(YES);
@@ -226,16 +215,10 @@
     self.lblSelectCommunicationTypeVal.text = [NameDict nameForCommunicationType:self.editingRequirement.communication_type];
     //Sex type
     self.lblSelectSexTypeVal.text = [NameDict nameForSexType:self.editingRequirement.prefer_sex];
-    //Cell
-    self.fldCellVal.text = self.editingRequirement.cell;
-    //Phase
-    self.fldPhaseVal.text = self.editingRequirement.cell_phase;
-    //Building
-    self.fldBuildingVal.text = self.editingRequirement.cell_building;
-    //Unit
-    self.fldUnitVal.text = self.editingRequirement.cell_unit;
-    //Room number
-    self.fldRoomVal.text = self.editingRequirement.cell_detail_number;
+    //Basic address
+    self.fldBasicAddresVal.text = self.editingRequirement.basic_address;
+    //Detail address
+    self.fldDetailAddresVal.text = self.editingRequirement.detail_address;
     //Area
     self.fldDecorationAreaVal.text = [self.editingRequirement.house_area stringValue];
     //Budget
@@ -245,43 +228,18 @@
 #pragma mark - ui to model
 - (void)uiToModel {
     @weakify(self);
-    //Cell
-    [[self.fldCellVal rac_textSignal]
+    //Basic address
+    [[self.fldBasicAddresVal rac_textSignal]
      subscribeNext:^(NSString *value) {
         @strongify(self);
-        self.editingRequirement.cell = value;
+        self.editingRequirement.basic_address = value;
      }];
     
-    //Phase
-    [[self.fldPhaseVal rac_textSignal]
+    //Detail address
+    [[self.fldDetailAddresVal rac_textSignal]
      subscribeNext:^(NSString *value) {
          @strongify(self);
-         self.fldPhaseVal.text = value;
-         self.editingRequirement.cell_phase = value;
-     }];
-    
-    //Building
-    [[self.fldBuildingVal rac_textSignal]
-     subscribeNext:^(NSString *value) {
-         @strongify(self);
-         self.fldBuildingVal.text = value;
-         self.editingRequirement.cell_building = value;
-     }];
-    
-    //Unit
-    [[self.fldUnitVal rac_textSignal]
-     subscribeNext:^(NSString *value) {
-         @strongify(self);
-         self.fldUnitVal.text = value;
-         self.editingRequirement.cell_unit = value;
-     }];
-    
-    //Room number
-    [[self.fldRoomVal rac_textSignal]
-     subscribeNext:^(NSString *value) {
-         @strongify(self);
-         self.fldRoomVal.text = value;
-         self.editingRequirement.cell_detail_number = value;
+         self.editingRequirement.detail_address = value;
      }];
     
     //Area
@@ -405,11 +363,8 @@
     self.selectPreferredStyleGesture.enabled = enable;
     self.selectCommunicationTypeGesture.enabled = enable;
     self.selectSexTypeGesture.enabled = enable;
-    self.fldCellVal.enabled = enable;
-    self.fldPhaseVal.enabled = enable;
-    self.fldBuildingVal.enabled = enable;
-    self.fldUnitVal.enabled = enable;
-    self.fldRoomVal.enabled = enable;
+    self.fldBasicAddresVal.enabled = enable;
+    self.fldDetailAddresVal.enabled = enable;
     self.fldDecorationAreaVal.enabled = enable;
     self.fldDecorationBudgetVal.enabled = enable;
     self.btnSelectCity.hidden = !enable;
@@ -471,12 +426,8 @@
     if (![NSString compareStrWithIgnoreNil:self.originRequirement.province other:self.editingRequirement.province]
         || ![NSString compareStrWithIgnoreNil:self.originRequirement.city other:self.editingRequirement.city]
         || ![NSString compareStrWithIgnoreNil:self.originRequirement.district other:self.editingRequirement.district]
-        || ![NSString compareStrWithIgnoreNil:self.originRequirement.street other:self.editingRequirement.street]
-        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell other:self.editingRequirement.cell]
-        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell_phase other:self.editingRequirement.cell_phase]
-        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell_building other:self.editingRequirement.cell_building]
-        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell_unit other:self.editingRequirement.cell_unit]
-        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell_detail_number other:self.editingRequirement.cell_detail_number]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.basic_address other:self.editingRequirement.basic_address]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.detail_address other:self.editingRequirement.detail_address]
         || ![NSString compareStrWithIgnoreNil:self.originRequirement.house_type other:self.editingRequirement.house_type]
         || ![NSNumber compareNumWithIgnoreNil:self.originRequirement.house_area other:self.editingRequirement.house_area]
         || ![NSString compareStrWithIgnoreNil:self.originRequirement.work_type other:self.editingRequirement.work_type]

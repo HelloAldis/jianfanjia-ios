@@ -48,7 +48,7 @@
 }
 
 - (void)updateLinkView {
-    self.lblLinkCell.text = self.notification.process.cell;
+    self.lblLinkCell.text = self.notification.process.basic_address;
     self.lblLinkItem.text = [ProcessBusiness nameForKey:self.notification.item];
 
     Section *section = nil;

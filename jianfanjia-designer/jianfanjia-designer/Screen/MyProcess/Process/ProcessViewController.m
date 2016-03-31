@@ -91,7 +91,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"工地管理";
     
     UIButton *bellButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
     [bellButton setImage:[UIImage imageNamed:@"notification-bell"] forState:UIControlStateNormal];
@@ -456,7 +455,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)refreshSectionView {
     if (!self.wasFirstEnter) {
         self.wasFirstEnter = YES;
-        self.title = self.dataManager.process.cell;
+        self.title = self.dataManager.process.basic_address;
         [self initSectionView];
     } else {
         [self updateSectionView];

@@ -13,13 +13,14 @@
 #import "SelectWorkTypeViewController.h"
 #import "SelectSexTypeViewController.h"
 #import "SelectDecorationStyleViewController.h"
+#import "ViewControllerContainer.h"
 
 @interface BusinessRequirementCreateViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *btnSelectCity;
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectCityVal;
-@property (weak, nonatomic) IBOutlet UITextField *fldStreetVal;
-@property (weak, nonatomic) IBOutlet UITextField *fldCellVal;
+@property (weak, nonatomic) IBOutlet UITextField *fldBasicAddresVal;
+@property (weak, nonatomic) IBOutlet UITextField *fldDetailAddresVal;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnSelectBusinessType;
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectBusinessTypeVal;
@@ -127,8 +128,8 @@
                                                            RACObserve(self.lblSelectBusinessTypeVal, text),
                                                            RACObserve(self.lblSelectWorkTypeVal, text),
                                                            RACObserve(self.lblSelectPreferredStyleVal, text),
-                                                           self.fldStreetVal.rac_textSignal,
-                                                           self.fldCellVal.rac_textSignal,
+                                                           self.fldDetailAddresVal.rac_textSignal,
+                                                           self.fldBasicAddresVal.rac_textSignal,
                                                            self.fldDecorationAreaVal.rac_textSignal,
                                                            self.fldDecorationBudgetVal.rac_textSignal]
                                            
@@ -137,8 +138,8 @@
                                                               NSString *businessType,
                                                               NSString *workType,
                                                               NSString *decStyle,
-                                                              NSString *street,
-                                                              NSString *cell,
+                                                              NSString *detailAddress,
+                                                              NSString *basicAddress,
                                                               NSString *decArea,
                                                               NSString *decBudget) {
                                                        
@@ -146,8 +147,8 @@
                                                                    && businessType.length > 0
                                                                    && workType.length > 0
                                                                    && decStyle.length > 0
-                                                                   && street.length > 0
-                                                                   && cell.length > 0
+                                                                   && detailAddress.length > 0
+                                                                   && basicAddress.length > 0
                                                                    && decArea.length > 0
                                                                    && decBudget.length > 0) {
                                                                    return @(YES);
@@ -191,8 +192,7 @@
 - (void)displayValueToUI {
     //City
     self.lblSelectCityVal.text = [NSString stringWithFormat:@"%@ %@ %@", self.editingRequirement.province, self.editingRequirement.city, self.editingRequirement.district];
-    //Street
-    self.fldStreetVal.text = self.editingRequirement.street;
+
     //Business type
     self.lblSelectBusinessTypeVal.text = [NameDict nameForBusinessType:self.editingRequirement.business_house_type];
     //Work type
@@ -203,8 +203,12 @@
     self.lblSelectCommunicationTypeVal.text = [NameDict nameForCommunicationType:self.editingRequirement.communication_type];
     //Sex type
     self.lblSelectSexTypeVal.text = [NameDict nameForSexType:self.editingRequirement.prefer_sex];
-    //Cell
-    self.fldCellVal.text = self.editingRequirement.cell;
+
+    //Detail address
+    self.fldDetailAddresVal.text = self.editingRequirement.detail_address;
+    //Basic address
+    self.fldBasicAddresVal.text = self.editingRequirement.basic_address;
+    
     //Area
     self.fldDecorationAreaVal.text = [self.editingRequirement.house_area stringValue];
     //Budget
@@ -214,17 +218,17 @@
 #pragma mark - ui to model
 - (void)uiToModel {
     @weakify(self);
-    //Street
-    [[self.fldStreetVal rac_textSignal]
+    //Detail address
+    [[self.fldDetailAddresVal rac_textSignal]
      subscribeNext:^(NSString *value) {
         @strongify(self);
-        self.editingRequirement.street = value;
+        self.editingRequirement.detail_address = value;
      }];
     
-    //Cell
-    [[self.fldCellVal rac_textSignal] subscribeNext:^(NSString *value) {
+    //Basic address
+    [[self.fldBasicAddresVal rac_textSignal] subscribeNext:^(NSString *value) {
         @strongify(self);
-        self.editingRequirement.cell = value;
+        self.editingRequirement.basic_address = value;
     }];
 
     //Area
@@ -338,8 +342,8 @@
     self.selectPreferredStyleGesture.enabled = enable;
     self.selectCommunicationTypeGesture.enabled = enable;
     self.selectSexTypeGesture.enabled = enable;
-    self.fldStreetVal.enabled = enable;
-    self.fldCellVal.enabled = enable;
+    self.fldDetailAddresVal.enabled = enable;
+    self.fldBasicAddresVal.enabled = enable;
     self.fldDecorationAreaVal.enabled = enable;
     self.fldDecorationBudgetVal.enabled = enable;
     self.btnSelectCity.hidden = !enable;
@@ -400,8 +404,8 @@
     if (![NSString compareStrWithIgnoreNil:self.originRequirement.province other:self.editingRequirement.province]
         || ![NSString compareStrWithIgnoreNil:self.originRequirement.city other:self.editingRequirement.city]
         || ![NSString compareStrWithIgnoreNil:self.originRequirement.district other:self.editingRequirement.district]
-        || ![NSString compareStrWithIgnoreNil:self.originRequirement.street other:self.editingRequirement.street]
-        || ![NSString compareStrWithIgnoreNil:self.originRequirement.cell other:self.editingRequirement.cell]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.detail_address other:self.editingRequirement.detail_address]
+        || ![NSString compareStrWithIgnoreNil:self.originRequirement.basic_address other:self.editingRequirement.basic_address]
         || ![NSString compareStrWithIgnoreNil:self.originRequirement.business_house_type other:self.editingRequirement.business_house_type]
         || ![NSNumber compareNumWithIgnoreNil:self.originRequirement.house_area other:self.editingRequirement.house_area]
         || ![NSString compareStrWithIgnoreNil:self.originRequirement.work_type other:self.editingRequirement.work_type]

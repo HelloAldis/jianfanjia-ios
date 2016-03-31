@@ -63,7 +63,7 @@
     [self.imgHomeOwner setUserImageWithId:self.process.user.imageid];
     self.lblPublishTimeVal.text = [NSDate yyyy_MM_dd:self.process.start_at];
     self.lblUpdateTimeVal.text = [self.process.lastupdate humDateString];
-    self.lblCellNameVal.text = process.cell;
+    self.lblCellNameVal.text = process.basic_address;
     self.lblProcessStatusVal.text = [process.going_on isEqualToString:@"done"] ? @"已竣工" : [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:process.going_on]];
     
     [self updateSections:process];
