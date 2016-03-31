@@ -134,7 +134,7 @@ static const CGFloat kMaxMessageHeight = 100;
             self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height));
         }];
     
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
        @strongify(self);
         [self refreshMessageList];
     }];

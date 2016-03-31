@@ -84,7 +84,7 @@ static NSMutableArray *decStyleDS;
     [self.tableView registerNib:[UINib nibWithNibName:ProductCaseCellIdentifier bundle:nil] forCellReuseIdentifier:ProductCaseCellIdentifier];
     
     @weakify(self);
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refresh];
     }];

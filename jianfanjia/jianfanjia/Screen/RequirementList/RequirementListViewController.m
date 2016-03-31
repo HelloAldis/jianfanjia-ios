@@ -60,7 +60,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(64, 0, 49, 0);
     [self.tableView registerNib:[UINib nibWithNibName:RequirementCellIdentifier bundle:nil] forCellReuseIdentifier:RequirementCellIdentifier];
     @weakify(self);
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refreshRequirements:NO];
     }];

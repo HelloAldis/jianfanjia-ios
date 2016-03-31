@@ -74,7 +74,7 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
     [self.tableView registerNib:[UINib nibWithNibName:WorksiteNotificationCellIdentifier bundle:nil] forCellReuseIdentifier:WorksiteNotificationCellIdentifier];
     
     @weakify(self);
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refresh];
     }];

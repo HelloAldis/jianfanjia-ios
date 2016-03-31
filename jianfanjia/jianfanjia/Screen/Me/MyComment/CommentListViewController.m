@@ -62,7 +62,7 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
     [self.tableView registerNib:[UINib nibWithNibName:DecCommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:DecCommentInfoCellIdentifier];
     
     @weakify(self);
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refresh];
     }];

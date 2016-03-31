@@ -59,12 +59,12 @@ static NSString *ProcessCellId = @"ProcessCell";
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     [self.tableView registerNib:[UINib nibWithNibName:ProcessCellId bundle:nil] forCellReuseIdentifier:ProcessCellId];
     @weakify(self);
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refreshProcessList:NO];
     }];
     
-    self.noProcessImageView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.noProcessImageView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refreshProcessList:NO];
     }];

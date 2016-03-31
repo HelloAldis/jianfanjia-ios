@@ -101,7 +101,7 @@ static NSMutableArray *decStyleDS;
     self.imgCollectionLayout.delegate = self;
     
     @weakify(self);
-    self.imgCollection.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.imgCollection.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refreshBeautifulImage];
     }];

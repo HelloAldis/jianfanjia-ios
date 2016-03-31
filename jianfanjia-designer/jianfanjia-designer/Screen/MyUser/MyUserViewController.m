@@ -130,7 +130,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         [self.tableViews addObject:tableView];
         [self.noRequirementViews addObject:noRequirementView];
         
-        tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
             @strongify(self);
             [self refresh:NO];
         }];

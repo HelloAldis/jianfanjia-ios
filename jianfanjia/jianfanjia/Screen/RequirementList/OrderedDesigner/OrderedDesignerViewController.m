@@ -69,7 +69,7 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosedForDesign bundle:nil] forCellReuseIdentifier:PlanWasChoosedForDesign];
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasNotChoosed bundle:nil] forCellReuseIdentifier:PlanWasNotChoosed];
     @weakify(self);
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refreshOrderedList];
     }];

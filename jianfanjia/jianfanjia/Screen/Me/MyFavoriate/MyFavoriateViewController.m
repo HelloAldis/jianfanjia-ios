@@ -93,7 +93,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     };
     
     
-    self.designerTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.designerTableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
          @strongify(self);
         [self refreshDesigner];
     }];
@@ -101,7 +101,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         @strongify(self);
         [self loadMoreDesigner];
     }];
-    self.productTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.productTableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refreshFavoriateProduct];
     }];
@@ -109,7 +109,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         @strongify(self);
         [self loadMoreFavoriateProduct];
     }];
-    self.beautifulImageCollectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.beautifulImageCollectionView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refreshFavoriateBeautifulImage];
     }];

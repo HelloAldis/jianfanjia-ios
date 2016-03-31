@@ -59,7 +59,7 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
     [self.tableView registerNib:[UINib nibWithNibName:DecLiveCellIdentifier bundle:nil] forCellReuseIdentifier:DecLiveCellIdentifier];
     
     @weakify(self);
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         [self refresh];
     }];

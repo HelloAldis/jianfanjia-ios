@@ -375,7 +375,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     if (self.workSiteMode == WorkSiteModeReal && needConfigure) {
         if (!self.tableView.header) {
             @weakify(self);
-            self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
                 @strongify(self);
                 [self refreshProcess:NO];
             }];
