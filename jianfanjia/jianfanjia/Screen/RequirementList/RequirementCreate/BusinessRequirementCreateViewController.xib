@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -13,10 +13,10 @@
                 <outlet property="btnSelectPreferredStyle" destination="ydv-dy-39c" id="DZs-xt-d7v"/>
                 <outlet property="btnSelectSexType" destination="PBc-Gq-NhQ" id="Qgo-SJ-yk3"/>
                 <outlet property="btnSelectWorkType" destination="4wH-ot-xzq" id="DjC-0o-OwF"/>
-                <outlet property="fldCellVal" destination="iz3-53-B2O" id="u28-fC-gaV"/>
+                <outlet property="fldBasicAddresVal" destination="iz3-53-B2O" id="6Sm-am-kdY"/>
                 <outlet property="fldDecorationAreaVal" destination="c5v-0U-kp0" id="4L1-UZ-L4N"/>
                 <outlet property="fldDecorationBudgetVal" destination="YYt-hA-76c" id="BAV-ts-2wO"/>
-                <outlet property="fldStreetVal" destination="j6H-3T-AcB" id="gVV-CC-1S7"/>
+                <outlet property="fldDetailAddresVal" destination="j6H-3T-AcB" id="KGz-WQ-nEq"/>
                 <outlet property="lblSelectBusinessTypeVal" destination="522-aS-0kh" id="ecE-V7-aXZ"/>
                 <outlet property="lblSelectCityVal" destination="huN-PG-vow" id="uax-pg-HPf"/>
                 <outlet property="lblSelectCommunicationTypeVal" destination="zmU-iw-xmw" id="sw1-B5-bri"/>
@@ -606,6 +606,8 @@
                                             <rect key="frame" x="578" y="15" width="7" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="WwR-7C-Kw1"/>
+                                                <constraint firstAttribute="width" constant="7" id="bUW-bQ-BIP"/>
+                                                <constraint firstAttribute="height" constant="22" id="vfs-jA-XxY"/>
                                             </constraints>
                                             <state key="normal" image="bar_shape"/>
                                             <variation key="default">

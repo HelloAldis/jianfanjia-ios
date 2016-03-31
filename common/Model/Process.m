@@ -19,7 +19,7 @@
 @dynamic province;
 @dynamic city;
 @dynamic district;
-@dynamic cell;
+@dynamic basic_address;
 @dynamic house_type;
 @dynamic house_area;
 @dynamic dec_style;

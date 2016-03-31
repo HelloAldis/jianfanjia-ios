@@ -164,7 +164,7 @@
     self.lblRequirementStatusVal.text = [requirement.work_type isEqualToString:kWorkTypeDesign] && [requirement.status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement] ? @"已完成" : [NameDict nameForRequirementStatus:requirement.status];
     self.lblPubulishTimeVal.text = [NSDate yyyy_MM_dd:requirement.create_at];
     self.lblUpdateTimeVal.text = [NSDate yyyy_MM_dd:requirement.last_status_update_time];
-    self.lblCellNameVal.text = [requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", requirement.cell, requirement.cell_phase] : requirement.cell;
+    self.lblCellNameVal.text = requirement.basic_address;
     
     NSString *status = requirement.status;
     if ([status isEqualToString:kRequirementStatusOrderedDesignerWithoutAnyResponse]) {

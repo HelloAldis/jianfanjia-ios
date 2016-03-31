@@ -46,7 +46,7 @@ static const NSInteger imgSpace = 2;
 - (void)initWithPlan:(Plan *)plan forRequirement:(Requirement *)requirement  {
     self.plan = plan;
     self.requirement = requirement;
-    self.lblPlanTitleVal.text = [NSString stringWithFormat:@"%@ %@", [requirement.dec_type isEqualToString:kDecTypeHouse] ? [NSString stringWithFormat:@"%@%@期", requirement.cell, requirement.cell_phase] : requirement.cell, self.plan.name];
+    self.lblPlanTitleVal.text = [NSString stringWithFormat:@"%@ %@", requirement.basic_address, self.plan.name];
     self.lblPlanTimeVal.text = [NSDate yyyy_MM_dd:plan.last_status_update_time];
     
     if ([plan.status isEqualToString:kPlanStatusPlanWasChoosed] || [plan.status isEqualToString:kPlanStatusPlanWasNotChoosed]) {

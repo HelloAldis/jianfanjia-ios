@@ -456,7 +456,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)refreshSectionView {
     if (!self.wasFirstEnter) {
         self.wasFirstEnter = YES;
-        self.title = self.dataManager.process.cell;
+        self.title = self.dataManager.process.basic_address;
         [self initSectionView];
     } else {
         [self updateSectionView];

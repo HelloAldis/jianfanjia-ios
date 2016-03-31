@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSString *province;
 @property (nonatomic, strong) NSString *city;
 @property (nonatomic, strong) NSString *district;
-@property (nonatomic, strong) NSString *cell;
+@property (nonatomic, strong) NSString *basic_address;
 @property (nonatomic, strong) NSString *house_type;
 @property (nonatomic, strong) NSNumber *house_area;
 @property (nonatomic, strong) NSString *dec_style;

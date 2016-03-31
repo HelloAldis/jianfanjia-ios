@@ -14,12 +14,8 @@
 @dynamic province;
 @dynamic city;
 @dynamic district;
-@dynamic street;
-@dynamic cell;
-@dynamic cell_phase;
-@dynamic cell_building;
-@dynamic cell_unit;
-@dynamic cell_detail_number;
+@dynamic basic_address;
+@dynamic detail_address;
 @dynamic house_type;
 @dynamic business_house_type;
 @dynamic dec_type;

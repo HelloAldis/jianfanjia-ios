@@ -50,7 +50,7 @@ static const NSInteger imgSpace = 2;
 }
 
 - (void)updateLinkView {
-    self.lblLinkTitle.text = [NSString stringWithFormat:@"%@ %@", self.notification.requirement.cell, self.notification.plan.name];
+    self.lblLinkTitle.text = [NSString stringWithFormat:@"%@ %@", self.notification.requirement.basic_address, self.notification.plan.name];
     self.lblLinkStatus.text = [NameDict nameForPlanStatus:self.notification.plan.status];
     
     [self.linkImageScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];

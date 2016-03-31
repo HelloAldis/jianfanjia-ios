@@ -14,12 +14,8 @@
 @property (strong, nonatomic) NSString *province;
 @property (strong, nonatomic) NSString *city;
 @property (strong, nonatomic) NSString *district;
-@property (strong, nonatomic) NSString *street;
-@property (strong, nonatomic) NSString *cell;
-@property (strong, nonatomic) NSString *cell_phase;
-@property (strong, nonatomic) NSString *cell_building;
-@property (strong, nonatomic) NSString *cell_unit;
-@property (strong, nonatomic) NSString *cell_detail_number;
+@property (strong, nonatomic) NSString *basic_address;
+@property (strong, nonatomic) NSString *detail_address;
 @property (strong, nonatomic) NSString *house_type;
 @property (strong, nonatomic) NSString *business_house_type;
 @property (strong, nonatomic) NSString *dec_type;
