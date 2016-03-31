@@ -445,7 +445,7 @@
     CGFloat scaleFactor = fromFrame.size.width / kScreenWidth;
     CGFloat height = fromFrame.size.height / scaleFactor;
     
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         background.alpha = 1;
         fromViewImage.frame = CGRectMake(0, (kScreenHeight - height) / 2, kScreenWidth, height);
     }completion:^(BOOL finished) {
@@ -472,7 +472,7 @@
     [toContainer addSubview:background];
     [toContainer addSubview:toViewImage];
     
-    [UIView animateWithDuration:0.5 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+    [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         background.alpha = 0;
         toViewImage.frame = toFrame;
     }completion:^(BOOL finished) {
