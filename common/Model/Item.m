@@ -11,6 +11,7 @@
 @implementation Item
 
 @dynamic name;
+@dynamic label;
 @dynamic date;
 @dynamic status;
 @dynamic images;

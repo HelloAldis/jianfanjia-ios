@@ -22,8 +22,8 @@ extern NSString * const DBYS;
 @interface ProcessBusiness : NSObject
 
 + (Process *)defaultProcess;
-+ (NSString *)nameForKey:(NSString *)key;
+//+ (NSString *)nameForKey:(NSString *)key;
 + (BOOL)hasYs:(NSInteger)sectionIndex;
-+ (NSArray *)allSectionName;
+//+ (NSArray *)allSectionName;
 
 @end

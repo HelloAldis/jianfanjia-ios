@@ -42,5 +42,6 @@
 @property(nonatomic, strong) Requirement *requirement;
 
 - (Section *)sectionAtIndex:(NSInteger )index;
+- (Section *)sectionForName:(NSString *)name;
 
 @end

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -32,20 +32,12 @@
                                 <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更多" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQ6-xM-yZY">
-                                <rect key="frame" x="327" y="23" width="28" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AfC-lp-QFN" firstAttribute="top" secondItem="aUu-Au-cqk" secondAttribute="top" constant="15" id="5CX-pM-M4T"/>
-                            <constraint firstAttribute="trailing" secondItem="wQ6-xM-yZY" secondAttribute="trailing" constant="8" id="IkA-nx-gtR"/>
                             <constraint firstItem="AfC-lp-QFN" firstAttribute="leading" secondItem="aUu-Au-cqk" secondAttribute="leading" constant="10" id="YYL-9a-7Hg"/>
                             <constraint firstAttribute="bottom" secondItem="AfC-lp-QFN" secondAttribute="bottom" constant="15" id="reX-eR-SGS"/>
-                            <constraint firstItem="wQ6-xM-yZY" firstAttribute="centerY" secondItem="AfC-lp-QFN" secondAttribute="centerY" id="tCF-xD-NDx"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQQ-4g-xdG">
@@ -81,7 +73,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="lblItemTitle" destination="AfC-lp-QFN" id="JwT-u2-ne3"/>
-                <outlet property="lblMore" destination="wQ6-xM-yZY" id="INW-KP-nAh"/>
                 <outlet property="statusImageView" destination="i3E-BS-wi3" id="yYf-Jj-AKb"/>
                 <outlet property="statusLine1" destination="Hde-wy-FiP" id="9dd-2V-tXs"/>
                 <outlet property="statusLine2" destination="bQQ-4g-xdG" id="ebL-e6-ASY"/>
