@@ -40,12 +40,15 @@ static NSString *RedirectURI;
     authRequest.scope = @"all";
     
     WBMessageObject *message = [WBMessageObject message];
-    message.text = [NSString stringWithFormat:@"%@ %@", description, targetLink];
-    if (message.text.length > 140) {
-        description = [description substringToIndex:140 - targetLink.length - 1];
+    NSData *descriptionData = [description dataUsingEncoding:NSUTF8StringEncoding];
+    NSData *linkData = [targetLink dataUsingEncoding:NSUTF8StringEncoding];
+
+    DDLogDebug(@"description bytes: %lu, link bytes: %lu", descriptionData.length, linkData.length);
+    if (descriptionData.length + linkData.length > 280) {
+        description = [description substringToIndex:MAX((280 - linkData.length) / 2, 0)];
         description = [description stringByReplacingCharactersInRange:NSMakeRange(description.length - 3, 3) withString:@"..."];
-        message.text = [NSString stringWithFormat:@"%@ %@", description, targetLink];
     }
+    message.text = [NSString stringWithFormat:@"%@%@", description, targetLink];
     
 //    if (targetLink) {
 //        WBWebpageObject *webpage = [WBWebpageObject object];
