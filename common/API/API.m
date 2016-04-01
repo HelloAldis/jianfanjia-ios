@@ -22,6 +22,13 @@ static AFHTTPRequestOperationManager *_manager;
     _manager.responseSerializer = serializer;
 }
 
++ (void)clearCookie {
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
+}
+
 + (void)GET:(NSString *)url handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))networkError {
     [request pre];
     [_manager GET:url

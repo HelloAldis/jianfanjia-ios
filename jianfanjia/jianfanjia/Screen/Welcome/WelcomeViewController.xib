@@ -27,7 +27,7 @@
                     </connections>
                 </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="AwI-s0-k0c">
-                    <rect key="frame" x="175" y="423" width="250" height="37"/>
+                    <rect key="frame" x="175" y="396" width="250" height="37"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="250" id="5kY-N5-JP0"/>
                     </constraints>
@@ -35,7 +35,7 @@
                     <color key="currentPageIndicatorTintColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                 </pageControl>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UbQ-Sl-hqt" userLabel="Btn Wechat Login">
-                    <rect key="frame" x="50" y="465" width="500" height="48"/>
+                    <rect key="frame" x="50" y="438" width="500" height="48"/>
                     <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="KVL-Xn-ep8">
@@ -51,7 +51,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weixin" translatesAutoresizingMaskIntoConstraints="NO" id="iVZ-1p-ex8">
-                    <rect key="frame" x="239" y="480" width="23" height="19"/>
+                    <rect key="frame" x="239" y="453" width="23" height="19"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19" id="jIf-0V-nkZ"/>
@@ -59,9 +59,9 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAK-ZR-wwK">
-                    <rect key="frame" x="50" y="521" width="70" height="29"/>
+                    <rect key="frame" x="50" y="501" width="84" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="手机号登录">
+                    <state key="normal" title="登录或者注册">
                         <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
@@ -69,13 +69,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ekF-gt-wmC">
-                    <rect key="frame" x="480" y="521" width="70" height="29"/>
+                    <rect key="frame" x="494" y="501" width="56" height="29"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="新用户注册">
+                    <state key="normal" title="立即体验">
                         <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <connections>
-                        <action selector="onClickSignup:" destination="-1" eventType="touchUpInside" id="POt-EV-kdj"/>
+                        <action selector="onClickExpierence:" destination="-1" eventType="touchUpInside" id="0mi-rp-gYw"/>
                     </connections>
                 </button>
             </subviews>
@@ -90,12 +90,12 @@
                 <constraint firstAttribute="trailing" secondItem="o4s-r1-wq6" secondAttribute="trailing" id="GeB-W5-zm7"/>
                 <constraint firstItem="iVZ-1p-ex8" firstAttribute="centerY" secondItem="UbQ-Sl-hqt" secondAttribute="centerY" id="RHV-au-aWD"/>
                 <constraint firstItem="o4s-r1-wq6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Xup-fT-3Ak"/>
-                <constraint firstItem="dAK-ZR-wwK" firstAttribute="top" secondItem="UbQ-Sl-hqt" secondAttribute="bottom" constant="8" id="dFQ-Ew-1bK"/>
+                <constraint firstItem="dAK-ZR-wwK" firstAttribute="top" secondItem="UbQ-Sl-hqt" secondAttribute="bottom" constant="15" id="dFQ-Ew-1bK"/>
                 <constraint firstAttribute="bottom" secondItem="o4s-r1-wq6" secondAttribute="bottom" constant="150" id="lLz-bN-HcD"/>
                 <constraint firstItem="dAK-ZR-wwK" firstAttribute="leading" secondItem="UbQ-Sl-hqt" secondAttribute="leading" id="m1f-b2-c3c"/>
                 <constraint firstItem="UbQ-Sl-hqt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="50" id="sMN-aG-iD4"/>
                 <constraint firstItem="o4s-r1-wq6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="u1f-AT-Zsz"/>
-                <constraint firstAttribute="bottom" secondItem="dAK-ZR-wwK" secondAttribute="bottom" constant="50" id="xfG-x6-Gts"/>
+                <constraint firstAttribute="bottom" secondItem="dAK-ZR-wwK" secondAttribute="bottom" constant="70" id="xfG-x6-Gts"/>
             </constraints>
         </view>
     </objects>

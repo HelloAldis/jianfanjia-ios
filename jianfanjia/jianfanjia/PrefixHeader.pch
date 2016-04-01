@@ -28,6 +28,7 @@
   #import "API.h"
   #import "CD.h"
   #import "JYZSocial.h"
+  #import "LoginEngine.h"
 
 #endif
 

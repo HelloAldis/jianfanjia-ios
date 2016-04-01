@@ -90,7 +90,9 @@ static CGFloat kImageOriginHight = 0;
 
 - (void)onClickBack {
     [self.view endEditing:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[LoginEngine shared] executeLoginBlock:NO];
+    }];
 }
 
 - (void)initUI {
@@ -323,7 +325,9 @@ static CGFloat kImageOriginHight = 0;
     [API userLogin:login success:^{
         UserGetInfo *getUser = [[UserGetInfo alloc] init];
         [API userGetInfo:getUser success:^{
-            [ViewControllerContainer showTab];
+            [self dismissViewControllerAnimated:YES completion:^{
+                [[LoginEngine shared] executeLoginBlock:YES];
+            }];
         } failure:^{
         } networkError:^{
         }];

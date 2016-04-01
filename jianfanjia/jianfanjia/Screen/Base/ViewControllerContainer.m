@@ -479,6 +479,8 @@ static ViewControllerContainer *container;
     [DataManager shared].homePageDesigners = nil;
     [DataManager shared].homePageRequirement = nil;
     [DataManager shared].homePageRequirementDesigners = nil;
+    
+    [API clearCookie];
     [ViewControllerContainer showWelcome];
 }
 
