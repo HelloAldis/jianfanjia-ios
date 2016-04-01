@@ -18,6 +18,7 @@
 @end
 
 @implementation DIYGifHeader
+
 #pragma mark - 懒加载
 - (UIImageView *)gifView {
     if (!_gifView) {
@@ -66,33 +67,42 @@
 #pragma mark - 实现父类的方法
 - (void)setPullingPercent:(CGFloat)pullingPercent {
     [super setPullingPercent:pullingPercent];
-    NSArray *images = self.stateImages[@(MJRefreshStateIdle)];
-    if (self.state != MJRefreshStateIdle || images.count == 0) return;
-    // 停止动画
-    [self.gifView stopAnimating];
-    // 设置当前需要显示的图片
-    NSUInteger index =  images.count * pullingPercent;
-    if (index >= images.count) index = images.count - 1;
-    self.gifView.image = images[index];
+    
+    if (self.state == MJRefreshStateIdle) {
+        NSArray *images = self.stateImages[@(self.state)];
+        if (images.count == 0) return;
+        // 停止动画
+        [self.gifView stopAnimating];
+        // 设置当前需要显示的图片
+        NSUInteger index =  images.count * pullingPercent;
+        if (index >= images.count) index = images.count - 1;
+        self.gifView.image = images[index];
+    } else if (self.state == MJRefreshStatePulling) {
+        NSArray *images = self.stateImages[@(self.state)];
+        if (images.count == 0) return;
+        // 停止动画
+        [self.gifView stopAnimating];
+        // 设置当前需要显示的图片
+        NSUInteger index =  images.count * (pullingPercent - 1);
+        if (index >= images.count) index = images.count - 1;
+        self.gifView.image = images[index];
+    }
+    
+    self.mj_y = - self.mj_h * self.pullingPercent;
 }
 
 - (void)placeSubviews {
-    [super placeSubviews];
-    
     self.gifView.frame = self.bounds;
-    if (self.stateLabel.hidden && self.lastUpdatedTimeLabel.hidden) {
-        self.gifView.contentMode = UIViewContentModeCenter;
-    } else {
-        self.gifView.contentMode = UIViewContentModeRight;
-        self.gifView.mj_w = self.mj_w * 0.5 - 90;
-    }
+    self.gifView.contentMode = UIViewContentModeTop;
+    self.mj_y = 0;
+    [self.superview sendSubviewToBack:self];
 }
 
 - (void)setState:(MJRefreshState)state {
     MJRefreshCheckState
     
     // 根据状态做事情
-    if (state == MJRefreshStatePulling || state == MJRefreshStateRefreshing) {
+    if (state == MJRefreshStateRefreshing) {
         NSArray *images = self.stateImages[@(state)];
         if (images.count == 0) return;
         
