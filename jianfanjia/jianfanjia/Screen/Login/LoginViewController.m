@@ -54,14 +54,14 @@
     [self initUI];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     if (self.showSignup) {
         self.isShowingLogin = YES;
-        [self swipeLeft:nil];
+        [self showSignupView:NO];
     } else {
         self.isShowingLogin = NO;
-        [self swipeRight:nil];
+        [self showLoginView:NO];
     }
 }
 
@@ -193,6 +193,15 @@
 #pragma mark - gesture
 - (IBAction)swipeRight:(id)sender {
     [self.view endEditing:YES];
+    [self showLoginView:YES];
+}
+
+- (IBAction)swipeLeft:(id)sender {
+    [self.view endEditing:YES];
+    [self showSignupView:YES];
+}
+
+- (void)showLoginView:(BOOL)animated {
     if (!self.isShowingLogin) {
         self.isShowingLogin = YES;
         
@@ -201,8 +210,8 @@
         self.viewLogin.frame = frame;
         self.viewLogin.alpha = 1;
         self.viewSignup.alpha = 0;
-
-        [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        [UIView animateWithDuration:animated ? 0.4 : 0.0 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
             CGRect frame = self.viewLogin.frame;
             frame.origin.x = 0;
             self.viewLogin.frame = frame;
@@ -222,8 +231,7 @@
     }
 }
 
-- (IBAction)swipeLeft:(id)sender {
-    [self.view endEditing:YES];
+- (void)showSignupView:(BOOL)animated {
     if (self.isShowingLogin) {
         self.isShowingLogin = NO;
         
@@ -233,7 +241,7 @@
         self.viewSignup.alpha = 1;
         self.viewLogin.alpha = 0;
         
-        [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [UIView animateWithDuration:animated ? 0.4 : 0.0 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
             CGRect frame = self.viewSignup.frame;
             frame.origin.x = 0;
             self.viewSignup.frame = frame;
