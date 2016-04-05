@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * const kKeychainService;
-extern int const kWelconeVersion;
+extern int const kWelcomeVersion;
 extern int const kPhoneLength;
 extern int const kPasswordLength;
 extern NSString * const kUserTypeUser;

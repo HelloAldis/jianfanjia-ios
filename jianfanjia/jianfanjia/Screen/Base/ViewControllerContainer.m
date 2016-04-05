@@ -91,12 +91,12 @@ static ViewControllerContainer *container;
 }
 
 + (void)showAfterLanching {
-    if ([GVUserDefaults standardUserDefaults].isLogin) {
-        //显示首页
-        [self showTab];
-    } else {
+    if ([GVUserDefaults standardUserDefaults].welcomeVersion < kWelcomeVersion) {
         //显示welcome
         [self showWelcome];
+    } else {
+        //显示首页
+        [self showTab];
     }
 }
 
@@ -481,7 +481,6 @@ static ViewControllerContainer *container;
     [DataManager shared].homePageRequirementDesigners = nil;
     
     [API clearCookie];
-    [ViewControllerContainer showWelcome];
 }
 
 @end

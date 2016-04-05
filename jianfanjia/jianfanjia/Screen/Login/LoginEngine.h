@@ -12,6 +12,7 @@ typedef void (^LoginEngineLoginBlock)(BOOL logined);
 
 @interface LoginEngine : NSObject
 
+- (BOOL)isLogin;
 - (void)showLogin:(LoginEngineLoginBlock)loginBlock;
 - (void)showWechatLogin:(UIViewController *)controller completion:(LoginEngineLoginBlock)wechatLoginBlock;
 - (void)executeLoginBlock:(BOOL)logined;

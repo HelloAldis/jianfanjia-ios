@@ -37,7 +37,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];    
+    [super viewWillAppear:animated];
     [self refreshRequirements:YES];
 }
 
@@ -67,7 +67,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 }
 
 - (void)switchViewToHide {
-    if ([self.requirementDataManager.requirements count]) {
+    if (self.requirementDataManager.requirements.count > 0) {
         self.btnCreate.hidden = YES;
         self.lblNoRequirement.hidden = YES;
         self.imageView.hidden = YES;
@@ -95,13 +95,13 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 - (IBAction)onClickCreate:(id)sender {
     [[LoginEngine shared] showLogin:^(BOOL logined) {
         if (logined) {
-//            if (![GVUserDefaults standardUserDefaults].phone) {
+            if (![GVUserDefaults standardUserDefaults].phone) {
                 [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
                     [ViewControllerContainer showRequirementCreate:nil];
                 }];
-//            } else {
-//                [ViewControllerContainer showRequirementCreate:nil];
-//            }
+            } else {
+                [ViewControllerContainer showRequirementCreate:nil];
+            }
         }
     }];
 }
@@ -125,26 +125,30 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 
 #pragma mark - send request 
 - (void)refreshRequirements:(BOOL)showPlsWait {
-    if (showPlsWait) {
-        [HUDUtil showWait];
-    }
-
-    GetUserRequirement *getRequirements = [[GetUserRequirement alloc] init];
-    
-    [API getUserRequirement:getRequirements success:^{
-        [HUDUtil hideWait];
-        [self.tableView.header endRefreshing];
-        [self.requirementDataManager refreshRequirementList];
-        [self switchViewToHide];
+    if ([[LoginEngine shared] isLogin]) {
+        if (showPlsWait) {
+            [HUDUtil showWait];
+        }
         
-        [self.tableView reloadData];
-    } failure:^{
-        [HUDUtil hideWait];
-        [self.tableView.header endRefreshing];
-    } networkError:^{
-        [HUDUtil hideWait];
-        [self.tableView.header endRefreshing];
-    }];
+        GetUserRequirement *getRequirements = [[GetUserRequirement alloc] init];
+        
+        [API getUserRequirement:getRequirements success:^{
+            [HUDUtil hideWait];
+            [self.tableView.header endRefreshing];
+            [self.requirementDataManager refreshRequirementList];
+            [self switchViewToHide];
+            
+            [self.tableView reloadData];
+        } failure:^{
+            [HUDUtil hideWait];
+            [self.tableView.header endRefreshing];
+        } networkError:^{
+            [HUDUtil hideWait];
+            [self.tableView.header endRefreshing];
+        }];
+    } else {
+        [self switchViewToHide];
+    }
 }
 
 @end

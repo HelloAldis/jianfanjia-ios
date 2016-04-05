@@ -40,7 +40,7 @@
     [self.scrollView addSubview:self.w2];
     [self.scrollView setContentSize:CGSizeMake(kScreenWidth *2, kScreenHeight)];
 
-     [GVUserDefaults standardUserDefaults].welcomeVersion  = kWelconeVersion;
+    [GVUserDefaults standardUserDefaults].welcomeVersion  = kWelcomeVersion;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

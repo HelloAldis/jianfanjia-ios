@@ -11,6 +11,12 @@
 
 @implementation HUDUtil
 
++ (void)showText:(NSString *)text delayShow:(CGFloat)delay {
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [HUDUtil showText:text delayHide:2];
+    });
+}
+
 + (void)showText:(NSString *)text delayHide:(CGFloat)delay {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:[AppDelegate sharedInstance].window animated:YES];
     hud.mode = MBProgressHUDModeText;

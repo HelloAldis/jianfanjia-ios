@@ -67,6 +67,14 @@
 }
 
 - (IBAction)onClickAdd:(id)sender {
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            [self addDesignerIntent];
+        }
+    }];
+}
+
+- (void)addDesignerIntent {
     if (self.designer && ![self.designer.is_my_favorite boolValue]) {
         AddFavoriateDesigner *request = [[AddFavoriateDesigner alloc] init];
         request._id = self.designer._id;

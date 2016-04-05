@@ -50,10 +50,8 @@
     [API feedback:request success:^{
         @strongify(self);
         [self.view endEditing:YES];
-        [HUDUtil showSuccessText:@"感谢您的宝贵建议！"];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.navigationController popViewControllerAnimated:YES];
-        });
+        [self clickBack];
+        [HUDUtil showText:@"感谢您的宝贵建议！" delayShow:0.3];
     } failure:^{
         [self enableDoneButton:YES];
     } networkError:^{

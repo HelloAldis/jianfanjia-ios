@@ -74,7 +74,7 @@ static ViewControllerContainer *container;
 }
 
 + (void)showAfterLanching {
-    if ([GVUserDefaults standardUserDefaults].welcomeVersion < kWelconeVersion) {
+    if ([GVUserDefaults standardUserDefaults].welcomeVersion < kWelcomeVersion) {
         //显示welcome
         WelcomeViewController *pages =[[WelcomeViewController alloc] initWithNibName:nil bundle:nil];
         container.window.rootViewController = pages;

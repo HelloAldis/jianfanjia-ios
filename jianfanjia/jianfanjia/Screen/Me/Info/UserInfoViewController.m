@@ -160,6 +160,8 @@
     }];
     UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [ViewControllerContainer logout];
+        [self clickBack];
+        [HUDUtil showText:@"您已退出登录" delayShow:0];
     }];
     
     [alert addAction:cancel];

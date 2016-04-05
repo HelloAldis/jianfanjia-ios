@@ -14,7 +14,7 @@
 NSString * const kKeychainService = @"com.jianfanjia.jianfanjia";
 
 
-int const kWelconeVersion = 1;
+int const kWelcomeVersion = 2;
 int const kPhoneLength = 11;
 int const kPasswordLength = 30;
 

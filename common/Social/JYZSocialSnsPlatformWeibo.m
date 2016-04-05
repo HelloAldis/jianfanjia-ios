@@ -43,7 +43,7 @@ static NSString *RedirectURI;
     NSData *descriptionData = [description dataUsingEncoding:NSUTF8StringEncoding];
     NSData *linkData = [targetLink dataUsingEncoding:NSUTF8StringEncoding];
 
-    DDLogDebug(@"description bytes: %lu, link bytes: %lu", descriptionData.length, linkData.length);
+    DDLogDebug(@"description bytes: %@, link bytes: %@", @(descriptionData.length), @(linkData.length));
     if (descriptionData.length + linkData.length > 280) {
         description = [description substringToIndex:MAX((280 - linkData.length) / 2, 0)];
         description = [description stringByReplacingCharactersInRange:NSMakeRange(description.length - 3, 3) withString:@"..."];

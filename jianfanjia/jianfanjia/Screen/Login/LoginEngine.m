@@ -18,10 +18,14 @@
 
 @implementation LoginEngine
 
+- (BOOL)isLogin {
+    return [GVUserDefaults standardUserDefaults].isLogin;
+}
+
 - (void)showLogin:(LoginEngineLoginBlock)loginBlock {
     self.loginBlock = loginBlock;
     
-    if (![GVUserDefaults standardUserDefaults].isLogin) {
+    if (![self isLogin]) {
         [ViewControllerContainer showLogin];
     } else {
         [self executeLoginBlock:YES];
@@ -31,9 +35,10 @@
 - (void)showWechatLogin:(UIViewController *)controller completion:(LoginEngineLoginBlock)wechatLoginBlock {
     self.wechatLoginBlock = wechatLoginBlock;
     
-    [HUDUtil showWait];
     [[ShareManager shared] wechatLogin:controller compeletion:^(SnsAccountInfo *snsAccount, NSString *error) {
         if (error == nil) {
+            [HUDUtil showWait];
+            
             WeChatLogin *request = [[WeChatLogin alloc] init];
             request.username = snsAccount.userName;
             request.sex = snsAccount.gender;

@@ -40,6 +40,7 @@
 
 #pragma mark - UI
 - (void)initUI {
+    [GVUserDefaults standardUserDefaults].welcomeVersion  = kWelcomeVersion;
     [self.btnWechatLogin setCornerRadius:5];
     [self.wechatIcon setTintColor:[UIColor whiteColor]];
     

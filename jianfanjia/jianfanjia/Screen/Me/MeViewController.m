@@ -54,7 +54,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
+//    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -75,11 +75,20 @@
 
 #pragma mark - UI
 - (void)initUIData {
-    self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
-    if ([GVUserDefaults standardUserDefaults].phone) {
-        self.lblPhone.text = [NSString stringWithFormat:@"帐号：%@", [GVUserDefaults standardUserDefaults].phone];
+    if ([[LoginEngine shared] isLogin]) {
+        self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
+        self.lblUsername.font = [UIFont systemFontOfSize:17 weight:UIFontWeightBold];
+        self.lblPhone.font = [UIFont systemFontOfSize:14];
+        if ([GVUserDefaults standardUserDefaults].phone) {
+            self.lblPhone.text = [NSString stringWithFormat:@"帐号：%@", [GVUserDefaults standardUserDefaults].phone];
+        } else {
+            self.lblPhone.hidden = YES;
+        }
     } else {
-        self.lblPhone.hidden = YES;
+        self.lblUsername.text = @"登录/注册";
+        self.lblUsername.font = [UIFont systemFontOfSize:17];
+        self.lblPhone.text = @"登录简繁家，发现更多精彩！";
+        self.lblPhone.font = [UIFont systemFontOfSize:16];
     }
     
     [self.userThumnail setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
@@ -100,25 +109,49 @@
 
 #pragma mark - user action
 - (IBAction)onTapUserImageView:(id)sender {
-    UserInfoViewController *v = [[UserInfoViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:v animated:YES];
+    if ([[LoginEngine shared] isLogin]) {
+        UserInfoViewController *v = [[UserInfoViewController alloc] initWithNibName:nil bundle:nil];
+        [self.navigationController pushViewController:v animated:YES];
+    } else {
+        [[LoginEngine shared] showLogin:^(BOOL logined) {
+            if (logined) {
+                [self initUIData];
+            }
+        }];
+    }
 }
 
 - (IBAction)onClickNotification:(id)sender {
-    [ViewControllerContainer showMyNotification];
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            [ViewControllerContainer showMyNotification];
+        }
+    }];
 }
 
 - (IBAction)onClickFavoriate:(id)sender {
-    MyFavoriateViewController *v = [[MyFavoriateViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:v animated:YES];
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            MyFavoriateViewController *v = [[MyFavoriateViewController alloc] initWithNibName:nil bundle:nil];
+            [self.navigationController pushViewController:v animated:YES];
+        }
+    }];
 }
 
 - (IBAction)onClickComment:(id)sender {
-    [ViewControllerContainer showMyComments];
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            [ViewControllerContainer showMyComments];
+        }
+    }];
 }
 
 - (IBAction)onClickAcountBind:(id)sender {
-    [ViewControllerContainer showAccountBind];
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            [ViewControllerContainer showAccountBind];
+        }
+    }];
 }
 
 - (IBAction)onClickClearCache:(id)sender {

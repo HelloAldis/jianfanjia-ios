@@ -144,28 +144,36 @@
 }
 
 - (void)onClickFavoriate {
-    AddFavoriateProduct *request = [[AddFavoriateProduct alloc] init];
-    request._id = self.productPageData.product._id;
-    
-    @weakify(self);
-    [API addFavoriateProduct:request success:^{
-        @strongify(self);
-        [self.navigationItem setRightBarButtonItem:self.unfavoriateBarButton animated:YES];
-    } failure:^{
-    } networkError:^{
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            AddFavoriateProduct *request = [[AddFavoriateProduct alloc] init];
+            request._id = self.productPageData.product._id;
+            
+            @weakify(self);
+            [API addFavoriateProduct:request success:^{
+                @strongify(self);
+                [self.navigationItem setRightBarButtonItem:self.unfavoriateBarButton animated:YES];
+            } failure:^{
+            } networkError:^{
+            }];
+        }
     }];
 }
 
 - (void)onClickUnfavoriate {
-    DeleteFavoriateProduct *request = [[DeleteFavoriateProduct alloc] init];
-    request._id = self.productPageData.product._id;
-    
-    @weakify(self);
-    [API deleteFavoriateProduct:request success:^{
-        @strongify(self);
-        [self.navigationItem setRightBarButtonItem:self.favoriateBarButton animated:YES];
-    } failure:^{
-    } networkError:^{
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            DeleteFavoriateProduct *request = [[DeleteFavoriateProduct alloc] init];
+            request._id = self.productPageData.product._id;
+            
+            @weakify(self);
+            [API deleteFavoriateProduct:request success:^{
+                @strongify(self);
+                [self.navigationItem setRightBarButtonItem:self.favoriateBarButton animated:YES];
+            } failure:^{
+            } networkError:^{
+            }];
+        }
     }];
 }
 
