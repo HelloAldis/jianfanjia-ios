@@ -48,23 +48,8 @@
 }
 
 - (void)updateLinkView {
-    self.lblLinkCell.text = self.notification.process.basic_address;
-    self.lblLinkItem.text = [ProcessBusiness nameForKey:self.notification.item];
-
-    Section *section = nil;
-    Item *item = nil;
-    
-    NSPredicate *sectionPre = [NSPredicate predicateWithFormat:@"SELF.name == %@", self.notification.section];
-    NSArray *sections = [self.notification.process.sections filteredArrayUsingPredicate:sectionPre];
-    if (sections.count > 0) {
-        section = [[Section alloc] initWith:sections[0]];
-        
-        NSPredicate *itemPre = [NSPredicate predicateWithFormat:@"SELF.name == %@", self.notification.item];
-        NSArray *items = [[section.data valueForKey:@"items"] filteredArrayUsingPredicate:itemPre];
-        if (items) {
-            item = [[Item alloc] initWith:items[0]];
-        }
-    }
+    Section *section = [self.notification.process sectionForName:self.notification.section];
+    Item *item = [section itemForName:self.notification.item];
 
     if (section && item) {
         self.lblLinkStatus.text = [NameDict nameForSectionStatus:item.status];
@@ -82,6 +67,9 @@
             self.linkStatusLine2.backgroundColor = kUntriggeredColor;
         }
     }
+    
+    self.lblLinkCell.text = self.notification.process.basic_address;
+    self.lblLinkItem.text = item.label;
 }
 
 #pragma mark - user action

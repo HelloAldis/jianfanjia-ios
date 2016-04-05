@@ -26,7 +26,8 @@
     self.lblNotificationTitle.text = notification.title;
     self.lblTitle.text = notification.process.basic_address;
     self.lblContent.text = notification.content;
-    self.lblSection.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:self.notification.section]];
+    
+    self.lblSection.text = [NSString stringWithFormat:@"%@阶段", [self.notification.process sectionForName:self.notification.section].label];
     self.lblNotificationTime.text = [notification.create_at humDateString];
     
     [NotificationBusiness markTextColor:self.lblNotificationTitle status:notification.status];

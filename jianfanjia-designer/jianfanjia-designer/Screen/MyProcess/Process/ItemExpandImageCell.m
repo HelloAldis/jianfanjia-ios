@@ -66,7 +66,7 @@ static CGFloat imgCellWidth;
     self.refreshBlock = refreshBlock;
     self.dataManager = dataManager;
     self.item = item;
-    self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
+    self.lblItemTitle.text = item.label;
     self.lblLastUpdateTime.text = self.item.date.longLongValue > 0 ? [NSDate yyyy_MM_dd_HH_mm:self.item.date] : @"";
     self.lblItemStatus.text = [NameDict nameForSectionStatus:self.item.status];
     
@@ -131,7 +131,7 @@ static CGFloat imgCellWidth;
 
 #pragma mark - user action
 - (IBAction)onClickFinishItem:(id)sender {
-    [MessageAlertViewController presentAlert:[ProcessBusiness nameForKey:self.item.name] msg:@"确认完工吗？" second:nil reject:nil agree:^{
+    [MessageAlertViewController presentAlert:self.item.label msg:@"确认完工吗？" second:nil reject:nil agree:^{
         DesignerDoneSectionItem *request = [[DesignerDoneSectionItem alloc] init];
         request._id = self.dataManager.process._id;
         request.section = self.dataManager.selectedSection.name;
