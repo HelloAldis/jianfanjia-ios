@@ -296,6 +296,8 @@
 		68C3C26C1C75C41200EEEBD8 /* HomePageProductItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68C3C2681C75C41200EEEBD8 /* HomePageProductItem.xib */; };
 		68D536A61BFF563800D8F1B2 /* PlanPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */; };
 		68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */; };
+		68E600471CB3B39600C4A8F7 /* DecPackage365View.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600451CB3B39500C4A8F7 /* DecPackage365View.m */; };
+		68E600481CB3B39600C4A8F7 /* DecPackage365View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E600461CB3B39500C4A8F7 /* DecPackage365View.xib */; };
 		6E06CC071C29235500A08D15 /* MyFavoriateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */; };
 		6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */; };
 		6E06CC0B1C29447E00A08D15 /* ListFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC0A1C29447E00A08D15 /* ListFavoriateProduct.m */; };
@@ -942,6 +944,9 @@
 		68D536A31BFF563800D8F1B2 /* PlanPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPreviewViewController.h; sourceTree = "<group>"; };
 		68D536A41BFF563800D8F1B2 /* PlanPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPreviewViewController.m; sourceTree = "<group>"; };
 		68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPreviewViewController.xib; sourceTree = "<group>"; };
+		68E600441CB3B39500C4A8F7 /* DecPackage365View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackage365View.h; sourceTree = "<group>"; };
+		68E600451CB3B39500C4A8F7 /* DecPackage365View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackage365View.m; sourceTree = "<group>"; };
+		68E600461CB3B39500C4A8F7 /* DecPackage365View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackage365View.xib; sourceTree = "<group>"; };
 		6E06CC041C29235500A08D15 /* MyFavoriateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoriateViewController.h; sourceTree = "<group>"; };
 		6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoriateViewController.m; sourceTree = "<group>"; };
 		6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavoriateViewController.xib; sourceTree = "<group>"; };
@@ -1769,6 +1774,9 @@
 		68E600431CB3AFBE00C4A8F7 /* DecPackage */ = {
 			isa = PBXGroup;
 			children = (
+				68E600441CB3B39500C4A8F7 /* DecPackage365View.h */,
+				68E600451CB3B39500C4A8F7 /* DecPackage365View.m */,
+				68E600461CB3B39500C4A8F7 /* DecPackage365View.xib */,
 			);
 			path = DecPackage;
 			sourceTree = "<group>";
@@ -2654,6 +2662,7 @@
 				68B10CAB1C7819E3005866C1 /* ProductCaseListViewController.xib in Resources */,
 				684A370F1BFD733500F7388C /* OrderedDesignerViewController.xib in Resources */,
 				68123C651C4C8B99008FC9AB /* SelectCityViewController.xib in Resources */,
+				68E600481CB3B39600C4A8F7 /* DecPackage365View.xib in Resources */,
 				684A37551BFD73DF00F7388C /* SelectHouseTypeViewController.xib in Resources */,
 				6E7E4A6A1B9A90BA00503B35 /* LoginViewController.xib in Resources */,
 				684A37591BFD73DF00F7388C /* SelectSexTypeViewController.xib in Resources */,
@@ -2912,6 +2921,7 @@
 				684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */,
 				68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */,
 				683FFB191C280681002A1AFE /* GetBeautifulImageHomepage.m in Sources */,
+				68E600471CB3B39600C4A8F7 /* DecPackage365View.m in Sources */,
 				684A370E1BFD733500F7388C /* OrderedDesignerViewController.m in Sources */,
 				6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */,
 				683FFB411C296288002A1AFE /* BeautifulImageCollectionCell.m in Sources */,

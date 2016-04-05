@@ -133,22 +133,26 @@ static ViewControllerContainer *container;
 }
 
 + (void)showLogin {
-    LoginViewController *v = [[LoginViewController alloc] init];
+    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
     
+    LoginViewController *v = [[LoginViewController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
     v.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     v.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    [container.window.rootViewController presentViewController:navi animated:YES completion:nil];
+    [nav presentViewController:navi animated:YES completion:nil];
 }
 
 + (void)showSignup {
+    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
+    
     LoginViewController *v = [[LoginViewController alloc] init];
     v.showSignup = YES;
-    
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
     v.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     v.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    [container.window.rootViewController presentViewController:navi animated:YES completion:nil];
+    [nav presentViewController:navi animated:YES completion:nil];
 }
 
 + (void)showAccountBind {
@@ -456,7 +460,6 @@ static ViewControllerContainer *container;
 
 + (void)logout {
     [GeTuiSdk unbindAlias:[GVUserDefaults standardUserDefaults].userid];
-    container.tab = nil;
     container.navTapHome = nil;
     container.navTapPrettyImg = nil;
     container.navTapRequirement = nil;
