@@ -240,10 +240,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 #pragma mark - scroll view delegate
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    self.sectionActionView.userInteractionEnabled = NO;
-}
-
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (scrollView == self.sectionScrollView) {
         if (!decelerate) {
@@ -264,8 +260,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     if (index != curIndex) {
         [self reloadItemsForSection:index];
     }
-    
-    self.sectionActionView.userInteractionEnabled = self.workSiteMode == WorkSiteModePreview ? NO : YES;
 }
 
 #pragma mark - getures
