@@ -141,15 +141,18 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
     [label setTextColor:highlight ? kThemeTextColor : kUntriggeredColor];
 }
 
-- (IBAction)onClickCreateMyWorksite:(id)sender {
-    if (![GVUserDefaults standardUserDefaults].phone) {
-        [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
-            [ViewControllerContainer showRequirementCreate:nil];
-        }];
-        return;
-    }
-    
-    [ViewControllerContainer showRequirementCreate:nil];
+- (IBAction)onClickCreateMyWorksite:(id)sender {    
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            if (![GVUserDefaults standardUserDefaults].phone) {
+                [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
+                    [ViewControllerContainer showRequirementCreate:nil];
+                }];
+            } else {
+                [ViewControllerContainer showRequirementCreate:nil];
+            }
+        }
+    }];
 }
 
 #pragma mark - api request

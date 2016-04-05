@@ -93,14 +93,17 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 
 #pragma mark - actions
 - (IBAction)onClickCreate:(id)sender {
-    if (![GVUserDefaults standardUserDefaults].phone) {
-        [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
-            [ViewControllerContainer showRequirementCreate:nil];
-        }];
-        return;
-    }
-
-    [ViewControllerContainer showRequirementCreate:nil];
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+//            if (![GVUserDefaults standardUserDefaults].phone) {
+                [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
+                    [ViewControllerContainer showRequirementCreate:nil];
+                }];
+//            } else {
+//                [ViewControllerContainer showRequirementCreate:nil];
+//            }
+        }
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
