@@ -149,7 +149,7 @@ static NSDictionary *NotificationTitles = nil;
     }
 
     self.lblSection.hidden = ![NotificationBusiness contains:self.notification.message_type inFilter:[NotificationBusiness userWorksiteNotificationFilter]];
-    self.lblSection.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:self.notification.section]];
+    self.lblSection.text = [NSString stringWithFormat:@"%@阶段", [self.notification.process sectionForName:self.notification.section].label];
     self.lblNotificationTime.text = [self.notification.create_at humDateString];
     self.headerView.hidden = NO;
     
@@ -218,18 +218,14 @@ static NSDictionary *NotificationTitles = nil;
     self.btnOk.hidden = NO;
     [self.btnOk setTitle:@"对比验收" forState:UIControlStateNormal];
     
-    NSPredicate *sectionPre = [NSPredicate predicateWithFormat:@"SELF.name == %@", self.notification.section];
-    NSArray *sections = [self.notification.process.sections filteredArrayUsingPredicate:sectionPre];
-    if (sections.count > 0) {
-        Section *section = [[Section alloc] initWith:sections[0]];
-        section.ys = [[Ys alloc] initWith:[section.data objectForKey:@"ys"]];
+    Section *section = [self.notification.process sectionForName:self.notification.section];
+    section.ys = [[Ys alloc] initWith:[section.data objectForKey:@"ys"]];
         
-        @weakify(self);
-        self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-            @strongify(self);
-            [ViewControllerContainer showDBYS:section process:self.notification.processid popTo:nil refresh:nil];
-        }];
-    }
+    @weakify(self);
+    self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [ViewControllerContainer showDBYS:section process:self.notification.processid popTo:nil refresh:nil];
+    }];
 }
 
 - (void)handleMeasureHouseConfirm {

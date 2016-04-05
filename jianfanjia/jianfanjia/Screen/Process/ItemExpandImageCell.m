@@ -64,7 +64,7 @@ static CGFloat imgCellWidth;
     self.refreshBlock = refreshBlock;
     self.dataManager = dataManager;
     self.item = item;
-    self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
+    self.lblItemTitle.text = item.label;
     self.lblLastUpdateTime.text = self.item.date.longLongValue > 0 ? [NSDate yyyy_MM_dd_HH_mm:self.item.date] : @"";
     self.lblItemStatus.text = [NameDict nameForSectionStatus:self.item.status];
     

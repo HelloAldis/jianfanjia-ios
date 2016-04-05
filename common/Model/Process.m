@@ -40,4 +40,17 @@
     }
 }
 
+- (Section *)sectionForName:(NSString *)name {
+    NSPredicate *sectionPre = [NSPredicate predicateWithFormat:@"SELF.name == %@", name];
+    
+    NSArray *sections = [self.sections filteredArrayUsingPredicate:sectionPre];
+    if (sections.count > 0) {
+        return [[Section alloc] initWith:sections[0]];
+    }
+    
+    return nil;
+}
+
+
+
 @end

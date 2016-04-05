@@ -12,6 +12,7 @@
 @implementation Section
 
 @dynamic name;
+@dynamic label;
 @dynamic start_at;
 @dynamic end_at;
 @dynamic status;
@@ -24,6 +25,16 @@
     } else {
         return nil;
     }
+}
+
+- (Item *)itemForName:(NSString *)name {
+    NSPredicate *itemPre = [NSPredicate predicateWithFormat:@"SELF.name == %@", name];
+    NSArray *items = [self.items  filteredArrayUsingPredicate:itemPre];
+    if (items.count > 0) {
+        return [[Item alloc] initWith:items[0]];
+    }
+    
+    return nil;
 }
 
 @end

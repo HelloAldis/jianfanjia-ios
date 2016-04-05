@@ -15,8 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIView *statusLine2;
 @property (weak, nonatomic) IBOutlet UIImageView *statusImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblItemTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lblMore;
-
 
 @property (weak, nonatomic) ProcessDataManager *dataManager;
 @property (weak, nonatomic) Item *item;
@@ -35,8 +33,7 @@
 - (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager {
     self.dataManager = dataManager;
     self.item = item;
-    self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
-    self.lblMore.hidden = ![item.name isEqualToString:DBYS];
+    self.lblItemTitle.text = item.label;
     
     if ([self.item.status isEqualToString:kSectionStatusOnGoing]
         || [self.item.status isEqualToString:kSectionStatusChangeDateRequest]
