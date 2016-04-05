@@ -64,7 +64,8 @@
     self.lblPublishTimeVal.text = [NSDate yyyy_MM_dd:self.process.start_at];
     self.lblUpdateTimeVal.text = [self.process.lastupdate humDateString];
     self.lblCellNameVal.text = process.basic_address;
-    self.lblProcessStatusVal.text = [process.going_on isEqualToString:@"done"] ? @"已竣工" : [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:process.going_on]];
+    
+    self.lblProcessStatusVal.text = [process.going_on isEqualToString:@"done"] ? @"已竣工" : [process sectionForName:self.process.going_on].label;
     
     [self updateSections:process];
 }
@@ -94,14 +95,17 @@
 #pragma mark - update sections
 - (void)updateSections:(Process *)process {
     [self.sectionScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    NSArray *allSection = [ProcessBusiness allSectionName];
-    NSInteger ongoingIdx = [allSection indexOfObject:process.going_on];
+//    NSArray *allSection = [ProcessBusiness allSectionName];
+    NSArray *sections = process.sections;
+//    NSInteger ongoingIdx = [allSection indexOfObject:process.going_on];
     
     CGFloat scrollViewHeight = CGRectGetHeight(self.sectionScrollView.frame);
     CGFloat imgWidth = 60;
     CGFloat textLabelHeight = 25;
     CGFloat lineWidth = 10;
-    for (NSInteger i = 0; i < allSection.count; i++) {
+    for (NSInteger i = 0; i < sections.count; i++) {
+        Section *section = [process sectionAtIndex:i];
+        
         UIView *leftLine = [[UIView alloc] initWithFrame:CGRectMake(i * (imgWidth + lineWidth * 2), (scrollViewHeight - textLabelHeight) / 2, lineWidth, 1)];
         UIView *rightLine = [[UIView alloc] initWithFrame:CGRectMake(imgWidth + lineWidth + i * (imgWidth + lineWidth * 2), (scrollViewHeight - textLabelHeight) / 2, lineWidth, 1)];
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(lineWidth + i * (imgWidth + lineWidth * 2), (scrollViewHeight - imgWidth - textLabelHeight) / 2, imgWidth, imgWidth)];
@@ -109,29 +113,33 @@
         textLabel.font = [UIFont systemFontOfSize:13];
         textLabel.textAlignment = NSTextAlignmentCenter;
         textLabel.textColor = kThemeTextColor;
-        textLabel.text = [ProcessBusiness nameForKey:allSection[i]];
+        textLabel.text = section.label;
         
-        if ([process.going_on isEqualToString:@"done"]) {
-            leftLine.backgroundColor = kFinishedColor;
-            rightLine.backgroundColor = kFinishedColor;
-            imgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%@_%d", @(i), 2]];
-        } else if (i < ongoingIdx) {
-            leftLine.backgroundColor = kFinishedColor;
-            rightLine.backgroundColor = i + 1 == ongoingIdx ? kUntriggeredColor : kFinishedColor;
-            imgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%@_%d", @(i), 2]];
-        } else if (i == ongoingIdx) {
-            leftLine.backgroundColor = kUntriggeredColor;
-            rightLine.backgroundColor = kUntriggeredColor;
-            imgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%@_%d", @(i), 1]];
-        } else {
+        if ([kSectionStatusUnStart isEqualToString: section.status]) {
             leftLine.backgroundColor = kUntriggeredColor;
             rightLine.backgroundColor = kUntriggeredColor;
             imgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%@_%d", @(i), 0]];
+        } else if ([kSectionStatusAlreadyFinished isEqualToString:section.status]) {
+            if (i + 1 < sections.count) {
+                Section *nextSection = [process sectionAtIndex:i + 1];
+                if ([kSectionStatusAlreadyFinished isEqualToString:nextSection.status]) {
+                    rightLine.backgroundColor = kFinishedColor;
+                } else {
+                    rightLine.backgroundColor = kUntriggeredColor;
+                }
+            }
+            
+            leftLine.backgroundColor = kFinishedColor;
+            imgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%@_%d", @(i), 2]];
+        } else {
+            leftLine.backgroundColor = kUntriggeredColor;
+            rightLine.backgroundColor = kUntriggeredColor;
+            imgView.image = [UIImage imageNamed:[NSString stringWithFormat:@"section_%@_%d", @(i), 1]];
         }
         
         if (i == 0) {
             leftLine.hidden = YES;
-        } else if (i == allSection.count - 1) {
+        } else if (i == sections.count - 1) {
             rightLine.hidden = YES;
         }
         
@@ -141,7 +149,7 @@
         [self.sectionScrollView addSubview:textLabel];
     }
     
-    [self.sectionScrollView setContentSize:CGSizeMake(allSection.count * (imgWidth + lineWidth * 2), imgWidth + textLabelHeight)];
+    [self.sectionScrollView setContentSize:CGSizeMake(sections.count * (imgWidth + lineWidth * 2), imgWidth + textLabelHeight)];
 }
 
 @end

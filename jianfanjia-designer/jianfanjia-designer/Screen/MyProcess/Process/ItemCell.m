@@ -35,7 +35,7 @@
 - (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager {
     self.dataManager = dataManager;
     self.item = item;
-    self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
+    self.lblItemTitle.text = item.label;
     self.lblMore.hidden = ![item.name isEqualToString:DBYS];
     
     if ([self.item.status isEqualToString:kSectionStatusOnGoing]

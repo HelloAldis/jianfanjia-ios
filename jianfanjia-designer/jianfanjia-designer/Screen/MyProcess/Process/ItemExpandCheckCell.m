@@ -125,7 +125,7 @@
     self.refreshBlock = refreshBlock;
     self.dataManager = dataManager;
     self.item = item;
-    self.lblItemTitle.text = [ProcessBusiness nameForKey:item.name];
+    self.lblItemTitle.text = item.label;
     
     if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusOnGoing]
         || [self.item.status isEqualToString:kSectionStatusChangeDateRequest]

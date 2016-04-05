@@ -159,7 +159,7 @@ static NSDictionary *NotificationTitles = nil;
     }
 
     self.lblSection.hidden = ![NotificationBusiness contains:self.notification.message_type inFilter:[NotificationBusiness designerWorksiteNotificationFilter]];
-    self.lblSection.text = [NSString stringWithFormat:@"%@阶段", [ProcessBusiness nameForKey:self.notification.section]];
+    self.lblSection.text = [NSString stringWithFormat:@"%@阶段", [self.notification.process sectionForName:self.notification.section].label];
     self.lblNotificationTime.text = [self.notification.create_at humDateString];
     self.headerView.hidden = NO;
     
