@@ -9,17 +9,15 @@
 #import "LoginViewController.h"
 #import "ViewControllerContainer.h"
 #import "AppDelegate.h"
-#import "AutoScrollUIScrollView.h"
-
-static CGFloat kImageOriginHight = 0;
 
 @interface LoginViewController ()
 
-@property (weak, nonatomic) IBOutlet AutoScrollUIScrollView *scrollView;
-@property (strong, nonatomic) UIImageView *topImageView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIImageView *loginAngleUp;
 @property (weak, nonatomic) IBOutlet UIImageView *signupAngleUp;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
+@property (weak, nonatomic) IBOutlet UIImageView *iconWechatLogin;
 @property (weak, nonatomic) IBOutlet UITextField *fldPassword;
 @property (weak, nonatomic) IBOutlet UITextField *fldPhone;
 @property (weak, nonatomic) IBOutlet UIButton *btnTitleLogin;
@@ -58,45 +56,36 @@ static CGFloat kImageOriginHight = 0;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     if (self.showSignup) {
         self.isShowingLogin = YES;
-        [self swipeLeft:nil];
+        [self showSignupView:NO];
     } else {
         self.isShowingLogin = NO;
-        [self swipeRight:nil];
+        [self showLoginView:NO];
     }
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UI
 - (void)initNav {
-    [self initLeftBackInNav];
-    
     self.navigationController.navigationBarHidden = NO;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_delete"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    self.navigationItem.leftBarButtonItem = item;
+    
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
 }
 
 - (void)onClickBack {
     [self.view endEditing:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [[LoginEngine shared] executeLoginBlock:NO];
+    }];
 }
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.scrollView.disableAutoScroll = YES;
     self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    [self.navigationController.navigationBar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapNavBarGesture:)]];
     
     @weakify(self);
     [RACObserve(self.btnLogin, enabled) subscribeNext:^(NSNumber *newValue) {
@@ -162,8 +151,13 @@ static CGFloat kImageOriginHight = 0;
                                   }];
     
     [self.btnLogin setCornerRadius:5];
-    self.btnLogin.enabled = NO;
     [self.btnNext setCornerRadius:5];
+    [self.fldPhone setCornerRadius:5];
+    [self.fldPassword setCornerRadius:5];
+    [self.fldSignupPhone setCornerRadius:5];
+    [self.fldSignupPassword setCornerRadius:5];
+    
+    self.btnLogin.enabled = NO;
     self.btnNext.enabled = NO;
     self.loginAngleUp.hidden = !self.isShowingLogin;
     self.signupAngleUp.hidden = self.isShowingLogin;
@@ -172,8 +166,6 @@ static CGFloat kImageOriginHight = 0;
     [self setLeftPadding:self.fldPassword withImage:[UIImage imageNamed:@"icon_account_pwd"]];
     [self setLeftPadding:self.fldSignupPhone withImage:[UIImage imageNamed:@"icon_account_phone"]];
     [self setLeftPadding:self.fldSignupPassword withImage:[UIImage imageNamed:@"icon_account_pwd"]];
-    
-    [self initTopImageView];
     
     if (kIs35inchScreen || kIs40inchScreen) {
         self.headViewHeightConstraint.constant = 50;
@@ -186,42 +178,30 @@ static CGFloat kImageOriginHight = 0;
     }
 }
 
-- (void)initTopImageView {
-    CGFloat aspect =  414.0 / kScreenWidth;
-    kImageOriginHight = round(270 / aspect);
-    self.topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, -kImageOriginHight, kScreenWidth, kImageOriginHight)];
-    self.topImageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.topImageView.image = [UIImage imageNamed:@"bg_login"];
-    self.scrollView.contentInset = UIEdgeInsetsMake(kImageOriginHight, 0, 0, 0);
-    [self.scrollView addSubview:self.topImageView];
-}
-
 - (void)setLeftPadding:(UITextField *)textField withImage:(UIImage *)image {
     CGRect frame = textField.frame;
     frame.origin.x = 0;
     frame.origin.y = 0;
-    frame.size.width = 30;
+    frame.size.width = 60;
     UIImageView *leftview = [[UIImageView alloc] initWithFrame:frame];
     leftview.image = image;
-    leftview.contentMode = UIViewContentModeLeft;
+    leftview.contentMode = UIViewContentModeCenter;
     textField.leftViewMode = UITextFieldViewModeAlways;
     textField.leftView = leftview;
-}
-
-#pragma mark - scroll view delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    CGFloat yOffset  = scrollView.contentOffset.y;
-    if (yOffset < -kImageOriginHight) {
-        CGRect f = self.topImageView.frame;
-        f.origin.y = yOffset;
-        f.size.height =  -yOffset;
-        self.topImageView.frame = f;
-    }
 }
 
 #pragma mark - gesture
 - (IBAction)swipeRight:(id)sender {
     [self.view endEditing:YES];
+    [self showLoginView:YES];
+}
+
+- (IBAction)swipeLeft:(id)sender {
+    [self.view endEditing:YES];
+    [self showSignupView:YES];
+}
+
+- (void)showLoginView:(BOOL)animated {
     if (!self.isShowingLogin) {
         self.isShowingLogin = YES;
         
@@ -230,8 +210,8 @@ static CGFloat kImageOriginHight = 0;
         self.viewLogin.frame = frame;
         self.viewLogin.alpha = 1;
         self.viewSignup.alpha = 0;
-
-        [UIView animateWithDuration:1.5 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        
+        [UIView animateWithDuration:animated ? 0.4 : 0.0 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
             CGRect frame = self.viewLogin.frame;
             frame.origin.x = 0;
             self.viewLogin.frame = frame;
@@ -251,8 +231,7 @@ static CGFloat kImageOriginHight = 0;
     }
 }
 
-- (IBAction)swipeLeft:(id)sender {
-    [self.view endEditing:YES];
+- (void)showSignupView:(BOOL)animated {
     if (self.isShowingLogin) {
         self.isShowingLogin = NO;
         
@@ -262,7 +241,7 @@ static CGFloat kImageOriginHight = 0;
         self.viewSignup.alpha = 1;
         self.viewLogin.alpha = 0;
         
-        [UIView animateWithDuration:1.5 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [UIView animateWithDuration:animated ? 0.4 : 0.0 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
             CGRect frame = self.viewSignup.frame;
             frame.origin.x = 0;
             self.viewSignup.frame = frame;
@@ -279,6 +258,16 @@ static CGFloat kImageOriginHight = 0;
         } completion:^(BOOL finished) {
             
         }];
+    }
+}
+
+- (void)onTapNavBarGesture:(UITapGestureRecognizer *)g {
+    CGPoint point = [g locationInView:self.headerView];
+    id view = [self.headerView hitTest:point withEvent:nil];
+    if (view == self.btnTitleLogin) {
+        [self swipeRight:nil];
+    } else if (view == self.btnTitleSignup) {
+        [self swipeLeft:nil];
     }
 }
 
@@ -323,7 +312,9 @@ static CGFloat kImageOriginHight = 0;
     [API userLogin:login success:^{
         UserGetInfo *getUser = [[UserGetInfo alloc] init];
         [API userGetInfo:getUser success:^{
-            [ViewControllerContainer showTab];
+            [self dismissViewControllerAnimated:YES completion:^{
+                [[LoginEngine shared] executeLoginBlock:YES];
+            }];
         } failure:^{
         } networkError:^{
         }];
@@ -334,31 +325,31 @@ static CGFloat kImageOriginHight = 0;
     }];
 }
 
+- (IBAction)onTapWechatLogin:(id)sender {
+    [[LoginEngine shared] showWechatLogin:self completion:^(BOOL logined) {
+        if (logined) {
+            if ([DataManager shared].isWechatFirstLogin) {
+                [ViewControllerContainer showCollectDecPhase];
+            } else {
+                UserGetInfo *getUser = [[UserGetInfo alloc] init];
+                [API userGetInfo:getUser success:^{
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        [[LoginEngine shared] executeLoginBlock:YES];
+                    }];
+                } failure:^{
+                } networkError:^{
+                }];
+            }
+        }
+    }];
+}
+
 - (IBAction)onClickTitleLogin:(id)sender {
     [self swipeRight:nil];
 }
 
 - (IBAction)onClickTitleSignup:(id)sender {
     [self swipeLeft:nil];
-}
-
-#pragma mark - keyboard
-- (void)keyboardWillShow:(NSNotification *)notification {
-    NSDictionary *userInfo = [notification userInfo];
-    CGFloat keyboardHeight = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-    if (keyboardHeight > 0) {
-        self.scrollView.contentInset = UIEdgeInsetsMake(kImageOriginHight, 0, keyboardHeight, 0);
-        CGFloat offsetY = self.scrollView.contentSize.height - (kScreenHeight - keyboardHeight);
-        
-        [UIView animateWithDuration:0.3 animations:^{
-            [self.scrollView setContentOffset:CGPointMake(0, offsetY) animated:NO];
-        }];
-    }
-}
-
-- (void) keyboardWillHide:(NSNotification *)notification {
-    [self.view endEditing:YES];
-    self.scrollView.contentInset = UIEdgeInsetsMake(kImageOriginHight, 0, 0, 0);
 }
 
 @end

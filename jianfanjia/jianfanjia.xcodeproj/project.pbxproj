@@ -232,6 +232,7 @@
 		685F2D6A1CAB77E000DC4D43 /* UnexpandSectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D681CAB77E000DC4D43 /* UnexpandSectionActionView.xib */; };
 		685F2D731CABDC4C00DC4D43 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D721CABDC4C00DC4D43 /* BrushGifHeader.m */; };
 		685F2D761CACD21400DC4D43 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D751CACD21400DC4D43 /* DIYGifHeader.m */; };
+		685F2D801CAE671A00DC4D43 /* LoginEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D7F1CAE671A00DC4D43 /* LoginEngine.m */; };
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
@@ -830,6 +831,8 @@
 		685F2D721CABDC4C00DC4D43 /* BrushGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushGifHeader.m; sourceTree = "<group>"; };
 		685F2D741CACD21400DC4D43 /* DIYGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYGifHeader.h; sourceTree = "<group>"; };
 		685F2D751CACD21400DC4D43 /* DIYGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYGifHeader.m; sourceTree = "<group>"; };
+		685F2D7E1CAE671A00DC4D43 /* LoginEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginEngine.h; sourceTree = "<group>"; };
+		685F2D7F1CAE671A00DC4D43 /* LoginEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginEngine.m; sourceTree = "<group>"; };
 		68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemImageCollectionView.h; sourceTree = "<group>"; };
 		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
@@ -2411,6 +2414,8 @@
 				6E44962F1BFAD68B00C90851 /* ResetPassViewController.h */,
 				6E4496301BFAD68B00C90851 /* ResetPassViewController.m */,
 				6E4496311BFAD68B00C90851 /* ResetPassViewController.xib */,
+				685F2D7E1CAE671A00DC4D43 /* LoginEngine.h */,
+				685F2D7F1CAE671A00DC4D43 /* LoginEngine.m */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -3067,6 +3072,7 @@
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
 				68B10CCD1C7DAD34005866C1 /* CALayer+Ex.m in Sources */,
 				6EE1E41D1C05942600883184 /* DeleteFavoriteDesigner.m in Sources */,
+				685F2D801CAE671A00DC4D43 /* LoginEngine.m in Sources */,
 				68134A4E1C3F503E003C1C10 /* CustomerServiceViewController.m in Sources */,
 				686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */,
 				683669091BFF0C05006A5053 /* PlanCell.m in Sources */,

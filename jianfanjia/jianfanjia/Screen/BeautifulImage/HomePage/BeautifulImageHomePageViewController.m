@@ -300,31 +300,35 @@
 }
 
 - (void)onClickFavoriteButton {
-    if (![self.beautifulImage.is_my_favorite boolValue]) {
-        FavoriteBeautifulImage *request = [[FavoriteBeautifulImage alloc] init];
-        request._id = self.beautifulImage._id;
-        
-        [API favoriteBeautifulImage:request success:^{
-            self.beautifulImage.is_my_favorite = @1;
-            [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"] forState:UIControlStateNormal];
-            [HUDUtil showSuccessText:@"收藏成功"];
-        } failure:^{
-            [HUDUtil showErrText:@"收藏失败"];
-        } networkError:^{
-        }];
-    } else {
-        UnfavoriteBeautifulImage *request = [[UnfavoriteBeautifulImage alloc] init];
-        request._id = self.beautifulImage._id;
-        
-        [API unfavoriteBeautifulImage:request success:^{
-            self.beautifulImage.is_my_favorite = @0;
-            [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"] forState:UIControlStateNormal];
-            [HUDUtil showSuccessText:@"取消收藏成功"];
-        } failure:^{
-            [HUDUtil showErrText:@"取消收藏失败"];
-        } networkError:^{
-        }];
-    }
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            if (![self.beautifulImage.is_my_favorite boolValue]) {
+                FavoriteBeautifulImage *request = [[FavoriteBeautifulImage alloc] init];
+                request._id = self.beautifulImage._id;
+                
+                [API favoriteBeautifulImage:request success:^{
+                    self.beautifulImage.is_my_favorite = @1;
+                    [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"] forState:UIControlStateNormal];
+                    [HUDUtil showSuccessText:@"收藏成功"];
+                } failure:^{
+                    [HUDUtil showErrText:@"收藏失败"];
+                } networkError:^{
+                }];
+            } else {
+                UnfavoriteBeautifulImage *request = [[UnfavoriteBeautifulImage alloc] init];
+                request._id = self.beautifulImage._id;
+                
+                [API unfavoriteBeautifulImage:request success:^{
+                    self.beautifulImage.is_my_favorite = @0;
+                    [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"] forState:UIControlStateNormal];
+                    [HUDUtil showSuccessText:@"取消收藏成功"];
+                } failure:^{
+                    [HUDUtil showErrText:@"取消收藏失败"];
+                } networkError:^{
+                }];
+            }
+        }
+    }];
 }
 
 - (IBAction)onClickShareButton:(id)sender {
