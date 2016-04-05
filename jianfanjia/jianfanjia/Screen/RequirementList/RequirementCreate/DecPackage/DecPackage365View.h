@@ -13,16 +13,9 @@ extern CGFloat const kDecPackage365ViewHeight;
 
 @interface DecPackage365View : UIView
 
-@property (weak, nonatomic) IBOutlet UIButton *btnDBYS;
-@property (weak, nonatomic) IBOutlet UIButton *btnChangeDate;
-@property (weak, nonatomic) IBOutlet UIButton *btnUnresolvedChangeDate;
-@property (weak, nonatomic) IBOutlet UIView *expandView;
-@property (weak, nonatomic) IBOutlet UIImageView *expandIcon;
-
-@property (weak, nonatomic) ProcessDataManager *dataManager;
-@property (weak, nonatomic) Item *item;
+@property (strong, nonatomic) Requirement *requirement;
 @property (copy, nonatomic) void(^refreshBlock)(void);
 
-- (void)updateData:(Item *)item withMgr:(ProcessDataManager *)dataManager refresh:(void(^)(void))refreshBlock;
+- (void)updateData:(Requirement *)requirement;
 
 @end

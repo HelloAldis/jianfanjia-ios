@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, DecPackageKind) {
+    DecPackageKindDefault,
+    DecPackageKind365,
+};
+
 @interface RequirementBusiness : NSObject
+
++ (BOOL)isPkg365:(NSUInteger)area;
++ (DecPackageKind)getPkgKind:(NSUInteger)area;
 
 @end

@@ -10,4 +10,16 @@
 
 @implementation RequirementBusiness
 
++ (BOOL)isPkg365:(NSUInteger)area {
+    return [self getPkgKind:area] == DecPackageKind365;
+}
+
++ (DecPackageKind)getPkgKind:(NSUInteger)area {
+    if (area >= 80 && area <= 120) {
+        return DecPackageKind365;
+    }
+    
+    return DecPackageKindDefault;
+}
+
 @end

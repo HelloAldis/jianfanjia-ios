@@ -14,6 +14,7 @@
 #import "SelectSexTypeViewController.h"
 #import "SelectDecorationStyleViewController.h"
 #import "ViewControllerContainer.h"
+#import "DecPackage365View.h"
 
 @interface HouseRequirementCreateViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -52,6 +53,8 @@
 @property (strong, nonatomic) UIGestureRecognizer *selectPreferredStyleGesture;
 @property (strong, nonatomic) UIGestureRecognizer *selectCommunicationTypeGesture;
 @property (strong, nonatomic) UIGestureRecognizer *selectSexTypeGesture;
+
+@property (strong, nonatomic) DecPackage365View *decPkg365View;
 
 @property (strong, nonatomic) Requirement *originRequirement;
 @property (strong, nonatomic) Requirement *editingRequirement;
@@ -108,6 +111,13 @@
     [self bindGestures];
     [self initDefaultValue];
     [self uiToModel];
+    [self initDecPkg];
+}
+
+#pragma mark - init dec pkg
+- (void)initDecPkg {
+    self.decPkg365View = [[DecPackage365View alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kDecPackage365ViewHeight)];
+    [self.scrollView addSubview:self.decPkg365View];
 }
 
 #pragma mark - init default value
@@ -167,6 +177,13 @@
                                             subscribeNext:^(id x) {
                                                             [self enableRightBarItem:[x boolValue]];
                                                        }];
+    
+    [[RACSignal combineLatest:@[self.fldDecorationAreaVal.rac_textSignal,
+                                self.fldDecorationBudgetVal.rac_textSignal
+                                ]]
+                 subscribeNext:^(RACTuple *tuple) {
+                    
+                 }];
 }
 
 #pragma mark - model to ui
