@@ -13,8 +13,9 @@ typedef void (^LoginEngineLoginBlock)(BOOL logined);
 @interface LoginEngine : NSObject
 
 - (void)showLogin:(LoginEngineLoginBlock)loginBlock;
-- (void)showWechatLogin:(UIViewController *)controller completion:(LoginEngineLoginBlock)loginBlock;
+- (void)showWechatLogin:(UIViewController *)controller completion:(LoginEngineLoginBlock)wechatLoginBlock;
 - (void)executeLoginBlock:(BOOL)logined;
+- (void)executeWechatLoginBlock:(BOOL)logined;
 
 kSynthesizeSingletonForHeader(LoginEngine)
 

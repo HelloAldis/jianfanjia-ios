@@ -12,6 +12,7 @@
 @interface LoginEngine ()
 
 @property (nonatomic, copy) LoginEngineLoginBlock loginBlock;
+@property (nonatomic, copy) LoginEngineLoginBlock wechatLoginBlock;
 
 @end
 
@@ -27,9 +28,10 @@
     }
 }
 
-- (void)showWechatLogin:(UIViewController *)controller completion:(LoginEngineLoginBlock)loginBlock {
-    self.loginBlock = loginBlock;
+- (void)showWechatLogin:(UIViewController *)controller completion:(LoginEngineLoginBlock)wechatLoginBlock {
+    self.wechatLoginBlock = wechatLoginBlock;
     
+    [HUDUtil showWait];
     [[ShareManager shared] wechatLogin:controller compeletion:^(SnsAccountInfo *snsAccount, NSString *error) {
         if (error == nil) {
             WeChatLogin *request = [[WeChatLogin alloc] init];
@@ -39,10 +41,9 @@
             request.wechat_openid = snsAccount.usid;
             request.wechat_unionid = snsAccount.unionId;
             
-            [HUDUtil showWait];
             [API wechatLogin:request success:^{
                 [HUDUtil hideWait];
-                [self executeLoginBlock:YES];
+                [self executeWechatLoginBlock:YES];
             } failure:^{
                 [HUDUtil hideWait];
             } networkError:^{
@@ -58,6 +59,13 @@
     if (self.loginBlock) {
         self.loginBlock(logined);
         self.loginBlock = nil;
+    }
+}
+
+- (void)executeWechatLoginBlock:(BOOL)logined {
+    if (self.wechatLoginBlock) {
+        self.wechatLoginBlock(logined);
+        self.wechatLoginBlock = nil;
     }
 }
 
