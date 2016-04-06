@@ -363,8 +363,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showPlanPriceDetail:(Plan *)plan {
-    PlanPriceDetailViewController *v = [[PlanPriceDetailViewController alloc] initWithPlan:plan];
++ (void)showPlanPriceDetail:(Plan *)plan requirement:(Requirement *)requirement {
+    PlanPriceDetailViewController *v = [[PlanPriceDetailViewController alloc] initWithPlan:plan requirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

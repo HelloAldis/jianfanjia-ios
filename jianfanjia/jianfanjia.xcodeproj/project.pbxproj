@@ -298,6 +298,8 @@
 		68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68D536A51BFF563800D8F1B2 /* PlanPreviewViewController.xib */; };
 		68E600471CB3B39600C4A8F7 /* DecPackage365View.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600451CB3B39500C4A8F7 /* DecPackage365View.m */; };
 		68E600481CB3B39600C4A8F7 /* DecPackage365View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E600461CB3B39500C4A8F7 /* DecPackage365View.xib */; };
+		68E6004C1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6004A1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m */; };
+		68E6004D1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E6004B1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib */; };
 		6E06CC071C29235500A08D15 /* MyFavoriateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */; };
 		6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */; };
 		6E06CC0B1C29447E00A08D15 /* ListFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC0A1C29447E00A08D15 /* ListFavoriateProduct.m */; };
@@ -947,6 +949,9 @@
 		68E600441CB3B39500C4A8F7 /* DecPackage365View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackage365View.h; sourceTree = "<group>"; };
 		68E600451CB3B39500C4A8F7 /* DecPackage365View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackage365View.m; sourceTree = "<group>"; };
 		68E600461CB3B39500C4A8F7 /* DecPackage365View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackage365View.xib; sourceTree = "<group>"; };
+		68E600491CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceTotalPkg365Cell.h; sourceTree = "<group>"; };
+		68E6004A1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceTotalPkg365Cell.m; sourceTree = "<group>"; };
+		68E6004B1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceTotalPkg365Cell.xib; sourceTree = "<group>"; };
 		6E06CC041C29235500A08D15 /* MyFavoriateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoriateViewController.h; sourceTree = "<group>"; };
 		6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoriateViewController.m; sourceTree = "<group>"; };
 		6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavoriateViewController.xib; sourceTree = "<group>"; };
@@ -1439,6 +1444,9 @@
 				682E050C1C58BDA700F1ACAA /* PlanPriceTotalCell.h */,
 				682E050D1C58BDA700F1ACAA /* PlanPriceTotalCell.m */,
 				682E050E1C58BDA700F1ACAA /* PlanPriceTotalCell.xib */,
+				68E600491CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.h */,
+				68E6004A1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m */,
+				68E6004B1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib */,
 			);
 			path = PlanPriceDetail;
 			sourceTree = "<group>";
@@ -2679,6 +2687,7 @@
 				6E06CC131C29466700A08D15 /* FavoriateProductCell.xib in Resources */,
 				684A37031BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.xib in Resources */,
 				685DD4551C89761E00A76B9C /* CommentListViewController.xib in Resources */,
+				68E6004D1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib in Resources */,
 				68C3C25D1C75891F00EEEBD8 /* HomePageQuickEntryCell.xib in Resources */,
 				6E6D98EC1BE345BC00D45F77 /* ProductInfoCell.xib in Resources */,
 				6E2DCAAE1BB5207400591A16 /* LeftViewController.xib in Resources */,
@@ -2823,6 +2832,7 @@
 				683FFB471C296288002A1AFE /* DropdownMenuCollectionCell.m in Sources */,
 				684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */,
 				68123BAB1C47D15C008FC9AB /* JYZShareMenuCollectionCell.m in Sources */,
+				68E6004C1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */,
 				6E7867161BA944AF00DE8B1B /* ItemCell.m in Sources */,
 				6E6D98B01BDF736A00D45F77 /* RequirementListViewController.m in Sources */,
 				6E07DAAC1BD88DBE001461DD /* AccountBusiness.m in Sources */,

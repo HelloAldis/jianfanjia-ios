@@ -44,7 +44,7 @@
 + (void)leaveMessage:(Plan *)plan;
 + (void)leaveMessage:(Process *)process section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock;
 + (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock;
-+ (void)showPlanPriceDetail:(Plan *)plan;
++ (void)showPlanPriceDetail:(Plan *)plan requirement:(Requirement *)requirement;
 + (void)showTab;
 + (void)showDBYS:(Section *)section process:(NSString *)processid popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock;
 + (void)showMyNotification;
