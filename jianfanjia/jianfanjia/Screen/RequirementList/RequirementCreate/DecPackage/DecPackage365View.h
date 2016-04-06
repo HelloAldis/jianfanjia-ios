@@ -9,13 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "ProcessDataManager.h"
 
+extern CGFloat const kDecPackage365ViewErrorHeight;
 extern CGFloat const kDecPackage365ViewHeight;
 
 @interface DecPackage365View : UIView
 
-@property (strong, nonatomic) Requirement *requirement;
-@property (copy, nonatomic) void(^refreshBlock)(void);
-
 - (void)updateData:(Requirement *)requirement;
+- (BOOL)hasError;
 
 @end

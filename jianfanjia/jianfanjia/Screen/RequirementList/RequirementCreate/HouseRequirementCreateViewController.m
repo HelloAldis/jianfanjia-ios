@@ -127,22 +127,33 @@
     [self.scrollView insertSubview:self.decPkg365View belowSubview:self.decTotalBudgetView.superview];
 }
 
-- (void)showDecPkg {
+- (void)updateDecPkgData:(NSUInteger)area budget:(NSUInteger)budget {
+    self.editingRequirement.house_area = @(area);
+    self.editingRequirement.total_price = @(budget);
     [self.decPkg365View updateData:self.editingRequirement];
-    
+}
+
+- (void)showDecPkg {
     if (!self.wasShowPkg) {
         self.wasShowPkg = YES;
         
+        BOOL showError = [self.decPkg365View hasError];
+        CGFloat extraHeight = showError ? kDecPackage365ViewErrorHeight : 0;
+        
         CGFloat constant = self.part3TopConstraint.constant;
-        constant += kDecPackage365ViewHeight;
+        constant += (kDecPackage365ViewHeight + extraHeight);
         CGSize contentSize = self.scrollView.contentSize;
-        contentSize.height += kDecPackage365ViewHeight;
+        contentSize.height += (kDecPackage365ViewHeight + extraHeight);
         
         [UIView animateWithDuration:0.3 animations:^{
             self.decPkg365View.alpha = 1;
             self.part3TopConstraint.constant = constant;
             self.scrollView.contentSize = contentSize;
         }];
+        
+        [self scrollToMakeDecPkgVisible];
+    } else {
+        [self updateDecPkgFrame];
     }
 }
 
@@ -150,10 +161,13 @@
     if (self.wasShowPkg) {
         self.wasShowPkg = NO;
         
+        BOOL showError = [self.decPkg365View hasError];
+        CGFloat extraHeight = showError ? kDecPackage365ViewErrorHeight : 0;
+        
         CGFloat constant = self.part3TopConstraint.constant;
-        constant -= kDecPackage365ViewHeight;
+        constant -= (kDecPackage365ViewHeight + extraHeight);
         CGSize contentSize = self.scrollView.contentSize;
-        contentSize.height -= kDecPackage365ViewHeight;
+        contentSize.height -= (kDecPackage365ViewHeight + extraHeight);
         
         [UIView animateWithDuration:0.3 animations:^{
             self.decPkg365View.alpha = 0;
@@ -163,12 +177,41 @@
     }
 }
 
-- (void)scrollToMakeDecPkgVisible {
-    CGRect frame = [self.scrollView convertRect:self.buildAreaView.bounds fromView:self.buildAreaView];
-    CGPoint offset = self.scrollView.contentOffset;
-    offset.y = CGRectGetMinY(frame);
+- (void)updateDecPkgFrame {
+    BOOL showError = [self.decPkg365View hasError];
+    CGFloat curDecPkgHeight = CGRectGetHeight(self.decPkg365View.frame);
     
+    void (^updateFrameBlock)(void) = ^ {
+        CGFloat errorHeight = showError ? kDecPackage365ViewErrorHeight : -kDecPackage365ViewErrorHeight;
+        CGFloat constant = self.part3TopConstraint.constant;
+        constant += errorHeight;
+        CGSize contentSize = self.scrollView.contentSize;
+        contentSize.height += errorHeight;
+        CGRect frame = self.decPkg365View.frame;
+        frame.size.height += errorHeight;
+        
+        self.decPkg365View.frame = frame;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.part3TopConstraint.constant = constant;
+            self.scrollView.contentSize = contentSize;
+        }];
+        
+        [self scrollToMakeDecPkgVisible];
+    };
+    
+    if (showError && curDecPkgHeight == kDecPackage365ViewHeight) {
+        updateFrameBlock();
+    } else if (!showError && curDecPkgHeight == kDecPackage365ViewHeight + kDecPackage365ViewErrorHeight) {
+        updateFrameBlock();
+    }
+}
+
+- (void)scrollToMakeDecPkgVisible {
     if (self.editType == RequirementOperateTypeEdit) {
+        CGRect frame = [self.scrollView convertRect:self.buildAreaView.bounds fromView:self.buildAreaView];
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.y = CGRectGetMinY(frame);
+        
         [UIView animateWithDuration:0.3 animations:^{
             [self.scrollView setContentOffset:offset animated:NO];
         }];
@@ -177,7 +220,7 @@
 
 #pragma mark - init default value
 - (void)initDefaultValue {
-    if ([@"" isEqualToString:self.editingRequirement._id]) {
+    if ([self isRequirementCreate]) {
         [self displayDefaultValueToUI];
     }
     
@@ -214,6 +257,7 @@
                                                               NSNumber *decArea,
                                                               NSNumber *decBudget) {
                                                        
+                                                                BOOL flag = NO;
                                                                 if (city.length > 0
                                                                     && houseType.length > 0
                                                                     && workType.length > 0
@@ -223,10 +267,34 @@
                                                                     && detailAddress.length > 0
                                                                     && [decArea intValue] > 0
                                                                     && [decBudget intValue] > 0) {
-                                                                    return @(YES);
+                                                                    flag = YES;
                                                                 } else {
-                                                                    return @(NO);
+                                                                    flag = NO;
                                                                 }
+                                                       
+                                                                NSUInteger area = [decArea integerValue];
+                                                                NSUInteger budget = [decBudget integerValue];
+                                                                [self updateDecPkgData:area budget:budget];
+                                                                BOOL (^returnFlagBlock)(BOOL) = ^BOOL(BOOL isPkg365) {
+                                                                   BOOL hasErrorForPkg = [self.decPkg365View hasError];
+                                                                   if (isPkg365) {
+                                                                       return flag && !hasErrorForPkg;
+                                                                   } else {
+                                                                       return flag;
+                                                                   }
+                                                                };
+
+                                                                if ([self isRequirementCreate]) {
+                                                                   BOOL isPkg365 = [RequirementBusiness isPkg365ByArea:decArea.integerValue];
+                                                                   return @(returnFlagBlock(isPkg365));
+                                                                } else if (self.editType == RequirementOperateTypeView
+                                                                          || self.editType == RequirementOperateTypeEdit) {
+                                                                   
+                                                                   BOOL isPkg365 = [RequirementBusiness isPkg365ByType:self.editingRequirement.package_type];
+                                                                   return @(returnFlagBlock(isPkg365));
+                                                                }
+
+                                                                return @(NO);
                                                            }]
                                 
                                             subscribeNext:^(id x) {
@@ -239,19 +307,24 @@
                  subscribeNext:^(RACTuple *tuple) {
                      NSUInteger area = [tuple.first integerValue];
                      NSUInteger budget = [tuple.second integerValue];
+                     [self updateDecPkgData:area budget:budget];
                      
-                     self.editingRequirement.house_area = @(area);
-                     self.editingRequirement.total_price = @(budget);
+                     void (^showDecPkgBlock)(BOOL) = ^(BOOL show) {
+                         if (show) {
+                             [self showDecPkg];
+                         } else {
+                             [self hideDecPkg];
+                         }
+                     };
                      
-                     if ([RequirementBusiness isPkg365ByArea:area]) {
-                         self.editingRequirement.package_type = kDecPackage365;
-                         [self showDecPkg];
-                         [self scrollToMakeDecPkgVisible];
-                     } else {
-                         self.editingRequirement.package_type = kDecPackageDefault;
-                         [self hideDecPkg];
+                     if ([self isRequirementCreate]) {
+                         showDecPkgBlock([RequirementBusiness isPkg365ByArea:area]);
+                     } else if (self.editType == RequirementOperateTypeView
+                                || self.editType == RequirementOperateTypeEdit) {
+                         showDecPkgBlock([RequirementBusiness isPkg365ByType:self.editingRequirement.package_type]);
                      }
                  }];
+    
 }
 
 #pragma mark - model to ui
@@ -347,7 +420,7 @@
            return true;
        }]
       length:^NSInteger {
-          return 4;
+          return 3;
       }]
      subscribeNext:^(NSString *value) {
          @strongify(self);
@@ -480,6 +553,8 @@
 - (void)triggerDoneEvent {
     [self enableRightBarItem:NO];
     if ([@"" isEqualToString:self.editingRequirement._id]) {
+        self.editingRequirement.package_type = [RequirementBusiness isPkg365ByArea:self.editingRequirement.house_area.integerValue] ? kDecPackage365 : kDecPackageDefault;
+        
         SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
         
         [API sendAddRequirement:sendAddRequirement success:^{
@@ -525,6 +600,10 @@
     }
     
     return NO;
+}
+
+- (BOOL)isRequirementCreate {
+    return [@"" isEqualToString:self.editingRequirement._id];
 }
 
 #pragma mark - keyboard

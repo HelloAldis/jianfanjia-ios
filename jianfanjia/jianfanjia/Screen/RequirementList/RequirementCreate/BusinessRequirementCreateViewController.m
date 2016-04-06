@@ -251,7 +251,7 @@
            return true;
        }]
       length:^NSInteger {
-          return 4;
+          return 3;
       }]
      subscribeNext:^(NSString *value) {
          @strongify(self);
