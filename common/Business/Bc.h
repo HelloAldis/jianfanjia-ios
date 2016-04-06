@@ -107,3 +107,6 @@ extern NSString * const kDesignerPNFromAgreementConfirm;
 extern NSString * const kDesignerPNFromRescheduleReject;
 extern NSString * const kDesignerPNFromRescheduleAgree;
 extern NSString * const kDesignerPNFromDBYSConfirm;
+
+extern NSString * const kDecPackageDefault;
+extern NSString * const kDecPackage365;

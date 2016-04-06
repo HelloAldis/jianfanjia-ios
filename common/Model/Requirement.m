@@ -31,5 +31,6 @@
 @dynamic start_at;
 @dynamic last_status_update_time;
 @dynamic final_planid;
+@dynamic package_type;
 
 @end

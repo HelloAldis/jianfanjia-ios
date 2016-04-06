@@ -10,11 +10,15 @@
 
 @implementation RequirementBusiness
 
-+ (BOOL)isPkg365:(NSUInteger)area {
-    return [self getPkgKind:area] == DecPackageKind365;
++ (BOOL)isPkg365ByType:(NSString *)type {
+    return [type isEqualToString:kDecPackage365];
 }
 
-+ (DecPackageKind)getPkgKind:(NSUInteger)area {
++ (BOOL)isPkg365ByArea:(NSUInteger)area {
+    return [self getPkgKindByArea:area] == DecPackageKind365;
+}
+
++ (DecPackageKind)getPkgKindByArea:(NSUInteger)area {
     if (area >= 80 && area <= 120) {
         return DecPackageKind365;
     }

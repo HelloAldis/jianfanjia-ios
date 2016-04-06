@@ -258,3 +258,16 @@ NSString * const kDesignerPNFromAgreementConfirm = @"18";
 NSString * const kDesignerPNFromRescheduleReject = @"19";
 NSString * const kDesignerPNFromRescheduleAgree = @"20";
 NSString * const kDesignerPNFromDBYSConfirm = @"21";
+
+/*
+ 需求的包类型 package_type
+ * 0. 默认包
+ * 1. 365块每平米基础包
+ **/
+NSString * const kDecPackageDefault = @"0";
+NSString * const kDecPackage365 = @"1";
+
+
+
+
+

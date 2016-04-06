@@ -38,6 +38,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectSexTypeVal;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectCityTrailingConstriant;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *part3TopConstraint;
+@property (weak, nonatomic) IBOutlet UIView *buildAreaView;
+@property (weak, nonatomic) IBOutlet UIView *decTotalBudgetView;
 @property (weak, nonatomic) IBOutlet UIView *selectCityView;
 @property (weak, nonatomic) IBOutlet UIView *selectHouseTypeView;
 @property (weak, nonatomic) IBOutlet UIView *selectWorkTypeView;
@@ -55,6 +58,8 @@
 @property (strong, nonatomic) UIGestureRecognizer *selectSexTypeGesture;
 
 @property (strong, nonatomic) DecPackage365View *decPkg365View;
+@property (assign, nonatomic) BOOL wasShowPkg;
+@property (assign, nonatomic) CGFloat keyboardHeight;
 
 @property (strong, nonatomic) Requirement *originRequirement;
 @property (strong, nonatomic) Requirement *editingRequirement;
@@ -116,8 +121,58 @@
 
 #pragma mark - init dec pkg
 - (void)initDecPkg {
-    self.decPkg365View = [[DecPackage365View alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kDecPackage365ViewHeight)];
-    [self.scrollView addSubview:self.decPkg365View];
+    CGRect frame = [self.scrollView convertRect:self.decTotalBudgetView.bounds fromView:self.decTotalBudgetView];
+    self.decPkg365View = [[DecPackage365View alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(frame), kScreenWidth, kDecPackage365ViewHeight)];
+    self.decPkg365View.alpha = 0;
+    [self.scrollView insertSubview:self.decPkg365View belowSubview:self.decTotalBudgetView.superview];
+}
+
+- (void)showDecPkg {
+    [self.decPkg365View updateData:self.editingRequirement];
+    
+    if (!self.wasShowPkg) {
+        self.wasShowPkg = YES;
+        
+        CGFloat constant = self.part3TopConstraint.constant;
+        constant += kDecPackage365ViewHeight;
+        CGSize contentSize = self.scrollView.contentSize;
+        contentSize.height += kDecPackage365ViewHeight;
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            self.decPkg365View.alpha = 1;
+            self.part3TopConstraint.constant = constant;
+            self.scrollView.contentSize = contentSize;
+        }];
+    }
+}
+
+- (void)hideDecPkg {
+    if (self.wasShowPkg) {
+        self.wasShowPkg = NO;
+        
+        CGFloat constant = self.part3TopConstraint.constant;
+        constant -= kDecPackage365ViewHeight;
+        CGSize contentSize = self.scrollView.contentSize;
+        contentSize.height -= kDecPackage365ViewHeight;
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            self.decPkg365View.alpha = 0;
+            self.part3TopConstraint.constant = constant;
+            self.scrollView.contentSize = contentSize;
+        }];
+    }
+}
+
+- (void)scrollToMakeDecPkgVisible {
+    CGRect frame = [self.scrollView convertRect:self.buildAreaView.bounds fromView:self.buildAreaView];
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.y = CGRectGetMinY(frame);
+    
+    if (self.editType == RequirementOperateTypeEdit) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.scrollView setContentOffset:offset animated:NO];
+        }];
+    }
 }
 
 #pragma mark - init default value
@@ -182,7 +237,20 @@
                                 self.fldDecorationBudgetVal.rac_textSignal
                                 ]]
                  subscribeNext:^(RACTuple *tuple) {
-                    
+                     NSUInteger area = [tuple.first integerValue];
+                     NSUInteger budget = [tuple.second integerValue];
+                     
+                     self.editingRequirement.house_area = @(area);
+                     self.editingRequirement.total_price = @(budget);
+                     
+                     if ([RequirementBusiness isPkg365ByArea:area]) {
+                         self.editingRequirement.package_type = kDecPackage365;
+                         [self showDecPkg];
+                         [self scrollToMakeDecPkgVisible];
+                     } else {
+                         self.editingRequirement.package_type = kDecPackageDefault;
+                         [self hideDecPkg];
+                     }
                  }];
 }
 
@@ -461,6 +529,7 @@
 
 #pragma mark - keyboard
 - (void)keyboardShow:(CGFloat)keyboardHeight {
+    self.keyboardHeight = keyboardHeight;
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0);
 }
 

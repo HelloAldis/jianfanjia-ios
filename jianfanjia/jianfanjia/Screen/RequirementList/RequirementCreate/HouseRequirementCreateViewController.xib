@@ -14,6 +14,8 @@
                 <outlet property="btnSelectPreferredStyle" destination="ydv-dy-39c" id="DZs-xt-d7v"/>
                 <outlet property="btnSelectSexType" destination="PBc-Gq-NhQ" id="Qgo-SJ-yk3"/>
                 <outlet property="btnSelectWorkType" destination="4wH-ot-xzq" id="DjC-0o-OwF"/>
+                <outlet property="buildAreaView" destination="Xl2-Z3-UhO" id="a4N-gP-99M"/>
+                <outlet property="decTotalBudgetView" destination="ga5-XV-C9B" id="c8U-Dz-su0"/>
                 <outlet property="fldBasicAddresVal" destination="lpP-gd-PLy" id="SRA-1y-NQb"/>
                 <outlet property="fldDecorationAreaVal" destination="c5v-0U-kp0" id="4L1-UZ-L4N"/>
                 <outlet property="fldDecorationBudgetVal" destination="YYt-hA-76c" id="BAV-ts-2wO"/>
@@ -25,6 +27,7 @@
                 <outlet property="lblSelectPreferredStyleVal" destination="vbU-bi-dUL" id="cAg-d4-csc"/>
                 <outlet property="lblSelectSexTypeVal" destination="bfY-AV-L9U" id="LLq-Yz-WpZ"/>
                 <outlet property="lblSelectWorkTypeVal" destination="kmT-fl-2kz" id="kW7-OW-GqC"/>
+                <outlet property="part3TopConstraint" destination="II4-Di-HPb" id="637-fb-Taj"/>
                 <outlet property="scrollView" destination="4oR-AB-99t" id="jBz-DX-beT"/>
                 <outlet property="selectCityTrailingConstriant" destination="YMJ-yi-yAo" id="fdD-ke-GcI"/>
                 <outlet property="selectCityView" destination="pWB-ty-Er2" id="Vo4-fA-aKt"/>
@@ -42,7 +45,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4oR-AB-99t">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="4oR-AB-99t">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bim-oQ-XIs" userLabel="ViewPart1">

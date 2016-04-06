@@ -121,6 +121,7 @@
                     </state>
                 </button>
             </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="6Z2-59-I31" firstAttribute="bottom" secondItem="Sox-83-tb0" secondAttribute="bottom" id="2lD-NJ-6tn"/>
                 <constraint firstItem="mJu-Ha-U6a" firstAttribute="top" secondItem="Sox-83-tb0" secondAttribute="top" id="3fy-gU-4FG"/>

@@ -31,6 +31,7 @@
 @property (strong, nonatomic) NSNumber *start_at;
 @property (strong, nonatomic) NSNumber *last_status_update_time;
 @property (strong, nonatomic) NSString *final_planid;
+@property (strong, nonatomic) NSString *package_type;
 
 //不动态属性
 @property (strong, nonatomic) Process *process;
