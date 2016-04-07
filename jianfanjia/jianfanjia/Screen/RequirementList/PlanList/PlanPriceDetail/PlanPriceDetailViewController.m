@@ -82,7 +82,7 @@ static NSString *PlanPriceTotalPkg365CellIdentifier = @"PlanPriceTotalPkg365Cell
         if ([RequirementBusiness isPkg365ByType:self.requirement.package_type]) {
             PlanPriceTotalPkg365Cell *cell = [tableView dequeueReusableCellWithIdentifier:PlanPriceTotalPkg365CellIdentifier forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell initWithPlan:self.plan];
+            [cell initWithPlan:self.plan requirement:self.requirement];
             
             return cell;
         } else {

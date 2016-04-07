@@ -57,7 +57,7 @@ const CGFloat kDecPackage365ViewHeight = 146 - kDecPackage365ViewErrorHeight;
 - (void)updateData:(Requirement *)requirement {
     self.requirement = requirement;
     
-    self.basicFee = [RequirementBusiness getPkgPriceByArea:requirement.house_area.floatValue];
+    self.basicFee = [RequirementBusiness getPkgWPriceByArea:requirement.house_area.floatValue];
     self.totalBudget = requirement.total_price.floatValue;
     self.personalizedFee = self.totalBudget - self.basicFee;
     

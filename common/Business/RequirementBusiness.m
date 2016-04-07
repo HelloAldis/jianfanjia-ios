@@ -26,9 +26,17 @@
     return DecPackageKindDefault;
 }
 
-+ (CGFloat)getPkgPriceByArea:(NSUInteger)area {
++ (CGFloat)getPkgWPriceByArea:(NSUInteger)area {
     if ([self isPkg365ByArea:area]) {
         return area * 365.0f / 10000.0f;
+    }
+    
+    return 0.0f;
+}
+
++ (CGFloat)getPkgPriceByArea:(NSUInteger)area {
+    if ([self isPkg365ByArea:area]) {
+        return area * 365.0f;
     }
     
     return 0.0f;
