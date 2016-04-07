@@ -178,8 +178,8 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showPlanPriceDetail:(Plan *)plan {
-    PlanPriceDetailViewController *v = [[PlanPriceDetailViewController alloc] initWithPlan:plan];
++ (void)showPlanPriceDetail:(Plan *)plan requirement:(Requirement *)requirement {
+    PlanPriceDetailViewController *v = [[PlanPriceDetailViewController alloc] initWithPlan:plan requirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
@@ -281,9 +281,6 @@ static ViewControllerContainer *container;
     [GVUserDefaults standardUserDefaults].wechat_openid = nil;
     [GVUserDefaults standardUserDefaults].wechat_unionid = nil;
     
-    [DataManager shared].homePageDesigners = nil;
-    [DataManager shared].homePageRequirement = nil;
-    [DataManager shared].homePageRequirementDesigners = nil;
     [ViewControllerContainer showLogin];
 }
 

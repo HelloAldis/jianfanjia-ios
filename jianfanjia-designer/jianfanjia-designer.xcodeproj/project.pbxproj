@@ -159,7 +159,6 @@
 		681240BC1C4CE471008FC9AB /* GetRequirementPlans.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240651C4CE471008FC9AB /* GetRequirementPlans.m */; };
 		681240BD1C4CE471008FC9AB /* GetRescheduleNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240671C4CE471008FC9AB /* GetRescheduleNotification.m */; };
 		681240BE1C4CE471008FC9AB /* GetUserRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240691C4CE471008FC9AB /* GetUserRequirement.m */; };
-		681240BF1C4CE471008FC9AB /* HomePageDesigners.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812406B1C4CE471008FC9AB /* HomePageDesigners.m */; };
 		681240C01C4CE471008FC9AB /* LeaveComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6812406D1C4CE471008FC9AB /* LeaveComment.m */; };
 		681240C41C4CE471008FC9AB /* OrderDesignder.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240751C4CE471008FC9AB /* OrderDesignder.m */; };
 		681240C51C4CE471008FC9AB /* ProcessList.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240771C4CE471008FC9AB /* ProcessList.m */; };
@@ -283,6 +282,11 @@
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
+		68E600541CB62C5600C4A8F7 /* DecPackage365View.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600521CB62C5600C4A8F7 /* DecPackage365View.m */; };
+		68E600551CB62C5600C4A8F7 /* DecPackage365View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E600531CB62C5600C4A8F7 /* DecPackage365View.xib */; };
+		68E600591CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600571CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m */; };
+		68E6005A1CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E600581CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.xib */; };
+		68E6005D1CB62DDC00C4A8F7 /* RequirementBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6005C1CB62DDC00C4A8F7 /* RequirementBusiness.m */; };
 		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
 		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
 		68FB6ED21C50DC81001C0613 /* SetWorksiteStartTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68FB6ED01C50DC80001C0613 /* SetWorksiteStartTimeViewController.xib */; };
@@ -620,8 +624,6 @@
 		681240671C4CE471008FC9AB /* GetRescheduleNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRescheduleNotification.m; sourceTree = "<group>"; };
 		681240681C4CE471008FC9AB /* GetUserRequirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetUserRequirement.h; sourceTree = "<group>"; };
 		681240691C4CE471008FC9AB /* GetUserRequirement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetUserRequirement.m; sourceTree = "<group>"; };
-		6812406A1C4CE471008FC9AB /* HomePageDesigners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDesigners.h; sourceTree = "<group>"; };
-		6812406B1C4CE471008FC9AB /* HomePageDesigners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageDesigners.m; sourceTree = "<group>"; };
 		6812406C1C4CE471008FC9AB /* LeaveComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeaveComment.h; sourceTree = "<group>"; };
 		6812406D1C4CE471008FC9AB /* LeaveComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeaveComment.m; sourceTree = "<group>"; };
 		681240741C4CE471008FC9AB /* OrderDesignder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderDesignder.h; sourceTree = "<group>"; };
@@ -834,6 +836,14 @@
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
 		68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewWithoutShareController.m; sourceTree = "<group>"; };
 		68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewWithoutShareController.xib; sourceTree = "<group>"; };
+		68E600511CB62C5600C4A8F7 /* DecPackage365View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackage365View.h; sourceTree = "<group>"; };
+		68E600521CB62C5600C4A8F7 /* DecPackage365View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackage365View.m; sourceTree = "<group>"; };
+		68E600531CB62C5600C4A8F7 /* DecPackage365View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackage365View.xib; sourceTree = "<group>"; };
+		68E600561CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceTotalPkg365Cell.h; sourceTree = "<group>"; };
+		68E600571CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceTotalPkg365Cell.m; sourceTree = "<group>"; };
+		68E600581CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceTotalPkg365Cell.xib; sourceTree = "<group>"; };
+		68E6005B1CB62DDC00C4A8F7 /* RequirementBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementBusiness.h; sourceTree = "<group>"; };
+		68E6005C1CB62DDC00C4A8F7 /* RequirementBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementBusiness.m; sourceTree = "<group>"; };
 		68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68FB6ECE1C50DC80001C0613 /* SetWorksiteStartTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetWorksiteStartTimeViewController.h; sourceTree = "<group>"; };
@@ -1200,6 +1210,7 @@
 		68123E2D1C4CBE79008FC9AB /* RequirementCreate */ = {
 			isa = PBXGroup;
 			children = (
+				68E600501CB62C5600C4A8F7 /* DecPackage */,
 				68123E3C1C4CBE79008FC9AB /* RequirementCreateProtocol.h */,
 				68123E3D1C4CBE79008FC9AB /* RequirementCreateViewController.h */,
 				68123E3E1C4CBE79008FC9AB /* RequirementCreateViewController.m */,
@@ -1446,6 +1457,16 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		68E600501CB62C5600C4A8F7 /* DecPackage */ = {
+			isa = PBXGroup;
+			children = (
+				68E600511CB62C5600C4A8F7 /* DecPackage365View.h */,
+				68E600521CB62C5600C4A8F7 /* DecPackage365View.m */,
+				68E600531CB62C5600C4A8F7 /* DecPackage365View.xib */,
+			);
+			path = DecPackage;
+			sourceTree = "<group>";
+		};
 		6E0426601BC757C500F984B8 = {
 			isa = PBXGroup;
 			children = (
@@ -1605,8 +1626,6 @@
 				681240671C4CE471008FC9AB /* GetRescheduleNotification.m */,
 				681240681C4CE471008FC9AB /* GetUserRequirement.h */,
 				681240691C4CE471008FC9AB /* GetUserRequirement.m */,
-				6812406A1C4CE471008FC9AB /* HomePageDesigners.h */,
-				6812406B1C4CE471008FC9AB /* HomePageDesigners.m */,
 				6812406C1C4CE471008FC9AB /* LeaveComment.h */,
 				6812406D1C4CE471008FC9AB /* LeaveComment.m */,
 				681240741C4CE471008FC9AB /* OrderDesignder.h */,
@@ -1683,6 +1702,8 @@
 		6E378CDF1BDA2D2E00908B77 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				68E6005B1CB62DDC00C4A8F7 /* RequirementBusiness.h */,
+				68E6005C1CB62DDC00C4A8F7 /* RequirementBusiness.m */,
 				684B03F81C9818CF0053FFDF /* NotificationBusiness.h */,
 				684B03F91C9818CF0053FFDF /* NotificationBusiness.m */,
 				68123FE51C4CCFFF008FC9AB /* DesignerBusiness.h */,
@@ -1882,15 +1903,18 @@
 				6EA0C1931C577F7500D04A4F /* PlanPriceItemCell.h */,
 				6EA0C1941C577F7500D04A4F /* PlanPriceItemCell.m */,
 				6EA0C1951C577F7500D04A4F /* PlanPriceItemCell.xib */,
+				6EA0C1A41C585C5B00D04A4F /* PlanPriceItemExpandCell.h */,
+				6EA0C1A51C585C5B00D04A4F /* PlanPriceItemExpandCell.m */,
+				6EA0C1A61C585C5B00D04A4F /* PlanPriceItemExpandCell.xib */,
 				6EA0C1961C577F7500D04A4F /* PlanPriceItemSection.h */,
 				6EA0C1971C577F7500D04A4F /* PlanPriceItemSection.m */,
 				6EA0C1981C577F7500D04A4F /* PlanPriceItemSection.xib */,
 				6EA0C19F1C57827A00D04A4F /* PlanPriceTotalCell.h */,
 				6EA0C1A01C57827A00D04A4F /* PlanPriceTotalCell.m */,
 				6EA0C1A11C57827A00D04A4F /* PlanPriceTotalCell.xib */,
-				6EA0C1A41C585C5B00D04A4F /* PlanPriceItemExpandCell.h */,
-				6EA0C1A51C585C5B00D04A4F /* PlanPriceItemExpandCell.m */,
-				6EA0C1A61C585C5B00D04A4F /* PlanPriceItemExpandCell.xib */,
+				68E600561CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.h */,
+				68E600571CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m */,
+				68E600581CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.xib */,
 			);
 			path = PlanPriceDetail;
 			sourceTree = "<group>";
@@ -2016,6 +2040,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68123F001C4CBE79008FC9AB /* HouseRequirementCreateViewController.xib in Resources */,
+				68E600551CB62C5600C4A8F7 /* DecPackage365View.xib in Resources */,
 				681241261C4CF2D5008FC9AB /* LeftViewController.xib in Resources */,
 				684B040E1C98F7060053FFDF /* DecCommentInfoCell.xib in Resources */,
 				6EA0C19C1C577F7500D04A4F /* PlanPriceItemCell.xib in Resources */,
@@ -2084,6 +2109,7 @@
 				681241B41C4F3D31008FC9AB /* UnchoosedPlanActionCell.xib in Resources */,
 				68123EFE1C4CBE79008FC9AB /* DecorationStyleCell.xib in Resources */,
 				681240E71C4CF2CC008FC9AB /* MyProcessViewController.xib in Resources */,
+				68E6005A1CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.xib in Resources */,
 				68123F141C4CBE79008FC9AB /* SelectWorkTypeViewController.xib in Resources */,
 				68123C911C4C9772008FC9AB /* ImageBrowerViewController.xib in Resources */,
 				68123F2A1C4CCBF9008FC9AB /* MyUserViewController.xib in Resources */,
@@ -2199,6 +2225,7 @@
 				684B040D1C98F7060053FFDF /* DecCommentInfoCell.m in Sources */,
 				6E378D421BDA2D2E00908B77 /* UserCD.m in Sources */,
 				68123E841C4CBE79008FC9AB /* MeViewController.m in Sources */,
+				68E600591CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */,
 				681240AA1C4CE471008FC9AB /* BindWechat.m in Sources */,
 				684B040F1C98F7060053FFDF /* PlanCommentInfoCell.m in Sources */,
 				681240AD1C4CE471008FC9AB /* DeleteFavoriateProduct.m in Sources */,
@@ -2219,7 +2246,9 @@
 				681240D61C4CE471008FC9AB /* UploadImageToProcess.m in Sources */,
 				6E378D541BDA2D2E00908B77 /* Ys.m in Sources */,
 				684B043C1C990E910053FFDF /* SystemAnnouncementCell.m in Sources */,
+				68E600541CB62C5600C4A8F7 /* DecPackage365View.m in Sources */,
 				6812417F1C4F22B0008FC9AB /* DesignerGetUserRequirements.m in Sources */,
+				68E6005D1CB62DDC00C4A8F7 /* RequirementBusiness.m in Sources */,
 				68123CE21C4C99C9008FC9AB /* Aspects.m in Sources */,
 				681240C01C4CE471008FC9AB /* LeaveComment.m in Sources */,
 				681240C51C4CE471008FC9AB /* ProcessList.m in Sources */,
@@ -2231,7 +2260,6 @@
 				68123FE31C4CCF4A008FC9AB /* Requirement.m in Sources */,
 				68123FF41C4CD1E3008FC9AB /* EvaluateDesignerViewController.m in Sources */,
 				68123CE41C4C99C9008FC9AB /* HUDUtil.m in Sources */,
-				681240BF1C4CE471008FC9AB /* HomePageDesigners.m in Sources */,
 				684B03FA1C9818CF0053FFDF /* NotificationBusiness.m in Sources */,
 				681241331C4CF2D5008FC9AB /* SectionView.m in Sources */,
 				68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */,

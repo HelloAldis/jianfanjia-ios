@@ -14,6 +14,7 @@
 #import "SelectSexTypeViewController.h"
 #import "SelectDecorationStyleViewController.h"
 #import "ViewControllerContainer.h"
+#import "DecPackage365View.h"
 
 @interface HouseRequirementCreateViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -37,6 +38,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblSelectSexTypeVal;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectCityTrailingConstriant;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *part3TopConstraint;
+@property (weak, nonatomic) IBOutlet UIView *buildAreaView;
+@property (weak, nonatomic) IBOutlet UIView *decTotalBudgetView;
 @property (weak, nonatomic) IBOutlet UIView *selectCityView;
 @property (weak, nonatomic) IBOutlet UIView *selectHouseTypeView;
 @property (weak, nonatomic) IBOutlet UIView *selectWorkTypeView;
@@ -52,6 +56,10 @@
 @property (strong, nonatomic) UIGestureRecognizer *selectPreferredStyleGesture;
 @property (strong, nonatomic) UIGestureRecognizer *selectCommunicationTypeGesture;
 @property (strong, nonatomic) UIGestureRecognizer *selectSexTypeGesture;
+
+@property (strong, nonatomic) DecPackage365View *decPkg365View;
+@property (assign, nonatomic) BOOL wasShowPkg;
+@property (assign, nonatomic) CGFloat keyboardHeight;
 
 @property (strong, nonatomic) Requirement *originRequirement;
 @property (strong, nonatomic) Requirement *editingRequirement;
@@ -108,11 +116,117 @@
     [self bindGestures];
     [self initDefaultValue];
     [self uiToModel];
+    [self initDecPkg];
+}
+
+#pragma mark - init dec pkg
+- (void)initDecPkg {
+    CGRect frame = [self.scrollView convertRect:self.decTotalBudgetView.bounds fromView:self.decTotalBudgetView];
+    self.decPkg365View = [[DecPackage365View alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(frame), kScreenWidth, kDecPackage365ViewHeight)];
+    self.decPkg365View.alpha = 0;
+    [self.scrollView insertSubview:self.decPkg365View belowSubview:self.decTotalBudgetView.superview];
+    
+    [[self.fldDecorationAreaVal rac_signalForControlEvents:UIControlEventEditingDidBegin | UIControlEventEditingChanged] subscribeNext:^(id x) {
+        [self scrollToMakeDecPkgVisible];
+    }];
+    
+    [[self.fldDecorationBudgetVal rac_signalForControlEvents:UIControlEventEditingDidBegin | UIControlEventEditingChanged] subscribeNext:^(id x) {
+        [self scrollToMakeDecPkgVisible];
+    }];
+}
+
+- (void)updateDecPkgData:(NSUInteger)area budget:(NSUInteger)budget {
+    self.editingRequirement.house_area = @(area);
+    self.editingRequirement.total_price = @(budget);
+    [self.decPkg365View updateData:self.editingRequirement];
+}
+
+- (void)showDecPkg {
+    if (!self.wasShowPkg) {
+        self.wasShowPkg = YES;
+        
+        BOOL showError = [self.decPkg365View hasError];
+        CGFloat extraHeight = showError ? kDecPackage365ViewErrorHeight : 0;
+        
+        CGFloat constant = self.part3TopConstraint.constant;
+        constant += (kDecPackage365ViewHeight + extraHeight);
+        CGSize contentSize = self.scrollView.contentSize;
+        contentSize.height += (kDecPackage365ViewHeight + extraHeight);
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            self.decPkg365View.alpha = 1;
+            self.part3TopConstraint.constant = constant;
+            self.scrollView.contentSize = contentSize;
+        }];
+    } else {
+        [self updateDecPkgFrame];
+    }
+}
+
+- (void)hideDecPkg {
+    if (self.wasShowPkg) {
+        self.wasShowPkg = NO;
+        
+        BOOL showError = [self.decPkg365View hasError];
+        CGFloat extraHeight = showError ? kDecPackage365ViewErrorHeight : 0;
+        
+        CGFloat constant = self.part3TopConstraint.constant;
+        constant -= (kDecPackage365ViewHeight + extraHeight);
+        CGSize contentSize = self.scrollView.contentSize;
+        contentSize.height -= (kDecPackage365ViewHeight + extraHeight);
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            self.decPkg365View.alpha = 0;
+            self.part3TopConstraint.constant = constant;
+            self.scrollView.contentSize = contentSize;
+        }];
+    }
+}
+
+- (void)updateDecPkgFrame {
+    BOOL showError = [self.decPkg365View hasError];
+    CGFloat curDecPkgHeight = CGRectGetHeight(self.decPkg365View.frame);
+    
+    void (^updateFrameBlock)(void) = ^ {
+        CGFloat errorHeight = showError ? kDecPackage365ViewErrorHeight : -kDecPackage365ViewErrorHeight;
+        CGFloat constant = self.part3TopConstraint.constant;
+        constant += errorHeight;
+        CGSize contentSize = self.scrollView.contentSize;
+        contentSize.height += errorHeight;
+        CGRect frame = self.decPkg365View.frame;
+        frame.size.height += errorHeight;
+        
+        self.decPkg365View.frame = frame;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.part3TopConstraint.constant = constant;
+            self.scrollView.contentSize = contentSize;
+        }];
+    };
+    
+    if (showError && curDecPkgHeight == kDecPackage365ViewHeight) {
+        updateFrameBlock();
+    } else if (!showError && curDecPkgHeight == kDecPackage365ViewHeight + kDecPackage365ViewErrorHeight) {
+        updateFrameBlock();
+    }
+}
+
+- (void)scrollToMakeDecPkgVisible {
+    BOOL isPkg365 = [RequirementBusiness isPkg365ByArea:self.editingRequirement.house_area.floatValue];
+    BOOL isDesignRequirement = [RequirementBusiness isDesignRequirement:self.editingRequirement.work_type];
+    if (self.editType == RequirementOperateTypeEdit && isPkg365 && !isDesignRequirement) {
+        CGRect frame = [self.scrollView convertRect:self.selectWorkTypeView.bounds fromView:self.selectWorkTypeView];
+        CGPoint offset = self.scrollView.contentOffset;
+        offset.y = CGRectGetMinY(frame);
+        
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.scrollView setContentOffset:offset animated:NO];
+        }];
+    }
 }
 
 #pragma mark - init default value
 - (void)initDefaultValue {
-    if ([@"" isEqualToString:self.editingRequirement._id]) {
+    if ([self isRequirementCreate]) {
         [self displayDefaultValueToUI];
     }
     
@@ -149,6 +263,7 @@
                                                               NSNumber *decArea,
                                                               NSNumber *decBudget) {
                                                        
+                                                                BOOL flag = NO;
                                                                 if (city.length > 0
                                                                     && houseType.length > 0
                                                                     && workType.length > 0
@@ -158,15 +273,68 @@
                                                                     && detailAddress.length > 0
                                                                     && [decArea intValue] > 0
                                                                     && [decBudget intValue] > 0) {
-                                                                    return @(YES);
+                                                                    flag = YES;
                                                                 } else {
-                                                                    return @(NO);
+                                                                    flag = NO;
                                                                 }
+                                                       
+                                                                NSUInteger area = [decArea integerValue];
+                                                                NSUInteger budget = [decBudget integerValue];
+                                                                [self updateDecPkgData:area budget:budget];
+                                                                BOOL (^returnFlagBlock)(BOOL) = ^BOOL(BOOL isPkg365) {
+                                                                   BOOL hasErrorForPkg = [self.decPkg365View hasError];
+                                                                   BOOL isDesignRequirement = [RequirementBusiness isDesignRequirement:self.editingRequirement.work_type];
+                                                                   if (isPkg365 && !isDesignRequirement) {
+                                                                       return flag && !hasErrorForPkg;
+                                                                   } else {
+                                                                       return flag;
+                                                                   }
+                                                                };
+
+                                                                if ([self isRequirementCreate]) {
+                                                                   BOOL isPkg365 = [RequirementBusiness isPkg365ByArea:decArea.integerValue];
+                                                                   return @(returnFlagBlock(isPkg365));
+                                                                } else if (self.editType == RequirementOperateTypeView
+                                                                          || self.editType == RequirementOperateTypeEdit) {
+                                                                   
+                                                                   BOOL isPkg365 = [RequirementBusiness isPkg365ByType:self.editingRequirement.package_type];
+                                                                   return @(returnFlagBlock(isPkg365));
+                                                                }
+
+                                                                return @(NO);
                                                            }]
                                 
                                             subscribeNext:^(id x) {
                                                             [self enableRightBarItem:[x boolValue]];
                                                        }];
+    
+    [[RACSignal combineLatest:@[self.fldDecorationAreaVal.rac_textSignal,
+                                self.fldDecorationBudgetVal.rac_textSignal
+                                ]]
+                 subscribeNext:^(RACTuple *tuple) {
+                     NSUInteger area = [tuple.first integerValue];
+                     NSUInteger budget = [tuple.second integerValue];
+                     [self updateDecPkgData:area budget:budget];
+                     
+                     void (^showDecPkgBlock)(BOOL) = ^(BOOL isPkg365) {
+                         BOOL isDesignRequirement = [RequirementBusiness isDesignRequirement:self.editingRequirement.work_type];
+                         if (isPkg365 && !isDesignRequirement) {
+                             [self showDecPkg];
+                         } else {
+                             [self hideDecPkg];
+                         }
+                     };
+                     
+                     if ([self isRequirementCreate]) {
+                         BOOL isPkg365 = [RequirementBusiness isPkg365ByArea:area];
+                         showDecPkgBlock(isPkg365);
+                     } else if (self.editType == RequirementOperateTypeView
+                                || self.editType == RequirementOperateTypeEdit) {
+                         BOOL isPkg365 = [RequirementBusiness isPkg365ByType:self.editingRequirement.package_type] && [RequirementBusiness isPkg365ByArea:area];
+                         showDecPkgBlock(isPkg365);
+                     }
+                 }];
+    
 }
 
 #pragma mark - model to ui
@@ -262,7 +430,7 @@
            return true;
        }]
       length:^NSInteger {
-          return 4;
+          return 3;
       }]
      subscribeNext:^(NSString *value) {
          @strongify(self);
@@ -393,29 +561,6 @@
 }
 
 - (void)triggerDoneEvent {
-    [self enableRightBarItem:NO];
-    if ([@"" isEqualToString:self.editingRequirement._id]) {
-        SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
-        
-        [API sendAddRequirement:sendAddRequirement success:^{
-            [self.navigationController popViewControllerAnimated:YES];
-            [DataManager shared].homePageNeedRefresh = YES;
-        } failure:^{
-            [self enableRightBarItem:YES];
-        } networkError:^{
-            [self enableRightBarItem:YES];
-        }];
-    } else {
-        SendUpdateRequirement *sendUpdateRequirement = [[SendUpdateRequirement alloc] initWithRequirement:self.editingRequirement];
-        
-        [API sendUpdateRequirement:sendUpdateRequirement success:^{
-            [self.navigationController popViewControllerAnimated:YES];
-        } failure:^{
-            [self enableRightBarItem:YES];
-        } networkError:^{
-            [self enableRightBarItem:YES];
-        }];
-    }
 }
 
 - (BOOL)hasDataChanged {
@@ -442,8 +587,13 @@
     return NO;
 }
 
+- (BOOL)isRequirementCreate {
+    return [@"" isEqualToString:self.editingRequirement._id];
+}
+
 #pragma mark - keyboard
 - (void)keyboardShow:(CGFloat)keyboardHeight {
+    self.keyboardHeight = keyboardHeight;
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight, 0);
 }
 

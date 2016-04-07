@@ -123,7 +123,7 @@
 }
 
 - (void)onChoosePriceDetail {
-    [ViewControllerContainer showPlanPriceDetail:self.plan];
+    [ViewControllerContainer showPlanPriceDetail:self.plan requirement:self.requirement];
 }
 
 - (void)navigateToOrderedDesignerScreen {

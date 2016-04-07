@@ -11,6 +11,6 @@
 
 @interface PlanPriceDetailViewController : BaseViewController <UITableViewDataSource, UITableViewDelegate>
 
-- (id)initWithPlan:(Plan *)plan;
+- (id)initWithPlan:(Plan *)plan requirement:(Requirement *)requirement;
 
 @end

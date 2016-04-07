@@ -251,7 +251,7 @@
            return true;
        }]
       length:^NSInteger {
-          return 4;
+          return 3;
       }]
      subscribeNext:^(NSString *value) {
          @strongify(self);
@@ -371,29 +371,6 @@
 }
 
 - (void)triggerDoneEvent {
-    [self enableRightBarItem:NO];
-    if ([@"" isEqualToString:self.editingRequirement._id]) {
-        SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
-        
-        [API sendAddRequirement:sendAddRequirement success:^{
-            [self.navigationController popViewControllerAnimated:YES];
-            [DataManager shared].homePageNeedRefresh = YES;
-        } failure:^{
-            [self enableRightBarItem:YES];
-        } networkError:^{
-            [self enableRightBarItem:YES];
-        }];
-    } else {
-        SendUpdateRequirement *sendUpdateRequirement = [[SendUpdateRequirement alloc] initWithRequirement:self.editingRequirement];
-        
-        [API sendUpdateRequirement:sendUpdateRequirement success:^{
-            [self.navigationController popViewControllerAnimated:YES];
-        } failure:^{
-            [self enableRightBarItem:YES];
-        } networkError:^{
-            [self enableRightBarItem:YES];
-        }];
-    }
 }
 
 - (BOOL)hasDataChanged {

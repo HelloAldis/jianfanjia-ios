@@ -12,15 +12,19 @@
 #import "PlanPriceItemSection.h"
 #import "PlanPriceItemExpandCell.h"
 #import "PlanPriceTotalCell.h"
+#import "PlanPriceTotalPkg365Cell.h"
 
 static NSString *PlanCellIdentifier = @"PlanPriceItemCell";
 static NSString *PlanPriceItemExpandCellIdentifier = @"PlanPriceItemExpandCell";
 static NSString *PlanPriceTotalCellIdentifier = @"PlanPriceTotalCell";
+static NSString *PlanPriceTotalPkg365CellIdentifier = @"PlanPriceTotalPkg365Cell";
 
 @interface PlanPriceDetailViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) Plan *plan;
-@property (strong, nonatomic) RequirementDataManager *requirementDataManager;
+@property (strong, nonatomic) Requirement *requirement;
+@property (strong, nonatomic) RequirementDataManager *dataManager;
+@property (strong, nonatomic) PriceItem *item365;
 
 @property (strong, nonatomic) NSIndexPath *selectedIndexPath;
 
@@ -29,10 +33,11 @@ static NSString *PlanPriceTotalCellIdentifier = @"PlanPriceTotalCell";
 @implementation PlanPriceDetailViewController
 
 #pragma mark - init method
-- (id)initWithPlan:(Plan *)plan {
+- (id)initWithPlan:(Plan *)plan requirement:(Requirement *)requirement {
     if (self = [super init]) {
         _plan = plan;
-        _requirementDataManager = [[RequirementDataManager alloc] init];
+        _requirement = requirement;
+        _dataManager = [[RequirementDataManager alloc] init];
     }
     
     return self;
@@ -45,6 +50,7 @@ static NSString *PlanPriceTotalCellIdentifier = @"PlanPriceTotalCell";
     [self.tableView registerNib:[UINib nibWithNibName:PlanCellIdentifier bundle:nil] forCellReuseIdentifier:PlanCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:PlanPriceItemExpandCellIdentifier bundle:nil] forCellReuseIdentifier:PlanPriceItemExpandCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:PlanPriceTotalCellIdentifier bundle:nil] forCellReuseIdentifier:PlanPriceTotalCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:PlanPriceTotalPkg365CellIdentifier bundle:nil] forCellReuseIdentifier:PlanPriceTotalPkg365CellIdentifier];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 200;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 8, 0);
@@ -68,42 +74,42 @@ static NSString *PlanPriceTotalCellIdentifier = @"PlanPriceTotalCell";
     if (section == 0) {
         return 1;
     } else {
-        return self.requirementDataManager.planPriceItems.count;
+        return self.dataManager.planPriceItems.count;
     }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        PlanPriceTotalCell *cell = [tableView dequeueReusableCellWithIdentifier:PlanPriceTotalCellIdentifier forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell initWithPlan:self.plan];
-        
-        return cell;
+        if ([RequirementBusiness isPkg365ByType:self.requirement.package_type]) {
+            PlanPriceTotalPkg365Cell *cell = [tableView dequeueReusableCellWithIdentifier:PlanPriceTotalPkg365CellIdentifier forIndexPath:indexPath];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell initWithPlan:self.plan item365:self.item365];
+            
+            return cell;
+        } else {
+            PlanPriceTotalCell *cell = [tableView dequeueReusableCellWithIdentifier:PlanPriceTotalCellIdentifier forIndexPath:indexPath];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell initWithPlan:self.plan];
+
+            return cell;
+        }
     } else {
         if ([indexPath isEqual:self.selectedIndexPath]) {
             PlanPriceItemExpandCell *cell = [tableView dequeueReusableCellWithIdentifier:PlanPriceItemExpandCellIdentifier forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell initWithPriceItem:self.requirementDataManager.planPriceItems[indexPath.row]];
+            [cell initWithPriceItem:self.dataManager.planPriceItems[indexPath.row]];
             
             return cell;
         } else {
             PlanPriceItemCell *cell = [tableView dequeueReusableCellWithIdentifier:PlanCellIdentifier forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell initWithPriceItem:self.requirementDataManager.planPriceItems[indexPath.row]];
+            [cell initWithPriceItem:self.dataManager.planPriceItems[indexPath.row]];
             
             return cell;
         }
     }
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    if (indexPath.section == 0) {
-//        return 200;
-//    } else {
-//        return 44;
-//    }
-//}
-//
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         return 0;
@@ -131,7 +137,7 @@ static NSString *PlanPriceTotalCellIdentifier = @"PlanPriceTotalCell";
     if (indexPath.section == 0) {
         //do nothing
     } else {
-        PriceItem *item = self.requirementDataManager.planPriceItems[indexPath.row];
+        PriceItem *item = self.dataManager.planPriceItems[indexPath.row];
         if ([item.price_description trim].length > 0) {
             [self.tableView beginUpdates];
             [self.tableView reloadRowsAtIndexPaths:preSeleted ? @[indexPath, preSeleted] : @[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -142,7 +148,8 @@ static NSString *PlanPriceTotalCellIdentifier = @"PlanPriceTotalCell";
 
 #pragma mark - load data
 - (void)loadData {
-    [self.requirementDataManager refreshPlanPriceItems:self.plan];
+    [self.dataManager refreshPlanPriceItems:self.plan];
+    self.item365 = [RequirementBusiness findPriceItem365:self.dataManager.planPriceItems];
     [self.tableView reloadData];
 }
 
