@@ -149,10 +149,6 @@ static AFHTTPRequestOperationManager *_manager;
     }
 }
 
-+ (void)homePageDesigners:(HomePageDesigners *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"home_page_designers" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
 + (void)productHomePage:(ProductHomePage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"product_home_page" data:request.data handler:request success:success failure:failure networkError:error];
 }

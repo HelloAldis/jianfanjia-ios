@@ -377,7 +377,6 @@
         
         [API sendAddRequirement:sendAddRequirement success:^{
             [ViewControllerContainer showRequirementList];
-            [DataManager shared].homePageNeedRefresh = YES;
         } failure:^{
             [self enableRightBarItem:YES];
         } networkError:^{

@@ -259,7 +259,6 @@
 		6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517791C927A30000B01DB /* SearchUserComment.m */; };
 		689485D01C1A6A05002310FC /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485CF1C1A6A05002310FC /* NotificationDataManager.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
-		68B10C851C76D489005866C1 /* DesignerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C831C76D489005866C1 /* DesignerListViewController.m */; };
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
 		68B10C8C1C76F345005866C1 /* GetTopProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C8B1C76F345005866C1 /* GetTopProducts.m */; };
@@ -300,6 +299,7 @@
 		68E600481CB3B39600C4A8F7 /* DecPackage365View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E600461CB3B39500C4A8F7 /* DecPackage365View.xib */; };
 		68E6004C1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6004A1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m */; };
 		68E6004D1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E6004B1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib */; };
+		68E6004F1CB6264700C4A8F7 /* DesignerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6004E1CB6264700C4A8F7 /* DesignerListViewController.m */; };
 		6E06CC071C29235500A08D15 /* MyFavoriateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */; };
 		6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */; };
 		6E06CC0B1C29447E00A08D15 /* ListFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC0A1C29447E00A08D15 /* ListFavoriateProduct.m */; };
@@ -383,7 +383,6 @@
 		6E6D98B11BDF736A00D45F77 /* RequirementListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98AF1BDF736A00D45F77 /* RequirementListViewController.xib */; };
 		6E6D98B61BDF73DE00D45F77 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98B41BDF73DE00D45F77 /* MeViewController.m */; };
 		6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E6D98B51BDF73DE00D45F77 /* MeViewController.xib */; };
-		6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98B91BE05F9600D45F77 /* HomePageDesigners.m */; };
 		6E6D98C01BE0637700D45F77 /* Product.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98BF1BE0637700D45F77 /* Product.m */; };
 		6E6D98C31BE0665700D45F77 /* Requirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98C21BE0665700D45F77 /* Requirement.m */; };
 		6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E6D98D71BE1BD3500D45F77 /* ProductImage.m */; };
@@ -884,7 +883,6 @@
 		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		689485D21C1A70A7002310FC /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
-		68B10C831C76D489005866C1 /* DesignerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerListViewController.m; sourceTree = "<group>"; };
 		68B10C841C76D489005866C1 /* DesignerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerListViewController.xib; sourceTree = "<group>"; };
 		68B10C871C76F13F005866C1 /* HomePageDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDataManager.h; sourceTree = "<group>"; };
 		68B10C881C76F13F005866C1 /* HomePageDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageDataManager.m; sourceTree = "<group>"; };
@@ -952,6 +950,7 @@
 		68E600491CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceTotalPkg365Cell.h; sourceTree = "<group>"; };
 		68E6004A1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceTotalPkg365Cell.m; sourceTree = "<group>"; };
 		68E6004B1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceTotalPkg365Cell.xib; sourceTree = "<group>"; };
+		68E6004E1CB6264700C4A8F7 /* DesignerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerListViewController.m; sourceTree = "<group>"; };
 		6E06CC041C29235500A08D15 /* MyFavoriateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoriateViewController.h; sourceTree = "<group>"; };
 		6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoriateViewController.m; sourceTree = "<group>"; };
 		6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavoriateViewController.xib; sourceTree = "<group>"; };
@@ -1112,8 +1111,6 @@
 		6E6D98B31BDF73DE00D45F77 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		6E6D98B41BDF73DE00D45F77 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		6E6D98B51BDF73DE00D45F77 /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
-		6E6D98B81BE05F9600D45F77 /* HomePageDesigners.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDesigners.h; sourceTree = "<group>"; };
-		6E6D98B91BE05F9600D45F77 /* HomePageDesigners.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePageDesigners.m; sourceTree = "<group>"; };
 		6E6D98BE1BE0637700D45F77 /* Product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Product.h; sourceTree = "<group>"; };
 		6E6D98BF1BE0637700D45F77 /* Product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Product.m; sourceTree = "<group>"; };
 		6E6D98C11BE0665700D45F77 /* Requirement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Requirement.h; sourceTree = "<group>"; };
@@ -1724,7 +1721,7 @@
 			isa = PBXGroup;
 			children = (
 				68B10C821C76D489005866C1 /* DesignerListViewController.h */,
-				68B10C831C76D489005866C1 /* DesignerListViewController.m */,
+				68E6004E1CB6264700C4A8F7 /* DesignerListViewController.m */,
 				68B10C841C76D489005866C1 /* DesignerListViewController.xib */,
 				68B10C991C772A73005866C1 /* DesignerSimpleInfoCell.h */,
 				68B10C9A1C772A73005866C1 /* DesignerSimpleInfoCell.m */,
@@ -1860,8 +1857,6 @@
 				6E07DA531BD88DBE001461DD /* Request.h */,
 				6E07DA541BD88DBE001461DD /* SendVerifyCode.h */,
 				6E07DA551BD88DBE001461DD /* SendVerifyCode.m */,
-				6E6D98B81BE05F9600D45F77 /* HomePageDesigners.h */,
-				6E6D98B91BE05F9600D45F77 /* HomePageDesigners.m */,
 				6E6D98F21BE35DD000D45F77 /* ProductHomePage.h */,
 				6E6D98F31BE35DD000D45F77 /* ProductHomePage.m */,
 				6E838DB31BEB5603000BF5CD /* DesignerHomePage.h */,
@@ -2924,7 +2919,6 @@
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */,
-				6E6D98BA1BE05F9600D45F77 /* HomePageDesigners.m in Sources */,
 				68679A451C8EB48100B380D0 /* NotificationDetailViewController.m in Sources */,
 				68123BB41C47D1CC008FC9AB /* JYZSocialSnsHelper.m in Sources */,
 				68B10CBD1C78686E005866C1 /* ProductCaseListDataManager.m in Sources */,
@@ -2971,12 +2965,12 @@
 				6EE34D541C0EC5C200C6957E /* UserGetInfo.m in Sources */,
 				6E07DAC91BD88DBE001461DD /* Ys.m in Sources */,
 				6E07DAAA1BD88DBE001461DD /* ProcessList.m in Sources */,
+				68E6004F1CB6264700C4A8F7 /* DesignerListViewController.m in Sources */,
 				68679A3D1C8E730F00B380D0 /* RequirementNotificationCell.m in Sources */,
 				6E07DAA91BD88DBE001461DD /* UserLogin.m in Sources */,
 				AB5F1EC61C0C8B32009203DF /* UIImagePickerController+Ex.m in Sources */,
 				6885175A1C8FF5E1000B01DB /* UserNotification.m in Sources */,
 				684B03CC1C979EAA0053FFDF /* DecLive.m in Sources */,
-				68B10C851C76D489005866C1 /* DesignerListViewController.m in Sources */,
 				685F2D501CA917C600DC4D43 /* PlanWasChoosedForDesignCell.m in Sources */,
 				AB4CAF911C0F36D2003680BA /* AgreeReschedule.m in Sources */,
 				6E4496251BF9BA2600C90851 /* VerifyPhoneViewController.m in Sources */,

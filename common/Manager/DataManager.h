@@ -21,12 +21,6 @@
 @property (strong, nonatomic) NSString *signupPagePhone;
 @property (strong, nonatomic) NSString *signupPagePass;
 
-//For home page
-@property (assign, nonatomic) BOOL homePageNeedRefresh;
-@property (strong, nonatomic) Requirement *homePageRequirement;
-@property (strong, nonatomic) NSMutableArray *homePageRequirementDesigners;
-@property (strong, nonatomic) NSMutableArray *homePageDesigners;
-
 //For uplpad image
 @property (nonatomic, strong) NSString *lastUploadImageid;
 

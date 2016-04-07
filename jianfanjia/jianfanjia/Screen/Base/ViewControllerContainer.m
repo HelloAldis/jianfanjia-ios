@@ -479,10 +479,6 @@ static ViewControllerContainer *container;
     [GVUserDefaults standardUserDefaults].wechat_openid = nil;
     [GVUserDefaults standardUserDefaults].wechat_unionid = nil;
     
-    [DataManager shared].homePageDesigners = nil;
-    [DataManager shared].homePageRequirement = nil;
-    [DataManager shared].homePageRequirementDesigners = nil;
-    
     [API clearCookie];
 }
 

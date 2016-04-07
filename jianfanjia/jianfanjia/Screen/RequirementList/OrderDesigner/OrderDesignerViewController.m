@@ -237,7 +237,6 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
         
         [API orderDesigner:orderDesigner success:^{
             [self clickBack];
-            [DataManager shared].homePageNeedRefresh = YES;
         } failure:^{
             
         } networkError:^{
