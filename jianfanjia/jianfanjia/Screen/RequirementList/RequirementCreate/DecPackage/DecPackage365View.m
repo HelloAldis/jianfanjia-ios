@@ -57,7 +57,7 @@ const CGFloat kDecPackage365ViewHeight = 146 - kDecPackage365ViewErrorHeight;
 - (void)updateData:(Requirement *)requirement {
     self.requirement = requirement;
     
-    self.basicFee = requirement.house_area.floatValue * 365 / 10000;
+    self.basicFee = [RequirementBusiness getPkgPriceByArea:requirement.house_area.floatValue];
     self.totalBudget = requirement.total_price.floatValue;
     self.personalizedFee = self.totalBudget - self.basicFee;
     
@@ -69,13 +69,13 @@ const CGFloat kDecPackage365ViewHeight = 146 - kDecPackage365ViewErrorHeight;
     } else {
         self.lblError.hidden = YES;
         self.lblErrorHeightConstraint.constant = 0;
-        self.lblPersonalizedFeeVal.text = [NSString stringWithFormat:@"%.2f 万元", self.personalizedFee];
-        self.lblTotalBudgetVal.text = [NSString stringWithFormat:@"%.2f 万元", self.totalBudget];
         self.lblPersonalizedFeeVal.hidden = NO;
         self.lblTotalBudgetVal.hidden = NO;
     }
     
     self.lblBasicFeeVal.text = [NSString stringWithFormat:@"%.2f 万元", self.basicFee];
+    self.lblPersonalizedFeeVal.text = [NSString stringWithFormat:@"%.2f 万元", self.personalizedFee];
+    self.lblTotalBudgetVal.text = [NSString stringWithFormat:@"%.2f 万元", self.totalBudget];
     [self attributedText:self.lblBasicFeeVal range:NSMakeRange(0, self.lblBasicFeeVal.text.length - 2)];
     [self attributedText:self.lblPersonalizedFeeVal range:NSMakeRange(0, self.lblPersonalizedFeeVal.text.length - 2)];
     [self attributedText:self.lblTotalBudgetVal range:NSMakeRange(0, self.lblTotalBudgetVal.text.length - 2)];
