@@ -20,8 +20,7 @@
 @implementation PlanPriceTotalCell
 
 - (void)initWithPlan:(Plan *)plan {
-    NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle],
-                                 NSStrikethroughColorAttributeName: [UIColor grayColor]};
+    NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
     NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:plan.project_price_before_discount ? [plan.project_price_before_discount humRmbString] : @"" attributes:attribtDic];
     self.lblProjectPriceBeforeDiscount.attributedText = attribtStr;
     self.lblProjectPriceAfterDiscount.text = [NSString stringWithFormat:@"%@", [plan.project_price_after_discount doubleValue] > 0 ? [plan.project_price_after_discount humRmbString] : [plan.project_price_before_discount humRmbString]];
