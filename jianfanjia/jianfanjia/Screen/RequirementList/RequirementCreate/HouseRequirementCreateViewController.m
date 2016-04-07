@@ -125,13 +125,19 @@
     self.decPkg365View = [[DecPackage365View alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(frame), kScreenWidth, kDecPackage365ViewHeight)];
     self.decPkg365View.alpha = 0;
     [self.scrollView insertSubview:self.decPkg365View belowSubview:self.decTotalBudgetView.superview];
+    
+    [[self.fldDecorationAreaVal rac_signalForControlEvents:UIControlEventEditingDidBegin | UIControlEventEditingChanged] subscribeNext:^(id x) {
+        [self scrollToMakeDecPkgVisible];
+    }];
+    
+    [[self.fldDecorationBudgetVal rac_signalForControlEvents:UIControlEventEditingDidBegin | UIControlEventEditingChanged] subscribeNext:^(id x) {
+        [self scrollToMakeDecPkgVisible];
+    }];
 }
 
 - (void)updateDecPkgData:(NSUInteger)area budget:(NSUInteger)budget {
-//     workType:(NSString *)workType
     self.editingRequirement.house_area = @(area);
     self.editingRequirement.total_price = @(budget);
-//    self.editingRequirement.work_type = workType;
     [self.decPkg365View updateData:self.editingRequirement];
 }
 
@@ -152,8 +158,6 @@
             self.part3TopConstraint.constant = constant;
             self.scrollView.contentSize = contentSize;
         }];
-        
-        [self scrollToMakeDecPkgVisible];
     } else {
         [self updateDecPkgFrame];
     }
@@ -197,8 +201,6 @@
             self.part3TopConstraint.constant = constant;
             self.scrollView.contentSize = contentSize;
         }];
-        
-        [self scrollToMakeDecPkgVisible];
     };
     
     if (showError && curDecPkgHeight == kDecPackage365ViewHeight) {
@@ -209,8 +211,10 @@
 }
 
 - (void)scrollToMakeDecPkgVisible {
-    if (self.editType == RequirementOperateTypeEdit) {
-        CGRect frame = [self.scrollView convertRect:self.buildAreaView.bounds fromView:self.buildAreaView];
+    BOOL isPkg365 = [RequirementBusiness isPkg365ByArea:self.editingRequirement.house_area.floatValue];
+    BOOL isDesignRequirement = [RequirementBusiness isDesignRequirement:self.editingRequirement.work_type];
+    if (self.editType == RequirementOperateTypeEdit && isPkg365 && !isDesignRequirement) {
+        CGRect frame = [self.scrollView convertRect:self.selectWorkTypeView.bounds fromView:self.selectWorkTypeView];
         CGPoint offset = self.scrollView.contentOffset;
         offset.y = CGRectGetMinY(frame);
         
