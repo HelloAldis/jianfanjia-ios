@@ -1,6 +1,6 @@
 ################# Help ############################
-#run ./re.sh (debug|test|pro) user (-a|-b|-c) -upload appleId applePwd to make a user build
-#run ./re.sh (debug|test|pro) profession (-a|-b|-c) -upload appleId applePwd to make a profession build
+#run ./re.sh (debug|test|pro) user (-a|-b|-c) -upload to make a user build
+#run ./re.sh (debug|test|pro) profession (-a|-b|-c) -upload to make a profession build
 ################# End Help ############################
 
 
@@ -23,9 +23,16 @@ profession_info_plist_rollback='jianfanjia-designer/jianfanjia-designer/info.pli
 #schema name in xcode project
 user_schema='jianfanjia'
 profession_schema='jianfanjia-designer'
-#IPA file name
-user_app_id='1065725149'
-profession_app_id='1078884606'
+
+#app in Test Flight
+testflight_user_app_id='1065725149'
+testflight_profession_app_id='1078884606'
+testflight_apple_id='aldis.zhan@myjyz.com'
+testflight_apple_pwd='Jyz20150608'
+
+#app in Pgyer
+pgyer_user_key='75a553da1e363a4e3d0d6352c47f03b9'
+pgyer_api_key='23753123eeee6bb7b1645ae8b349f5f3'
 
 ################# End Configuration ########################
 
@@ -51,8 +58,6 @@ build_type=$1
 build_target=$2
 build_version_type=$3
 need_upload=$4
-upload_account=$5
-upload_password=$6
 
 echo $build_type
 echo $build_target
@@ -150,11 +155,17 @@ if [[ $build_target = $user_build_target ]]; then
     git tag "user_$newVersion"
     git push origin "user_$newVersion"
 
-    # if [ $need_upload = "-upload" ]; then
-    #     echo 'uploading...'
-    #     ipa distribute:itunesconnect -f $outputPath -a $upload_account -p $upload_password -i $user_app_id -u -w -e --save-keychain --verbose
-    #     osascript -e 'display notification "业主包上传成功" with title "通知"'
-    # fi
+    if [ $need_upload = "-upload" ]; then
+        if [[ $build_type = $test_build_type ]]; then
+          echo 'uploading to Pgyer'
+          ipa distribute:pgyer -f $outputPath -u $pgyer_user_key -a $pgyer_api_key
+        elif [[ $build_type = $pro_build_type ]]; then
+          echo 'uploading to Test Flight'
+          ipa distribute:itunesconnect -f $outputPath -a $testflight_apple_id -p $testflight_apple_pwd -i $testflight_user_app_id -u -w -e --save-keychain --verbose
+        fi
+
+        osascript -e 'display notification "业主包上传成功" with title "通知"'
+    fi
   else
     echo 'build ipa failed, rollback info'
     git checkout $user_info_plist_rollback
@@ -198,11 +209,17 @@ elif [[ $build_target = $profession_build_target ]]; then
     git tag "profession_$newVersion"
     git push origin "profession_$newVersion"
 
-    # if [ $need_upload = "-upload" ]; then
-    #     echo 'uploading...'
-    #     ipa distribute:itunesconnect -f $outputPath -a $upload_account -p $upload_password -i $profession_app_id -u -w -e --save-keychain --verbose
-    #     osascript -e 'display notification "专业版包上传成功" with title "通知"'
-    # fi
+    if [ $need_upload = "-upload" ]; then
+        if [[ $build_type = $test_build_type ]]; then
+          echo 'uploading to Pgyer'
+          ipa distribute:pgyer -f $outputPath -u $pgyer_user_key -a $pgyer_api_key
+        elif [[ $build_type = $pro_build_type ]]; then
+          echo 'uploading to Test Flight'
+          ipa distribute:itunesconnect -f $outputPath -a $testflight_apple_id -p $testflight_apple_pwd -i $testflight_profession_app_id -u -w -e --save-keychain --verbose
+        fi
+
+        osascript -e 'display notification "专业版包上传成功" with title "通知"'
+    fi
   else
     echo 'build ipa failed, rollback info'
     git checkout $profession_info_plist_rollback
