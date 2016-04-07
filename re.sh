@@ -150,11 +150,11 @@ if [[ $build_target = $user_build_target ]]; then
     git tag "user_$newVersion"
     git push origin "user_$newVersion"
 
-    if [ $need_upload = "-upload" ]; then
-        echo 'uploading...'
-        ipa distribute:itunesconnect -f $outputPath -a $upload_account -p $upload_password -i $user_app_id -u -w -e --save-keychain --verbose
-        osascript -e 'display notification "业主包上传成功" with title "通知"'
-    fi
+    # if [ $need_upload = "-upload" ]; then
+    #     echo 'uploading...'
+    #     ipa distribute:itunesconnect -f $outputPath -a $upload_account -p $upload_password -i $user_app_id -u -w -e --save-keychain --verbose
+    #     osascript -e 'display notification "业主包上传成功" with title "通知"'
+    # fi
   else
     echo 'build ipa failed, rollback info'
     git checkout $user_info_plist_rollback
@@ -198,11 +198,11 @@ elif [[ $build_target = $profession_build_target ]]; then
     git tag "profession_$newVersion"
     git push origin "profession_$newVersion"
 
-    if [ $need_upload = "-upload" ]; then
-        echo 'uploading...'
-        ipa distribute:itunesconnect -f $outputPath -a $upload_account -p $upload_password -i $profession_app_id -u -w -e --save-keychain --verbose
-        osascript -e 'display notification "专业版包上传成功" with title "通知"'
-    fi
+    # if [ $need_upload = "-upload" ]; then
+    #     echo 'uploading...'
+    #     ipa distribute:itunesconnect -f $outputPath -a $upload_account -p $upload_password -i $profession_app_id -u -w -e --save-keychain --verbose
+    #     osascript -e 'display notification "专业版包上传成功" with title "通知"'
+    # fi
   else
     echo 'build ipa failed, rollback info'
     git checkout $profession_info_plist_rollback
