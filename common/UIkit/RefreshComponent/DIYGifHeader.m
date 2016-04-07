@@ -86,15 +86,14 @@
         NSUInteger index =  images.count * (pullingPercent - 1);
         if (index >= images.count) index = images.count - 1;
         self.gifView.image = images[index];
+        self.mj_y = - self.mj_h * self.pullingPercent;
     }
-    
-    self.mj_y = - self.mj_h * self.pullingPercent;
 }
 
 - (void)placeSubviews {
     self.gifView.frame = self.bounds;
-    self.gifView.contentMode = UIViewContentModeTop;
-    self.mj_y = 0;
+    self.gifView.contentMode = UIViewContentModeCenter;
+    self.mj_y = - self.mj_h;
     [self.superview sendSubviewToBack:self];
 }
 
@@ -102,7 +101,11 @@
     MJRefreshCheckState
     
     // 根据状态做事情
-    if (state == MJRefreshStateRefreshing) {
+    if (state == MJRefreshStateIdle) {
+        self.gifView.contentMode = UIViewContentModeCenter;
+    } else if (state == MJRefreshStatePulling) {
+        self.gifView.contentMode = UIViewContentModeTop;
+    } else if (state == MJRefreshStateRefreshing) {
         NSArray *images = self.stateImages[@(state)];
         if (images.count == 0) return;
         
@@ -116,4 +119,5 @@
         }
     }
 }
+
 @end
