@@ -51,7 +51,7 @@
 }
 
 - (void)initButtons {
-    if (![self.requirement.work_type isEqualToString:kWorkTypeDesign]) {
+    if (![RequirementBusiness isDesignRequirement:self.requirement.work_type]) {
         if ([kRequirementStatusConfiguredAgreementWithoutWorkSite isEqualToString:self.requirement.status]) {
             self.btnConfirm.enabled = YES;
             [self.btnConfirm setTitle:@"确认开工" forState:UIControlStateNormal];

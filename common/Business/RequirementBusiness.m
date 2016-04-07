@@ -60,4 +60,8 @@ static NSString * const kPkg365Name = @"365基础包";
     return [item.item isEqualToString:kPkg365Name];
 }
 
++ (BOOL)isDesignRequirement:(NSString *)workType {
+    return [workType isEqualToString:kWorkTypeDesign];
+}
+
 @end

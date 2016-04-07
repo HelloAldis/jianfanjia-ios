@@ -49,7 +49,7 @@
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
     
-    if ([requirement.work_type isEqualToString:kWorkTypeDesign]) {
+    if ([RequirementBusiness isDesignRequirement:requirement.work_type]) {
         self.btnViewAgreement.enabled = NO;
         [self.btnViewAgreement setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
     } else {

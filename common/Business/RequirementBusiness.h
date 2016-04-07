@@ -25,4 +25,6 @@ typedef NS_ENUM(NSInteger, DecPackageKind) {
 + (PriceItem *)findPriceItem365:(NSArray <PriceItem *> *)array;
 + (BOOL)isPriceItem365:(PriceItem *)item;
 
++ (BOOL)isDesignRequirement:(NSString *)workType;
+
 @end

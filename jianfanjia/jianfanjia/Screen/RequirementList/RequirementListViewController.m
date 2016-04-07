@@ -120,7 +120,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Requirement *requirement = self.requirementDataManager.requirements[indexPath.row];
-    return [requirement.work_type isEqualToString:kWorkTypeDesign] ? 244 : 289;
+    return [RequirementBusiness isDesignRequirement:requirement.work_type] ? 244 : 289;
 }
 
 #pragma mark - send request 

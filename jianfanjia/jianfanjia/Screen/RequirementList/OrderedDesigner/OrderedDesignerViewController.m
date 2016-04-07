@@ -129,8 +129,7 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
     } else if ([status isEqualToString:kPlanStatusDesignerSubmittedPlan]) {
         cellIdentifier = DesignerSubmittedPlan;
     } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
-        NSString *work_type = self.requirement.work_type;
-        cellIdentifier = [work_type isEqualToString:kWorkTypeDesign] ? PlanWasChoosedForDesign : PlanWasChoosed;
+        cellIdentifier = [RequirementBusiness isDesignRequirement:self.requirement.work_type] ? PlanWasChoosedForDesign : PlanWasChoosed;
     } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]) {
         cellIdentifier = DesignerDeclineHomeOwner;
     } else if ([status isEqualToString:kPlanStatusPlanWasNotChoosed]) {
