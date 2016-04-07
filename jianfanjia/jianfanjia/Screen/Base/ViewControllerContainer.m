@@ -134,7 +134,8 @@ static ViewControllerContainer *container;
 
 + (void)showLogin {
     UIViewController *presented = container.tab.selectedViewController.presentedViewController;
-    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
+    UIViewController *nav = presented ? presented : container.tab.selectedViewController;
+    nav = nav ? nav : container.window.rootViewController;
     
     LoginViewController *v = [[LoginViewController alloc] init];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
