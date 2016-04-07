@@ -128,8 +128,10 @@
 }
 
 - (void)updateDecPkgData:(NSUInteger)area budget:(NSUInteger)budget {
+//     workType:(NSString *)workType
     self.editingRequirement.house_area = @(area);
     self.editingRequirement.total_price = @(budget);
+//    self.editingRequirement.work_type = workType;
     [self.decPkg365View updateData:self.editingRequirement];
 }
 
@@ -277,7 +279,8 @@
                                                                 [self updateDecPkgData:area budget:budget];
                                                                 BOOL (^returnFlagBlock)(BOOL) = ^BOOL(BOOL isPkg365) {
                                                                    BOOL hasErrorForPkg = [self.decPkg365View hasError];
-                                                                   if (isPkg365) {
+                                                                   BOOL isDesignRequirement = [RequirementBusiness isDesignRequirement:self.editingRequirement.work_type];
+                                                                   if (isPkg365 && !isDesignRequirement) {
                                                                        return flag && !hasErrorForPkg;
                                                                    } else {
                                                                        return flag;
@@ -309,8 +312,9 @@
                      NSUInteger budget = [tuple.second integerValue];
                      [self updateDecPkgData:area budget:budget];
                      
-                     void (^showDecPkgBlock)(BOOL) = ^(BOOL show) {
-                         if (show) {
+                     void (^showDecPkgBlock)(BOOL) = ^(BOOL isPkg365) {
+                         BOOL isDesignRequirement = [RequirementBusiness isDesignRequirement:self.editingRequirement.work_type];
+                         if (isPkg365 && !isDesignRequirement) {
                              [self showDecPkg];
                          } else {
                              [self hideDecPkg];
@@ -318,10 +322,12 @@
                      };
                      
                      if ([self isRequirementCreate]) {
-                         showDecPkgBlock([RequirementBusiness isPkg365ByArea:area]);
+                         BOOL isPkg365 = [RequirementBusiness isPkg365ByArea:area];
+                         showDecPkgBlock(isPkg365);
                      } else if (self.editType == RequirementOperateTypeView
                                 || self.editType == RequirementOperateTypeEdit) {
-                         showDecPkgBlock([RequirementBusiness isPkg365ByType:self.editingRequirement.package_type]);
+                         BOOL isPkg365 = [RequirementBusiness isPkg365ByType:self.editingRequirement.package_type] && [RequirementBusiness isPkg365ByArea:area];
+                         showDecPkgBlock(isPkg365);
                      }
                  }];
     
