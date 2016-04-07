@@ -37,7 +37,7 @@
     
     [[ShareManager shared] wechatLogin:controller compeletion:^(SnsAccountInfo *snsAccount, NSString *error) {
         if (error == nil) {
-            [HUDUtil showWait];
+            [HUDUtil showText:nil delayShow:0];
             
             WeChatLogin *request = [[WeChatLogin alloc] init];
             request.username = snsAccount.userName;

@@ -66,8 +66,8 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
     }];
 }
 
-- (void)switchViewToHide {
-    if (self.requirementDataManager.requirements.count > 0) {
+- (void)showRequirementList:(BOOL)show {
+    if (show) {
         self.btnCreate.hidden = YES;
         self.lblNoRequirement.hidden = YES;
         self.imageView.hidden = YES;
@@ -136,7 +136,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
             [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
             [self.requirementDataManager refreshRequirementList];
-            [self switchViewToHide];
+            [self showRequirementList:self.requirementDataManager.requirements.count > 0];
             
             [self.tableView reloadData];
         } failure:^{
@@ -147,7 +147,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
             [self.tableView.header endRefreshing];
         }];
     } else {
-        [self switchViewToHide];
+        [self showRequirementList:NO];
     }
 }
 
