@@ -11,6 +11,6 @@
 
 @interface PlanPriceTotalPkg365Cell : UITableViewCell
 
-- (void)initWithPlan:(Plan *)plan requirement:(Requirement *)requirement;
+- (void)initWithPlan:(Plan *)plan item365:(PriceItem *)item365;
 
 @end

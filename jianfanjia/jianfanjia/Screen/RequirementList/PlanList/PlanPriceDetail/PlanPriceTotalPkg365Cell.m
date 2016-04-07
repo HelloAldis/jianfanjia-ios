@@ -22,11 +22,11 @@
 
 @implementation PlanPriceTotalPkg365Cell
 
-- (void)initWithPlan:(Plan *)plan requirement:(Requirement *)requirement {
+- (void)initWithPlan:(Plan *)plan item365:(PriceItem *)item365 {
     NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
     NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:[@(plan.project_price_before_discount.floatValue + plan.total_design_fee.floatValue) humRmbString] attributes:attribtDic];
 
-    CGFloat basicFee = [RequirementBusiness getPkgPriceByArea:requirement.house_area.floatValue];
+    CGFloat basicFee = item365 ? item365.price.floatValue : 0.0f;
     CGFloat personalizedFee = plan.project_price_before_discount.floatValue - basicFee;
     
     self.lblBasicFee.text = [@(basicFee) humRmbString];

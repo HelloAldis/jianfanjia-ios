@@ -31,6 +31,8 @@
         self.lblDetailView.hidden = YES;
         self.lblNo.hidden = NO;
     }
+
+    self.backgroundColor = [RequirementBusiness isPriceItem365:priceItem] ? [UIColor colorWithR:0xEE g:0xF8 b:0xFC] : [UIColor whiteColor];
 }
 
 @end

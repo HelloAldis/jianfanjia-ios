@@ -8,6 +8,8 @@
 
 #import "RequirementBusiness.h"
 
+static NSString * const kPkg365Name = @"365基础包";
+
 @implementation RequirementBusiness
 
 + (BOOL)isPkg365ByType:(NSString *)type {
@@ -40,6 +42,22 @@
     }
     
     return 0.0f;
+}
+
++ (PriceItem *)findPriceItem365:(NSArray <PriceItem *> *)array {
+    __block PriceItem *findItem = nil;
+    [array enumerateObjectsUsingBlock:^(PriceItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([self isPriceItem365:obj]) {
+            findItem = obj;
+            *stop = YES;
+        }
+    }];
+    
+    return findItem;
+}
+
++ (BOOL)isPriceItem365:(PriceItem *)item {
+    return [item.item isEqualToString:kPkg365Name];
 }
 
 @end

@@ -23,7 +23,8 @@ static NSString *PlanPriceTotalPkg365CellIdentifier = @"PlanPriceTotalPkg365Cell
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) Plan *plan;
 @property (strong, nonatomic) Requirement *requirement;
-@property (strong, nonatomic) RequirementDataManager *requirementDataManager;
+@property (strong, nonatomic) RequirementDataManager *dataManager;
+@property (strong, nonatomic) PriceItem *item365;
 
 @property (strong, nonatomic) NSIndexPath *selectedIndexPath;
 
@@ -36,7 +37,7 @@ static NSString *PlanPriceTotalPkg365CellIdentifier = @"PlanPriceTotalPkg365Cell
     if (self = [super init]) {
         _plan = plan;
         _requirement = requirement;
-        _requirementDataManager = [[RequirementDataManager alloc] init];
+        _dataManager = [[RequirementDataManager alloc] init];
     }
     
     return self;
@@ -73,7 +74,7 @@ static NSString *PlanPriceTotalPkg365CellIdentifier = @"PlanPriceTotalPkg365Cell
     if (section == 0) {
         return 1;
     } else {
-        return self.requirementDataManager.planPriceItems.count;
+        return self.dataManager.planPriceItems.count;
     }
 }
 
@@ -82,7 +83,7 @@ static NSString *PlanPriceTotalPkg365CellIdentifier = @"PlanPriceTotalPkg365Cell
         if ([RequirementBusiness isPkg365ByType:self.requirement.package_type]) {
             PlanPriceTotalPkg365Cell *cell = [tableView dequeueReusableCellWithIdentifier:PlanPriceTotalPkg365CellIdentifier forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell initWithPlan:self.plan requirement:self.requirement];
+            [cell initWithPlan:self.plan item365:self.item365];
             
             return cell;
         } else {
@@ -96,13 +97,13 @@ static NSString *PlanPriceTotalPkg365CellIdentifier = @"PlanPriceTotalPkg365Cell
         if ([indexPath isEqual:self.selectedIndexPath]) {
             PlanPriceItemExpandCell *cell = [tableView dequeueReusableCellWithIdentifier:PlanPriceItemExpandCellIdentifier forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell initWithPriceItem:self.requirementDataManager.planPriceItems[indexPath.row]];
+            [cell initWithPriceItem:self.dataManager.planPriceItems[indexPath.row]];
             
             return cell;
         } else {
             PlanPriceItemCell *cell = [tableView dequeueReusableCellWithIdentifier:PlanCellIdentifier forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell initWithPriceItem:self.requirementDataManager.planPriceItems[indexPath.row]];
+            [cell initWithPriceItem:self.dataManager.planPriceItems[indexPath.row]];
             
             return cell;
         }
@@ -136,7 +137,7 @@ static NSString *PlanPriceTotalPkg365CellIdentifier = @"PlanPriceTotalPkg365Cell
     if (indexPath.section == 0) {
         //do nothing
     } else {
-        PriceItem *item = self.requirementDataManager.planPriceItems[indexPath.row];
+        PriceItem *item = self.dataManager.planPriceItems[indexPath.row];
         if ([item.price_description trim].length > 0) {
             [self.tableView beginUpdates];
             [self.tableView reloadRowsAtIndexPaths:preSeleted ? @[indexPath, preSeleted] : @[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -147,7 +148,8 @@ static NSString *PlanPriceTotalPkg365CellIdentifier = @"PlanPriceTotalPkg365Cell
 
 #pragma mark - load data
 - (void)loadData {
-    [self.requirementDataManager refreshPlanPriceItems:self.plan];
+    [self.dataManager refreshPlanPriceItems:self.plan];
+    self.item365 = [RequirementBusiness findPriceItem365:self.dataManager.planPriceItems];
     [self.tableView reloadData];
 }
 

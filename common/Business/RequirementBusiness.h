@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class PriceItem;
+
 typedef NS_ENUM(NSInteger, DecPackageKind) {
     DecPackageKindDefault,
     DecPackageKind365,
@@ -20,5 +22,7 @@ typedef NS_ENUM(NSInteger, DecPackageKind) {
 + (DecPackageKind)getPkgKindByArea:(NSUInteger)area;
 + (CGFloat)getPkgWPriceByArea:(NSUInteger)area;
 + (CGFloat)getPkgPriceByArea:(NSUInteger)area;
++ (PriceItem *)findPriceItem365:(NSArray <PriceItem *> *)array;
++ (BOOL)isPriceItem365:(PriceItem *)item;
 
 @end
