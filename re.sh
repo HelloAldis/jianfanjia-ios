@@ -139,7 +139,7 @@ if [[ $build_target = $user_build_target ]]; then
     ipa build -w $user_workspace -c Debug -s $user_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS DEBUG=1 COCOAPODS=1"' -d "$user_package_path/debug/$newVersion" --ipa $user_ipa_file
   elif [[ $build_type = $test_build_type ]]; then
     echo 'build user test build now, please wait.................'
-    ipa build -w $user_workspace -c Release -s $user_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$user_package_path/test/$newVersion" --ipa $user_ipa_file
+    ipa build -w $user_workspace -c Debug -s $user_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$user_package_path/test/$newVersion" --ipa $user_ipa_file
   elif [[ $build_type = $pro_build_type ]]; then
     echo 'build user pro build now, please wait.................'
     ipa build -w $user_workspace -c Release -s $user_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$user_package_path/pro/$newVersion" --ipa $user_ipa_file
@@ -194,7 +194,7 @@ elif [[ $build_target = $profession_build_target ]]; then
     ipa build -w $profession_workspace -c Debug -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS DEBUG=1 COCOAPODS=1"' -d "$profession_packages_path/debug/$newVersion" --ipa $profession_ipa_file
   elif [[ $build_type = $test_build_type ]]; then
     echo 'build profession test build now, please wait.................'
-    ipa build -w $profession_workspace -c Release -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$profession_packages_path/test/$newVersion" --ipa $profession_ipa_file
+    ipa build -w $profession_workspace -c Debug -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$profession_packages_path/test/$newVersion" --ipa $profession_ipa_file
   elif [[ $build_type = $pro_build_type ]]; then
     echo 'build profession pro build now, please wait.................'
     ipa build -w $profession_workspace -c Release -s $profession_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$profession_packages_path/pro/$newVersion" --ipa $profession_ipa_file
