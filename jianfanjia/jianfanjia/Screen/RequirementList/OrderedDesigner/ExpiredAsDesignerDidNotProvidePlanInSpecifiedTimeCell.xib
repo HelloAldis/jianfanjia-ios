@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -70,9 +70,9 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="p7b-Av-rgl"/>
-                                        <exclude reference="b4M-kE-ash"/>
                                         <exclude reference="74J-ST-4fp"/>
+                                        <exclude reference="b4M-kE-ash"/>
+                                        <exclude reference="p7b-Av-rgl"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -88,10 +88,10 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="1mJ-7h-2uY"/>
-                                        <exclude reference="gMs-oh-T9q"/>
                                         <exclude reference="9s5-Rt-kgx"/>
-                                        <exclude reference="wdM-f1-wip"/>
                                         <exclude reference="OHa-vI-Sxv"/>
+                                        <exclude reference="gMs-oh-T9q"/>
+                                        <exclude reference="wdM-f1-wip"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -106,11 +106,11 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="yZ4-hq-tLG"/>
+                                        <exclude reference="126-92-y3f"/>
                                         <exclude reference="NAv-NP-UV2"/>
                                         <exclude reference="Uf4-qt-4Tg"/>
                                         <exclude reference="rKc-Xd-bTj"/>
-                                        <exclude reference="126-92-y3f"/>
+                                        <exclude reference="yZ4-hq-tLG"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -125,11 +125,11 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="xqP-EK-gGJ"/>
-                                        <exclude reference="eVC-kY-fXW"/>
-                                        <exclude reference="SAI-Ng-XOy"/>
-                                        <exclude reference="h21-Zt-ZCg"/>
                                         <exclude reference="HV4-w6-bh2"/>
+                                        <exclude reference="SAI-Ng-XOy"/>
+                                        <exclude reference="eVC-kY-fXW"/>
+                                        <exclude reference="h21-Zt-ZCg"/>
+                                        <exclude reference="xqP-EK-gGJ"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -144,9 +144,9 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="dWi-tF-LJM"/>
                                         <exclude reference="EPG-ov-8OU"/>
                                         <exclude reference="azx-yZ-Gtx"/>
+                                        <exclude reference="dWi-tF-LJM"/>
                                     </mask>
                                 </variation>
                             </imageView>

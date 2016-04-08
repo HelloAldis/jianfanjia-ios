@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -70,9 +70,9 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="BA3-Eh-n2R"/>
                                         <exclude reference="qca-Vi-UKa"/>
                                         <exclude reference="s46-re-mMN"/>
-                                        <exclude reference="BA3-Eh-n2R"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -87,10 +87,10 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="i1n-bB-Ebl"/>
-                                        <exclude reference="cmP-ZU-t2y"/>
                                         <exclude reference="056-rf-jg8"/>
                                         <exclude reference="4AO-zl-Wvb"/>
+                                        <exclude reference="cmP-ZU-t2y"/>
+                                        <exclude reference="i1n-bB-Ebl"/>
                                         <exclude reference="xHt-n0-Zrg"/>
                                     </mask>
                                 </variation>
@@ -107,10 +107,10 @@
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="AEp-kK-Whh"/>
-                                        <exclude reference="jD7-KE-szp"/>
-                                        <exclude reference="sPt-De-oxn"/>
                                         <exclude reference="bqO-DN-Rdo"/>
+                                        <exclude reference="jD7-KE-szp"/>
                                         <exclude reference="lSw-Kf-Brd"/>
+                                        <exclude reference="sPt-De-oxn"/>
                                     </mask>
                                 </variation>
                             </imageView>
@@ -125,10 +125,10 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="rjg-aF-KrQ"/>
-                                        <exclude reference="mTx-dL-myB"/>
                                         <exclude reference="0SB-68-pMd"/>
                                         <exclude reference="IjB-ti-AD6"/>
+                                        <exclude reference="mTx-dL-myB"/>
+                                        <exclude reference="rjg-aF-KrQ"/>
                                         <exclude reference="y5Q-gh-vkr"/>
                                     </mask>
                                 </variation>
@@ -144,8 +144,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="pXI-FM-rXe"/>
                                         <exclude reference="ByO-HO-8fe"/>
+                                        <exclude reference="pXI-FM-rXe"/>
                                         <exclude reference="upT-vD-fFA"/>
                                     </mask>
                                 </variation>
