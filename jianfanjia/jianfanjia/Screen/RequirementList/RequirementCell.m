@@ -95,21 +95,7 @@
         return;
     }
     
-    NSString *status = self.currentPlanStatus[touchedIndex];
-
-    if ([status isEqualToString:kPlanStatusUnorder]) {
-        NSString *status = self.requirement.status;
-        if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
-            || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
-            || [status isEqualToString:kRequirementStatusConfiguredWorkSite]
-            || [status isEqualToString:kRequirementStatusFinishedWorkSite]) {
-            // Nothing
-        } else {
-            [ViewControllerContainer showOrderDesigner:self.requirement];
-        }
-    } else {
-        [ViewControllerContainer showOrderedDesigner:self.requirement];
-    }
+    [ViewControllerContainer showOrderedDesigner:self.requirement];
 }
 
 #pragma mark - user action
@@ -129,7 +115,7 @@
     if (orderedDesigner) {
         [imgView setImageWithId:orderedDesigner.imageid withWidth:imgView.bounds.size.width];
     } else {
-        [imgView setImage:[UIImage imageNamed:@"add"]];
+        [imgView setImage:[UIImage imageNamed:@"icon_add_designer"]];
     }
     
     UILabel *lblName = self.designerName[idx];
@@ -146,6 +132,7 @@
     
     self.currentPlanStatus[idx] = status;
     
+    //更新设计师状态
     if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
         lblStatus.textColor = kPassStatusColor;
     } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]
@@ -156,6 +143,21 @@
         lblStatus.textColor = kExcutionStatusColor;
     } else {
         lblStatus.textColor = kUntriggeredColor;
+    }
+    
+    //判断是否允许继续预约设计师
+    if ([status isEqualToString:kPlanStatusUnorder]) {
+        NSString *status = self.requirement.status;
+        if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
+            || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
+            || [status isEqualToString:kRequirementStatusConfiguredWorkSite]
+            || [status isEqualToString:kRequirementStatusFinishedWorkSite]) {
+            [self enableDesigner:NO index:idx];
+        } else {
+            [self enableDesigner:YES index:idx];
+        }
+    } else {
+        [self enableDesigner:YES index:idx];
     }
 }
 
@@ -195,6 +197,16 @@
         self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
         [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
     }
+}
+
+#pragma mark - other
+- (void)enableDesigner:(BOOL)enable index:(NSUInteger)idx {
+    UIImageView *imgView = self.designerAvatar[idx];
+    UILabel *lblName = self.designerName[idx];
+    
+    imgView.userInteractionEnabled = enable;
+    imgView.tintColor = enable? [UIColor grayColor] : kUntriggeredColor;
+    lblName.textColor = enable ? kThemeTextColor : kUntriggeredColor;
 }
 
 @end
