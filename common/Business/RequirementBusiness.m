@@ -7,11 +7,13 @@
 //
 
 #import "RequirementBusiness.h"
+#import "StatusBlock.h"
 
 static NSString * const kPkg365Name = @"365基础包";
 
 @implementation RequirementBusiness
 
+#pragma mark - pkg 365
 + (BOOL)isPkg365ByType:(NSString *)type {
     return [type isEqualToString:kDecPackage365];
 }

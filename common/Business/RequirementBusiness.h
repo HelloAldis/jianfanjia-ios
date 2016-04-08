@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class PriceItem;
+@class StatusBlock;
 
 typedef NS_ENUM(NSInteger, DecPackageKind) {
     DecPackageKindDefault,

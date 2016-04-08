@@ -9,6 +9,7 @@
 #import "RequirementCell.h"
 #import "ViewControllerContainer.h"
 #import "RequirementDataManager.h"
+#import "AllStatusBlock.h"
 
 @interface RequirementCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;
@@ -175,6 +176,9 @@
     self.lblCellNameVal.text = requirement.basic_address;
     
     NSString *status = requirement.status;
+    /**
+     重构判断逻辑
+     
     if ([status isEqualToString:kRequirementStatusOrderedDesignerWithoutAnyResponse]) {
         self.lblRequirementStatusVal.textColor = kPassStatusColor;
         [self updateGoToWorksite:@"预览工地"];
@@ -198,6 +202,46 @@
         self.lblRequirementStatusVal.textColor = kUntriggeredColor;
         [self updateGoToWorksite:@"预览工地"];
     }
+    **/
+    
+    [StatusBlock matchReqt:status actions:
+     @[[ReqtOrderedDesigner action:^{
+            self.lblRequirementStatusVal.textColor = kPassStatusColor;
+            [self updateGoToWorksite:@"预览工地"];
+        }],
+       [ReqtDesignerResponded action:^{
+            self.lblRequirementStatusVal.textColor = kExcutionStatusColor;
+            [self updateGoToWorksite:@"预览工地"];
+        }],
+       [ReqtConfiguredAgreement action:^{
+            self.lblRequirementStatusVal.textColor = kFinishedColor;
+            [self updateGoToWorksite:@"预览工地"];
+        }],
+       [ReqtDesignerMeasuredHouse action:^{
+            self.lblRequirementStatusVal.textColor = kFinishedColor;
+            [self updateGoToWorksite:@"预览工地"];
+        }],
+       [ReqtPlanWasChoosed action:^{
+            self.lblRequirementStatusVal.textColor = kFinishedColor;
+            [self updateGoToWorksite:@"预览工地"];
+        }],
+       [ReqtDesignerSubmittedPlan action:^{
+            self.lblRequirementStatusVal.textColor = kFinishedColor;
+            [self updateGoToWorksite:@"预览工地"];
+        }],
+       [ReqtConfiguredWorkSite action:^{
+            self.lblRequirementStatusVal.textColor = kFinishedColor;
+            [self updateGoToWorksite:@"前往工地"];
+        }],
+       [ReqtFinishedWorkSite action:^{
+            self.lblRequirementStatusVal.textColor = kFinishedColor;
+            [self updateGoToWorksite:@"前往工地"];
+        }],
+       [ReqtUnorderDesigner action:^{
+            self.lblRequirementStatusVal.textColor = kUntriggeredColor;
+            [self updateGoToWorksite:@"预览工地"];
+        }],
+      ]];
 }
 
 #pragma mark - other

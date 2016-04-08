@@ -302,6 +302,17 @@
 		68E6004F1CB6264700C4A8F7 /* DesignerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6004E1CB6264700C4A8F7 /* DesignerListViewController.m */; };
 		68E600671CB74AC900C4A8F7 /* WebViewWithActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600651CB74AC900C4A8F7 /* WebViewWithActionController.m */; };
 		68E600681CB74AC900C4A8F7 /* WebViewWithActionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E600661CB74AC900C4A8F7 /* WebViewWithActionController.xib */; };
+		68E6006F1CB7BC6000C4A8F7 /* StatusBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6006E1CB7BC6000C4A8F7 /* StatusBlock.m */; };
+		68E600721CB7BDC900C4A8F7 /* ReqtUnorderDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600711CB7BDC900C4A8F7 /* ReqtUnorderDesigner.m */; };
+		68E600831CB7C20300C4A8F7 /* ReqtConfiguredAgreement.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600741CB7C20300C4A8F7 /* ReqtConfiguredAgreement.m */; };
+		68E600841CB7C20300C4A8F7 /* ReqtConfiguredWorkSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600761CB7C20300C4A8F7 /* ReqtConfiguredWorkSite.m */; };
+		68E600851CB7C20300C4A8F7 /* ReqtDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600781CB7C20300C4A8F7 /* ReqtDesignerMeasuredHouse.m */; };
+		68E600861CB7C20300C4A8F7 /* ReqtDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6007A1CB7C20300C4A8F7 /* ReqtDesignerResponded.m */; };
+		68E600871CB7C20300C4A8F7 /* ReqtDesignerSubmittedPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6007C1CB7C20300C4A8F7 /* ReqtDesignerSubmittedPlan.m */; };
+		68E600881CB7C20300C4A8F7 /* ReqtFinishedWorkSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6007E1CB7C20300C4A8F7 /* ReqtFinishedWorkSite.m */; };
+		68E600891CB7C20300C4A8F7 /* ReqtOrderedDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600801CB7C20300C4A8F7 /* ReqtOrderedDesigner.m */; };
+		68E6008A1CB7C20300C4A8F7 /* ReqtPlanWasChoosed.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600821CB7C20300C4A8F7 /* ReqtPlanWasChoosed.m */; };
+		68E6008E1CB7C89E00C4A8F7 /* ElseStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6008D1CB7C89E00C4A8F7 /* ElseStatus.m */; };
 		6E06CC071C29235500A08D15 /* MyFavoriateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */; };
 		6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */; };
 		6E06CC0B1C29447E00A08D15 /* ListFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC0A1C29447E00A08D15 /* ListFavoriateProduct.m */; };
@@ -956,6 +967,29 @@
 		68E600641CB74AC900C4A8F7 /* WebViewWithActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithActionController.h; sourceTree = "<group>"; };
 		68E600651CB74AC900C4A8F7 /* WebViewWithActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewWithActionController.m; sourceTree = "<group>"; };
 		68E600661CB74AC900C4A8F7 /* WebViewWithActionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewWithActionController.xib; sourceTree = "<group>"; };
+		68E6006D1CB7BC6000C4A8F7 /* StatusBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBlock.h; sourceTree = "<group>"; };
+		68E6006E1CB7BC6000C4A8F7 /* StatusBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBlock.m; sourceTree = "<group>"; };
+		68E600701CB7BDC900C4A8F7 /* ReqtUnorderDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtUnorderDesigner.h; sourceTree = "<group>"; };
+		68E600711CB7BDC900C4A8F7 /* ReqtUnorderDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtUnorderDesigner.m; sourceTree = "<group>"; };
+		68E600731CB7C20300C4A8F7 /* ReqtConfiguredAgreement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtConfiguredAgreement.h; sourceTree = "<group>"; };
+		68E600741CB7C20300C4A8F7 /* ReqtConfiguredAgreement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtConfiguredAgreement.m; sourceTree = "<group>"; };
+		68E600751CB7C20300C4A8F7 /* ReqtConfiguredWorkSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtConfiguredWorkSite.h; sourceTree = "<group>"; };
+		68E600761CB7C20300C4A8F7 /* ReqtConfiguredWorkSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtConfiguredWorkSite.m; sourceTree = "<group>"; };
+		68E600771CB7C20300C4A8F7 /* ReqtDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtDesignerMeasuredHouse.h; sourceTree = "<group>"; };
+		68E600781CB7C20300C4A8F7 /* ReqtDesignerMeasuredHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtDesignerMeasuredHouse.m; sourceTree = "<group>"; };
+		68E600791CB7C20300C4A8F7 /* ReqtDesignerResponded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtDesignerResponded.h; sourceTree = "<group>"; };
+		68E6007A1CB7C20300C4A8F7 /* ReqtDesignerResponded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtDesignerResponded.m; sourceTree = "<group>"; };
+		68E6007B1CB7C20300C4A8F7 /* ReqtDesignerSubmittedPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtDesignerSubmittedPlan.h; sourceTree = "<group>"; };
+		68E6007C1CB7C20300C4A8F7 /* ReqtDesignerSubmittedPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtDesignerSubmittedPlan.m; sourceTree = "<group>"; };
+		68E6007D1CB7C20300C4A8F7 /* ReqtFinishedWorkSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtFinishedWorkSite.h; sourceTree = "<group>"; };
+		68E6007E1CB7C20300C4A8F7 /* ReqtFinishedWorkSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtFinishedWorkSite.m; sourceTree = "<group>"; };
+		68E6007F1CB7C20300C4A8F7 /* ReqtOrderedDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtOrderedDesigner.h; sourceTree = "<group>"; };
+		68E600801CB7C20300C4A8F7 /* ReqtOrderedDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtOrderedDesigner.m; sourceTree = "<group>"; };
+		68E600811CB7C20300C4A8F7 /* ReqtPlanWasChoosed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtPlanWasChoosed.h; sourceTree = "<group>"; };
+		68E600821CB7C20300C4A8F7 /* ReqtPlanWasChoosed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtPlanWasChoosed.m; sourceTree = "<group>"; };
+		68E6008B1CB7C37A00C4A8F7 /* AllStatusBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllStatusBlock.h; sourceTree = "<group>"; };
+		68E6008C1CB7C89E00C4A8F7 /* ElseStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElseStatus.h; sourceTree = "<group>"; };
+		68E6008D1CB7C89E00C4A8F7 /* ElseStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElseStatus.m; sourceTree = "<group>"; };
 		6E06CC041C29235500A08D15 /* MyFavoriateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoriateViewController.h; sourceTree = "<group>"; };
 		6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoriateViewController.m; sourceTree = "<group>"; };
 		6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavoriateViewController.xib; sourceTree = "<group>"; };
@@ -1794,6 +1828,36 @@
 			path = DecPackage;
 			sourceTree = "<group>";
 		};
+		68E6006C1CB7BC6000C4A8F7 /* BcObject */ = {
+			isa = PBXGroup;
+			children = (
+				68E6008B1CB7C37A00C4A8F7 /* AllStatusBlock.h */,
+				68E6006D1CB7BC6000C4A8F7 /* StatusBlock.h */,
+				68E6006E1CB7BC6000C4A8F7 /* StatusBlock.m */,
+				68E6008C1CB7C89E00C4A8F7 /* ElseStatus.h */,
+				68E6008D1CB7C89E00C4A8F7 /* ElseStatus.m */,
+				68E600701CB7BDC900C4A8F7 /* ReqtUnorderDesigner.h */,
+				68E600711CB7BDC900C4A8F7 /* ReqtUnorderDesigner.m */,
+				68E600731CB7C20300C4A8F7 /* ReqtConfiguredAgreement.h */,
+				68E600741CB7C20300C4A8F7 /* ReqtConfiguredAgreement.m */,
+				68E600751CB7C20300C4A8F7 /* ReqtConfiguredWorkSite.h */,
+				68E600761CB7C20300C4A8F7 /* ReqtConfiguredWorkSite.m */,
+				68E600771CB7C20300C4A8F7 /* ReqtDesignerMeasuredHouse.h */,
+				68E600781CB7C20300C4A8F7 /* ReqtDesignerMeasuredHouse.m */,
+				68E600791CB7C20300C4A8F7 /* ReqtDesignerResponded.h */,
+				68E6007A1CB7C20300C4A8F7 /* ReqtDesignerResponded.m */,
+				68E6007B1CB7C20300C4A8F7 /* ReqtDesignerSubmittedPlan.h */,
+				68E6007C1CB7C20300C4A8F7 /* ReqtDesignerSubmittedPlan.m */,
+				68E6007D1CB7C20300C4A8F7 /* ReqtFinishedWorkSite.h */,
+				68E6007E1CB7C20300C4A8F7 /* ReqtFinishedWorkSite.m */,
+				68E6007F1CB7C20300C4A8F7 /* ReqtOrderedDesigner.h */,
+				68E600801CB7C20300C4A8F7 /* ReqtOrderedDesigner.m */,
+				68E600811CB7C20300C4A8F7 /* ReqtPlanWasChoosed.h */,
+				68E600821CB7C20300C4A8F7 /* ReqtPlanWasChoosed.m */,
+			);
+			path = BcObject;
+			sourceTree = "<group>";
+		};
 		6E06CC031C29231A00A08D15 /* MyFavoriate */ = {
 			isa = PBXGroup;
 			children = (
@@ -1978,6 +2042,7 @@
 		6E07DA561BD88DBE001461DD /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				68E6006C1CB7BC6000C4A8F7 /* BcObject */,
 				6E07DA581BD88DBE001461DD /* AccountBusiness.m */,
 				6E07DA571BD88DBE001461DD /* AccountBusiness.h */,
 				6E07DA591BD88DBE001461DD /* Business.h */,
@@ -2832,12 +2897,14 @@
 				AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */,
 				6885175D1C8FFB8A000B01DB /* SearchUserNotification.m in Sources */,
 				6E06CC2D1C2BF97800A08D15 /* FavoriteDesignerCell.m in Sources */,
+				68E6006F1CB7BC6000C4A8F7 /* StatusBlock.m in Sources */,
 				68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */,
 				683FFB471C296288002A1AFE /* DropdownMenuCollectionCell.m in Sources */,
 				684A375A1BFD73DF00F7388C /* SelectWorkTypeViewController.m in Sources */,
 				68123BAB1C47D15C008FC9AB /* JYZShareMenuCollectionCell.m in Sources */,
 				68E6004C1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */,
 				6E7867161BA944AF00DE8B1B /* ItemCell.m in Sources */,
+				68E600861CB7C20300C4A8F7 /* ReqtDesignerResponded.m in Sources */,
 				6E6D98B01BDF736A00D45F77 /* RequirementListViewController.m in Sources */,
 				6E07DAAC1BD88DBE001461DD /* AccountBusiness.m in Sources */,
 				683840071C157E21004F456E /* UpdateOneLineTextViewController.m in Sources */,
@@ -2849,6 +2916,7 @@
 				6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */,
 				684A374A1BFD73DF00F7388C /* DecorationStyleCell.m in Sources */,
 				682E05151C58BDA700F1ACAA /* PlanPriceItemSection.m in Sources */,
+				68E600881CB7C20300C4A8F7 /* ReqtFinishedWorkSite.m in Sources */,
 				6EE1E4371C082A8300883184 /* UIImage+Ex.m in Sources */,
 				683FFB701C2B9A70002A1AFE /* BusinessRequirementCreateViewController.m in Sources */,
 				68123B9E1C47D15C008FC9AB /* JYZSocialSnsConfigCenter.m in Sources */,
@@ -2872,6 +2940,8 @@
 				684A374E1BFD73DF00F7388C /* SelectCommunicationTypeViewController.m in Sources */,
 				68123B9F1C47D15C008FC9AB /* JYZSocialSnsConstant.m in Sources */,
 				6E07DAC61BD88DBE001461DD /* Process.m in Sources */,
+				68E600891CB7C20300C4A8F7 /* ReqtOrderedDesigner.m in Sources */,
+				68E600841CB7C20300C4A8F7 /* ReqtConfiguredWorkSite.m in Sources */,
 				683595A81C04565300AD58E7 /* AgreementViewController.m in Sources */,
 				683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */,
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,
@@ -2910,6 +2980,7 @@
 				684B03CD1C979EAA0053FFDF /* DecLiveSection.m in Sources */,
 				685F2D691CAB77E000DC4D43 /* UnexpandSectionActionView.m in Sources */,
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
+				68E600851CB7C20300C4A8F7 /* ReqtDesignerMeasuredHouse.m in Sources */,
 				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
 				68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */,
 				68123C641C4C8B99008FC9AB /* SelectCityViewController.m in Sources */,
@@ -2984,6 +3055,7 @@
 				685F2D501CA917C600DC4D43 /* PlanWasChoosedForDesignCell.m in Sources */,
 				AB4CAF911C0F36D2003680BA /* AgreeReschedule.m in Sources */,
 				6E4496251BF9BA2600C90851 /* VerifyPhoneViewController.m in Sources */,
+				68E600831CB7C20300C4A8F7 /* ReqtConfiguredAgreement.m in Sources */,
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				6E07DAC01BD88DBE001461DD /* DataManager.m in Sources */,
 				6836269D1C05B1E9005F2C30 /* ProcessDataManager.m in Sources */,
@@ -3015,6 +3087,7 @@
 				68C3C2691C75C41200EEEBD8 /* HomePageProductCell.m in Sources */,
 				685272C71C2D1602002E62EC /* SelectBusinessTypeViewController.m in Sources */,
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
+				68E600721CB7BDC900C4A8F7 /* ReqtUnorderDesigner.m in Sources */,
 				680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
@@ -3058,6 +3131,7 @@
 				688517601C91246D000B01DB /* UILabel+Ex.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68123C5C1C4C8B99008FC9AB /* ImageDetailViewController.m in Sources */,
+				68E6008A1CB7C20300C4A8F7 /* ReqtPlanWasChoosed.m in Sources */,
 				680F492A1C240F910055C16C /* LeafImage.m in Sources */,
 				68123BA11C47D15C008FC9AB /* JYZSocialSnsPlatformQQ.m in Sources */,
 				68C3C26B1C75C41200EEEBD8 /* HomePageProductItem.m in Sources */,
@@ -3080,6 +3154,7 @@
 				682E050F1C58BDA700F1ACAA /* PlanPriceDetailViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
 				68B10CB81C785659005866C1 /* SearchBeautifulImageDataManager.m in Sources */,
+				68E600871CB7C20300C4A8F7 /* ReqtDesignerSubmittedPlan.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
 				684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */,
 				684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */,
@@ -3125,6 +3200,7 @@
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
 				6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */,
 				68123C551C4C8B99008FC9AB /* MessageAlertViewController.m in Sources */,
+				68E6008E1CB7C89E00C4A8F7 /* ElseStatus.m in Sources */,
 				6EE34D701C0ED49E00C6957E /* Model.xcdatamodeld in Sources */,
 				68B10CA01C7804FA005866C1 /* DesignerListDataManager.m in Sources */,
 				683B2A781C10162400822715 /* Schedule.m in Sources */,
