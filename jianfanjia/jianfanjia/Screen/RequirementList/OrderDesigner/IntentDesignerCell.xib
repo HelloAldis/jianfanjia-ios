@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -72,9 +72,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="9o5-Vo-JKy"/>
-                                <exclude reference="5jm-3G-lWu"/>
                                 <exclude reference="0Kj-d4-e2Z"/>
+                                <exclude reference="5jm-3G-lWu"/>
+                                <exclude reference="9o5-Vo-JKy"/>
                             </mask>
                         </variation>
                     </imageView>
@@ -89,11 +89,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="mJs-C0-PLq"/>
                                 <exclude reference="IGV-Ww-h2O"/>
-                                <exclude reference="qhF-ft-8nD"/>
                                 <exclude reference="OAW-1b-idi"/>
                                 <exclude reference="gtZ-MM-6xM"/>
+                                <exclude reference="mJs-C0-PLq"/>
+                                <exclude reference="qhF-ft-8nD"/>
                             </mask>
                         </variation>
                     </imageView>
@@ -108,11 +108,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="QNy-nG-gtm"/>
-                                <exclude reference="mTH-CX-Kdb"/>
-                                <exclude reference="bPB-r9-JBv"/>
-                                <exclude reference="NPn-tU-hIW"/>
                                 <exclude reference="CaL-Bp-KSY"/>
+                                <exclude reference="NPn-tU-hIW"/>
+                                <exclude reference="QNy-nG-gtm"/>
+                                <exclude reference="bPB-r9-JBv"/>
+                                <exclude reference="mTH-CX-Kdb"/>
                             </mask>
                         </variation>
                     </imageView>
@@ -127,11 +127,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="HQy-DW-62r"/>
                                 <exclude reference="15F-Is-16a"/>
                                 <exclude reference="HD8-jh-92y"/>
-                                <exclude reference="p93-u9-QX3"/>
+                                <exclude reference="HQy-DW-62r"/>
                                 <exclude reference="Jvs-Qc-llV"/>
+                                <exclude reference="p93-u9-QX3"/>
                             </mask>
                         </variation>
                     </imageView>
@@ -146,9 +146,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="yQM-tS-cIJ"/>
-                                <exclude reference="dXf-hr-ydR"/>
                                 <exclude reference="3Hn-63-qhu"/>
+                                <exclude reference="dXf-hr-ydR"/>
+                                <exclude reference="yQM-tS-cIJ"/>
                             </mask>
                         </variation>
                     </imageView>
@@ -193,9 +193,6 @@
                     <constraint firstItem="KoP-fj-886" firstAttribute="width" secondItem="F2m-WF-B1j" secondAttribute="width" id="wsu-rI-bGN"/>
                 </constraints>
             </tableViewCellContentView>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="KoP-fj-886" secondAttribute="bottom" constant="-2" id="QVv-FJ-31l"/>
-            </constraints>
             <connections>
                 <outlet property="authIcon" destination="Jkw-UO-N0R" id="I3Y-GI-8Kb"/>
                 <outlet property="imgAvatar" destination="Yt7-8r-JtW" id="bdg-1u-niy"/>

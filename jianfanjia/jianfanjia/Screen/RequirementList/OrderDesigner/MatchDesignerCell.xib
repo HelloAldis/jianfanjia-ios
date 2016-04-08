@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -101,11 +101,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="Tm2-tC-I8c"/>
-                                <exclude reference="3Ua-K0-JpH"/>
-                                <exclude reference="bxA-Z0-bbb"/>
-                                <exclude reference="a4M-R1-o3n"/>
                                 <exclude reference="0Ne-sp-4S4"/>
+                                <exclude reference="3Ua-K0-JpH"/>
+                                <exclude reference="Tm2-tC-I8c"/>
+                                <exclude reference="a4M-R1-o3n"/>
+                                <exclude reference="bxA-Z0-bbb"/>
                             </mask>
                         </variation>
                     </imageView>
@@ -121,9 +121,9 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="5OK-U5-Zsj"/>
-                                <exclude reference="xEF-Cf-95R"/>
                                 <exclude reference="6WT-vh-Ilr"/>
                                 <exclude reference="XMK-MH-Vo7"/>
+                                <exclude reference="xEF-Cf-95R"/>
                                 <exclude reference="yrs-Z3-D1a"/>
                             </mask>
                         </variation>
@@ -139,11 +139,11 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="pO1-OD-7Mb"/>
                                 <exclude reference="8jO-xF-c6B"/>
                                 <exclude reference="ReS-4w-3WX"/>
                                 <exclude reference="XrQ-27-ftE"/>
                                 <exclude reference="g9y-OP-WL6"/>
+                                <exclude reference="pO1-OD-7Mb"/>
                             </mask>
                         </variation>
                     </imageView>
@@ -210,9 +210,6 @@
                     <constraint firstItem="OXi-le-E8Z" firstAttribute="height" secondItem="Ey4-v4-Lj2" secondAttribute="height" id="ygw-Aq-Adk"/>
                 </constraints>
             </tableViewCellContentView>
-            <constraints>
-                <constraint firstAttribute="bottom" secondItem="5xt-MV-Y43" secondAttribute="bottom" constant="-2" id="6pP-ss-ftN"/>
-            </constraints>
             <connections>
                 <outlet property="authIcon" destination="9FD-0s-APL" id="3fj-09-uWO"/>
                 <outlet property="imgAvatar" destination="5uC-Ri-dVo" id="tcj-EP-zo5"/>
