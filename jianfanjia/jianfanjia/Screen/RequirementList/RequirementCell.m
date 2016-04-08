@@ -95,7 +95,15 @@
         return;
     }
     
-    [ViewControllerContainer showOrderedDesigner:self.requirement];
+    NSString *status = self.currentPlanStatus[touchedIndex];
+    @weakify(self);
+    [self designerAction:status canNotOrder:nil order:^{
+        @strongify(self);
+        [ViewControllerContainer showOrderDesigner:self.requirement];
+    } ordered:^{
+        @strongify(self);
+        [ViewControllerContainer showOrderedDesigner:self.requirement];
+    }];
 }
 
 #pragma mark - user action
@@ -146,19 +154,17 @@
     }
     
     //判断是否允许继续预约设计师
-    if ([status isEqualToString:kPlanStatusUnorder]) {
-        NSString *status = self.requirement.status;
-        if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
-            || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
-            || [status isEqualToString:kRequirementStatusConfiguredWorkSite]
-            || [status isEqualToString:kRequirementStatusFinishedWorkSite]) {
-            [self enableDesigner:NO index:idx];
-        } else {
-            [self enableDesigner:YES index:idx];
-        }
-    } else {
+    @weakify(self);
+    [self designerAction:status canNotOrder:^{
+        @strongify(self);
+        [self enableDesigner:NO index:idx];
+    } order:^{
+        @strongify(self);
         [self enableDesigner:YES index:idx];
-    }
+    } ordered:^{
+        @strongify(self);
+        [self enableDesigner:YES index:idx];
+    }];
 }
 
 - (void)updateRequirement:(Requirement *)requirement {
@@ -171,35 +177,46 @@
     NSString *status = requirement.status;
     if ([status isEqualToString:kRequirementStatusOrderedDesignerWithoutAnyResponse]) {
         self.lblRequirementStatusVal.textColor = kPassStatusColor;
-        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
-        [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
+        [self updateGoToWorksite:@"预览工地"];
     } else if ([status isEqualToString:kRequirementStatusDesignerRespondedWithoutMeasureHouse]) {
         self.lblRequirementStatusVal.textColor = kExcutionStatusColor;
-        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
-        [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
+        [self updateGoToWorksite:@"预览工地"];
     } else if ([status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
                || [status isEqualToString:kRequirementStatusDesignerMeasureHouseWithoutPlan]
                || [status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
                || [status isEqualToString:kRequirementStatusDesignerSubmittedPlanWithoutResponse]) {
         self.lblRequirementStatusVal.textColor = kFinishedColor;
-        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
-        [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
+        [self updateGoToWorksite:@"预览工地"];
     } else if ([status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
         self.lblRequirementStatusVal.textColor = kFinishedColor;
-        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
-        [self.btnGoToWorkspace setTitle:@"前往工地" forState:UIControlStateNormal];
+        [self updateGoToWorksite:@"前往工地"];
     } else if ([status isEqualToString:kRequirementStatusFinishedWorkSite]) {
         self.lblRequirementStatusVal.textColor = kFinishedColor;
-        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
-        [self.btnGoToWorkspace setTitle:@"前往工地" forState:UIControlStateNormal];
-    } else if ([status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
+        [self updateGoToWorksite:@"前往工地"];
+    } else {
+        //0. 未预约任何设计师
         self.lblRequirementStatusVal.textColor = kUntriggeredColor;
-        self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
-        [self.btnGoToWorkspace setTitle:@"预览工地" forState:UIControlStateNormal];
+        [self updateGoToWorksite:@"预览工地"];
     }
 }
 
 #pragma mark - other
+- (void)designerAction:(NSString *)status canNotOrder:(void (^)(void))canNotOrder order:(void (^)(void))order ordered:(void (^)(void))ordered {
+    if ([status isEqualToString:kPlanStatusUnorder]) {
+        NSString *status = self.requirement.status;
+        if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
+            || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
+            || [status isEqualToString:kRequirementStatusConfiguredWorkSite]
+            || [status isEqualToString:kRequirementStatusFinishedWorkSite]) {
+            if (canNotOrder) canNotOrder();
+        } else {
+            if (order) order();
+        }
+    } else {
+        if (ordered) ordered();
+    }
+}
+
 - (void)enableDesigner:(BOOL)enable index:(NSUInteger)idx {
     UIImageView *imgView = self.designerAvatar[idx];
     UILabel *lblName = self.designerName[idx];
@@ -207,6 +224,11 @@
     imgView.userInteractionEnabled = enable;
     imgView.tintColor = enable? [UIColor grayColor] : kUntriggeredColor;
     lblName.textColor = enable ? kThemeTextColor : kUntriggeredColor;
+}
+
+- (void)updateGoToWorksite:(NSString *)title {
+    self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
+    [self.btnGoToWorkspace setTitle:title forState:UIControlStateNormal];
 }
 
 @end
