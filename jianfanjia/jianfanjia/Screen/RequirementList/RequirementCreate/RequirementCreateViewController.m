@@ -95,6 +95,13 @@
         [titleView addSubview:_houseBtn];
         [titleView addSubview:_businessBtn];
         self.navigationItem.titleView = titleView;
+        
+        UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
+        swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+        UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
+        swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+        [self.view addGestureRecognizer:swipeLeft];
+        [self.view addGestureRecognizer:swipeRight];
     } else {
         if ([self.editingRequirement.dec_type isEqualToString:kDecTypeBusiness]) {
             self.title = @"商装";
@@ -104,12 +111,6 @@
     }
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
-    swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
-    UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeGesture:)];
-    swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
-    [self.view addGestureRecognizer:swipeLeft];
-    [self.view addGestureRecognizer:swipeRight];
 }
 
 - (void)displayDoneButton {
