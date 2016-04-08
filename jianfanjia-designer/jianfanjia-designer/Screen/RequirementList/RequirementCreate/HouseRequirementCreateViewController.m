@@ -323,6 +323,8 @@
                          } else {
                              [self hideDecPkg];
                          }
+                         
+                         self.fldDecorationBudgetVal.placeholder = !isDesignRequirement ? @"80-120m² 可使用365基础包" : @"必填";
                      };
                      
                      if ([self isRequirementCreate]) {
