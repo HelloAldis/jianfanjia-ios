@@ -300,6 +300,8 @@
 		68E6004C1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6004A1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m */; };
 		68E6004D1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E6004B1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib */; };
 		68E6004F1CB6264700C4A8F7 /* DesignerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6004E1CB6264700C4A8F7 /* DesignerListViewController.m */; };
+		68E600671CB74AC900C4A8F7 /* WebViewWithActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600651CB74AC900C4A8F7 /* WebViewWithActionController.m */; };
+		68E600681CB74AC900C4A8F7 /* WebViewWithActionController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E600661CB74AC900C4A8F7 /* WebViewWithActionController.xib */; };
 		6E06CC071C29235500A08D15 /* MyFavoriateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */; };
 		6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */; };
 		6E06CC0B1C29447E00A08D15 /* ListFavoriateProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC0A1C29447E00A08D15 /* ListFavoriateProduct.m */; };
@@ -951,6 +953,9 @@
 		68E6004A1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceTotalPkg365Cell.m; sourceTree = "<group>"; };
 		68E6004B1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceTotalPkg365Cell.xib; sourceTree = "<group>"; };
 		68E6004E1CB6264700C4A8F7 /* DesignerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerListViewController.m; sourceTree = "<group>"; };
+		68E600641CB74AC900C4A8F7 /* WebViewWithActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithActionController.h; sourceTree = "<group>"; };
+		68E600651CB74AC900C4A8F7 /* WebViewWithActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewWithActionController.m; sourceTree = "<group>"; };
+		68E600661CB74AC900C4A8F7 /* WebViewWithActionController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewWithActionController.xib; sourceTree = "<group>"; };
 		6E06CC041C29235500A08D15 /* MyFavoriateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyFavoriateViewController.h; sourceTree = "<group>"; };
 		6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyFavoriateViewController.m; sourceTree = "<group>"; };
 		6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyFavoriateViewController.xib; sourceTree = "<group>"; };
@@ -1766,6 +1771,9 @@
 		68BA507F1C9FD8BB002E5572 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				68E600641CB74AC900C4A8F7 /* WebViewWithActionController.h */,
+				68E600651CB74AC900C4A8F7 /* WebViewWithActionController.m */,
+				68E600661CB74AC900C4A8F7 /* WebViewWithActionController.xib */,
 				68BA50F01C9FE56B002E5572 /* WebViewWithoutShareController.h */,
 				68BA50F11C9FE56B002E5572 /* WebViewWithoutShareController.m */,
 				68BA50F21C9FE56B002E5572 /* WebViewWithoutShareController.xib */,
@@ -2712,6 +2720,7 @@
 				6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */,
 				685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */,
 				68679A3E1C8E730F00B380D0 /* RequirementNotificationCell.xib in Resources */,
+				68E600681CB74AC900C4A8F7 /* WebViewWithActionController.xib in Resources */,
 				684A37131BFD733500F7388C /* PlanWasNotChoosedCell.xib in Resources */,
 				6E06CC271C2BA51800A08D15 /* FavoriateBeautifulImageCell.xib in Resources */,
 				6E4496411BFC53CE00C90851 /* FeedbackViewController.xib in Resources */,
@@ -2916,6 +2925,7 @@
 				6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */,
 				68B10CB91C785659005866C1 /* SearchDesignerDataManager.m in Sources */,
 				68123B9D1C47D15C008FC9AB /* JYZSocialSnsConfig.m in Sources */,
+				68E600671CB74AC900C4A8F7 /* WebViewWithActionController.m in Sources */,
 				6E07DACC1BD88DBE001461DD /* LogFormatter.m in Sources */,
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */,

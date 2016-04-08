@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * const kKeychainService;
+extern NSString * const kPkg365Url;
 extern int const kWelcomeVersion;
 extern int const kPhoneLength;
 extern int const kPasswordLength;

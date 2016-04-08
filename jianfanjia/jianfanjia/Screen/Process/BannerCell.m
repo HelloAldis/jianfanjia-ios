@@ -9,6 +9,7 @@
 #import "BannerCell.h"
 #import "ViewControllerContainer.h"
 #import "WebViewController.h"
+#import "WebViewWithActionController.h"
 
 CGFloat kBannerCellHeight;
 
@@ -37,8 +38,8 @@ CGFloat kBannerCellHeight;
 
 - (void)awakeFromNib {
     CGFloat height = kBannerCellHeight;
-    self.imgs = @[@"banner_1", @"banner_2"];
-    self.urls = @[@"view/zt/supervision/", @"view/zt/safeguard/"];
+    self.imgs = @[@"banner_1", @"banner_2", @"banner_3"];
+    self.urls = @[@"view/zt/supervision/", @"view/zt/safeguard/", kPkg365Url];
     
     self.imgViews = [NSMutableArray array];
     for (NSInteger i = 0; i < 3; i++) {
@@ -132,7 +133,25 @@ CGFloat kBannerCellHeight;
 
 #pragma mark - gesture
 - (void)onTapImage:(UIGestureRecognizer *)g {
-    [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:self.urls[self.index] shareTopic:ShareTopicActivity];
+    NSString *curUrl = self.urls[self.index];
+    
+    if ([curUrl isEqualToString:kPkg365Url]) {
+        [WebViewWithActionController show:[ViewControllerContainer getCurrentTapController] withUrl:curUrl shareTopic:ShareTopicActivity actionTitle:@"我要装修" actionBlock:^{
+            [[LoginEngine shared] showLogin:^(BOOL logined) {
+                if (logined) {
+                    if (![GVUserDefaults standardUserDefaults].phone) {
+                        [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
+                            [ViewControllerContainer showRequirementCreate:nil];
+                        }];
+                    } else {
+                        [ViewControllerContainer showRequirementCreate:nil];
+                    }
+                }
+            }];
+        }];
+    } else {
+        [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:curUrl shareTopic:ShareTopicActivity];
+    }
 }
 
 @end

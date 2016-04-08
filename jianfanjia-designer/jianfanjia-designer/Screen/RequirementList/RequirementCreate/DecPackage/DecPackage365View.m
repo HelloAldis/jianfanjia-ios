@@ -8,6 +8,7 @@
 
 #import "DecPackage365View.h"
 #import "ViewControllerContainer.h"
+#import "WebViewWithoutShareController.h"
 
 const CGFloat kDecPackage365ViewErrorHeight = 30;
 const CGFloat kDecPackage365ViewHeight = 146 - kDecPackage365ViewErrorHeight;
@@ -87,7 +88,7 @@ const CGFloat kDecPackage365ViewHeight = 146 - kDecPackage365ViewErrorHeight;
 
 #pragma mark - user action
 - (IBAction)onClickAbout:(id)sender {
-    
+    [WebViewWithoutShareController show:[ViewControllerContainer getCurrentTapController] withUrl:kPkg365Url];
 }
 
 #pragma mark - attributed text
