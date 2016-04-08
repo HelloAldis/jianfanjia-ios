@@ -41,6 +41,7 @@
         @strongify(self);
         [obj setCornerRadius:CGRectGetWidth(obj.frame) / 2];
         [obj setBorder:1 andColor:kThemeTextColor.CGColor];
+        [obj setTitle:[NameDict nameForDecProgress:[@(idx) stringValue]] forState:UIControlStateNormal];
         [obj addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
     }];
 }
@@ -48,7 +49,7 @@
 #pragma mark - user action
 - (void)onClickButton:(UIButton *)button {
     [self enableButtons:NO];
-    [DataManager shared].collectedDecPhase = button.titleLabel.text;
+    [DataManager shared].collectedDecPhase = [@([self.btnDecPhases indexOfObject:button]) stringValue];
     [UIView playBounceAnimationFor:button completion:^{
         [ViewControllerContainer showCollectDecStyle];
     }];

@@ -40,5 +40,6 @@
 + (NSString *)nameForSectionStatus:(NSString *)status;
 + (NSString *)nameForBusinessType:(NSString *)status;
 + (NSString *)nameForDecLiveSectionType:(NSString *)status;
++ (NSString *)nameForDecProgress:(NSString *)status;
 
 @end

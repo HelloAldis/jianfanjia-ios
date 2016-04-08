@@ -28,6 +28,7 @@ static NSDictionary *sectionStatusDic = nil;
 static NSArray *beautifulTypeArr = nil;
 static NSDictionary *businessTypeDict = nil;
 static NSDictionary *decLiveSectionDict = nil;
+static NSDictionary *decProgressDict = nil;
 
 + (void)initialize {
     houseTypeDict = @{@"0":@"一室",
@@ -162,6 +163,11 @@ static NSDictionary *decLiveSectionDict = nil;
                            @"6":@"安装",
                            @"7":@"竣工",
                            };
+    decProgressDict = @{
+                       kDecProgressTakeALook:@"我想看一看",
+                       kDecProgressDoingPrepare:@"正在做准备",
+                       kDecProgressStartedAlready:@"已经开始装修",
+                       };
 }
 
 + (NSDictionary *)getAllHouseType {
@@ -278,6 +284,10 @@ static NSDictionary *decLiveSectionDict = nil;
 
 + (NSString *)nameForDecLiveSectionType:(NSString *)status {
     return [decLiveSectionDict objectForKey:status];
+}
+
++ (NSString *)nameForDecProgress:(NSString *)status {
+    return [decProgressDict objectForKey:status];
 }
 
 @end

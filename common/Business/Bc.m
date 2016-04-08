@@ -267,7 +267,15 @@ NSString * const kDesignerPNFromDBYSConfirm = @"21";
 NSString * const kDecPackageDefault = @"0";
 NSString * const kDecPackage365 = @"1";
 
-
+/*
+ 装修阶段 dec_progress
+ * 0. 我想看一看
+ * 1. 正在做准备
+ * 2. 已经开始装修
+ **/
+NSString * const kDecProgressTakeALook = @"0";
+NSString * const kDecProgressDoingPrepare = @"1";
+NSString * const kDecProgressStartedAlready = @"2";
 
 
 
