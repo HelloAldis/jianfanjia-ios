@@ -121,10 +121,14 @@
 #pragma mark - scroll view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self adjustTopView];
+    
+    if (self.presentingViewController && scrollView.contentOffset.y < -(kNavWithStatusBarHeight + 30)) {
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)adjustTopView {
-    if (self.tableView.contentOffset.y >= -64 && self.tableView.contentOffset.y <= 200) {
+    if (self.tableView.contentOffset.y >= -kNavWithStatusBarHeight && self.tableView.contentOffset.y <= 200) {
         CGFloat dy = self.tableView.contentOffset.y - 39;
         if (dy < 0) {
             dy = 0;
@@ -179,7 +183,7 @@
 
 - (void)onClickBack {
     if (self.presentingViewController) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     } else {
         [super onClickBack];
     }
