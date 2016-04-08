@@ -228,7 +228,6 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="btnReplace" destination="Dcq-4m-nAZ" id="ota-uu-Xc1"/>
                 <outlet property="btnViewPlan" destination="Dcq-4m-nAZ" id="1Tp-qY-OZa"/>
                 <outlet property="imgAvatar" destination="lbf-g3-9B6" id="Cau-BI-gv2"/>
                 <outlet property="imgBaseInfoChecked" destination="x95-oD-o5j" id="59i-eL-he8"/>
