@@ -11,6 +11,7 @@
 @interface DesignerRespondedWithoutMeasureHouseCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblStatus;
 @property (weak, nonatomic) IBOutlet UIButton *btnConfirmMeasureHouse;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgIdCardChecked;
@@ -47,6 +48,8 @@
         [self.btnConfirmMeasureHouse setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
         [self.btnConfirmMeasureHouse.titleLabel setFont:[UIFont systemFontOfSize:14]];
     }
+    
+    self.lblStatus.text = [PlanDesignerResponded text:designer.plan.house_check_time];
 }
 
 - (void)onClickButton {

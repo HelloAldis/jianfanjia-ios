@@ -13,4 +13,6 @@
 
 + (StatusBlock *)action:(StatusBlockAction)action;
 
++ (NSString *)text:(NSNumber *)checkTime;
+
 @end

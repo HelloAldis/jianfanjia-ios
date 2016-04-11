@@ -12,6 +12,7 @@
 @interface PlanWasChoosedCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblStatus;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewEvaluate;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAgreement;
@@ -49,6 +50,10 @@
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
     [self.btnViewEvaluate setTitle:designer.evaluation._id ? @"查看评价" : @"评价设计师" forState:UIControlStateNormal];
+    
+    NSString *status = self.requirement.status;
+    self.lblStatus.text = [PlanWasChoosed text:status];
+    self.lblStatus.textColor = [PlanWasChoosed textColor:status];
 }
 
 - (void)onClickEvaluateButton {

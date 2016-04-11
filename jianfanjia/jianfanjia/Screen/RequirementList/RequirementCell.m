@@ -150,10 +150,8 @@
     
     UILabel *lblStatus = self.designerStatus[idx];
     UIImageView *authIcon = self.authIcon[idx];
-    
-    lblStatus.text = [status isEqualToString:kPlanStatusUnorder] ? @"未预约" : [NameDict nameForPlanStatus:status];
+
     [DesignerBusiness setV:authIcon withAuthType:auth_type];
-    
     self.currentPlanStatus[idx] = status;
     
     //更新设计师状态
@@ -172,20 +170,29 @@
     }
      **/
     
+    lblStatus.text = [status isEqualToString:kPlanStatusUnorder] ? @"未预约" : [NameDict nameForPlanStatus:status];
     [StatusBlock matchPlan:status actions:
-     @[[PlanHomeOwnerOrdered action:^{
-            lblStatus.textColor = kPassStatusColor;
+     @[[PlanWasChoosed action:^{
+            if ([RequirementBusiness isDesignRequirement:self.requirement.work_type]) {
+                lblStatus.text = @"已完成";
+                lblStatus.textColor = kPassStatusColor;
+            } else {
+                NSString *status = self.requirement.status;
+                lblStatus.text = [PlanWasChoosed text:status];
+                lblStatus.textColor = [PlanWasChoosed textColor:status];
+            }
         }],
-       [PlanWasChoosed action:^{
-            lblStatus.textColor = kFinishedColor;
+       [PlanHomeOwnerOrdered action:^{
+            lblStatus.textColor = kExcutionStatusColor;
         }],
        [PlanDesignerMeasuredHouse action:^{
-            lblStatus.textColor = kFinishedColor;
+            lblStatus.textColor = kExcutionStatusColor;
         }],
        [PlanDesignerSubmittedPlan action:^{
-            lblStatus.textColor = kFinishedColor;
+            lblStatus.textColor = kExcutionStatusColor;
         }],
        [PlanDesignerResponded action:^{
+            lblStatus.text = [PlanDesignerResponded text:orderedDesigner.plan.house_check_time];
             lblStatus.textColor = kExcutionStatusColor;
         }],
        [ElseStatus action:^{
@@ -209,7 +216,7 @@
 }
 
 - (void)updateRequirement:(Requirement *)requirement {
-    self.lblRequirementStatusVal.text = [RequirementBusiness isDesignRequirement:requirement.work_type] && [requirement.status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement] ? @"已完成" : [NameDict nameForRequirementStatus:requirement.status];
+//    self.lblRequirementStatusVal.text = [RequirementBusiness isDesignRequirement:requirement.work_type] && [requirement.status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement] ? @"已完成" : [NameDict nameForRequirementStatus:requirement.status];
     self.lblPubulishTimeVal.text = [NSDate yyyy_MM_dd:requirement.create_at];
     self.lblUpdateTimeVal.text = [NSDate yyyy_MM_dd:requirement.last_status_update_time];
     self.lblCellNameVal.text = requirement.basic_address;
@@ -249,7 +256,7 @@
             [self updateGoToWorksite:@"预览工地"];
         }],
        [ReqtDesignerResponded action:^{
-            self.lblRequirementStatusVal.textColor = kExcutionStatusColor;
+            self.lblRequirementStatusVal.textColor = kFinishedColor;
             [self updateGoToWorksite:@"预览工地"];
         }],
        [ReqtConfiguredAgreement action:^{
@@ -257,11 +264,11 @@
             [self updateGoToWorksite:@"预览工地"];
         }],
        [ReqtDesignerMeasuredHouse action:^{
-            self.lblRequirementStatusVal.textColor = kFinishedColor;
+            self.lblRequirementStatusVal.textColor = kPassStatusColor;
             [self updateGoToWorksite:@"预览工地"];
         }],
        [ReqtPlanWasChoosed action:^{
-            self.lblRequirementStatusVal.textColor = kFinishedColor;
+            self.lblRequirementStatusVal.textColor = kPassStatusColor;
             [self updateGoToWorksite:@"预览工地"];
         }],
        [ReqtDesignerSubmittedPlan action:^{
@@ -273,7 +280,7 @@
             [self updateGoToWorksite:@"前往工地"];
         }],
        [ReqtFinishedWorkSite action:^{
-            self.lblRequirementStatusVal.textColor = kFinishedColor;
+            self.lblRequirementStatusVal.textColor = kPassStatusColor;
             [self updateGoToWorksite:@"前往工地"];
         }],
        [ReqtUnorderDesigner action:^{

@@ -98,7 +98,15 @@ static NSString *PlanWasNotChoosedIdentifier = @"PlanWasNotChoosedCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 146;
+    Designer *orderedDesigner = self.requirementDataManager.orderedDesigners[indexPath.row];
+    NSString *status = orderedDesigner.plan.status;
+    
+    __block NSInteger height = 146;
+    [StatusBlock matchPlan:status action:[PlanHomeOwnerOrdered action:^{
+        height = 96;
+    }]];
+    
+    return height;
 }
 
 #pragma mark - send request 

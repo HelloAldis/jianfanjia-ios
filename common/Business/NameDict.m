@@ -85,22 +85,22 @@ static NSDictionary *decProgressDict = nil;
                       @"3":@"300以上"};
 
     planStatus = @{
-                   @"0":@"已预约",
-                   @"1":@"已拒绝",
-                   @"2":@"已响应",
-                   @"3":@"有方案",
-                   @"4":@"未中标",
-                   @"5":@"已中标",
-                   @"6":@"已量房",
-                   @"7":@"未响应",
-                   @"8":@"未提交"
+                   kPlanStatusHomeOwnerOrderedWithoutResponse:@"等待响应",
+                   kPlanStatusDesignerDeclineHomeOwner:@"已拒绝",
+                   kPlanStatusDesignerRespondedWithoutMeasureHouse:@"等待量房",
+                   kPlanStatusDesignerSubmittedPlan:@"等待确认方案",
+                   kPlanStatusPlanWasNotChoosed:@"未中标",
+                   kPlanStatusPlanWasChoosed:@"等待设置合同",
+                   kPlanStatusDesignerMeasureHouseWithoutPlan:@"等待上传方案",
+                   kPlanStatusExpiredAsDesignerDidNotRespond:@"未响应",
+                   kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime:@"未提交"
                    };
     
     requirementStatus = @{
                           kRequirementStatusUnorderAnyDesigner:@"未预约",
                           kRequirementStatusOrderedDesignerWithoutAnyResponse:@"已预约",
                           kRequirementStatusDesignerRespondedWithoutMeasureHouse:@"已响应",
-                          kRequirementStatusDesignerSubmittedPlanWithoutResponse:@"有方案",
+                          kRequirementStatusDesignerSubmittedPlanWithoutResponse:@"已有方案",
                           kRequirementStatusPlanWasChoosedWithoutAgreement:@"已选定",
                           kRequirementStatusConfiguredWorkSite:@"有工地",
                           kRequirementStatusDesignerMeasureHouseWithoutPlan:@"已量房",

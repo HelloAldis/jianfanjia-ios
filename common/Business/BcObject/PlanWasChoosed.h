@@ -13,4 +13,7 @@
 
 + (StatusBlock *)action:(StatusBlockAction)action;
 
++ (NSString *)text:(NSString *)reqtStatus;
++ (UIColor *)textColor:(NSString *)reqtStatus;
+
 @end

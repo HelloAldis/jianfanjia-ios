@@ -12,9 +12,9 @@
 @interface PlanWasChoosedForDesignCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblStatus;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewEvaluate;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
-@property (weak, nonatomic) IBOutlet UIButton *btnViewAgreement;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgIdCardChecked;
 @property (weak, nonatomic) IBOutlet UIImageView *imgBaseInfoChecked;
@@ -38,25 +38,12 @@
         @strongify(self);
         [self onClickViewPlanButton];
     }];
-    
-    [[self.btnViewAgreement rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        [self onClickViewAgreementButton];
-    }];
 }
 
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock {
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
     [self.btnViewEvaluate setTitle:designer.evaluation._id ? @"查看评价" : @"评价设计师" forState:UIControlStateNormal];
-    
-    if ([RequirementBusiness isDesignRequirement:requirement.work_type]) {
-        self.btnViewAgreement.enabled = NO;
-        [self.btnViewAgreement setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
-    } else {
-        self.btnViewAgreement.enabled = YES;
-        [self.btnViewAgreement setTitleColor:kThemeColor forState:UIControlStateNormal];
-    }
 }
 
 - (void)onClickEvaluateButton {
@@ -67,8 +54,5 @@
     [ViewControllerContainer showPlanList:self.designer._id forRequirement:self.requirement];
 }
 
-- (void)onClickViewAgreementButton {
-    [ViewControllerContainer showAgreement:self.requirement popTo:[ViewControllerContainer getCurrentTapController].navigationController.viewControllers.firstObject refresh:nil];
-}
 
 @end
