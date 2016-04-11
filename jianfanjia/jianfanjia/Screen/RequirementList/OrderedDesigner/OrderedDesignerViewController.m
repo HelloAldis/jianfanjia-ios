@@ -121,6 +121,8 @@ static NSString *PlanWasNotChoosedIdentifier = @"PlanWasNotChoosedCell";
 - (DesignerPlanStatusBaseCell *)loadCellWithDesigner:(Designer *)orderedDesigner withTableView:(UITableView *)tableView forIndex:(NSIndexPath *)path {
     NSString *status = orderedDesigner.plan.status;
     
+    /**
+     重构判断逻辑
     NSString *cellIdentifier;
     if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
         cellIdentifier = HomeOwnerOrderedWithoutResponseIdentifier;
@@ -141,6 +143,38 @@ static NSString *PlanWasNotChoosedIdentifier = @"PlanWasNotChoosedCell";
     } else {
         cellIdentifier = ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeIdentifier;
     }
+     **/
+    
+    __block NSString *cellIdentifier;
+    [StatusBlock matchPlan:status actions:
+     @[[PlanHomeOwnerOrdered action:^{
+            cellIdentifier = HomeOwnerOrderedWithoutResponseIdentifier;
+        }],
+       [PlanDesignerResponded action:^{
+            cellIdentifier = DesignerRespondedWithoutMeasureHouseIdentifier;
+        }],
+       [PlanDesignerSubmittedPlan action:^{
+            cellIdentifier = DesignerSubmittedPlanIdentifier;
+        }],
+       [PlanWasChoosed action:^{
+            cellIdentifier = [RequirementBusiness isDesignRequirement:self.requirement.work_type] ? PlanWasChoosedForDesignIdentifier : PlanWasChoosedIdentifier;
+        }],
+       [PlanDesignerDeclined action:^{
+            cellIdentifier = DesignerDeclineHomeOwnerIdentifier;
+        }],
+       [PlanWasNotChoosed action:^{
+            cellIdentifier = PlanWasNotChoosedIdentifier;
+        }],
+       [PlanDesignerMeasuredHouse action:^{
+            cellIdentifier = DesignerMeasureHouseWithoutPlanIdentifier;
+        }],
+       [PlanDesignerRespondExpired action:^{
+            cellIdentifier = ExpiredAsDesignerDidNotRespondIdentifier;
+        }],
+       [ElseStatus action:^{
+            cellIdentifier = ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeIdentifier;
+        }],
+       ]];
     
     DesignerPlanStatusBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:path];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

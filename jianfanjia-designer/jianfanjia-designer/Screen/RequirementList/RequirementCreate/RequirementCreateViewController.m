@@ -75,11 +75,20 @@
     if ([self isCreateRequirement]) {
         [self displayDoneButton];
     } else {
-        if ([self.editingRequirement.status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
+        /**
+         重构判断逻辑
+         if ([self.editingRequirement.status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
+         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
+         self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+         [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+         }
+         **/
+        
+        [StatusBlock matchReqt:self.editingRequirement.status action:[ReqtUnorderDesigner action:^{
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
             self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
             [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
-        }
+        }]];
     }
     
     if ([self isCreateRequirement] ) {

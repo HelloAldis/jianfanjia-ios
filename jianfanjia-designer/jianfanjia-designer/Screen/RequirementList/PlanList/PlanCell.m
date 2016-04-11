@@ -48,18 +48,36 @@ static const NSInteger imgSpace = 2;
     self.lblPlanTitleVal.text = [NSString stringWithFormat:@"%@ %@", requirement.basic_address, self.plan.name];
     self.lblPlanTimeVal.text = [NSDate yyyy_MM_dd:plan.last_status_update_time];
     
-    if ([plan.status isEqualToString:kPlanStatusPlanWasChoosed] || [plan.status isEqualToString:kPlanStatusPlanWasNotChoosed]) {
-        self.lblPlanStatusVal.text = [NameDict nameForPlanStatus:plan.status];
-        
-        if ([plan.status isEqualToString:kPlanStatusPlanWasChoosed]) {
+    /**
+     重构判断逻辑
+     if ([plan.status isEqualToString:kPlanStatusPlanWasChoosed] || [plan.status isEqualToString:kPlanStatusPlanWasNotChoosed]) {
+     self.lblPlanStatusVal.text = [NameDict nameForPlanStatus:plan.status];
+     
+     if ([plan.status isEqualToString:kPlanStatusPlanWasChoosed]) {
+     self.lblPlanStatusVal.textColor = kFinishedColor;
+     } else {
+     self.lblPlanStatusVal.textColor = kTextColor;
+     }
+     } else {
+     self.lblPlanStatusVal.text = @"沟通中";
+     self.lblPlanStatusVal.textColor = kExcutionStatusColor;
+     }
+     **/
+    
+    [StatusBlock matchPlan:plan.status actions:
+     @[[PlanWasChoosed action:^{
+            self.lblPlanStatusVal.text = [NameDict nameForPlanStatus:plan.status];
             self.lblPlanStatusVal.textColor = kFinishedColor;
-        } else {
+        }],
+        [PlanWasNotChoosed action:^{
+            self.lblPlanStatusVal.text = [NameDict nameForPlanStatus:plan.status];
             self.lblPlanStatusVal.textColor = kTextColor;
-        }
-    } else {
-        self.lblPlanStatusVal.text = @"沟通中";
-        self.lblPlanStatusVal.textColor = kExcutionStatusColor;
-    }
+        }],
+        [ElseStatus action:^{
+            self.lblPlanStatusVal.text = @"沟通中";
+            self.lblPlanStatusVal.textColor = kExcutionStatusColor;
+        }],
+       ]];
     
     if (plan.comment_count.intValue > 0) {
         self.btnComment.alpha = 1.0;

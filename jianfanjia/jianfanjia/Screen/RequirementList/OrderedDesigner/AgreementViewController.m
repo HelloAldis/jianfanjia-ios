@@ -52,6 +52,8 @@
 
 - (void)initButtons {
     if (![RequirementBusiness isDesignRequirement:self.requirement.work_type]) {
+        /**
+         重构判断逻辑
         if ([kRequirementStatusConfiguredAgreementWithoutWorkSite isEqualToString:self.requirement.status]) {
             self.btnConfirm.enabled = YES;
             [self.btnConfirm setTitle:@"确认开工" forState:UIControlStateNormal];
@@ -69,6 +71,31 @@
             [self.btnConfirm setTitle:@"已开工" forState:UIControlStateNormal];
             [self.btnConfirm setBackgroundColor:kUntriggeredColor];
         }
+         **/
+        
+        NSString *status = self.requirement.status;
+        [StatusBlock matchReqt:status actions:
+         @[[ReqtConfiguredAgreement action:^{
+                self.btnConfirm.enabled = YES;
+                [self.btnConfirm setTitle:@"确认开工" forState:UIControlStateNormal];
+                [self.btnConfirm setBackgroundColor:kFinishedColor];
+            }],
+           [ReqtPlanWasChoosed action:^{
+                self.btnConfirm.enabled = NO;
+                [self.btnConfirm setTitle:@"等待设置开工时间" forState:UIControlStateNormal];
+                [self.btnConfirm setBackgroundColor:kUntriggeredColor];
+            }],
+           [ReqtFinishedWorkSite action:^{
+                self.btnConfirm.enabled = NO;
+                [self.btnConfirm setTitle:@"已完工" forState:UIControlStateNormal];
+                [self.btnConfirm setBackgroundColor:kUntriggeredColor];
+            }],
+           [ElseStatus action:^{
+                self.btnConfirm.enabled = NO;
+                [self.btnConfirm setTitle:@"已开工" forState:UIControlStateNormal];
+                [self.btnConfirm setBackgroundColor:kUntriggeredColor];
+            }],
+           ]];
     } else {
         self.btnConfirm.hidden = YES;
     }

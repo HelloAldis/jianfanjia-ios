@@ -116,6 +116,8 @@
 }
 
 - (void)initButtons {
+    /**
+     重构判断逻辑
     NSString *status = self.plan.status;
     if ([status isEqualToString:kPlanStatusPlanWasChoosed]
         || [status isEqualToString:kPlanStatusPlanWasNotChoosed]) {
@@ -131,6 +133,24 @@
         self.btnChoosePlan.enabled = YES;
         self.btnChoosePlan.backgroundColor = kFinishedColor;
     }
+    **/
+     
+    [StatusBlock matchPlan:self.plan.status actions:
+     @[[PlanWasChoosed action:^{
+            self.btnChoosePlan.enabled = NO;
+            self.btnChoosePlan.backgroundColor = kUntriggeredColor;
+            [self.btnChoosePlan setTitle:@"已选定该方案" forState:UIControlStateNormal];
+        }],
+       [PlanWasNotChoosed action:^{
+            self.btnChoosePlan.enabled = NO;
+            self.btnChoosePlan.backgroundColor = kUntriggeredColor;
+            [self.btnChoosePlan setTitle:@"该方案未中标" forState:UIControlStateNormal];
+        }],
+       [ElseStatus action:^{
+            self.btnChoosePlan.enabled = YES;
+            self.btnChoosePlan.backgroundColor = kFinishedColor;
+        }],
+       ]];
 }
 
 #pragma mark - scroll view deleaget

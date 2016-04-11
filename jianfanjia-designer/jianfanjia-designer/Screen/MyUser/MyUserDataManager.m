@@ -29,9 +29,9 @@ static NSArray *processedStatusArr = nil;
 
 + (void)initialize {
     if (self == [MyUserDataManager self]) {
-        unprocessStatusArr = @[@"0"];
-        processingStatusArr = @[@"2", @"3", @"5", @"6"];
-        processedStatusArr = @[@"1", @"4", @"8"];
+        unprocessStatusArr = @[kPlanStatusHomeOwnerOrderedWithoutResponse];
+        processingStatusArr = @[kPlanStatusDesignerRespondedWithoutMeasureHouse, kPlanStatusDesignerSubmittedPlan, kPlanStatusPlanWasChoosed, kPlanStatusDesignerMeasureHouseWithoutPlan];
+        processedStatusArr = @[kPlanStatusDesignerDeclineHomeOwner, kPlanStatusPlanWasNotChoosed, kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime];
     }
 }
 

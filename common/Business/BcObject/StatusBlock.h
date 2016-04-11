@@ -18,7 +18,10 @@ typedef void (^StatusBlockAction)(void);
 @property (nonatomic, copy) StatusBlockAction actionBlock;
 
 + (StatusBlock *)match:(NSString *)status action:(StatusBlockAction)actionBlock;
+
 + (void)matchReqt:(NSString *)status actions:(NSArray <StatusBlock *>*)actions;
 + (void)matchPlan:(NSString *)status actions:(NSArray <StatusBlock *>*)actions;
++ (void)matchReqt:(NSString *)status action:(StatusBlock *)action;
++ (void)matchPlan:(NSString *)status action:(StatusBlock *)action;
 
 @end

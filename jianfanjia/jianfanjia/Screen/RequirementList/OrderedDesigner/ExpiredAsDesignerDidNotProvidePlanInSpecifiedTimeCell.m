@@ -37,17 +37,44 @@
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
     
+    /**
+     重构判断逻辑
+     NSString *status = self.requirement.status;
+     if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
+     || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
+     || [status isEqualToString:kRequirementStatusConfiguredWorkSite]
+     || [status isEqualToString:kRequirementStatusFinishedWorkSite]) {
+     self.btnReplace.enabled = NO;
+     [self.btnReplace setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+     } else {
+     self.btnReplace.enabled = YES;
+     [self.btnReplace setTitleColor:kThemeTextColor forState:UIControlStateNormal];
+     }
+     **/
+    
     NSString *status = self.requirement.status;
-    if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
-        || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
-        || [status isEqualToString:kRequirementStatusConfiguredWorkSite]
-        || [status isEqualToString:kRequirementStatusFinishedWorkSite]) {
-        self.btnReplace.enabled = NO;
-        [self.btnReplace setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
-    } else {
-        self.btnReplace.enabled = YES;
-        [self.btnReplace setTitleColor:kThemeTextColor forState:UIControlStateNormal];
-    }
+    [StatusBlock matchReqt:status actions:
+     @[[ReqtPlanWasChoosed action:^{
+            self.btnReplace.enabled = NO;
+            [self.btnReplace setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+        }],
+       [ReqtConfiguredAgreement action:^{
+            self.btnReplace.enabled = NO;
+            [self.btnReplace setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+        }],
+       [ReqtConfiguredWorkSite action:^{
+            self.btnReplace.enabled = NO;
+            [self.btnReplace setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+        }],
+       [ReqtFinishedWorkSite action:^{
+            self.btnReplace.enabled = NO;
+            [self.btnReplace setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+        }],
+       [ElseStatus action:^{
+            self.btnReplace.enabled = YES;
+            [self.btnReplace setTitleColor:kThemeTextColor forState:UIControlStateNormal];
+        }],
+       ]];
 }
 
 - (void)onClickReplaceButton {

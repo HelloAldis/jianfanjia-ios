@@ -287,6 +287,27 @@
 		68E600591CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600571CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m */; };
 		68E6005A1CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E600581CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.xib */; };
 		68E6005D1CB62DDC00C4A8F7 /* RequirementBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6005C1CB62DDC00C4A8F7 /* RequirementBusiness.m */; };
+		68F73D211CBB597E00E97710 /* ElseStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CF81CBB597E00E97710 /* ElseStatus.m */; };
+		68F73D221CBB597E00E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CFA1CBB597E00E97710 /* PlanDesignerDeclined.m */; };
+		68F73D231CBB597E00E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CFC1CBB597E00E97710 /* PlanDesignerMeasuredHouse.m */; };
+		68F73D241CBB597E00E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CFE1CBB597E00E97710 /* PlanDesignerResponded.m */; };
+		68F73D251CBB597E00E97710 /* PlanDesignerRespondExpired.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D001CBB597E00E97710 /* PlanDesignerRespondExpired.m */; };
+		68F73D261CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D021CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.m */; };
+		68F73D271CBB597E00E97710 /* PlanDesignerSubmittedPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D041CBB597E00E97710 /* PlanDesignerSubmittedPlan.m */; };
+		68F73D281CBB597E00E97710 /* PlanHomeOwnerOrdered.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D061CBB597E00E97710 /* PlanHomeOwnerOrdered.m */; };
+		68F73D291CBB597E00E97710 /* PlanUnorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D081CBB597E00E97710 /* PlanUnorder.m */; };
+		68F73D2A1CBB597E00E97710 /* PlanWasChoosed.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D0A1CBB597E00E97710 /* PlanWasChoosed.m */; };
+		68F73D2B1CBB597E00E97710 /* PlanWasNotChoosed.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D0C1CBB597E00E97710 /* PlanWasNotChoosed.m */; };
+		68F73D2C1CBB597E00E97710 /* ReqtConfiguredAgreement.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D0E1CBB597E00E97710 /* ReqtConfiguredAgreement.m */; };
+		68F73D2D1CBB597E00E97710 /* ReqtConfiguredWorkSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D101CBB597E00E97710 /* ReqtConfiguredWorkSite.m */; };
+		68F73D2E1CBB597E00E97710 /* ReqtDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D121CBB597E00E97710 /* ReqtDesignerMeasuredHouse.m */; };
+		68F73D2F1CBB597E00E97710 /* ReqtDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D141CBB597E00E97710 /* ReqtDesignerResponded.m */; };
+		68F73D301CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D161CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m */; };
+		68F73D311CBB597E00E97710 /* ReqtFinishedWorkSite.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D181CBB597E00E97710 /* ReqtFinishedWorkSite.m */; };
+		68F73D321CBB597E00E97710 /* ReqtOrderedDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D1A1CBB597E00E97710 /* ReqtOrderedDesigner.m */; };
+		68F73D331CBB597E00E97710 /* ReqtPlanWasChoosed.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D1C1CBB597E00E97710 /* ReqtPlanWasChoosed.m */; };
+		68F73D341CBB597E00E97710 /* ReqtUnorderDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D1E1CBB597E00E97710 /* ReqtUnorderDesigner.m */; };
+		68F73D351CBB597E00E97710 /* StatusBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73D201CBB597E00E97710 /* StatusBlock.m */; };
 		68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */; };
 		68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68FB6ECF1C50DC80001C0613 /* SetWorksiteStartTimeViewController.m */; };
 		68FB6ED21C50DC81001C0613 /* SetWorksiteStartTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68FB6ED01C50DC80001C0613 /* SetWorksiteStartTimeViewController.xib */; };
@@ -844,6 +865,49 @@
 		68E600581CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceTotalPkg365Cell.xib; sourceTree = "<group>"; };
 		68E6005B1CB62DDC00C4A8F7 /* RequirementBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementBusiness.h; sourceTree = "<group>"; };
 		68E6005C1CB62DDC00C4A8F7 /* RequirementBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementBusiness.m; sourceTree = "<group>"; };
+		68F73CF61CBB597E00E97710 /* AllStatusBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllStatusBlock.h; sourceTree = "<group>"; };
+		68F73CF71CBB597E00E97710 /* ElseStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElseStatus.h; sourceTree = "<group>"; };
+		68F73CF81CBB597E00E97710 /* ElseStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElseStatus.m; sourceTree = "<group>"; };
+		68F73CF91CBB597E00E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
+		68F73CFA1CBB597E00E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
+		68F73CFB1CBB597E00E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
+		68F73CFC1CBB597E00E97710 /* PlanDesignerMeasuredHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerMeasuredHouse.m; sourceTree = "<group>"; };
+		68F73CFD1CBB597E00E97710 /* PlanDesignerResponded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerResponded.h; sourceTree = "<group>"; };
+		68F73CFE1CBB597E00E97710 /* PlanDesignerResponded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerResponded.m; sourceTree = "<group>"; };
+		68F73CFF1CBB597E00E97710 /* PlanDesignerRespondExpired.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerRespondExpired.h; sourceTree = "<group>"; };
+		68F73D001CBB597E00E97710 /* PlanDesignerRespondExpired.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerRespondExpired.m; sourceTree = "<group>"; };
+		68F73D011CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerSubmitPlanExpired.h; sourceTree = "<group>"; };
+		68F73D021CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerSubmitPlanExpired.m; sourceTree = "<group>"; };
+		68F73D031CBB597E00E97710 /* PlanDesignerSubmittedPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerSubmittedPlan.h; sourceTree = "<group>"; };
+		68F73D041CBB597E00E97710 /* PlanDesignerSubmittedPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerSubmittedPlan.m; sourceTree = "<group>"; };
+		68F73D051CBB597E00E97710 /* PlanHomeOwnerOrdered.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanHomeOwnerOrdered.h; sourceTree = "<group>"; };
+		68F73D061CBB597E00E97710 /* PlanHomeOwnerOrdered.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanHomeOwnerOrdered.m; sourceTree = "<group>"; };
+		68F73D071CBB597E00E97710 /* PlanUnorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanUnorder.h; sourceTree = "<group>"; };
+		68F73D081CBB597E00E97710 /* PlanUnorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanUnorder.m; sourceTree = "<group>"; };
+		68F73D091CBB597E00E97710 /* PlanWasChoosed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanWasChoosed.h; sourceTree = "<group>"; };
+		68F73D0A1CBB597E00E97710 /* PlanWasChoosed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanWasChoosed.m; sourceTree = "<group>"; };
+		68F73D0B1CBB597E00E97710 /* PlanWasNotChoosed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanWasNotChoosed.h; sourceTree = "<group>"; };
+		68F73D0C1CBB597E00E97710 /* PlanWasNotChoosed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanWasNotChoosed.m; sourceTree = "<group>"; };
+		68F73D0D1CBB597E00E97710 /* ReqtConfiguredAgreement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtConfiguredAgreement.h; sourceTree = "<group>"; };
+		68F73D0E1CBB597E00E97710 /* ReqtConfiguredAgreement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtConfiguredAgreement.m; sourceTree = "<group>"; };
+		68F73D0F1CBB597E00E97710 /* ReqtConfiguredWorkSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtConfiguredWorkSite.h; sourceTree = "<group>"; };
+		68F73D101CBB597E00E97710 /* ReqtConfiguredWorkSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtConfiguredWorkSite.m; sourceTree = "<group>"; };
+		68F73D111CBB597E00E97710 /* ReqtDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtDesignerMeasuredHouse.h; sourceTree = "<group>"; };
+		68F73D121CBB597E00E97710 /* ReqtDesignerMeasuredHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtDesignerMeasuredHouse.m; sourceTree = "<group>"; };
+		68F73D131CBB597E00E97710 /* ReqtDesignerResponded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtDesignerResponded.h; sourceTree = "<group>"; };
+		68F73D141CBB597E00E97710 /* ReqtDesignerResponded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtDesignerResponded.m; sourceTree = "<group>"; };
+		68F73D151CBB597E00E97710 /* ReqtDesignerSubmittedPlan.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtDesignerSubmittedPlan.h; sourceTree = "<group>"; };
+		68F73D161CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtDesignerSubmittedPlan.m; sourceTree = "<group>"; };
+		68F73D171CBB597E00E97710 /* ReqtFinishedWorkSite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtFinishedWorkSite.h; sourceTree = "<group>"; };
+		68F73D181CBB597E00E97710 /* ReqtFinishedWorkSite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtFinishedWorkSite.m; sourceTree = "<group>"; };
+		68F73D191CBB597E00E97710 /* ReqtOrderedDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtOrderedDesigner.h; sourceTree = "<group>"; };
+		68F73D1A1CBB597E00E97710 /* ReqtOrderedDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtOrderedDesigner.m; sourceTree = "<group>"; };
+		68F73D1B1CBB597E00E97710 /* ReqtPlanWasChoosed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtPlanWasChoosed.h; sourceTree = "<group>"; };
+		68F73D1C1CBB597E00E97710 /* ReqtPlanWasChoosed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtPlanWasChoosed.m; sourceTree = "<group>"; };
+		68F73D1D1CBB597E00E97710 /* ReqtUnorderDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqtUnorderDesigner.h; sourceTree = "<group>"; };
+		68F73D1E1CBB597E00E97710 /* ReqtUnorderDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReqtUnorderDesigner.m; sourceTree = "<group>"; };
+		68F73D1F1CBB597E00E97710 /* StatusBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusBlock.h; sourceTree = "<group>"; };
+		68F73D201CBB597E00E97710 /* StatusBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusBlock.m; sourceTree = "<group>"; };
 		68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68FB6ECE1C50DC80001C0613 /* SetWorksiteStartTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetWorksiteStartTimeViewController.h; sourceTree = "<group>"; };
@@ -1467,6 +1531,56 @@
 			path = DecPackage;
 			sourceTree = "<group>";
 		};
+		68F73CF51CBB597E00E97710 /* BcObject */ = {
+			isa = PBXGroup;
+			children = (
+				68F73CF61CBB597E00E97710 /* AllStatusBlock.h */,
+				68F73D1F1CBB597E00E97710 /* StatusBlock.h */,
+				68F73D201CBB597E00E97710 /* StatusBlock.m */,
+				68F73CF71CBB597E00E97710 /* ElseStatus.h */,
+				68F73CF81CBB597E00E97710 /* ElseStatus.m */,
+				68F73D0D1CBB597E00E97710 /* ReqtConfiguredAgreement.h */,
+				68F73D0E1CBB597E00E97710 /* ReqtConfiguredAgreement.m */,
+				68F73D0F1CBB597E00E97710 /* ReqtConfiguredWorkSite.h */,
+				68F73D101CBB597E00E97710 /* ReqtConfiguredWorkSite.m */,
+				68F73D111CBB597E00E97710 /* ReqtDesignerMeasuredHouse.h */,
+				68F73D121CBB597E00E97710 /* ReqtDesignerMeasuredHouse.m */,
+				68F73D131CBB597E00E97710 /* ReqtDesignerResponded.h */,
+				68F73D141CBB597E00E97710 /* ReqtDesignerResponded.m */,
+				68F73D151CBB597E00E97710 /* ReqtDesignerSubmittedPlan.h */,
+				68F73D161CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m */,
+				68F73D171CBB597E00E97710 /* ReqtFinishedWorkSite.h */,
+				68F73D181CBB597E00E97710 /* ReqtFinishedWorkSite.m */,
+				68F73D191CBB597E00E97710 /* ReqtOrderedDesigner.h */,
+				68F73D1A1CBB597E00E97710 /* ReqtOrderedDesigner.m */,
+				68F73D1B1CBB597E00E97710 /* ReqtPlanWasChoosed.h */,
+				68F73D1C1CBB597E00E97710 /* ReqtPlanWasChoosed.m */,
+				68F73D1D1CBB597E00E97710 /* ReqtUnorderDesigner.h */,
+				68F73D1E1CBB597E00E97710 /* ReqtUnorderDesigner.m */,
+				68F73CF91CBB597E00E97710 /* PlanDesignerDeclined.h */,
+				68F73CFA1CBB597E00E97710 /* PlanDesignerDeclined.m */,
+				68F73CFB1CBB597E00E97710 /* PlanDesignerMeasuredHouse.h */,
+				68F73CFC1CBB597E00E97710 /* PlanDesignerMeasuredHouse.m */,
+				68F73CFD1CBB597E00E97710 /* PlanDesignerResponded.h */,
+				68F73CFE1CBB597E00E97710 /* PlanDesignerResponded.m */,
+				68F73CFF1CBB597E00E97710 /* PlanDesignerRespondExpired.h */,
+				68F73D001CBB597E00E97710 /* PlanDesignerRespondExpired.m */,
+				68F73D011CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.h */,
+				68F73D021CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.m */,
+				68F73D031CBB597E00E97710 /* PlanDesignerSubmittedPlan.h */,
+				68F73D041CBB597E00E97710 /* PlanDesignerSubmittedPlan.m */,
+				68F73D051CBB597E00E97710 /* PlanHomeOwnerOrdered.h */,
+				68F73D061CBB597E00E97710 /* PlanHomeOwnerOrdered.m */,
+				68F73D071CBB597E00E97710 /* PlanUnorder.h */,
+				68F73D081CBB597E00E97710 /* PlanUnorder.m */,
+				68F73D091CBB597E00E97710 /* PlanWasChoosed.h */,
+				68F73D0A1CBB597E00E97710 /* PlanWasChoosed.m */,
+				68F73D0B1CBB597E00E97710 /* PlanWasNotChoosed.h */,
+				68F73D0C1CBB597E00E97710 /* PlanWasNotChoosed.m */,
+			);
+			path = BcObject;
+			sourceTree = "<group>";
+		};
 		6E0426601BC757C500F984B8 = {
 			isa = PBXGroup;
 			children = (
@@ -1702,6 +1816,7 @@
 		6E378CDF1BDA2D2E00908B77 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				68F73CF51CBB597E00E97710 /* BcObject */,
 				68E6005B1CB62DDC00C4A8F7 /* RequirementBusiness.h */,
 				68E6005C1CB62DDC00C4A8F7 /* RequirementBusiness.m */,
 				684B03F81C9818CF0053FFDF /* NotificationBusiness.h */,
@@ -2210,6 +2325,7 @@
 				68123FDF1C4CCF4A008FC9AB /* Plan.m in Sources */,
 				68123CAA1C4C97BC008FC9AB /* NotificationToData.m in Sources */,
 				681240AF1C4CE471008FC9AB /* DeleteImageFromProcess.m in Sources */,
+				68F73D231CBB597E00E97710 /* PlanDesignerMeasuredHouse.m in Sources */,
 				681240C91C4CE471008FC9AB /* RejectReschedule.m in Sources */,
 				6E378D361BDA2D2E00908B77 /* AccountBusiness.m in Sources */,
 				685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */,
@@ -2232,6 +2348,7 @@
 				6812401A1C4CDA06008FC9AB /* UIImage+Ex.m in Sources */,
 				68123E721C4CBE79008FC9AB /* ResetPassViewController.m in Sources */,
 				681240E61C4CF2CC008FC9AB /* MyProcessViewController.m in Sources */,
+				68F73D2F1CBB597E00E97710 /* ReqtDesignerResponded.m in Sources */,
 				68123F291C4CCBF9008FC9AB /* MyUserViewController.m in Sources */,
 				68123F151C4CBE79008FC9AB /* RequirementDataManager.m in Sources */,
 				68123FE11C4CCF4A008FC9AB /* Product.m in Sources */,
@@ -2254,6 +2371,7 @@
 				681240C51C4CE471008FC9AB /* ProcessList.m in Sources */,
 				684B041D1C98FB580053FFDF /* GetDesignerUnreadCount.m in Sources */,
 				68123CE31C4C99C9008FC9AB /* BaseDynamicObject.m in Sources */,
+				68F73D2A1CBB597E00E97710 /* PlanWasChoosed.m in Sources */,
 				682E04EF1C55FA9100F1ACAA /* UploadYsImageToProcess.m in Sources */,
 				68123CE61C4C99C9008FC9AB /* LogFormatter.m in Sources */,
 				681240D21C4CE471008FC9AB /* UnfavoriteBeautifulImage.m in Sources */,
@@ -2271,6 +2389,7 @@
 				68123E911C4CBE79008FC9AB /* AboutViewController.m in Sources */,
 				684B04471C9A76480053FFDF /* UIBarButtonItem+Badge.m in Sources */,
 				682E04ED1C55FA9100F1ACAA /* DeleteYsImageFromProcess.m in Sources */,
+				68F73D2C1CBB597E00E97710 /* ReqtConfiguredAgreement.m in Sources */,
 				68123C8F1C4C9772008FC9AB /* InfiniteScrollView.m in Sources */,
 				681240B51C4CE471008FC9AB /* FavoriteBeautifulImage.m in Sources */,
 				685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */,
@@ -2280,6 +2399,7 @@
 				684B043A1C990E910053FFDF /* RequirementNotificationCell.m in Sources */,
 				681240D81C4CE471008FC9AB /* UserLogin.m in Sources */,
 				684B040A1C98F7060053FFDF /* CommentListDataManager.m in Sources */,
+				68F73D2E1CBB597E00E97710 /* ReqtDesignerMeasuredHouse.m in Sources */,
 				68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */,
 				681241BE1C4F97D1008FC9AB /* RejectUserAlertViewController.m in Sources */,
 				68123C981C4C9772008FC9AB /* OverlayView.m in Sources */,
@@ -2292,14 +2412,17 @@
 				6E378D511BDA2D2E00908B77 /* Process.m in Sources */,
 				681240B71C4CE471008FC9AB /* GetBeautifulImageHomepage.m in Sources */,
 				6812401B1C4CDA06008FC9AB /* UIImagePickerController+Ex.m in Sources */,
+				68F73D311CBB597E00E97710 /* ReqtFinishedWorkSite.m in Sources */,
 				681240CE1C4CE471008FC9AB /* SendAddRequirement.m in Sources */,
 				681240C81C4CE471008FC9AB /* RefreshSession.m in Sources */,
 				68123F111C4CBE79008FC9AB /* SelectSexTypeViewController.m in Sources */,
 				68123F0F1C4CBE79008FC9AB /* SelectPopulationViewController.m in Sources */,
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
+				68F73D301CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m in Sources */,
 				68123FDC1C4CCF4A008FC9AB /* BeautifulImage.m in Sources */,
 				681241251C4CF2D5008FC9AB /* LeftViewController.m in Sources */,
 				68123EFA1C4CBE79008FC9AB /* BaseSelectionViewController.m in Sources */,
+				68F73D351CBB597E00E97710 /* StatusBlock.m in Sources */,
 				6EA0C1A71C585C5B00D04A4F /* PlanPriceItemExpandCell.m in Sources */,
 				6E378D3E1BDA2D2E00908B77 /* ProcessCD+CoreDataProperties.m in Sources */,
 				681240CD1C4CE471008FC9AB /* SectionDone.m in Sources */,
@@ -2310,6 +2433,7 @@
 				6E378D4C1BDA2D2E00908B77 /* GVUserDefaults+Manager.m in Sources */,
 				685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */,
 				68123EE81C4CBE79008FC9AB /* LeaveMessageViewController.m in Sources */,
+				68F73D2B1CBB597E00E97710 /* PlanWasNotChoosed.m in Sources */,
 				681240151C4CDA06008FC9AB /* NSNumber+Ex.m in Sources */,
 				682E04F31C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.m in Sources */,
 				6E378D3B1BDA2D2E00908B77 /* DesignerCD.m in Sources */,
@@ -2363,7 +2487,9 @@
 				68123CE71C4C99C9008FC9AB /* PhotoUtil.m in Sources */,
 				681241271C4CF2D5008FC9AB /* ProcessDataManager.m in Sources */,
 				6E378D451BDA2D2E00908B77 /* NSManagedObjectContext+Ex.m in Sources */,
+				68F73D291CBB597E00E97710 /* PlanUnorder.m in Sources */,
 				681241821C4F235B008FC9AB /* MyUserDataManager.m in Sources */,
+				68F73D211CBB597E00E97710 /* ElseStatus.m in Sources */,
 				68123F181C4CBE79008FC9AB /* W1View.m in Sources */,
 				68123E741C4CBE79008FC9AB /* SignupSuccessViewController.m in Sources */,
 				681240A91C4CE471008FC9AB /* BindPhone.m in Sources */,
@@ -2372,11 +2498,15 @@
 				681240BB1C4CE471008FC9AB /* GetProcess.m in Sources */,
 				684B03FD1C98193B0053FFDF /* GetUserUnreadCount.m in Sources */,
 				681240DA1C4CE471008FC9AB /* VerifyPhone.m in Sources */,
+				68F73D281CBB597E00E97710 /* PlanHomeOwnerOrdered.m in Sources */,
 				68123EF01C4CBE79008FC9AB /* PlanPreviewViewController.m in Sources */,
+				68F73D241CBB597E00E97710 /* PlanDesignerResponded.m in Sources */,
 				68123FE41C4CCF4A008FC9AB /* Schedule.m in Sources */,
 				68123E951C4CBE79008FC9AB /* SettingViewController.m in Sources */,
 				681240AC1C4CE471008FC9AB /* ConfirmMeasuringHouse.m in Sources */,
 				681241B31C4F3D31008FC9AB /* UnchoosedPlanActionCell.m in Sources */,
+				68F73D2D1CBB597E00E97710 /* ReqtConfiguredWorkSite.m in Sources */,
+				68F73D271CBB597E00E97710 /* PlanDesignerSubmittedPlan.m in Sources */,
 				6EA0C19B1C577F7500D04A4F /* PlanPriceItemCell.m in Sources */,
 				68123FEA1C4CCFFF008FC9AB /* DesignerBusiness.m in Sources */,
 				681240D41C4CE471008FC9AB /* UpdateUserInfo.m in Sources */,
@@ -2394,9 +2524,12 @@
 				681241A51C4F3B1C008FC9AB /* SubmitPlanExpiredActionCell.m in Sources */,
 				681240D31C4CE471008FC9AB /* UpdatePass.m in Sources */,
 				681240A81C4CE471008FC9AB /* BaseRequest.m in Sources */,
+				68F73D331CBB597E00E97710 /* ReqtPlanWasChoosed.m in Sources */,
 				684B043E1C990E910053FFDF /* WorksiteNotificationCell.m in Sources */,
 				681240B91C4CE471008FC9AB /* GetOrderableDesigners.m in Sources */,
 				681240121C4CDA06008FC9AB /* NSArray+Ex.m in Sources */,
+				68F73D221CBB597E00E97710 /* PlanDesignerDeclined.m in Sources */,
+				68F73D261CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.m in Sources */,
 				6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */,
 				68123E761C4CBE79008FC9AB /* VerifyPhoneViewController.m in Sources */,
 				68123C961C4C9772008FC9AB /* ImageEditorViewController.m in Sources */,
@@ -2417,7 +2550,9 @@
 				6EA0C1A21C57827A00D04A4F /* PlanPriceTotalCell.m in Sources */,
 				685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */,
 				6E378D461BDA2D2E00908B77 /* NSObject+Ex.m in Sources */,
+				68F73D251CBB597E00E97710 /* PlanDesignerRespondExpired.m in Sources */,
 				68123FEB1C4CCFFF008FC9AB /* NameDict.m in Sources */,
+				68F73D321CBB597E00E97710 /* ReqtOrderedDesigner.m in Sources */,
 				681240A71C4CE471008FC9AB /* AgreeReschedule.m in Sources */,
 				684B04381C990E910053FFDF /* NotificationDetailViewController.m in Sources */,
 				681241C21C5073DB008FC9AB /* DesignerRejectUser.m in Sources */,
@@ -2431,6 +2566,7 @@
 				68123FDE1C4CCF4A008FC9AB /* LeafImage.m in Sources */,
 				681241A31C4F3B1C008FC9AB /* MeasuredHouseActionCell.m in Sources */,
 				68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */,
+				68F73D341CBB597E00E97710 /* ReqtUnorderDesigner.m in Sources */,
 				68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */,
 				68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */,
 				68123F091C4CBE79008FC9AB /* SelectDecorationStyleViewController.m in Sources */,

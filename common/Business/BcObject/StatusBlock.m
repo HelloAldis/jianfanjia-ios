@@ -63,4 +63,20 @@ static NSMutableDictionary *statusObjPool = nil;
     }];
 }
 
++ (void)matchReqt:(NSString *)status action:(StatusBlock *)action {
+    [self matchStatus:status action:action];
+}
+
++ (void)matchPlan:(NSString *)status action:(StatusBlock *)action {
+    [self matchStatus:status action:action];
+}
+
++ (void)matchStatus:(NSString *)status action:(StatusBlock *)action {
+    if ([status isEqualToString:action.status]) {
+        if (action.actionBlock) {
+            action.actionBlock();
+        }
+    }
+}
+
 @end

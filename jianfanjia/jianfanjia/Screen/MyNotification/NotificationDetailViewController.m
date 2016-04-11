@@ -229,6 +229,8 @@ static NSDictionary *NotificationTitles = nil;
 }
 
 - (void)handleMeasureHouseConfirm {
+    /**
+     重构判断逻辑
     Plan *plan = self.notification.plan;
     if ([plan.status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]) {
         [self.okDisposable dispose];
@@ -246,6 +248,29 @@ static NSDictionary *NotificationTitles = nil;
     } else {
         [self displayDefaultOk];
     }
+    **/
+     
+    Plan *plan = self.notification.plan;
+    [StatusBlock matchPlan:plan.status actions:
+     @[[PlanDesignerResponded action:^{
+            [self.okDisposable dispose];
+            self.btnOk.hidden = NO;
+            [self.btnOk setTitle:@"确认量房" forState:UIControlStateNormal];
+            
+            @weakify(self);
+            self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+                @strongify(self);
+                [self confirmMeasureHouse];
+            }];
+        }],
+       [PlanDesignerMeasuredHouse action:^{
+            self.btnOk.hidden = NO;
+            [self.btnOk disable:@"已量房"];
+        }],
+       [ElseStatus action:^{
+            [self displayDefaultOk];
+        }],
+       ]];
 }
 
 - (void)handleAgreementConfigure {

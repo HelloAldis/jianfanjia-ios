@@ -195,16 +195,23 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     }
     
     NSString *status = requirement.plan.status;
-    if ([status isEqualToString:kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime]) {
-        return 96;
-    }
+//    if ([status isEqualToString:kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime]) {
+//        return 96;
+//    }
     
-    return 146;
+    __block NSInteger height = 146;
+    [StatusBlock matchPlan:status action:[PlanDesignerSubmitPlanExpired action:^{
+        height = 96;
+    }]];
+    
+    return height;
 }
 
 - (BaseActionCell *)loadCell:(Requirement *)requirement tableView:(UITableView *)tableView forIndex:(NSIndexPath *)path {
     NSString *status = requirement.plan.status;
     
+    /**
+     重构判断逻辑
     NSString *cellIdentifier;
     if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
         cellIdentifier = UnrespondActionCellIdentifier;
@@ -223,6 +230,35 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
     }  else {
         cellIdentifier = SubmitPlanExpiredActionCellIdentifier;
     }
+     **/
+    
+    __block NSString *cellIdentifier;
+    [StatusBlock matchPlan:status actions:
+     @[[PlanHomeOwnerOrdered action:^{
+            cellIdentifier = UnrespondActionCellIdentifier;
+        }],
+       [PlanDesignerResponded action:^{
+            cellIdentifier = RespondedActionCellIdentifier;
+        }],
+       [PlanDesignerSubmittedPlan action:^{
+            cellIdentifier = SubmitedPlanActionCellIdentifier;
+        }],
+       [PlanWasChoosed action:^{
+            cellIdentifier = [RequirementBusiness isDesignRequirement:requirement.work_type]? ChoosedPlanForDesignActionCellIdentifier : ChoosedPlanActionCellIdentifier;
+        }],
+       [PlanDesignerDeclined action:^{
+            cellIdentifier = RejectActionCellIdentifier;
+        }],
+       [PlanWasNotChoosed action:^{
+            cellIdentifier = UnchoosedPlanActionCellIdentifier;
+        }],
+       [PlanDesignerMeasuredHouse action:^{
+            cellIdentifier = MeasuredHouseActionCellIdentifier;
+        }],
+       [ElseStatus action:^{
+            cellIdentifier = SubmitPlanExpiredActionCellIdentifier;
+        }],
+       ]];
     
     BaseActionCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:path];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

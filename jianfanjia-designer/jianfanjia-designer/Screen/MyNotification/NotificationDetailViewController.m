@@ -226,6 +226,8 @@ static NSDictionary *NotificationTitles = nil;
 }
 
 - (void)handleOrderTip {
+    /**
+     重构判断逻辑
     Plan *plan = self.notification.plan;
     if ([plan.status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
         self.btnAgree.hidden = NO;
@@ -245,6 +247,32 @@ static NSDictionary *NotificationTitles = nil;
     } else {
         [self displayDefaultOk];
     }
+     **/
+    
+    Plan *plan = self.notification.plan;
+    [StatusBlock matchPlan:plan.status actions:
+     @[[PlanHomeOwnerOrdered action:^{
+            self.btnAgree.hidden = NO;
+            self.btnReject.hidden = NO;
+            [self.btnAgree setTitle:@"响应" forState:UIControlStateNormal];
+            [self.btnReject setTitle:@"拒绝" forState:UIControlStateNormal];
+            [self.btnAgree addTarget:self action:@selector(respondOrder) forControlEvents:UIControlEventTouchUpInside];
+            [self.btnReject addTarget:self action:@selector(rejectOrder) forControlEvents:UIControlEventTouchUpInside];
+            
+            [self initViewRequirementItem];
+        }],
+       [PlanDesignerResponded action:^{
+            self.btnOk.hidden = NO;
+            [self.btnOk disable:@"已响应"];
+        }],
+       [PlanDesignerDeclined action:^{
+            self.btnOk.hidden = NO;
+            [self.btnOk disable:@"已拒绝"];
+        }],
+       [ElseStatus action:^{
+            [self displayDefaultOk];
+        }],
+       ]];
 }
 
 #pragma mark - api request
