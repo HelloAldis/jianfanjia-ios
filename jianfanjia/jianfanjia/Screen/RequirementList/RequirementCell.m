@@ -9,7 +9,6 @@
 #import "RequirementCell.h"
 #import "ViewControllerContainer.h"
 #import "RequirementDataManager.h"
-#import "AllStatusBlock.h"
 
 @interface RequirementCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;

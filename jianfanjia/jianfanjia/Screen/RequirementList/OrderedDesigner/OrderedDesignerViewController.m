@@ -20,16 +20,16 @@
 #import "DesignerPlanStatusBaseCell.h"
 #import "RequirementDataManager.h"
 
-static NSString *DesignerDeclineHomeOwner = @"DesignerDeclineHomeOwnerCell";
-static NSString *DesignerMeasureHouseWithoutPlan = @"DesignerMeasureHouseWithoutPlanCell";
-static NSString *DesignerRespondedWithoutMeasureHouse = @"DesignerRespondedWithoutMeasureHouseCell";
-static NSString *DesignerSubmittedPlan = @"DesignerSubmittedPlanCell";
-static NSString *ExpiredAsDesignerDidNotRespond = @"ExpiredAsDesignerDidNotRespondCell";
-static NSString *ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime = @"ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell";
-static NSString *HomeOwnerOrderedWithoutResponse = @"HomeOwnerOrderedWithoutResponseCell";
-static NSString *PlanWasChoosed = @"PlanWasChoosedCell";
-static NSString *PlanWasChoosedForDesign = @"PlanWasChoosedForDesignCell";
-static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
+static NSString *DesignerDeclineHomeOwnerIdentifier = @"DesignerDeclineHomeOwnerCell";
+static NSString *DesignerMeasureHouseWithoutPlanIdentifier = @"DesignerMeasureHouseWithoutPlanCell";
+static NSString *DesignerRespondedWithoutMeasureHouseIdentifier = @"DesignerRespondedWithoutMeasureHouseCell";
+static NSString *DesignerSubmittedPlanIdentifier = @"DesignerSubmittedPlanCell";
+static NSString *ExpiredAsDesignerDidNotRespondIdentifier = @"ExpiredAsDesignerDidNotRespondCell";
+static NSString *ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeIdentifier = @"ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell";
+static NSString *HomeOwnerOrderedWithoutResponseIdentifier = @"HomeOwnerOrderedWithoutResponseCell";
+static NSString *PlanWasChoosedIdentifier = @"PlanWasChoosedCell";
+static NSString *PlanWasChoosedForDesignIdentifier = @"PlanWasChoosedForDesignCell";
+static NSString *PlanWasNotChoosedIdentifier = @"PlanWasNotChoosedCell";
 
 @interface OrderedDesignerViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -58,16 +58,16 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.tableView registerNib:[UINib nibWithNibName:DesignerDeclineHomeOwner bundle:nil] forCellReuseIdentifier:DesignerDeclineHomeOwner];
-    [self.tableView registerNib:[UINib nibWithNibName:DesignerMeasureHouseWithoutPlan bundle:nil] forCellReuseIdentifier:DesignerMeasureHouseWithoutPlan];
-    [self.tableView registerNib:[UINib nibWithNibName:DesignerRespondedWithoutMeasureHouse bundle:nil] forCellReuseIdentifier:DesignerRespondedWithoutMeasureHouse];
-    [self.tableView registerNib:[UINib nibWithNibName:DesignerSubmittedPlan bundle:nil] forCellReuseIdentifier:DesignerSubmittedPlan];
-    [self.tableView registerNib:[UINib nibWithNibName:ExpiredAsDesignerDidNotRespond bundle:nil] forCellReuseIdentifier:ExpiredAsDesignerDidNotRespond];
-    [self.tableView registerNib:[UINib nibWithNibName:ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime bundle:nil] forCellReuseIdentifier:ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime];
-    [self.tableView registerNib:[UINib nibWithNibName:HomeOwnerOrderedWithoutResponse bundle:nil] forCellReuseIdentifier:HomeOwnerOrderedWithoutResponse];
-    [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosed bundle:nil] forCellReuseIdentifier:PlanWasChoosed];
-    [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosedForDesign bundle:nil] forCellReuseIdentifier:PlanWasChoosedForDesign];
-    [self.tableView registerNib:[UINib nibWithNibName:PlanWasNotChoosed bundle:nil] forCellReuseIdentifier:PlanWasNotChoosed];
+    [self.tableView registerNib:[UINib nibWithNibName:DesignerDeclineHomeOwnerIdentifier bundle:nil] forCellReuseIdentifier:DesignerDeclineHomeOwnerIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:DesignerMeasureHouseWithoutPlanIdentifier bundle:nil] forCellReuseIdentifier:DesignerMeasureHouseWithoutPlanIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:DesignerRespondedWithoutMeasureHouseIdentifier bundle:nil] forCellReuseIdentifier:DesignerRespondedWithoutMeasureHouseIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:DesignerSubmittedPlanIdentifier bundle:nil] forCellReuseIdentifier:DesignerSubmittedPlanIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:ExpiredAsDesignerDidNotRespondIdentifier bundle:nil] forCellReuseIdentifier:ExpiredAsDesignerDidNotRespondIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeIdentifier bundle:nil] forCellReuseIdentifier:ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:HomeOwnerOrderedWithoutResponseIdentifier bundle:nil] forCellReuseIdentifier:HomeOwnerOrderedWithoutResponseIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosedIdentifier bundle:nil] forCellReuseIdentifier:PlanWasChoosedIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosedForDesignIdentifier bundle:nil] forCellReuseIdentifier:PlanWasChoosedForDesignIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:PlanWasNotChoosedIdentifier bundle:nil] forCellReuseIdentifier:PlanWasNotChoosedIdentifier];
     @weakify(self);
     self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
@@ -123,23 +123,23 @@ static NSString *PlanWasNotChoosed = @"PlanWasNotChoosedCell";
     
     NSString *cellIdentifier;
     if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
-        cellIdentifier = HomeOwnerOrderedWithoutResponse;
+        cellIdentifier = HomeOwnerOrderedWithoutResponseIdentifier;
     } else if ([status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]) {
-        cellIdentifier = DesignerRespondedWithoutMeasureHouse;
+        cellIdentifier = DesignerRespondedWithoutMeasureHouseIdentifier;
     } else if ([status isEqualToString:kPlanStatusDesignerSubmittedPlan]) {
-        cellIdentifier = DesignerSubmittedPlan;
+        cellIdentifier = DesignerSubmittedPlanIdentifier;
     } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
-        cellIdentifier = [RequirementBusiness isDesignRequirement:self.requirement.work_type] ? PlanWasChoosedForDesign : PlanWasChoosed;
+        cellIdentifier = [RequirementBusiness isDesignRequirement:self.requirement.work_type] ? PlanWasChoosedForDesignIdentifier : PlanWasChoosedIdentifier;
     } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]) {
-        cellIdentifier = DesignerDeclineHomeOwner;
+        cellIdentifier = DesignerDeclineHomeOwnerIdentifier;
     } else if ([status isEqualToString:kPlanStatusPlanWasNotChoosed]) {
-        cellIdentifier = PlanWasNotChoosed;
+        cellIdentifier = PlanWasNotChoosedIdentifier;
     } else if ([status isEqualToString:kPlanStatusDesignerMeasureHouseWithoutPlan]) {
-        cellIdentifier = DesignerMeasureHouseWithoutPlan;
+        cellIdentifier = DesignerMeasureHouseWithoutPlanIdentifier;
     } else if ([status isEqualToString:kPlanStatusExpiredAsDesignerDidNotRespond]) {
-        cellIdentifier = ExpiredAsDesignerDidNotRespond;
+        cellIdentifier = ExpiredAsDesignerDidNotRespondIdentifier;
     } else {
-        cellIdentifier = ExpiredAsDesignerDidNotProvidePlanInSpecifiedTime;
+        cellIdentifier = ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeIdentifier;
     }
     
     DesignerPlanStatusBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:path];
