@@ -376,6 +376,7 @@
         SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
         
         [API sendAddRequirement:sendAddRequirement success:^{
+            [self broadcastRequirementCreateNotification];
             [ViewControllerContainer showRequirementList];
         } failure:^{
             [self enableRightBarItem:YES];
@@ -425,6 +426,11 @@
 
 - (void)keyboardHide:(CGFloat)keyboardHeight {
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+#pragma mark - notification
+- (void)broadcastRequirementCreateNotification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kRequirementCreateNotification object:nil];
 }
 
 @end

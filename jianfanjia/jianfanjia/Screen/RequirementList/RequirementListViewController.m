@@ -64,6 +64,8 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         @strongify(self);
         [self refreshRequirements:NO];
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRequirementCreate) name:kRequirementCreateNotification object:nil];
 }
 
 - (void)showRequirementList:(BOOL)show {
@@ -80,6 +82,10 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         
         self.tableView.hidden = YES;
     }
+}
+
+- (void)handleRequirementCreate {
+    [self.tableView setContentOffset:CGPointMake(0, -self.tableView.contentInset.top) animated:YES];
 }
 
 #pragma mark - nav

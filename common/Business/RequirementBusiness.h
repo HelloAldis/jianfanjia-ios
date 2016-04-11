@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const kRequirementCreateNotification = @"RequirementCreateNotification";
+
 @class PriceItem;
 @class StatusBlock;
 

@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class Requirement;
-@class Product;
-@class Designer;
-
 @interface DataManager : NSObject
 
 @property (nonatomic, strong) NSString *errMsg;
@@ -29,6 +25,7 @@
 @property (nonatomic, strong) NSArray *collectedDecStyle;
 @property (nonatomic, strong) NSString *collectedFamilyInfo;
 
+//For Wechat
 @property (nonatomic, assign) BOOL isWechatFirstLogin;
 
 kSynthesizeSingletonForHeader(DataManager)
