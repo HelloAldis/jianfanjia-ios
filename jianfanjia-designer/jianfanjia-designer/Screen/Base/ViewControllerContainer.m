@@ -281,6 +281,7 @@ static ViewControllerContainer *container;
     [GVUserDefaults standardUserDefaults].wechat_openid = nil;
     [GVUserDefaults standardUserDefaults].wechat_unionid = nil;
     
+    [API clearCookie];
     [ViewControllerContainer showLogin];
 }
 
