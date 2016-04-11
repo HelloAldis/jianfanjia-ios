@@ -22,18 +22,16 @@
     request._id = [GVUserDefaults standardUserDefaults].userid;
     
     [API userRefreshSession:request success:^{
+        [ViewControllerContainer refreshSuccess];
+        
         UserGetInfo *request = [[UserGetInfo alloc] init];
-        [API userGetInfo:request success:^{
-            [ViewControllerContainer refreshSuccess];
-        } failure:^{
-            
-        } networkError:^{
-            
-        }];
+        [API userGetInfo:request success:nil failure:nil networkError:nil];
     } failure:^{
         [ViewControllerContainer logout];
+        [ViewControllerContainer refreshSuccess];
     } networkError:^{
         [ViewControllerContainer logout];
+        [ViewControllerContainer refreshSuccess];
     }];
 }
 
