@@ -74,6 +74,15 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+//    @weakify(self);
+//    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
+//        @strongify(self);
+//        if (self.presentingViewController) {
+//            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+//        }
+//    }];
+//    [(id)self.tableView.header gifView].hidden = YES;
 }
 
 - (void)initUIData {
