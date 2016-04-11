@@ -33,14 +33,14 @@
                                     <constraint firstAttribute="width" constant="60" id="k08-fy-Yqf"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="王大锤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MK4-PR-aJY">
-                                <rect key="frame" x="76" y="15" width="42" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤王大锤" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MK4-PR-aJY">
+                                <rect key="frame" x="76" y="15" width="258" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_user_man" translatesAutoresizingMaskIntoConstraints="NO" id="TRZ-rB-CCm">
-                                <rect key="frame" x="123" y="17" width="12" height="12"/>
+                                <rect key="frame" x="339" y="17" width="12" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TRZ-rB-CCm" secondAttribute="height" multiplier="1:1" id="ZyQ-dG-zbc"/>
                                     <constraint firstAttribute="width" constant="12" id="ftK-fG-DrU"/>
@@ -68,13 +68,13 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="1小时前" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKS-DR-vTN">
-                                <rect key="frame" x="223" y="15" width="261" height="16"/>
+                                <rect key="frame" x="439" y="15" width="45" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" text="预约上门量房" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzO-DD-WYu">
-                                <rect key="frame" x="140" y="15" width="78" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="预约上门量房" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzO-DD-WYu">
+                                <rect key="frame" x="356" y="15" width="78" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
