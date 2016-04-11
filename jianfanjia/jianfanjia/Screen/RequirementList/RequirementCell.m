@@ -26,7 +26,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnGoToWorkspace;
 
 @property (strong, nonatomic) NSMutableArray *currentPlanStatus;
-@property (strong, nonatomic) NSString *currentRequirementStatus;
 @property (strong, nonatomic) RequirementDataManager *requirementDataManager;
 @property (strong, nonatomic) Requirement *requirement;
 
@@ -109,12 +108,29 @@
 
 #pragma mark - user action
 - (void)onClickGoToWorkSiteButton {
-    if ([kRequirementStatusConfiguredWorkSite isEqualToString:self.currentRequirementStatus]
-        || [kRequirementStatusFinishedWorkSite isEqualToString:self.currentRequirementStatus]) {
+    /**
+     重构判断逻辑
+    if ([kRequirementStatusConfiguredWorkSite isEqualToString:self.requirement.status]
+        || [kRequirementStatusFinishedWorkSite isEqualToString:self.requirement.status]) {
         [ViewControllerContainer showProcess:self.requirement.process._id];
     } else {
         [ViewControllerContainer showProcessPreview];
     }
+     **/
+    
+    NSString *reqStatus = self.requirement.status;
+    [StatusBlock matchReqt:reqStatus actions:
+     @[[ReqtConfiguredWorkSite action:^{
+            [ViewControllerContainer showProcess:self.requirement.process._id];
+        }],
+       [ReqtFinishedWorkSite action:^{
+            [ViewControllerContainer showProcess:self.requirement.process._id];
+        }],
+       [ElseStatus action:^{
+            [ViewControllerContainer showProcessPreview];
+        }],
+       ]];
+
 }
 
 #pragma mark - update status
@@ -142,6 +158,8 @@
     self.currentPlanStatus[idx] = status;
     
     //更新设计师状态
+    /**
+     重构判断逻辑
     if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
         lblStatus.textColor = kPassStatusColor;
     } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]
@@ -153,6 +171,29 @@
     } else {
         lblStatus.textColor = kUntriggeredColor;
     }
+     **/
+    
+    [StatusBlock matchPlan:status actions:
+     @[[PlanHomeOwnerOrdered action:^{
+            lblStatus.textColor = kPassStatusColor;
+        }],
+       [PlanWasChoosed action:^{
+            lblStatus.textColor = kFinishedColor;
+        }],
+       [PlanDesignerMeasuredHouse action:^{
+            lblStatus.textColor = kFinishedColor;
+        }],
+       [PlanDesignerSubmittedPlan action:^{
+            lblStatus.textColor = kFinishedColor;
+        }],
+       [PlanDesignerResponded action:^{
+            lblStatus.textColor = kExcutionStatusColor;
+        }],
+       [ElseStatus action:^{
+            lblStatus.textColor = kUntriggeredColor;
+        }],
+       ]];
+
     
     //判断是否允许继续预约设计师
     @weakify(self);
@@ -169,7 +210,6 @@
 }
 
 - (void)updateRequirement:(Requirement *)requirement {
-    self.currentRequirementStatus = requirement.status;
     self.lblRequirementStatusVal.text = [RequirementBusiness isDesignRequirement:requirement.work_type] && [requirement.status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement] ? @"已完成" : [NameDict nameForRequirementStatus:requirement.status];
     self.lblPubulishTimeVal.text = [NSDate yyyy_MM_dd:requirement.create_at];
     self.lblUpdateTimeVal.text = [NSDate yyyy_MM_dd:requirement.last_status_update_time];
@@ -246,6 +286,9 @@
 
 #pragma mark - other
 - (void)designerAction:(NSString *)status canNotOrder:(void (^)(void))canNotOrder order:(void (^)(void))order ordered:(void (^)(void))ordered {
+    /**
+     重构判断逻辑
+     
     if ([status isEqualToString:kPlanStatusUnorder]) {
         NSString *status = self.requirement.status;
         if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
@@ -259,6 +302,30 @@
     } else {
         if (ordered) ordered();
     }
+    **/
+    
+    [StatusBlock matchPlan:status actions:
+     @[[PlanUnorder action:^{
+            NSString *reqStatus = self.requirement.status;
+            [StatusBlock matchReqt:reqStatus actions:
+             @[[ReqtPlanWasChoosed action:^{
+                    if (canNotOrder) canNotOrder();
+                }],
+                [ReqtConfiguredAgreement action:^{
+                    if (canNotOrder) canNotOrder();
+                }],
+                [ReqtConfiguredWorkSite action:^{
+                    if (canNotOrder) canNotOrder();
+                }],
+                [ElseStatus action:^{
+                    if (order) order();
+                }],
+               ]];
+        }],
+        [ElseStatus action:^{
+            if (ordered) ordered();
+        }],
+       ]];
 }
 
 - (void)enableDesigner:(BOOL)enable index:(NSUInteger)idx {

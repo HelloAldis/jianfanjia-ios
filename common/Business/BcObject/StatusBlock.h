@@ -19,5 +19,6 @@ typedef void (^StatusBlockAction)(void);
 
 + (StatusBlock *)match:(NSString *)status action:(StatusBlockAction)actionBlock;
 + (void)matchReqt:(NSString *)status actions:(NSArray <StatusBlock *>*)actions;
++ (void)matchPlan:(NSString *)status actions:(NSArray <StatusBlock *>*)actions;
 
 @end

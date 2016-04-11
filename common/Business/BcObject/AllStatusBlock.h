@@ -21,6 +21,15 @@
 #import "ReqtOrderedDesigner.h"
 #import "ReqtPlanWasChoosed.h"
 
-
+#import "PlanDesignerDeclined.h"
+#import "PlanDesignerMeasuredHouse.h"
+#import "PlanDesignerResponded.h"
+#import "PlanDesignerRespondExpired.h"
+#import "PlanDesignerSubmitPlanExpired.h"
+#import "PlanDesignerSubmittedPlan.h"
+#import "PlanHomeOwnerOrdered.h"
+#import "PlanUnorder.h"
+#import "PlanWasChoosed.h"
+#import "PlanWasNotChoosed.h"
 
 #endif /* AllStatusBlock_h */

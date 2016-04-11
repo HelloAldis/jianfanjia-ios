@@ -38,6 +38,14 @@ static NSMutableDictionary *statusObjPool = nil;
 }
 
 + (void)matchReqt:(NSString *)status actions:(NSArray <StatusBlock *>*)actions {
+    [self matchStatus:status actions:actions];
+}
+
++ (void)matchPlan:(NSString *)status actions:(NSArray <StatusBlock *>*)actions {
+    [self matchStatus:status actions:actions];
+}
+
++ (void)matchStatus:(NSString *)status actions:(NSArray <StatusBlock *>*)actions {
     [actions enumerateObjectsUsingBlock:^(StatusBlock * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([status isEqualToString:obj.status]) {
             if (obj.actionBlock) {
