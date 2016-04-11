@@ -90,7 +90,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 
 #pragma mark - nav
 - (void)initNav {
-    self.title = @"装修需求";
+    self.title = @"我要装修";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate:)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
