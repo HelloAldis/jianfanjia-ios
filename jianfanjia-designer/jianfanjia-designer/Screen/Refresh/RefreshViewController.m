@@ -22,12 +22,10 @@
     request._id = [GVUserDefaults standardUserDefaults].userid;
     
     [API designerRefreshSession:request success:^{
+        [ViewControllerContainer refreshSuccess];
+        
         DesignerGetInfo *request = [[DesignerGetInfo alloc] init];
-        [API designerGetInfo:request success:^{
-            [ViewControllerContainer refreshSuccess];
-        } failure:^{
-        } networkError:^{
-        }];
+        [API designerGetInfo:request success:nil failure:nil networkError:nil];
     } failure:^{
         [ViewControllerContainer logout];
     } networkError:^{
