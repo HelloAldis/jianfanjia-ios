@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -91,7 +91,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="设计成就：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2HQ-SE-ju9">
-                        <rect key="frame" x="30" y="443" width="70" height="17"/>
+                        <rect key="frame" x="30" y="437" width="70" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="oIf-rV-5Ds"/>
                             <constraint firstAttribute="width" constant="70" id="vLb-xe-MY7"/>
@@ -106,7 +106,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="施工团队：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9VC-kj-aPX">
-                        <rect key="frame" x="30" y="811" width="70" height="17"/>
+                        <rect key="frame" x="30" y="805" width="70" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="CR1-of-Izt"/>
                             <constraint firstAttribute="height" constant="21" id="Cee-WM-kfP"/>
@@ -136,7 +136,7 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="曾就职装修公司：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zE-i9-cBd">
-                        <rect key="frame" x="30" y="786" width="115" height="17"/>
+                        <rect key="frame" x="30" y="780" width="115" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="BNA-QG-VKg"/>
                             <constraint firstAttribute="width" constant="115" id="I47-de-6Np"/>
@@ -182,21 +182,21 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hI3-uh-3eY">
-                        <rect key="frame" x="100" y="107" width="212" height="328"/>
+                        <rect key="frame" x="100" y="107" width="212" height="322"/>
                         <string key="text">大煞风景快点撒风劲卡萨大家来看；风劲卡拉屎的就分开了；萨科了解对方空间里；斯达康老骥伏枥；撒都看见了风口浪尖；大撒风劲卡了；撒都看见了疯了；谁都看见啦放假快乐；撒都放假快乐圣诞节啊哭了；发；将圣诞节啊克利夫兰就是打卡了；分开了；就是大家看法；就快点撒肌肤轮廓撒看见啦到啦放假快乐；是打开放假了；阿克琉斯的减肥了；就快乐；都是；啊看见了对方考虑感觉到风口浪尖；三个放假快乐的功夫给大家看了发达国家快乐；发达国家快乐；东方国际快乐；东方国际快乐；发达国家快乐；发达国家快乐；发达国家快乐；但反过来看；价格来看；肌肤更加快乐；发达国家快乐；发达国家快乐；梵蒂冈快乐；jdfgkljfgd</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MbP-m8-UEb">
-                        <rect key="frame" x="100" y="443" width="212" height="335"/>
+                        <rect key="frame" x="100" y="437" width="212" height="335"/>
                         <string key="text">大煞风景快点撒风劲卡萨大家来看；风劲卡拉屎的就分开了；萨科了解对方空间里；斯达康老骥伏枥；撒都看见了风口浪尖；大撒风劲卡了；撒都看见了疯了；谁都看见啦放假快乐；撒都放假快乐圣诞节啊哭了；发；将圣诞节啊克利夫兰就是打卡了；分开了；就是大家看法；就快点撒肌肤轮廓撒看见啦到啦放假快乐；是打开放假了；阿克琉斯的减肥了；就快乐；都是；啊看见了对方考虑感觉到风口浪尖；三个放假快乐的功夫给大家看了发达国家快乐；发达国家快乐；东方国际快乐；东方国际快乐；发达国家快乐；发达国家快乐；发达国家快乐；但反过来看；价格来看；肌肤更加快乐；发达国家快乐；发达国家快乐；梵蒂冈快乐；jdfgkljfgd</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="743" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7LN-LY-ZFW">
-                        <rect key="frame" x="147" y="786" width="165" height="17"/>
+                        <rect key="frame" x="147" y="780" width="165" height="17"/>
                         <string key="text">大煞风景快点撒风劲卡萨大家来看；风劲卡拉屎的就分开了；萨科了解对方空间里；斯达康老骥伏枥；撒都看见了风口浪尖；大撒风劲卡了；撒都看见了疯了；谁都看见啦放假快乐；撒都放假快乐圣诞节啊哭了；发；将圣诞节啊克利夫兰就是打卡了；分开了；就是大家看法；就快点撒肌肤轮廓撒看见啦到啦放假快乐；是打开放假了；阿克琉斯的减肥了；就快乐；都是；啊看见了对方考虑感觉到风口浪尖；三个放假快乐的功夫给大家看了发达国家快乐；发达国家快乐；东方国际快乐；东方国际快乐；发达国家快乐；发达国家快乐；发达国家快乐；但反过来看；价格来看；肌肤更加快乐；发达国家快乐；发达国家快乐；梵蒂冈快乐；jdfgkljfgd</string>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -212,13 +212,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个施工队" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bO6-L5-3YB">
-                        <rect key="frame" x="120" y="811" width="56" height="17"/>
+                        <rect key="frame" x="120" y="805" width="56" height="17"/>
                         <fontDescription key="fontDescription" name=".PingFangSC-Regular" family=".PingFang SC" pointSize="14"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H7E-xQ-HoM">
-                        <rect key="frame" x="100" y="811" width="20" height="17"/>
+                        <rect key="frame" x="100" y="805" width="20" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="whr-PH-4Ge"/>
                         </constraints>
@@ -245,11 +245,9 @@
                     <constraint firstItem="8vl-UL-gs2" firstAttribute="leading" secondItem="axt-b3-6Lx" secondAttribute="trailing" id="4sX-Vg-cVw"/>
                     <constraint firstItem="ncS-hJ-tCW" firstAttribute="top" secondItem="pfQ-33-Yhl" secondAttribute="bottom" constant="8" id="5fi-gx-4Sj"/>
                     <constraint firstItem="Wfi-kg-cwH" firstAttribute="leading" secondItem="KqT-da-cdd" secondAttribute="leading" id="60a-3P-1sC"/>
-                    <constraint firstItem="MbP-m8-UEb" firstAttribute="centerY" secondItem="2HQ-SE-ju9" secondAttribute="centerY" id="6qF-dB-Er1"/>
-                    <constraint firstItem="8vl-UL-gs2" firstAttribute="top" secondItem="bO6-L5-3YB" secondAttribute="bottom" constant="2" id="7EM-f5-foj"/>
+                    <constraint firstItem="8vl-UL-gs2" firstAttribute="top" secondItem="bO6-L5-3YB" secondAttribute="bottom" constant="8" id="7EM-f5-foj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="MbP-m8-UEb" secondAttribute="trailing" constant="12" id="7Nh-Cp-fL4"/>
                     <constraint firstItem="zdO-dx-qux" firstAttribute="leading" secondItem="Wfi-kg-cwH" secondAttribute="trailing" id="7jB-rw-eXg"/>
-                    <constraint firstItem="zdO-dx-qux" firstAttribute="centerY" secondItem="Wfi-kg-cwH" secondAttribute="centerY" id="8U9-gl-iOj"/>
                     <constraint firstItem="bO6-L5-3YB" firstAttribute="leading" secondItem="H7E-xQ-HoM" secondAttribute="trailing" id="90S-eB-Ods"/>
                     <constraint firstItem="hI3-uh-3eY" firstAttribute="top" secondItem="ncS-hJ-tCW" secondAttribute="bottom" constant="8" id="E39-hE-goK"/>
                     <constraint firstItem="7LN-LY-ZFW" firstAttribute="top" secondItem="MbP-m8-UEb" secondAttribute="bottom" constant="8" id="FB5-DY-LnU"/>
@@ -263,21 +261,16 @@
                     <constraint firstItem="ncS-hJ-tCW" firstAttribute="top" secondItem="teM-rU-q9K" secondAttribute="top" id="LQ0-BC-shN"/>
                     <constraint firstItem="H7E-xQ-HoM" firstAttribute="height" secondItem="bO6-L5-3YB" secondAttribute="height" id="LrF-9L-5Hq"/>
                     <constraint firstItem="bIm-Lz-LOg" firstAttribute="leading" secondItem="teM-rU-q9K" secondAttribute="leading" id="PBB-YF-MYV"/>
-                    <constraint firstItem="pfQ-33-Yhl" firstAttribute="centerY" secondItem="JPA-oQ-B3G" secondAttribute="centerY" id="PVY-22-xUL"/>
                     <constraint firstAttribute="trailingMargin" secondItem="7LN-LY-ZFW" secondAttribute="trailing" constant="12" id="Qlv-GJ-jiF"/>
                     <constraint firstItem="zdO-dx-qux" firstAttribute="height" relation="greaterThanOrEqual" secondItem="nYP-W1-B9a" secondAttribute="height" id="R14-2B-NxQ"/>
                     <constraint firstItem="8vl-UL-gs2" firstAttribute="centerY" secondItem="axt-b3-6Lx" secondAttribute="centerY" id="S5f-Uc-eym"/>
                     <constraint firstItem="H7E-xQ-HoM" firstAttribute="centerY" secondItem="9VC-kj-aPX" secondAttribute="centerY" id="Slu-3B-mPn"/>
                     <constraint firstItem="teM-rU-q9K" firstAttribute="leading" secondItem="JPA-oQ-B3G" secondAttribute="leading" id="UIB-jc-C4c"/>
                     <constraint firstItem="MbP-m8-UEb" firstAttribute="height" relation="greaterThanOrEqual" secondItem="nYP-W1-B9a" secondAttribute="height" id="Ua8-GB-1A6"/>
-                    <constraint firstItem="7LN-LY-ZFW" firstAttribute="centerY" secondItem="8zE-i9-cBd" secondAttribute="centerY" id="Ujf-Bs-RXc"/>
-                    <constraint firstItem="ncS-hJ-tCW" firstAttribute="centerY" secondItem="teM-rU-q9K" secondAttribute="centerY" id="Umw-uq-vDy"/>
                     <constraint firstItem="LJP-9A-Dva" firstAttribute="leading" secondItem="9VC-kj-aPX" secondAttribute="leading" id="Vvn-2U-A1v"/>
                     <constraint firstItem="pfQ-33-Yhl" firstAttribute="top" secondItem="zdO-dx-qux" secondAttribute="bottom" constant="5" id="Wai-w9-0bJ"/>
                     <constraint firstItem="MbP-m8-UEb" firstAttribute="leading" secondItem="2HQ-SE-ju9" secondAttribute="trailing" id="Xc3-sv-KNQ"/>
                     <constraint firstItem="nYP-W1-B9a" firstAttribute="top" secondItem="KqT-da-cdd" secondAttribute="top" id="ZBA-Ja-t7S"/>
-                    <constraint firstItem="hI3-uh-3eY" firstAttribute="centerY" secondItem="bIm-Lz-LOg" secondAttribute="centerY" id="bHY-jV-fok"/>
-                    <constraint firstItem="nYP-W1-B9a" firstAttribute="centerY" secondItem="KqT-da-cdd" secondAttribute="centerY" id="bLG-ZM-jjy"/>
                     <constraint firstItem="2HQ-SE-ju9" firstAttribute="leading" secondItem="bIm-Lz-LOg" secondAttribute="leading" id="ceQ-A2-KTk"/>
                     <constraint firstItem="9VC-kj-aPX" firstAttribute="leading" secondItem="8zE-i9-cBd" secondAttribute="leading" id="cxP-vq-tCU"/>
                     <constraint firstItem="pfQ-33-Yhl" firstAttribute="top" secondItem="JPA-oQ-B3G" secondAttribute="top" id="dPr-qA-CQm"/>
@@ -301,17 +294,6 @@
                     <constraint firstItem="nYP-W1-B9a" firstAttribute="leading" secondItem="KqT-da-cdd" secondAttribute="trailing" id="yO0-RY-Xzb"/>
                     <constraint firstAttribute="trailingMargin" secondItem="pfQ-33-Yhl" secondAttribute="trailing" constant="12" id="yeV-4S-rmS"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="bLG-ZM-jjy"/>
-                        <exclude reference="8U9-gl-iOj"/>
-                        <exclude reference="PVY-22-xUL"/>
-                        <exclude reference="Umw-uq-vDy"/>
-                        <exclude reference="bHY-jV-fok"/>
-                        <exclude reference="6qF-dB-Er1"/>
-                        <exclude reference="Ujf-Bs-RXc"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
