@@ -80,7 +80,7 @@
         self.lblUsername.font = [UIFont systemFontOfSize:17 weight:UIFontWeightBold];
         self.lblPhone.font = [UIFont systemFontOfSize:14];
         if ([GVUserDefaults standardUserDefaults].phone) {
-            self.lblPhone.text = [NSString stringWithFormat:@"帐号：%@", [GVUserDefaults standardUserDefaults].phone];
+            self.lblPhone.text = [NSString stringWithFormat:@"手机号：%@", [GVUserDefaults standardUserDefaults].phone];
         } else {
             self.lblPhone.hidden = YES;
         }
