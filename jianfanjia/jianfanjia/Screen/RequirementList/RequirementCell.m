@@ -125,6 +125,9 @@
        [ReqtFinishedWorkSite action:^{
             [ViewControllerContainer showProcess:self.requirement.process._id];
         }],
+       [ReqtUnorderDesigner action:^{
+            [ViewControllerContainer showOrderDesigner:self.requirement];
+        }],
        [ElseStatus action:^{
             [ViewControllerContainer showProcessPreview];
         }],
@@ -285,7 +288,7 @@
         }],
        [ReqtUnorderDesigner action:^{
             self.lblRequirementStatusVal.textColor = kUntriggeredColor;
-            [self updateGoToWorksite:@"预览工地"];
+            [self updateGoToWorksite:@"已为您匹配3名设计师请点击前往预约"];
         }],
       ]];
 }

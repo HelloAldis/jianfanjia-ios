@@ -126,7 +126,16 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Requirement *requirement = self.requirementDataManager.requirements[indexPath.row];
-    return [RequirementBusiness isDesignRequirement:requirement.work_type] ? 244 : 289;
+    
+    __block NSInteger height = 289;
+    if ([RequirementBusiness isDesignRequirement:requirement.work_type]) {
+        height = 244;
+        [StatusBlock matchReqt:requirement.status action:[ReqtUnorderDesigner action:^{
+            height = 289;
+        }]];
+    }
+    
+    return height;
 }
 
 #pragma mark - send request 
