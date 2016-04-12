@@ -205,20 +205,16 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     @weakify(self);
     [[self.tableView indexPathsForSelectedRows] enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
-        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:obj];
-        
+
         NSString *designerId;
         if (obj.section == 0) {
-            MatchDesignerCell *matchCell = (MatchDesignerCell *)cell;
-            designerId = matchCell.designer._id;
+            designerId = [self.requirementDataManager.recommendedDesigners[obj.row] _id];
         } else {
-            IntentDesignerCell *intentCell = (IntentDesignerCell *)cell;
-            designerId = intentCell.designer._id;
+            designerId = [self.requirementDataManager.favoriteDesigners[obj.row] _id];
         }
         
         [arr addObject:designerId];
     }];
-    
     
     if (self.orderType == NormalOrder) {
         OrderDesignder *orderDesigner = [[OrderDesignder alloc] init];
