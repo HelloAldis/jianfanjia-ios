@@ -90,7 +90,7 @@ static NSDictionary *decProgressDict = nil;
                    kPlanStatusDesignerRespondedWithoutMeasureHouse:@"等待量房",
                    kPlanStatusDesignerSubmittedPlan:@"等待确认方案",
                    kPlanStatusPlanWasNotChoosed:@"未中标",
-                   kPlanStatusPlanWasChoosed:@"等待设置合同",
+                   kPlanStatusPlanWasChoosed:@"已中标",
                    kPlanStatusDesignerMeasureHouseWithoutPlan:@"等待上传方案",
                    kPlanStatusExpiredAsDesignerDidNotRespond:@"未响应",
                    kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime:@"未提交"
