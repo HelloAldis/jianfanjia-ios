@@ -131,8 +131,10 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self adjustTopView];
     
-    if (self.presentingViewController && scrollView.contentOffset.y < -(kNavWithStatusBarHeight + 30)) {
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    if (!scrollView.isDecelerating) {
+        if (self.presentingViewController && scrollView.contentOffset.y < -(kNavWithStatusBarHeight + 30)) {
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        }
     }
 }
 
