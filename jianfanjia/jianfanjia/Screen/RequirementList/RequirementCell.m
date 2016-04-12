@@ -317,7 +317,7 @@
                 [ReqtConfiguredAgreement action:^{
                     if (canNotOrder) canNotOrder();
                 }],
-                [ReqtConfiguredWorkSite action:^{
+                [ReqtFinishedWorkSite action:^{
                     if (canNotOrder) canNotOrder();
                 }],
                 [ElseStatus action:^{
