@@ -33,7 +33,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [super viewDidAppear:animated];
+    [super viewWillDisappear:animated];
     [MobClick endLogPageView:NSStringFromClass(self.class)];
 }
 
@@ -42,6 +42,7 @@
 }
 
 - (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
     DDLogError(@"didReceiveMemoryWarning");
     YYImageCache *cache = [YYWebImageManager sharedManager].cache;
     [cache.memoryCache removeAllObjects];
