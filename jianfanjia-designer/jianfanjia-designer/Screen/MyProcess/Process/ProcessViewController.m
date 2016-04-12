@@ -250,12 +250,9 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 }
 
 - (void)switchSectionData {
-    NSUInteger index = self.sectionScrollView.contentOffset.x / kSectionViewWidth;
-    NSUInteger curIndex = self.dataManager.selectedSectionIndex;
-    if (index != curIndex) {
-        [self reloadItemsForSection:index];
-        [self updateSectionActionUI:YES];
-    }
+    NSUInteger index = round(self.sectionScrollView.contentOffset.x / kSectionViewWidth);
+    [self reloadItemsForSection:index];
+    [self updateSectionActionUI:YES];
 }
 
 #pragma mark - getures
