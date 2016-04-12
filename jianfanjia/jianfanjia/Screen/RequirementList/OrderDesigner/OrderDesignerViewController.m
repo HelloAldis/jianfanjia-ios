@@ -88,7 +88,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 150, 44)];
     label.textColor = kThemeTextColor;
     label.font = [UIFont systemFontOfSize:17];
     self.navigationItem.titleView = label;
