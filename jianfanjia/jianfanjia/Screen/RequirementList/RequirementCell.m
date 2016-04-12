@@ -48,7 +48,7 @@
     [self.designerAvatar enumerateObjectsUsingBlock:^(UIImageView* _Nonnull imageView, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDesignerAvatar:)];
-        [imageView setCornerRadius:30];
+        [imageView setCornerRadius:imageView.bounds.size.width / 2];
         [imageView addGestureRecognizer:gesture];
     }];
     
