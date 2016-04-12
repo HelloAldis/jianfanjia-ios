@@ -39,11 +39,7 @@ const CGFloat kSectionActionViewHeight = 90;
     @weakify(self);
     [[self.btnDBYS rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
-        [ViewControllerContainer showDBYS:self.dataManager.selectedSection process:self.dataManager.process._id popTo:[ViewControllerContainer getCurrentTapController] refresh:^{
-            if (self.refreshBlock) {
-                self.refreshBlock();
-            }
-        }];
+        [ViewControllerContainer showDBYS:self.dataManager.selectedSection process:self.dataManager.process._id popTo:[ViewControllerContainer getCurrentTapController] refresh:nil];
     }];
     
     [[[self.btnChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside]

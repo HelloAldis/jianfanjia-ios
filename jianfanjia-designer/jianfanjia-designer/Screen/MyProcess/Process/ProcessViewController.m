@@ -209,7 +209,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     Item *item = [self hasYSInCurSection];
     
     if (item) {
-        [self.sectionActionView updateData:item withMgr:self.dataManager refresh:nil];
+        @weakify(self);
+        [self.sectionActionView updateData:item withMgr:self.dataManager refresh:^{
+            @strongify(self);
+            [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
+        }];
         self.sectionActionMark.hidden = NO;
         
         if (needExpand) {
