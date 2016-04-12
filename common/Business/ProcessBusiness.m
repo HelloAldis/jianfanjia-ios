@@ -42,4 +42,19 @@ static NSArray *sectionsName = nil;
 //    return sectionsName;
 //}
 
++ (BOOL)isAllSectionItemsFinished:(Section *)section {
+    __block BOOL finished = YES;
+    
+    NSArray *arr = [section.data objectForKey:@"items"];
+    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        Item *item = [[Item alloc] initWith:obj];
+        if (![item.status isEqualToString:kSectionStatusAlreadyFinished]) {
+            finished = NO;
+            *stop = YES;
+        }
+    }];
+    
+    return finished;
+}
+
 @end

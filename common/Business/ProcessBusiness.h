@@ -18,6 +18,7 @@ extern NSString * const JUN_GONG;
 extern NSString * const DBYS;
 
 @class Process;
+@class Section;
 
 @interface ProcessBusiness : NSObject
 
@@ -25,5 +26,6 @@ extern NSString * const DBYS;
 //+ (NSString *)nameForKey:(NSString *)key;
 + (BOOL)hasYs:(NSInteger)sectionIndex;
 //+ (NSArray *)allSectionName;
++ (BOOL)isAllSectionItemsFinished:(Section *)section;
 
 @end

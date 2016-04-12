@@ -124,22 +124,22 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     NSInteger count = [self getCurrentImageCount];
     
     if ([self.section.status isEqualToString:kSectionStatusAlreadyFinished]) {
-        self.btnConfirmAccept.enabled = NO;
-        self.btnConfirmAccept.backgroundColor = kUntriggeredColor;
-        [self.btnConfirmAccept setTitle:@"已确认对比验收" forState:UIControlStateNormal];
-    } else if (totalCount == count) {
-        if ([self isAllSectionItemsFinished:self.section]) {
-            self.btnConfirmAccept.enabled = YES;
-            self.btnConfirmAccept.backgroundColor = kFinishedColor;
+        [self enableConfirmButton:NO title:@"已确认对比验收"];
+    } else if (count == totalCount) {
+        if ([ProcessBusiness isAllSectionItemsFinished:self.section]) {
+            [self enableConfirmButton:YES title:@"确认验收"];
         } else {
-            self.btnConfirmAccept.enabled = NO;
-            self.btnConfirmAccept.backgroundColor = kUntriggeredColor;
-            [self.btnConfirmAccept setTitle:@"工序未完工，您还不能确认验收" forState:UIControlStateNormal];
+            [self enableConfirmButton:NO title:@"工序未完工，您还不能确认验收"];
         }
     } else {
-        self.btnConfirmAccept.enabled = NO;
-        self.btnConfirmAccept.backgroundColor = kUntriggeredColor;
+        [self enableConfirmButton:NO title:@"确认验收"];
     }
+}
+
+- (void)enableConfirmButton:(BOOL)enable title:(NSString *)title {
+    [self.btnConfirmAccept setTitle:title forState:UIControlStateNormal];
+    self.btnConfirmAccept.enabled = enable;
+    self.btnConfirmAccept.backgroundColor = enable ? kFinishedColor : kUntriggeredColor;
 }
 
 #pragma mark - util 
@@ -157,21 +157,6 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     }
     
     return 0;
-}
-
-- (BOOL)isAllSectionItemsFinished:(Section *)section {
-    __block BOOL finished = YES;
-    
-    NSArray *arr = [section.data objectForKey:@"items"];
-    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        Item *item = [[Item alloc] initWith:obj];
-        if (![item.status isEqualToString:kSectionStatusAlreadyFinished]) {
-            finished = NO;
-            *stop = YES;
-        }
-    }];
-    
-    return finished;
 }
 
 - (NSInteger)getCurrentImageCount {

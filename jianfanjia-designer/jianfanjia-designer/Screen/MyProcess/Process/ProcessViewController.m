@@ -79,8 +79,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self refreshProcess:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [[NotificationDataManager shared] refreshUnreadCount];
     
     if (self.wasFirstEnter) {
@@ -188,7 +188,9 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     @weakify(self);
     void (^ReloadBlock)() = ^{
         @strongify(self);
+        [self.tableView beginUpdates];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView endUpdates];
         self.statusLineTopConstraint.constant = expand ? kNavWithStatusBarHeight + kSectionViewHeight + kSectionActionViewHeight : kNavWithStatusBarHeight + kSectionViewHeight;
     };
     
@@ -203,27 +205,20 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }
 }
 
-- (void)updateSectionActionStatus {
+- (void)updateSectionActionUI:(BOOL)needExpand {
     Item *item = [self hasYSInCurSection];
     
     if (item) {
-        @weakify(self);
-        [self.sectionActionView updateData:item withMgr:self.dataManager refresh:^{
-            @strongify(self);
-            [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
-        }];
-        
+        [self.sectionActionView updateData:item withMgr:self.dataManager refresh:nil];
         self.sectionActionMark.hidden = NO;
-        if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusUnStart]) {
-            self.unexpandSectionActionView.expandView.userInteractionEnabled = NO;
-            [self hideExpandActionView];
-        } else {
-            self.unexpandSectionActionView.expandView.userInteractionEnabled = YES;
+        
+        if (needExpand) {
             [self showExpandActionView];
+        } else {
+            [self playAnimation:self.wasExpandAction animated:NO];
         }
     } else {
         self.sectionActionMark.hidden = YES;
-        self.unexpandSectionActionView.expandView.userInteractionEnabled = NO;
         [self hideExpandActionView];
     }
 }
@@ -259,6 +254,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     NSUInteger curIndex = self.dataManager.selectedSectionIndex;
     if (index != curIndex) {
         [self reloadItemsForSection:index];
+        [self updateSectionActionUI:YES];
     }
 }
 
@@ -399,6 +395,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             [self refreshSectionView];
             [self scrollToOngoingSection];
             [self reloadItemsForSection:self.dataManager.selectedSectionIndex];
+            [self updateSectionActionUI:YES];
         } failure:^{
             [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
@@ -423,10 +420,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         BOOL goToNextSection = [self scrollToOngoingSection];
         if (goToNextSection) {
             [self reloadItemsForSection:self.dataManager.selectedSectionIndex];
+            [self updateSectionActionUI:YES];
         } else {
             [self.dataManager switchToSelectedSection:self.dataManager.selectedSectionIndex];
             
-            if (indexPath) {
+            if (indexPath && indexPath.row < self.dataManager.selectedItems.count) {
                 Item *item = self.dataManager.selectedItems[indexPath.row];
                 if (isExpand) {
                     item.itemCellStatus = ItemCellStatusExpaned;
@@ -436,7 +434,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             }
             
             [self refreshSectionBackground];
-            [self updateSectionActionStatus];
+            [self updateSectionActionUI:[ProcessBusiness isAllSectionItemsFinished:self.dataManager.selectedSection]];
         }
     } failure:^{
         
@@ -525,7 +523,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 - (void)reloadItemsForSection:(NSInteger)sectionIndex {
     [self.dataManager switchToSelectedSection:sectionIndex];
     [self initItemsStatus];
-    [self updateSectionActionStatus];
 }
 
 - (void)initItemsStatus {
@@ -538,7 +535,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     __block NSTimeInterval latestUpdateTime = 0;
     __block NSInteger latestUpdateItem = -1;
-    __block NSInteger subSectionsFinishedCount = 0;
     [self.dataManager.selectedItems enumerateObjectsUsingBlock:^(Item *  _Nonnull item, NSUInteger idx, BOOL * _Nonnull stop) {
         NSTimeInterval itemTime = item.date.doubleValue;
         if (itemTime > latestUpdateTime) {
@@ -547,10 +543,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
             
             latestUpdateTime = itemTime;
             latestUpdateItem = idx;
-        }
-        
-        if ([item.status isEqualToString:kSectionStatusAlreadyFinished]) {
-            subSectionsFinishedCount++;
         }
     }];
     
