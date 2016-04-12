@@ -189,7 +189,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     void (^ReloadBlock)() = ^{
         @strongify(self);
         [self.tableView beginUpdates];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView endUpdates];
         self.statusLineTopConstraint.constant = expand ? kNavWithStatusBarHeight + kSectionViewHeight + kSectionActionViewHeight : kNavWithStatusBarHeight + kSectionViewHeight;
     };
@@ -264,6 +264,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     NSInteger index = [self.sectionViewArr indexOfObject:sectionView];
     [self.sectionScrollView setContentOffset:CGPointMake(index * kSectionViewWidth, 0) animated:YES];
     [self reloadItemsForSection:index];
+    [self updateSectionActionUI:YES];
 }
 
 #pragma mark - table view delegate
@@ -380,7 +381,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [self.dataManager refreshSections:[ProcessBusiness defaultProcess]];
         [self refreshSectionView];
         [self reloadItemsForSection:0];
-        self.sectionActionView.userInteractionEnabled = NO;
+        [self updateSectionActionUI:YES];
     } else {
         if (showPlsWait) {
             [HUDUtil showWait];
