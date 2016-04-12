@@ -207,12 +207,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     Item *item = [self hasYSInCurSection];
     
     if (item) {
-        @weakify(self);
-        [self.sectionActionView updateData:item withMgr:self.dataManager refresh:^{
-            @strongify(self);
-            [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
-        }];
-        
+        [self.sectionActionView updateData:item withMgr:self.dataManager refresh:nil];
         self.sectionActionMark.hidden = NO;
         if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusUnStart]) {
             self.unexpandSectionActionView.expandView.userInteractionEnabled = NO;
@@ -321,7 +316,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [cell initWithItem:item withDataManager:self.dataManager withBlock:^(BOOL isNeedReload) {
             @strongify(self);
             if (isNeedReload) {
-                [self refreshForIndexPath:indexPath isExpand:YES];
+//                [self refreshForIndexPath:indexPath isExpand:YES];
             } else {
                 [self.tableView beginUpdates];
                 [self.tableView endUpdates];
@@ -426,7 +421,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         } else {
             [self.dataManager switchToSelectedSection:self.dataManager.selectedSectionIndex];
             
-            if (indexPath) {
+            if (indexPath && indexPath.row < self.dataManager.selectedItems.count) {
                 Item *item = self.dataManager.selectedItems[indexPath.row];
                 if (isExpand) {
                     item.itemCellStatus = ItemCellStatusExpaned;
