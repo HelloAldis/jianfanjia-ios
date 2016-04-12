@@ -470,10 +470,6 @@ static ViewControllerContainer *container;
 
 + (void)logout {
     [GeTuiSdk unbindAlias:[GVUserDefaults standardUserDefaults].userid];
-    container.navTapHome = nil;
-    container.navTapPrettyImg = nil;
-    container.navTapRequirement = nil;
-    container.navTapMy = nil;
     [GVUserDefaults standardUserDefaults].isLogin = NO;
     [GVUserDefaults standardUserDefaults].phone = nil;
     [GVUserDefaults standardUserDefaults].usertype = nil;
