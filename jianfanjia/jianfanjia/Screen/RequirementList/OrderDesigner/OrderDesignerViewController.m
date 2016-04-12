@@ -88,21 +88,20 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
-    UIView *customeTitleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 130, 44)];
-    UILabel *lblCount = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 30, 44)];
-    lblCount.textAlignment = NSTextAlignmentRight;
-    lblCount.textColor = kFinishedColor;
-    lblCount.font = [UIFont systemFontOfSize:17];
-    UILabel *fixedString = [[UILabel alloc] initWithFrame:CGRectMake(lblCount.frame.size.width, 0, 100, 44)];
-    fixedString.text = @" 位可预约";
-    fixedString.textColor = kThemeTextColor;
-    fixedString.font = [UIFont systemFontOfSize:17];
-    [customeTitleView addSubview:lblCount];
-    [customeTitleView addSubview:fixedString];
-    self.navigationItem.titleView = customeTitleView;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
+    label.textColor = kThemeTextColor;
+    label.font = [UIFont systemFontOfSize:17];
+    self.navigationItem.titleView = label;
     
-    RAC(lblCount, text) = [RACObserve(self, orderableCount) map:^id(id value) {
-        return [value stringValue];
+    RAC(label, attributedText) = [RACObserve(self, orderableCount) map:^id(id value) {
+        NSString *str = [NSString stringWithFormat:@"还有%@位可预约", value];
+        NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:str];
+        [attributedStr setAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:17],
+                                       NSForegroundColorAttributeName:kThemeColor,
+                                       }
+                               range:[str rangeOfString:[value stringValue]]];
+         
+         return attributedStr;
     }];
 }
 
