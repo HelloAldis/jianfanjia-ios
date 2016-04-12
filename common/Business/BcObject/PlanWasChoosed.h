@@ -13,7 +13,7 @@
 
 + (StatusBlock *)action:(StatusBlockAction)action;
 
-+ (NSString *)text:(NSString *)reqtStatus;
-+ (UIColor *)textColor:(NSString *)reqtStatus;
++ (NSString *)text:(NSString *)reqtStatus workType:(NSString *)workType;
++ (UIColor *)textColor:(NSString *)reqtStatus workType:(NSString *)workType;
 
 @end

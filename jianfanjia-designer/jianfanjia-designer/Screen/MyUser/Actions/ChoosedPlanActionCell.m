@@ -63,9 +63,8 @@
         self.iconViewAgreement.image = [UIImage imageNamed:@"icon_set_work_time"];
     }
     
-    NSString *status = self.requirement.status;
-    self.lblStatus.text = [PlanWasChoosed text:status];
-    self.lblStatus.textColor = [PlanWasChoosed textColor:status];
+    self.lblStatus.text = [PlanWasChoosed text:self.requirement.status workType:self.requirement.work_type];
+    self.lblStatus.textColor = [PlanWasChoosed textColor:self.requirement.status workType:self.requirement.work_type];
 }
 
 #pragma mark - user action

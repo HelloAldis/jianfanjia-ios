@@ -176,14 +176,8 @@
     lblStatus.text = [status isEqualToString:kPlanStatusUnorder] ? @"未预约" : [NameDict nameForPlanStatus:status];
     [StatusBlock matchPlan:status actions:
      @[[PlanWasChoosed action:^{
-            if ([RequirementBusiness isDesignRequirement:self.requirement.work_type]) {
-                lblStatus.text = @"已完成";
-                lblStatus.textColor = kPassStatusColor;
-            } else {
-                NSString *status = self.requirement.status;
-                lblStatus.text = [PlanWasChoosed text:status];
-                lblStatus.textColor = [PlanWasChoosed textColor:status];
-            }
+            lblStatus.text = [PlanWasChoosed text:self.requirement.status workType:self.requirement.work_type];
+            lblStatus.textColor = [PlanWasChoosed textColor:self.requirement.status workType:self.requirement.work_type];
         }],
        [PlanHomeOwnerOrdered action:^{
             lblStatus.textColor = kExcutionStatusColor;

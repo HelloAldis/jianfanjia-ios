@@ -44,6 +44,9 @@
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
     [self.btnViewEvaluate setTitle:designer.evaluation._id ? @"查看评价" : @"评价设计师" forState:UIControlStateNormal];
+    
+    self.lblStatus.text = [PlanWasChoosed text:self.requirement.status workType:self.requirement.work_type];
+    self.lblStatus.textColor = [PlanWasChoosed textColor:self.requirement.status workType:self.requirement.work_type];
 }
 
 - (void)onClickEvaluateButton {
