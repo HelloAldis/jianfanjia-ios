@@ -9,34 +9,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="Skh-SC-4DZ" customClass="HomeOwnerOrderedWithoutResponseCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="101"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="38" id="Skh-SC-4DZ" customClass="HomeOwnerOrderedWithoutResponseCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Skh-SC-4DZ" id="wB9-VX-xTa">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pnc-PK-pBy" userLabel="ActionView">
-                        <rect key="frame" x="0.0" y="46" width="320" height="50"/>
-                        <subviews>
-                            <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh6-Sk-b3S">
-                                <rect key="frame" x="0.0" y="1" width="320" height="49"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="等待响应">
-                                    <color key="titleColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="vh6-Sk-b3S" secondAttribute="bottom" id="SSb-6m-xhO"/>
-                            <constraint firstItem="vh6-Sk-b3S" firstAttribute="top" secondItem="pnc-PK-pBy" secondAttribute="top" constant="1" id="W8X-al-ATQ"/>
-                            <constraint firstAttribute="height" constant="50" id="aGV-8S-usZ"/>
-                            <constraint firstItem="vh6-Sk-b3S" firstAttribute="leading" secondItem="pnc-PK-pBy" secondAttribute="leading" id="dZw-mN-B27"/>
-                            <constraint firstAttribute="trailing" secondItem="vh6-Sk-b3S" secondAttribute="trailing" id="zBP-Ue-6Sc"/>
-                        </constraints>
-                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0F-l8-eGc" userLabel="TopSpaceView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="6"/>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -218,12 +197,9 @@
                 <constraints>
                     <constraint firstItem="BSn-aE-Ehm" firstAttribute="trailing" secondItem="m0F-l8-eGc" secondAttribute="trailing" id="81V-Jy-Paa"/>
                     <constraint firstItem="m0F-l8-eGc" firstAttribute="width" secondItem="wB9-VX-xTa" secondAttribute="width" id="8Te-yg-F4D"/>
-                    <constraint firstItem="pnc-PK-pBy" firstAttribute="trailing" secondItem="m0F-l8-eGc" secondAttribute="trailing" id="8fS-hI-7Su"/>
                     <constraint firstItem="BSn-aE-Ehm" firstAttribute="leading" secondItem="m0F-l8-eGc" secondAttribute="leading" id="ZwP-5G-2nv"/>
                     <constraint firstItem="BSn-aE-Ehm" firstAttribute="top" secondItem="m0F-l8-eGc" secondAttribute="bottom" id="g84-Bn-due"/>
-                    <constraint firstItem="pnc-PK-pBy" firstAttribute="top" secondItem="BSn-aE-Ehm" secondAttribute="bottom" constant="-50" id="iTZ-Aw-4sd"/>
                     <constraint firstItem="m0F-l8-eGc" firstAttribute="leading" secondItem="wB9-VX-xTa" secondAttribute="leadingMargin" constant="-8" id="rYM-PC-uEa"/>
-                    <constraint firstItem="pnc-PK-pBy" firstAttribute="leading" secondItem="m0F-l8-eGc" secondAttribute="leading" id="vBz-dU-n3o"/>
                     <constraint firstItem="m0F-l8-eGc" firstAttribute="top" secondItem="wB9-VX-xTa" secondAttribute="topMargin" constant="-8" id="w5Q-Dj-rq9"/>
                 </constraints>
             </tableViewCellContentView>
@@ -238,7 +214,7 @@
                 <outletCollection property="evaluatedStars" destination="anN-U9-cJH" id="JIK-9T-E6O"/>
                 <outletCollection property="evaluatedStars" destination="pfh-dE-sqT" id="lYV-Vo-Uam"/>
             </connections>
-            <point key="canvasLocation" x="323" y="288.5"/>
+            <point key="canvasLocation" x="323" y="285.5"/>
         </tableViewCell>
     </objects>
     <resources>
