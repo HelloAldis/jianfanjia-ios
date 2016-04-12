@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MatchDesignerSection : UIView
-@property (weak, nonatomic) IBOutlet UIButton *btnChooseAll;
 
 + (MatchDesignerSection *)sectionView;
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,6 +18,7 @@
                 <subviews>
                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_place_holder_2" translatesAutoresizingMaskIntoConstraints="NO" id="Yt7-8r-JtW">
                         <rect key="frame" x="18" y="15" width="60" height="60"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="TWz-BL-Isn"/>
                             <constraint firstAttribute="width" constant="60" id="fXQ-qk-c4a"/>
@@ -29,12 +30,14 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王大雷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jo-5d-2Jr">
                         <rect key="frame" x="93" y="23" width="42" height="17"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unchecked" translatesAutoresizingMaskIntoConstraints="NO" id="Fpm-33-ch0">
                         <rect key="frame" x="526" y="32" width="25" height="25"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="CPM-Ep-hOs"/>
                             <constraint firstAttribute="height" constant="25" id="DIW-tN-FtQ"/>
@@ -49,6 +52,7 @@
                     </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_id_card_checked" translatesAutoresizingMaskIntoConstraints="NO" id="Vxu-ed-lLu">
                         <rect key="frame" x="140" y="26" width="17" height="12"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="17" id="JvQ-hY-7DQ"/>
                             <constraint firstAttribute="width" secondItem="Vxu-ed-lLu" secondAttribute="height" multiplier="33:23" id="lLY-Bh-Ssp"/>
@@ -56,6 +60,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_base_info_checked" translatesAutoresizingMaskIntoConstraints="NO" id="oXa-Gb-yvZ">
                         <rect key="frame" x="162" y="26" width="10" height="12"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="oXa-Gb-yvZ" secondAttribute="height" multiplier="21:25" id="LGT-4H-Hwm"/>
                             <constraint firstAttribute="width" constant="10" id="dOH-pg-slz"/>
@@ -63,6 +68,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_small_empty" translatesAutoresizingMaskIntoConstraints="NO" id="22d-OP-ugr">
                         <rect key="frame" x="93" y="48" width="17" height="15"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="22d-OP-ugr" secondAttribute="height" multiplier="1:1" id="0Kj-d4-e2Z"/>
                             <constraint firstAttribute="width" constant="17" id="5jm-3G-lWu"/>
@@ -80,6 +86,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_small_empty" translatesAutoresizingMaskIntoConstraints="NO" id="cHI-3M-R9c">
                         <rect key="frame" x="113" y="48" width="17" height="15"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="cHI-3M-R9c" secondAttribute="height" multiplier="1:1" id="IGV-Ww-h2O"/>
                             <constraint firstAttribute="width" constant="17" id="OAW-1b-idi"/>
@@ -99,6 +106,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_small_empty" translatesAutoresizingMaskIntoConstraints="NO" id="jSg-JM-jKH">
                         <rect key="frame" x="133" y="48" width="17" height="15"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="jSg-JM-jKH" secondAttribute="height" multiplier="17:15" id="CaL-Bp-KSY"/>
                             <constraint firstAttribute="width" constant="17" id="NPn-tU-hIW"/>
@@ -118,6 +126,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_small_empty" translatesAutoresizingMaskIntoConstraints="NO" id="YbZ-hk-hyo">
                         <rect key="frame" x="153" y="48" width="17" height="15"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="17" id="15F-Is-16a"/>
                             <constraint firstAttribute="width" secondItem="YbZ-hk-hyo" secondAttribute="height" multiplier="34:30" id="HD8-jh-92y"/>
@@ -137,6 +146,7 @@
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_small_empty" translatesAutoresizingMaskIntoConstraints="NO" id="ejs-og-pNB">
                         <rect key="frame" x="173" y="48" width="17" height="15"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="ejs-og-pNB" secondAttribute="height" multiplier="34:30" id="3Hn-63-qhu"/>
                             <constraint firstAttribute="width" secondItem="ejs-og-pNB" secondAttribute="height" multiplier="17:15" id="JZB-HE-pTy"/>

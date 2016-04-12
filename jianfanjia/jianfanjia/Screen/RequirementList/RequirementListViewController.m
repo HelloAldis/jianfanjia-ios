@@ -38,11 +38,11 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self refreshRequirements:YES];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self refreshRequirements:YES];
     [self showTabbar];
 }
 

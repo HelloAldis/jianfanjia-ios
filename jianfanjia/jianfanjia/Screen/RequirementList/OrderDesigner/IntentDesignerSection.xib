@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -35,7 +35,6 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="aRO-1u-pGJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="83Z-J0-bGS"/>
-                <constraint firstItem="aRO-1u-pGJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="11" id="AKY-LL-9po"/>
                 <constraint firstItem="ezo-7c-OgE" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="BlQ-Q6-wMd"/>
                 <constraint firstAttribute="trailing" secondItem="wdJ-BB-a29" secondAttribute="trailing" constant="10" id="DOV-0J-AQy"/>
                 <constraint firstItem="ezo-7c-OgE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Nkk-cA-H62"/>
@@ -45,11 +44,6 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <variation key="default">
-                <mask key="constraints">
-                    <exclude reference="AKY-LL-9po"/>
-                </mask>
-            </variation>
             <connections>
                 <outlet property="btnMore" destination="wdJ-BB-a29" id="h8E-Kg-I3X"/>
             </connections>

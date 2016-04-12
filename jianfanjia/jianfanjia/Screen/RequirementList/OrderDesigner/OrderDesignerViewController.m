@@ -156,13 +156,12 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
-    view.tintColor = [UIColor clearColor];
+    view.tintColor = tableView.backgroundColor;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
         MatchDesignerSection *section = [MatchDesignerSection sectionView];
-        [section.btnChooseAll addTarget:self action:@selector(onChooseAll) forControlEvents:UIControlEventTouchUpInside];
         return section;
     } else {
         IntentDesignerSection *section = [IntentDesignerSection sectionView];
@@ -190,14 +189,6 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 }
 
 #pragma mark - user action
-- (void)onChooseAll {
-    @weakify(self);
-    [self.requirementDataManager.recommendedDesigners enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        @strongify(self);
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForItem:idx inSection:0] animated:YES scrollPosition:UITableViewScrollPositionNone];
-    }];
-}
-
 - (void)onClickMore {
     [ViewControllerContainer showDesignerList];
     self.wasClickMore = YES;
