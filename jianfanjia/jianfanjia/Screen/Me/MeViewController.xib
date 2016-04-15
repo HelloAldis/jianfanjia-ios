@@ -28,7 +28,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="841"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fq0-hI-rOM">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="825"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="771"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_my" translatesAutoresizingMaskIntoConstraints="NO" id="PTZ-eg-d8P">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="425"/>
@@ -218,7 +218,7 @@
                                         <constraint firstItem="uab-Ek-1aa" firstAttribute="centerY" secondItem="rig-Ud-8Jm" secondAttribute="centerY" id="wgr-CX-oSf"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozg-re-WK0" userLabel="AccountView">
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ozg-re-WK0" userLabel="AccountView">
                                     <rect key="frame" x="0.0" y="525" width="600" height="44"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMo-0h-VWy" userLabel="帐号绑定">
@@ -279,7 +279,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uaV-TI-THJ">
-                                    <rect key="frame" x="0.0" y="579" width="600" height="132"/>
+                                    <rect key="frame" x="0.0" y="525" width="600" height="132"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzH-qr-hRG">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -476,7 +476,7 @@
                                     </variation>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMc-N8-RcZ">
-                                    <rect key="frame" x="0.0" y="721" width="600" height="44"/>
+                                    <rect key="frame" x="0.0" y="667" width="600" height="44"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TbT-i2-IT9">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -529,7 +529,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tps-yf-6yL">
-                                    <rect key="frame" x="0.0" y="775" width="600" height="50"/>
+                                    <rect key="frame" x="0.0" y="721" width="600" height="50"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYV-FT-WdW">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
@@ -590,6 +590,7 @@
                                 <constraint firstItem="s3D-Md-m3S" firstAttribute="top" secondItem="dgH-KV-wJY" secondAttribute="bottom" constant="5" id="nTs-WU-fp5"/>
                                 <constraint firstItem="ZZk-g9-40R" firstAttribute="width" secondItem="buh-aK-8VY" secondAttribute="width" id="na9-eI-Pws"/>
                                 <constraint firstItem="dgH-KV-wJY" firstAttribute="width" secondItem="Fq0-hI-rOM" secondAttribute="width" id="oMm-j4-ZuF"/>
+                                <constraint firstItem="uaV-TI-THJ" firstAttribute="top" secondItem="2af-8E-hWh" secondAttribute="bottom" constant="10" id="oeX-4T-h3e"/>
                                 <constraint firstAttribute="bottom" secondItem="Tps-yf-6yL" secondAttribute="bottom" id="r6O-KP-RDD"/>
                                 <constraint firstItem="uaV-TI-THJ" firstAttribute="leading" secondItem="Fq0-hI-rOM" secondAttribute="leading" id="tqt-2E-0pW"/>
                                 <constraint firstItem="rT3-SP-9Wu" firstAttribute="width" secondItem="buh-aK-8VY" secondAttribute="width" id="ufi-sm-UIj"/>
@@ -597,6 +598,11 @@
                                 <constraint firstItem="2af-8E-hWh" firstAttribute="top" secondItem="PTZ-eg-d8P" secondAttribute="bottom" id="zFv-Gn-riB"/>
                                 <constraint firstItem="dgH-KV-wJY" firstAttribute="centerX" secondItem="Fq0-hI-rOM" secondAttribute="centerX" id="zH0-M5-19e"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="Yat-4C-IXi"/>
+                                </mask>
+                            </variation>
                         </view>
                     </subviews>
                     <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>

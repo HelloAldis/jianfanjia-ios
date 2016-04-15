@@ -38,8 +38,8 @@ CGFloat kBannerCellHeight;
 
 - (void)awakeFromNib {
     CGFloat height = kBannerCellHeight;
-    self.imgs = @[@"banner_1", @"banner_2", @"banner_3"];
-    self.urls = @[@"view/zt/supervision/", @"view/zt/safeguard/", kPkg365Url];
+    self.imgs = @[@"banner_3", @"banner_1", @"banner_2"];
+    self.urls = @[kPkg365Url, @"view/zt/supervision/", @"view/zt/safeguard/"];
     
     self.imgViews = [NSMutableArray array];
     for (NSInteger i = 0; i < 3; i++) {

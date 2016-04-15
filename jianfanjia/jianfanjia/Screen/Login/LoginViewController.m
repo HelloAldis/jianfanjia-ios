@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnForgetPwd;
 @property (weak, nonatomic) IBOutlet UIView *viewLogin;
 @property (weak, nonatomic) IBOutlet UIView *viewSignup;
+@property (weak, nonatomic) IBOutlet UIView *viewThirdParty;
 
 @property (weak, nonatomic) IBOutlet UITextField *fldSignupPhone;
 @property (weak, nonatomic) IBOutlet UITextField *fldSignupPassword;
@@ -56,13 +57,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.showSignup) {
-        self.isShowingLogin = YES;
-        [self showSignupView:NO];
-    } else {
-        self.isShowingLogin = NO;
-        [self showLoginView:NO];
-    }
+    
+    self.viewThirdParty.hidden = ![JYZSocialSnsConfigCenter isWXAppInstalled];
 }
 
 #pragma mark - UI
@@ -168,13 +164,20 @@
     [self setLeftPadding:self.fldSignupPassword withImage:[UIImage imageNamed:@"icon_account_pwd"]];
     
     if (kIs35inchScreen || kIs40inchScreen) {
-        self.headViewHeightConstraint.constant = 50;
-        self.loginPhoneFldTopConstraint.constant = 5;
-        self.loginPwdFldTopConstraint.constant = 5;
+        self.loginPhoneFldTopConstraint.constant = 15;
+        self.loginPwdFldTopConstraint.constant = 15;
         self.loginTopConstraint.constant = 25;
-        self.signupPhoneFldTopConstraint.constant = 5;
-        self.signupPwdFldTopConstraint.constant = 5;
+        self.signupPhoneFldTopConstraint.constant = 15;
+        self.signupPwdFldTopConstraint.constant = 15;
         self.nextTopConstraint.constant = 25;
+    }
+    
+    if (self.showSignup) {
+        self.isShowingLogin = YES;
+        [self showSignupView:NO];
+    } else {
+        self.isShowingLogin = NO;
+        [self showLoginView:NO];
     }
 }
 
