@@ -1,0 +1,15 @@
+xcodeproj './jianfanjia-supervisor.xcodeproj'
+
+platform :ios, '8.0'
+pod 'YYWebImage', '~> 0.9.12'
+pod 'AFNetworking', '~> 2.0'
+pod 'AFNetworkActivityLogger', '~> 2.0'
+pod 'CocoaLumberjack'
+pod 'MJRefresh', '~> 2.4.7'
+pod 'ReactiveCocoa', '~> 2.5'
+pod 'MBProgressHUD', '~> 0.9.1'
+pod 'GVUserDefaults'
+pod 'FLEX', '~> 2.1', :configurations => ['Debug']
+pod 'SSKeychain', '~> 1.2.3'
+pod 'UMengAnalytics'
+pod 'GTSDK'
