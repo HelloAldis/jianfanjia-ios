@@ -8,76 +8,14 @@
 
 #import "API.h"
 
-static AFHTTPRequestOperationManager *_manager;
-
 @implementation API
-
-+ (void)initialize {
-    _manager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:[NSURL URLWithString:kApiUrl]];
-    _manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    _manager.requestSerializer.HTTPShouldHandleCookies = YES;
-    _manager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-    AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
-    serializer.removesKeysWithNullValues = YES;
-    _manager.responseSerializer = serializer;
-}
-
-+ (void)clearCookie {
-    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    for (NSHTTPCookie *cookie in [storage cookies]) {
-        [storage deleteCookie:cookie];
-    }
-}
-
-+ (void)GET:(NSString *)url handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))networkError {
-    [request pre];
-    [_manager GET:url
-       parameters:nil
-          success:^(AFHTTPRequestOperation *operation, id responseObject){
-               [request handle:responseObject success:success failure:failure];
-          }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              [request handleHttpError:error networkError:networkError];
-          }];
-}
-
-+ (void)POST:(NSString *)url data:(NSDictionary *)data handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))networkError {
-    [request pre];
-    [_manager POST:url
-       parameters:data
-          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-              [request handle:responseObject success:success failure:failure];
-   
-          }
-          failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-              [request handleHttpError:error networkError:networkError];
-          }];
-}
-
-+ (void)uploadImage:(UIImage *)image handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))networkError {
-    [request pre];
-    
-    NSString *url = [NSString stringWithFormat:@"%@%@", kApiUrl, @"image/upload"];
-    NSMutableURLRequest *mutableRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-    mutableRequest.HTTPMethod = @"POST";
-    [mutableRequest setValue:@"image/jpeg" forHTTPHeaderField:@"Content-Type"];
-    [mutableRequest setHTTPBody:[image data]];
-
-    AFHTTPRequestOperation *operation = [_manager HTTPRequestOperationWithRequest:mutableRequest success:^(AFHTTPRequestOperation * _Nonnull operation, id  _Nonnull responseObject) {
-        [request handle:responseObject success:success failure:failure];
-    } failure:^(AFHTTPRequestOperation * operation, NSError *error) {
-        [request handleHttpError:error networkError:networkError];
-    }];
-    
-    [_manager.operationQueue addOperation:operation];
-}
-
-+ (void)sendVerifyCode:(SendVerifyCode *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"send_verify_code" data:[request data] handler:request success:success failure:failure networkError:error];
-}
 
 + (void)userLogin:(UserLogin *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"user_login" data:[request data] handler:request success:success failure:failure networkError:error];
+}
+
++ (void)userSignup:(UserSignup *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"user_signup" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
 + (void)getUserRequirement:(GetUserRequirement *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
@@ -124,29 +62,12 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"user/plan/final" data:[request data] handler:request success:success failure:failure networkError:error];
 }
 
-+ (void)leaveComment:(LeaveComment *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"add_comment" data:[request data] handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)getComments:(GetComments *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"topic_comments" data:[request data] handler:request success:success failure:failure networkError:error];
-}
-
 + (void)startDecoration:(StartDecorationProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"user/process" data:[request data] handler:request success:success failure:failure networkError:error];
 }
 
 + (void)getProcessList:(ProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API GET:@"process/list" handler:request success:success failure:success networkError:error];
-}
-
-+ (void)getProcess:(GetProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    if (request.processid.length > 0) {
-        NSString *url = [NSString stringWithFormat:@"process/%@", request.processid];
-        [API GET:url handler:request success:success failure:success networkError:error];
-    } else {
-        success();
-    }
 }
 
 + (void)productHomePage:(ProductHomePage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
@@ -157,20 +78,8 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"designer_home_page" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
-+ (void) queryProduct:(QueryProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
++ (void)queryProduct:(QueryProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"search_designer_product" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)verifyPhone:(VerifyPhone *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"verify_phone" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)userSignup:(UserSignup *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"user_signup" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)updatePass:(UpdatePass *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"update_pass" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
 + (void)addFavoriateDesigner:(AddFavoriateDesigner *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
@@ -207,26 +116,6 @@ static AFHTTPRequestOperationManager *_manager;
 
 + (void)sectionDone:(SectionDone *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"process/done_section" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)getRescheduleNotification:(GetRescheduleNotification *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API GET:@"process/reschedule/all" handler:request success:success failure:success networkError:error];
-}
-
-+ (void)reschedule:(Reschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"process/reschedule" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)agreeReschedule:(AgreeReschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"process/reschedule/ok" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)rejectReschedule:(RejectReschedule *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"process/reschedule/reject" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)feedback:(Feedback *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"feedback" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
 + (void)searchBeautifulImage:(SearchBeautifulImage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
@@ -296,93 +185,12 @@ static AFHTTPRequestOperationManager *_manager;
     [API POST:@"user_message_detail" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
-+ (void)getUserUnreadCount:(GetUserUnreadCount *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"unread_user_message_count" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
 + (void)searchUserComment:(SearchUserComment *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"search_user_comment" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
 + (void)searchDecLive:(SearchDecLive *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"search_share" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-#pragma mark - designer api
-+ (void)designerRefreshSession:(RefreshSession *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_refresh_session" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerLogin:(DesignerLogin *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_login" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerSignup:(DesignerSignup *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_signup" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerGetInfo:(DesignerGetInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API GET:@"designer/info" handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)getDesignerProcess:(GetDesignerProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API GET:@"process/list" handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerGetUserRequirement:(DesignerGetUserRequirements *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_get_user_requirements" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerGetRequirementPlan:(DesignerGetRequirementPlans *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_requirement_plans" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerRejectUser:(DesignerRejectUser *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer/user/reject" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerRespondUser:(DesignerRespondUser *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer/user/ok" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerConfigAgreement:(DesignerConfigAgreement *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"config_contract" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerDoneSectionItem:(DesignerDoneSectionItem *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"process/done_item" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerUploadYsImage:(UploadYsImageToProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"process/ysimage" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerDeleteYsImage:(DeleteYsImageFromProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"process/ysimage/delete" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerNotifyUserToDBYS:(NotifyUserToDBYS *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"process/can_ys" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)searchDesignerNotification:(SearchDesignerNotification *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"search_designer_message" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)getDesignerNotificationDetail:(GetDesignerNotificationDetail *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_message_detail" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)getDesignerUnreadCount:(GetDesignerUnreadCount *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"unread_designer_message_count" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)searchDesignerComment:(SearchDesignerComment *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"search_designer_comment" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerNotifyUserToConfirmMeasureHouse:(DesignerNotifyUserToConfirmMeasureHouse *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_remind_user_house_check" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
 @end

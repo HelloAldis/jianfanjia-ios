@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		6804A7011CA5312400E7A9AF /* AutoScrollUIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */; };
+		680C40DA1CC4BB31008C4BC0 /* BaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40D91CC4BB30008C4BC0 /* BaseAPI.m */; };
+		680C40DF1CC4BB38008C4BC0 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40DE1CC4BB38008C4BC0 /* API.m */; };
+		680C40E21CC4BE84008C4BC0 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40E11CC4BE84008C4BC0 /* APIManager.m */; };
 		680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchBeautifulImage.m */; };
 		680F49271C240E400055C16C /* BeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49261C240E400055C16C /* BeautifulImage.m */; };
 		680F492A1C240F910055C16C /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49291C240F910055C16C /* LeafImage.m */; };
@@ -338,7 +341,6 @@
 		6E06CC2D1C2BF97800A08D15 /* FavoriteDesignerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC291C2BF97800A08D15 /* FavoriteDesignerCell.m */; };
 		6E06CC2E1C2BF97800A08D15 /* FavoriteDesignerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E06CC2A1C2BF97800A08D15 /* FavoriteDesignerCell.xib */; };
 		6E06CC2F1C2BF97800A08D15 /* FavoriteDesignerData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E06CC2C1C2BF97800A08D15 /* FavoriteDesignerData.m */; };
-		6E07DAA51BD88DBE001461DD /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA471BD88DBE001461DD /* API.m */; };
 		6E07DAA61BD88DBE001461DD /* BaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4A1BD88DBE001461DD /* BaseRequest.m */; };
 		6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4C1BD88DBE001461DD /* GetProcess.m */; };
 		6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA4E1BD88DBE001461DD /* GetUserRequirement.m */; };
@@ -461,7 +463,6 @@
 		6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6EE34D831C1174DD00C6957E /* StringUtil.m */; };
 		AB0084E71C146E0C00B23C7D /* BaseSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB0084E61C146E0C00B23C7D /* BaseSelectionViewController.m */; };
 		AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF871C0F2F76003680BA /* SectionDone.m */; };
-		AB4CAF8B1C0F35E8003680BA /* GetRescheduleNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8A1C0F35E8003680BA /* GetRescheduleNotification.m */; };
 		AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF8D1C0F361B003680BA /* Reschedule.m */; };
 		AB4CAF911C0F36D2003680BA /* AgreeReschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF901C0F36D2003680BA /* AgreeReschedule.m */; };
 		AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */ = {isa = PBXBuildFile; fileRef = AB4CAF931C0F3703003680BA /* RejectReschedule.m */; };
@@ -486,6 +487,13 @@
 		44D2BD40530E2CA1D84D921D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6804A6FF1CA5312400E7A9AF /* AutoScrollUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollUIScrollView.h; sourceTree = "<group>"; };
 		6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollUIScrollView.m; sourceTree = "<group>"; };
+		680C40D81CC4BB30008C4BC0 /* BaseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAPI.h; sourceTree = "<group>"; };
+		680C40D91CC4BB30008C4BC0 /* BaseAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAPI.m; sourceTree = "<group>"; };
+		680C40DD1CC4BB38008C4BC0 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
+		680C40DE1CC4BB38008C4BC0 /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
+		680C40E01CC4BE84008C4BC0 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		680C40E11CC4BE84008C4BC0 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		680C40E61CC4C6FE008C4BC0 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
 		680F49221C2408130055C16C /* SearchBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBeautifulImage.h; sourceTree = "<group>"; };
 		680F49231C2408130055C16C /* SearchBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBeautifulImage.m; sourceTree = "<group>"; };
 		680F49251C240E400055C16C /* BeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImage.h; sourceTree = "<group>"; };
@@ -1046,8 +1054,6 @@
 		6E06CC2A1C2BF97800A08D15 /* FavoriteDesignerCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteDesignerCell.xib; sourceTree = "<group>"; };
 		6E06CC2B1C2BF97800A08D15 /* FavoriteDesignerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriteDesignerData.h; sourceTree = "<group>"; };
 		6E06CC2C1C2BF97800A08D15 /* FavoriteDesignerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDesignerData.m; sourceTree = "<group>"; };
-		6E07DA461BD88DBE001461DD /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
-		6E07DA471BD88DBE001461DD /* API.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = API.m; sourceTree = "<group>"; };
 		6E07DA491BD88DBE001461DD /* BaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRequest.h; sourceTree = "<group>"; };
 		6E07DA4A1BD88DBE001461DD /* BaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseRequest.m; sourceTree = "<group>"; };
 		6E07DA4B1BD88DBE001461DD /* GetProcess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetProcess.h; sourceTree = "<group>"; };
@@ -1058,7 +1064,6 @@
 		6E07DA501BD88DBE001461DD /* UserLogin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLogin.m; sourceTree = "<group>"; };
 		6E07DA511BD88DBE001461DD /* ProcessList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessList.h; sourceTree = "<group>"; };
 		6E07DA521BD88DBE001461DD /* ProcessList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessList.m; sourceTree = "<group>"; };
-		6E07DA531BD88DBE001461DD /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
 		6E07DA541BD88DBE001461DD /* SendVerifyCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendVerifyCode.h; sourceTree = "<group>"; };
 		6E07DA551BD88DBE001461DD /* SendVerifyCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendVerifyCode.m; sourceTree = "<group>"; };
 		6E07DA571BD88DBE001461DD /* AccountBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountBusiness.h; sourceTree = "<group>"; };
@@ -1280,8 +1285,6 @@
 		AB489B821C1B085E00E1BA4B /* UIBarButtonItem+Badge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Badge.h"; sourceTree = "<group>"; };
 		AB4CAF861C0F2F76003680BA /* SectionDone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionDone.h; sourceTree = "<group>"; };
 		AB4CAF871C0F2F76003680BA /* SectionDone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionDone.m; sourceTree = "<group>"; };
-		AB4CAF891C0F35E8003680BA /* GetRescheduleNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetRescheduleNotification.h; sourceTree = "<group>"; };
-		AB4CAF8A1C0F35E8003680BA /* GetRescheduleNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetRescheduleNotification.m; sourceTree = "<group>"; };
 		AB4CAF8C1C0F361B003680BA /* Reschedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reschedule.h; sourceTree = "<group>"; };
 		AB4CAF8D1C0F361B003680BA /* Reschedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reschedule.m; sourceTree = "<group>"; };
 		AB4CAF8F1C0F36D2003680BA /* AgreeReschedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgreeReschedule.h; sourceTree = "<group>"; };
@@ -1321,6 +1324,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		680C40DB1CC4BB38008C4BC0 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				680C40DC1CC4BB38008C4BC0 /* API */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		680C40DC1CC4BB38008C4BC0 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				680C40E61CC4C6FE008C4BC0 /* Request.h */,
+				680C40DD1CC4BB38008C4BC0 /* API.h */,
+				680C40DE1CC4BB38008C4BC0 /* API.m */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		68123B741C47D15C008FC9AB /* Social */ = {
 			isa = PBXGroup;
 			children = (
@@ -1953,8 +1974,10 @@
 		6E07DA451BD88DBE001461DD /* API */ = {
 			isa = PBXGroup;
 			children = (
-				6E07DA461BD88DBE001461DD /* API.h */,
-				6E07DA471BD88DBE001461DD /* API.m */,
+				680C40E01CC4BE84008C4BC0 /* APIManager.h */,
+				680C40E11CC4BE84008C4BC0 /* APIManager.m */,
+				680C40D81CC4BB30008C4BC0 /* BaseAPI.h */,
+				680C40D91CC4BB30008C4BC0 /* BaseAPI.m */,
 				6E07DA481BD88DBE001461DD /* Request */,
 			);
 			path = API;
@@ -1976,7 +1999,6 @@
 				6E07DA511BD88DBE001461DD /* ProcessList.h */,
 				6E07DA521BD88DBE001461DD /* ProcessList.m */,
 				68B10CCE1C7EFF9E005866C1 /* BeautifulImageHomePageProtocol.h */,
-				6E07DA531BD88DBE001461DD /* Request.h */,
 				6E07DA541BD88DBE001461DD /* SendVerifyCode.h */,
 				6E07DA551BD88DBE001461DD /* SendVerifyCode.m */,
 				6E6D98F21BE35DD000D45F77 /* ProductHomePage.h */,
@@ -2035,8 +2057,6 @@
 				6EE34D531C0EC5C200C6957E /* UserGetInfo.m */,
 				AB4CAF861C0F2F76003680BA /* SectionDone.h */,
 				AB4CAF871C0F2F76003680BA /* SectionDone.m */,
-				AB4CAF891C0F35E8003680BA /* GetRescheduleNotification.h */,
-				AB4CAF8A1C0F35E8003680BA /* GetRescheduleNotification.m */,
 				AB4CAF8C1C0F361B003680BA /* Reschedule.h */,
 				AB4CAF8D1C0F361B003680BA /* Reschedule.m */,
 				AB4CAF8F1C0F36D2003680BA /* AgreeReschedule.h */,
@@ -2286,6 +2306,7 @@
 			isa = PBXGroup;
 			children = (
 				6E07DA441BD88DBE001461DD /* common */,
+				680C40DB1CC4BB38008C4BC0 /* General */,
 				6EC3A98B1B8ACFD300A62153 /* Screen */,
 				6E20B2291B87223600E3A8DA /* AppDelegate.h */,
 				6E20B22A1B87223600E3A8DA /* AppDelegate.m */,
@@ -3199,9 +3220,9 @@
 				6E06CC261C2BA51800A08D15 /* FavoriateBeautifulImageCell.m in Sources */,
 				685CD5DC1C02FA7400EC1991 /* ChoosePlan.m in Sources */,
 				683669101BFF1A8F006A5053 /* GetRequirementPlans.m in Sources */,
+				680C40DA1CC4BB31008C4BC0 /* BaseAPI.m in Sources */,
 				684A370A1BFD733500F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.m in Sources */,
 				6EE34D841C1174DD00C6957E /* StringUtil.m in Sources */,
-				6E07DAA51BD88DBE001461DD /* API.m in Sources */,
 				68B10CB01C781C10005866C1 /* SearchViewController.m in Sources */,
 				684A37641BFDDCB100F7388C /* ConfirmMeasuringHouse.m in Sources */,
 				6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */,
@@ -3227,11 +3248,11 @@
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
 				685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */,
+				680C40DF1CC4BB38008C4BC0 /* API.m in Sources */,
 				6E06CC191C294DBF00A08D15 /* DeleteFavoriateProduct.m in Sources */,
 				6E06CC0B1C29447E00A08D15 /* ListFavoriateProduct.m in Sources */,
 				6EE34D6C1C0ED49E00C6957E /* CoreDataManager.m in Sources */,
 				6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */,
-				AB4CAF8B1C0F35E8003680BA /* GetRescheduleNotification.m in Sources */,
 				6855E62E1BFAB87A00E789D4 /* RequirementDataManager.m in Sources */,
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
 				AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */,
@@ -3249,6 +3270,7 @@
 				688517731C926FDC000B01DB /* DecCommentInfoCell.m in Sources */,
 				68123C531C4C8B99008FC9AB /* DateAlertViewController.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
+				680C40E21CC4BE84008C4BC0 /* APIManager.m in Sources */,
 				6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */,
 				68123B5C1C47BBBD008FC9AB /* DropdownMenuView.m in Sources */,
 				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,

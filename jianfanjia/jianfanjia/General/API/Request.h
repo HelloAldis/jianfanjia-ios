@@ -42,7 +42,6 @@
 #import "UserGetInfo.h"
 #import "UpdateUserInfo.h"
 #import "SectionDone.h"
-#import "GetRescheduleNotification.h"
 #import "Reschedule.h"
 #import "AgreeReschedule.h"
 #import "RejectReschedule.h"
@@ -65,28 +64,8 @@
 #import "SearchUserNotification.h"
 #import "GetUserNotificationDetail.h"
 #import "GetUserUnreadCount.h"
+#import "GetDesignerUnreadCount.h"
 #import "SearchUserComment.h"
 #import "SearchDecLive.h"
-
-#pragma mark - designer request
-
-#import "DesignerLogin.h"
-#import "DesignerSignup.h"
-#import "DesignerGetInfo.h"
-#import "GetDesignerProcess.h"
-#import "DesignerGetUserRequirements.h"
-#import "DesignerGetRequirementPlans.h"
-#import "DesignerRejectUser.h"
-#import "DesignerRespondUser.h"
-#import "DesignerConfigAgreement.h"
-#import "DesignerDoneSectionItem.h"
-#import "UploadYsImageToProcess.h"
-#import "DeleteYsImageFromProcess.h"
-#import "NotifyUserToDBYS.h"
-#import "SearchDesignerComment.h"
-#import "SearchDesignerNotification.h"
-#import "GetDesignerNotificationDetail.h"
-#import "GetDesignerUnreadCount.h"
-#import "DesignerNotifyUserToConfirmMeasureHouse.h"
 
 #endif

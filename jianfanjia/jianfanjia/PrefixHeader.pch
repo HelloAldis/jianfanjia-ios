@@ -26,7 +26,6 @@
   #import "Model.h"
   #import "Constant.h"
   #import "API.h"
-  #import "CD.h"
   #import "JYZSocial.h"
   #import "LoginEngine.h"
 
