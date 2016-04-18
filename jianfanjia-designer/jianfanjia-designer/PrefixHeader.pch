@@ -24,7 +24,6 @@
 #import "Manager.h"
 #import "Model.h"
 #import "API.h"
-#import "CD.h"
 #endif
 
 //#define DEBUG

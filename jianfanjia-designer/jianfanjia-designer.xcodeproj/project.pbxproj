@@ -29,9 +29,6 @@
 		68123C9B1C4C9772008FC9AB /* province2city.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C871C4C9772008FC9AB /* province2city.js */; };
 		68123C9C1C4C9772008FC9AB /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C891C4C9772008FC9AB /* SelectCityViewController.m */; };
 		68123C9D1C4C9772008FC9AB /* SelectCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C8A1C4C9772008FC9AB /* SelectCityViewController.xib */; };
-		68123CA81C4C97BC008FC9AB /* NotificationCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CA21C4C97BC008FC9AB /* NotificationCD.m */; };
-		68123CA91C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CA41C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m */; };
-		68123CAA1C4C97BC008FC9AB /* NotificationToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CA61C4C97BC008FC9AB /* NotificationToData.m */; };
 		68123CE21C4C99C9008FC9AB /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CD31C4C99C8008FC9AB /* Aspects.m */; };
 		68123CE31C4C99C9008FC9AB /* BaseDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CD51C4C99C8008FC9AB /* BaseDynamicObject.m */; };
 		68123CE41C4C99C9008FC9AB /* HUDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CD71C4C99C8008FC9AB /* HUDUtil.m */; };
@@ -293,19 +290,6 @@
 		6E378D361BDA2D2E00908B77 /* AccountBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CE11BDA2D2E00908B77 /* AccountBusiness.m */; };
 		6E378D371BDA2D2E00908B77 /* Bc.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CE31BDA2D2E00908B77 /* Bc.m */; };
 		6E378D381BDA2D2E00908B77 /* ProcessBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CE61BDA2D2E00908B77 /* ProcessBusiness.m */; };
-		6E378D391BDA2D2E00908B77 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CE91BDA2D2E00908B77 /* CoreDataManager.m */; };
-		6E378D3A1BDA2D2E00908B77 /* DesignerCD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CEB1BDA2D2E00908B77 /* DesignerCD+CoreDataProperties.m */; };
-		6E378D3B1BDA2D2E00908B77 /* DesignerCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CED1BDA2D2E00908B77 /* DesignerCD.m */; };
-		6E378D3C1BDA2D2E00908B77 /* DesignerToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CEF1BDA2D2E00908B77 /* DesignerToData.m */; };
-		6E378D3D1BDA2D2E00908B77 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CF01BDA2D2E00908B77 /* Model.xcdatamodeld */; };
-		6E378D3E1BDA2D2E00908B77 /* ProcessCD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CF31BDA2D2E00908B77 /* ProcessCD+CoreDataProperties.m */; };
-		6E378D3F1BDA2D2E00908B77 /* ProcessCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CF51BDA2D2E00908B77 /* ProcessCD.m */; };
-		6E378D401BDA2D2E00908B77 /* ProcessToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CF71BDA2D2E00908B77 /* ProcessToData.m */; };
-		6E378D411BDA2D2E00908B77 /* UserCD+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CF91BDA2D2E00908B77 /* UserCD+CoreDataProperties.m */; };
-		6E378D421BDA2D2E00908B77 /* UserCD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CFB1BDA2D2E00908B77 /* UserCD.m */; };
-		6E378D431BDA2D2E00908B77 /* UserToData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378CFD1BDA2D2E00908B77 /* UserToData.m */; };
-		6E378D441BDA2D2E00908B77 /* NSManagedObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D011BDA2D2E00908B77 /* NSManagedObject+Ex.m */; };
-		6E378D451BDA2D2E00908B77 /* NSManagedObjectContext+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D031BDA2D2E00908B77 /* NSManagedObjectContext+Ex.m */; };
 		6E378D461BDA2D2E00908B77 /* NSObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D051BDA2D2E00908B77 /* NSObject+Ex.m */; };
 		6E378D471BDA2D2E00908B77 /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D071BDA2D2E00908B77 /* NSString+Ex.m */; };
 		6E378D481BDA2D2E00908B77 /* UIButton+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D091BDA2D2E00908B77 /* UIButton+Ex.m */; };
@@ -386,13 +370,6 @@
 		68123C881C4C9772008FC9AB /* SelectCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCityViewController.h; sourceTree = "<group>"; };
 		68123C891C4C9772008FC9AB /* SelectCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCityViewController.m; sourceTree = "<group>"; };
 		68123C8A1C4C9772008FC9AB /* SelectCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCityViewController.xib; sourceTree = "<group>"; };
-		68123C9E1C4C97BC008FC9AB /* CD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CD.h; sourceTree = "<group>"; };
-		68123CA11C4C97BC008FC9AB /* NotificationCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCD.h; sourceTree = "<group>"; };
-		68123CA21C4C97BC008FC9AB /* NotificationCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCD.m; sourceTree = "<group>"; };
-		68123CA31C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NotificationCD+CoreDataProperties.h"; sourceTree = "<group>"; };
-		68123CA41C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NotificationCD+CoreDataProperties.m"; sourceTree = "<group>"; };
-		68123CA51C4C97BC008FC9AB /* NotificationToData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationToData.h; sourceTree = "<group>"; };
-		68123CA61C4C97BC008FC9AB /* NotificationToData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationToData.m; sourceTree = "<group>"; };
 		68123CD21C4C99C8008FC9AB /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
 		68123CD31C4C99C8008FC9AB /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
 		68123CD41C4C99C8008FC9AB /* BaseDynamicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDynamicObject.h; sourceTree = "<group>"; };
@@ -854,32 +831,7 @@
 		6E378CE41BDA2D2E00908B77 /* Business.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Business.h; sourceTree = "<group>"; };
 		6E378CE51BDA2D2E00908B77 /* ProcessBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessBusiness.h; sourceTree = "<group>"; };
 		6E378CE61BDA2D2E00908B77 /* ProcessBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessBusiness.m; sourceTree = "<group>"; };
-		6E378CE81BDA2D2E00908B77 /* CoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
-		6E378CE91BDA2D2E00908B77 /* CoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
-		6E378CEA1BDA2D2E00908B77 /* DesignerCD+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DesignerCD+CoreDataProperties.h"; sourceTree = "<group>"; };
-		6E378CEB1BDA2D2E00908B77 /* DesignerCD+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DesignerCD+CoreDataProperties.m"; sourceTree = "<group>"; };
-		6E378CEC1BDA2D2E00908B77 /* DesignerCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerCD.h; sourceTree = "<group>"; };
-		6E378CED1BDA2D2E00908B77 /* DesignerCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerCD.m; sourceTree = "<group>"; };
-		6E378CEE1BDA2D2E00908B77 /* DesignerToData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerToData.h; sourceTree = "<group>"; };
-		6E378CEF1BDA2D2E00908B77 /* DesignerToData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerToData.m; sourceTree = "<group>"; };
-		6E378CF11BDA2D2E00908B77 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		6E378CF21BDA2D2E00908B77 /* ProcessCD+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ProcessCD+CoreDataProperties.h"; sourceTree = "<group>"; };
-		6E378CF31BDA2D2E00908B77 /* ProcessCD+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ProcessCD+CoreDataProperties.m"; sourceTree = "<group>"; };
-		6E378CF41BDA2D2E00908B77 /* ProcessCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessCD.h; sourceTree = "<group>"; };
-		6E378CF51BDA2D2E00908B77 /* ProcessCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessCD.m; sourceTree = "<group>"; };
-		6E378CF61BDA2D2E00908B77 /* ProcessToData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessToData.h; sourceTree = "<group>"; };
-		6E378CF71BDA2D2E00908B77 /* ProcessToData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessToData.m; sourceTree = "<group>"; };
-		6E378CF81BDA2D2E00908B77 /* UserCD+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UserCD+CoreDataProperties.h"; sourceTree = "<group>"; };
-		6E378CF91BDA2D2E00908B77 /* UserCD+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UserCD+CoreDataProperties.m"; sourceTree = "<group>"; };
-		6E378CFA1BDA2D2E00908B77 /* UserCD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCD.h; sourceTree = "<group>"; };
-		6E378CFB1BDA2D2E00908B77 /* UserCD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCD.m; sourceTree = "<group>"; };
-		6E378CFC1BDA2D2E00908B77 /* UserToData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserToData.h; sourceTree = "<group>"; };
-		6E378CFD1BDA2D2E00908B77 /* UserToData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserToData.m; sourceTree = "<group>"; };
 		6E378CFF1BDA2D2E00908B77 /* Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ex.h; sourceTree = "<group>"; };
-		6E378D001BDA2D2E00908B77 /* NSManagedObject+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObject+Ex.h"; sourceTree = "<group>"; };
-		6E378D011BDA2D2E00908B77 /* NSManagedObject+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObject+Ex.m"; sourceTree = "<group>"; };
-		6E378D021BDA2D2E00908B77 /* NSManagedObjectContext+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+Ex.h"; sourceTree = "<group>"; };
-		6E378D031BDA2D2E00908B77 /* NSManagedObjectContext+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+Ex.m"; sourceTree = "<group>"; };
 		6E378D041BDA2D2E00908B77 /* NSObject+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Ex.h"; sourceTree = "<group>"; };
 		6E378D051BDA2D2E00908B77 /* NSObject+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Ex.m"; sourceTree = "<group>"; };
 		6E378D061BDA2D2E00908B77 /* NSString+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ex.h"; sourceTree = "<group>"; };
@@ -1588,7 +1540,6 @@
 				68123C671C4C9772008FC9AB /* UIkit */,
 				6E378CCE1BDA2D2E00908B77 /* API */,
 				6E378CDF1BDA2D2E00908B77 /* Business */,
-				6E378CE71BDA2D2E00908B77 /* CoreData */,
 				6E378CFE1BDA2D2E00908B77 /* Extend */,
 				6E378D0E1BDA2D2E00908B77 /* Manager */,
 				6E378D141BDA2D2E00908B77 /* Model */,
@@ -1713,41 +1664,6 @@
 			path = Business;
 			sourceTree = "<group>";
 		};
-		6E378CE71BDA2D2E00908B77 /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				68123C9E1C4C97BC008FC9AB /* CD.h */,
-				68123CA11C4C97BC008FC9AB /* NotificationCD.h */,
-				68123CA21C4C97BC008FC9AB /* NotificationCD.m */,
-				68123CA31C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.h */,
-				68123CA41C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m */,
-				68123CA51C4C97BC008FC9AB /* NotificationToData.h */,
-				68123CA61C4C97BC008FC9AB /* NotificationToData.m */,
-				6E378CE81BDA2D2E00908B77 /* CoreDataManager.h */,
-				6E378CE91BDA2D2E00908B77 /* CoreDataManager.m */,
-				6E378CEA1BDA2D2E00908B77 /* DesignerCD+CoreDataProperties.h */,
-				6E378CEB1BDA2D2E00908B77 /* DesignerCD+CoreDataProperties.m */,
-				6E378CEC1BDA2D2E00908B77 /* DesignerCD.h */,
-				6E378CED1BDA2D2E00908B77 /* DesignerCD.m */,
-				6E378CEE1BDA2D2E00908B77 /* DesignerToData.h */,
-				6E378CEF1BDA2D2E00908B77 /* DesignerToData.m */,
-				6E378CF01BDA2D2E00908B77 /* Model.xcdatamodeld */,
-				6E378CF21BDA2D2E00908B77 /* ProcessCD+CoreDataProperties.h */,
-				6E378CF31BDA2D2E00908B77 /* ProcessCD+CoreDataProperties.m */,
-				6E378CF41BDA2D2E00908B77 /* ProcessCD.h */,
-				6E378CF51BDA2D2E00908B77 /* ProcessCD.m */,
-				6E378CF61BDA2D2E00908B77 /* ProcessToData.h */,
-				6E378CF71BDA2D2E00908B77 /* ProcessToData.m */,
-				6E378CF81BDA2D2E00908B77 /* UserCD+CoreDataProperties.h */,
-				6E378CF91BDA2D2E00908B77 /* UserCD+CoreDataProperties.m */,
-				6E378CFA1BDA2D2E00908B77 /* UserCD.h */,
-				6E378CFB1BDA2D2E00908B77 /* UserCD.m */,
-				6E378CFC1BDA2D2E00908B77 /* UserToData.h */,
-				6E378CFD1BDA2D2E00908B77 /* UserToData.m */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
 		6E378CFE1BDA2D2E00908B77 /* Extend */ = {
 			isa = PBXGroup;
 			children = (
@@ -1778,10 +1694,6 @@
 				681240101C4CDA06008FC9AB /* UIScrollView+Ex.h */,
 				681240111C4CDA06008FC9AB /* UIScrollView+Ex.m */,
 				6E378CFF1BDA2D2E00908B77 /* Ex.h */,
-				6E378D001BDA2D2E00908B77 /* NSManagedObject+Ex.h */,
-				6E378D011BDA2D2E00908B77 /* NSManagedObject+Ex.m */,
-				6E378D021BDA2D2E00908B77 /* NSManagedObjectContext+Ex.h */,
-				6E378D031BDA2D2E00908B77 /* NSManagedObjectContext+Ex.m */,
 				6E378D041BDA2D2E00908B77 /* NSObject+Ex.h */,
 				6E378D051BDA2D2E00908B77 /* NSObject+Ex.m */,
 				6E378D061BDA2D2E00908B77 /* NSString+Ex.h */,
@@ -2196,10 +2108,8 @@
 				681240B61C4CE471008FC9AB /* Feedback.m in Sources */,
 				68123F0B1C4CBE79008FC9AB /* SelectDecorationTypeViewController.m in Sources */,
 				6E378D501BDA2D2E00908B77 /* Item.m in Sources */,
-				6E378D391BDA2D2E00908B77 /* CoreDataManager.m in Sources */,
 				681240CB1C4CE471008FC9AB /* Reschedule.m in Sources */,
 				68123FDF1C4CCF4A008FC9AB /* Plan.m in Sources */,
-				68123CAA1C4C97BC008FC9AB /* NotificationToData.m in Sources */,
 				681240AF1C4CE471008FC9AB /* DeleteImageFromProcess.m in Sources */,
 				68F73D231CBB597E00E97710 /* PlanDesignerMeasuredHouse.m in Sources */,
 				681240C91C4CE471008FC9AB /* RejectReschedule.m in Sources */,
@@ -2210,10 +2120,8 @@
 				681240E81C4CF2CC008FC9AB /* ProcessCell.m in Sources */,
 				684B04341C990E910053FFDF /* BaseNotificationCell.m in Sources */,
 				684B03D21C98141F0053FFDF /* UITabBarItem+Badge.m in Sources */,
-				68123CA91C4C97BC008FC9AB /* NotificationCD+CoreDataProperties.m in Sources */,
 				6E378D4D1BDA2D2E00908B77 /* BaseModel.m in Sources */,
 				684B040D1C98F7060053FFDF /* DecCommentInfoCell.m in Sources */,
-				6E378D421BDA2D2E00908B77 /* UserCD.m in Sources */,
 				68123E841C4CBE79008FC9AB /* MeViewController.m in Sources */,
 				68E600591CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */,
 				684B040F1C98F7060053FFDF /* PlanCommentInfoCell.m in Sources */,
@@ -2230,9 +2138,7 @@
 				681240B81C4CE471008FC9AB /* GetComments.m in Sources */,
 				684B04351C990E910053FFDF /* MyNotificationDataManager.m in Sources */,
 				6E378D471BDA2D2E00908B77 /* NSString+Ex.m in Sources */,
-				6E378D3A1BDA2D2E00908B77 /* DesignerCD+CoreDataProperties.m in Sources */,
 				681241A91C4F3B1C008FC9AB /* RespondedActionCell.m in Sources */,
-				6E378D3F1BDA2D2E00908B77 /* ProcessCD.m in Sources */,
 				681240D61C4CE471008FC9AB /* UploadImageToProcess.m in Sources */,
 				6E378D541BDA2D2E00908B77 /* Ys.m in Sources */,
 				684B043C1C990E910053FFDF /* SystemAnnouncementCell.m in Sources */,
@@ -2289,9 +2195,7 @@
 				68123EFA1C4CBE79008FC9AB /* BaseSelectionViewController.m in Sources */,
 				68F73D351CBB597E00E97710 /* StatusBlock.m in Sources */,
 				6EA0C1A71C585C5B00D04A4F /* PlanPriceItemExpandCell.m in Sources */,
-				6E378D3E1BDA2D2E00908B77 /* ProcessCD+CoreDataProperties.m in Sources */,
 				68123C8D1C4C9772008FC9AB /* MessageAlertViewController.m in Sources */,
-				6E378D3D1BDA2D2E00908B77 /* Model.xcdatamodeld in Sources */,
 				681241901C4F2F35008FC9AB /* UnrespondActionCell.m in Sources */,
 				68123FDD1C4CCF4A008FC9AB /* Evaluation.m in Sources */,
 				6E378D4C1BDA2D2E00908B77 /* GVUserDefaults+Manager.m in Sources */,
@@ -2300,7 +2204,6 @@
 				68F73D2B1CBB597E00E97710 /* PlanWasNotChoosed.m in Sources */,
 				681240151C4CDA06008FC9AB /* NSNumber+Ex.m in Sources */,
 				682E04F31C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.m in Sources */,
-				6E378D3B1BDA2D2E00908B77 /* DesignerCD.m in Sources */,
 				684B04361C990E910053FFDF /* MyNotificationViewController.m in Sources */,
 				681240B21C4CE471008FC9AB /* DesignerLogin.m in Sources */,
 				681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */,
@@ -2310,14 +2213,11 @@
 				682E04FD1C588A6100F1ACAA /* NoRequirementImageView.m in Sources */,
 				6812401C1C4CDA06008FC9AB /* UIScrollView+Ex.m in Sources */,
 				68123EFF1C4CBE79008FC9AB /* HouseRequirementCreateViewController.m in Sources */,
-				6E378D411BDA2D2E00908B77 /* UserCD+CoreDataProperties.m in Sources */,
 				68123CEE1C4C99E9008FC9AB /* NotificationDataManager.m in Sources */,
 				68FB6ED51C51E0F1001C0613 /* DesignerConfigAgreement.m in Sources */,
 				68123CF11C4C9A15008FC9AB /* YsImage.m in Sources */,
-				6E378D3C1BDA2D2E00908B77 /* DesignerToData.m in Sources */,
 				6EA0C1991C577F7500D04A4F /* PlanPriceDetailViewController.m in Sources */,
 				681241A11C4F3B1C008FC9AB /* ChoosedPlanActionCell.m in Sources */,
-				6E378D401BDA2D2E00908B77 /* ProcessToData.m in Sources */,
 				681240B01C4CE471008FC9AB /* DesignerGetInfo.m in Sources */,
 				68123F011C4CBE79008FC9AB /* MultipleLineTextTableViewCell.m in Sources */,
 				6812401F1C4CDA78008FC9AB /* CollectionFallsFlowLayout.m in Sources */,
@@ -2329,7 +2229,6 @@
 				681240D51C4CE471008FC9AB /* UploadImage.m in Sources */,
 				68123EEE1C4CBE79008FC9AB /* PlanListViewController.m in Sources */,
 				68123CE51C4C99C9008FC9AB /* LeakMoniter.m in Sources */,
-				6E378D431BDA2D2E00908B77 /* UserToData.m in Sources */,
 				68123E6D1C4CBE79008FC9AB /* BaseViewController.m in Sources */,
 				68123CF41C4C9A34008FC9AB /* Notification.m in Sources */,
 				681240DE1C4CED53008FC9AB /* GetDesignerProcess.m in Sources */,
@@ -2342,7 +2241,6 @@
 				68123CE81C4C99C9008FC9AB /* StringUtil.m in Sources */,
 				68123CE71C4C99C9008FC9AB /* PhotoUtil.m in Sources */,
 				681241271C4CF2D5008FC9AB /* ProcessDataManager.m in Sources */,
-				6E378D451BDA2D2E00908B77 /* NSManagedObjectContext+Ex.m in Sources */,
 				68F73D291CBB597E00E97710 /* PlanUnorder.m in Sources */,
 				681241821C4F235B008FC9AB /* MyUserDataManager.m in Sources */,
 				68F73D211CBB597E00E97710 /* ElseStatus.m in Sources */,
@@ -2366,7 +2264,6 @@
 				68123F131C4CBE79008FC9AB /* SelectWorkTypeViewController.m in Sources */,
 				6812411D1C4CF2D5008FC9AB /* ItemExpandCheckCell.m in Sources */,
 				681241AE1C4F3BCF008FC9AB /* SubmitedPlanActionCell.m in Sources */,
-				6E378D441BDA2D2E00908B77 /* NSManagedObject+Ex.m in Sources */,
 				6E0426711BC757C500F984B8 /* AppDelegate.m in Sources */,
 				685F2D6E1CABC0A900DC4D43 /* UnexpandSectionActionView.m in Sources */,
 				68123F201C4CBE79008FC9AB /* WelcomeViewController.m in Sources */,
@@ -2394,7 +2291,6 @@
 				68123E781C4CBE79008FC9AB /* CustomerServiceViewController.m in Sources */,
 				681241191C4CF2D5008FC9AB /* DBYSViewController.m in Sources */,
 				68123F051C4CBE79008FC9AB /* SelectBusinessTypeViewController.m in Sources */,
-				68123CA81C4C97BC008FC9AB /* NotificationCD.m in Sources */,
 				6E378D4F1BDA2D2E00908B77 /* Designer.m in Sources */,
 				6812411B1C4CF2D5008FC9AB /* ItemCell.m in Sources */,
 				6EA0C1A21C57827A00D04A4F /* PlanPriceTotalCell.m in Sources */,
@@ -2669,19 +2565,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		6E378CF01BDA2D2E00908B77 /* Model.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				6E378CF11BDA2D2E00908B77 /* Model.xcdatamodel */,
-			);
-			currentVersion = 6E378CF11BDA2D2E00908B77 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 6E0426611BC757C500F984B8 /* Project object */;
 }

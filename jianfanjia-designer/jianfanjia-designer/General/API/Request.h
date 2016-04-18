@@ -11,7 +11,6 @@
 
 #import "SendVerifyCode.h"
 #import "GetUserRequirement.h"
-#import "GetRequirementPlans.h"
 #import "LeaveComment.h"
 #import "GetComments.h"
 #import "GetProcess.h"
