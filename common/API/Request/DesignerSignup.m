@@ -20,7 +20,6 @@
 
 - (void)success {
     [GVUserDefaults standardUserDefaults].phone = self.phone;
-//    [SSKeychain setPassword:self.pass forService:kKeychainService account:self.phone];
     [GVUserDefaults standardUserDefaults].loginDate = [[NSDate date] yyyy_MM_dd];
     
     NSMutableDictionary *dict = [DataManager shared].data;
@@ -40,8 +39,6 @@
         [GVUserDefaults standardUserDefaults].username = [designer username];
     }
     [GVUserDefaults standardUserDefaults].isLogin = YES;
-    [[NotificationDataManager shared] refreshUnreadCount];
-    [GeTuiSdk bindAlias:[GVUserDefaults standardUserDefaults].userid];
 }
 
 @end

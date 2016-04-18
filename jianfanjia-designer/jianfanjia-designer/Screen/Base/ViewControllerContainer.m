@@ -12,7 +12,6 @@
 #import "WelcomeViewController.h"
 #import "LoginViewController.h"
 #import "ProcessViewController.h"
-#import "LeftViewController.h"
 #import "TabViewController.h"
 #import "MeViewController.h"
 #import "RefreshViewController.h"

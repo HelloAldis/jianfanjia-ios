@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gJh-Em-3we" customClass="DecPackage365View">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="146"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示：您的装修预算不能低于基础费用" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6Q-EK-lYh">
+                    <rect key="frame" x="190" y="0.0" width="221" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="rer-Cn-tSk"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="1" green="0.2666666667" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="为了让您的装修预算更准确，特为您提供以下公式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nc-NY-7Gj">
+                    <rect key="frame" x="157" y="35" width="286" height="16"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="Y7G-g5-1YY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_pkg_group" translatesAutoresizingMaskIntoConstraints="NO" id="qrL-Qz-eQD">
+                    <rect key="frame" x="20" y="61" width="168" height="55"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="yNH-Vo-8vV"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="基础费用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eps-qD-QKe">
+                    <rect key="frame" x="76" y="99" width="56" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.65万元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="trS-Kq-Huv">
+                    <rect key="frame" x="79" y="61" width="50" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="MmM-6L-WBD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_pkg_add" translatesAutoresizingMaskIntoConstraints="NO" id="u71-ok-QbU">
+                    <rect key="frame" x="188" y="75" width="28" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="u71-ok-QbU" secondAttribute="height" multiplier="1:1" id="XUG-bW-Z02"/>
+                        <constraint firstAttribute="width" constant="28" id="zVE-hS-ddu"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_pkg_group" translatesAutoresizingMaskIntoConstraints="NO" id="7XO-AQ-8f0">
+                    <rect key="frame" x="216" y="61" width="168" height="55"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="个性化费用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ei6-Vh-Yl6">
+                    <rect key="frame" x="265" y="99" width="70" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6.35万元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o9t-NB-th7">
+                    <rect key="frame" x="275" y="61" width="50" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="mBZ-EB-PNs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_pkg_diamond" translatesAutoresizingMaskIntoConstraints="NO" id="WJE-BC-SRL">
+                    <rect key="frame" x="290" y="61" width="20" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="lUo-dB-YJj"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_pkg_eq" translatesAutoresizingMaskIntoConstraints="NO" id="638-Gb-tuI">
+                    <rect key="frame" x="384" y="75" width="28" height="28"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="28" id="UL0-4t-d4f"/>
+                        <constraint firstAttribute="width" secondItem="638-Gb-tuI" secondAttribute="height" multiplier="1:1" id="qyY-Cf-fHx"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_pkg_group" translatesAutoresizingMaskIntoConstraints="NO" id="Sox-83-tb0">
+                    <rect key="frame" x="412" y="61" width="168" height="55"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="装修总预算" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Z2-59-I31">
+                    <rect key="frame" x="461" y="99" width="70" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.00万元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJu-Ha-U6a">
+                    <rect key="frame" x="469" y="61" width="55" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="L0q-xY-nt2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_pkg_diamond" translatesAutoresizingMaskIntoConstraints="NO" id="acZ-bH-xGC">
+                    <rect key="frame" x="486" y="61" width="20" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="FeJ-Bw-Rnq"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wcj-YZ-v6u">
+                    <rect key="frame" x="192" y="116" width="217" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="3Ih-4C-eDX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="点击了解更多关于 '简繁家365基础包'">
+                        <color key="titleColor" red="1" green="0.4392156862745098" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onClickAbout:" destination="gJh-Em-3we" eventType="touchUpInside" id="ihB-Q1-3EK"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_pkg_info" translatesAutoresizingMaskIntoConstraints="NO" id="ZdS-vw-kQP">
+                    <rect key="frame" x="178" y="126" width="11" height="11"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="11" id="Nlv-aU-7Bq"/>
+                        <constraint firstAttribute="width" secondItem="ZdS-vw-kQP" secondAttribute="height" multiplier="1:1" id="g8E-Kt-YhR"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="6Z2-59-I31" firstAttribute="bottom" secondItem="Sox-83-tb0" secondAttribute="bottom" id="2lD-NJ-6tn"/>
+                <constraint firstItem="mJu-Ha-U6a" firstAttribute="top" secondItem="Sox-83-tb0" secondAttribute="top" id="3fy-gU-4FG"/>
+                <constraint firstItem="o9t-NB-th7" firstAttribute="centerX" secondItem="7XO-AQ-8f0" secondAttribute="centerX" id="4P2-ck-Hrt"/>
+                <constraint firstItem="p6Q-EK-lYh" firstAttribute="centerX" secondItem="gJh-Em-3we" secondAttribute="centerX" id="7UK-Cv-Eij"/>
+                <constraint firstItem="Wcj-YZ-v6u" firstAttribute="leading" secondItem="ZdS-vw-kQP" secondAttribute="trailing" constant="3" id="7Z0-Wq-Qnd"/>
+                <constraint firstItem="p6Q-EK-lYh" firstAttribute="top" secondItem="gJh-Em-3we" secondAttribute="top" id="Azy-yY-qBB"/>
+                <constraint firstItem="7XO-AQ-8f0" firstAttribute="height" secondItem="qrL-Qz-eQD" secondAttribute="height" id="BKL-Dg-6rw"/>
+                <constraint firstItem="Wcj-YZ-v6u" firstAttribute="top" secondItem="qrL-Qz-eQD" secondAttribute="bottom" id="Bat-bU-Dod"/>
+                <constraint firstItem="6Z2-59-I31" firstAttribute="centerX" secondItem="Sox-83-tb0" secondAttribute="centerX" id="Cnm-XR-wZF"/>
+                <constraint firstItem="Sox-83-tb0" firstAttribute="width" secondItem="qrL-Qz-eQD" secondAttribute="width" id="Cu6-CA-of4"/>
+                <constraint firstAttribute="trailing" secondItem="Sox-83-tb0" secondAttribute="trailing" constant="20" id="EqQ-Ga-Rt9"/>
+                <constraint firstItem="7XO-AQ-8f0" firstAttribute="leading" secondItem="u71-ok-QbU" secondAttribute="trailing" id="FEC-Uh-T9z"/>
+                <constraint firstItem="trS-Kq-Huv" firstAttribute="centerX" secondItem="qrL-Qz-eQD" secondAttribute="centerX" id="G9z-cK-X8X"/>
+                <constraint firstItem="eps-qD-QKe" firstAttribute="bottom" secondItem="qrL-Qz-eQD" secondAttribute="bottom" id="Iko-fY-e0r"/>
+                <constraint firstItem="638-Gb-tuI" firstAttribute="leading" secondItem="7XO-AQ-8f0" secondAttribute="trailing" id="JTq-wv-pTm"/>
+                <constraint firstItem="acZ-bH-xGC" firstAttribute="centerX" secondItem="Sox-83-tb0" secondAttribute="centerX" id="JU5-15-Joj"/>
+                <constraint firstItem="7XO-AQ-8f0" firstAttribute="centerY" secondItem="qrL-Qz-eQD" secondAttribute="centerY" id="NmX-jC-Hu3"/>
+                <constraint firstItem="u71-ok-QbU" firstAttribute="leading" secondItem="qrL-Qz-eQD" secondAttribute="trailing" id="S97-gj-9Zf"/>
+                <constraint firstItem="ei6-Vh-Yl6" firstAttribute="centerX" secondItem="7XO-AQ-8f0" secondAttribute="centerX" id="WZ1-pV-rFa"/>
+                <constraint firstItem="3nc-NY-7Gj" firstAttribute="top" secondItem="p6Q-EK-lYh" secondAttribute="bottom" constant="5" id="XIJ-4S-uKn"/>
+                <constraint firstItem="Sox-83-tb0" firstAttribute="height" secondItem="qrL-Qz-eQD" secondAttribute="height" id="XmT-eT-Qfu"/>
+                <constraint firstItem="qrL-Qz-eQD" firstAttribute="leading" secondItem="gJh-Em-3we" secondAttribute="leading" constant="20" id="bFH-Ff-NX5"/>
+                <constraint firstItem="WJE-BC-SRL" firstAttribute="top" secondItem="7XO-AQ-8f0" secondAttribute="top" id="cX0-9p-9GD"/>
+                <constraint firstItem="WJE-BC-SRL" firstAttribute="centerX" secondItem="7XO-AQ-8f0" secondAttribute="centerX" id="gqG-9u-ORe"/>
+                <constraint firstItem="eps-qD-QKe" firstAttribute="centerX" secondItem="qrL-Qz-eQD" secondAttribute="centerX" id="gzt-8L-uvH"/>
+                <constraint firstItem="7XO-AQ-8f0" firstAttribute="width" secondItem="qrL-Qz-eQD" secondAttribute="width" id="hbI-iG-hBv"/>
+                <constraint firstItem="ZdS-vw-kQP" firstAttribute="centerY" secondItem="Wcj-YZ-v6u" secondAttribute="centerY" id="icu-bo-zle"/>
+                <constraint firstItem="mJu-Ha-U6a" firstAttribute="centerX" secondItem="Sox-83-tb0" secondAttribute="centerX" id="lxZ-Aq-ftg"/>
+                <constraint firstItem="Wcj-YZ-v6u" firstAttribute="centerX" secondItem="gJh-Em-3we" secondAttribute="centerX" id="m0X-fd-Lac"/>
+                <constraint firstItem="trS-Kq-Huv" firstAttribute="top" secondItem="qrL-Qz-eQD" secondAttribute="top" id="nyH-BD-A5y"/>
+                <constraint firstItem="Sox-83-tb0" firstAttribute="leading" secondItem="638-Gb-tuI" secondAttribute="trailing" id="oPw-dK-xmN"/>
+                <constraint firstItem="3nc-NY-7Gj" firstAttribute="centerX" secondItem="gJh-Em-3we" secondAttribute="centerX" id="oUV-Il-5UU"/>
+                <constraint firstItem="o9t-NB-th7" firstAttribute="top" secondItem="7XO-AQ-8f0" secondAttribute="top" id="ote-0O-2pL"/>
+                <constraint firstItem="u71-ok-QbU" firstAttribute="centerY" secondItem="qrL-Qz-eQD" secondAttribute="centerY" id="pof-Qd-8hr"/>
+                <constraint firstItem="ei6-Vh-Yl6" firstAttribute="bottom" secondItem="7XO-AQ-8f0" secondAttribute="bottom" id="roX-eQ-iPF"/>
+                <constraint firstItem="638-Gb-tuI" firstAttribute="centerY" secondItem="qrL-Qz-eQD" secondAttribute="centerY" id="twH-WY-bRs"/>
+                <constraint firstItem="Sox-83-tb0" firstAttribute="centerY" secondItem="qrL-Qz-eQD" secondAttribute="centerY" id="woJ-SG-J7t"/>
+                <constraint firstItem="qrL-Qz-eQD" firstAttribute="top" secondItem="3nc-NY-7Gj" secondAttribute="bottom" constant="10" id="y70-s8-FYz"/>
+                <constraint firstItem="acZ-bH-xGC" firstAttribute="top" secondItem="Sox-83-tb0" secondAttribute="top" id="zkl-yr-J0z"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="iconDiamondPersonalized" destination="WJE-BC-SRL" id="fN5-GO-ywB"/>
+                <outlet property="iconDiamondTotalBudget" destination="acZ-bH-xGC" id="501-cu-zUm"/>
+                <outlet property="lblBasicFeeVal" destination="trS-Kq-Huv" id="3ak-25-kkP"/>
+                <outlet property="lblError" destination="p6Q-EK-lYh" id="aXy-m8-ruU"/>
+                <outlet property="lblErrorHeightConstraint" destination="rer-Cn-tSk" id="WRq-n1-jNY"/>
+                <outlet property="lblPersonalizedFeeVal" destination="o9t-NB-th7" id="zQO-gR-9kp"/>
+                <outlet property="lblTotalBudgetVal" destination="mJu-Ha-U6a" id="Sq2-fA-Rzq"/>
+                <outlet property="lblTtile" destination="3nc-NY-7Gj" id="wqp-Ek-Tjt"/>
+            </connections>
+            <point key="canvasLocation" x="290" y="458"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_dec_pkg_add" width="11" height="11"/>
+        <image name="icon_dec_pkg_diamond" width="20" height="18"/>
+        <image name="icon_dec_pkg_eq" width="11" height="7"/>
+        <image name="icon_dec_pkg_group" width="102" height="56"/>
+        <image name="icon_dec_pkg_info" width="11" height="11"/>
+    </resources>
+</document>

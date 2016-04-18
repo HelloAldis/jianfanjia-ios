@@ -39,8 +39,6 @@
         [GVUserDefaults standardUserDefaults].username = [designer username];
     }
     [GVUserDefaults standardUserDefaults].isLogin = YES;
-    [[NotificationDataManager shared] refreshUnreadCount];
-    [GeTuiSdk bindAlias:[GVUserDefaults standardUserDefaults].userid];
 }
 
 @end

@@ -10,6 +10,9 @@
 		4F9F62D70543E85C505FDD9C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A89C4960E17F13A3FDA7F3DB /* libPods.a */; };
 		680C40D71CC4B85F008C4BC0 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40D61CC4B85F008C4BC0 /* API.m */; };
 		680C40E51CC4C1AF008C4BC0 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40E41CC4C1AF008C4BC0 /* APIManager.m */; };
+		680C45F41CC4E9F7008C4BC0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C45EC1CC4E9F7008C4BC0 /* DataManager.m */; };
+		680C45F51CC4E9F7008C4BC0 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C45EE1CC4E9F7008C4BC0 /* GVUserDefaults+Manager.m */; };
+		680C45F61CC4E9F7008C4BC0 /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C45F11CC4E9F7008C4BC0 /* NotificationDataManager.m */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
 		68123C8C1C4C9772008FC9AB /* DateAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C6B1C4C9772008FC9AB /* DateAlertViewController.xib */; };
 		68123C8D1C4C9772008FC9AB /* MessageAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6D1C4C9772008FC9AB /* MessageAlertViewController.m */; };
@@ -36,7 +39,6 @@
 		68123CE61C4C99C9008FC9AB /* LogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CDB1C4C99C8008FC9AB /* LogFormatter.m */; };
 		68123CE71C4C99C9008FC9AB /* PhotoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CDE1C4C99C8008FC9AB /* PhotoUtil.m */; };
 		68123CE81C4C99C9008FC9AB /* StringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CE01C4C99C8008FC9AB /* StringUtil.m */; };
-		68123CEE1C4C99E9008FC9AB /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CED1C4C99E9008FC9AB /* NotificationDataManager.m */; };
 		68123CF11C4C9A15008FC9AB /* YsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CF01C4C9A15008FC9AB /* YsImage.m */; };
 		68123CF41C4C9A34008FC9AB /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123CF31C4C9A34008FC9AB /* Notification.m */; };
 		68123E6D1C4CBE79008FC9AB /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D461C4CBE79008FC9AB /* BaseViewController.m */; };
@@ -167,8 +169,6 @@
 		681241201C4CF2D5008FC9AB /* ItemExpandImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681240F61C4CF2D5008FC9AB /* ItemExpandImageCell.xib */; };
 		681241211C4CF2D5008FC9AB /* ItemImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240F81C4CF2D5008FC9AB /* ItemImageCollectionCell.m */; };
 		681241221C4CF2D5008FC9AB /* ItemImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681240F91C4CF2D5008FC9AB /* ItemImageCollectionCell.xib */; };
-		681241251C4CF2D5008FC9AB /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240FE1C4CF2D5008FC9AB /* LeftViewController.m */; };
-		681241261C4CF2D5008FC9AB /* LeftViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681240FF1C4CF2D5008FC9AB /* LeftViewController.xib */; };
 		681241271C4CF2D5008FC9AB /* ProcessDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241011C4CF2D5008FC9AB /* ProcessDataManager.m */; };
 		681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 681241031C4CF2D5008FC9AB /* ProcessViewController.m */; };
 		681241291C4CF2D5008FC9AB /* ProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681241041C4CF2D5008FC9AB /* ProcessViewController.xib */; };
@@ -295,8 +295,6 @@
 		6E378D481BDA2D2E00908B77 /* UIButton+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D091BDA2D2E00908B77 /* UIButton+Ex.m */; };
 		6E378D491BDA2D2E00908B77 /* UIImageView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D0B1BDA2D2E00908B77 /* UIImageView+Ex.m */; };
 		6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D0D1BDA2D2E00908B77 /* UIView+Ex.m */; };
-		6E378D4B1BDA2D2E00908B77 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D101BDA2D2E00908B77 /* DataManager.m */; };
-		6E378D4C1BDA2D2E00908B77 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D121BDA2D2E00908B77 /* GVUserDefaults+Manager.m */; };
 		6E378D4D1BDA2D2E00908B77 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D161BDA2D2E00908B77 /* BaseModel.m */; };
 		6E378D4E1BDA2D2E00908B77 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D181BDA2D2E00908B77 /* Comment.m */; };
 		6E378D4F1BDA2D2E00908B77 /* Designer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D1A1BDA2D2E00908B77 /* Designer.m */; };
@@ -341,6 +339,13 @@
 		680C40E31CC4C1AF008C4BC0 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		680C40E41CC4C1AF008C4BC0 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		680C40E71CC4CB9B008C4BC0 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		680C45EB1CC4E9F7008C4BC0 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		680C45EC1CC4E9F7008C4BC0 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		680C45ED1CC4E9F7008C4BC0 /* GVUserDefaults+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Manager.h"; sourceTree = "<group>"; };
+		680C45EE1CC4E9F7008C4BC0 /* GVUserDefaults+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Manager.m"; sourceTree = "<group>"; };
+		680C45EF1CC4E9F7008C4BC0 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
+		680C45F01CC4E9F7008C4BC0 /* NotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDataManager.h; sourceTree = "<group>"; };
+		680C45F11CC4E9F7008C4BC0 /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		68123C691C4C9772008FC9AB /* DateAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAlertViewController.h; sourceTree = "<group>"; };
 		68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAlertViewController.m; sourceTree = "<group>"; };
 		68123C6B1C4C9772008FC9AB /* DateAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateAlertViewController.xib; sourceTree = "<group>"; };
@@ -386,8 +391,6 @@
 		68123CDF1C4C99C8008FC9AB /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringUtil.h; sourceTree = "<group>"; };
 		68123CE01C4C99C8008FC9AB /* StringUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringUtil.m; sourceTree = "<group>"; };
 		68123CE11C4C99C9008FC9AB /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
-		68123CEC1C4C99E9008FC9AB /* NotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDataManager.h; sourceTree = "<group>"; };
-		68123CED1C4C99E9008FC9AB /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		68123CEF1C4C9A15008FC9AB /* YsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YsImage.h; sourceTree = "<group>"; };
 		68123CF01C4C9A15008FC9AB /* YsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YsImage.m; sourceTree = "<group>"; };
 		68123CF21C4C9A34008FC9AB /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
@@ -610,9 +613,6 @@
 		681240F71C4CF2D5008FC9AB /* ItemImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemImageCollectionCell.h; sourceTree = "<group>"; };
 		681240F81C4CF2D5008FC9AB /* ItemImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemImageCollectionCell.m; sourceTree = "<group>"; };
 		681240F91C4CF2D5008FC9AB /* ItemImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemImageCollectionCell.xib; sourceTree = "<group>"; };
-		681240FD1C4CF2D5008FC9AB /* LeftViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
-		681240FE1C4CF2D5008FC9AB /* LeftViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
-		681240FF1C4CF2D5008FC9AB /* LeftViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftViewController.xib; sourceTree = "<group>"; };
 		681241001C4CF2D5008FC9AB /* ProcessDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessDataManager.h; sourceTree = "<group>"; };
 		681241011C4CF2D5008FC9AB /* ProcessDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessDataManager.m; sourceTree = "<group>"; };
 		681241021C4CF2D5008FC9AB /* ProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessViewController.h; sourceTree = "<group>"; };
@@ -842,11 +842,6 @@
 		6E378D0B1BDA2D2E00908B77 /* UIImageView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Ex.m"; sourceTree = "<group>"; };
 		6E378D0C1BDA2D2E00908B77 /* UIView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ex.h"; sourceTree = "<group>"; };
 		6E378D0D1BDA2D2E00908B77 /* UIView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ex.m"; sourceTree = "<group>"; };
-		6E378D0F1BDA2D2E00908B77 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
-		6E378D101BDA2D2E00908B77 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		6E378D111BDA2D2E00908B77 /* GVUserDefaults+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Manager.h"; sourceTree = "<group>"; };
-		6E378D121BDA2D2E00908B77 /* GVUserDefaults+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Manager.m"; sourceTree = "<group>"; };
-		6E378D131BDA2D2E00908B77 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
 		6E378D151BDA2D2E00908B77 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
 		6E378D161BDA2D2E00908B77 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		6E378D171BDA2D2E00908B77 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
@@ -922,6 +917,7 @@
 			isa = PBXGroup;
 			children = (
 				680C40D41CC4B85F008C4BC0 /* API */,
+				680C45EA1CC4E9F7008C4BC0 /* Manager */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -934,6 +930,20 @@
 				680C40D61CC4B85F008C4BC0 /* API.m */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		680C45EA1CC4E9F7008C4BC0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				680C45EF1CC4E9F7008C4BC0 /* Manager.h */,
+				680C45EB1CC4E9F7008C4BC0 /* DataManager.h */,
+				680C45EC1CC4E9F7008C4BC0 /* DataManager.m */,
+				680C45ED1CC4E9F7008C4BC0 /* GVUserDefaults+Manager.h */,
+				680C45EE1CC4E9F7008C4BC0 /* GVUserDefaults+Manager.m */,
+				680C45F01CC4E9F7008C4BC0 /* NotificationDataManager.h */,
+				680C45F11CC4E9F7008C4BC0 /* NotificationDataManager.m */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		68123C671C4C9772008FC9AB /* UIkit */ = {
@@ -1245,13 +1255,13 @@
 		681240DF1C4CF280008FC9AB /* MyProcess */ = {
 			isa = PBXGroup;
 			children = (
+				681240EA1C4CF2D5008FC9AB /* Process */,
 				681240E01C4CF2CC008FC9AB /* MyProcessViewController.h */,
 				681240E11C4CF2CC008FC9AB /* MyProcessViewController.m */,
 				681240E21C4CF2CC008FC9AB /* MyProcessViewController.xib */,
 				681240E31C4CF2CC008FC9AB /* ProcessCell.h */,
 				681240E41C4CF2CC008FC9AB /* ProcessCell.m */,
 				681240E51C4CF2CC008FC9AB /* ProcessCell.xib */,
-				681240EA1C4CF2D5008FC9AB /* Process */,
 			);
 			path = MyProcess;
 			sourceTree = "<group>";
@@ -1283,9 +1293,6 @@
 				681240F41C4CF2D5008FC9AB /* ItemExpandImageCell.h */,
 				681240F51C4CF2D5008FC9AB /* ItemExpandImageCell.m */,
 				681240F61C4CF2D5008FC9AB /* ItemExpandImageCell.xib */,
-				681240FD1C4CF2D5008FC9AB /* LeftViewController.h */,
-				681240FE1C4CF2D5008FC9AB /* LeftViewController.m */,
-				681240FF1C4CF2D5008FC9AB /* LeftViewController.xib */,
 				681241001C4CF2D5008FC9AB /* ProcessDataManager.h */,
 				681241011C4CF2D5008FC9AB /* ProcessDataManager.m */,
 				681240F71C4CF2D5008FC9AB /* ItemImageCollectionCell.h */,
@@ -1541,7 +1548,6 @@
 				6E378CCE1BDA2D2E00908B77 /* API */,
 				6E378CDF1BDA2D2E00908B77 /* Business */,
 				6E378CFE1BDA2D2E00908B77 /* Extend */,
-				6E378D0E1BDA2D2E00908B77 /* Manager */,
 				6E378D141BDA2D2E00908B77 /* Model */,
 				6E378D261BDA2D2E00908B77 /* Util */,
 			);
@@ -1708,20 +1714,6 @@
 				68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */,
 			);
 			path = Extend;
-			sourceTree = "<group>";
-		};
-		6E378D0E1BDA2D2E00908B77 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				68123CEC1C4C99E9008FC9AB /* NotificationDataManager.h */,
-				68123CED1C4C99E9008FC9AB /* NotificationDataManager.m */,
-				6E378D0F1BDA2D2E00908B77 /* DataManager.h */,
-				6E378D101BDA2D2E00908B77 /* DataManager.m */,
-				6E378D111BDA2D2E00908B77 /* GVUserDefaults+Manager.h */,
-				6E378D121BDA2D2E00908B77 /* GVUserDefaults+Manager.m */,
-				6E378D131BDA2D2E00908B77 /* Manager.h */,
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		6E378D141BDA2D2E00908B77 /* Model */ = {
@@ -1944,7 +1936,6 @@
 			files = (
 				68123F001C4CBE79008FC9AB /* HouseRequirementCreateViewController.xib in Resources */,
 				68E600551CB62C5600C4A8F7 /* DecPackage365View.xib in Resources */,
-				681241261C4CF2D5008FC9AB /* LeftViewController.xib in Resources */,
 				684B040E1C98F7060053FFDF /* DecCommentInfoCell.xib in Resources */,
 				6EA0C19C1C577F7500D04A4F /* PlanPriceItemCell.xib in Resources */,
 				68123E791C4CBE79008FC9AB /* CustomerServiceViewController.xib in Resources */,
@@ -2191,14 +2182,12 @@
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
 				68F73D301CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m in Sources */,
 				68123FDC1C4CCF4A008FC9AB /* BeautifulImage.m in Sources */,
-				681241251C4CF2D5008FC9AB /* LeftViewController.m in Sources */,
 				68123EFA1C4CBE79008FC9AB /* BaseSelectionViewController.m in Sources */,
 				68F73D351CBB597E00E97710 /* StatusBlock.m in Sources */,
 				6EA0C1A71C585C5B00D04A4F /* PlanPriceItemExpandCell.m in Sources */,
 				68123C8D1C4C9772008FC9AB /* MessageAlertViewController.m in Sources */,
 				681241901C4F2F35008FC9AB /* UnrespondActionCell.m in Sources */,
 				68123FDD1C4CCF4A008FC9AB /* Evaluation.m in Sources */,
-				6E378D4C1BDA2D2E00908B77 /* GVUserDefaults+Manager.m in Sources */,
 				685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */,
 				68123EE81C4CBE79008FC9AB /* LeaveMessageViewController.m in Sources */,
 				68F73D2B1CBB597E00E97710 /* PlanWasNotChoosed.m in Sources */,
@@ -2213,7 +2202,6 @@
 				682E04FD1C588A6100F1ACAA /* NoRequirementImageView.m in Sources */,
 				6812401C1C4CDA06008FC9AB /* UIScrollView+Ex.m in Sources */,
 				68123EFF1C4CBE79008FC9AB /* HouseRequirementCreateViewController.m in Sources */,
-				68123CEE1C4C99E9008FC9AB /* NotificationDataManager.m in Sources */,
 				68FB6ED51C51E0F1001C0613 /* DesignerConfigAgreement.m in Sources */,
 				68123CF11C4C9A15008FC9AB /* YsImage.m in Sources */,
 				6EA0C1991C577F7500D04A4F /* PlanPriceDetailViewController.m in Sources */,
@@ -2245,8 +2233,8 @@
 				681241821C4F235B008FC9AB /* MyUserDataManager.m in Sources */,
 				68F73D211CBB597E00E97710 /* ElseStatus.m in Sources */,
 				68123F181C4CBE79008FC9AB /* W1View.m in Sources */,
+				680C45F41CC4E9F7008C4BC0 /* DataManager.m in Sources */,
 				68123E741C4CBE79008FC9AB /* SignupSuccessViewController.m in Sources */,
-				6E378D4B1BDA2D2E00908B77 /* DataManager.m in Sources */,
 				6E378D2F1BDA2D2E00908B77 /* BaseAPI.m in Sources */,
 				681240BB1C4CE471008FC9AB /* GetProcess.m in Sources */,
 				684B03FD1C98193B0053FFDF /* GetUserUnreadCount.m in Sources */,
@@ -2266,6 +2254,7 @@
 				681241AE1C4F3BCF008FC9AB /* SubmitedPlanActionCell.m in Sources */,
 				6E0426711BC757C500F984B8 /* AppDelegate.m in Sources */,
 				685F2D6E1CABC0A900DC4D43 /* UnexpandSectionActionView.m in Sources */,
+				680C45F61CC4E9F7008C4BC0 /* NotificationDataManager.m in Sources */,
 				68123F201C4CBE79008FC9AB /* WelcomeViewController.m in Sources */,
 				68123C9C1C4C9772008FC9AB /* SelectCityViewController.m in Sources */,
 				68123EFD1C4CBE79008FC9AB /* DecorationStyleCell.m in Sources */,
@@ -2285,6 +2274,7 @@
 				685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */,
 				6E04266E1BC757C500F984B8 /* main.m in Sources */,
 				681240BE1C4CE471008FC9AB /* GetUserRequirement.m in Sources */,
+				680C45F51CC4E9F7008C4BC0 /* GVUserDefaults+Manager.m in Sources */,
 				6E378D521BDA2D2E00908B77 /* Section.m in Sources */,
 				68123F0D1C4CBE79008FC9AB /* SelectHouseTypeViewController.m in Sources */,
 				681241C51C5073FE008FC9AB /* DesignerRespondUser.m in Sources */,
