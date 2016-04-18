@@ -22,7 +22,7 @@
     my_process = [my_process initWithTitle:@"工地管理" image:[UIImage imageNamed:@"tab_process_default"] selectedImage:[UIImage imageNamed:@"tab_process_selected"]];
     my_process.titlePositionAdjustment = UIOffsetMake(0, -2);
     
-    UITabBarItem *my = [self.tabBar.items objectAtIndex:0];
+    UITabBarItem *my = [self.tabBar.items objectAtIndex:1];
     my = [my initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_my_default"] selectedImage:[UIImage imageNamed:@"tab_my_selected"]];
     my.titlePositionAdjustment = UIOffsetMake(0, -2);
 }

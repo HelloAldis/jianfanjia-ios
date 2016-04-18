@@ -8,9 +8,7 @@
 
 #import "MeViewController.h"
 #import "SettingViewController.h"
-#import "FeedbackViewController.h"
 #import "ViewControllerContainer.h"
-#import "CustomerServiceViewController.h"
 
 @interface MeViewController ()
 
@@ -115,12 +113,9 @@
 }
 
 - (IBAction)onClickSuggestion:(id)sender {
-    FeedbackViewController *v = [[FeedbackViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:v animated:YES];
 }
 
 - (IBAction)onClickOnlineService:(id)sender {
-    [self.navigationController pushViewController:[CustomerServiceViewController instance] animated:YES];
 }
 
 - (IBAction)onClickMore:(id)sender {

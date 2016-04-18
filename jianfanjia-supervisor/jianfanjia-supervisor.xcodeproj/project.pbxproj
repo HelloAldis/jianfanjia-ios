@@ -24,14 +24,10 @@
 		680C422C1CC4D4AE008C4BC0 /* SignupSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C40FE1CC4D4AE008C4BC0 /* SignupSuccessViewController.xib */; };
 		680C422D1CC4D4AE008C4BC0 /* VerifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41001CC4D4AE008C4BC0 /* VerifyPhoneViewController.m */; };
 		680C422E1CC4D4AE008C4BC0 /* VerifyPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41011CC4D4AE008C4BC0 /* VerifyPhoneViewController.xib */; };
-		680C422F1CC4D4AE008C4BC0 /* CustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41051CC4D4AE008C4BC0 /* CustomerServiceViewController.m */; };
-		680C42301CC4D4AE008C4BC0 /* CustomerServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41061CC4D4AE008C4BC0 /* CustomerServiceViewController.xib */; };
 		680C42311CC4D4AE008C4BC0 /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41081CC4D4AE008C4BC0 /* MeViewController.m */; };
 		680C42321CC4D4AE008C4BC0 /* MeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41091CC4D4AE008C4BC0 /* MeViewController.xib */; };
 		680C423A1CC4D4AE008C4BC0 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41181CC4D4AE008C4BC0 /* AboutViewController.m */; };
 		680C423B1CC4D4AE008C4BC0 /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41191CC4D4AE008C4BC0 /* AboutViewController.xib */; };
-		680C423C1CC4D4AE008C4BC0 /* FeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C411B1CC4D4AE008C4BC0 /* FeedbackViewController.m */; };
-		680C423D1CC4D4AE008C4BC0 /* FeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C411C1CC4D4AE008C4BC0 /* FeedbackViewController.xib */; };
 		680C423E1CC4D4AE008C4BC0 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C411E1CC4D4AE008C4BC0 /* SettingViewController.m */; };
 		680C423F1CC4D4AE008C4BC0 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C411F1CC4D4AE008C4BC0 /* SettingViewController.xib */; };
 		680C424C1CC4D4AE008C4BC0 /* MyProcessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41361CC4D4AE008C4BC0 /* MyProcessViewController.m */; };
@@ -246,6 +242,7 @@
 		680C45E91CC4E913008C4BC0 /* SetWorksiteStartTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C45E71CC4E913008C4BC0 /* SetWorksiteStartTimeViewController.xib */; };
 		680C46101CC4EB83008C4BC0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46081CC4EB83008C4BC0 /* DataManager.m */; };
 		680C46111CC4EB83008C4BC0 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C460A1CC4EB83008C4BC0 /* GVUserDefaults+Manager.m */; };
+		680C46161CC4F58F008C4BC0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C46141CC4F58F008C4BC0 /* LaunchScreen.xib */; };
 		D248AF3A7C7F296D8418ADE8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D408E462BE9708192EBFFD7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -303,18 +300,12 @@
 		680C40FF1CC4D4AE008C4BC0 /* VerifyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyPhoneViewController.h; sourceTree = "<group>"; };
 		680C41001CC4D4AE008C4BC0 /* VerifyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyPhoneViewController.m; sourceTree = "<group>"; };
 		680C41011CC4D4AE008C4BC0 /* VerifyPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerifyPhoneViewController.xib; sourceTree = "<group>"; };
-		680C41041CC4D4AE008C4BC0 /* CustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerServiceViewController.h; sourceTree = "<group>"; };
-		680C41051CC4D4AE008C4BC0 /* CustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerServiceViewController.m; sourceTree = "<group>"; };
-		680C41061CC4D4AE008C4BC0 /* CustomerServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewController.xib; sourceTree = "<group>"; };
 		680C41071CC4D4AE008C4BC0 /* MeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
 		680C41081CC4D4AE008C4BC0 /* MeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
 		680C41091CC4D4AE008C4BC0 /* MeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MeViewController.xib; sourceTree = "<group>"; };
 		680C41171CC4D4AE008C4BC0 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
 		680C41181CC4D4AE008C4BC0 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		680C41191CC4D4AE008C4BC0 /* AboutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
-		680C411A1CC4D4AE008C4BC0 /* FeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackViewController.h; sourceTree = "<group>"; };
-		680C411B1CC4D4AE008C4BC0 /* FeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackViewController.m; sourceTree = "<group>"; };
-		680C411C1CC4D4AE008C4BC0 /* FeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedbackViewController.xib; sourceTree = "<group>"; };
 		680C411D1CC4D4AE008C4BC0 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		680C411E1CC4D4AE008C4BC0 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		680C411F1CC4D4AE008C4BC0 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
@@ -702,6 +693,7 @@
 		680C46091CC4EB83008C4BC0 /* GVUserDefaults+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Manager.h"; sourceTree = "<group>"; };
 		680C460A1CC4EB83008C4BC0 /* GVUserDefaults+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Manager.m"; sourceTree = "<group>"; };
 		680C460B1CC4EB83008C4BC0 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
+		680C46151CC4F58F008C4BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		6DCF3E98975F7E90EE858303 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E62310690E1273E5E41514C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -773,6 +765,7 @@
 				680C40D21CC4B427008C4BC0 /* PrefixHeader.pch */,
 				680C40D11CC4B427008C4BC0 /* Pods.h */,
 				680C40AA1CC48F59008C4BC0 /* Assets.xcassets */,
+				680C46141CC4F58F008C4BC0 /* LaunchScreen.xib */,
 				680C409B1CC48F59008C4BC0 /* Supporting Files */,
 			);
 			path = "jianfanjia-supervisor";
@@ -872,7 +865,6 @@
 		680C41021CC4D4AE008C4BC0 /* Me */ = {
 			isa = PBXGroup;
 			children = (
-				680C41031CC4D4AE008C4BC0 /* CustomerService */,
 				680C41071CC4D4AE008C4BC0 /* MeViewController.h */,
 				680C41081CC4D4AE008C4BC0 /* MeViewController.m */,
 				680C41091CC4D4AE008C4BC0 /* MeViewController.xib */,
@@ -881,25 +873,12 @@
 			path = Me;
 			sourceTree = "<group>";
 		};
-		680C41031CC4D4AE008C4BC0 /* CustomerService */ = {
-			isa = PBXGroup;
-			children = (
-				680C41041CC4D4AE008C4BC0 /* CustomerServiceViewController.h */,
-				680C41051CC4D4AE008C4BC0 /* CustomerServiceViewController.m */,
-				680C41061CC4D4AE008C4BC0 /* CustomerServiceViewController.xib */,
-			);
-			path = CustomerService;
-			sourceTree = "<group>";
-		};
 		680C41161CC4D4AE008C4BC0 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				680C41171CC4D4AE008C4BC0 /* AboutViewController.h */,
 				680C41181CC4D4AE008C4BC0 /* AboutViewController.m */,
 				680C41191CC4D4AE008C4BC0 /* AboutViewController.xib */,
-				680C411A1CC4D4AE008C4BC0 /* FeedbackViewController.h */,
-				680C411B1CC4D4AE008C4BC0 /* FeedbackViewController.m */,
-				680C411C1CC4D4AE008C4BC0 /* FeedbackViewController.xib */,
 				680C411D1CC4D4AE008C4BC0 /* SettingViewController.h */,
 				680C411E1CC4D4AE008C4BC0 /* SettingViewController.m */,
 				680C411F1CC4D4AE008C4BC0 /* SettingViewController.xib */,
@@ -1627,6 +1606,7 @@
 				680C42B81CC4D4AE008C4BC0 /* PlanPriceTotalCell.xib in Resources */,
 				680C42B41CC4D4AE008C4BC0 /* PlanPriceItemExpandCell.xib in Resources */,
 				680C42BD1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.xib in Resources */,
+				680C46161CC4F58F008C4BC0 /* LaunchScreen.xib in Resources */,
 				680C45671CC4D4BD008C4BC0 /* ImageDetailViewController.xib in Resources */,
 				680C45691CC4D4BD008C4BC0 /* ImageEditorViewController.xib in Resources */,
 				680C45631CC4D4BD008C4BC0 /* ImageBrowerViewController.xib in Resources */,
@@ -1659,10 +1639,8 @@
 				680C45781CC4D4BD008C4BC0 /* WebViewWithoutShareController.xib in Resources */,
 				680C45651CC4D4BD008C4BC0 /* ThumbnailCell.xib in Resources */,
 				680C42631CC4D4AE008C4BC0 /* UnexpandSectionActionView.xib in Resources */,
-				680C42301CC4D4AE008C4BC0 /* CustomerServiceViewController.xib in Resources */,
 				680C42591CC4D4AE008C4BC0 /* LeftViewController.xib in Resources */,
 				680C42C31CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.xib in Resources */,
-				680C423D1CC4D4AE008C4BC0 /* FeedbackViewController.xib in Resources */,
 				680C424D1CC4D4AE008C4BC0 /* MyProcessViewController.xib in Resources */,
 				680C42B21CC4D4AE008C4BC0 /* PlanPriceItemCell.xib in Resources */,
 				680C422A1CC4D4AE008C4BC0 /* ResetPassViewController.xib in Resources */,
@@ -1876,7 +1854,6 @@
 				680C45701CC4D4BD008C4BC0 /* SelectCityViewController.m in Sources */,
 				680C46111CC4EB83008C4BC0 /* GVUserDefaults+Manager.m in Sources */,
 				680C457B1CC4D4BD008C4BC0 /* HUDUtil.m in Sources */,
-				680C422F1CC4D4AE008C4BC0 /* CustomerServiceViewController.m in Sources */,
 				680C450F1CC4D4BD008C4BC0 /* CALayer+Ex.m in Sources */,
 				680C42D81CC4D4AE008C4BC0 /* RequirementDataManager.m in Sources */,
 				680C44A41CC4D4BD008C4BC0 /* BaseAPI.m in Sources */,
@@ -1907,7 +1884,6 @@
 				680C44C61CC4D4BD008C4BC0 /* GetProcess.m in Sources */,
 				680C451B1CC4D4BD008C4BC0 /* UIImage+Ex.m in Sources */,
 				680C44E91CC4D4BD008C4BC0 /* UploadImage.m in Sources */,
-				680C423C1CC4D4AE008C4BC0 /* FeedbackViewController.m in Sources */,
 				680C42641CC4D4AE008C4BC0 /* ProcessCell.m in Sources */,
 				680C44F31CC4D4BD008C4BC0 /* ElseStatus.m in Sources */,
 				680C45681CC4D4BD008C4BC0 /* ImageEditorViewController.m in Sources */,
@@ -1953,6 +1929,17 @@
 			targetProxy = 680C40C01CC48F59008C4BC0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		680C46141CC4F58F008C4BC0 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				680C46151CC4F58F008C4BC0 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		680C40C61CC48F59008C4BC0 /* Debug */ = {

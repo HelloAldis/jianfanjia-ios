@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AboutViewController">
@@ -21,7 +21,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKm-Hg-ydp">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="420"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="376"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_logo" translatesAutoresizingMaskIntoConstraints="NO" id="qee-ab-bn9">
                                     <rect key="frame" x="270" y="40" width="60" height="60"/>
@@ -128,8 +128,8 @@
                                         </mask>
                                     </variation>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UeA-r3-fnN">
-                                    <rect key="frame" x="0.0" y="278" width="600" height="44"/>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UeA-r3-fnN">
+                                    <rect key="frame" x="0.0" y="278" width="600" height="0.0"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIF-f5-moV">
                                             <rect key="frame" x="20" y="0.0" width="580" height="44"/>
@@ -166,7 +166,7 @@
                                         <constraint firstItem="ej8-eR-IuF" firstAttribute="centerY" secondItem="WIF-f5-moV" secondAttribute="centerY" id="UkH-cb-6Sk"/>
                                         <constraint firstItem="WIF-f5-moV" firstAttribute="width" secondItem="UeA-r3-fnN" secondAttribute="width" id="adM-QX-5mP"/>
                                         <constraint firstItem="ej8-eR-IuF" firstAttribute="trailing" secondItem="WIF-f5-moV" secondAttribute="trailing" constant="-15" id="bR0-DF-yGf"/>
-                                        <constraint firstAttribute="height" constant="44" id="x5h-wV-fma"/>
+                                        <constraint firstAttribute="height" id="x5h-wV-fma"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
@@ -175,7 +175,7 @@
                                     </variation>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="武汉家易装科技有限公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUr-HS-EKa">
-                                    <rect key="frame" x="150" y="372" width="300" height="17"/>
+                                    <rect key="frame" x="150" y="328" width="300" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="300" id="G5t-p8-fwp"/>
                                     </constraints>
@@ -184,7 +184,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2015 - 2016 jianfanjia.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ked-K8-ESL">
-                                    <rect key="frame" x="150" y="394" width="300" height="16"/>
+                                    <rect key="frame" x="150" y="350" width="300" height="16"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="300" id="8eG-k1-9bF"/>
                                     </constraints>
