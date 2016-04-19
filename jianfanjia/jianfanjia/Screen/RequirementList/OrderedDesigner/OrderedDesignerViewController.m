@@ -17,6 +17,7 @@
 #import "PlanWasChoosedCell.h"
 #import "PlanWasChoosedForDesignCell.h"
 #import "PlanWasNotChoosedCell.h"
+#import "PlanExpiredCell.h"
 #import "DesignerPlanStatusBaseCell.h"
 #import "RequirementDataManager.h"
 
@@ -30,6 +31,7 @@ static NSString *HomeOwnerOrderedWithoutResponseIdentifier = @"HomeOwnerOrderedW
 static NSString *PlanWasChoosedIdentifier = @"PlanWasChoosedCell";
 static NSString *PlanWasChoosedForDesignIdentifier = @"PlanWasChoosedForDesignCell";
 static NSString *PlanWasNotChoosedIdentifier = @"PlanWasNotChoosedCell";
+static NSString *PlanExpiredIdentifier = @"PlanExpiredCell";
 
 @interface OrderedDesignerViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -68,6 +70,8 @@ static NSString *PlanWasNotChoosedIdentifier = @"PlanWasNotChoosedCell";
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosedIdentifier bundle:nil] forCellReuseIdentifier:PlanWasChoosedIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasChoosedForDesignIdentifier bundle:nil] forCellReuseIdentifier:PlanWasChoosedForDesignIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:PlanWasNotChoosedIdentifier bundle:nil] forCellReuseIdentifier:PlanWasNotChoosedIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:PlanExpiredIdentifier bundle:nil] forCellReuseIdentifier:PlanExpiredIdentifier];
+    
     @weakify(self);
     self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
@@ -102,14 +106,19 @@ static NSString *PlanWasNotChoosedIdentifier = @"PlanWasNotChoosedCell";
     NSString *status = orderedDesigner.plan.status;
     
     __block NSInteger height = 146;
-    [StatusBlock matchPlan:status action:[PlanHomeOwnerOrdered action:^{
-        height = 96;
-    }]];
+    [StatusBlock matchPlan:status actions:
+     @[[PlanHomeOwnerOrdered action:^{
+            height = 96;
+        }],
+       [PlanExpired action:^{
+            height = 96;
+        }],
+      ]];
     
     return height;
 }
 
-#pragma mark - send request 
+#pragma mark - send request
 - (void)refreshOrderedList {
     GetOrderedDesignder *request = [[GetOrderedDesignder alloc] init];
     request.requirementid = self.requirement._id;
@@ -179,8 +188,11 @@ static NSString *PlanWasNotChoosedIdentifier = @"PlanWasNotChoosedCell";
        [PlanDesignerRespondExpired action:^{
             cellIdentifier = ExpiredAsDesignerDidNotRespondIdentifier;
         }],
-       [ElseStatus action:^{
+       [PlanDesignerSubmitPlanExpired action:^{
             cellIdentifier = ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeIdentifier;
+        }],
+       [ElseStatus action:^{
+            cellIdentifier = PlanExpiredIdentifier;
         }],
        ]];
     

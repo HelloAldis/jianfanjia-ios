@@ -18,6 +18,8 @@
 		680C465F1CC61356008C4BC0 /* Supervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C465E1CC61356008C4BC0 /* Supervisor.m */; };
 		680C46681CC61E47008C4BC0 /* CommentBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46671CC61E47008C4BC0 /* CommentBusiness.m */; };
 		680C466E1CC62885008C4BC0 /* PlanExpired.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C466D1CC62885008C4BC0 /* PlanExpired.m */; };
+		680C46721CC62BB8008C4BC0 /* PlanExpiredCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46701CC62BB8008C4BC0 /* PlanExpiredCell.m */; };
+		680C46731CC62BB8008C4BC0 /* PlanExpiredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C46711CC62BB8008C4BC0 /* PlanExpiredCell.xib */; };
 		680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchBeautifulImage.m */; };
 		680F49271C240E400055C16C /* BeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49261C240E400055C16C /* BeautifulImage.m */; };
 		680F492A1C240F910055C16C /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49291C240F910055C16C /* LeafImage.m */; };
@@ -503,6 +505,9 @@
 		680C46671CC61E47008C4BC0 /* CommentBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBusiness.m; sourceTree = "<group>"; };
 		680C466C1CC62885008C4BC0 /* PlanExpired.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanExpired.h; sourceTree = "<group>"; };
 		680C466D1CC62885008C4BC0 /* PlanExpired.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanExpired.m; sourceTree = "<group>"; };
+		680C466F1CC62BB8008C4BC0 /* PlanExpiredCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanExpiredCell.h; sourceTree = "<group>"; };
+		680C46701CC62BB8008C4BC0 /* PlanExpiredCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanExpiredCell.m; sourceTree = "<group>"; };
+		680C46711CC62BB8008C4BC0 /* PlanExpiredCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanExpiredCell.xib; sourceTree = "<group>"; };
 		680F49221C2408130055C16C /* SearchBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBeautifulImage.h; sourceTree = "<group>"; };
 		680F49231C2408130055C16C /* SearchBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBeautifulImage.m; sourceTree = "<group>"; };
 		680F49251C240E400055C16C /* BeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImage.h; sourceTree = "<group>"; };
@@ -1663,6 +1668,9 @@
 				684A36FC1BFD733400F7388C /* PlanWasNotChoosedCell.h */,
 				684A36FD1BFD733400F7388C /* PlanWasNotChoosedCell.m */,
 				684A36FE1BFD733400F7388C /* PlanWasNotChoosedCell.xib */,
+				680C466F1CC62BB8008C4BC0 /* PlanExpiredCell.h */,
+				680C46701CC62BB8008C4BC0 /* PlanExpiredCell.m */,
+				680C46711CC62BB8008C4BC0 /* PlanExpiredCell.xib */,
 				684A375F1BFD80E800F7388C /* DesignerPlanStatusBaseCell.h */,
 				684A37601BFD80E800F7388C /* DesignerPlanStatusBaseCell.m */,
 				683595A51C04565300AD58E7 /* AgreementViewController.h */,
@@ -2738,6 +2746,7 @@
 				684A370D1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.xib in Resources */,
 				68123C591C4C8B99008FC9AB /* ImageBrowerViewController.xib in Resources */,
 				6836269A1C059C72005F2C30 /* ItemExpandImageCell.xib in Resources */,
+				680C46731CC62BB8008C4BC0 /* PlanExpiredCell.xib in Resources */,
 				68123BAE1C47D15C008FC9AB /* JYZShareMenuView.xib in Resources */,
 				6E20B2361B87223600E3A8DA /* LaunchScreen.xib in Resources */,
 				68679A471C8EB49900B380D0 /* NotificationDetailViewController.xib in Resources */,
@@ -2936,6 +2945,7 @@
 			files = (
 				688517661C915862000B01DB /* NotificationBusiness.m in Sources */,
 				6E07DAC51BD88DBE001461DD /* Item.m in Sources */,
+				680C46721CC62BB8008C4BC0 /* PlanExpiredCell.m in Sources */,
 				AB4CAF881C0F2F76003680BA /* SectionDone.m in Sources */,
 				6885175D1C8FFB8A000B01DB /* SearchUserNotification.m in Sources */,
 				6E06CC2D1C2BF97800A08D15 /* FavoriteDesignerCell.m in Sources */,

@@ -15,6 +15,8 @@
 		680C46271CC5CD15008C4BC0 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46251CC5CD15008C4BC0 /* GVUserDefaults+Manager.m */; };
 		680C46651CC61E35008C4BC0 /* CommentBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46641CC61E35008C4BC0 /* CommentBusiness.m */; };
 		680C466B1CC61F5F008C4BC0 /* Supervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C466A1CC61F5F008C4BC0 /* Supervisor.m */; };
+		680C46771CC6310E008C4BC0 /* PlanExpiredActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46751CC6310E008C4BC0 /* PlanExpiredActionCell.m */; };
+		680C46781CC6310E008C4BC0 /* PlanExpiredActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C46761CC6310E008C4BC0 /* PlanExpiredActionCell.xib */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
 		68123C8C1C4C9772008FC9AB /* DateAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C6B1C4C9772008FC9AB /* DateAlertViewController.xib */; };
 		68123C8D1C4C9772008FC9AB /* MessageAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6D1C4C9772008FC9AB /* MessageAlertViewController.m */; };
@@ -352,6 +354,9 @@
 		680C46641CC61E35008C4BC0 /* CommentBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBusiness.m; sourceTree = "<group>"; };
 		680C46691CC61F5F008C4BC0 /* Supervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Supervisor.h; sourceTree = "<group>"; };
 		680C466A1CC61F5F008C4BC0 /* Supervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Supervisor.m; sourceTree = "<group>"; };
+		680C46741CC6310E008C4BC0 /* PlanExpiredActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanExpiredActionCell.h; sourceTree = "<group>"; };
+		680C46751CC6310E008C4BC0 /* PlanExpiredActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanExpiredActionCell.m; sourceTree = "<group>"; };
+		680C46761CC6310E008C4BC0 /* PlanExpiredActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanExpiredActionCell.xib; sourceTree = "<group>"; };
 		68123C691C4C9772008FC9AB /* DateAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAlertViewController.h; sourceTree = "<group>"; };
 		68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAlertViewController.m; sourceTree = "<group>"; };
 		68123C6B1C4C9772008FC9AB /* DateAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateAlertViewController.xib; sourceTree = "<group>"; };
@@ -1350,6 +1355,9 @@
 				6812419B1C4F3B1C008FC9AB /* RejectActionCell.h */,
 				6812419C1C4F3B1C008FC9AB /* RejectActionCell.m */,
 				6812419D1C4F3B1C008FC9AB /* RejectActionCell.xib */,
+				680C46741CC6310E008C4BC0 /* PlanExpiredActionCell.h */,
+				680C46751CC6310E008C4BC0 /* PlanExpiredActionCell.m */,
+				680C46761CC6310E008C4BC0 /* PlanExpiredActionCell.xib */,
 				6812419E1C4F3B1C008FC9AB /* RespondedActionCell.h */,
 				6812419F1C4F3B1C008FC9AB /* RespondedActionCell.m */,
 				681241A01C4F3B1C008FC9AB /* RespondedActionCell.xib */,
@@ -1999,6 +2007,7 @@
 				681241A21C4F3B1C008FC9AB /* ChoosedPlanActionCell.xib in Resources */,
 				68123F121C4CBE79008FC9AB /* SelectSexTypeViewController.xib in Resources */,
 				68123FF51C4CD1E3008FC9AB /* EvaluateDesignerViewController.xib in Resources */,
+				680C46781CC6310E008C4BC0 /* PlanExpiredActionCell.xib in Resources */,
 				682E04FE1C588A6100F1ACAA /* NoRequirementImageView.xib in Resources */,
 				681241BF1C4F97D1008FC9AB /* RejectUserAlertViewController.xib in Resources */,
 				68123EBE1C4CBE79008FC9AB /* RefreshViewController.xib in Resources */,
@@ -2286,6 +2295,7 @@
 				684B043E1C990E910053FFDF /* WorksiteNotificationCell.m in Sources */,
 				681240121C4CDA06008FC9AB /* NSArray+Ex.m in Sources */,
 				68F73D221CBB597E00E97710 /* PlanDesignerDeclined.m in Sources */,
+				680C46771CC6310E008C4BC0 /* PlanExpiredActionCell.m in Sources */,
 				68F73D261CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.m in Sources */,
 				6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */,
 				68123E761C4CBE79008FC9AB /* VerifyPhoneViewController.m in Sources */,

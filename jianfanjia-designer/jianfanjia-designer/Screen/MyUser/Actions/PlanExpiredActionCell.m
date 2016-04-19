@@ -6,10 +6,10 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "SubmitPlanExpiredActionCell.h"
+#import "PlanExpiredActionCell.h"
 #import "ViewControllerContainer.h"
 
-@interface SubmitPlanExpiredActionCell ()
+@interface PlanExpiredActionCell ()
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserName;
 @property (weak, nonatomic) IBOutlet UIImageView *imgUserGender;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation SubmitPlanExpiredActionCell
+@implementation PlanExpiredActionCell
 
 - (void)awakeFromNib {
     [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapHeaderView:)]];
@@ -33,7 +33,7 @@
 - (void)initWithRequirement:(Requirement *)requirement actionBlock:(ActionBlock)actionBlock {
     [super initWithRequirement:requirement actionBlock:actionBlock];
     [self initHeaderData:self.imgHomeOwner gender:self.imgUserGender name:self.lblUserName cell:self.lblCellNameVal info:self.lblRequirementfInfo updateTime:self.lblUpdateTimeVal];
-    self.lblRejectReason.text = @"过期原因：您未在规定时间内提交方案";
+    self.lblRejectReason.text = @"过期原因：已有设计师方案中标";
 }
 
 @end

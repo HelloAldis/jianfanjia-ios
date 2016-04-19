@@ -16,6 +16,7 @@
 #import "ChoosedPlanActionCell.h"
 #import "ChoosedPlanForDesignActionCell.h"
 #import "UnchoosedPlanActionCell.h"
+#import "PlanExpiredActionCell.h"
 #import "MyUserDataManager.h"
 #import "NoRequirementImageView.h"
 #import "API.h"
@@ -35,6 +36,7 @@ static NSString *SubmitedPlanActionCellIdentifier = @"SubmitedPlanActionCell";
 static NSString *ChoosedPlanActionCellIdentifier = @"ChoosedPlanActionCell";
 static NSString *ChoosedPlanForDesignActionCellIdentifier = @"ChoosedPlanForDesignActionCell";
 static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
+static NSString *PlanExpiredActionCellIdentifier = @"PlanExpiredActionCell";
 
 @interface MyUserViewController ()
 
@@ -121,6 +123,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
         [tableView registerNib:[UINib nibWithNibName:ChoosedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:ChoosedPlanActionCellIdentifier];
         [tableView registerNib:[UINib nibWithNibName:ChoosedPlanForDesignActionCellIdentifier bundle:nil] forCellReuseIdentifier:ChoosedPlanForDesignActionCellIdentifier];
         [tableView registerNib:[UINib nibWithNibName:UnchoosedPlanActionCellIdentifier bundle:nil] forCellReuseIdentifier:UnchoosedPlanActionCellIdentifier];
+        [tableView registerNib:[UINib nibWithNibName:PlanExpiredActionCellIdentifier bundle:nil] forCellReuseIdentifier:PlanExpiredActionCellIdentifier];
         
         NoRequirementImageView *noRequirementView = [NoRequirementImageView noRequirementImageView];
         noRequirementView.frame = CGRectMake(0, 0, kScreenWidth, tableViewHeight);
@@ -185,26 +188,7 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Requirement *requirement;
-    if (self.currentPlanType == PlanTypeUnprocess && self.tableViews[PlanTypeUnprocess] == tableView) {
-        requirement = self.dataManager.unprocessActions[indexPath.row];
-    } else if (self.currentPlanType == PlanTypeProcessing && self.tableViews[PlanTypeProcessing] == tableView) {
-        requirement = self.dataManager.processingActions[indexPath.row];
-    } else if (self.tableViews[PlanTypeProcessed] == tableView) {
-        requirement = self.dataManager.processedActions[indexPath.row];
-    }
-    
-    NSString *status = requirement.plan.status;
-//    if ([status isEqualToString:kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime]) {
-//        return 96;
-//    }
-    
-    __block NSInteger height = 146;
-    [StatusBlock matchPlan:status action:[PlanDesignerSubmitPlanExpired action:^{
-        height = 96;
-    }]];
-    
-    return height;
+    return 146;
 }
 
 - (BaseActionCell *)loadCell:(Requirement *)requirement tableView:(UITableView *)tableView forIndex:(NSIndexPath *)path {
@@ -255,8 +239,11 @@ static NSString *UnchoosedPlanActionCellIdentifier = @"UnchoosedPlanActionCell";
        [PlanDesignerMeasuredHouse action:^{
             cellIdentifier = MeasuredHouseActionCellIdentifier;
         }],
-       [ElseStatus action:^{
+       [PlanDesignerSubmitPlanExpired action:^{
             cellIdentifier = SubmitPlanExpiredActionCellIdentifier;
+        }],
+       [ElseStatus action:^{
+            cellIdentifier = PlanExpiredActionCellIdentifier;
         }],
        ]];
     
