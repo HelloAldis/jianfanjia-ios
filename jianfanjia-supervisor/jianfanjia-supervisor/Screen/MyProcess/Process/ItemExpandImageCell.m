@@ -28,7 +28,6 @@ static CGFloat imgCellWidth;
 @property (weak, nonatomic) IBOutlet UIImageView *statusImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblItemTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblItemStatus;
-@property (weak, nonatomic) IBOutlet UIButton *btnFinishItem;
 @property (weak, nonatomic) IBOutlet UILabel *lblLastUpdateTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblLeaveMessageTitle;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewLeaveMessageIcon;
@@ -58,7 +57,6 @@ static CGFloat imgCellWidth;
     [self.leaveMsgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapLeaveIconGesture:)]];
     imgCollectionWidth = kScreenWidth - 87;
     imgCellWidth = (imgCollectionWidth - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
-    [self.btnFinishItem setCornerRadius:5];
 }
 
 #pragma mark - UI
@@ -82,20 +80,14 @@ static CGFloat imgCellWidth;
         self.statusImageView.image = [UIImage imageNamed:@"item_status_1"];
         self.statusLine2.backgroundColor = kFinishedColor;
         self.lblItemStatus.textColor = kExcutionStatusColor;
-        self.btnFinishItem.hidden = NO;
-        [self enableFinishItem:YES];
     } else if([self.item.status isEqualToString:kSectionStatusAlreadyFinished]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_2"];
         self.statusLine2.backgroundColor = kFinishedColor;
         self.lblItemStatus.textColor = kFinishedColor;
-        self.btnFinishItem.hidden = YES;
-        [self enableFinishItem:NO];
     } else {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_0"];
         self.statusLine2.backgroundColor = kUntriggeredColor;
         self.lblItemStatus.textColor = kUntriggeredColor;
-        self.btnFinishItem.hidden = NO;
-        [self enableFinishItem:YES];
     }
     
     if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
@@ -130,15 +122,6 @@ static CGFloat imgCellWidth;
 }
 
 #pragma mark - user action
-- (IBAction)onClickFinishItem:(id)sender {
-    
-}
-
-- (void)enableFinishItem:(BOOL)enable {
-    self.btnFinishItem.enabled = enable;
-    self.btnFinishItem.backgroundColor = enable ? kFinishedColor : kUntriggeredColor;
-}
-
 - (void)deleteImage:(NSIndexPath *)indexPath {
     [self.item.images removeObjectAtIndex:indexPath.row];
     [self refreshNumberOfItems];

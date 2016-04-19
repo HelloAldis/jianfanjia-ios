@@ -114,8 +114,6 @@
 		683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683840061C157E21004F456E /* UpdateOneLineTextViewController.xib */; };
 		6838400C1C158490004F456E /* UpdateMultipleLineTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6838400A1C158490004F456E /* UpdateMultipleLineTextViewController.m */; };
 		6838400D1C158490004F456E /* UpdateMultipleLineTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6838400B1C158490004F456E /* UpdateMultipleLineTextViewController.xib */; };
-		683A5D681C0EECD40071DF88 /* ItemExpandCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A5D661C0EECD40071DF88 /* ItemExpandCheckCell.m */; };
-		683A5D691C0EECD40071DF88 /* ItemExpandCheckCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683A5D671C0EECD40071DF88 /* ItemExpandCheckCell.xib */; };
 		683A5D6C1C0EFBAE0071DF88 /* YsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A5D6B1C0EFBAE0071DF88 /* YsImage.m */; };
 		683A6B551C0F01130071DF88 /* DBYSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 683A6B531C0F01130071DF88 /* DBYSViewController.m */; };
 		683A6B561C0F01130071DF88 /* DBYSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 683A6B541C0F01130071DF88 /* DBYSViewController.xib */; };
@@ -667,9 +665,6 @@
 		683840091C158490004F456E /* UpdateMultipleLineTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateMultipleLineTextViewController.h; sourceTree = "<group>"; };
 		6838400A1C158490004F456E /* UpdateMultipleLineTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateMultipleLineTextViewController.m; sourceTree = "<group>"; };
 		6838400B1C158490004F456E /* UpdateMultipleLineTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpdateMultipleLineTextViewController.xib; sourceTree = "<group>"; };
-		683A5D651C0EECD40071DF88 /* ItemExpandCheckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemExpandCheckCell.h; sourceTree = "<group>"; };
-		683A5D661C0EECD40071DF88 /* ItemExpandCheckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemExpandCheckCell.m; sourceTree = "<group>"; };
-		683A5D671C0EECD40071DF88 /* ItemExpandCheckCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemExpandCheckCell.xib; sourceTree = "<group>"; };
 		683A5D6A1C0EFBAE0071DF88 /* YsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YsImage.h; sourceTree = "<group>"; };
 		683A5D6B1C0EFBAE0071DF88 /* YsImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YsImage.m; sourceTree = "<group>"; };
 		683A6B521C0F01130071DF88 /* DBYSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBYSViewController.h; sourceTree = "<group>"; };
@@ -2534,9 +2529,6 @@
 				6E7867131BA944AF00DE8B1B /* ItemCell.h */,
 				6E7867141BA944AF00DE8B1B /* ItemCell.m */,
 				6E7867151BA944AF00DE8B1B /* ItemCell.xib */,
-				683A5D651C0EECD40071DF88 /* ItemExpandCheckCell.h */,
-				683A5D661C0EECD40071DF88 /* ItemExpandCheckCell.m */,
-				683A5D671C0EECD40071DF88 /* ItemExpandCheckCell.xib */,
 				683626961C059C72005F2C30 /* ItemExpandImageCell.h */,
 				683626971C059C72005F2C30 /* ItemExpandImageCell.m */,
 				683626981C059C72005F2C30 /* ItemExpandImageCell.xib */,
@@ -2818,7 +2810,6 @@
 				683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */,
 				684A37411BFD73DF00F7388C /* IntentDesignerCell.xib in Resources */,
 				683FFB481C296288002A1AFE /* DropdownMenuCollectionCell.xib in Resources */,
-				683A5D691C0EECD40071DF88 /* ItemExpandCheckCell.xib in Resources */,
 				684A37531BFD73DF00F7388C /* SelectDecorationTypeViewController.xib in Resources */,
 				6E838DB21BEB4FE1000BF5CD /* DesignerProductCell.xib in Resources */,
 				684A374B1BFD73DF00F7388C /* DecorationStyleCell.xib in Resources */,
@@ -3104,7 +3095,6 @@
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,
 				68F73CEE1CBB3AB900E97710 /* PlanDesignerRespondExpired.m in Sources */,
 				6836269D1C05B1E9005F2C30 /* ProcessDataManager.m in Sources */,
-				683A5D681C0EECD40071DF88 /* ItemExpandCheckCell.m in Sources */,
 				684A37521BFD73DF00F7388C /* SelectDecorationTypeViewController.m in Sources */,
 				682E05131C58BDA700F1ACAA /* PlanPriceItemExpandCell.m in Sources */,
 				68123B9B1C47D15C008FC9AB /* JYZSocialSnsAuthResp.m in Sources */,
