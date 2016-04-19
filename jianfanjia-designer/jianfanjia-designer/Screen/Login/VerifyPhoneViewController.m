@@ -38,11 +38,7 @@
     @weakify(self)
     [RACObserve(self.btnSignup, enabled) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
-        if (newValue.boolValue) {
-            [self.btnSignup setEnableAlpha];
-        } else {
-            [self.btnSignup setDisableAlpha];
-        }
+        [self.btnSignup enableBgColor:newValue.boolValue];
     }];
     
     RAC(self.btnSignup, enabled) = [RACSignal

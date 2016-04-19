@@ -43,11 +43,7 @@
     @weakify(self);
     [RACObserve(self.btnNext, enabled) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
-        if (newValue.boolValue) {
-            [self.btnNext setEnableAlpha];
-        } else {
-            [self.btnNext setDisableAlpha];
-        }
+        [self.btnNext enableBgColor:newValue.boolValue];
     }];
     
     RAC(self.btnNext, enabled) = [RACSignal

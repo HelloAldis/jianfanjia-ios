@@ -12,14 +12,6 @@
 
 @implementation UIButton (Ex)
 
-- (void)setDisableAlpha {
-    self.alpha = 0.4;
-}
-
-- (void)setEnableAlpha {
-    self.alpha = 1;
-}
-
 - (void)disable {
     [self disable:nil];
 }
@@ -32,6 +24,11 @@
     }
 
     [self setEnabled:NO];
+}
+
+- (void)enableBgColor:(BOOL)enable {
+    self.enabled = enable;
+    [self setBackgroundColor:enable ? kThemeColor : kUntriggeredColor];
 }
 
 @end

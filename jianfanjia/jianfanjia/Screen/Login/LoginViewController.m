@@ -226,8 +226,8 @@
             self.loginAngleUp.hidden = NO;
             self.signupAngleUp.hidden = YES;
             
-            [self.btnTitleLogin setEnableAlpha];
-            [self.btnTitleSignup setDisableAlpha];
+            self.btnTitleLogin.alpha = 1.0;
+            self.btnTitleSignup.alpha = 0.4;
         } completion:^(BOOL finished) {
             
         }];
@@ -256,8 +256,8 @@
             self.loginAngleUp.hidden = YES;
             self.signupAngleUp.hidden = NO;
             
-            [self.btnTitleSignup setEnableAlpha];
-            [self.btnTitleLogin setDisableAlpha];
+            self.btnTitleLogin.alpha = 0.4;
+            self.btnTitleSignup.alpha = 1.0;
         } completion:^(BOOL finished) {
             
         }];

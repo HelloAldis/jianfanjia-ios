@@ -64,11 +64,7 @@
     @weakify(self)
     [RACObserve(self.btnBind, enabled) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
-        if (newValue.boolValue) {
-            [self.btnBind setEnableAlpha];
-        } else {
-            [self.btnBind setDisableAlpha];
-        }
+        [self.btnBind enableBgColor:newValue.boolValue];
     }];
     
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{

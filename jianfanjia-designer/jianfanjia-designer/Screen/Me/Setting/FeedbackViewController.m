@@ -64,13 +64,7 @@
 }
 
 - (void)enableDoneButton:(BOOL)enable {
-    if (enable) {
-        self.btnDone.enabled = YES;
-        [self.btnDone setEnableAlpha];
-    } else {
-        self.btnDone.enabled = NO;
-        [self.btnDone setDisableAlpha];
-    }
+    [self.btnDone enableBgColor:enable];
 }
 
 @end

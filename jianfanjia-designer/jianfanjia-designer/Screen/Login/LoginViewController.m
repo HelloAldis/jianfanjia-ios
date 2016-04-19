@@ -156,8 +156,8 @@
                           delay:0 usingSpringWithDamping:1.0
           initialSpringVelocity:1.0
                         options:UIViewAnimationOptionCurveLinear animations:^{
-                            [self.btnTitleLogin setEnableAlpha];
-                            [self.btnTitleSignup setDisableAlpha];
+                            self.btnTitleLogin.alpha = 1.0;
+                            self.btnTitleSignup.alpha = 0.4;
                             self.viewLogin.alpha = 1.0;
                             self.viewSignup.alpha = 0.0;
                             [self.view layoutIfNeeded];
@@ -184,8 +184,8 @@
                           delay:0 usingSpringWithDamping:1.0
           initialSpringVelocity:1.0
                         options:UIViewAnimationOptionCurveLinear animations:^{
-                            [self.btnTitleSignup setEnableAlpha];
-                            [self.btnTitleLogin setDisableAlpha];
+                            self.btnTitleLogin.alpha = 0.4;
+                            self.btnTitleSignup.alpha = 1.0;
                             self.viewLogin.alpha = 0.0;
                             self.viewSignup.alpha = 1.0;
                             [self.view layoutIfNeeded];

@@ -10,9 +10,8 @@
 
 @interface UIButton (Ex)
 
-- (void)setDisableAlpha;
-- (void)setEnableAlpha;
 - (void)disable;
 - (void)disable:(NSString *)text;
+- (void)enableBgColor:(BOOL)enable;
 
 @end
