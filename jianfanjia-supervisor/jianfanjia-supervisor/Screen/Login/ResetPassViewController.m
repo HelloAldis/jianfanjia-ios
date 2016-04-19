@@ -40,17 +40,14 @@
         self.fldPassword.text = x;
     }];
     
-    @weakify(self);
-    [RACObserve(self.btnNext, enabled) subscribeNext:^(NSNumber *newValue) {
-        @strongify(self);
-        [self.btnNext enableBgColor:newValue.boolValue];
-    }];
+    [[RACSignal
+      combineLatest:@[self.fldPhone.rac_textSignal, self.fldPassword.rac_textSignal]
+      reduce:^(NSString *phone, NSString *password) {
+         return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
+      }] subscribeNext:^(id x) {
+         [self.btnNext enableBgColor:[x boolValue]];
+      }];
     
-    RAC(self.btnNext, enabled) = [RACSignal
-                                  combineLatest:@[self.fldPhone.rac_textSignal, self.fldPassword.rac_textSignal]
-                                  reduce:^(NSString *phone, NSString *password) {
-                                      return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
-                                  }];
     [self initLeftBackInNav];
     [self.btnNext setCornerRadius:5];
     self.btnNext.enabled = NO;

@@ -35,18 +35,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    @weakify(self)
-    [RACObserve(self.btnSignup, enabled) subscribeNext:^(NSNumber *newValue) {
-        @strongify(self);
-        [self.btnSignup enableBgColor:newValue.boolValue];
-    }];
-    
-    RAC(self.btnSignup, enabled) = [RACSignal
-                                   combineLatest:@[self.fldVerifyCode.rac_textSignal]
-                                   reduce:^(NSString *verifyCode) {
-                                       return @([verifyCode trim].length > 0);
-                                   }];
-    
+    [[RACSignal
+      combineLatest:@[self.fldVerifyCode.rac_textSignal]
+      reduce:^(NSString *verifyCode) {
+         return @([verifyCode trim].length > 0);
+      }] subscribeNext:^(id x) {
+         [self.btnSignup enableBgColor:[x boolValue]];
+      }];
     
     [self.btnSignup setCornerRadius:5];
     self.btnSignup.enabled = NO;

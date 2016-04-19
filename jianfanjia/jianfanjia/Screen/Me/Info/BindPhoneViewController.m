@@ -61,19 +61,13 @@
 }
 
 - (void)initUI {
-    @weakify(self)
-    [RACObserve(self.btnBind, enabled) subscribeNext:^(NSNumber *newValue) {
-        @strongify(self);
-        [self.btnBind enableBgColor:newValue.boolValue];
-    }];
-    
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
         return YES;
     }] length:^NSInteger{
         return kPhoneLength;
     }] subscribeNext:^(id x) {
         self.fldPhone.text = x;
-        self.btnBind.enabled = [x trim].length == kPhoneLength;
+        [self.btnBind enableBgColor:[x trim].length == kPhoneLength];
     }];
     
     [self.btnBind setCornerRadius:5];
