@@ -8,6 +8,8 @@
 
 #import "BaseModel.h"
 
+@class Supervisor;
+
 @interface Comment : BaseModel
 
 @property(nonatomic, strong) NSString *_id;
@@ -20,7 +22,9 @@
 @property(nonatomic, strong) NSString *content;
 @property(nonatomic, strong) NSNumber *date;
 
-//不懂太属性
+//不动态属性
 @property(nonatomic, strong) User *user;
+@property(nonatomic, strong) Designer *designer;
+@property(nonatomic, strong) Supervisor *supervisor;
 
 @end

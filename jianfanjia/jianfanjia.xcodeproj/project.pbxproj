@@ -15,6 +15,8 @@
 		680C46051CC4EA36008C4BC0 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46011CC4EA36008C4BC0 /* ShareManager.m */; };
 		680C461F1CC5CCC3008C4BC0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C461C1CC5CCC3008C4BC0 /* DataManager.m */; };
 		680C46201CC5CCC3008C4BC0 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C461E1CC5CCC3008C4BC0 /* GVUserDefaults+Manager.m */; };
+		680C465F1CC61356008C4BC0 /* Supervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C465E1CC61356008C4BC0 /* Supervisor.m */; };
+		680C46681CC61E47008C4BC0 /* CommentBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46671CC61E47008C4BC0 /* CommentBusiness.m */; };
 		680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchBeautifulImage.m */; };
 		680F49271C240E400055C16C /* BeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49261C240E400055C16C /* BeautifulImage.m */; };
 		680F492A1C240F910055C16C /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49291C240F910055C16C /* LeafImage.m */; };
@@ -496,6 +498,10 @@
 		680C461C1CC5CCC3008C4BC0 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		680C461D1CC5CCC3008C4BC0 /* GVUserDefaults+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Manager.h"; sourceTree = "<group>"; };
 		680C461E1CC5CCC3008C4BC0 /* GVUserDefaults+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Manager.m"; sourceTree = "<group>"; };
+		680C465D1CC61356008C4BC0 /* Supervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Supervisor.h; sourceTree = "<group>"; };
+		680C465E1CC61356008C4BC0 /* Supervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Supervisor.m; sourceTree = "<group>"; };
+		680C46661CC61E47008C4BC0 /* CommentBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentBusiness.h; sourceTree = "<group>"; };
+		680C46671CC61E47008C4BC0 /* CommentBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBusiness.m; sourceTree = "<group>"; };
 		680F49221C2408130055C16C /* SearchBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBeautifulImage.h; sourceTree = "<group>"; };
 		680F49231C2408130055C16C /* SearchBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBeautifulImage.m; sourceTree = "<group>"; };
 		680F49251C240E400055C16C /* BeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImage.h; sourceTree = "<group>"; };
@@ -2117,6 +2123,8 @@
 				68E6006C1CB7BC6000C4A8F7 /* BcObject */,
 				6E07DA581BD88DBE001461DD /* AccountBusiness.m */,
 				6E07DA571BD88DBE001461DD /* AccountBusiness.h */,
+				680C46661CC61E47008C4BC0 /* CommentBusiness.h */,
+				680C46671CC61E47008C4BC0 /* CommentBusiness.m */,
 				6E07DA591BD88DBE001461DD /* Business.h */,
 				6E07DA5A1BD88DBE001461DD /* ProcessBusiness.h */,
 				6E07DA5B1BD88DBE001461DD /* ProcessBusiness.m */,
@@ -2188,6 +2196,8 @@
 		6E07DA8B1BD88DBE001461DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				680C465D1CC61356008C4BC0 /* Supervisor.h */,
+				680C465E1CC61356008C4BC0 /* Supervisor.m */,
 				6E07DA8C1BD88DBE001461DD /* BaseModel.h */,
 				6E07DA8D1BD88DBE001461DD /* BaseModel.m */,
 				6E07DA8E1BD88DBE001461DD /* Comment.h */,
@@ -3057,6 +3067,7 @@
 				6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */,
 				684B03B61C968A450053FFDF /* BaseNotificationCell.m in Sources */,
 				685DD4511C89761E00A76B9C /* PlanCommentInfoCell.m in Sources */,
+				680C465F1CC61356008C4BC0 /* Supervisor.m in Sources */,
 				68679A411C8E730F00B380D0 /* SystemAnnouncementCell.m in Sources */,
 				684A370C1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.m in Sources */,
 				6E44962D1BF9E32200C90851 /* SignupSuccessViewController.m in Sources */,
@@ -3136,6 +3147,7 @@
 				6E6D98C01BE0637700D45F77 /* Product.m in Sources */,
 				68B10CC71C7B1A3F005866C1 /* ProgressWebView.m in Sources */,
 				6EE1E4201C0594CF00883184 /* ListFavoriteDesigner.m in Sources */,
+				680C46681CC61E47008C4BC0 /* CommentBusiness.m in Sources */,
 				68F73CEF1CBB3AB900E97710 /* PlanDesignerSubmitPlanExpired.m in Sources */,
 				68C3C2611C7598FE00EEEBD8 /* HomePageQuickEntryItem.m in Sources */,
 				684A37671BFDE24900F7388C /* EvaluateDesignerViewController.m in Sources */,

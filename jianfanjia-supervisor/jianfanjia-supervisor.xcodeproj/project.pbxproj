@@ -238,6 +238,7 @@
 		680C465A1CC5DB96008C4BC0 /* UpdateOneLineTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C464F1CC5DB96008C4BC0 /* UpdateOneLineTextViewController.xib */; };
 		680C465B1CC5DB96008C4BC0 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46511CC5DB96008C4BC0 /* UserInfoViewController.m */; };
 		680C465C1CC5DB96008C4BC0 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C46521CC5DB96008C4BC0 /* UserInfoViewController.xib */; };
+		680C46621CC61C87008C4BC0 /* CommentBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46611CC61C87008C4BC0 /* CommentBusiness.m */; };
 		D248AF3A7C7F296D8418ADE8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D408E462BE9708192EBFFD7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -680,6 +681,8 @@
 		680C46501CC5DB96008C4BC0 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		680C46511CC5DB96008C4BC0 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		680C46521CC5DB96008C4BC0 /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
+		680C46601CC61C87008C4BC0 /* CommentBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentBusiness.h; sourceTree = "<group>"; };
+		680C46611CC61C87008C4BC0 /* CommentBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBusiness.m; sourceTree = "<group>"; };
 		6DCF3E98975F7E90EE858303 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E62310690E1273E5E41514C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1115,11 +1118,13 @@
 		680C437F1CC4D4BD008C4BC0 /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				680C43841CC4D4BD008C4BC0 /* BcObject */,
 				680C43801CC4D4BD008C4BC0 /* AccountBusiness.h */,
 				680C43811CC4D4BD008C4BC0 /* AccountBusiness.m */,
 				680C43821CC4D4BD008C4BC0 /* Bc.h */,
 				680C43831CC4D4BD008C4BC0 /* Bc.m */,
-				680C43841CC4D4BD008C4BC0 /* BcObject */,
+				680C46601CC61C87008C4BC0 /* CommentBusiness.h */,
+				680C46611CC61C87008C4BC0 /* CommentBusiness.m */,
 				680C43B01CC4D4BD008C4BC0 /* Business.h */,
 				680C43B11CC4D4BD008C4BC0 /* DesignerBusiness.h */,
 				680C43B21CC4D4BD008C4BC0 /* DesignerBusiness.m */,
@@ -1840,6 +1845,7 @@
 				680C42D61CC4D4AE008C4BC0 /* SelectWorkTypeViewController.m in Sources */,
 				680C455F1CC4D4BD008C4BC0 /* MessageAlertViewController.m in Sources */,
 				680C452E1CC4D4BD008C4BC0 /* DesignerNotification.m in Sources */,
+				680C46621CC61C87008C4BC0 /* CommentBusiness.m in Sources */,
 				680C455C1CC4D4BD008C4BC0 /* CollectionFallsFlowLayout.m in Sources */,
 				680C45701CC4D4BD008C4BC0 /* SelectCityViewController.m in Sources */,
 				680C457B1CC4D4BD008C4BC0 /* HUDUtil.m in Sources */,

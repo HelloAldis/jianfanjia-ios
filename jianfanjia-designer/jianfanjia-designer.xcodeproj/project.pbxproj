@@ -13,6 +13,8 @@
 		680C45F61CC4E9F7008C4BC0 /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C45F11CC4E9F7008C4BC0 /* NotificationDataManager.m */; };
 		680C46261CC5CD15008C4BC0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46231CC5CD15008C4BC0 /* DataManager.m */; };
 		680C46271CC5CD15008C4BC0 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46251CC5CD15008C4BC0 /* GVUserDefaults+Manager.m */; };
+		680C46651CC61E35008C4BC0 /* CommentBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46641CC61E35008C4BC0 /* CommentBusiness.m */; };
+		680C466B1CC61F5F008C4BC0 /* Supervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C466A1CC61F5F008C4BC0 /* Supervisor.m */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
 		68123C8C1C4C9772008FC9AB /* DateAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C6B1C4C9772008FC9AB /* DateAlertViewController.xib */; };
 		68123C8D1C4C9772008FC9AB /* MessageAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6D1C4C9772008FC9AB /* MessageAlertViewController.m */; };
@@ -346,6 +348,10 @@
 		680C46231CC5CD15008C4BC0 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		680C46241CC5CD15008C4BC0 /* GVUserDefaults+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Manager.h"; sourceTree = "<group>"; };
 		680C46251CC5CD15008C4BC0 /* GVUserDefaults+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Manager.m"; sourceTree = "<group>"; };
+		680C46631CC61E35008C4BC0 /* CommentBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentBusiness.h; sourceTree = "<group>"; };
+		680C46641CC61E35008C4BC0 /* CommentBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBusiness.m; sourceTree = "<group>"; };
+		680C46691CC61F5F008C4BC0 /* Supervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Supervisor.h; sourceTree = "<group>"; };
+		680C466A1CC61F5F008C4BC0 /* Supervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Supervisor.m; sourceTree = "<group>"; };
 		68123C691C4C9772008FC9AB /* DateAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAlertViewController.h; sourceTree = "<group>"; };
 		68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAlertViewController.m; sourceTree = "<group>"; };
 		68123C6B1C4C9772008FC9AB /* DateAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateAlertViewController.xib; sourceTree = "<group>"; };
@@ -1660,6 +1666,8 @@
 				68F73CF51CBB597E00E97710 /* BcObject */,
 				68E6005B1CB62DDC00C4A8F7 /* RequirementBusiness.h */,
 				68E6005C1CB62DDC00C4A8F7 /* RequirementBusiness.m */,
+				680C46631CC61E35008C4BC0 /* CommentBusiness.h */,
+				680C46641CC61E35008C4BC0 /* CommentBusiness.m */,
 				684B03F81C9818CF0053FFDF /* NotificationBusiness.h */,
 				684B03F91C9818CF0053FFDF /* NotificationBusiness.m */,
 				68123FE51C4CCFFF008FC9AB /* DesignerBusiness.h */,
@@ -1727,6 +1735,8 @@
 		6E378D141BDA2D2E00908B77 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				680C46691CC61F5F008C4BC0 /* Supervisor.h */,
+				680C466A1CC61F5F008C4BC0 /* Supervisor.m */,
 				684B04111C98F8240053FFDF /* DesignerNotification.h */,
 				684B04121C98F8240053FFDF /* DesignerNotification.m */,
 				68123FCA1C4CCF4A008FC9AB /* BeautifulImage.h */,
@@ -2109,6 +2119,7 @@
 				6E378D501BDA2D2E00908B77 /* Item.m in Sources */,
 				681240CB1C4CE471008FC9AB /* Reschedule.m in Sources */,
 				68123FDF1C4CCF4A008FC9AB /* Plan.m in Sources */,
+				680C46651CC61E35008C4BC0 /* CommentBusiness.m in Sources */,
 				681240AF1C4CE471008FC9AB /* DeleteImageFromProcess.m in Sources */,
 				68F73D231CBB597E00E97710 /* PlanDesignerMeasuredHouse.m in Sources */,
 				681240C91C4CE471008FC9AB /* RejectReschedule.m in Sources */,
@@ -2304,6 +2315,7 @@
 				681240131C4CDA06008FC9AB /* NSDate+Ex.m in Sources */,
 				681241C91C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m in Sources */,
 				681240B31C4CE471008FC9AB /* DesignerSignup.m in Sources */,
+				680C466B1CC61F5F008C4BC0 /* Supervisor.m in Sources */,
 				68123EFB1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.m in Sources */,
 				68123EEC1C4CBE79008FC9AB /* PlanCell.m in Sources */,
 				68123FDE1C4CCF4A008FC9AB /* LeafImage.m in Sources */,

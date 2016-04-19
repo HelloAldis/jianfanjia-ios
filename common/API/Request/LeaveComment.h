@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSString *item;
 @property (strong, nonatomic) NSString *topictype;
 @property (strong, nonatomic) NSString *content;
-@property (strong, nonatomic) NSString *to;
+@property (strong, nonatomic) NSString *to_designerid;
+@property (strong, nonatomic) NSString *to_userid;
 
 @end

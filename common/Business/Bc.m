@@ -23,9 +23,11 @@ int const kPasswordLength = 30;
  * 0. 管理员
  * 1. 业主
  * 2. 设计师
+ * 3. 监理
  **/
 NSString * const kUserTypeUser = @"1";
 NSString * const kUserTypeDesigner = @"2";
+NSString * const kUserTypeSupervisor = @"3";
 
 NSString * const kProcessItemStatusNew = @"0";
 NSString * const kProcessItemStatusGoing = @"1";

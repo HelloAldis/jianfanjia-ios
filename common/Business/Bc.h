@@ -10,11 +10,15 @@
 
 extern NSString * const kKeychainService;
 extern NSString * const kPkg365Url;
+
 extern int const kWelcomeVersion;
 extern int const kPhoneLength;
 extern int const kPasswordLength;
+
 extern NSString * const kUserTypeUser;
 extern NSString * const kUserTypeDesigner;
+extern NSString * const kUserTypeSupervisor;
+
 extern NSString * const kProcessItemStatusNew;
 extern NSString * const kProcessItemStatusGoing;
 extern NSString * const kProcessItemStatusDone;

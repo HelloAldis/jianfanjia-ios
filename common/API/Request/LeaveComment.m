@@ -15,6 +15,7 @@
 @dynamic item;
 @dynamic topictype;
 @dynamic content;
-@dynamic to;
+@dynamic to_designerid;
+@dynamic to_userid;
 
 @end

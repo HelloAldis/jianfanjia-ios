@@ -118,7 +118,8 @@ static NSDictionary *decProgressDict = nil;
     userType = @{
                  @"0":@"管理员",
                  @"1":@"业主",
-                 @"2":@"设计师"
+                 @"2":@"设计师",
+                 @"3":@"监理"
                  };
     
     sectionStatusDic = @{

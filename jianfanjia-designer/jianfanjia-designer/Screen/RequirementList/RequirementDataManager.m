@@ -40,9 +40,12 @@
     
     for (NSMutableDictionary *dict in arr) {
         Comment *comment = [[Comment alloc] initWith:dict];
-        NSMutableDictionary *userDic = [comment.data objectForKey:@"byUser"];
-        User *user = [[User alloc] initWith:userDic];
+        User *user = [[User alloc] initWith:[comment.data objectForKey:@"byUser"]];
+        Designer *designer = [[Designer alloc] initWith:[comment.data objectForKey:@"byDesigner"]];
+        Supervisor *supervisor = [[Supervisor alloc] initWith:[comment.data objectForKey:@"bySupervisor"]];
         comment.user = user;
+        comment.designer = designer;
+        comment.supervisor = supervisor;
         [comments addObject:comment];
     }
     
@@ -55,9 +58,12 @@
     
     for (NSMutableDictionary *dict in arr) {
         Comment *comment = [[Comment alloc] initWith:dict];
-        NSMutableDictionary *userDic = [comment.data objectForKey:@"byUser"];
-        User *user = [[User alloc] initWith:userDic];
+        User *user = [[User alloc] initWith:[comment.data objectForKey:@"byUser"]];
+        Designer *designer = [[Designer alloc] initWith:[comment.data objectForKey:@"byDesigner"]];
+        Supervisor *supervisor = [[Supervisor alloc] initWith:[comment.data objectForKey:@"bySupervisor"]];
         comment.user = user;
+        comment.designer = designer;
+        comment.supervisor = supervisor;
         [comments addObject:comment];
     }
     

@@ -188,14 +188,16 @@ static const CGFloat kMaxMessageHeight = 100;
     if (self.commentType == CommentTypePlan) {
         request.topicid = self.plan._id;
         request.topictype = kTopicTypePlan;
-        request.to = self.plan.userid;
+        request.to_designerid = self.plan.designerid;
+        request.to_userid = self.plan.userid;
         request.content = self.tvMessage.text;
     } else if (self.commentType == CommentTypeProcess) {
         request.topicid = self.process._id;
         request.topictype = kTopicTypeProcess;
         request.section = self.section;
         request.item = self.item;
-        request.to = self.process.userid;
+        request.to_designerid = self.process.final_designerid;
+        request.to_userid = self.process.userid;
         request.content = self.tvMessage.text;
     }
     

@@ -16,27 +16,25 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblTimeVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblMessageVal;
 
-@property (strong, nonatomic) Comment *comment;
-
 @end
 
 @implementation MessageCell
 
 - (void)awakeFromNib {
     [self.imgAvatar setCornerRadius:30];
-//    self.lblMessageVal.preferredMaxLayoutWidth = self.lblMessageVal.bounds.size.width;
 }
 
 - (void)initWithComment:(Comment *)comment {
-    self.comment = comment;
-    [self.imgAvatar setImageWithId:comment.user.imageid withWidth:self.imgAvatar.bounds.size.width];
-    self.lblUserNameVal.text = comment.user.username;
+    [self.imgAvatar setImageWithId:[CommentBusiness imageId:comment] withWidth:self.imgAvatar.bounds.size.width];
+    self.lblUserNameVal.text = [CommentBusiness userName:comment];
     self.lblRoleTypeVal.text = [NameDict nameForUserType:comment.usertype];
     self.lblTimeVal.text = [comment.date humDateString];
     self.lblMessageVal.text = comment.content;
     
-    if ([kUserTypeDesigner isEqualToString:comment.usertype]) {
+    if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:comment.usertype]) {
         self.lblRoleTypeVal.textColor = kExcutionStatusColor;
+    } else {
+        self.lblRoleTypeVal.textColor = kPassStatusColor;
     }
 }
 
