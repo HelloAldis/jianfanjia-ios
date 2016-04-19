@@ -79,9 +79,9 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self refreshProcess:YES];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
     if (self.wasFirstEnter) {
         [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
     }
