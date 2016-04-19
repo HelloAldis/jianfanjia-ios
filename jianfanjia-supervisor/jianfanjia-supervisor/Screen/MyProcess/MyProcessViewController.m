@@ -103,9 +103,9 @@ static NSString *ProcessCellId = @"ProcessCell";
         [HUDUtil showWait];
     }
 
-    GetDesignerProcess *getProcesss = [[GetDesignerProcess alloc] init];
+    SupervisorGetProcessList *getProcesss = [[SupervisorGetProcessList alloc] init];
     
-    [API getDesignerProcess:getProcesss success:^{
+    [API supervisorGetProcessList:getProcesss success:^{
         [HUDUtil hideWait];
         [self.tableView.header endRefreshing];
         [self.noProcessImageView.header endRefreshing];

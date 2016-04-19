@@ -39,36 +39,24 @@
     [APIManager uploadImage:request.image handler:request success:success failure:failure networkError:error];
 }
 
-+ (void)designerRefreshSession:(RefreshSession *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_refresh_session" data:request.data handler:request success:success failure:failure networkError:error];
++ (void)supervisorRefreshSession:(RefreshSession *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"supervisor_refresh_session" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
-+ (void)designerLogin:(DesignerLogin *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_login" data:request.data handler:request success:success failure:failure networkError:error];
++ (void)supervisorLogin:(SupervisorLogin *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"supervisor_login" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
-+ (void)designerSignup:(DesignerSignup *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_signup" data:request.data handler:request success:success failure:failure networkError:error];
++ (void)supervisorGetInfo:(SupervisorGetInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"supervisor/info/get" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
-+ (void)designerGetInfo:(DesignerGetInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API GET:@"designer/info" handler:request success:success failure:failure networkError:error];
++ (void)supervisorUpdateInfo:(SupervisorUpdateInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"supervisor/info/update" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
-+ (void)getDesignerProcess:(GetDesignerProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
++ (void)supervisorGetProcessList:(SupervisorGetProcessList *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API GET:@"process/list" handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerGetRequirementPlan:(DesignerGetRequirementPlans *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"designer_requirement_plans" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerUploadYsImage:(UploadYsImageToProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"process/ysimage" data:request.data handler:request success:success failure:failure networkError:error];
-}
-
-+ (void)designerDeleteYsImage:(DeleteYsImageFromProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
-    [API POST:@"process/ysimage/delete" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
 @end

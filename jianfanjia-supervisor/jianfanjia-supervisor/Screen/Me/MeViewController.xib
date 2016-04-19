@@ -49,6 +49,9 @@
                                         <constraint firstAttribute="width" secondItem="KDh-vY-Upf" secondAttribute="height" multiplier="1:1" id="7ep-H5-oJ7"/>
                                         <constraint firstAttribute="width" constant="73" id="DLs-ch-qOU"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="qga-Gb-1Sy" appends="YES" id="K7e-ek-OkC"/>
+                                    </connections>
                                 </imageView>
                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YXa-C1-wIh">
                                     <rect key="frame" x="0.0" y="254" width="600" height="21"/>
@@ -59,6 +62,9 @@
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="seE-WV-1Jd" appends="YES" id="9v7-WU-6hj"/>
+                                    </connections>
                                 </label>
                                 <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1e-hH-anS">
                                     <rect key="frame" x="0.0" y="280" width="600" height="21"/>
@@ -323,6 +329,7 @@
                                 </view>
                             </subviews>
                             <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <gestureRecognizers/>
                             <constraints>
                                 <constraint firstItem="K1r-aB-xWc" firstAttribute="width" secondItem="Bfa-29-WIr" secondAttribute="width" id="3d1-Jy-dV6"/>
                                 <constraint firstItem="Epg-7u-mON" firstAttribute="top" secondItem="NLO-M5-9XB" secondAttribute="bottom" id="3v8-E6-i1O"/>
@@ -385,6 +392,16 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="356" y="452.5"/>
         </view>
+        <tapGestureRecognizer id="qga-Gb-1Sy" userLabel="Tap Avatar Image">
+            <connections>
+                <action selector="onTapUserImageView:" destination="-1" id="F1P-o0-sET"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="seE-WV-1Jd" userLabel="Tap Avatar Lbl">
+            <connections>
+                <action selector="onTapUserImageView:" destination="-1" id="KIA-En-ZdB"/>
+            </connections>
+        </tapGestureRecognizer>
         <tapGestureRecognizer id="2yJ-nr-Ife" userLabel="Tap My Notification">
             <connections>
                 <action selector="onClickNotification:" destination="-1" id="omp-uX-7Xw"/>

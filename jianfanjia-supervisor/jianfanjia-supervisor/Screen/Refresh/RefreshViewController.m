@@ -21,11 +21,11 @@
     RefreshSession *request = [[RefreshSession alloc] init];
     request._id = [GVUserDefaults standardUserDefaults].userid;
     
-    [API designerRefreshSession:request success:^{
+    [API supervisorRefreshSession:request success:^{
         [ViewControllerContainer refreshSuccess];
         
-        DesignerGetInfo *request = [[DesignerGetInfo alloc] init];
-        [API designerGetInfo:request success:nil failure:nil networkError:nil];
+        SupervisorGetInfo *request = [[SupervisorGetInfo alloc] init];
+        [API supervisorGetInfo:request success:nil failure:nil networkError:nil];
     } failure:^{
         [ViewControllerContainer logout];
     } networkError:^{

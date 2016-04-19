@@ -20,7 +20,6 @@
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
 + (void)showRequirementCreate:(Requirement *)requirement;
-+ (void)showPlanList:(Requirement *)requirement;
 + (void)leaveMessage:(Plan *)plan;
 + (void)leaveMessage:(Process *)process section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock;
 + (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock;

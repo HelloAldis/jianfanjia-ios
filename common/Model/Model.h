@@ -33,5 +33,6 @@
 #import "DecLive.h"
 #import "DecLiveSection.h"
 #import "DesignerNotification.h"
+#import "Supervisor.h"
 
 #endif /* Model_h */

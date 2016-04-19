@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -42,7 +42,7 @@
                         <action selector="onClickTitleLogin:" destination="-1" eventType="touchUpInside" id="sHe-bF-7H0"/>
                     </connections>
                 </button>
-                <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRy-b7-0Gn">
+                <button hidden="YES" opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRy-b7-0Gn">
                     <rect key="frame" x="360" y="27" width="80" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="6lS-qp-HeE"/>
@@ -153,7 +153,7 @@
                         <constraint firstItem="s1G-qU-KtH" firstAttribute="width" secondItem="Gjd-6l-haU" secondAttribute="width" id="xpn-7e-5dq"/>
                     </constraints>
                 </view>
-                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtY-DG-Q1p">
+                <view hidden="YES" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dtY-DG-Q1p">
                     <rect key="frame" x="100" y="107" width="600" height="200"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lbg-vE-wFX">
@@ -256,12 +256,12 @@
             </connections>
             <point key="canvasLocation" x="295" y="422"/>
         </view>
-        <swipeGestureRecognizer direction="right" id="AXu-vh-6R0">
+        <swipeGestureRecognizer enabled="NO" direction="right" id="AXu-vh-6R0">
             <connections>
                 <action selector="swipeRight:" destination="-1" id="3h3-9d-ijI"/>
             </connections>
         </swipeGestureRecognizer>
-        <swipeGestureRecognizer direction="left" id="J0S-hS-u15">
+        <swipeGestureRecognizer enabled="NO" direction="left" id="J0S-hS-u15">
             <connections>
                 <action selector="swipeLeft:" destination="-1" id="jjB-Me-neG"/>
             </connections>

@@ -7,7 +7,6 @@
 //
 
 #import "PlanPreviewViewController.h"
-#import "PlanListViewController.h"
 #import "ViewControllerContainer.h"
 
 @interface PlanPreviewViewController ()
@@ -124,19 +123,6 @@
 
 - (void)onChoosePriceDetail {
     [ViewControllerContainer showPlanPriceDetail:self.plan requirement:self.requirement];
-}
-
-- (void)navigateToOrderedDesignerScreen {
-    NSArray *controllers = [[self.navigationController.viewControllers reverseObjectEnumerator] allObjects];
-    UIViewController *purposeController = nil;
-    for (UIViewController *controller in controllers) {
-        if ([controller isKindOfClass:[PlanListViewController class]]) {
-            purposeController = controller;
-            break;
-        }
-    }
-    
-    [self.navigationController popToViewController:purposeController animated:YES];
 }
 
 @end

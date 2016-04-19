@@ -1,5 +1,5 @@
 //
-//  FeedbackViewController.h
+//  UserInfoViewController.h
 //  jianfanjia
 //
 //  Created by JYZ on 15/11/18.
@@ -8,6 +8,6 @@
 
 #import "BaseViewController.h"
 
-@interface FeedbackViewController : BaseViewController
+@interface UserInfoViewController : BaseViewController
 
 @end

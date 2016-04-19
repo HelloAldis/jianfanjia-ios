@@ -29,22 +29,21 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 @property (strong, nonatomic) Section *section;
 @property (strong, nonatomic) NSString *processid;
+@property (strong, nonatomic) UIViewController *popTo;
 @property (copy, nonatomic) void(^refreshBlock)(void);
 
-@property (strong, nonatomic) NSArray *imgArray;
-
-@property (assign, nonatomic) BOOL isEditing;
-@property (assign, nonatomic) BOOL isSectionUnStart;
+@property (strong, nonatomic) NSMutableArray *imgArray;
 
 @end
 
 @implementation DBYSViewController
 
 #pragma mark - init method
-- (id)initWithSection:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock {
+- (id)initWithSection:(Section *)section process:(NSString *)processid popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
     if (self = [super init]) {
         _section = section;
         _processid = processid;
+        _popTo = popTo;
         _refreshBlock = refreshBlock;
     }
     
@@ -59,13 +58,13 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     [self initUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
-    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
-    
     self.title = @"对比验收";
 }
 
@@ -78,12 +77,9 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     self.imgCollectionLayout.sectionInset = UIEdgeInsetsMake(0, 10, 10, 10);
     [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
     NSInteger imgArrCount = [self getDBYSImageCount:self.section];
-    NSMutableArray *imgArr = [NSMutableArray arrayWithCapacity:imgArrCount];
-    self.imgArray = imgArr;
+    self.imgArray = [NSMutableArray arrayWithCapacity:imgArrCount];
     for (NSInteger i = 0; i < imgArrCount; i++) {
-        YsImage *ysimage = [[YsImage alloc] init];
-        ysimage.imageid = @"";
-        [imgArr addObject:ysimage];
+        [self.imgArray addObject:[[YsImage alloc] init]];
     }
     
     @weakify(self);
@@ -94,43 +90,33 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         ysimg.imageid = ysimage.imageid;
     }];
     
-    [[self.btnConfirmAccept rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        self.btnConfirmAccept.enabled = NO;
-        self.btnConfirmAccept.backgroundColor = kUntriggeredColor;
-        NSInteger totalCount = [self getDBYSImageCount:self.section];
-        NSInteger count = [self getCurrentImageCount];
-        
-        if (count == totalCount) {
-            if ([self isAllSectionItemsFinished:self.section]) {
-//                NotifyUserToDBYS *request = [[NotifyUserToDBYS alloc] init];
-//                request._id = self.processid;
-//                request.section = self.section.name;
-//                
-//                [API designerNotifyUserToDBYS:request success:^{
-//                } failure:^{
-//                } networkError:^{
-//                }];
-            } else {
-                [self clickBack];
-            }
-        } else {
-            [self clickBack];
-        }
-    }];
-    
-    [[RACObserve(self, imgArray) flattenMap:^RACStream *(NSArray *items) {
-        NSMutableArray *signals = [NSMutableArray array];
-        for (YsImage *img in items) {
-            [signals addObject:RACObserve(img, imageid)];
-        }
-        
-        return [RACSignal combineLatest:(signals)];
-    }] subscribeNext:^(id x) {
-        [self refreshButtonInBottom];
-    }];
+    [self initButtons];
 }
 
-#pragma mark - util
+- (void)initButtons {
+    NSInteger totalCount = [self getDBYSImageCount:self.section];
+    NSInteger count = [self getCurrentImageCount];
+    
+    if ([self.section.status isEqualToString:kSectionStatusAlreadyFinished]) {
+        [self enableConfirmButton:NO title:@"已确认对比验收"];
+    } else if (count == totalCount) {
+        if ([ProcessBusiness isAllSectionItemsFinished:self.section]) {
+            [self enableConfirmButton:NO title:@"确认验收"];
+        } else {
+            [self enableConfirmButton:NO title:@"工序未完工，您还不能确认验收"];
+        }
+    } else {
+        [self enableConfirmButton:NO title:@"确认验收"];
+    }
+}
+
+- (void)enableConfirmButton:(BOOL)enable title:(NSString *)title {
+    [self.btnConfirmAccept setTitle:title forState:UIControlStateNormal];
+    self.btnConfirmAccept.enabled = enable;
+    self.btnConfirmAccept.backgroundColor = enable ? kFinishedColor : kUntriggeredColor;
+}
+
+#pragma mark - util 
 - (NSInteger)getDBYSImageCount:(Section *)section {
     if ([section.name isEqualToString:SHUI_DIAN]) {
         return SHUI_DIAN_YS;
@@ -147,66 +133,16 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     return 0;
 }
 
-- (void)refreshButtonInBottom {
-    NSInteger totalCount = [self getDBYSImageCount:self.section];
-    NSInteger count = [self getCurrentImageCount];
-    
-    if ([self.section.status isEqualToString:kSectionStatusUnStart]) {
-        self.isSectionUnStart = YES;
-        [self enableConfirmButton:NO title:@"确认上传"];
-        [self enableEditItem:NO];
-    } else if ([self.section.status isEqualToString:kSectionStatusAlreadyFinished]) {
-        [self enableConfirmButton:NO title:@"已确认对比验收"];
-        [self enableEditItem:NO];
-    } else if (count == totalCount) {
-        if ([ProcessBusiness isAllSectionItemsFinished:self.section]) {
-            [self enableConfirmButton:YES title:@"提醒用户进行对比验收"];
-            [self enableEditItem:YES];
-        } else {
-            [self enableConfirmButton:NO title:@"其他工序未完工，您还不能提醒业主验收"];
-            [self enableEditItem:YES];
-        }
-    } else {
-        [self enableConfirmButton:YES title:@"确认上传"];
-        [self enableEditItem:YES];
-    }
-}
-
-- (void)enableConfirmButton:(BOOL)enable title:(NSString *)title {
-    [self.btnConfirmAccept setTitle:title forState:UIControlStateNormal];
-    self.btnConfirmAccept.enabled = enable;
-    self.btnConfirmAccept.backgroundColor = enable ? kFinishedColor : kUntriggeredColor;
-}
-
-- (void)enableEditItem:(BOOL)enable {
-    self.navigationItem.rightBarButtonItem.enabled = enable;
-}
-
 - (NSInteger)getCurrentImageCount {
     NSInteger count = 0;
     for (NSInteger i = 0; i < self.imgArray.count; i++) {
         YsImage *img = self.imgArray[i];
-        if (![img.imageid isEqualToString:@""]) {
+        if (img.imageid) {
             count++;
         }
     }
     
     return count;
-}
-
-- (BOOL)isAllSectionItemsFinished:(Section *)section {
-    __block BOOL finished = YES;
-    
-    NSArray *arr = [section.data objectForKey:@"items"];
-    [arr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        Item *item = [[Item alloc] initWith:obj];
-        if (![item.status isEqualToString:kSectionStatusAlreadyFinished]) {
-            finished = NO;
-            *stop = YES;
-        }
-    }];
-    
-    return finished;
 }
 
 #pragma mark - collection delegate
@@ -221,7 +157,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
         NSInteger scenceImageIndex = (indexPath.row + 1) / 2 - 1;
         YsImage *image = self.imgArray[scenceImageIndex];
         
-        if (![image.imageid isEqualToString:@""]) {
+        if (image.imageid) {
             [cell initWithImage:image.imageid width:self.imgCollectionLayout.itemSize.width];
             if (self.isEditing) {
                 [cell endShaking];
@@ -230,7 +166,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
                 [cell endShaking];
             }
         } else {
-            [cell initWithImage:[UIImage imageNamed:@"btn_add_image"]];
+            [cell initWithImage:[UIImage imageNamed:@"waitToUpload"]];
         }
     } else {
         [cell initWithImage:[UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", self.section.name, @(indexPath.row / 2)]]];
@@ -249,9 +185,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     }
     
     if ((indexPath.row + 1) % 2 == 0) {
-        if (!self.isSectionUnStart) {
-            [self showScenceImageDetail:(indexPath.row + 1) / 2 - 1 indexPath:indexPath];
-        }
+        [self showScenceImageDetail:(indexPath.row + 1) / 2 - 1];
     } else {
         [self showStandardImageDetail:indexPath.row / 2];
     }
@@ -268,87 +202,20 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     [ViewControllerContainer showOfflineImages:images index:index];
 }
 
-- (void)showScenceImageDetail:(NSInteger)index indexPath:(NSIndexPath *)indexPath {
+- (void)showScenceImageDetail:(NSInteger)index {
     YsImage *image = self.imgArray[index];
-
-    if (![image.imageid isEqualToString:@""]) {
-        if (self.isEditing) {
-            [self deleteImage:index indexPath:indexPath];
-            return;
-        }
-        
+    if (image.imageid) {
         NSMutableArray *images = [NSMutableArray array];
         for (NSInteger i = 0; i < self.imgArray.count; i++) {
             YsImage *img = self.imgArray[i];
-            if (![img.imageid isEqualToString:@""]) {
+            if (img.imageid) {
                 [images addObject:img.imageid];
             }
         }
         
         NSInteger idx = [images indexOfObject:image.imageid];
         [ViewControllerContainer showOnlineImages:images index:idx];
-    } else {
-        [self showPhotoSelector:[self.imgCollection cellForItemAtIndexPath:indexPath] index:index];
     }
-}
-
-#pragma mark - user action 
-- (void)onClickEdit {
-    self.isEditing = !self.isEditing;
-    
-    if (self.isEditing) {
-        self.navigationItem.rightBarButtonItem.title = @"完成";
-    } else {
-        self.navigationItem.rightBarButtonItem.title = @"编辑";
-    }
-    
-    [self.imgCollection reloadData];
-}
-
-- (void)deleteImage:(NSInteger)index indexPath:(NSIndexPath *)indexPath {
-    YsImage *ysimg = self.imgArray[index];
-    ysimg.imageid = @"";
-    [self.imgCollection reloadData];
-    
-    DeleteYsImageFromProcess *request = [[DeleteYsImageFromProcess alloc] init];
-    request._id = self.processid;
-    request.section = self.section.name;
-    request.key = [@(index) stringValue];
-    
-    [API designerDeleteYsImage:request success:^{
-        if (self.refreshBlock) {
-            self.refreshBlock();
-        }
-    } failure:^{
-    } networkError:^{
-        
-    }];
-}
-
-- (void)showPhotoSelector:(UIView *)view index:(NSInteger)index {
-    @weakify(self);
-    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:[self getDBYSImageCount:self.section] - self.imgArray.count withBlock:^(NSArray *imageIds) {
-        @strongify(self);
-        UploadYsImageToProcess *request = [[UploadYsImageToProcess alloc] init];
-        request._id = self.processid;
-        request.section = self.section.name;
-        request.key = [@(index) stringValue];
-        request.imageid = imageIds[0];
-        [API designerUploadYsImage:request success:^{
-            if (self.refreshBlock) {
-                self.refreshBlock();
-            }
-
-            YsImage *ysimg = self.imgArray[index];
-            ysimg.imageid = imageIds[0];
-            [self.imgCollection reloadData];
-        } failure:^{
-            
-        } networkError:^{
-            
-        }];
-        
-    }];
 }
 
 @end

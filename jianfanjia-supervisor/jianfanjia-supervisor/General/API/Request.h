@@ -19,12 +19,9 @@
 #import "UploadImageToProcess.h"
 #import "DeleteImageFromProcess.h"
 #import "RefreshSession.h"
-#import "DesignerLogin.h"
-#import "DesignerSignup.h"
-#import "DesignerGetInfo.h"
-#import "GetDesignerProcess.h"
-#import "DesignerGetRequirementPlans.h"
-#import "UploadYsImageToProcess.h"
-#import "DeleteYsImageFromProcess.h"
+#import "SupervisorUpdateInfo.h"
+#import "SupervisorGetInfo.h"
+#import "SupervisorGetProcessList.h"
+#import "SupervisorLogin.h"
 
 #endif

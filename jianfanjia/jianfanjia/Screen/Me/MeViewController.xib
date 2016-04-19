@@ -628,12 +628,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="356" y="452.5"/>
         </view>
-        <tapGestureRecognizer id="FZ5-Bz-HJu" userLabel="Tap Background Image">
+        <tapGestureRecognizer id="FZ5-Bz-HJu" userLabel="Tap Avatar Image">
             <connections>
                 <action selector="onTapUserImageView:" destination="-1" id="bYj-J9-zsN"/>
             </connections>
         </tapGestureRecognizer>
-        <tapGestureRecognizer id="fXy-TV-M3e" userLabel="Tap Avatar Image">
+        <tapGestureRecognizer id="fXy-TV-M3e" userLabel="Tap Avatar Lbl">
             <connections>
                 <action selector="onTapUserImageView:" destination="-1" id="G4h-mw-9N2"/>
             </connections>

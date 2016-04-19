@@ -17,7 +17,6 @@
 #import "VerifyPhoneViewController.h"
 #import "SignupSuccessViewController.h"
 #import "ResetPassViewController.h"
-#import "PlanListViewController.h"
 #import "PlanPreviewViewController.h"
 #import "PlanPriceDetailViewController.h"
 #import "LeaveMessageViewController.h"
@@ -129,11 +128,6 @@ static ViewControllerContainer *container;
     }
 }
 
-+ (void)showPlanList:(Requirement *)requirement {
-    PlanListViewController *v = [[PlanListViewController alloc] initWithRequirement:requirement];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
-}
-
 + (void)leaveMessage:(Plan *)plan {
     LeaveMessageViewController *v = [[LeaveMessageViewController alloc] initWithPlan:plan];
     [container.tab.selectedViewController pushViewController:v animated:YES];
@@ -155,7 +149,7 @@ static ViewControllerContainer *container;
 }
 
 + (void)showDBYS:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock {
-    DBYSViewController *v = [[DBYSViewController alloc] initWithSection:section process:processid refresh:refreshBlock];
+    DBYSViewController *v = [[DBYSViewController alloc] initWithSection:section process:processid popTo:nil refresh:refreshBlock];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

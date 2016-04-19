@@ -128,11 +128,6 @@
     }
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 #pragma mark - UI
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleDefault;
@@ -222,15 +217,15 @@
 
 - (IBAction)onClickLogin:(id)sender {
     [self.view endEditing:YES];
-    DesignerLogin *login = [[DesignerLogin alloc] init];
+    SupervisorLogin *login = [[SupervisorLogin alloc] init];
     
     [login setPhone:[self.fldPhone.text trim]];
     [login setPass:[self.fldPassword.text trim]];
     
     [HUDUtil showWait];
-    [API designerLogin:login success:^{
-        DesignerGetInfo *getUser = [[DesignerGetInfo alloc] init];
-        [API designerGetInfo:getUser success:^{
+    [API supervisorLogin:login success:^{
+        SupervisorGetInfo *getUser = [[SupervisorGetInfo alloc] init];
+        [API supervisorGetInfo:getUser success:^{
             [ViewControllerContainer showTab];
         } failure:^{
         } networkError:^{

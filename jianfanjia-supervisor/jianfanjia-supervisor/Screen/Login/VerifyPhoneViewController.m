@@ -97,37 +97,10 @@
             
             break;
         case VerfityPhoneEventSignup: {
-                DesignerSignup *request = [[DesignerSignup alloc] init];
-                request.phone = [DataManager shared].signupPagePhone;
-                request.pass = [DataManager shared].signupPagePass;
-                request.code = [self.fldVerifyCode.text trim];
-                
-                [HUDUtil showWait];
-                [API designerSignup:request success:^{
-                    [ViewControllerContainer showTab];
-                } failure:^{
-                    
-                } networkError:^{
-                    
-                }];
             }
             
             break;
         case VerfityPhoneEventBindPhone: {
-//                BindPhone *request = [[BindPhone alloc] init];
-//                request.phone = [DataManager shared].signupPagePhone;
-//                request.code = [self.fldVerifyCode.text trim];
-//                
-//                [HUDUtil showWait];
-//                [API bindPhone:request success:^{
-//                    [GVUserDefaults standardUserDefaults].phone = request.phone;
-//                    [HUDUtil showSuccessText:@"绑定成功"];
-//                    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//                } failure:^{
-//                    
-//                } networkError:^{
-//                    
-//                }];
             }
             
             break;
