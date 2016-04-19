@@ -240,9 +240,10 @@
 		680C45831CC4DF14008C4BC0 /* DesignerSignup.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C45821CC4DF14008C4BC0 /* DesignerSignup.m */; };
 		680C45E81CC4E913008C4BC0 /* SetWorksiteStartTimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C45E61CC4E913008C4BC0 /* SetWorksiteStartTimeViewController.m */; };
 		680C45E91CC4E913008C4BC0 /* SetWorksiteStartTimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C45E71CC4E913008C4BC0 /* SetWorksiteStartTimeViewController.xib */; };
-		680C46101CC4EB83008C4BC0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46081CC4EB83008C4BC0 /* DataManager.m */; };
-		680C46111CC4EB83008C4BC0 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C460A1CC4EB83008C4BC0 /* GVUserDefaults+Manager.m */; };
 		680C46161CC4F58F008C4BC0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C46141CC4F58F008C4BC0 /* LaunchScreen.xib */; };
+		680C46191CC5CB9D008C4BC0 /* Supervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46181CC5CB9D008C4BC0 /* Supervisor.m */; };
+		680C462D1CC5CD69008C4BC0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C462A1CC5CD69008C4BC0 /* DataManager.m */; };
+		680C462E1CC5CD69008C4BC0 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C462C1CC5CD69008C4BC0 /* GVUserDefaults+Manager.m */; };
 		D248AF3A7C7F296D8418ADE8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D408E462BE9708192EBFFD7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -688,12 +689,14 @@
 		680C45E51CC4E913008C4BC0 /* SetWorksiteStartTimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetWorksiteStartTimeViewController.h; sourceTree = "<group>"; };
 		680C45E61CC4E913008C4BC0 /* SetWorksiteStartTimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetWorksiteStartTimeViewController.m; sourceTree = "<group>"; };
 		680C45E71CC4E913008C4BC0 /* SetWorksiteStartTimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SetWorksiteStartTimeViewController.xib; sourceTree = "<group>"; };
-		680C46071CC4EB83008C4BC0 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
-		680C46081CC4EB83008C4BC0 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		680C46091CC4EB83008C4BC0 /* GVUserDefaults+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Manager.h"; sourceTree = "<group>"; };
-		680C460A1CC4EB83008C4BC0 /* GVUserDefaults+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Manager.m"; sourceTree = "<group>"; };
 		680C460B1CC4EB83008C4BC0 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
 		680C46151CC4F58F008C4BC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		680C46171CC5CB9D008C4BC0 /* Supervisor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Supervisor.h; sourceTree = "<group>"; };
+		680C46181CC5CB9D008C4BC0 /* Supervisor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Supervisor.m; sourceTree = "<group>"; };
+		680C46291CC5CD69008C4BC0 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		680C462A1CC5CD69008C4BC0 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		680C462B1CC5CD69008C4BC0 /* GVUserDefaults+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Manager.h"; sourceTree = "<group>"; };
+		680C462C1CC5CD69008C4BC0 /* GVUserDefaults+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Manager.m"; sourceTree = "<group>"; };
 		6DCF3E98975F7E90EE858303 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E62310690E1273E5E41514C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1081,6 +1084,7 @@
 				680C437F1CC4D4BD008C4BC0 /* Business */,
 				680C43BF1CC4D4BD008C4BC0 /* Extend */,
 				680C43F51CC4D4BD008C4BC0 /* Model */,
+				680C46281CC5CD69008C4BC0 /* Manager */,
 				680C44901CC4D4BD008C4BC0 /* Util */,
 			);
 			name = common;
@@ -1271,6 +1275,8 @@
 		680C43F51CC4D4BD008C4BC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				680C46171CC5CB9D008C4BC0 /* Supervisor.h */,
+				680C46181CC5CB9D008C4BC0 /* Supervisor.m */,
 				680C43F61CC4D4BD008C4BC0 /* BaseModel.h */,
 				680C43F71CC4D4BD008C4BC0 /* BaseModel.m */,
 				680C43F81CC4D4BD008C4BC0 /* BeautifulImage.h */,
@@ -1466,10 +1472,17 @@
 			isa = PBXGroup;
 			children = (
 				680C460B1CC4EB83008C4BC0 /* Manager.h */,
-				680C46071CC4EB83008C4BC0 /* DataManager.h */,
-				680C46081CC4EB83008C4BC0 /* DataManager.m */,
-				680C46091CC4EB83008C4BC0 /* GVUserDefaults+Manager.h */,
-				680C460A1CC4EB83008C4BC0 /* GVUserDefaults+Manager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		680C46281CC5CD69008C4BC0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				680C46291CC5CD69008C4BC0 /* DataManager.h */,
+				680C462A1CC5CD69008C4BC0 /* DataManager.m */,
+				680C462B1CC5CD69008C4BC0 /* GVUserDefaults+Manager.h */,
+				680C462C1CC5CD69008C4BC0 /* GVUserDefaults+Manager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1741,7 +1754,6 @@
 				680C457C1CC4D4BD008C4BC0 /* LeakMoniter.m in Sources */,
 				680C42D41CC4D4AE008C4BC0 /* SelectSexTypeViewController.m in Sources */,
 				680C45311CC4D4BD008C4BC0 /* LeafImage.m in Sources */,
-				680C46101CC4EB83008C4BC0 /* DataManager.m in Sources */,
 				680C44F91CC4D4BD008C4BC0 /* PlanDesignerSubmittedPlan.m in Sources */,
 				680C456B1CC4D4BD008C4BC0 /* BrushGifHeader.m in Sources */,
 				680C42A71CC4D4AE008C4BC0 /* MessageCell.m in Sources */,
@@ -1773,6 +1785,7 @@
 				680C42C61CC4D4AE008C4BC0 /* RequirementCreateViewController.m in Sources */,
 				680C42C01CC4D4AE008C4BC0 /* DecPackage365View.m in Sources */,
 				680C424C1CC4D4AE008C4BC0 /* MyProcessViewController.m in Sources */,
+				680C462D1CC5CD69008C4BC0 /* DataManager.m in Sources */,
 				680C44F41CC4D4BD008C4BC0 /* PlanDesignerDeclined.m in Sources */,
 				680C42C41CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.m in Sources */,
 				680C42C81CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.m in Sources */,
@@ -1830,6 +1843,7 @@
 				680C45621CC4D4BD008C4BC0 /* ImageBrowerViewController.m in Sources */,
 				680C45131CC4D4BD008C4BC0 /* NSNumber+Ex.m in Sources */,
 				680C455D1CC4D4BD008C4BC0 /* DateAlertViewController.m in Sources */,
+				680C462E1CC5CD69008C4BC0 /* GVUserDefaults+Manager.m in Sources */,
 				680C451A1CC4D4BD008C4BC0 /* UIColor+Ex.m in Sources */,
 				680C425D1CC4D4AE008C4BC0 /* SectionActionView.m in Sources */,
 				680C42B11CC4D4AE008C4BC0 /* PlanPriceItemCell.m in Sources */,
@@ -1852,12 +1866,12 @@
 				680C452E1CC4D4BD008C4BC0 /* DesignerNotification.m in Sources */,
 				680C455C1CC4D4BD008C4BC0 /* CollectionFallsFlowLayout.m in Sources */,
 				680C45701CC4D4BD008C4BC0 /* SelectCityViewController.m in Sources */,
-				680C46111CC4EB83008C4BC0 /* GVUserDefaults+Manager.m in Sources */,
 				680C457B1CC4D4BD008C4BC0 /* HUDUtil.m in Sources */,
 				680C450F1CC4D4BD008C4BC0 /* CALayer+Ex.m in Sources */,
 				680C42D81CC4D4AE008C4BC0 /* RequirementDataManager.m in Sources */,
 				680C44A41CC4D4BD008C4BC0 /* BaseAPI.m in Sources */,
 				680C44B01CC4D4BD008C4BC0 /* DeleteYsImageFromProcess.m in Sources */,
+				680C46191CC5CB9D008C4BC0 /* Supervisor.m in Sources */,
 				680C44FA1CC4D4BD008C4BC0 /* PlanHomeOwnerOrdered.m in Sources */,
 				680C42261CC4D4AE008C4BC0 /* ViewControllerContainer.m in Sources */,
 				680C450A1CC4D4BD008C4BC0 /* NotificationBusiness.m in Sources */,

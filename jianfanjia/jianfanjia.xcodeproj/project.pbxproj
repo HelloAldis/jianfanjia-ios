@@ -11,10 +11,10 @@
 		680C40DA1CC4BB31008C4BC0 /* BaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40D91CC4BB30008C4BC0 /* BaseAPI.m */; };
 		680C40DF1CC4BB38008C4BC0 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40DE1CC4BB38008C4BC0 /* API.m */; };
 		680C40E21CC4BE84008C4BC0 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40E11CC4BE84008C4BC0 /* APIManager.m */; };
-		680C46021CC4EA36008C4BC0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C45FA1CC4EA36008C4BC0 /* DataManager.m */; };
-		680C46031CC4EA36008C4BC0 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C45FC1CC4EA36008C4BC0 /* GVUserDefaults+Manager.m */; };
 		680C46041CC4EA36008C4BC0 /* NotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C45FF1CC4EA36008C4BC0 /* NotificationDataManager.m */; };
 		680C46051CC4EA36008C4BC0 /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46011CC4EA36008C4BC0 /* ShareManager.m */; };
+		680C461F1CC5CCC3008C4BC0 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C461C1CC5CCC3008C4BC0 /* DataManager.m */; };
+		680C46201CC5CCC3008C4BC0 /* GVUserDefaults+Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C461E1CC5CCC3008C4BC0 /* GVUserDefaults+Manager.m */; };
 		680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49231C2408130055C16C /* SearchBeautifulImage.m */; };
 		680F49271C240E400055C16C /* BeautifulImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49261C240E400055C16C /* BeautifulImage.m */; };
 		680F492A1C240F910055C16C /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F49291C240F910055C16C /* LeafImage.m */; };
@@ -487,15 +487,15 @@
 		680C40E01CC4BE84008C4BC0 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		680C40E11CC4BE84008C4BC0 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		680C40E61CC4C6FE008C4BC0 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
-		680C45F91CC4EA36008C4BC0 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
-		680C45FA1CC4EA36008C4BC0 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		680C45FB1CC4EA36008C4BC0 /* GVUserDefaults+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Manager.h"; sourceTree = "<group>"; };
-		680C45FC1CC4EA36008C4BC0 /* GVUserDefaults+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Manager.m"; sourceTree = "<group>"; };
 		680C45FD1CC4EA36008C4BC0 /* Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manager.h; sourceTree = "<group>"; };
 		680C45FE1CC4EA36008C4BC0 /* NotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDataManager.h; sourceTree = "<group>"; };
 		680C45FF1CC4EA36008C4BC0 /* NotificationDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationDataManager.m; sourceTree = "<group>"; };
 		680C46001CC4EA36008C4BC0 /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
 		680C46011CC4EA36008C4BC0 /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
+		680C461B1CC5CCC3008C4BC0 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		680C461C1CC5CCC3008C4BC0 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		680C461D1CC5CCC3008C4BC0 /* GVUserDefaults+Manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVUserDefaults+Manager.h"; sourceTree = "<group>"; };
+		680C461E1CC5CCC3008C4BC0 /* GVUserDefaults+Manager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GVUserDefaults+Manager.m"; sourceTree = "<group>"; };
 		680F49221C2408130055C16C /* SearchBeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchBeautifulImage.h; sourceTree = "<group>"; };
 		680F49231C2408130055C16C /* SearchBeautifulImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchBeautifulImage.m; sourceTree = "<group>"; };
 		680F49251C240E400055C16C /* BeautifulImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImage.h; sourceTree = "<group>"; };
@@ -1326,14 +1326,21 @@
 			isa = PBXGroup;
 			children = (
 				680C45FD1CC4EA36008C4BC0 /* Manager.h */,
-				680C45F91CC4EA36008C4BC0 /* DataManager.h */,
-				680C45FA1CC4EA36008C4BC0 /* DataManager.m */,
-				680C45FB1CC4EA36008C4BC0 /* GVUserDefaults+Manager.h */,
-				680C45FC1CC4EA36008C4BC0 /* GVUserDefaults+Manager.m */,
 				680C45FE1CC4EA36008C4BC0 /* NotificationDataManager.h */,
 				680C45FF1CC4EA36008C4BC0 /* NotificationDataManager.m */,
 				680C46001CC4EA36008C4BC0 /* ShareManager.h */,
 				680C46011CC4EA36008C4BC0 /* ShareManager.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		680C461A1CC5CCC3008C4BC0 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				680C461B1CC5CCC3008C4BC0 /* DataManager.h */,
+				680C461C1CC5CCC3008C4BC0 /* DataManager.m */,
+				680C461D1CC5CCC3008C4BC0 /* GVUserDefaults+Manager.h */,
+				680C461E1CC5CCC3008C4BC0 /* GVUserDefaults+Manager.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1959,6 +1966,7 @@
 				6E07DA561BD88DBE001461DD /* Business */,
 				6E07DA751BD88DBE001461DD /* Extend */,
 				6E07DA8B1BD88DBE001461DD /* Model */,
+				680C461A1CC5CCC3008C4BC0 /* Manager */,
 				6E07DA9D1BD88DBE001461DD /* Util */,
 			);
 			name = common;
@@ -3117,8 +3125,8 @@
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
 				68E600721CB7BDC900C4A8F7 /* ReqtUnorderDesigner.m in Sources */,
 				680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */,
-				680C46031CC4EA36008C4BC0 /* GVUserDefaults+Manager.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
+				680C46201CC5CCC3008C4BC0 /* GVUserDefaults+Manager.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
 				685F2D731CABDC4C00DC4D43 /* BrushGifHeader.m in Sources */,
 				6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */,
@@ -3154,7 +3162,7 @@
 				683A5D6C1C0EFBAE0071DF88 /* YsImage.m in Sources */,
 				684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */,
 				68B10C981C772824005866C1 /* SearchProduct.m in Sources */,
-				680C46021CC4EA36008C4BC0 /* DataManager.m in Sources */,
+				680C461F1CC5CCC3008C4BC0 /* DataManager.m in Sources */,
 				685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */,
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
 				682E05171C58BDA700F1ACAA /* PlanPriceTotalCell.m in Sources */,
