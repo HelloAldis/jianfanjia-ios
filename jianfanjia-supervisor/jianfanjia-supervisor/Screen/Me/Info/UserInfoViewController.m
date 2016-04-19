@@ -132,16 +132,17 @@
 }
 
 - (void)updateUserInfo:(NSString *)attrName value:(NSString *)attrValue success:(void(^)(void))success {
-    SupervisorUpdateInfo *request = [[SupervisorUpdateInfo alloc] init];
+    Supervisor *supervisor = [[Supervisor alloc] init];
     if ([attrName isEqualToString:@"location"]) {
         NSArray *addressArr = [attrValue componentsSeparatedByString:@" "];
-        request.province = addressArr[0];
-        request.city = addressArr[1];
-        request.district = addressArr[2];
+        supervisor.province = addressArr[0];
+        supervisor.city = addressArr[1];
+        supervisor.district = addressArr[2];
     } else {
-        [request setValue:attrValue forKey:attrName];
+        [supervisor setValue:attrValue forKey:attrName];
     }
     
+    SupervisorUpdateInfo *request = [[SupervisorUpdateInfo alloc] initWithSupervisor:supervisor];
     [API supervisorUpdateInfo:request success:^{
         if (success) {
             success();

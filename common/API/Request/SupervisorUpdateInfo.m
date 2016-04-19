@@ -8,15 +8,22 @@
 
 #import "SupervisorUpdateInfo.h"
 
+@interface SupervisorUpdateInfo ()
+
+@property (strong, nonatomic) id supervisor;
+
+@end
+
 @implementation SupervisorUpdateInfo
 
-@dynamic username;
-@dynamic email;
-@dynamic province;
-@dynamic city;
-@dynamic district;
-@dynamic address;
-@dynamic sex;
-@dynamic imageid;
+@dynamic supervisor;
+
+- (id)initWithSupervisor:(Supervisor *)supervisor {
+    if (self = [super init]) {
+        self.supervisor = supervisor.data;
+    }
+    
+    return self;
+}
 
 @end

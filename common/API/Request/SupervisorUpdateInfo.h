@@ -10,13 +10,6 @@
 
 @interface SupervisorUpdateInfo : BaseRequest
 
-@property (strong, nonatomic) NSString *username;
-@property (strong, nonatomic) NSString *email;
-@property (strong, nonatomic) NSString *province;
-@property (strong, nonatomic) NSString *city;
-@property (strong, nonatomic) NSString *district;
-@property (strong, nonatomic) NSString *address;
-@property (strong, nonatomic) NSString *sex;
-@property (strong, nonatomic) NSString *imageid;
+- (id)initWithSupervisor:(Supervisor *)supervisor;
 
 @end
