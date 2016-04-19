@@ -31,4 +31,28 @@
     [self setBackgroundColor:enable ? kThemeColor : kUntriggeredColor];
 }
 
+- (void)setNormTitle:(NSString *)title {
+    [self setTitle:title forState:UIControlStateNormal];
+}
+
+- (void)setNormColor:(UIColor *)color {
+    [self setTitleColor:color forState:UIControlStateNormal];
+}
+
+- (void)setNormImg:(UIImage *)image {
+    [self setImage:image forState:UIControlStateNormal];
+}
+
+- (void)setNormBgImg:(UIImage *)image {
+    [self setBackgroundImage:image forState:UIControlStateNormal];
+}
+
+- (void)setBgColor:(UIColor *)color {
+    [self setBackgroundColor:color];
+}
+
+- (void)setFont:(UIFont *)font {
+    [self.titleLabel setFont:font];
+}
+
 @end

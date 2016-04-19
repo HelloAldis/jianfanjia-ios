@@ -144,8 +144,8 @@
 - (void)onClickDetail {
     if (self.isShowProductList) {
         self.isShowProductList = NO;
-        [self.section.btnDetail setTitleColor:[UIColor colorWithR:52 g:74 b:93] forState:UIControlStateNormal];
-        [self.section.btnProduct setTitleColor:[UIColor colorWithR:170 g:177 b:182] forState:UIControlStateNormal];
+        [self.section.btnDetail setNormColor:[UIColor colorWithR:52 g:74 b:93]];
+        [self.section.btnProduct setNormColor:[UIColor colorWithR:170 g:177 b:182]];
         self.tableView.footer = nil;
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
@@ -154,8 +154,8 @@
 - (void)onClickProduct {
     if (!self.isShowProductList) {
         self.isShowProductList = YES;
-        [self.section.btnProduct setTitleColor:[UIColor colorWithR:52 g:74 b:93] forState:UIControlStateNormal];
-        [self.section.btnDetail setTitleColor:[UIColor colorWithR:170 g:177 b:182] forState:UIControlStateNormal];
+        [self.section.btnProduct setNormColor:[UIColor colorWithR:52 g:74 b:93]];
+        [self.section.btnDetail setNormColor:[UIColor colorWithR:170 g:177 b:182]];
         
         @weakify(self);
         self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{

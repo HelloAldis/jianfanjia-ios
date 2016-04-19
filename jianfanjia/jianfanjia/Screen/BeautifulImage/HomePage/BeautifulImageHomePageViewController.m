@@ -104,9 +104,9 @@
 
 - (void)initRightNaviBarItems {
     if ([self.beautifulImage.is_my_favorite boolValue]) {
-        [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"] forState:UIControlStateNormal];
+        [self.favoriateButton setNormImg:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
     } else {
-        [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"] forState:UIControlStateNormal];
+        [self.favoriateButton setNormImg:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
     }
 }
 
@@ -308,7 +308,7 @@
                 
                 [API favoriteBeautifulImage:request success:^{
                     self.beautifulImage.is_my_favorite = @1;
-                    [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"] forState:UIControlStateNormal];
+                    [self.favoriateButton setNormImg:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
                     [HUDUtil showSuccessText:@"收藏成功"];
                 } failure:^{
                     [HUDUtil showErrText:@"收藏失败"];
@@ -320,7 +320,7 @@
                 
                 [API unfavoriteBeautifulImage:request success:^{
                     self.beautifulImage.is_my_favorite = @0;
-                    [self.favoriateButton setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"] forState:UIControlStateNormal];
+                    [self.favoriateButton setNormImg:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
                     [HUDUtil showSuccessText:@"取消收藏成功"];
                 } failure:^{
                     [HUDUtil showErrText:@"取消收藏失败"];

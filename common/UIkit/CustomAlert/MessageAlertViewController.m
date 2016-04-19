@@ -100,9 +100,9 @@
     [self.btnAgree setCornerRadius:5];
     [self.btnOk setCornerRadius:5];
     
-    [self.btnReject setTitle:self.rejectTitle ? self.rejectTitle : @"取消" forState:UIControlStateNormal];
-    [self.btnAgree setTitle:self.agreeTitle ? self.agreeTitle : @"确定" forState:UIControlStateNormal];
-    [self.btnOk setTitle:self.okTitle ? self.okTitle : @"好的，知道了" forState:UIControlStateNormal];
+    [self.btnReject setNormTitle:self.rejectTitle ? self.rejectTitle : @"取消"];
+    [self.btnAgree setNormTitle:self.agreeTitle ? self.agreeTitle : @"确定"];
+    [self.btnOk setNormTitle:self.okTitle ? self.okTitle : @"好的，知道了"];
     
     if (self.rejectBlock || self.agreeBlock) {
         self.btnReject.hidden = NO;

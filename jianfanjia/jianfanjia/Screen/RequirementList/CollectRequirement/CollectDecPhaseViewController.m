@@ -41,7 +41,7 @@
         @strongify(self);
         [obj setCornerRadius:CGRectGetWidth(obj.frame) / 2];
         [obj setBorder:1 andColor:kThemeTextColor.CGColor];
-        [obj setTitle:[NameDict nameForDecProgress:[@(idx) stringValue]] forState:UIControlStateNormal];
+        [obj setNormTitle:[NameDict nameForDecProgress:[@(idx) stringValue]]];
         [obj addTarget:self action:@selector(onClickButton:) forControlEvents:UIControlEventTouchUpInside];
     }];
 }

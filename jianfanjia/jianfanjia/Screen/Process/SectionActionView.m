@@ -137,15 +137,15 @@ const CGFloat kSectionActionViewHeight = 90;
 }
 
 - (void)enableChangeDate:(BOOL)enable title:(NSString *)title {
-    [self.btnChangeDate setTitle:title forState:UIControlStateNormal];
+    [self.btnChangeDate setNormTitle:title];
     
     if (enable) {
         [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
-        [self.btnChangeDate setTitleColor:kFinishedColor forState:UIControlStateNormal];
+        [self.btnChangeDate setNormColor:kFinishedColor];
         [self.btnChangeDate setEnabled:YES];
     } else {
         [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
-        [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+        [self.btnChangeDate setNormColor:kUntriggeredColor];
         [self.btnChangeDate setEnabled:NO];
     }
 }

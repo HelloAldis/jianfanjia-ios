@@ -56,13 +56,13 @@
 
 - (void)refreshAdd {
     if ([self.designer.is_my_favorite boolValue]) {
-        [self.btnAdd setTitle:@"取消意向" forState:UIControlStateNormal];
-        self.btnAdd.backgroundColor = [UIColor whiteColor];
-        [self.btnAdd setTitleColor:kThemeColor forState:UIControlStateNormal];
+        [self.btnAdd setNormTitle:@"取消意向"];
+        [self.btnAdd setBgColor:[UIColor whiteColor]];
+        [self.btnAdd setNormColor:kThemeColor];
     } else {
-        [self.btnAdd setTitle:@"添加意向" forState:UIControlStateNormal];
-        self.btnAdd.backgroundColor = kThemeColor;
-        [self.btnAdd setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.btnAdd setNormTitle:@"添加意向"];
+        [self.btnAdd setBgColor:kThemeColor];
+        [self.btnAdd setNormColor:[UIColor whiteColor]];
     }
 }
 

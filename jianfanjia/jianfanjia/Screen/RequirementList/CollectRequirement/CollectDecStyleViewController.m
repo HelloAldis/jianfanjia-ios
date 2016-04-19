@@ -86,7 +86,7 @@ static const NSInteger MaxCollectedStyleCount = 3;
         CGFloat itemX = (self.pageSize) * i + DecStyleItemSpace / 2;
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(itemX, (CGRectGetHeight(self.scrollView.frame) - DecStyleWidth) / 2, DecStyleWidth, DecStyleWidth)];
-        [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"collect_dec_style_%@", @(i)]] forState:UIControlStateNormal];
+        [button setNormBgImg:[UIImage imageNamed:[NSString stringWithFormat:@"collect_dec_style_%@", @(i)]]];
         [button addTarget:self action:@selector(onClickStyle:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:button];
         [self.buttonArray addObject:button];

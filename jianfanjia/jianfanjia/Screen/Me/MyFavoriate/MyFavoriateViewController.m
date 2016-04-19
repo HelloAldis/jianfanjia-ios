@@ -59,27 +59,27 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     [RACObserve(self.designerTableView, hidden) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnDesigner setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+            [self.btnDesigner setNormColor:kUntriggeredColor];
         } else {
-            [self.btnDesigner setTitleColor:kThemeTextColor forState:UIControlStateNormal];
+            [self.btnDesigner setNormColor:kThemeTextColor];
         }
     }];
     
     [RACObserve(self.productTableView, hidden) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnProduct setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+            [self.btnProduct setNormColor:kUntriggeredColor];
         } else {
-            [self.btnProduct setTitleColor:kThemeTextColor forState:UIControlStateNormal];
+            [self.btnProduct setNormColor:kThemeTextColor];
         }
     }];
     
     [RACObserve(self.beautifulImageCollectionView, hidden) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnBeautifulImage setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+            [self.btnBeautifulImage setNormColor:kUntriggeredColor];
         } else {
-            [self.btnBeautifulImage setTitleColor:kThemeTextColor forState:UIControlStateNormal];
+            [self.btnBeautifulImage setNormColor:kThemeTextColor];
         }
     }];
     

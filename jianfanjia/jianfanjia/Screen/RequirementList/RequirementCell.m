@@ -344,8 +344,8 @@
 }
 
 - (void)updateGoToWorksite:(NSString *)title {
-    self.btnGoToWorkspace.titleLabel.textColor = kFinishedColor;
-    [self.btnGoToWorkspace setTitle:title forState:UIControlStateNormal];
+    [self.btnGoToWorkspace setNormColor:kFinishedColor];
+    [self.btnGoToWorkspace setNormTitle:title];
 }
 
 @end

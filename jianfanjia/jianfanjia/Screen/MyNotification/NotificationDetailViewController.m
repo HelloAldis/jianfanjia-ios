@@ -179,7 +179,7 @@ static NSDictionary *NotificationTitles = nil;
 
 - (void)displayDefaultOk {
     self.btnOk.hidden = NO;
-    [self.btnOk setTitle:@"朕，知道了" forState:UIControlStateNormal];
+    [self.btnOk setNormTitle:@"朕，知道了"];
 }
 
 - (void)handleReschedule {
@@ -205,7 +205,7 @@ static NSDictionary *NotificationTitles = nil;
 - (void)handlePlanSubmit {
     [self.okDisposable dispose];
     self.btnOk.hidden = NO;
-    [self.btnOk setTitle:@"查看方案" forState:UIControlStateNormal];
+    [self.btnOk setNormTitle:@"查看方案"];
     @weakify(self);
     self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
@@ -216,7 +216,7 @@ static NSDictionary *NotificationTitles = nil;
 - (void)handleDBYSRequest {
     [self.okDisposable dispose];
     self.btnOk.hidden = NO;
-    [self.btnOk setTitle:@"对比验收" forState:UIControlStateNormal];
+    [self.btnOk setNormTitle:@"对比验收"];
     
     Section *section = [self.notification.process sectionForName:self.notification.section];
     section.ys = [[Ys alloc] initWith:[section.data objectForKey:@"ys"]];
@@ -229,33 +229,12 @@ static NSDictionary *NotificationTitles = nil;
 }
 
 - (void)handleMeasureHouseConfirm {
-    /**
-     重构判断逻辑
-    Plan *plan = self.notification.plan;
-    if ([plan.status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]) {
-        [self.okDisposable dispose];
-        self.btnOk.hidden = NO;
-        [self.btnOk setTitle:@"确认量房" forState:UIControlStateNormal];
-        
-        @weakify(self);
-        self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-            @strongify(self);
-            [self confirmMeasureHouse];
-        }];
-    } else if ([plan.status isEqualToString:kPlanStatusDesignerMeasureHouseWithoutPlan]) {
-        self.btnOk.hidden = NO;
-        [self.btnOk disable:@"已量房"];
-    } else {
-        [self displayDefaultOk];
-    }
-    **/
-     
     Plan *plan = self.notification.plan;
     [StatusBlock matchPlan:plan.status actions:
      @[[PlanDesignerResponded action:^{
             [self.okDisposable dispose];
             self.btnOk.hidden = NO;
-            [self.btnOk setTitle:@"确认量房" forState:UIControlStateNormal];
+            [self.btnOk setNormTitle:@"确认量房"];
             
             @weakify(self);
             self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
@@ -276,7 +255,7 @@ static NSDictionary *NotificationTitles = nil;
 - (void)handleAgreementConfigure {
     [self.okDisposable dispose];
     self.btnOk.hidden = NO;
-    [self.btnOk setTitle:@"查看合同" forState:UIControlStateNormal];
+    [self.btnOk setNormTitle:@"查看合同"];
     @weakify(self);
     self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);

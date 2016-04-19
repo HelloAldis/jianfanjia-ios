@@ -87,7 +87,7 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
         CGFloat itemX = (self.pageSize) * i + FamilyInfoItemSpace / 2;
         
         UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(itemX, (CGRectGetHeight(self.scrollView.frame) - FamilyInfoWidth) / 2, FamilyInfoWidth, FamilyInfoWidth)];
-        [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"collect_family_info_%@", @(i)]] forState:UIControlStateNormal];
+        [button setNormBgImg:[UIImage imageNamed:[NSString stringWithFormat:@"collect_family_info_%@", @(i)]]];
         [button addTarget:self action:@selector(onClickStyle:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:button];
         [self.buttonArray addObject:button];
