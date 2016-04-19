@@ -6,12 +6,12 @@
 //  Copyright © 2016年 JYZ. All rights reserved.
 //
 
-#import "PlanDesignerSubmitPlanExpired.h"
+#import "PlanExpired.h"
 
-@implementation PlanDesignerSubmitPlanExpired
+@implementation PlanExpired
 
 + (StatusBlock *)action:(StatusBlockAction)action {
-    return [StatusBlock match:kPlanStatusDesignerSubmitPlanExpired action:action];
+    return [StatusBlock match:kPlanStatusExpired action:action];
 }
 
 @end

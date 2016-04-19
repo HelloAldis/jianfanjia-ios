@@ -11,7 +11,7 @@
 @implementation PlanDesignerMeasuredHouse
 
 + (StatusBlock *)action:(StatusBlockAction)action {
-    return [StatusBlock match:kPlanStatusDesignerMeasureHouseWithoutPlan action:action];
+    return [StatusBlock match:kPlanStatusDesignerMeasuredHouseWithoutPlan action:action];
 }
 
 @end

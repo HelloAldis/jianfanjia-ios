@@ -11,7 +11,7 @@
 @implementation PlanDesignerRespondExpired
 
 + (StatusBlock *)action:(StatusBlockAction)action {
-    return [StatusBlock match:kPlanStatusExpiredAsDesignerDidNotRespond action:action];
+    return [StatusBlock match:kPlanStatusDesignerRespondExpired action:action];
 }
 
 @end

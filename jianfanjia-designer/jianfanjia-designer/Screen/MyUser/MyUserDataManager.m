@@ -30,8 +30,8 @@ static NSArray *processedStatusArr = nil;
 + (void)initialize {
     if (self == [MyUserDataManager self]) {
         unprocessStatusArr = @[kPlanStatusHomeOwnerOrderedWithoutResponse];
-        processingStatusArr = @[kPlanStatusDesignerRespondedWithoutMeasureHouse, kPlanStatusDesignerSubmittedPlan, kPlanStatusPlanWasChoosed, kPlanStatusDesignerMeasureHouseWithoutPlan];
-        processedStatusArr = @[kPlanStatusDesignerDeclineHomeOwner, kPlanStatusPlanWasNotChoosed, kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime];
+        processingStatusArr = @[kPlanStatusDesignerRespondedWithoutMeasureHouse, kPlanStatusDesignerSubmittedPlan, kPlanStatusPlanWasChoosed, kPlanStatusDesignerMeasuredHouseWithoutPlan];
+        processedStatusArr = @[kPlanStatusDesignerDeclineHomeOwner, kPlanStatusPlanWasNotChoosed, kPlanStatusDesignerSubmitPlanExpired, kPlanStatusExpired];
     }
 }
 

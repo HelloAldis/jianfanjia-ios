@@ -34,9 +34,10 @@ extern NSString * const kPlanStatusDesignerRespondedWithoutMeasureHouse;
 extern NSString * const kPlanStatusDesignerSubmittedPlan;
 extern NSString * const kPlanStatusPlanWasNotChoosed;
 extern NSString * const kPlanStatusPlanWasChoosed;
-extern NSString * const kPlanStatusDesignerMeasureHouseWithoutPlan;
-extern NSString * const kPlanStatusExpiredAsDesignerDidNotRespond;
-extern NSString * const kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime;
+extern NSString * const kPlanStatusDesignerMeasuredHouseWithoutPlan;
+extern NSString * const kPlanStatusDesignerRespondExpired;
+extern NSString * const kPlanStatusDesignerSubmitPlanExpired;
+extern NSString * const kPlanStatusExpired;
 
 extern NSString * const kRequirementStatusUnorderAnyDesigner;
 extern NSString * const kRequirementStatusOrderedDesignerWithoutAnyResponse;

@@ -50,6 +50,7 @@ NSUInteger const kMaxOrderableDesignerCount = 3;
  * 6. 已确认量房但是没有方案
  * 7. 设计师无响应导致响应过期
  * 8. 设计师规定时间内没有上场方案，过期
+ * 9. 已过期
  
  <string-array name="plan_status">
  <item>已预约</item>
@@ -61,6 +62,7 @@ NSUInteger const kMaxOrderableDesignerCount = 3;
  <item>已量房</item>
  <item>未响应</item>
  <item>未提交</item>
+ <item>已过期</item>
  </string-array>
  **/
 NSString * const kPlanStatusUnorder = @"-1";
@@ -70,9 +72,10 @@ NSString * const kPlanStatusDesignerRespondedWithoutMeasureHouse = @"2";
 NSString * const kPlanStatusDesignerSubmittedPlan = @"3";
 NSString * const kPlanStatusPlanWasNotChoosed = @"4";
 NSString * const kPlanStatusPlanWasChoosed = @"5";
-NSString * const kPlanStatusDesignerMeasureHouseWithoutPlan = @"6";
-NSString * const kPlanStatusExpiredAsDesignerDidNotRespond = @"7";
-NSString * const kPlanStatusExpiredAsDesignerDidNotProvidePlanInSpecifiedTime = @"8";
+NSString * const kPlanStatusDesignerMeasuredHouseWithoutPlan = @"6";
+NSString * const kPlanStatusDesignerRespondExpired = @"7";
+NSString * const kPlanStatusDesignerSubmitPlanExpired = @"8";
+NSString * const kPlanStatusExpired = @"9";
 
 /**
  需求状态 requirement status

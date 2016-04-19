@@ -353,7 +353,7 @@ static NSDictionary *NotificationTitles = nil;
     request.requirementid = self.notification.requirement._id;
     
     [API confirmMeasuringHouse:request success:^{
-        self.notification.plan.status = kPlanStatusDesignerMeasureHouseWithoutPlan;
+        self.notification.plan.status = kPlanStatusDesignerMeasuredHouseWithoutPlan;
         [self initButtons];
     } failure:^{
     } networkError:^{
