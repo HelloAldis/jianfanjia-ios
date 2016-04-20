@@ -1,6 +1,7 @@
 ################# Help ############################
 #run ./re.sh (debug|test|pro) user (-a|-b|-c) -upload to make a user build
 #run ./re.sh (debug|test|pro) profession (-a|-b|-c) -upload to make a profession build
+#run ./re.sh (debug|test|pro) supervisor (-a|-b|-c) -upload to make a profession build
 ################# End Help ############################
 
 
@@ -8,21 +9,27 @@
 #ipa file name
 user_ipa_file='user.ipa'
 profession_ipa_file='profession.ipa'
+supervisor_ipa_file='supervisor.ipa'
 #the directory store the ipas,
 user_package_path='../packages_user'
 profession_packages_path='../packages_pro'
+supervisor_packages_path='../packages_supervisor'
 #workspace file path
 user_workspace='./jianfanjia/jianfanjia.xcworkspace'
 profession_workspace='./jianfanjia-designer/jianfanjia-designer.xcworkspace'
+supervisor_workspace='./jianfanjia-supervisor/jianfanjia-supervisor.xcworkspace'
 #info plist file path
 user_info_plist='./jianfanjia/jianfanjia/info.plist'
 profession_info_plist='./jianfanjia-designer/jianfanjia-designer/info.plist'
+supervisor_info_plist='./jianfanjia-supervisor/jianfanjia-supervisor/info.plist'
 #info plist rollback
 user_info_plist_rollback='jianfanjia/jianfanjia/info.plist'
 profession_info_plist_rollback='jianfanjia-designer/jianfanjia-designer/info.plist'
+supervisor_info_plist_rollback='jianfanjia-supervisor/jianfanjia-supervisor/info.plist'
 #schema name in xcode project
 user_schema='jianfanjia'
 profession_schema='jianfanjia-designer'
+supervisor_schema='jianfanjia-supervisor'
 
 #app in Test Flight
 testflight_user_app_id='1065725149'
@@ -44,6 +51,7 @@ pro_build_type='pro'
 # Release 业主和专业版
 user_build_target='user'
 profession_build_target='profession'
+supervisor_build_target='supervisor'
 # Release 版本升级的类型
 # -a 是release 大版本
 # -b是中版本
@@ -71,7 +79,7 @@ else
   exit -1
 fi
 
-if [ $build_target = $user_build_target ] || [ $build_target = $profession_build_target ]; then
+if [ $build_target = $user_build_target ] || [ $build_target = $profession_build_target ] || [ $build_target = $supervisor_build_target ]; then
   echo 'build target ok'
 else
   echo "only support build target: $user_build_target, $profession_build_target"
@@ -223,6 +231,60 @@ elif [[ $build_target = $profession_build_target ]]; then
   else
     echo 'build ipa failed, rollback info'
     git checkout $profession_info_plist_rollback
+  fi
+
+elif [[ $build_target = $supervisor_build_target ]]; then
+  echo 'release supervisor build'
+  echo 'get supervisor build version'
+
+  version=`getVersion $supervisor_info_plist`
+  echo "build version $version"
+
+  newVersion=`incVersion $version $build_version_type`
+  echo "update to new version $newVersion";
+  updateVersion $supervisor_info_plist $newVersion
+
+#  echo '-----------git status here ------------'
+#  git status
+#  echo '-----------git status end--------------'
+
+  #remove the old file if exsited
+  rm "$supervisor_packages_path/$build_type/$newVersion/$supervisor_ipa_file"
+
+  if [[ $build_type = $debug_build_type ]]; then
+    echo 'build supervisor dev build now, please wait.................'
+    ipa build -w $supervisor_workspace -c Debug -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS DEBUG=1 COCOAPODS=1"' -d "$supervisor_packages_path/debug/$newVersion" --ipa $profession_ipa_file
+  elif [[ $build_type = $test_build_type ]]; then
+    echo 'build supervisor test build now, please wait.................'
+    ipa build -w $supervisor_workspace -c Debug -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$supervisor_packages_path/test/$newVersion" --ipa $profession_ipa_file
+  elif [[ $build_type = $pro_build_type ]]; then
+    echo 'build supervisor pro build now, please wait.................'
+    ipa build -w $supervisor_workspace -c Release -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$supervisor_packages_path/pro/$newVersion" --ipa $profession_ipa_file
+  fi
+
+    outputPath="$supervisor_packages_path/$build_type/$newVersion/$supervisor_ipa_file"
+    echo $outputPath
+  if [[ -e $outputPath ]]; then
+    echo 'build ipa successfully, commit code and tag'
+    git commit -am "update supervisor build to version  $newVersion"
+    git push
+    git tag "supervisor_$newVersion"
+    git push origin "supervisor_$newVersion"
+
+    if [ $need_upload = "-upload" ]; then
+        if [[ $build_type = $test_build_type ]]; then
+          echo 'uploading to Pgyer'
+          ipa distribute:pgyer -f $outputPath -u $pgyer_user_key -a $pgyer_api_key
+        elif [[ $build_type = $pro_build_type ]]; then
+          echo 'uploading to Test Flight'
+          ipa distribute:itunesconnect -f $outputPath -a $testflight_apple_id -p $testflight_apple_pwd -i $testflight_supervisor_app_id -u -w -e --save-keychain --verbose
+        fi
+
+        osascript -e 'display notification "监理版包上传成功" with title "通知"'
+    fi
+  else
+    echo 'build ipa failed, rollback info'
+    git checkout $supervisor_info_plist_rollback
   fi
 
 fi
