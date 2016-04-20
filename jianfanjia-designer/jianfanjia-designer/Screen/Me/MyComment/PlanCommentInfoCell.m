@@ -76,7 +76,6 @@ static const NSInteger imgSpace = 2;
 
 #pragma mark - user action
 - (IBAction)onClickReply:(id)sender {
-    self.notification.plan.designerid = self.notification.designerid;
     [ViewControllerContainer leaveMessage:self.notification.plan];
 }
 

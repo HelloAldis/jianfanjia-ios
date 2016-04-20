@@ -71,7 +71,6 @@
 
 #pragma mark - user action
 - (IBAction)onClickReply:(id)sender {
-    self.notification.process.final_designerid = self.notification.designerid;
     [ViewControllerContainer leaveMessage:self.notification.process section:self.notification.section item:self.notification.item block:nil];
 }
 
