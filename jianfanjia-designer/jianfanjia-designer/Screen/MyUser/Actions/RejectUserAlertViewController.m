@@ -77,8 +77,8 @@
     [self.btnReject setBorder:1 andColor:kFinishedColor.CGColor];
     [self.btnAgree setCornerRadius:5];
     
-    [self.btnReject setTitle:@"取消" forState:UIControlStateNormal];
-    [self.btnAgree setTitle:@"确定" forState:UIControlStateNormal];
+    [self.btnReject setNormTitle:@"取消"];
+    [self.btnAgree setNormTitle:@"确定"];
     
     [RACObserve(self, curSelectedIdx) subscribeNext:^(id x) {
         @strongify(self);
@@ -123,12 +123,12 @@
     
     self.isInTapping = YES;
     [self.checkBtns enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj setImage:[UIImage imageNamed:@"unchecked"] forState:UIControlStateNormal];
+        [obj setNormImg:[UIImage imageNamed:@"unchecked"]];
     }];
     
     NSInteger selectedIdx = [self.checkViews indexOfObject:gesture.view];
     UIButton *selectedButton = self.checkBtns[selectedIdx];
-    [selectedButton setImage:[UIImage imageNamed:@"checked"] forState:UIControlStateNormal];
+    [selectedButton setNormImg:[UIImage imageNamed:@"checked"]];
     
     self.curSelectedIdx = selectedIdx;
     self.isInTapping = NO;

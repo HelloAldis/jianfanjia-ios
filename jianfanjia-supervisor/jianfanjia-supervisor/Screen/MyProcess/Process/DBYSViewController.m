@@ -111,9 +111,8 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 }
 
 - (void)enableConfirmButton:(BOOL)enable title:(NSString *)title {
-    [self.btnConfirmAccept setTitle:title forState:UIControlStateNormal];
-    self.btnConfirmAccept.enabled = enable;
-    self.btnConfirmAccept.backgroundColor = enable ? kFinishedColor : kUntriggeredColor;
+    [self.btnConfirmAccept setNormTitle:title];
+    [self.btnConfirmAccept enableBgColor:enable];
 }
 
 #pragma mark - util 

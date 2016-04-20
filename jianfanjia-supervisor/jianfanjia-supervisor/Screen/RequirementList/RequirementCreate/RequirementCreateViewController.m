@@ -75,15 +75,6 @@
     if ([self isCreateRequirement]) {
         [self displayDoneButton];
     } else {
-        /**
-         重构判断逻辑
-         if ([self.editingRequirement.status isEqualToString:kRequirementStatusUnorderAnyDesigner]) {
-         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
-         self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-         [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
-         }
-         **/
-        
         [StatusBlock matchReqt:self.editingRequirement.status action:[ReqtUnorderDesigner action:^{
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
             self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
@@ -93,11 +84,11 @@
     
     if ([self isCreateRequirement] ) {
         self.houseBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 37)];
-        [_houseBtn setTitle:@"家装" forState:UIControlStateNormal];
+        [_houseBtn setNormTitle:@"家装"];
         [_houseBtn addTarget:self action:@selector(onClickRequirementType:) forControlEvents:UIControlEventTouchUpInside];
         
         self.businessBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(_houseBtn.frame), 0, CGRectGetWidth(_houseBtn.frame), CGRectGetHeight(_houseBtn.frame))];
-        [_businessBtn setTitle:@"商装" forState:UIControlStateNormal];
+        [_businessBtn setNormTitle:@"商装"];
         [_businessBtn addTarget:self action:@selector(onClickRequirementType:) forControlEvents:UIControlEventTouchUpInside];
         
         UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(_houseBtn.frame) + CGRectGetWidth(_businessBtn.frame), CGRectGetHeight(_houseBtn.frame))];
@@ -250,11 +241,11 @@
 
 - (void)highlightButton:(UIButton *)button high:(BOOL)high {
     if (high) {
-        [button setTitleColor:kThemeTextColor forState:UIControlStateNormal];
-        [button.titleLabel setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightBold]];
+        [button setNormTitleColor:kThemeTextColor];
+        [button setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightBold]];
     } else {
-        [button setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
-        [button.titleLabel setFont:[UIFont systemFontOfSize:17]];
+        [button setNormTitleColor:kUntriggeredColor];
+        [button setFont:[UIFont systemFontOfSize:17]];
     }
 }
 

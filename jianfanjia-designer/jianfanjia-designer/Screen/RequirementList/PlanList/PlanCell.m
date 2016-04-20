@@ -81,7 +81,7 @@ static const NSInteger imgSpace = 2;
     
     if (plan.comment_count.intValue > 0) {
         self.btnComment.alpha = 1.0;
-        [self.btnComment setTitle:[NSString stringWithFormat:@"留言(%@)", plan.comment_count] forState:UIControlStateNormal];
+        [self.btnComment setNormTitle:[NSString stringWithFormat:@"留言(%@)", plan.comment_count]];
     } else {
         self.btnComment.alpha = 0.5;
     }

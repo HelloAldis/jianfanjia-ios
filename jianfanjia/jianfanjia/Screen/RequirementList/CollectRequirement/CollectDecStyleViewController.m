@@ -55,7 +55,7 @@ static const NSInteger MaxCollectedStyleCount = 3;
 
 - (void)initUI {
     [self.btnNext setCornerRadius:5];
-    [self.btnNext setBackgroundColor:kUntriggeredColor];
+    [self.btnNext setBgColor:kUntriggeredColor];
     self.btnNext.enabled = NO;
     
     @weakify(self);
@@ -131,12 +131,12 @@ static const NSInteger MaxCollectedStyleCount = 3;
             return [NameDict nameForDecStyle:[@(index) stringValue]];
         }] join:@", "];
         self.lblDecStyleVal.textColor = kFinishedColor;
-        [self.btnNext setBackgroundColor:kFinishedColor];
+        [self.btnNext setBgColor:kFinishedColor];
         self.btnNext.enabled = YES;
     } else {
         self.lblDecStyleVal.text = @"装修风格";
         self.lblDecStyleVal.textColor = kThemeTextColor;
-        [self.btnNext setBackgroundColor:kUntriggeredColor];
+        [self.btnNext setBgColor:kUntriggeredColor];
         self.btnNext.enabled = NO;
     }
 }

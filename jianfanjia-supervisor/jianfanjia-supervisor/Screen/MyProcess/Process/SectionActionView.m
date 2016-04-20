@@ -47,70 +47,10 @@ const CGFloat kSectionActionViewHeight = 90;
           @strongify(self);
           return self.btnChangeDate.alpha == 1;
       }]
-     subscribeNext:^(id x) {
-//         @strongify(self);
-//         NSDate *startDate = [NSDate dateWithTimeIntervalSince1970:self.dataManager.selectedSection.start_at.longLongValue / 1000];
-//         NSCalendar *cal = [NSCalendar autoupdatingCurrentCalendar];
-//         NSDate *minDate = [cal dateByAddingUnit:NSCalendarUnitDay value:1 toDate:startDate options:0];
-//         NSDate *maxDate = [cal dateByAddingUnit:NSCalendarUnitYear value:1 toDate:minDate options:0];
-         
-//         [DateAlertViewController presentAlert:@"选择改期时间" min:minDate max:maxDate cancel:nil ok:^(id date) {
-//             Reschedule *request = [[Reschedule alloc] init];
-//             request.processid = self.dataManager.process._id;
-//             request.userid = self.dataManager.process.userid;
-//             request.designerid = self.dataManager.process.final_designerid;
-//             request.section = self.dataManager.selectedSection.name;
-//             request.updated_date = @([date getLongMilSecond]);
-//             
-//             [API reschedule:request success:^{
-//                 if (self.refreshBlock) {
-//                     self.refreshBlock();
-//                 }
-//             } failure:^{
-//                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                     if (self.refreshBlock) {
-//                         self.refreshBlock();
-//                     }
-//                 });
-//             } networkError:^{
-//                 
-//             }];
-//         }];
+    subscribeNext:^(id x) {
      }];
     
     [[self.btnUnresolvedChangeDate rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-//        @strongify(self);
-//        [MessageAlertViewController presentAlert:@"改期提醒" msg:@"对方申请改期至" second:[NSDate yyyy_MM_dd:self.dataManager.selectedSection.schedule.updated_date]
-//                                     rejectTitle:@"拒绝"
-//                                          reject:^{
-//                                              RejectReschedule *request = [[RejectReschedule alloc] init];
-//                                              request.processid = self.dataManager.process._id;
-//                                              
-//                                              [API rejectReschedule:request success:^{
-//                                                  if (self.refreshBlock) {
-//                                                      self.refreshBlock();
-//                                                  }
-//                                              } failure:^{
-//                                                  
-//                                              } networkError:^{
-//                                                  
-//                                              }];
-//                                          }
-//                                      agreeTitle:@"同意"
-//                                           agree:^{
-//                                               AgreeReschedule *request = [[AgreeReschedule alloc] init];
-//                                               request.processid = self.dataManager.process._id;
-//                                               
-//                                               [API agreeReschedule:request success:^{
-//                                                   if (self.refreshBlock) {
-//                                                       self.refreshBlock();
-//                                                   }
-//                                               } failure:^{
-//                                                   
-//                                               } networkError:^{
-//                                                   
-//                                               }];
-//                                           }];
     }];
 }
 
@@ -141,11 +81,11 @@ const CGFloat kSectionActionViewHeight = 90;
     
     if (enable) {
         [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
-        [self.btnChangeDate setTitleColor:kFinishedColor forState:UIControlStateNormal];
+        [self.btnChangeDate setNormTitleColor:kFinishedColor];
         [self.btnChangeDate setEnabled:YES];
     } else {
         [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
-        [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
+        [self.btnChangeDate setNormTitleColor:kUntriggeredColor];
         [self.btnChangeDate setEnabled:NO];
     }
 }

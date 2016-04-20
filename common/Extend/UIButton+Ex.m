@@ -17,10 +17,10 @@
 }
 
 - (void)disable:(NSString *)text {
-    [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self setBackgroundColor:kUntriggeredColor];
+    [self setNormTitleColor:[UIColor whiteColor]];
+    [self setBgColor:kUntriggeredColor];
     if (text) {
-        [self setTitle:text forState:UIControlStateNormal];
+        [self setNormTitle:text];
     }
 
     [self setEnabled:NO];
@@ -28,7 +28,7 @@
 
 - (void)enableBgColor:(BOOL)enable {
     self.enabled = enable;
-    [self setBackgroundColor:enable ? kThemeColor : kUntriggeredColor];
+    [self setBgColor:enable ? kThemeColor : kUntriggeredColor];
 }
 
 #pragma mark - property

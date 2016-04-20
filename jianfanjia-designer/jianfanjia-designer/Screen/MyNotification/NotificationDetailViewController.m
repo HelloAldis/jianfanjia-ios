@@ -187,7 +187,7 @@ static NSDictionary *NotificationTitles = nil;
 
 - (void)displayDefaultOk {
     self.btnOk.hidden = NO;
-    [self.btnOk setTitle:@"朕，知道了" forState:UIControlStateNormal];
+    [self.btnOk setNormTitle:@"朕，知道了"];
 }
 
 - (void)handleReschedule {
@@ -213,7 +213,7 @@ static NSDictionary *NotificationTitles = nil;
 - (void)handlePlanChoose {
     [self.okDisposable dispose];
     self.btnOk.hidden = NO;
-    [self.btnOk setTitle:@"查看方案" forState:UIControlStateNormal];
+    [self.btnOk setNormTitle:@"查看方案"];
     @weakify(self);
     self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
@@ -226,36 +226,13 @@ static NSDictionary *NotificationTitles = nil;
 }
 
 - (void)handleOrderTip {
-    /**
-     重构判断逻辑
-    Plan *plan = self.notification.plan;
-    if ([plan.status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
-        self.btnAgree.hidden = NO;
-        self.btnReject.hidden = NO;
-        [self.btnAgree setTitle:@"响应" forState:UIControlStateNormal];
-        [self.btnReject setTitle:@"拒绝" forState:UIControlStateNormal];
-        [self.btnAgree addTarget:self action:@selector(respondOrder) forControlEvents:UIControlEventTouchUpInside];
-        [self.btnReject addTarget:self action:@selector(rejectOrder) forControlEvents:UIControlEventTouchUpInside];
-        
-        [self initViewRequirementItem];
-    } else if ([plan.status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]) {
-        self.btnOk.hidden = NO;
-        [self.btnOk disable:@"已响应"];
-    } else if ([plan.status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]) {
-        self.btnOk.hidden = NO;
-        [self.btnOk disable:@"已拒绝"];
-    } else {
-        [self displayDefaultOk];
-    }
-     **/
-    
     Plan *plan = self.notification.plan;
     [StatusBlock matchPlan:plan.status actions:
      @[[PlanHomeOwnerOrdered action:^{
             self.btnAgree.hidden = NO;
             self.btnReject.hidden = NO;
-            [self.btnAgree setTitle:@"响应" forState:UIControlStateNormal];
-            [self.btnReject setTitle:@"拒绝" forState:UIControlStateNormal];
+            [self.btnAgree setNormTitle:@"响应"];
+            [self.btnReject setNormTitle:@"拒绝"];
             [self.btnAgree addTarget:self action:@selector(respondOrder) forControlEvents:UIControlEventTouchUpInside];
             [self.btnReject addTarget:self action:@selector(rejectOrder) forControlEvents:UIControlEventTouchUpInside];
             

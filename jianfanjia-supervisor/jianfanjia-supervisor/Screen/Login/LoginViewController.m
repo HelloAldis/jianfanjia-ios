@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIView *viewLogin;
 @property (weak, nonatomic) IBOutlet UIView *viewSignup;
 
-
 @property (weak, nonatomic) IBOutlet UITextField *fldSignupPhone;
 @property (weak, nonatomic) IBOutlet UITextField *fldSignupPassword;
 @property (weak, nonatomic) IBOutlet UIButton *btnNext;
@@ -40,25 +39,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    @weakify(self);
-    [RACObserve(self.btnLogin, enabled) subscribeNext:^(NSNumber *newValue) {
-        @strongify(self);
-        if (newValue.boolValue) {
-            [self.btnLogin setBackgroundColor:kFinishedColor];
-        } else {
-            [self.btnLogin setBackgroundColor:kUntriggeredColor];
-        }
-    }];
-    
-    [RACObserve(self.btnNext, enabled) subscribeNext:^(NSNumber *newValue) {
-        @strongify(self);
-        if (newValue.boolValue) {
-            [self.btnNext setBackgroundColor:kFinishedColor];
-        } else {
-            [self.btnNext setBackgroundColor:kUntriggeredColor];
-        }
-    }]; 
-    
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
         return YES;
     }] length:^NSInteger{
@@ -73,7 +53,7 @@
         return kPhoneLength;
     }] subscribeNext:^(id x) {
         self.fldSignupPhone.text = x;
-    }];;
+    }];
     
     [[[self.fldPassword.rac_textSignal filterNonSpace:^BOOL{
         return YES;
@@ -91,17 +71,21 @@
         self.fldSignupPassword.text = x;
     }];
     
-    RAC(self.btnLogin, enabled) = [RACSignal
-                                   combineLatest:@[self.fldPhone.rac_textSignal, self.fldPassword.rac_textSignal]
-                                   reduce:^(NSString *phone, NSString *password) {
-                                       return @([AccountBusiness validateLogin:phone pass:password]);
-                                   }];
+    [[RACSignal
+      combineLatest:@[self.fldPhone.rac_textSignal, self.fldPassword.rac_textSignal]
+      reduce:^(NSString *phone, NSString *password) {
+          return @([AccountBusiness validateLogin:phone pass:password]);
+      }] subscribeNext:^(id x) {
+          [self.btnLogin enableBgColor:[x boolValue]];
+      }];
     
-    RAC(self.btnNext, enabled) = [RACSignal
-                                   combineLatest:@[self.fldSignupPhone.rac_textSignal, self.fldSignupPassword.rac_textSignal]
-                                   reduce:^(NSString *phone, NSString *password) {
-                                       return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
-                                   }];
+    [[RACSignal
+      combineLatest:@[self.fldSignupPhone.rac_textSignal, self.fldSignupPassword.rac_textSignal]
+      reduce:^(NSString *phone, NSString *password) {
+          return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
+      }] subscribeNext:^(id x) {
+          [self.btnNext enableBgColor:[x boolValue]];
+      }];
     
     [self.btnLogin setCornerRadius:5];
     self.btnLogin.enabled = NO;

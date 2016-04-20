@@ -56,7 +56,7 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
 
 - (void)initUI {
     [self.btnNext setCornerRadius:5];
-    [self.btnNext setBackgroundColor:kUntriggeredColor];
+    [self.btnNext setBgColor:kUntriggeredColor];
     self.btnNext.enabled = NO;
     
     @weakify(self);
@@ -132,12 +132,12 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
             return populations[index];
         }] join:@", "];
         self.lblDecStyleVal.textColor = kFinishedColor;
-        [self.btnNext setBackgroundColor:kFinishedColor];
+        [self.btnNext setBgColor:kFinishedColor];
         self.btnNext.enabled = YES;
     } else {
         self.lblDecStyleVal.text = @"常住人口";
         self.lblDecStyleVal.textColor = kThemeTextColor;
-        [self.btnNext setBackgroundColor:kUntriggeredColor];
+        [self.btnNext setBgColor:kUntriggeredColor];
         self.btnNext.enabled = NO;
     }
 }

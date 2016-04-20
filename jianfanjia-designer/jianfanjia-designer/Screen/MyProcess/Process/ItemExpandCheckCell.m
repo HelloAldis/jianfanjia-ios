@@ -151,8 +151,8 @@
     if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateRequest]) {
         if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:schedule.request_role]) {
             [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
-            [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
-            [self.btnChangeDate setTitle:@"改期申请中" forState:UIControlStateNormal];
+            [self.btnChangeDate setNormTitleColor:kUntriggeredColor];
+            [self.btnChangeDate setNormTitle:@"改期申请中"];
             [self.btnChangeDate setEnabled:NO];
             self.btnUnresolvedChangeDate.hidden = YES;
         } else {
@@ -161,13 +161,13 @@
         }
     } else if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
         [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
-        [self.btnChangeDate setTitleColor:kUntriggeredColor forState:UIControlStateNormal];
-        [self.btnChangeDate setTitle:@"工序已完工" forState:UIControlStateNormal];
+        [self.btnChangeDate setNormTitleColor:kUntriggeredColor];
+        [self.btnChangeDate setNormTitle:@"工序已完工"];
         [self.btnChangeDate setEnabled:NO];
     } else {
         [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
-        [self.btnChangeDate setTitleColor:kFinishedColor forState:UIControlStateNormal];
-        [self.btnChangeDate setTitle:@"申请改期" forState:UIControlStateNormal];
+        [self.btnChangeDate setNormTitleColor:kFinishedColor];
+        [self.btnChangeDate setNormTitle:@"申请改期"];
         [self.btnChangeDate setEnabled:YES];
         self.btnChangeDate.alpha = 1;
         self.btnUnresolvedChangeDate.hidden = YES;
