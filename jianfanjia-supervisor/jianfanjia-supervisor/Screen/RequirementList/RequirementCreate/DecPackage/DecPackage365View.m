@@ -8,7 +8,7 @@
 
 #import "DecPackage365View.h"
 #import "ViewControllerContainer.h"
-#import "WebViewWithActionController.h"
+#import "WebViewWithoutShareController.h"
 
 const CGFloat kDecPackage365ViewErrorHeight = 30;
 const CGFloat kDecPackage365ViewHeight = 146 - kDecPackage365ViewErrorHeight;
@@ -88,19 +88,7 @@ const CGFloat kDecPackage365ViewHeight = 146 - kDecPackage365ViewErrorHeight;
 
 #pragma mark - user action
 - (IBAction)onClickAbout:(id)sender {
-    [WebViewWithActionController show:[ViewControllerContainer getCurrentTapController] withUrl:kPkg365Url shareTopic:ShareTopicActivity actionTitle:@"我要装修" actionBlock:^{
-        [[LoginEngine shared] showLogin:^(BOOL logined) {
-            if (logined) {
-                if (![GVUserDefaults standardUserDefaults].phone) {
-                    [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
-                        [ViewControllerContainer showRequirementCreate:nil];
-                    }];
-                } else {
-                    [ViewControllerContainer showRequirementCreate:nil];
-                }
-            }
-        }];
-    }];
+    [WebViewWithoutShareController show:[ViewControllerContainer getCurrentTapController] withUrl:kPkg365Url];
 }
 
 #pragma mark - attributed text
