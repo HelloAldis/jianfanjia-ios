@@ -241,10 +241,10 @@
 
 - (void)highlightButton:(UIButton *)button high:(BOOL)high {
     if (high) {
-        [button setNormColor:kThemeTextColor];
+        [button setNormTitleColor:kThemeTextColor];
         [button setFont:[UIFont systemFontOfSize:18 weight:UIFontWeightBold]];
     } else {
-        [button setNormColor:kUntriggeredColor];
+        [button setNormTitleColor:kUntriggeredColor];
         [button setFont:[UIFont systemFontOfSize:17]];
     }
 }

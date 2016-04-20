@@ -344,7 +344,7 @@
 }
 
 - (void)updateGoToWorksite:(NSString *)title {
-    [self.btnGoToWorkspace setNormColor:kFinishedColor];
+    [self.btnGoToWorkspace setNormTitleColor:kFinishedColor];
     [self.btnGoToWorkspace setNormTitle:title];
 }
 

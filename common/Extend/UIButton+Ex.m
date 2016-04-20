@@ -31,24 +31,49 @@
     [self setBackgroundColor:enable ? kThemeColor : kUntriggeredColor];
 }
 
+#pragma mark - property
+- (NSString *)normTitle {
+    return [self titleForState:UIControlStateNormal];
+}
+
 - (void)setNormTitle:(NSString *)title {
     [self setTitle:title forState:UIControlStateNormal];
 }
 
-- (void)setNormColor:(UIColor *)color {
+- (UIColor *)normTitleColor {
+    return [self titleColorForState:UIControlStateNormal];
+}
+
+- (void)setNormTitleColor:(UIColor *)color {
     [self setTitleColor:color forState:UIControlStateNormal];
+}
+
+- (UIImage *)normImg {
+    return [self imageForState:UIControlStateNormal];
 }
 
 - (void)setNormImg:(UIImage *)image {
     [self setImage:image forState:UIControlStateNormal];
 }
 
+- (UIImage *)normBgImg {
+    return [self backgroundImageForState:UIControlStateNormal];
+}
+
 - (void)setNormBgImg:(UIImage *)image {
     [self setBackgroundImage:image forState:UIControlStateNormal];
 }
 
+- (UIColor *)bgColor {
+    return self.backgroundColor;
+}
+
 - (void)setBgColor:(UIColor *)color {
     [self setBackgroundColor:color];
+}
+
+- (UIFont *)font {
+    return self.titleLabel.font;
 }
 
 - (void)setFont:(UIFont *)font {

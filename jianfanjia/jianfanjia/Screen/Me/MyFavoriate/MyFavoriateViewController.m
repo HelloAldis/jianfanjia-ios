@@ -59,27 +59,27 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     [RACObserve(self.designerTableView, hidden) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnDesigner setNormColor:kUntriggeredColor];
+            [self.btnDesigner setNormTitleColor:kUntriggeredColor];
         } else {
-            [self.btnDesigner setNormColor:kThemeTextColor];
+            [self.btnDesigner setNormTitleColor:kThemeTextColor];
         }
     }];
     
     [RACObserve(self.productTableView, hidden) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnProduct setNormColor:kUntriggeredColor];
+            [self.btnProduct setNormTitleColor:kUntriggeredColor];
         } else {
-            [self.btnProduct setNormColor:kThemeTextColor];
+            [self.btnProduct setNormTitleColor:kThemeTextColor];
         }
     }];
     
     [RACObserve(self.beautifulImageCollectionView, hidden) subscribeNext:^(NSNumber *newValue) {
         @strongify(self);
         if (newValue.boolValue) {
-            [self.btnBeautifulImage setNormColor:kUntriggeredColor];
+            [self.btnBeautifulImage setNormTitleColor:kUntriggeredColor];
         } else {
-            [self.btnBeautifulImage setNormColor:kThemeTextColor];
+            [self.btnBeautifulImage setNormTitleColor:kThemeTextColor];
         }
     }];
     

@@ -58,11 +58,11 @@
     if ([self.designer.is_my_favorite boolValue]) {
         [self.btnAdd setNormTitle:@"取消意向"];
         [self.btnAdd setBgColor:[UIColor whiteColor]];
-        [self.btnAdd setNormColor:kThemeColor];
+        [self.btnAdd setNormTitleColor:kThemeColor];
     } else {
         [self.btnAdd setNormTitle:@"添加意向"];
         [self.btnAdd setBgColor:kThemeColor];
-        [self.btnAdd setNormColor:[UIColor whiteColor]];
+        [self.btnAdd setNormTitleColor:[UIColor whiteColor]];
     }
 }
 

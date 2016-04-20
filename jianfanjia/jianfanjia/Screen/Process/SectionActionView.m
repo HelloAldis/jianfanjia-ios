@@ -141,11 +141,11 @@ const CGFloat kSectionActionViewHeight = 90;
     
     if (enable) {
         [self.btnChangeDate setBorder:1 andColor:kFinishedColor.CGColor];
-        [self.btnChangeDate setNormColor:kFinishedColor];
+        [self.btnChangeDate setNormTitleColor:kFinishedColor];
         [self.btnChangeDate setEnabled:YES];
     } else {
         [self.btnChangeDate setBorder:1 andColor:kUntriggeredColor.CGColor];
-        [self.btnChangeDate setNormColor:kUntriggeredColor];
+        [self.btnChangeDate setNormTitleColor:kUntriggeredColor];
         [self.btnChangeDate setEnabled:NO];
     }
 }

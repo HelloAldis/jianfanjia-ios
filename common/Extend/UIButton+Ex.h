@@ -10,14 +10,15 @@
 
 @interface UIButton (Ex)
 
+@property (strong, nonatomic) NSString *normTitle;
+@property (strong, nonatomic) UIColor *normTitleColor;
+@property (strong, nonatomic) UIImage *normImg;
+@property (strong, nonatomic) UIImage *normBgImg;
+@property (strong, nonatomic) UIColor *bgColor;
+@property (strong, nonatomic) UIFont *font;
+
 - (void)disable;
 - (void)disable:(NSString *)text;
 - (void)enableBgColor:(BOOL)enable;
-- (void)setNormTitle:(NSString *)title;
-- (void)setNormColor:(UIColor *)color;
-- (void)setNormImg:(UIImage *)image;
-- (void)setNormBgImg:(UIImage *)image;
-- (void)setBgColor:(UIColor *)color;
-- (void)setFont:(UIFont *)font;
 
 @end

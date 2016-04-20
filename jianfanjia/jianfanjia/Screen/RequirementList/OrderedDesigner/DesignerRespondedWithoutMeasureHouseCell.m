@@ -40,12 +40,12 @@
     if ([[NSDate date] timeIntervalSince1970] > designer.plan.house_check_time.longLongValue / 1000) {
         self.btnConfirmMeasureHouse.enabled = YES;
         [self.btnConfirmMeasureHouse setNormTitle:@"确认量房"];
-        [self.btnConfirmMeasureHouse setNormColor:kThemeColor];
+        [self.btnConfirmMeasureHouse setNormTitleColor:kThemeColor];
         [self.btnConfirmMeasureHouse setFont:[UIFont systemFontOfSize:14 weight:UIFontWeightBold]];
     } else {
         self.btnConfirmMeasureHouse.enabled = NO;
         [self.btnConfirmMeasureHouse setNormTitle:[NSString stringWithFormat:@"量房时间：%@", [NSDate yyyy_MM_dd_HH_mm:designer.plan.house_check_time]]];
-        [self.btnConfirmMeasureHouse setNormColor:kUntriggeredColor];
+        [self.btnConfirmMeasureHouse setNormTitleColor:kUntriggeredColor];
         [self.btnConfirmMeasureHouse setFont:[UIFont systemFontOfSize:14]];
     }
     

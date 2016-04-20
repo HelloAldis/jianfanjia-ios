@@ -41,23 +41,23 @@
     [StatusBlock matchReqt:status actions:
      @[[ReqtPlanWasChoosed action:^{
             self.btnReplace.enabled = NO;
-            [self.btnReplace setNormColor:kUntriggeredColor];
+            [self.btnReplace setNormTitleColor:kUntriggeredColor];
         }],
        [ReqtConfiguredAgreement action:^{
             self.btnReplace.enabled = NO;
-            [self.btnReplace setNormColor:kUntriggeredColor];
+            [self.btnReplace setNormTitleColor:kUntriggeredColor];
         }],
        [ReqtConfiguredWorkSite action:^{
             self.btnReplace.enabled = NO;
-            [self.btnReplace setNormColor:kUntriggeredColor];
+            [self.btnReplace setNormTitleColor:kUntriggeredColor];
         }],
        [ReqtFinishedWorkSite action:^{
             self.btnReplace.enabled = NO;
-            [self.btnReplace setNormColor:kUntriggeredColor];
+            [self.btnReplace setNormTitleColor:kUntriggeredColor];
         }],
        [ElseStatus action:^{
             self.btnReplace.enabled = YES;
-            [self.btnReplace setNormColor:kThemeTextColor];
+            [self.btnReplace setNormTitleColor:kThemeTextColor];
         }],
        ]];
 }
