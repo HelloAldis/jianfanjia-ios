@@ -149,12 +149,12 @@
     [self setLeftPadding:self.fldSignupPassword withImage:[UIImage imageNamed:@"icon_account_pwd"]];
     
     if (kIs35inchScreen || kIs40inchScreen) {
-        self.loginPhoneFldTopConstraint.constant = 15;
+        self.loginPhoneFldTopConstraint.constant = 25;
         self.loginPwdFldTopConstraint.constant = 15;
-        self.loginTopConstraint.constant = 25;
-        self.signupPhoneFldTopConstraint.constant = 15;
+        self.loginTopConstraint.constant = 35;
+        self.signupPhoneFldTopConstraint.constant = 25;
         self.signupPwdFldTopConstraint.constant = 15;
-        self.nextTopConstraint.constant = 25;
+        self.nextTopConstraint.constant = 35;
     }
     
     if (self.showSignup) {
