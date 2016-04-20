@@ -127,6 +127,13 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
     }
 }
 
+- (void)clearUnreadCount {
+    self.myTotalUnreadCount = 0;
+    self.myLeaveMsgUnreadCount = 0;
+    self.myNotificationUnreadCount = 0;
+    [NotificationBusiness setAppBadge:0];
+}
+
 - (void)showLocalNotification:(Notification *)noti {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
     // 设置触发通知的时间

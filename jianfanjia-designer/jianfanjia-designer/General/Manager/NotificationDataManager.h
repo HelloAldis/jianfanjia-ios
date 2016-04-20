@@ -19,6 +19,7 @@ typedef void (^NotificationUnreadUpdateBlock)(NSInteger count);
 - (void)subscribeMyLeaveMsgUnreadCount:(NotificationUnreadUpdateBlock)block;
 - (void)subscribeAppBadgeNumber:(NotificationUnreadUpdateBlock)block;
 - (void)refreshUnreadCount;
+- (void)clearUnreadCount;
 
 - (void)receiveNotification:(NSData *)payload andOffLine:(BOOL)offLine;
 - (void)remoteTriggerToShowDetail:(NSDictionary *)userInfo;

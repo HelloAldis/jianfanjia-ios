@@ -485,6 +485,7 @@ static ViewControllerContainer *container;
     [GVUserDefaults standardUserDefaults].wechat_openid = nil;
     [GVUserDefaults standardUserDefaults].wechat_unionid = nil;
     
+    [[NotificationDataManager shared] clearUnreadCount];
     [API clearCookie];
 }
 
