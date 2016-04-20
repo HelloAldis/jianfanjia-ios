@@ -109,20 +109,22 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 }
 
 - (void)refreshUnreadCount {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-        GetUserUnreadCount *request = [GetUserUnreadCount requestWithTypes:@[[NotificationBusiness userAllNotificationsFilter], [NotificationBusiness userAllLeaveMsgFilter]]];
-        
-        [API getUserUnreadCount:request success:^{
-            NSArray *arr = [DataManager shared].data;
-            self.myNotificationUnreadCount = [arr[0] integerValue];
-            self.myLeaveMsgUnreadCount = [arr[1] integerValue];
-            self.myTotalUnreadCount = self.myNotificationUnreadCount + self.myLeaveMsgUnreadCount;
-        } failure:^{
+    if ([GVUserDefaults standardUserDefaults].isLogin) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            GetUserUnreadCount *request = [GetUserUnreadCount requestWithTypes:@[[NotificationBusiness userAllNotificationsFilter], [NotificationBusiness userAllLeaveMsgFilter]]];
             
-        } networkError:^{
-            
-        }];
-    });
+            [API getUserUnreadCount:request success:^{
+                NSArray *arr = [DataManager shared].data;
+                self.myNotificationUnreadCount = [arr[0] integerValue];
+                self.myLeaveMsgUnreadCount = [arr[1] integerValue];
+                self.myTotalUnreadCount = self.myNotificationUnreadCount + self.myLeaveMsgUnreadCount;
+            } failure:^{
+                
+            } networkError:^{
+                
+            }];
+        });
+    }
 }
 
 - (void)showLocalNotification:(Notification *)noti {
