@@ -169,7 +169,6 @@
 		680C452B1CC4D4BD008C4BC0 /* DecLive.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C43FF1CC4D4BD008C4BC0 /* DecLive.m */; };
 		680C452C1CC4D4BD008C4BC0 /* DecLiveSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44011CC4D4BD008C4BC0 /* DecLiveSection.m */; };
 		680C452D1CC4D4BD008C4BC0 /* Designer.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44031CC4D4BD008C4BC0 /* Designer.m */; };
-		680C452E1CC4D4BD008C4BC0 /* DesignerNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44051CC4D4BD008C4BC0 /* DesignerNotification.m */; };
 		680C452F1CC4D4BD008C4BC0 /* Evaluation.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44071CC4D4BD008C4BC0 /* Evaluation.m */; };
 		680C45301CC4D4BD008C4BC0 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44091CC4D4BD008C4BC0 /* Item.m */; };
 		680C45311CC4D4BD008C4BC0 /* LeafImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C440B1CC4D4BD008C4BC0 /* LeafImage.m */; };
@@ -184,7 +183,6 @@
 		680C453A1CC4D4BD008C4BC0 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C441E1CC4D4BD008C4BC0 /* Section.m */; };
 		680C453B1CC4D4BD008C4BC0 /* SnsAccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44201CC4D4BD008C4BC0 /* SnsAccountInfo.m */; };
 		680C453C1CC4D4BD008C4BC0 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44221CC4D4BD008C4BC0 /* User.m */; };
-		680C453D1CC4D4BD008C4BC0 /* UserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44241CC4D4BD008C4BC0 /* UserNotification.m */; };
 		680C453E1CC4D4BD008C4BC0 /* Ys.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44261CC4D4BD008C4BC0 /* Ys.m */; };
 		680C453F1CC4D4BD008C4BC0 /* YsImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44281CC4D4BD008C4BC0 /* YsImage.m */; };
 		680C455C1CC4D4BD008C4BC0 /* CollectionFallsFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C445B1CC4D4BD008C4BC0 /* CollectionFallsFlowLayout.m */; };
@@ -555,8 +553,6 @@
 		680C44011CC4D4BD008C4BC0 /* DecLiveSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecLiveSection.m; sourceTree = "<group>"; };
 		680C44021CC4D4BD008C4BC0 /* Designer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Designer.h; sourceTree = "<group>"; };
 		680C44031CC4D4BD008C4BC0 /* Designer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Designer.m; sourceTree = "<group>"; };
-		680C44041CC4D4BD008C4BC0 /* DesignerNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerNotification.h; sourceTree = "<group>"; };
-		680C44051CC4D4BD008C4BC0 /* DesignerNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerNotification.m; sourceTree = "<group>"; };
 		680C44061CC4D4BD008C4BC0 /* Evaluation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Evaluation.h; sourceTree = "<group>"; };
 		680C44071CC4D4BD008C4BC0 /* Evaluation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Evaluation.m; sourceTree = "<group>"; };
 		680C44081CC4D4BD008C4BC0 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -586,8 +582,6 @@
 		680C44201CC4D4BD008C4BC0 /* SnsAccountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnsAccountInfo.m; sourceTree = "<group>"; };
 		680C44211CC4D4BD008C4BC0 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		680C44221CC4D4BD008C4BC0 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		680C44231CC4D4BD008C4BC0 /* UserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNotification.h; sourceTree = "<group>"; };
-		680C44241CC4D4BD008C4BC0 /* UserNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNotification.m; sourceTree = "<group>"; };
 		680C44251CC4D4BD008C4BC0 /* Ys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ys.h; sourceTree = "<group>"; };
 		680C44261CC4D4BD008C4BC0 /* Ys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ys.m; sourceTree = "<group>"; };
 		680C44271CC4D4BD008C4BC0 /* YsImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YsImage.h; sourceTree = "<group>"; };
@@ -1260,8 +1254,6 @@
 				680C44011CC4D4BD008C4BC0 /* DecLiveSection.m */,
 				680C44021CC4D4BD008C4BC0 /* Designer.h */,
 				680C44031CC4D4BD008C4BC0 /* Designer.m */,
-				680C44041CC4D4BD008C4BC0 /* DesignerNotification.h */,
-				680C44051CC4D4BD008C4BC0 /* DesignerNotification.m */,
 				680C44061CC4D4BD008C4BC0 /* Evaluation.h */,
 				680C44071CC4D4BD008C4BC0 /* Evaluation.m */,
 				680C44081CC4D4BD008C4BC0 /* Item.h */,
@@ -1291,8 +1283,6 @@
 				680C44201CC4D4BD008C4BC0 /* SnsAccountInfo.m */,
 				680C44211CC4D4BD008C4BC0 /* User.h */,
 				680C44221CC4D4BD008C4BC0 /* User.m */,
-				680C44231CC4D4BD008C4BC0 /* UserNotification.h */,
-				680C44241CC4D4BD008C4BC0 /* UserNotification.m */,
 				680C44251CC4D4BD008C4BC0 /* Ys.h */,
 				680C44261CC4D4BD008C4BC0 /* Ys.m */,
 				680C44271CC4D4BD008C4BC0 /* YsImage.h */,
@@ -1791,7 +1781,6 @@
 				680C452A1CC4D4BD008C4BC0 /* Comment.m in Sources */,
 				680C45331CC4D4BD008C4BC0 /* Plan.m in Sources */,
 				680C451D1CC4D4BD008C4BC0 /* UIImageView+Ex.m in Sources */,
-				680C453D1CC4D4BD008C4BC0 /* UserNotification.m in Sources */,
 				680C457A1CC4D4BD008C4BC0 /* BaseDynamicObject.m in Sources */,
 				680C42561CC4D4AE008C4BC0 /* ItemImageCollectionCell.m in Sources */,
 				680C42271CC4D4AE008C4BC0 /* LoginViewController.m in Sources */,
@@ -1844,7 +1833,6 @@
 				680C42291CC4D4AE008C4BC0 /* ResetPassViewController.m in Sources */,
 				680C42D61CC4D4AE008C4BC0 /* SelectWorkTypeViewController.m in Sources */,
 				680C455F1CC4D4BD008C4BC0 /* MessageAlertViewController.m in Sources */,
-				680C452E1CC4D4BD008C4BC0 /* DesignerNotification.m in Sources */,
 				680C46621CC61C87008C4BC0 /* CommentBusiness.m in Sources */,
 				680C455C1CC4D4BD008C4BC0 /* CollectionFallsFlowLayout.m in Sources */,
 				680C45701CC4D4BD008C4BC0 /* SelectCityViewController.m in Sources */,
