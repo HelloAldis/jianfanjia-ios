@@ -2209,6 +2209,8 @@
 			children = (
 				6850A5FF1CC75D280085940A /* BaseNotification.h */,
 				6850A6001CC75D280085940A /* BaseNotification.m */,
+				688517581C8FF5E1000B01DB /* UserNotification.h */,
+				688517591C8FF5E1000B01DB /* UserNotification.m */,
 				680C465D1CC61356008C4BC0 /* Supervisor.h */,
 				680C465E1CC61356008C4BC0 /* Supervisor.m */,
 				6E07DA8C1BD88DBE001461DD /* BaseModel.h */,
@@ -2254,8 +2256,6 @@
 				680F49291C240F910055C16C /* LeafImage.m */,
 				68134A331C3CAEC2003C1C10 /* SnsAccountInfo.h */,
 				68134A341C3CAEC2003C1C10 /* SnsAccountInfo.m */,
-				688517581C8FF5E1000B01DB /* UserNotification.h */,
-				688517591C8FF5E1000B01DB /* UserNotification.m */,
 				684B03C81C979EAA0053FFDF /* DecLive.h */,
 				684B03C91C979EAA0053FFDF /* DecLive.m */,
 				684B03CA1C979EAA0053FFDF /* DecLiveSection.h */,

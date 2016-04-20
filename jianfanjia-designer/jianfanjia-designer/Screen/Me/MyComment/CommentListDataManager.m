@@ -19,6 +19,8 @@
         notification.process = [[Process alloc] initWith:notification.data[@"process"]];
         notification.requirement = [[Requirement alloc] initWith:notification.data[@"requirement"]];
         notification.user = [[User alloc] initWith:notification.data[@"user"]];
+        notification.designer = [[Designer alloc] initWith:notification.data[@"designer"]];
+        notification.supervisor = [[Supervisor alloc] initWith:notification.data[@"supervisor"]];
         notification.plan = [[Plan alloc] initWith:notification.data[@"plan"]];
         [notifications addObject:notification];
     }
@@ -36,6 +38,8 @@
         notification.process = [[Process alloc] initWith:notification.data[@"process"]];
         notification.requirement = [[Requirement alloc] initWith:notification.data[@"requirement"]];
         notification.user = [[User alloc] initWith:notification.data[@"user"]];
+        notification.designer = [[Designer alloc] initWith:notification.data[@"designer"]];
+        notification.supervisor = [[Supervisor alloc] initWith:notification.data[@"supervisor"]];
         notification.plan = [[Plan alloc] initWith:notification.data[@"plan"]];
         [notifications addObject:notification];
     }
