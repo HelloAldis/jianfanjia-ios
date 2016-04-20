@@ -8,7 +8,7 @@
 
 #import "DecPackage365View.h"
 #import "ViewControllerContainer.h"
-#import "WebViewWithoutShareController.h"
+#import "WebViewWithActionController.h"
 
 const CGFloat kDecPackage365ViewErrorHeight = 30;
 const CGFloat kDecPackage365ViewHeight = 146 - kDecPackage365ViewErrorHeight;
@@ -74,9 +74,9 @@ const CGFloat kDecPackage365ViewHeight = 146 - kDecPackage365ViewErrorHeight;
         self.lblTotalBudgetVal.hidden = NO;
     }
     
-    self.lblBasicFeeVal.text = [NSString stringWithFormat:@"%.2f 万元", self.basicFee];
-    self.lblPersonalizedFeeVal.text = [NSString stringWithFormat:@"%.2f 万元", self.personalizedFee];
-    self.lblTotalBudgetVal.text = [NSString stringWithFormat:@"%.2f 万元", self.totalBudget];
+    self.lblBasicFeeVal.text = [NSString stringWithFormat:@"%.2f万元", self.basicFee];
+    self.lblPersonalizedFeeVal.text = [NSString stringWithFormat:@"%.2f万元", self.personalizedFee];
+    self.lblTotalBudgetVal.text = [NSString stringWithFormat:@"%.2f万元", self.totalBudget];
     [self attributedText:self.lblBasicFeeVal range:NSMakeRange(0, self.lblBasicFeeVal.text.length - 2)];
     [self attributedText:self.lblPersonalizedFeeVal range:NSMakeRange(0, self.lblPersonalizedFeeVal.text.length - 2)];
     [self attributedText:self.lblTotalBudgetVal range:NSMakeRange(0, self.lblTotalBudgetVal.text.length - 2)];
@@ -88,14 +88,26 @@ const CGFloat kDecPackage365ViewHeight = 146 - kDecPackage365ViewErrorHeight;
 
 #pragma mark - user action
 - (IBAction)onClickAbout:(id)sender {
-    [WebViewWithoutShareController show:[ViewControllerContainer getCurrentTapController] withUrl:kPkg365Url];
+    [WebViewWithActionController show:[ViewControllerContainer getCurrentTapController] withUrl:kPkg365Url shareTopic:ShareTopicActivity actionTitle:@"我要装修" actionBlock:^{
+        [[LoginEngine shared] showLogin:^(BOOL logined) {
+            if (logined) {
+                if (![GVUserDefaults standardUserDefaults].phone) {
+                    [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
+                        [ViewControllerContainer showRequirementCreate:nil];
+                    }];
+                } else {
+                    [ViewControllerContainer showRequirementCreate:nil];
+                }
+            }
+        }];
+    }];
 }
 
 #pragma mark - attributed text
 - (void)attributedText:(UILabel *)label range:(NSRange)range {
     NSString *text = label.text;
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:text];
-    [attributedStr setAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:20 weight:UIFontWeightBold],
+    [attributedStr setAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18 weight:UIFontWeightBold],
                                    NSForegroundColorAttributeName:[UIColor blackColor],
                                    }
                            range:range];

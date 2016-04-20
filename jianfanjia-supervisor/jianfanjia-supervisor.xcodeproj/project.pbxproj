@@ -988,6 +988,7 @@
 		680C41E81CC4D4AE008C4BC0 /* RequirementCreate */ = {
 			isa = PBXGroup;
 			children = (
+				680C41F11CC4D4AE008C4BC0 /* DecPackage */,
 				680C41E91CC4D4AE008C4BC0 /* BaseSelectionViewController.h */,
 				680C41EA1CC4D4AE008C4BC0 /* BaseSelectionViewController.m */,
 				680C41EB1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.h */,
@@ -996,7 +997,6 @@
 				680C41EE1CC4D4AE008C4BC0 /* DecorationStyleCell.h */,
 				680C41EF1CC4D4AE008C4BC0 /* DecorationStyleCell.m */,
 				680C41F01CC4D4AE008C4BC0 /* DecorationStyleCell.xib */,
-				680C41F11CC4D4AE008C4BC0 /* DecPackage */,
 				680C41F51CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.h */,
 				680C41F61CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.m */,
 				680C41F71CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.xib */,
