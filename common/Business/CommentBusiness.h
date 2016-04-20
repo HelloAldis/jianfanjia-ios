@@ -9,10 +9,13 @@
 #import <Foundation/Foundation.h>
 
 @class Comment;
+@class BaseNotification;
 
 @interface CommentBusiness : NSObject
 
 + (NSString *)imageId:(Comment *)comment;
 + (NSString *)userName:(Comment *)comment;
++ (NSString *)imageIdByNoti:(BaseNotification *)noti;
++ (NSString *)userNameByNoti:(BaseNotification *)noti;
 
 @end

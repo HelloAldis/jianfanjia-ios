@@ -20,6 +20,7 @@
 @dynamic lastupdate;
 @dynamic userid;
 @dynamic designerid;
+@dynamic supervisorid;
 @dynamic planid;
 @dynamic requirementid;
 @dynamic processid;

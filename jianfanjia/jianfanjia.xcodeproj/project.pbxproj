@@ -207,6 +207,7 @@
 		684B03CD1C979EAA0053FFDF /* DecLiveSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B03CB1C979EAA0053FFDF /* DecLiveSection.m */; };
 		684B04421C9943AC0053FFDF /* GetDesignerUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04411C9943AC0053FFDF /* GetDesignerUnreadCount.m */; };
 		684B04491C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04481C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m */; };
+		6850A6011CC75D280085940A /* BaseNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A6001CC75D280085940A /* BaseNotification.m */; };
 		685272C31C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */; };
 		685272C71C2D1602002E62EC /* SelectBusinessTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */; };
 		685272C81C2D1602002E62EC /* SelectBusinessTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C61C2D1602002E62EC /* SelectBusinessTypeViewController.xib */; };
@@ -817,6 +818,8 @@
 		684B04401C9943AC0053FFDF /* GetDesignerUnreadCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDesignerUnreadCount.h; sourceTree = "<group>"; };
 		684B04411C9943AC0053FFDF /* GetDesignerUnreadCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDesignerUnreadCount.m; sourceTree = "<group>"; };
 		684B04481C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
+		6850A5FF1CC75D280085940A /* BaseNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNotification.h; sourceTree = "<group>"; };
+		6850A6001CC75D280085940A /* BaseNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNotification.m; sourceTree = "<group>"; };
 		685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessRequirementCreateViewController.xib; sourceTree = "<group>"; };
 		685272C41C2D1602002E62EC /* SelectBusinessTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBusinessTypeViewController.h; sourceTree = "<group>"; };
 		685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBusinessTypeViewController.m; sourceTree = "<group>"; };
@@ -2204,6 +2207,8 @@
 		6E07DA8B1BD88DBE001461DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6850A5FF1CC75D280085940A /* BaseNotification.h */,
+				6850A6001CC75D280085940A /* BaseNotification.m */,
 				680C465D1CC61356008C4BC0 /* Supervisor.h */,
 				680C465E1CC61356008C4BC0 /* Supervisor.m */,
 				6E07DA8C1BD88DBE001461DD /* BaseModel.h */,
@@ -2958,6 +2963,7 @@
 				6E7867161BA944AF00DE8B1B /* ItemCell.m in Sources */,
 				68E600861CB7C20300C4A8F7 /* ReqtDesignerResponded.m in Sources */,
 				6E6D98B01BDF736A00D45F77 /* RequirementListViewController.m in Sources */,
+				6850A6011CC75D280085940A /* BaseNotification.m in Sources */,
 				6E07DAAC1BD88DBE001461DD /* AccountBusiness.m in Sources */,
 				683840071C157E21004F456E /* UpdateOneLineTextViewController.m in Sources */,
 				684A374C1BFD73DF00F7388C /* RequirementCreateViewController.m in Sources */,

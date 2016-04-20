@@ -41,8 +41,8 @@ static const NSInteger imgSpace = 2;
 
 - (void)initWithNotification:(UserNotification *)notification {
     self.notification = notification;
-    [self.imgAvatar setImageWithId:notification.designer.imageid withWidth:CGRectGetWidth(self.imgAvatar.bounds) / 2];
-    self.lblName.text = notification.designer.username;
+    [self.imgAvatar setImageWithId:[CommentBusiness imageIdByNoti:notification] withWidth:CGRectGetWidth(self.imgAvatar.bounds) / 2];
+    self.lblName.text = [CommentBusiness userNameByNoti:notification];
     self.lblCommentTime.text = [notification.create_at humDateString];
     self.lblComment.text = notification.content;
     

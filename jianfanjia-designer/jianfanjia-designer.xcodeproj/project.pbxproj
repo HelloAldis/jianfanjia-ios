@@ -244,6 +244,7 @@
 		684B043F1C990E910053FFDF /* WorksiteNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 684B04331C990E910053FFDF /* WorksiteNotificationCell.xib */; };
 		684B04451C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04441C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.m */; };
 		684B04471C9A76480053FFDF /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04461C9A76480053FFDF /* UIBarButtonItem+Badge.m */; };
+		6850A5FE1CC75C6B0085940A /* BaseNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A5FD1CC75C6B0085940A /* BaseNotification.m */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -742,6 +743,8 @@
 		684B04431C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerNotifyUserToConfirmMeasureHouse.h; sourceTree = "<group>"; };
 		684B04441C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerNotifyUserToConfirmMeasureHouse.m; sourceTree = "<group>"; };
 		684B04461C9A76480053FFDF /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
+		6850A5FC1CC75C6B0085940A /* BaseNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNotification.h; sourceTree = "<group>"; };
+		6850A5FD1CC75C6B0085940A /* BaseNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNotification.m; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1743,6 +1746,8 @@
 		6E378D141BDA2D2E00908B77 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6850A5FC1CC75C6B0085940A /* BaseNotification.h */,
+				6850A5FD1CC75C6B0085940A /* BaseNotification.m */,
 				680C46691CC61F5F008C4BC0 /* Supervisor.h */,
 				680C466A1CC61F5F008C4BC0 /* Supervisor.m */,
 				684B04111C98F8240053FFDF /* DesignerNotification.h */,
@@ -2192,6 +2197,7 @@
 				681240141C4CDA06008FC9AB /* NSDictionary+Ex.m in Sources */,
 				68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */,
 				68123C921C4C9772008FC9AB /* ThumbnailCell.m in Sources */,
+				6850A5FE1CC75C6B0085940A /* BaseNotification.m in Sources */,
 				684B043A1C990E910053FFDF /* RequirementNotificationCell.m in Sources */,
 				684B040A1C98F7060053FFDF /* CommentListDataManager.m in Sources */,
 				68F73D2E1CBB597E00E97710 /* ReqtDesignerMeasuredHouse.m in Sources */,
