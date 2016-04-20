@@ -33,7 +33,7 @@
 - (void)initWithRequirement:(Requirement *)requirement actionBlock:(ActionBlock)actionBlock {
     [super initWithRequirement:requirement actionBlock:actionBlock];
     [self initHeaderData:self.imgHomeOwner gender:self.imgUserGender name:self.lblUserName cell:self.lblCellNameVal info:self.lblRequirementfInfo updateTime:self.lblUpdateTimeVal];
-    self.lblRejectReason.text = @"过期原因：您未在规定时间内提交方案";
+    self.lblRejectReason.text = @"过期原因：由于您5天未上传方案，已超时";
 }
 
 @end

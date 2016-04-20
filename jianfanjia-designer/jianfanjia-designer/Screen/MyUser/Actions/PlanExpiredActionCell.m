@@ -33,7 +33,7 @@
 - (void)initWithRequirement:(Requirement *)requirement actionBlock:(ActionBlock)actionBlock {
     [super initWithRequirement:requirement actionBlock:actionBlock];
     [self initHeaderData:self.imgHomeOwner gender:self.imgUserGender name:self.lblUserName cell:self.lblCellNameVal info:self.lblRequirementfInfo updateTime:self.lblUpdateTimeVal];
-    self.lblRejectReason.text = @"过期原因：已有设计师方案中标";
+    self.lblRejectReason.text = @"过期原因：该业主已选中其他设计师的方案，感谢您的配合";
 }
 
 @end
