@@ -1,7 +1,7 @@
 ################# Help ############################
-#run ./re.sh (debug|test|pro) user (-a|-b|-c) -upload to make a user build
-#run ./re.sh (debug|test|pro) profession (-a|-b|-c) -upload to make a profession build
-#run ./re.sh (debug|test|pro) supervisor (-a|-b|-c) -upload to make a profession build
+#run "./re.sh (debug|test|pro) user (-a|-b|-c) -upload" to make a user build
+#run "./re.sh (debug|test|pro) profession (-a|-b|-c) -upload" to make a profession build
+#run "./re.sh (debug|test|pro) supervisor (-a|-b|-c) -upload" to make a supervisor build
 ################# End Help ############################
 
 
@@ -253,13 +253,13 @@ elif [[ $build_target = $supervisor_build_target ]]; then
 
   if [[ $build_type = $debug_build_type ]]; then
     echo 'build supervisor dev build now, please wait.................'
-    ipa build -w $supervisor_workspace -c Debug -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS DEBUG=1 COCOAPODS=1"' -d "$supervisor_packages_path/debug/$newVersion" --ipa $profession_ipa_file
+    ipa build -w $supervisor_workspace -c Debug -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS DEBUG=1 COCOAPODS=1"' -d "$supervisor_packages_path/debug/$newVersion" --ipa $supervisor_ipa_file
   elif [[ $build_type = $test_build_type ]]; then
     echo 'build supervisor test build now, please wait.................'
-    ipa build -w $supervisor_workspace -c Debug -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$supervisor_packages_path/test/$newVersion" --ipa $profession_ipa_file
+    ipa build -w $supervisor_workspace -c Debug -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$supervisor_packages_path/test/$newVersion" --ipa $supervisor_ipa_file
   elif [[ $build_type = $pro_build_type ]]; then
     echo 'build supervisor pro build now, please wait.................'
-    ipa build -w $supervisor_workspace -c Release -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$supervisor_packages_path/pro/$newVersion" --ipa $profession_ipa_file
+    ipa build -w $supervisor_workspace -c Release -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$supervisor_packages_path/pro/$newVersion" --ipa $supervisor_ipa_file
   fi
 
     outputPath="$supervisor_packages_path/$build_type/$newVersion/$supervisor_ipa_file"
