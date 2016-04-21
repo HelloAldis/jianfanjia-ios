@@ -66,6 +66,7 @@
     self.lblCellNameVal.text = process.basic_address;
     
     self.lblProcessStatusVal.text = [process.going_on isEqualToString:@"done"] ? @"已竣工" : [process sectionForName:self.process.going_on].label;
+    self.lblProcessStatusVal.textColor = [process.going_on isEqualToString:@"done"] ? kPassStatusColor : kFinishedColor;
     
     [self updateSections:process];
 }
