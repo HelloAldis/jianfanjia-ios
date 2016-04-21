@@ -7,6 +7,7 @@
 //
 
 #import "DesignerRespondedWithoutMeasureHouseCell.h"
+#import "ViewControllerContainer.h"
 
 @interface DesignerRespondedWithoutMeasureHouseCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
@@ -60,7 +61,8 @@
     @weakify(self);
     [API confirmMeasuringHouse:request success:^{
         @strongify(self);
-        [self refresh];
+//        [self refresh];
+        [ViewControllerContainer showEvaluateDesigner:self.designer withRequirement:self.requirement._id];
     } failure:^{
         
     } networkError:^{
