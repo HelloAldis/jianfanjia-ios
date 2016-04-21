@@ -119,10 +119,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Muj-uZ-TNh" userLabel="Designer1View">
-                        <rect key="frame" x="48" y="96" width="132" height="142"/>
+                        <rect key="frame" x="28" y="96" width="145" height="142"/>
                         <subviews>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_add_designer" translatesAutoresizingMaskIntoConstraints="NO" id="7vo-gK-hs3">
-                                <rect key="frame" x="36" y="13" width="60" height="60"/>
+                                <rect key="frame" x="43" y="13" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Pf7-LS-IvO"/>
@@ -130,7 +130,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKf-Zx-gy1">
-                                <rect key="frame" x="16" y="88" width="100" height="17"/>
+                                <rect key="frame" x="23" y="88" width="100" height="17"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="uJZ-Kr-mBu"/>
@@ -140,14 +140,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未预约" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHW-cy-oDP">
-                                <rect key="frame" x="46" y="113" width="39" height="16"/>
+                                <rect key="frame" x="53" y="113" width="39" height="16"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.48627450980392156" green="0.51372549019607838" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="Icl-LB-fX0">
-                                <rect key="frame" x="80" y="57" width="16" height="16"/>
+                                <rect key="frame" x="87" y="57" width="16" height="16"/>
                                 <gestureRecognizers/>
                             </imageView>
                         </subviews>
@@ -165,10 +165,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dE-Qu-coc" userLabel="Designer2View">
-                        <rect key="frame" x="180" y="96" width="132" height="142"/>
+                        <rect key="frame" x="173" y="96" width="146" height="142"/>
                         <subviews>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_add_designer" translatesAutoresizingMaskIntoConstraints="NO" id="YMg-AW-6VZ">
-                                <rect key="frame" x="36" y="13" width="60" height="60"/>
+                                <rect key="frame" x="43" y="13" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="BPr-Jd-dGc"/>
@@ -176,21 +176,21 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMV-91-Bua">
-                                <rect key="frame" x="45" y="88" width="42" height="17"/>
+                                <rect key="frame" x="52" y="88" width="42" height="17"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未预约" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLq-nB-aLB">
-                                <rect key="frame" x="47" y="113" width="39" height="16"/>
+                                <rect key="frame" x="54" y="113" width="39" height="16"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.48627450980392156" green="0.51372549019607838" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="Xiq-gq-8cT">
-                                <rect key="frame" x="80" y="57" width="16" height="16"/>
+                                <rect key="frame" x="87" y="57" width="16" height="16"/>
                                 <gestureRecognizers/>
                             </imageView>
                         </subviews>
@@ -204,10 +204,10 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Wd-LZ-yfr" userLabel="Designer3View">
-                        <rect key="frame" x="312" y="96" width="132" height="142"/>
+                        <rect key="frame" x="319" y="96" width="145" height="142"/>
                         <subviews>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_add_designer" translatesAutoresizingMaskIntoConstraints="NO" id="LdT-Uq-J8T">
-                                <rect key="frame" x="36" y="13" width="60" height="60"/>
+                                <rect key="frame" x="42" y="13" width="60" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="7dz-nN-KRj"/>
@@ -215,21 +215,21 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xE4-LP-ulq">
-                                <rect key="frame" x="45" y="88" width="42" height="17"/>
+                                <rect key="frame" x="51" y="88" width="42" height="17"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未预约" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vh-Xf-blm">
-                                <rect key="frame" x="47" y="113" width="39" height="16"/>
+                                <rect key="frame" x="53" y="113" width="39" height="16"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.48627450980392156" green="0.51372549019607838" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="f5C-ex-S0y">
-                                <rect key="frame" x="80" y="57" width="16" height="16"/>
+                                <rect key="frame" x="86" y="57" width="16" height="16"/>
                                 <gestureRecognizers/>
                             </imageView>
                         </subviews>
@@ -263,7 +263,7 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="5Wd-LZ-yfr" secondAttribute="trailing" constant="40" id="1ad-di-6Sv"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="5Wd-LZ-yfr" secondAttribute="trailing" constant="20" id="1ad-di-6Sv"/>
                     <constraint firstItem="EVa-yr-c1U" firstAttribute="top" secondItem="Muj-uZ-TNh" secondAttribute="bottom" id="1nE-C3-R6N"/>
                     <constraint firstItem="5Wd-LZ-yfr" firstAttribute="width" secondItem="Muj-uZ-TNh" secondAttribute="width" id="3mk-pF-ceH"/>
                     <constraint firstItem="qSF-mw-V75" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="8Hi-gM-aOM"/>
@@ -274,6 +274,7 @@
                     <constraint firstItem="nLq-nB-aLB" firstAttribute="centerY" secondItem="JHW-cy-oDP" secondAttribute="centerY" id="M6c-mD-FgL"/>
                     <constraint firstItem="5Wd-LZ-yfr" firstAttribute="centerY" secondItem="Muj-uZ-TNh" secondAttribute="centerY" id="ME6-DD-5ki"/>
                     <constraint firstItem="1dE-Qu-coc" firstAttribute="centerY" secondItem="Muj-uZ-TNh" secondAttribute="centerY" id="S47-ff-Qae"/>
+                    <constraint firstItem="Muj-uZ-TNh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="Sgz-zk-RBS"/>
                     <constraint firstItem="5Wd-LZ-yfr" firstAttribute="height" secondItem="Muj-uZ-TNh" secondAttribute="height" id="TmV-Yd-BYz"/>
                     <constraint firstItem="3w5-SK-Y4s" firstAttribute="top" secondItem="EVa-yr-c1U" secondAttribute="bottom" id="UfL-eE-Wb0"/>
                     <constraint firstItem="xE4-LP-ulq" firstAttribute="centerY" secondItem="oKf-Zx-gy1" secondAttribute="centerY" id="Vsy-Ad-93s"/>
@@ -292,6 +293,11 @@
                     <constraint firstItem="zMV-91-Bua" firstAttribute="centerY" secondItem="oKf-Zx-gy1" secondAttribute="centerY" id="uLd-QH-xvh"/>
                     <constraint firstItem="EVa-yr-c1U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="xbB-Z9-H0U"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="CTv-PC-EsO"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <constraints>
                 <constraint firstItem="VHe-P5-2In" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" id="Bz0-Ja-WSM"/>
