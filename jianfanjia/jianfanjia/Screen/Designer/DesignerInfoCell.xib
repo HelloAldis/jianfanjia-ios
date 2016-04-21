@@ -58,9 +58,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmF-aq-MHT">
-                        <rect key="frame" x="110" y="90" width="100" height="20"/>
+                        <rect key="frame" x="53" y="90" width="214" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="3M6-ua-pbt"/>
                             <constraint firstAttribute="height" constant="20" id="U3f-SQ-zYY"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -167,6 +166,7 @@
                     <constraint firstItem="hl6-9h-8CQ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/3" id="BGD-s8-GCk"/>
                     <constraint firstItem="hl6-9h-8CQ" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="bottom" constant="10" id="CUq-fT-5p8"/>
                     <constraint firstItem="YVX-LH-45b" firstAttribute="leading" secondItem="hl6-9h-8CQ" secondAttribute="leading" id="DqI-Wj-zje"/>
+                    <constraint firstItem="CmF-aq-MHT" firstAttribute="width" secondItem="2j2-Zi-RyX" secondAttribute="width" id="EWs-Ye-1SN"/>
                     <constraint firstItem="NSd-gx-JPd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="FF2-Xn-xgK"/>
                     <constraint firstItem="ckb-R1-5OW" firstAttribute="leading" secondItem="CYy-TQ-OFB" secondAttribute="leading" id="FpG-rU-L1a"/>
                     <constraint firstItem="lcs-IN-5uf" firstAttribute="leading" secondItem="APo-Do-Qtc" secondAttribute="trailing" constant="2" id="HNW-51-E4k"/>
