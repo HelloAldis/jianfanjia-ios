@@ -176,13 +176,7 @@ static const CGFloat kMaxMessageHeight = 100;
 }
 
 - (void)enableSendBtn:(BOOL)enable {
-    if (enable) {
-        self.btnSend.enabled = YES;
-        self.btnSend.alpha = 1.0;
-    } else {
-        self.btnSend.enabled = NO;
-        self.btnSend.alpha = 0.5;
-    }
+    [self.btnSend enableBgColor:enable];
 }
 
 - (void)onSendMessage {

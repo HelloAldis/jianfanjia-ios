@@ -163,13 +163,7 @@ static const CGFloat kMaxMessageHeight = 100;
 #pragma mark - user action
 - (void)refreshUI:(NSString *)msg {
     self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(self.maxCount - msg.length)];
-    if (msg.length > 0) {
-        self.btnSend.enabled = YES;
-        self.btnSend.alpha = 1.0;
-    } else {
-        self.btnSend.enabled = NO;
-        self.btnSend.alpha = 0.5;
-    }
+    [self enableSendBtn:msg.length > 0];
 }
 
 - (void)onClickBack {
@@ -179,6 +173,10 @@ static const CGFloat kMaxMessageHeight = 100;
         }
     }
     [super onClickBack];
+}
+
+- (void)enableSendBtn:(BOOL)enable {
+    [self.btnSend enableBgColor:enable];
 }
 
 - (void)onSendMessage {
@@ -200,6 +198,7 @@ static const CGFloat kMaxMessageHeight = 100;
     }
     
     @weakify(self);
+    [self enableSendBtn:NO];
     [API leaveComment:request success:^{
         @strongify(self);
         self.hasDataUpdate = YES;
