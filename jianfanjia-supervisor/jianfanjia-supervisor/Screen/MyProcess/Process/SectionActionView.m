@@ -59,11 +59,9 @@ const CGFloat kSectionActionViewHeight = 90;
     self.dataManager = dataManager;
     self.item = item;
     
-    Schedule *schedule = self.dataManager.selectedSection.schedule;
     if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusChangeDateRequest]) {
-        BOOL isRequestBySelf = [[GVUserDefaults standardUserDefaults].usertype isEqualToString:schedule.request_role];
-        [self enableChangeDate:!isRequestBySelf title:@"改期申请中"];
-        [self hideUnresolvedChangeDate:isRequestBySelf];
+        [self enableChangeDate:NO title:@"改期申请中"];
+        [self hideUnresolvedChangeDate:YES];
     } else if ([self.dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
         [self enableChangeDate:NO title:@"工序已完工"];
         [self hideUnresolvedChangeDate:YES];
@@ -71,7 +69,7 @@ const CGFloat kSectionActionViewHeight = 90;
         [self enableChangeDate:NO title:@"申请改期"];
         [self hideUnresolvedChangeDate:YES];
     } else {
-        [self enableChangeDate:YES title:@"申请改期"];
+        [self enableChangeDate:NO title:@"申请改期"];
         [self hideUnresolvedChangeDate:YES];
     }
 }
