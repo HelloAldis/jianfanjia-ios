@@ -27,6 +27,7 @@ static AFHTTPRequestOperationManager *_manager;
 }
 
 + (void)GET:(NSString *)url handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))networkError {
+    DDLogDebug(@"GET %@ ========= ", url);
     [request pre];
     [_manager GET:url
        parameters:nil
@@ -39,6 +40,7 @@ static AFHTTPRequestOperationManager *_manager;
 }
 
 + (void)POST:(NSString *)url data:(NSDictionary *)data handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))networkError {
+    DDLogDebug(@"POST %@ ========= ", url);
     [request pre];
     [_manager POST:url
        parameters:data

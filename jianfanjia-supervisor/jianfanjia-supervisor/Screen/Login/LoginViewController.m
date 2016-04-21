@@ -201,8 +201,6 @@
 
 - (IBAction)onClickLogin:(id)sender {
     [self.view endEditing:YES];
-    DDLogDebug(@"kApiUrl ========== %@", kApiUrl);
-    
     SupervisorLogin *login = [[SupervisorLogin alloc] init];
     
     [login setPhone:[self.fldPhone.text trim]];
