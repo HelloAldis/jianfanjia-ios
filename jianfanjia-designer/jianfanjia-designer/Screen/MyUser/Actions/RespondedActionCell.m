@@ -49,6 +49,7 @@
 - (void)initWithRequirement:(Requirement *)requirement actionBlock:(ActionBlock)actionBlock {
     [super initWithRequirement:requirement actionBlock:actionBlock];
     [self initHeaderData:self.imgHomeOwner gender:self.imgUserGender name:self.lblUserName cell:self.lblCellNameVal info:self.lblRequirementfInfo updateTime:self.lblUpdateTimeVal];
+    self.lblStatus.text = [PlanDesignerResponded text:self.requirement.plan.house_check_time];
     
     if ([[NSDate date] timeIntervalSince1970] * 1000 > [self.requirement.plan.house_check_time longLongValue]) {
         [self displayMeasureTime:NO];
