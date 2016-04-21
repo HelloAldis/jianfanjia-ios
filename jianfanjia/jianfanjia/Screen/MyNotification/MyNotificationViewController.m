@@ -14,13 +14,6 @@
 #import "ViewControllerContainer.h"
 #import "API.h"
 
-typedef NS_ENUM(NSInteger, NotificationType) {
-    NotificationTypeAll,
-    NotificationTypeAnnouncement,
-    NotificationTypeRequirement,
-    NotificationTypeWorksite,
-};
-
 static NSString *SystemAnnouncementCellIdentifier = @"SystemAnnouncementCell";
 static NSString *RequirementNotificationCellIdentifier = @"RequirementNotificationCell";
 static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell";
@@ -30,6 +23,7 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnNotifications;
 @property (strong, nonatomic) IBOutletCollection(UIView) NSArray *reminderIcons;
 @property (weak, nonatomic) IBOutlet UIView *selectedLine;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectedLineLeadConst;
 
 @property (weak, nonatomic) IBOutlet UIImageView *noNotificationImage;
 @property (weak, nonatomic) IBOutlet UILabel *noNotificationLabel;
@@ -91,7 +85,7 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
         [obj setExclusiveTouch:YES];
     }];
     
-    [self switchButton:self.currentNotificationType forceRefresh:YES];
+    [self onClickButton:self.btnNotifications[self.displayType]];
 }
 
 #pragma mark - table view delegate
@@ -134,31 +128,27 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 
 #pragma mark - user actions
 - (void)onClickButton:(UIButton *)button {
-    [self switchButton:[self.btnNotifications indexOfObject:button] forceRefresh:NO];
+    [self switchButton:[self.btnNotifications indexOfObject:button]];
 }
 
-- (void)switchButton:(NSInteger)buttonIndex forceRefresh:(BOOL)forceRefresh {
+- (void)switchButton:(NSInteger)buttonIndex {
     @weakify(self);
     [UIView animateWithDuration:0.3 animations:^{
         @strongify(self);
         UIButton *lastButton = self.btnNotifications[self.currentNotificationType];
         UIButton *selectedButton = self.btnNotifications[buttonIndex];
-        
-        CGRect f = self.selectedLine.frame;
-        f.origin.x = buttonIndex * CGRectGetWidth(f);
-        self.selectedLine.frame = f;
-        
         lastButton.alpha = 0.5;
         selectedButton.alpha = 1;
+        
+        self.selectedLineLeadConst.constant = buttonIndex * kScreenWidth / 4.0;
+        [self.selectedLine layoutIfNeeded];
     } completion:^(BOOL finished) {
         @strongify(self);
         self.currentNotificationType = buttonIndex;
         [self refreshDatasource];
         
         [self.tableView reloadData];
-//        if (forceRefresh || self.dataSource.count == 0) {
-            [self refresh];
-//        }
+        [self refresh];
     }];
 }
 

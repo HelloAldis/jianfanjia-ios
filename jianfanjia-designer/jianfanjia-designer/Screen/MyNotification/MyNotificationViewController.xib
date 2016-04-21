@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyNotificationViewController">
@@ -12,6 +11,7 @@
                 <outlet property="noNotificationImage" destination="Yqq-2M-MY0" id="lOQ-uN-4to"/>
                 <outlet property="noNotificationLabel" destination="1tj-LS-fcm" id="Ua9-BU-f4h"/>
                 <outlet property="selectedLine" destination="WcV-RB-Vwv" id="uNr-gm-aHl"/>
+                <outlet property="selectedLineLeadConst" destination="ycR-RU-rJj" id="HlU-M8-ClB"/>
                 <outlet property="tableView" destination="BMg-ih-g0O" id="mss-m3-Ejs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="btnNotifications" destination="h1G-cv-tHD" id="zXQ-WN-3TE"/>
@@ -153,15 +153,11 @@
                         <constraint firstItem="0Rq-7k-NcG" firstAttribute="top" secondItem="9yY-BV-qmw" secondAttribute="top" id="13r-W8-zL1"/>
                         <constraint firstItem="Aqu-bk-inU" firstAttribute="width" secondItem="0Rq-7k-NcG" secondAttribute="width" id="1Dw-Gn-WBD"/>
                         <constraint firstItem="WcV-RB-Vwv" firstAttribute="width" secondItem="0Rq-7k-NcG" secondAttribute="width" id="1o3-J7-XuF"/>
-                        <constraint firstItem="Aqu-bk-inU" firstAttribute="width" secondItem="9yY-BV-qmw" secondAttribute="width" multiplier="1/3" id="65l-80-fw7"/>
-                        <constraint firstItem="0Rq-7k-NcG" firstAttribute="width" secondItem="9yY-BV-qmw" secondAttribute="width" multiplier="1/3" id="9Pu-Ip-QxX"/>
                         <constraint firstItem="Aqu-bk-inU" firstAttribute="top" secondItem="0Rq-7k-NcG" secondAttribute="top" id="F8z-6p-9T7"/>
-                        <constraint firstItem="9gr-ot-jfT" firstAttribute="width" secondItem="9yY-BV-qmw" secondAttribute="width" multiplier="1/3" id="GDp-Bx-KxO"/>
                         <constraint firstAttribute="bottom" secondItem="WcV-RB-Vwv" secondAttribute="bottom" id="IjE-K1-clK"/>
                         <constraint firstItem="nBY-4m-Twg" firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" id="OPm-OI-Jwi"/>
                         <constraint firstAttribute="trailing" secondItem="nBY-4m-Twg" secondAttribute="trailing" id="PHX-hC-IEN"/>
                         <constraint firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" constant="1" id="X7W-Vz-U3Y"/>
-                        <constraint firstItem="nBY-4m-Twg" firstAttribute="top" secondItem="Aqu-bk-inU" secondAttribute="bottom" constant="-43" id="acP-Tq-fPr"/>
                         <constraint firstItem="9gr-ot-jfT" firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" id="bLB-72-eWc"/>
                         <constraint firstItem="nBY-4m-Twg" firstAttribute="width" secondItem="0Rq-7k-NcG" secondAttribute="width" id="c6y-pe-JIk"/>
                         <constraint firstItem="Aqu-bk-inU" firstAttribute="bottom" secondItem="0Rq-7k-NcG" secondAttribute="bottom" id="cgT-fb-mGX"/>
@@ -175,14 +171,6 @@
                         <constraint firstItem="WcV-RB-Vwv" firstAttribute="leading" secondItem="9yY-BV-qmw" secondAttribute="leading" id="ycR-RU-rJj"/>
                         <constraint firstItem="9gr-ot-jfT" firstAttribute="width" secondItem="0Rq-7k-NcG" secondAttribute="width" id="z2d-zy-mPd"/>
                     </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="9Pu-Ip-QxX"/>
-                            <exclude reference="GDp-Bx-KxO"/>
-                            <exclude reference="65l-80-fw7"/>
-                            <exclude reference="acP-Tq-fPr"/>
-                        </mask>
-                    </variation>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BMg-ih-g0O">
                     <rect key="frame" x="0.0" y="109" width="493" height="539"/>

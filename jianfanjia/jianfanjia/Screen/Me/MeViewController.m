@@ -124,7 +124,7 @@
 - (IBAction)onClickNotification:(id)sender {
     [[LoginEngine shared] showLogin:^(BOOL logined) {
         if (logined) {
-            [ViewControllerContainer showMyNotification];
+            [ViewControllerContainer showMyNotification:NotificationTypeAll];
         }
     }];
 }

@@ -398,8 +398,9 @@ static ViewControllerContainer *container;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
-+ (void)showMyNotification {
++ (void)showMyNotification:(NotificationType)displayType {
     MyNotificationViewController *v = [[MyNotificationViewController alloc] init];
+    v.displayType = displayType;
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

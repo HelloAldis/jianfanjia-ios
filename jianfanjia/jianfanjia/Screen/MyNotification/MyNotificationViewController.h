@@ -10,4 +10,6 @@
 
 @interface MyNotificationViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate>
 
+@property (assign, nonatomic) NotificationType displayType;
+
 @end

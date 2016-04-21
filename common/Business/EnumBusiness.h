@@ -21,4 +21,11 @@ typedef NS_ENUM(NSInteger, BindPhoneEvent) {
     BindPhoneEventPublishRequirement,
 };
 
+typedef NS_ENUM(NSInteger, NotificationType) {
+    NotificationTypeAll,
+    NotificationTypeAnnouncement,
+    NotificationTypeRequirement,
+    NotificationTypeWorksite,
+};
+
 #endif /* EnumBusiness_h */

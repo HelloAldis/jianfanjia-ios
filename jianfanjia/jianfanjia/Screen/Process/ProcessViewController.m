@@ -559,7 +559,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 #pragma mark - user action
 - (void)onClickMyNotification {
-    [ViewControllerContainer showMyNotification];
+    [ViewControllerContainer showMyNotification:NotificationTypeWorksite];
 }
 
 @end

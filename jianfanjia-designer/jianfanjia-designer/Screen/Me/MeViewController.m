@@ -100,7 +100,7 @@
 
 #pragma mark - user action
 - (IBAction)onClickNotification:(id)sender {
-    [ViewControllerContainer showMyNotification];
+    [ViewControllerContainer showMyNotification:NotificationTypeAll];
 }
 
 - (IBAction)onClickComment:(id)sender {
