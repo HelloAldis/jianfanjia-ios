@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -15,7 +15,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="476" height="97"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="系统公告" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxx-fc-JWs" userLabel="Lbl Cell">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="系统公告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxx-fc-JWs" userLabel="Lbl Cell">
                         <rect key="frame" x="13" y="13" width="60" height="18"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -54,9 +54,9 @@
                     <constraint firstAttribute="trailingMargin" secondItem="uOh-mE-dKO" secondAttribute="trailing" constant="5" id="J0r-GF-hZn"/>
                     <constraint firstAttribute="bottomMargin" secondItem="DYY-Gd-w1l" secondAttribute="bottom" id="NTC-mt-oYK"/>
                     <constraint firstItem="BhJ-Xm-ogY" firstAttribute="trailing" secondItem="uOh-mE-dKO" secondAttribute="trailing" id="OgC-2w-Vpu"/>
+                    <constraint firstItem="BhJ-Xm-ogY" firstAttribute="centerY" secondItem="DYY-Gd-w1l" secondAttribute="centerY" id="PgI-iZ-S9W"/>
                     <constraint firstItem="uxx-fc-JWs" firstAttribute="top" secondItem="acq-6O-lqE" secondAttribute="topMargin" constant="5" id="S8F-2f-0Iq"/>
                     <constraint firstItem="uOh-mE-dKO" firstAttribute="centerY" secondItem="uxx-fc-JWs" secondAttribute="centerY" id="bRY-2j-Dkh"/>
-                    <constraint firstItem="BhJ-Xm-ogY" firstAttribute="centerY" secondItem="DYY-Gd-w1l" secondAttribute="centerY" id="nXJ-5V-i5n"/>
                     <constraint firstItem="DYY-Gd-w1l" firstAttribute="leading" secondItem="uxx-fc-JWs" secondAttribute="leading" id="t1c-xw-cU4"/>
                     <constraint firstItem="DYY-Gd-w1l" firstAttribute="top" secondItem="uxx-fc-JWs" secondAttribute="bottom" constant="8" id="z1Q-Ul-uSK"/>
                 </constraints>
