@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *designerStatus;
 @property (weak, nonatomic) IBOutlet UILabel *lblRequirementStatusVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnGoToWorkspace;
+@property (weak, nonatomic) RACDisposable *btnGoToDisposable;
 
 @property (strong, nonatomic) NSMutableArray *currentPlanStatus;
 @property (strong, nonatomic) RequirementDataManager *requirementDataManager;
@@ -50,11 +51,6 @@
         UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDesignerAvatar:)];
         [imageView setCornerRadius:imageView.bounds.size.width / 2];
         [imageView addGestureRecognizer:gesture];
-    }];
-    
-    [[self.btnGoToWorkspace rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        [self onClickGoToWorkSiteButton];
     }];
     
     [self.imgHomeOwner setCornerRadius:self.imgHomeOwner.bounds.size.width / 2];
@@ -105,36 +101,6 @@
     }];
 }
 
-#pragma mark - user action
-- (void)onClickGoToWorkSiteButton {
-    /**
-     重构判断逻辑
-    if ([kRequirementStatusConfiguredWorkSite isEqualToString:self.requirement.status]
-        || [kRequirementStatusFinishedWorkSite isEqualToString:self.requirement.status]) {
-        [ViewControllerContainer showProcess:self.requirement.process._id];
-    } else {
-        [ViewControllerContainer showProcessPreview];
-    }
-     **/
-    
-    NSString *reqStatus = self.requirement.status;
-    [StatusBlock matchReqt:reqStatus actions:
-     @[[ReqtConfiguredWorkSite action:^{
-            [ViewControllerContainer showProcess:self.requirement.process._id];
-        }],
-       [ReqtFinishedWorkSite action:^{
-            [ViewControllerContainer showProcess:self.requirement.process._id];
-        }],
-       [ReqtUnorderDesigner action:^{
-            [ViewControllerContainer showOrderDesigner:self.requirement];
-        }],
-       [ElseStatus action:^{
-            [ViewControllerContainer showProcessPreview];
-        }],
-       ]];
-
-}
-
 #pragma mark - update status
 - (void)updateDesigner:(Designer *)orderedDesigner forIndex:(NSUInteger)idx {
     UIImageView *imgView = self.designerAvatar[idx];
@@ -158,21 +124,6 @@
     self.currentPlanStatus[idx] = status;
     
     //更新设计师状态
-    /**
-     重构判断逻辑
-    if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
-        lblStatus.textColor = kPassStatusColor;
-    } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]
-        || [status isEqualToString:kPlanStatusDesignerMeasureHouseWithoutPlan]
-        || [status isEqualToString:kPlanStatusDesignerSubmittedPlan]) {
-        lblStatus.textColor = kFinishedColor;
-    } else if ([status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]) {
-        lblStatus.textColor = kExcutionStatusColor;
-    } else {
-        lblStatus.textColor = kUntriggeredColor;
-    }
-     **/
-    
     lblStatus.text = [status isEqualToString:kPlanStatusUnorder] ? @"未预约" : [NameDict nameForPlanStatus:status];
     [StatusBlock matchPlan:status actions:
      @[[PlanWasChoosed action:^{
@@ -219,94 +170,57 @@
     self.lblCellNameVal.text = requirement.basic_address;
     
     NSString *status = requirement.status;
-    /**
-     重构判断逻辑
-     
-    if ([status isEqualToString:kRequirementStatusOrderedDesignerWithoutAnyResponse]) {
-        self.lblRequirementStatusVal.textColor = kPassStatusColor;
-        [self updateGoToWorksite:@"预览工地"];
-    } else if ([status isEqualToString:kRequirementStatusDesignerRespondedWithoutMeasureHouse]) {
-        self.lblRequirementStatusVal.textColor = kExcutionStatusColor;
-        [self updateGoToWorksite:@"预览工地"];
-    } else if ([status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
-               || [status isEqualToString:kRequirementStatusDesignerMeasureHouseWithoutPlan]
-               || [status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
-               || [status isEqualToString:kRequirementStatusDesignerSubmittedPlanWithoutResponse]) {
-        self.lblRequirementStatusVal.textColor = kFinishedColor;
-        [self updateGoToWorksite:@"预览工地"];
-    } else if ([status isEqualToString:kRequirementStatusConfiguredWorkSite]) {
-        self.lblRequirementStatusVal.textColor = kFinishedColor;
-        [self updateGoToWorksite:@"前往工地"];
-    } else if ([status isEqualToString:kRequirementStatusFinishedWorkSite]) {
-        self.lblRequirementStatusVal.textColor = kFinishedColor;
-        [self updateGoToWorksite:@"前往工地"];
-    } else {
-        //0. 未预约任何设计师
-        self.lblRequirementStatusVal.textColor = kUntriggeredColor;
-        [self updateGoToWorksite:@"预览工地"];
-    }
-    **/
-    
     [StatusBlock matchReqt:status actions:
      @[[ReqtOrderedDesigner action:^{
             self.lblRequirementStatusVal.textColor = kPassStatusColor;
             [self updateGoToWorksite:@"预览工地"];
+            [self gotoShowPreviewWorksite];
         }],
        [ReqtDesignerResponded action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"预览工地"];
+            [self updateGoToWorksite:@"设计师有新动态，请点击查看"];
+            [self gotoShowOrderedDesigner];
         }],
        [ReqtConfiguredAgreement action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"预览工地"];
+            [self updateGoToWorksite:@"查看合同"];
+            [self gotoShowAgreement];
         }],
        [ReqtDesignerMeasuredHouse action:^{
             self.lblRequirementStatusVal.textColor = kPassStatusColor;
             [self updateGoToWorksite:@"预览工地"];
+            [self gotoShowPreviewWorksite];
         }],
        [ReqtPlanWasChoosed action:^{
             self.lblRequirementStatusVal.textColor = kPassStatusColor;
-            [self updateGoToWorksite:@"预览工地"];
+            [self updateGoToWorksite:@"查看合同"];
+            [self gotoShowAgreement];
         }],
        [ReqtDesignerSubmittedPlan action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"预览工地"];
+            [self updateGoToWorksite:@"设计师有新动态，请点击查看"];
+            [self gotoShowOrderedDesigner];
         }],
        [ReqtConfiguredWorkSite action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
             [self updateGoToWorksite:@"前往工地"];
+            [self gotoShowWorksite];
         }],
        [ReqtFinishedWorkSite action:^{
             self.lblRequirementStatusVal.textColor = kPassStatusColor;
             [self updateGoToWorksite:@"前往工地"];
+            [self gotoShowWorksite];
         }],
-       [ReqtUnorderDesigner action:^{
+       [ElseStatus action:^{
             self.lblRequirementStatusVal.textColor = kUntriggeredColor;
             [self updateGoToWorksite:@"已为您匹配3名设计师请点击前往预约"];
+            [self gotoShowOrderDesigner];
         }],
       ]];
 }
 
 #pragma mark - other
 - (void)designerAction:(NSString *)status canNotOrder:(void (^)(void))canNotOrder order:(void (^)(void))order ordered:(void (^)(void))ordered {
-    /**
-     重构判断逻辑
-     
-    if ([status isEqualToString:kPlanStatusUnorder]) {
-        NSString *status = self.requirement.status;
-        if ([status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]
-            || [status isEqualToString:kRequirementStatusConfiguredAgreementWithoutWorkSite]
-            || [status isEqualToString:kRequirementStatusConfiguredWorkSite]
-            || [status isEqualToString:kRequirementStatusFinishedWorkSite]) {
-            if (canNotOrder) canNotOrder();
-        } else {
-            if (order) order();
-        }
-    } else {
-        if (ordered) ordered();
-    }
-    **/
-    
     [StatusBlock matchPlan:status actions:
      @[[PlanUnorder action:^{
             NSString *reqStatus = self.requirement.status;
@@ -346,6 +260,54 @@
 - (void)updateGoToWorksite:(NSString *)title {
     [self.btnGoToWorkspace setNormTitleColor:kFinishedColor];
     [self.btnGoToWorkspace setNormTitle:title];
+}
+
+#pragma mark - Go to workspace function
+- (void)updateGotoBlock:(void (^)(void))gotoBlock {
+    [self.btnGoToDisposable dispose];
+    self.btnGoToDisposable = [[self.btnGoToWorkspace rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        if (gotoBlock) {
+            gotoBlock();
+        }
+    }];
+}
+
+- (void)gotoShowWorksite {
+    @weakify(self);
+    [self updateGotoBlock:^{
+        @strongify(self);
+        [ViewControllerContainer showProcess:self.requirement.process._id];
+    }];
+}
+
+- (void)gotoShowOrderDesigner {
+    @weakify(self);
+    [self updateGotoBlock:^{
+        @strongify(self);
+        [ViewControllerContainer showOrderDesigner:self.requirement];
+    }];
+}
+
+- (void)gotoShowOrderedDesigner {
+    @weakify(self);
+    [self updateGotoBlock:^{
+        @strongify(self);
+        [ViewControllerContainer showOrderedDesigner:self.requirement];
+    }];
+}
+
+- (void)gotoShowPreviewWorksite {
+    [self updateGotoBlock:^{
+        [ViewControllerContainer showProcessPreview];
+    }];
+}
+
+- (void)gotoShowAgreement {
+    @weakify(self);
+    [self updateGotoBlock:^{
+        @strongify(self);
+        [ViewControllerContainer showAgreement:self.requirement popTo:[ViewControllerContainer getCurrentTapController] refresh:nil];
+    }];
 }
 
 @end
