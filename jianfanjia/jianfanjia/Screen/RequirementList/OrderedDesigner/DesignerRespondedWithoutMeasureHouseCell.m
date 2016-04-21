@@ -47,7 +47,7 @@
     if ([PlanDesignerResponded isNowMoreThanCheckTime:self.designer.plan.house_check_time]) {
         [self confirmMeasureHouse];
     } else {
-        [MessageAlertViewController presentAlert:@"提示" msg:@"量房时间还没到，您确认要完成量房吗？" second:nil reject:nil agree:^{
+        [MessageAlertViewController presentAlert:@"提示" msg:@"您的量房时间还未到，是否需要确认量房？" second:nil reject:nil agree:^{
             [self confirmMeasureHouse];
         }];
     }

@@ -173,47 +173,47 @@
     [StatusBlock matchReqt:status actions:
      @[[ReqtOrderedDesigner action:^{
             self.lblRequirementStatusVal.textColor = kPassStatusColor;
-            [self updateGoToWorksite:@"预览工地"];
+            [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
             [self gotoShowPreviewWorksite];
         }],
        [ReqtDesignerResponded action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"设计师有新动态，请点击查看"];
+            [self updateGoToWorksite:@"设计师有新动态，请点击查看" titleColor:kFinishedColor];
             [self gotoShowOrderedDesigner];
         }],
        [ReqtConfiguredAgreement action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"查看合同"];
+            [self updateGoToWorksite:@"查看合同" titleColor:kFinishedColor];
             [self gotoShowAgreement];
         }],
        [ReqtDesignerMeasuredHouse action:^{
             self.lblRequirementStatusVal.textColor = kPassStatusColor;
-            [self updateGoToWorksite:@"预览工地"];
+            [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
             [self gotoShowPreviewWorksite];
         }],
        [ReqtPlanWasChoosed action:^{
             self.lblRequirementStatusVal.textColor = kPassStatusColor;
-            [self updateGoToWorksite:@"查看合同"];
+            [self updateGoToWorksite:@"查看合同" titleColor:kFinishedColor];
             [self gotoShowAgreement];
         }],
        [ReqtDesignerSubmittedPlan action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"设计师有新动态，请点击查看"];
+            [self updateGoToWorksite:@"设计师有新动态，请点击查看" titleColor:kFinishedColor];
             [self gotoShowOrderedDesigner];
         }],
        [ReqtConfiguredWorkSite action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"前往工地"];
+            [self updateGoToWorksite:@"前往工地" titleColor:kFinishedColor];
             [self gotoShowWorksite];
         }],
        [ReqtFinishedWorkSite action:^{
             self.lblRequirementStatusVal.textColor = kPassStatusColor;
-            [self updateGoToWorksite:@"前往工地"];
+            [self updateGoToWorksite:@"前往工地" titleColor:kFinishedColor];
             [self gotoShowWorksite];
         }],
        [ElseStatus action:^{
             self.lblRequirementStatusVal.textColor = kUntriggeredColor;
-            [self updateGoToWorksite:@"已为您匹配3名设计师请点击前往预约"];
+            [self updateGoToWorksite:@"已为您匹配3名设计师请点击前往预约" titleColor:kFinishedColor];
             [self gotoShowOrderDesigner];
         }],
       ]];
@@ -257,8 +257,8 @@
     lblName.textColor = enable ? kThemeTextColor : kUntriggeredColor;
 }
 
-- (void)updateGoToWorksite:(NSString *)title {
-    [self.btnGoToWorkspace setNormTitleColor:kFinishedColor];
+- (void)updateGoToWorksite:(NSString *)title titleColor:(UIColor *)titleColor {
+    [self.btnGoToWorkspace setNormTitleColor:titleColor];
     [self.btnGoToWorkspace setNormTitle:title];
 }
 
