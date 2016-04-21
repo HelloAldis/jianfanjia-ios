@@ -7,6 +7,7 @@
 //
 
 #import "DesignerRespondedWithoutMeasureHouseCell.h"
+#import "MessageAlertViewController.h"
 #import "ViewControllerContainer.h"
 
 @interface DesignerRespondedWithoutMeasureHouseCell ()
@@ -14,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblStatus;
 @property (weak, nonatomic) IBOutlet UIButton *btnConfirmMeasureHouse;
+@property (weak, nonatomic) IBOutlet UILabel *lblMeasureHouse;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgIdCardChecked;
 @property (weak, nonatomic) IBOutlet UIImageView *imgBaseInfoChecked;
@@ -37,23 +39,21 @@
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock {
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
     [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
-    
-    if ([[NSDate date] timeIntervalSince1970] > designer.plan.house_check_time.longLongValue / 1000) {
-        self.btnConfirmMeasureHouse.enabled = YES;
-        [self.btnConfirmMeasureHouse setNormTitle:@"确认量房"];
-        [self.btnConfirmMeasureHouse setNormTitleColor:kThemeColor];
-        [self.btnConfirmMeasureHouse setFont:[UIFont systemFontOfSize:14 weight:UIFontWeightBold]];
-    } else {
-        self.btnConfirmMeasureHouse.enabled = NO;
-        [self.btnConfirmMeasureHouse setNormTitle:[NSString stringWithFormat:@"量房时间：%@", [NSDate yyyy_MM_dd_HH_mm:designer.plan.house_check_time]]];
-        [self.btnConfirmMeasureHouse setNormTitleColor:kUntriggeredColor];
-        [self.btnConfirmMeasureHouse setFont:[UIFont systemFontOfSize:14]];
-    }
-    
     self.lblStatus.text = [PlanDesignerResponded text:designer.plan.house_check_time];
+    self.lblMeasureHouse.text = [NSString stringWithFormat:@"量房时间：%@", [NSDate yyyy_Nian_MM_Yue_dd_Ri_HH_mm:designer.plan.house_check_time]];
 }
 
 - (void)onClickButton {
+    if ([PlanDesignerResponded isNowMoreThanCheckTime:self.designer.plan.house_check_time]) {
+        [self confirmMeasureHouse];
+    } else {
+        [MessageAlertViewController presentAlert:@"提示" msg:@"量房时间还没到，您确认要完成量房吗？" second:nil reject:nil agree:^{
+            [self confirmMeasureHouse];
+        }];
+    }
+}
+
+- (void)confirmMeasureHouse {
     ConfirmMeasuringHouse *request = [[ConfirmMeasuringHouse alloc] init];
     request.designerid = self.designer._id;
     request.requirementid = self.requirement._id;
@@ -61,7 +61,6 @@
     @weakify(self);
     [API confirmMeasuringHouse:request success:^{
         @strongify(self);
-//        [self refresh];
         [ViewControllerContainer showEvaluateDesigner:self.designer withRequirement:self.requirement._id];
     } failure:^{
         

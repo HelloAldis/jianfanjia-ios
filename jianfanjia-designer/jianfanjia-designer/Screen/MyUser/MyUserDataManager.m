@@ -64,21 +64,9 @@ static NSArray *processedStatusArr = nil;
         }
     }
     
-    self.unprocessActions = [self descendActions:unprocessActions];
-    self.processingActions = [self descendActions:processingActions];
-    self.processedActions = [self descendActions:processedActions];
-}
-
-- (NSArray *)descendActions:(NSArray *)actions {
-    return [actions sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(Requirement*  _Nonnull obj1, Requirement*  _Nonnull obj2) {
-        if ([obj1.plan.last_status_update_time compare:obj2.plan.last_status_update_time] == NSOrderedAscending) {
-            return NSOrderedDescending;
-        } else if ([obj1.plan.last_status_update_time compare:obj2.plan.last_status_update_time] == NSOrderedDescending) {
-            return NSOrderedAscending;
-        } else {
-            return NSOrderedSame;
-        }
-    }];
+    self.unprocessActions = unprocessActions;
+    self.processingActions = processingActions;
+    self.processedActions = processedActions;
 }
 
 @end

@@ -196,8 +196,15 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0R-jE-hF9" userLabel="ActionView">
                         <rect key="frame" x="0.0" y="96" width="320" height="50"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hmc-mY-jbK">
-                                <rect key="frame" x="0.0" y="1" width="320" height="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="量房时间：2015/11/25 11:29" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m21-pP-oYt">
+                                <rect key="frame" x="0.0" y="1" width="160" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8J-I1-2a1">
+                                <rect key="frame" x="161" y="1" width="159" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <state key="normal" title="确认量房">
@@ -207,11 +214,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Hmc-mY-jbK" secondAttribute="trailing" id="8sI-bc-rXd"/>
-                            <constraint firstItem="Hmc-mY-jbK" firstAttribute="top" secondItem="R0R-jE-hF9" secondAttribute="top" constant="1" id="OOJ-Gv-nFc"/>
+                            <constraint firstItem="N8J-I1-2a1" firstAttribute="height" secondItem="m21-pP-oYt" secondAttribute="height" id="06F-o0-yRc"/>
+                            <constraint firstItem="N8J-I1-2a1" firstAttribute="centerY" secondItem="m21-pP-oYt" secondAttribute="centerY" id="KtM-rB-gdq"/>
+                            <constraint firstItem="m21-pP-oYt" firstAttribute="leading" secondItem="R0R-jE-hF9" secondAttribute="leading" id="URb-xh-bYb"/>
+                            <constraint firstItem="m21-pP-oYt" firstAttribute="top" secondItem="R0R-jE-hF9" secondAttribute="top" constant="1" id="UqR-QY-Bg2"/>
+                            <constraint firstAttribute="trailing" secondItem="N8J-I1-2a1" secondAttribute="trailing" id="Zto-2i-ihy"/>
+                            <constraint firstAttribute="bottom" secondItem="m21-pP-oYt" secondAttribute="bottom" id="c2o-tc-gGs"/>
+                            <constraint firstItem="N8J-I1-2a1" firstAttribute="width" secondItem="m21-pP-oYt" secondAttribute="width" id="cLp-Ec-rxV"/>
+                            <constraint firstItem="N8J-I1-2a1" firstAttribute="leading" secondItem="m21-pP-oYt" secondAttribute="trailing" constant="1" id="j8G-4z-GA2"/>
                             <constraint firstAttribute="height" constant="50" id="k8c-ae-gky"/>
-                            <constraint firstItem="Hmc-mY-jbK" firstAttribute="leading" secondItem="R0R-jE-hF9" secondAttribute="leading" id="sKl-1M-aot"/>
-                            <constraint firstAttribute="bottom" secondItem="Hmc-mY-jbK" secondAttribute="bottom" id="zyb-L1-6cb"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -228,10 +239,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="btnConfirmMeasureHouse" destination="Hmc-mY-jbK" id="XvG-cT-xnZ"/>
+                <outlet property="btnConfirmMeasureHouse" destination="N8J-I1-2a1" id="NFY-HL-UUc"/>
                 <outlet property="imgAvatar" destination="wXN-9H-ueJ" id="j0f-x7-v84"/>
                 <outlet property="imgBaseInfoChecked" destination="QtM-7Z-y2x" id="CrA-Dt-SD0"/>
                 <outlet property="imgIdCardChecked" destination="bfq-4f-hR8" id="w5E-Nk-Exy"/>
+                <outlet property="lblMeasureHouse" destination="m21-pP-oYt" id="pEM-lw-19e"/>
                 <outlet property="lblStatus" destination="XUa-CC-XbS" id="sWE-Px-rjf"/>
                 <outlet property="lblUserNameVal" destination="mZM-VY-APf" id="uJZ-1A-bPO"/>
                 <outletCollection property="evaluatedStars" destination="795-hQ-Fqh" id="NQl-hl-BsZ"/>

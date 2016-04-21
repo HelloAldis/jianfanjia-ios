@@ -14,5 +14,6 @@
 + (StatusBlock *)action:(StatusBlockAction)action;
 
 + (NSString *)text:(NSNumber *)checkTime;
++ (BOOL)isNowMoreThanCheckTime:(NSNumber *)checkTime;
 
 @end
