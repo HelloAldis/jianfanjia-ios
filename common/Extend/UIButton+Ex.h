@@ -14,7 +14,6 @@
 @property (strong, nonatomic) UIColor *normTitleColor;
 @property (strong, nonatomic) UIImage *normImg;
 @property (strong, nonatomic) UIImage *normBgImg;
-@property (strong, nonatomic) UIColor *bgColor;
 @property (strong, nonatomic) UIFont *font;
 
 - (void)disable;

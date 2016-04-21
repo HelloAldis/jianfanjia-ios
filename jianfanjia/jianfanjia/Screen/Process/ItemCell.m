@@ -35,24 +35,21 @@
     self.item = item;
     self.lblItemTitle.text = item.label;
     
-    if ([self.item.status isEqualToString:kSectionStatusOnGoing]
-        || [self.item.status isEqualToString:kSectionStatusChangeDateRequest]
-        || [self.item.status isEqualToString:kSectionStatusChangeDateAgree]
-        || [self.item.status isEqualToString:kSectionStatusChangeDateDecline]) {
+    if ([self.item.status isEqualToString:kSectionStatusOnGoing]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_1"];
-        self.statusLine2.backgroundColor = kFinishedColor;
+        self.statusLine2.bgColor = kFinishedColor;
     } else if([self.item.status isEqualToString:kSectionStatusAlreadyFinished]) {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_2"];
-        self.statusLine2.backgroundColor = kFinishedColor;
+        self.statusLine2.bgColor = kFinishedColor;
     } else {
         self.statusImageView.image = [UIImage imageNamed:@"item_status_0"];
-        self.statusLine2.backgroundColor = kUntriggeredColor;
+        self.statusLine2.bgColor = kUntriggeredColor;
     }
     
     if ([dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished]) {
-        self.statusLine1.backgroundColor = kFinishedColor;
+        self.statusLine1.bgColor = kFinishedColor;
     } else {
-        self.statusLine1.backgroundColor = kUntriggeredColor;
+        self.statusLine1.bgColor = kUntriggeredColor;
     }
 }
 

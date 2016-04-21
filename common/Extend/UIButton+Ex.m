@@ -64,14 +64,6 @@
     [self setBackgroundImage:image forState:UIControlStateNormal];
 }
 
-- (UIColor *)bgColor {
-    return self.backgroundColor;
-}
-
-- (void)setBgColor:(UIColor *)color {
-    [self setBackgroundColor:color];
-}
-
 - (UIFont *)font {
     return self.titleLabel.font;
 }

@@ -13,6 +13,8 @@ typedef void(^TapBlock)(void);
 
 @interface UIView (Ex)
 
+@property (strong, nonatomic) UIColor *bgColor;
+
 - (void)setCornerRadius:(CGFloat)radius;
 - (void)setBorder:(CGFloat)width andColor:(CGColorRef)color;
 - (UIView *)getFirstResponder;

@@ -55,13 +55,16 @@
         self.lblLinkStatus.text = [NameDict nameForSectionStatus:item.status];
         if ([item.status isEqualToString:kSectionStatusOnGoing]) {
             self.linkStatusImage.image = [UIImage imageNamed:@"item_status_1"];
-            self.linkStatusLine2.backgroundColor = kFinishedColor;
+            self.linkStatusLine2.bgColor = kFinishedColor;
+            self.lblLinkStatus.textColor = kExcutionStatusColor;
         } else if([item.status isEqualToString:kSectionStatusAlreadyFinished]) {
             self.linkStatusImage.image = [UIImage imageNamed:@"item_status_2"];
-            self.linkStatusLine2.backgroundColor = kFinishedColor;
+            self.linkStatusLine2.bgColor = kFinishedColor;
+            self.lblLinkStatus.textColor = kFinishedColor;
         } else {
             self.linkStatusImage.image = [UIImage imageNamed:@"item_status_0"];
-            self.linkStatusLine2.backgroundColor = kUntriggeredColor;
+            self.linkStatusLine2.bgColor = kUntriggeredColor;
+            self.lblLinkStatus.textColor = kUntriggeredColor;
         }
     }
     

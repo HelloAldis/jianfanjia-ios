@@ -12,6 +12,15 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
 
 @implementation UIView (Ex)
 
+#pragma mark - property
+- (UIColor *)bgColor {
+    return self.backgroundColor;
+}
+
+- (void)setBgColor:(UIColor *)color {
+    [self setBackgroundColor:color];
+}
+
 - (void)setCornerRadius:(CGFloat)radius {
     self.layer.cornerRadius = radius;
     self.layer.masksToBounds = YES;
