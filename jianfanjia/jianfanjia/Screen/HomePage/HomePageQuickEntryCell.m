@@ -17,8 +17,9 @@ static const NSInteger COUNT_IN_ONE_ROW = 4;
 static const NSInteger CELL_SPACE = 0;
 static const NSInteger HEADER_HEIGHT = 0;
 static const NSInteger FOOTER_HEIGHT = 8;
-static const NSInteger SECTION_HEIGHT = 15;
-static const NSInteger ITEM_HEIGHT = 88;
+static const NSInteger SECTION_TOP = 10;
+static const NSInteger SECTION_LEFT = 15;
+static const NSInteger ITEM_HEIGHT = 84;
 
 static NSString *HomePageQuickEntryItemIdentifier = @"HomePageQuickEntryItem";
 static NSString *HomePageQuickEntryItemHeaderIdentifier = @"HomePageQuickEntryItemHeader";
@@ -47,7 +48,7 @@ static NSArray const *quickEntryTexts;
         quickEntryTexts = @[HomePageQuickEntryFreePlan, HomePageQuickEntryDecStrategy, HomePageQuickEntryDecLive, HomePageQuickEntryMassDesigner];
         quickEntryImages = @[@"icon_publish_requirement", @"icon_dec_guide", @"icon_dec_live", @"icon_mass_designer"];
         
-        kHomePageQuickEntryCellHeight = ITEM_HEIGHT + SECTION_HEIGHT * 2 + HEADER_HEIGHT + FOOTER_HEIGHT;
+        kHomePageQuickEntryCellHeight = ITEM_HEIGHT + SECTION_TOP * 2 + HEADER_HEIGHT + FOOTER_HEIGHT;
     }
 }
 
@@ -58,10 +59,10 @@ static NSArray const *quickEntryTexts;
     
     self.flowLayout.minimumLineSpacing = CELL_SPACE;
     self.flowLayout.minimumInteritemSpacing = CELL_SPACE;
-    self.flowLayout.sectionInset = UIEdgeInsetsMake(SECTION_HEIGHT, 0, SECTION_HEIGHT, 0);
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(SECTION_TOP, SECTION_LEFT, SECTION_TOP, SECTION_LEFT);
     self.flowLayout.headerReferenceSize = CGSizeMake(kScreenWidth, HEADER_HEIGHT);
     self.flowLayout.footerReferenceSize = CGSizeMake(kScreenWidth, FOOTER_HEIGHT);
-    self.quickEntryItemWidth = (kScreenWidth - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
+    self.quickEntryItemWidth = (kScreenWidth - SECTION_LEFT * 2 - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
     self.flowLayout.itemSize = CGSizeMake(self.quickEntryItemWidth, ITEM_HEIGHT);
 }
 
