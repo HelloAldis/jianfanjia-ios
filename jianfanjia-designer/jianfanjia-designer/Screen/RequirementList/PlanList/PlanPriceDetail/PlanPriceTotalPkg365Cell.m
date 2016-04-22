@@ -24,10 +24,10 @@
 
 - (void)initWithPlan:(Plan *)plan item365:(PriceItem *)item365 {
     NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
-    NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:[@(plan.project_price_before_discount.floatValue + plan.total_design_fee.floatValue) humRmbString] attributes:attribtDic];
+    NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:[@(plan.project_price_before_discount.doubleValue + plan.total_design_fee.doubleValue) humRmbString] attributes:attribtDic];
 
-    CGFloat basicFee = item365 ? item365.price.floatValue : 0.0f;
-    CGFloat personalizedFee = plan.project_price_before_discount.floatValue - basicFee;
+    CGFloat basicFee = item365 ? item365.price.doubleValue : 0.0f;
+    CGFloat personalizedFee = plan.project_price_before_discount.doubleValue - basicFee;
     
     self.lblBasicFee.text = [@(basicFee) humRmbString];
     self.lblPersonalizedFee.text = [@(personalizedFee) humRmbString];
