@@ -74,6 +74,10 @@ static NSString *PlanCellIdentifier = @"PlanCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 6;
+    }
+    
     return 3;
 }
 
