@@ -33,7 +33,7 @@
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"关于我们";
+    self.title = @"更多";
 }
 
 #pragma mark - action
