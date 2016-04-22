@@ -13,9 +13,8 @@ typedef NS_ENUM(NSInteger, EvaluateDesignerType) {
     New
 };
 
-static float kKeyboardHeight = 480;
-
 @interface EvaluateDesignerViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *authIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
@@ -50,8 +49,7 @@ static float kKeyboardHeight = 480;
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    
+
     [self initNav];
     [self initUI];
 }
@@ -70,6 +68,11 @@ static float kKeyboardHeight = 480;
 
 #pragma mark - init UI 
 - (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
+    self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
+    self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    
     [self.imgAvatar setCornerRadius:30];
     [self.tvComment setCornerRadius:5];
     [self.btnPublish setCornerRadius:5];
@@ -119,7 +122,7 @@ static float kKeyboardHeight = 480;
         self.btnPublish.hidden = YES;
         self.lblEvaluateTitle.hidden = YES;
         self.tvComment.editable = NO;
-        self.tvComment.backgroundColor = self.view.backgroundColor;
+        self.tvComment.bgColor = self.view.bgColor;
         self.tvComment.text = self.designer.evaluation.comment;
     }
 }
@@ -160,26 +163,21 @@ static float kKeyboardHeight = 480;
 #pragma mark - keyboard
 - (void)keyboardWillShow:(NSNotification *)notification {
     // get keyboard height
-    kKeyboardHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-    
-    [UIView animateWithDuration:0.6
-                          delay:0 usingSpringWithDamping:1.0
-          initialSpringVelocity:1.0
-                        options:UIViewAnimationOptionCurveLinear animations:^{
-                            CGRect rect = CGRectMake(self.view.frame.origin.x, -kKeyboardHeight, self.view.frame.size.width, self.view.frame.size.height);
-                            self.view.frame = rect;
-                            [self.view layoutIfNeeded];
-                        } completion:nil];
+    CGFloat keyboardHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, keyboardHeight, 0);
+        self.scrollView.contentOffset = CGPointMake(0, keyboardHeight-kNavWithStatusBarHeight);
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 - (void) keyboardWillHide:(NSNotification *)notification {
-    CGRect rect = CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height);
-    self.view.frame = rect;
-}
-
-#pragma mark - touch
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 @end

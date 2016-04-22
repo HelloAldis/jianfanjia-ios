@@ -9,6 +9,7 @@
 #import "EvaluateDesignerViewController.h"
 
 @interface EvaluateDesignerViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *authIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
@@ -17,6 +18,7 @@
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *respondSpeedStars;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *serviceAttitudeStars;
 @property (weak, nonatomic) IBOutlet UITextView *tvComment;
+@property (weak, nonatomic) IBOutlet UIButton *btnPublish;
 
 @property (strong, nonatomic) Designer *designer;
 @property (strong, nonatomic) Evaluation *evaluation;
@@ -38,7 +40,6 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self initNav];
     [self initUI];
@@ -47,6 +48,11 @@
 
 #pragma mark - init UI 
 - (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
+    self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
+    self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    
     [self.imgAvatar setCornerRadius:30];
     [self.tvComment setCornerRadius:5];
     self.lblEvaluateTitle.hidden = YES;
@@ -67,6 +73,12 @@
     
     [DesignerBusiness displayStars:self.respondSpeedStars withAmount:self.evaluation.respond_speed.integerValue fullStar:[UIImage imageNamed:@"star_big"] emptyStar:[UIImage imageNamed:@"star_big_empty"]];
     [DesignerBusiness displayStars:self.serviceAttitudeStars withAmount:self.evaluation.service_attitude.integerValue fullStar:[UIImage imageNamed:@"star_big"] emptyStar:[UIImage imageNamed:@"star_big_empty"]];
+    
+    self.lblEvaluateTitle.hidden = YES;
+    self.btnPublish.hidden = YES;
+    self.tvComment.editable = NO;
+    self.tvComment.bgColor = self.view.bgColor;
+    
     if (self.evaluation.comment) {
         self.tvComment.text = self.evaluation.comment;
     } else {
