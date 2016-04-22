@@ -237,6 +237,10 @@
 		680C465B1CC5DB96008C4BC0 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46511CC5DB96008C4BC0 /* UserInfoViewController.m */; };
 		680C465C1CC5DB96008C4BC0 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C46521CC5DB96008C4BC0 /* UserInfoViewController.xib */; };
 		680C46621CC61C87008C4BC0 /* CommentBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46611CC61C87008C4BC0 /* CommentBusiness.m */; };
+		6850A6121CCA2DDB0085940A /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A60D1CCA2DDB0085940A /* CityCell.m */; };
+		6850A6131CCA2DDB0085940A /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A60E1CCA2DDB0085940A /* CityCell.xib */; };
+		6850A6141CCA2DDB0085940A /* CitySection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A6101CCA2DDB0085940A /* CitySection.m */; };
+		6850A6151CCA2DDB0085940A /* CitySection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A6111CCA2DDB0085940A /* CitySection.xib */; };
 		D248AF3A7C7F296D8418ADE8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D408E462BE9708192EBFFD7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -677,6 +681,12 @@
 		680C46521CC5DB96008C4BC0 /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		680C46601CC61C87008C4BC0 /* CommentBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentBusiness.h; sourceTree = "<group>"; };
 		680C46611CC61C87008C4BC0 /* CommentBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBusiness.m; sourceTree = "<group>"; };
+		6850A60C1CCA2DDB0085940A /* CityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCell.h; sourceTree = "<group>"; };
+		6850A60D1CCA2DDB0085940A /* CityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
+		6850A60E1CCA2DDB0085940A /* CityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityCell.xib; sourceTree = "<group>"; };
+		6850A60F1CCA2DDB0085940A /* CitySection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySection.h; sourceTree = "<group>"; };
+		6850A6101CCA2DDB0085940A /* CitySection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySection.m; sourceTree = "<group>"; };
+		6850A6111CCA2DDB0085940A /* CitySection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySection.xib; sourceTree = "<group>"; };
 		6DCF3E98975F7E90EE858303 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E62310690E1273E5E41514C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1385,6 +1395,12 @@
 				680C447E1CC4D4BD008C4BC0 /* allprovince.js */,
 				680C447F1CC4D4BD008C4BC0 /* city2area.js */,
 				680C44801CC4D4BD008C4BC0 /* province2city.js */,
+				6850A60C1CCA2DDB0085940A /* CityCell.h */,
+				6850A60D1CCA2DDB0085940A /* CityCell.m */,
+				6850A60E1CCA2DDB0085940A /* CityCell.xib */,
+				6850A60F1CCA2DDB0085940A /* CitySection.h */,
+				6850A6101CCA2DDB0085940A /* CitySection.m */,
+				6850A6111CCA2DDB0085940A /* CitySection.xib */,
 				680C44811CC4D4BD008C4BC0 /* SelectCityViewController.h */,
 				680C44821CC4D4BD008C4BC0 /* SelectCityViewController.m */,
 				680C44831CC4D4BD008C4BC0 /* SelectCityViewController.xib */,
@@ -1612,6 +1628,7 @@
 				680C422E1CC4D4AE008C4BC0 /* VerifyPhoneViewController.xib in Resources */,
 				680C456E1CC4D4BD008C4BC0 /* city2area.js in Resources */,
 				680C45601CC4D4BD008C4BC0 /* MessageAlertViewController.xib in Resources */,
+				6850A6151CCA2DDB0085940A /* CitySection.xib in Resources */,
 				680C42C91CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.xib in Resources */,
 				680C42601CC4D4AE008C4BC0 /* SectionView.xib in Resources */,
 				680C42571CC4D4AE008C4BC0 /* ItemImageCollectionCell.xib in Resources */,
@@ -1633,6 +1650,7 @@
 				680C422A1CC4D4AE008C4BC0 /* ResetPassViewController.xib in Resources */,
 				680C42A81CC4D4AE008C4BC0 /* MessageCell.xib in Resources */,
 				680C423B1CC4D4AE008C4BC0 /* AboutViewController.xib in Resources */,
+				6850A6131CCA2DDB0085940A /* CityCell.xib in Resources */,
 				680C42AE1CC4D4AE008C4BC0 /* PlanPreviewViewController.xib in Resources */,
 				680C42D31CC4D4AE008C4BC0 /* SelectPopulationViewController.xib in Resources */,
 				680C42321CC4D4AE008C4BC0 /* MeViewController.xib in Resources */,
@@ -1727,6 +1745,7 @@
 				680C45311CC4D4BD008C4BC0 /* LeafImage.m in Sources */,
 				680C44F91CC4D4BD008C4BC0 /* PlanDesignerSubmittedPlan.m in Sources */,
 				680C456B1CC4D4BD008C4BC0 /* BrushGifHeader.m in Sources */,
+				6850A6121CCA2DDB0085940A /* CityCell.m in Sources */,
 				680C46591CC5DB96008C4BC0 /* UpdateOneLineTextViewController.m in Sources */,
 				680C42A71CC4D4AE008C4BC0 /* MessageCell.m in Sources */,
 				680C44F71CC4D4BD008C4BC0 /* PlanDesignerRespondExpired.m in Sources */,
@@ -1869,6 +1888,7 @@
 				680C42641CC4D4AE008C4BC0 /* ProcessCell.m in Sources */,
 				680C44F31CC4D4BD008C4BC0 /* ElseStatus.m in Sources */,
 				680C45681CC4D4BD008C4BC0 /* ImageEditorViewController.m in Sources */,
+				6850A6141CCA2DDB0085940A /* CitySection.m in Sources */,
 				680C45211CC4D4BD008C4BC0 /* UIView+Badge.m in Sources */,
 				680C45791CC4D4BD008C4BC0 /* Aspects.m in Sources */,
 				680C46411CC5D40E008C4BC0 /* DBYSViewController.m in Sources */,

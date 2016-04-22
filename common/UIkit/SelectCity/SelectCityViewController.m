@@ -7,12 +7,14 @@
 //
 
 #import "SelectCityViewController.h"
+#import "CitySection.h"
+#import "CityCell.h"
 
 #define kDisplayProvince    0
 #define kDisplayCity        1
 #define kDisplayArea        2
 
-static NSString* cellId = @"cityCell";
+static NSString* cellId = @"CityCell";
 
 @interface SelectCityViewController () <CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -85,7 +87,9 @@ static NSString* cellId = @"cityCell";
 #pragma mark - UI
 - (void)initUI {
     self.tableView.tableFooterView = [[UIView alloc] init];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
+    [self.tableView registerNib:[UINib nibWithNibName:cellId bundle:nil] forCellReuseIdentifier:cellId];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 50;
 }
 
 #pragma mark - init data 
@@ -167,8 +171,8 @@ static NSString* cellId = @"cityCell";
             sublocality = sublocality ? sublocality : @"";
             
             self.locationAddress = [NSString stringWithFormat:@"%@ %@ %@", state, city, sublocality];
-            UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-            cell.textLabel.text = self.locationAddress;
+            CityCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            cell.lblText.text = self.locationAddress;
             cell.selectionStyle = UITableViewCellSelectionStyleBlue;
             break;
         }
@@ -189,15 +193,16 @@ static NSString* cellId = @"cityCell";
     }
 }
 
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    cell.textLabel.font = [UIFont systemFontOfSize:13];
-    cell.textLabel.textColor = kTextColor;
-    cell.backgroundColor = self.tableView.backgroundColor;
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return kCitySectionHeight;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    CitySection *cell = [CitySection citySection];
     if (self.displayType == kDisplayProvince && section == 0) {
-        cell.textLabel.text = @"定位到的位置";
+        cell.label.text = @"定位到的位置";
     } else {
-        cell.textLabel.text = @"全部";
+        cell.label.text = @"全部";
     }
     
     return cell;
@@ -218,7 +223,7 @@ static NSString* cellId = @"cityCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    CityCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
 
     if (self.displayType == kDisplayArea) {
         cell.accessoryType = UITableViewCellAccessoryNone;
@@ -228,12 +233,12 @@ static NSString* cellId = @"cityCell";
     
     if (self.displayType == kDisplayProvince) {
         if (indexPath.section == 0) {
-            cell.textLabel.text= self.locationAddress ? self.locationAddress : @"正在定位中...";
+            cell.lblText.text= self.locationAddress ? self.locationAddress : @"正在定位中...";
             cell.selectionStyle = self.locationAddress ? UITableViewCellSelectionStyleBlue : UITableViewCellSelectionStyleNone;
             cell.accessoryType = UITableViewCellAccessoryNone;
         } else {
             NSString *provinceName = self.provinces[indexPath.row];
-            cell.textLabel.text= provinceName;
+            cell.lblText.text= provinceName;
 //            if (self.currentAddress) {
 //                cell.detailTextLabel.font = [UIFont systemFontOfSize:13];
 //                cell.detailTextLabel.textColor = kTextColor;
@@ -242,9 +247,9 @@ static NSString* cellId = @"cityCell";
         }
     } else if (self.displayType == kDisplayCity){
         NSString *cityName = self.citys[indexPath.row];
-        cell.textLabel.text= cityName;
+        cell.lblText.text= cityName;
     } else{
-        cell.textLabel.text= self.areas[indexPath.row];
+        cell.lblText.text= self.areas[indexPath.row];
     }
     
     return cell;

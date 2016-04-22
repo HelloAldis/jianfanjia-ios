@@ -208,6 +208,10 @@
 		684B04421C9943AC0053FFDF /* GetDesignerUnreadCount.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04411C9943AC0053FFDF /* GetDesignerUnreadCount.m */; };
 		684B04491C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 684B04481C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m */; };
 		6850A6011CC75D280085940A /* BaseNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A6001CC75D280085940A /* BaseNotification.m */; };
+		6850A6051CCA21F50085940A /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A6031CCA21F50085940A /* CityCell.m */; };
+		6850A6061CCA21F50085940A /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A6041CCA21F50085940A /* CityCell.xib */; };
+		6850A60A1CCA2B050085940A /* CitySection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A6081CCA2B050085940A /* CitySection.m */; };
+		6850A60B1CCA2B050085940A /* CitySection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A6091CCA2B050085940A /* CitySection.xib */; };
 		685272C31C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */; };
 		685272C71C2D1602002E62EC /* SelectBusinessTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */; };
 		685272C81C2D1602002E62EC /* SelectBusinessTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685272C61C2D1602002E62EC /* SelectBusinessTypeViewController.xib */; };
@@ -820,6 +824,12 @@
 		684B04481C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Badge.m"; sourceTree = "<group>"; };
 		6850A5FF1CC75D280085940A /* BaseNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNotification.h; sourceTree = "<group>"; };
 		6850A6001CC75D280085940A /* BaseNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNotification.m; sourceTree = "<group>"; };
+		6850A6021CCA21F50085940A /* CityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCell.h; sourceTree = "<group>"; };
+		6850A6031CCA21F50085940A /* CityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
+		6850A6041CCA21F50085940A /* CityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityCell.xib; sourceTree = "<group>"; };
+		6850A6071CCA2B050085940A /* CitySection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySection.h; sourceTree = "<group>"; };
+		6850A6081CCA2B050085940A /* CitySection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySection.m; sourceTree = "<group>"; };
+		6850A6091CCA2B050085940A /* CitySection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySection.xib; sourceTree = "<group>"; };
 		685272C21C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessRequirementCreateViewController.xib; sourceTree = "<group>"; };
 		685272C41C2D1602002E62EC /* SelectBusinessTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBusinessTypeViewController.h; sourceTree = "<group>"; };
 		685272C51C2D1602002E62EC /* SelectBusinessTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBusinessTypeViewController.m; sourceTree = "<group>"; };
@@ -1511,6 +1521,12 @@
 				68123C4D1C4C8B99008FC9AB /* allprovince.js */,
 				68123C4E1C4C8B99008FC9AB /* city2area.js */,
 				68123C4F1C4C8B99008FC9AB /* province2city.js */,
+				6850A6071CCA2B050085940A /* CitySection.h */,
+				6850A6081CCA2B050085940A /* CitySection.m */,
+				6850A6091CCA2B050085940A /* CitySection.xib */,
+				6850A6021CCA21F50085940A /* CityCell.h */,
+				6850A6031CCA21F50085940A /* CityCell.m */,
+				6850A6041CCA21F50085940A /* CityCell.xib */,
 				68123C501C4C8B99008FC9AB /* SelectCityViewController.h */,
 				68123C511C4C8B99008FC9AB /* SelectCityViewController.m */,
 				68123C521C4C8B99008FC9AB /* SelectCityViewController.xib */,
@@ -2766,6 +2782,7 @@
 				6E7E4A8A1B9EC2D700503B35 /* WelcomeViewController.xib in Resources */,
 				6E4496461BFC562900C90851 /* AboutViewController.xib in Resources */,
 				68123BA71C47D15C008FC9AB /* JYZ_qzone_icon@2x.png in Resources */,
+				6850A60B1CCA2B050085940A /* CitySection.xib in Resources */,
 				683FFB5F1C2A4144002A1AFE /* CollectDecStyleViewController.xib in Resources */,
 				684A375B1BFD73DF00F7388C /* SelectWorkTypeViewController.xib in Resources */,
 				6E06CC081C29235500A08D15 /* MyFavoriateViewController.xib in Resources */,
@@ -2794,6 +2811,7 @@
 				6836690A1BFF0C05006A5053 /* PlanCell.xib in Resources */,
 				68B10CAB1C7819E3005866C1 /* ProductCaseListViewController.xib in Resources */,
 				684A370F1BFD733500F7388C /* OrderedDesignerViewController.xib in Resources */,
+				6850A6061CCA21F50085940A /* CityCell.xib in Resources */,
 				68123C651C4C8B99008FC9AB /* SelectCityViewController.xib in Resources */,
 				68E600481CB3B39600C4A8F7 /* DecPackage365View.xib in Resources */,
 				684A37551BFD73DF00F7388C /* SelectHouseTypeViewController.xib in Resources */,
@@ -2948,6 +2966,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6850A60A1CCA2B050085940A /* CitySection.m in Sources */,
 				688517661C915862000B01DB /* NotificationBusiness.m in Sources */,
 				6E07DAC51BD88DBE001461DD /* Item.m in Sources */,
 				680C46721CC62BB8008C4BC0 /* PlanExpiredCell.m in Sources */,
@@ -3096,6 +3115,7 @@
 				68F73CF21CBB3AB900E97710 /* PlanUnorder.m in Sources */,
 				684B04421C9943AC0053FFDF /* GetDesignerUnreadCount.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
+				6850A6051CCA21F50085940A /* CityCell.m in Sources */,
 				68123BA51C47D15C008FC9AB /* JYZSocialSnsUtil.m in Sources */,
 				684A37401BFD73DF00F7388C /* IntentDesignerCell.m in Sources */,
 				6E6D98AA1BDF733F00D45F77 /* HomePageViewController.m in Sources */,

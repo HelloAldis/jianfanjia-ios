@@ -7,6 +7,7 @@
 //
 
 #import "BaseViewController.h"
+#import "MultipleLineTextTableViewCell.h"
 
 typedef void(^ValueBlock)(id value);
 

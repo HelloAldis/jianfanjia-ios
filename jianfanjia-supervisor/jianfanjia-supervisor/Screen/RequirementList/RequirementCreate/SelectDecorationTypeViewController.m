@@ -7,8 +7,9 @@
 //
 
 #import "SelectDecorationTypeViewController.h"
+#import "MultipleLineTextTableViewCell.h"
 
-static NSString* cellId = @"cityCell";
+static NSString* cellId = @"MultipleLineTextTableViewCell";
 
 @interface SelectDecorationTypeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -38,7 +39,9 @@ static NSString* cellId = @"cityCell";
 #pragma mark - UI
 - (void)initUI {
     self.tableView.tableFooterView = [[UIView alloc] init];
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellId];
+    [self.tableView registerNib:[UINib nibWithNibName:cellId bundle:nil] forCellReuseIdentifier:cellId];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 70;
 }
 
 #pragma mark - init data 
@@ -55,8 +58,8 @@ static NSString* cellId = @"cityCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    cell.textLabel.text = [NameDict getAllDecorationType][self.data[indexPath.row]];
+    MultipleLineTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    cell.lblText.text = [NameDict getAllDecorationType][self.data[indexPath.row]];
     cell.accessoryType = indexPath.row == self.curValueIndex ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
     return cell;
