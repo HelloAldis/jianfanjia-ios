@@ -44,8 +44,6 @@ static NSMutableArray *decStyleDS;
 
 @property (strong, nonatomic) BeautifulImageDataManager *dataManager;
 
-@property (assign, nonatomic) CGFloat preY;
-
 @end
 
 @implementation BeautifulImageViewController
@@ -94,9 +92,8 @@ static NSMutableArray *decStyleDS;
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.preY = 0;
     self.dataManager = [[BeautifulImageDataManager alloc] init];
-    self.imgCollection.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + CGRectGetHeight(self.headerView.frame), 0, 0, 0);
+    self.imgCollection.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + CGRectGetHeight(self.headerView.frame), 0, kTabBarHeight, 0);
     self.imgCollection.scrollIndicatorInsets = self.imgCollection.contentInset;
     [self.imgCollection registerNib:[UINib nibWithNibName:BeautifulImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:BeautifulImageCollectionCellIdentifier];
     self.imgCollectionLayout.delegate = self;
@@ -121,28 +118,6 @@ static NSMutableArray *decStyleDS;
     self.curBeautifulImageTypeHouse = UnlimitedValue;
     self.curBeautifulImageTypeStyle = UnlimitedValue;
     [self refreshBeautifulImage];
-}
-
-#pragma mark - scroll view delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (self.preY > scrollView.contentOffset.y) {
-        //下滑
-        if (!self.imgCollection.footer.isRefreshing) {
-            [self showTabbar];
-        }
-    } else if (self.preY < scrollView.contentOffset.y && scrollView.contentOffset.y > 0) {
-        //上滑
-        [self hideTabbar];
-        
-    }
-    
-    NSInteger maxOffset = scrollView.contentSize.height - scrollView.bounds.size.height;
-    //是否有滑动超过边界
-    if (scrollView.contentOffset.y > 0 && scrollView.contentOffset.y > maxOffset) {
-        self.preY = maxOffset;
-    } else {
-        self.preY = scrollView.contentOffset.y;
-    }
 }
 
 #pragma mark - collection delegate
