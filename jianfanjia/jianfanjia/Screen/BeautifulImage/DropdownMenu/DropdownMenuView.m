@@ -48,7 +48,7 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
         _columnCount = 3;
         _columnSpace = 3;
         _rowSpace = 3;
-        _insets = UIEdgeInsetsMake(10, 0, 10, 0);
+        _insets = UIEdgeInsetsMake(15, 0, 15, 0);
         
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapParentView:)];
         [self addGestureRecognizer:tapGesture];
@@ -82,7 +82,7 @@ static NSString *DropdownMenuCollectionCellIdentifier = @"DropdownMenuCollection
 }
 
 - (void)initUI:(BOOL)refresh {
-    CGFloat cellHeight = 30;
+    CGFloat cellHeight = 40;
     self.flowLayout.minimumLineSpacing = self.rowSpace;
     self.flowLayout.minimumInteritemSpacing = self.columnSpace;
     CGFloat cellWidth = (kScreenWidth - self.insets.left - self.insets.right - (self.columnCount - 1) * self.columnSpace) / self.columnCount;
