@@ -74,15 +74,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    
-//    @weakify(self);
-//    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
-//        @strongify(self);
-//        if (self.presentingViewController) {
-//            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//        }
-//    }];
-//    [(id)self.tableView.header gifView].hidden = YES;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 300;
 }
 
 - (void)initUIData {
@@ -116,14 +109,6 @@
                           andIndex:indexPath.row - 1
                          andImages:self.productPageData.product.images];
         return cell;
-    }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return 245;
-    } else {
-        return 350;
     }
 }
 

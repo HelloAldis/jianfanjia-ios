@@ -48,6 +48,7 @@
                            [NameDict nameForDecStyle:product.dec_style]];
     [self.designerImageView setUserImageWithId:self.product.designer.imageid];
     self.lblDescription.text = self.product.product_description;
+    [self.lblDescription setRowSpace:8.0f];
 }
 
 #pragma mark - user action
