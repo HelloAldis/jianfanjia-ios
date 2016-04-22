@@ -33,14 +33,14 @@
     }
     [self setImages:pullingImages forState:MJRefreshStatePulling];
     
-    // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
-    NSMutableArray *loadingImages = [NSMutableArray array];
-    for (NSUInteger i = 1; i<= 3; i++) {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"brush_loading_%zd", i]];
-        [loadingImages addObject:image];
-    }
-    // 设置正在刷新状态的动画图片
-    [self setImages:loadingImages forState:MJRefreshStateRefreshing];
+//    // 设置即将刷新状态的动画图片（一松开就会刷新的状态）
+//    NSMutableArray *loadingImages = [NSMutableArray array];
+//    for (NSUInteger i = 1; i<= 3; i++) {
+//        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"brush_loading_%zd", i]];
+//        [loadingImages addObject:image];
+//    }
+//    // 设置正在刷新状态的动画图片
+//    [self setImages:loadingImages forState:MJRefreshStateRefreshing];
     
     self.mj_h = 50;
 }

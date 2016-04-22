@@ -15,11 +15,21 @@
 /** 所有状态对应的动画时间 */
 @property (strong, nonatomic) NSMutableDictionary *stateDurations;
 
+@property (weak, nonatomic) UIActivityIndicatorView *indicator;
+
 @end
 
 @implementation DIYGifHeader
 
 #pragma mark - 懒加载
+- (UIActivityIndicatorView *)indicator {
+    if (!_indicator) {
+        UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self addSubview:_indicator = indicator];
+    }
+    return _indicator;
+}
+
 - (UIImageView *)gifView {
     if (!_gifView) {
         UIImageView *gifView = [[UIImageView alloc] init];
@@ -94,7 +104,7 @@
     self.gifView.frame = self.bounds;
     self.gifView.contentMode = UIViewContentModeCenter;
     self.mj_y = - self.mj_h;
-    [self.superview sendSubviewToBack:self];
+    self.indicator.center = CGPointMake(self.mj_w * 0.5, self.mj_h * 0.5);
 }
 
 - (void)setState:(MJRefreshState)state {
@@ -102,21 +112,25 @@
     
     // 根据状态做事情
     if (state == MJRefreshStateIdle) {
+        [self.indicator stopAnimating];
         self.gifView.contentMode = UIViewContentModeCenter;
     } else if (state == MJRefreshStatePulling) {
+        [self.indicator stopAnimating];
         self.gifView.contentMode = UIViewContentModeTop;
     } else if (state == MJRefreshStateRefreshing) {
-        NSArray *images = self.stateImages[@(state)];
-        if (images.count == 0) return;
-        
-        [self.gifView stopAnimating];
-        if (images.count == 1) { // 单张图片
-            self.gifView.image = [images lastObject];
-        } else { // 多张图片
-            self.gifView.animationImages = images;
-            self.gifView.animationDuration = [self.stateDurations[@(state)] doubleValue];
-            [self.gifView startAnimating];
-        }
+        self.gifView.image = nil;
+        [self.indicator startAnimating];
+//        NSArray *images = self.stateImages[@(state)];
+//        if (images.count == 0) return;
+//        
+//        [self.gifView stopAnimating];
+//        if (images.count == 1) { // 单张图片
+//            self.gifView.image = [images lastObject];
+//        } else { // 多张图片
+//            self.gifView.animationImages = images;
+//            self.gifView.animationDuration = [self.stateDurations[@(state)] doubleValue];
+//            [self.gifView startAnimating];
+//        }
     }
 }
 
