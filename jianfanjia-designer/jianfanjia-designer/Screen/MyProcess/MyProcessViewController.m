@@ -35,14 +35,10 @@ static NSString *ProcessCellId = @"ProcessCell";
     [self initNav];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self refreshProcessList:YES];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    [self refreshProcessList:NO];
     [self showTabbar];
 }
 
