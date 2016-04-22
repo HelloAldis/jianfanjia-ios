@@ -21,7 +21,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DKm-Hg-ydp">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="376"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="about_logo" translatesAutoresizingMaskIntoConstraints="NO" id="qee-ab-bn9">
                                     <rect key="frame" x="270" y="40" width="60" height="60"/>
@@ -175,7 +175,7 @@
                                     </variation>
                                 </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="武汉家易装科技有限公司" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUr-HS-EKa">
-                                    <rect key="frame" x="150" y="328" width="300" height="17"/>
+                                    <rect key="frame" x="150" y="488" width="300" height="17"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="300" id="G5t-p8-fwp"/>
                                     </constraints>
@@ -184,7 +184,7 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2015 - 2016 jianfanjia.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ked-K8-ESL">
-                                    <rect key="frame" x="150" y="350" width="300" height="16"/>
+                                    <rect key="frame" x="150" y="510" width="300" height="16"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="300" id="8eG-k1-9bF"/>
                                     </constraints>
@@ -214,7 +214,6 @@
                                 <constraint firstItem="QB9-oE-4Hs" firstAttribute="centerX" secondItem="qee-ab-bn9" secondAttribute="centerX" id="jaQ-1n-6bK"/>
                                 <constraint firstItem="4oh-lu-eF3" firstAttribute="width" secondItem="DKm-Hg-ydp" secondAttribute="width" id="l5T-cR-QQl"/>
                                 <constraint firstItem="qee-ab-bn9" firstAttribute="top" secondItem="DKm-Hg-ydp" secondAttribute="top" constant="40" id="oEN-b3-1lt"/>
-                                <constraint firstItem="mUr-HS-EKa" firstAttribute="top" secondItem="UeA-r3-fnN" secondAttribute="bottom" constant="50" id="z6l-AF-Rtb"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -225,6 +224,7 @@
                         <constraint firstAttribute="bottom" secondItem="DKm-Hg-ydp" secondAttribute="bottom" id="RC8-NX-MdK"/>
                         <constraint firstAttribute="trailing" secondItem="DKm-Hg-ydp" secondAttribute="trailing" id="V2G-wS-EW0"/>
                         <constraint firstItem="DKm-Hg-ydp" firstAttribute="width" secondItem="TP4-yD-q5E" secondAttribute="width" id="Yds-Uv-f31"/>
+                        <constraint firstItem="DKm-Hg-ydp" firstAttribute="height" secondItem="TP4-yD-q5E" secondAttribute="height" constant="-64" id="c8v-v0-wZA"/>
                     </constraints>
                 </scrollView>
             </subviews>
