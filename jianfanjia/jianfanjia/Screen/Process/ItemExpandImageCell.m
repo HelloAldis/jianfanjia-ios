@@ -126,12 +126,18 @@ static CGFloat imgCellWidth;
     [self.item.images removeObjectAtIndex:indexPath.row];
     [self refreshNumberOfItems];
     if (self.numberOfItemsInsection == MAX_IMG_COUNT) {
+        @weakify(self);
         [self.imgCollection performBatchUpdates:^{
+            @strongify(self);
             [self.imgCollection deleteItemsAtIndexPaths:@[indexPath]];
             [self.imgCollection insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:MAX_IMG_COUNT - 1 inSection:0]]];
         } completion:nil];
     } else {
-        [self.imgCollection deleteItemsAtIndexPaths:@[indexPath]];
+//        @weakify(self);
+//        [self.imgCollection performBatchUpdates:^{
+//            @strongify(self);
+            [self.imgCollection deleteItemsAtIndexPaths:@[indexPath]];
+//        } completion:nil];
     }
     [self refreshViewContentSize];
     if (self.refreshBlock) {

@@ -167,8 +167,6 @@
 		6812411A1C4CF2D5008FC9AB /* DBYSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681240ED1C4CF2D5008FC9AB /* DBYSViewController.xib */; };
 		6812411B1C4CF2D5008FC9AB /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240EF1C4CF2D5008FC9AB /* ItemCell.m */; };
 		6812411C1C4CF2D5008FC9AB /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681240F01C4CF2D5008FC9AB /* ItemCell.xib */; };
-		6812411D1C4CF2D5008FC9AB /* ItemExpandCheckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240F21C4CF2D5008FC9AB /* ItemExpandCheckCell.m */; };
-		6812411E1C4CF2D5008FC9AB /* ItemExpandCheckCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681240F31C4CF2D5008FC9AB /* ItemExpandCheckCell.xib */; };
 		6812411F1C4CF2D5008FC9AB /* ItemExpandImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240F51C4CF2D5008FC9AB /* ItemExpandImageCell.m */; };
 		681241201C4CF2D5008FC9AB /* ItemExpandImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681240F61C4CF2D5008FC9AB /* ItemExpandImageCell.xib */; };
 		681241211C4CF2D5008FC9AB /* ItemImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 681240F81C4CF2D5008FC9AB /* ItemImageCollectionCell.m */; };
@@ -616,9 +614,6 @@
 		681240EE1C4CF2D5008FC9AB /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		681240EF1C4CF2D5008FC9AB /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
 		681240F01C4CF2D5008FC9AB /* ItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCell.xib; sourceTree = "<group>"; };
-		681240F11C4CF2D5008FC9AB /* ItemExpandCheckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemExpandCheckCell.h; sourceTree = "<group>"; };
-		681240F21C4CF2D5008FC9AB /* ItemExpandCheckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemExpandCheckCell.m; sourceTree = "<group>"; };
-		681240F31C4CF2D5008FC9AB /* ItemExpandCheckCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemExpandCheckCell.xib; sourceTree = "<group>"; };
 		681240F41C4CF2D5008FC9AB /* ItemExpandImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemExpandImageCell.h; sourceTree = "<group>"; };
 		681240F51C4CF2D5008FC9AB /* ItemExpandImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemExpandImageCell.m; sourceTree = "<group>"; };
 		681240F61C4CF2D5008FC9AB /* ItemExpandImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemExpandImageCell.xib; sourceTree = "<group>"; };
@@ -1308,9 +1303,6 @@
 				681240EE1C4CF2D5008FC9AB /* ItemCell.h */,
 				681240EF1C4CF2D5008FC9AB /* ItemCell.m */,
 				681240F01C4CF2D5008FC9AB /* ItemCell.xib */,
-				681240F11C4CF2D5008FC9AB /* ItemExpandCheckCell.h */,
-				681240F21C4CF2D5008FC9AB /* ItemExpandCheckCell.m */,
-				681240F31C4CF2D5008FC9AB /* ItemExpandCheckCell.xib */,
 				681240F41C4CF2D5008FC9AB /* ItemExpandImageCell.h */,
 				681240F51C4CF2D5008FC9AB /* ItemExpandImageCell.m */,
 				681240F61C4CF2D5008FC9AB /* ItemExpandImageCell.xib */,
@@ -2042,7 +2034,6 @@
 				68123F061C4CBE79008FC9AB /* SelectBusinessTypeViewController.xib in Resources */,
 				68123F191C4CBE79008FC9AB /* W1View.xib in Resources */,
 				685F2D651CAA8DDE00DC4D43 /* SectionActionView.xib in Resources */,
-				6812411E1C4CF2D5008FC9AB /* ItemExpandCheckCell.xib in Resources */,
 				68123C971C4C9772008FC9AB /* ImageEditorViewController.xib in Resources */,
 				68123F081C4CBE79008FC9AB /* SelectCommunicationTypeViewController.xib in Resources */,
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
@@ -2285,7 +2276,6 @@
 				6EA0C19B1C577F7500D04A4F /* PlanPriceItemCell.m in Sources */,
 				68123FEA1C4CCFFF008FC9AB /* DesignerBusiness.m in Sources */,
 				68123F131C4CBE79008FC9AB /* SelectWorkTypeViewController.m in Sources */,
-				6812411D1C4CF2D5008FC9AB /* ItemExpandCheckCell.m in Sources */,
 				681241AE1C4F3BCF008FC9AB /* SubmitedPlanActionCell.m in Sources */,
 				6E0426711BC757C500F984B8 /* AppDelegate.m in Sources */,
 				685F2D6E1CABC0A900DC4D43 /* UnexpandSectionActionView.m in Sources */,
