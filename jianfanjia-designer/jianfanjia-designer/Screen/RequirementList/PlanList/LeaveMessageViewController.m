@@ -105,7 +105,7 @@ static const CGFloat kMaxMessageHeight = 100;
 }
 
 - (void)initUI {
-    [self.tvMessage setBorder:1 andColor:kFinishedColor.CGColor];
+    self.tvMessage.bgColor = kViewBgColor;
     [self.tvMessage setCornerRadius:5];
     [self.footerView setBorder:1 andColor:kUntriggeredColor.CGColor];
     [self.btnSend setCornerRadius:5];
