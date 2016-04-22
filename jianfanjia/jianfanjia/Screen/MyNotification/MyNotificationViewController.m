@@ -21,7 +21,6 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 @interface MyNotificationViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *btnNotifications;
-@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *reminderIcons;
 @property (weak, nonatomic) IBOutlet UIView *selectedLine;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *selectedLineLeadConst;
 

@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyNotificationViewController">
@@ -11,17 +10,13 @@
                 <outlet property="noNotificationImage" destination="Yqq-2M-MY0" id="lOQ-uN-4to"/>
                 <outlet property="noNotificationLabel" destination="1tj-LS-fcm" id="Ua9-BU-f4h"/>
                 <outlet property="selectedLine" destination="WcV-RB-Vwv" id="uNr-gm-aHl"/>
-                <outlet property="selectedLineLeadConst" destination="ycR-RU-rJj" id="HlU-M8-ClB"/>
+                <outlet property="selectedLineLeadConst" destination="ycR-RU-rJj" id="4n6-q6-3KV"/>
                 <outlet property="tableView" destination="BMg-ih-g0O" id="mss-m3-Ejs"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="btnNotifications" destination="h1G-cv-tHD" id="zXQ-WN-3TE"/>
                 <outletCollection property="btnNotifications" destination="7P4-Ng-qzT" id="nJx-MP-cKy"/>
                 <outletCollection property="btnNotifications" destination="aw1-Lr-wMf" id="cQF-vW-NbK"/>
-                <outletCollection property="reminderIcons" destination="snO-p9-cqN" id="3Kl-bp-cya"/>
-                <outletCollection property="reminderIcons" destination="qwe-vB-yoE" id="6rA-XP-mOW"/>
-                <outletCollection property="reminderIcons" destination="4AY-U0-Qu2" id="BZm-Td-aN6"/>
                 <outletCollection property="btnNotifications" destination="J4E-Pb-Y6f" id="0LE-iO-CkV"/>
-                <outletCollection property="reminderIcons" destination="fAd-Jd-PcX" id="34j-Bd-Zby"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -36,108 +31,76 @@
                             <rect key="frame" x="0.0" y="0.0" width="123" height="44"/>
                             <subviews>
                                 <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1G-cv-tHD">
-                                    <rect key="frame" x="47" y="8" width="30" height="29"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="123" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal" title="全部">
                                         <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
-                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="snO-p9-cqN" userLabel="Reminder1">
-                                    <rect key="frame" x="82" y="18" width="10" height="10"/>
-                                    <color key="backgroundColor" red="1" green="0.26666666666666666" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="snO-p9-cqN" secondAttribute="height" multiplier="1:1" id="3iD-jU-NxT"/>
-                                        <constraint firstAttribute="width" constant="10" id="V6B-Fl-e2h"/>
-                                    </constraints>
-                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="snO-p9-cqN" firstAttribute="centerY" secondItem="h1G-cv-tHD" secondAttribute="centerY" id="0WB-ng-Khf"/>
-                                <constraint firstItem="h1G-cv-tHD" firstAttribute="centerY" secondItem="0Rq-7k-NcG" secondAttribute="centerY" id="Goe-lo-Wpr"/>
-                                <constraint firstItem="snO-p9-cqN" firstAttribute="leading" secondItem="h1G-cv-tHD" secondAttribute="trailing" constant="5" id="qlr-nS-NbZ"/>
-                                <constraint firstItem="h1G-cv-tHD" firstAttribute="centerX" secondItem="0Rq-7k-NcG" secondAttribute="centerX" id="sa8-Zb-9I6"/>
+                                <constraint firstAttribute="trailing" secondItem="h1G-cv-tHD" secondAttribute="trailing" id="0o7-Ky-dAp"/>
+                                <constraint firstAttribute="bottom" secondItem="h1G-cv-tHD" secondAttribute="bottom" id="1pa-DA-sU1"/>
+                                <constraint firstItem="h1G-cv-tHD" firstAttribute="leading" secondItem="0Rq-7k-NcG" secondAttribute="leading" id="geW-2y-4Rx"/>
+                                <constraint firstItem="h1G-cv-tHD" firstAttribute="top" secondItem="0Rq-7k-NcG" secondAttribute="top" id="j8L-kq-7Hz"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gr-ot-jfT" userLabel="View2">
                             <rect key="frame" x="123" y="0.0" width="124" height="44"/>
                             <subviews>
                                 <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P4-Ng-qzT">
-                                    <rect key="frame" x="47" y="8" width="30" height="29"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="124" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal" title="系统">
                                         <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
-                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwe-vB-yoE" userLabel="Reminder2">
-                                    <rect key="frame" x="82" y="17" width="10" height="10"/>
-                                    <color key="backgroundColor" red="1" green="0.2666666667" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="qwe-vB-yoE" secondAttribute="height" multiplier="1:1" id="GNI-Dt-Hjo"/>
-                                        <constraint firstAttribute="width" constant="10" id="fgZ-24-f9k"/>
-                                    </constraints>
-                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="qwe-vB-yoE" firstAttribute="leading" secondItem="7P4-Ng-qzT" secondAttribute="trailing" constant="5" id="0ML-A6-fVj"/>
-                                <constraint firstItem="7P4-Ng-qzT" firstAttribute="centerX" secondItem="9gr-ot-jfT" secondAttribute="centerX" id="SIx-5K-Ov5"/>
-                                <constraint firstItem="qwe-vB-yoE" firstAttribute="centerY" secondItem="7P4-Ng-qzT" secondAttribute="centerY" id="lZ9-7s-bYv"/>
-                                <constraint firstItem="7P4-Ng-qzT" firstAttribute="centerY" secondItem="9gr-ot-jfT" secondAttribute="centerY" id="mKi-Aa-bd4"/>
+                                <constraint firstItem="7P4-Ng-qzT" firstAttribute="leading" secondItem="9gr-ot-jfT" secondAttribute="leading" id="hPu-bP-99S"/>
+                                <constraint firstItem="7P4-Ng-qzT" firstAttribute="top" secondItem="9gr-ot-jfT" secondAttribute="top" id="lMN-1N-I4M"/>
+                                <constraint firstAttribute="bottom" secondItem="7P4-Ng-qzT" secondAttribute="bottom" id="mQI-KD-1yN"/>
+                                <constraint firstAttribute="trailing" secondItem="7P4-Ng-qzT" secondAttribute="trailing" id="p4c-ai-Ab0"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aqu-bk-inU" userLabel="View3">
                             <rect key="frame" x="247" y="0.0" width="123" height="44"/>
                             <subviews>
                                 <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aw1-Lr-wMf">
-                                    <rect key="frame" x="46" y="8" width="30" height="29"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="123" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal" title="需求">
                                         <color key="titleColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
-                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4AY-U0-Qu2" userLabel="Reminder3">
-                                    <rect key="frame" x="81" y="18" width="10" height="10"/>
-                                    <color key="backgroundColor" red="1" green="0.2666666667" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="10" id="9yY-9h-tXL"/>
-                                        <constraint firstAttribute="width" secondItem="4AY-U0-Qu2" secondAttribute="height" multiplier="1:1" id="e96-E3-rUq"/>
-                                    </constraints>
-                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="aw1-Lr-wMf" firstAttribute="centerY" secondItem="Aqu-bk-inU" secondAttribute="centerY" id="RGx-A2-Fa4"/>
-                                <constraint firstItem="aw1-Lr-wMf" firstAttribute="centerX" secondItem="Aqu-bk-inU" secondAttribute="centerX" id="iI5-pX-FEm"/>
-                                <constraint firstItem="4AY-U0-Qu2" firstAttribute="leading" secondItem="aw1-Lr-wMf" secondAttribute="trailing" constant="5" id="m8X-nA-mWl"/>
-                                <constraint firstItem="4AY-U0-Qu2" firstAttribute="centerY" secondItem="aw1-Lr-wMf" secondAttribute="centerY" id="yhU-37-KMV"/>
+                                <constraint firstItem="aw1-Lr-wMf" firstAttribute="leading" secondItem="Aqu-bk-inU" secondAttribute="leading" id="3op-AX-Fvi"/>
+                                <constraint firstItem="aw1-Lr-wMf" firstAttribute="top" secondItem="Aqu-bk-inU" secondAttribute="top" id="JaW-jP-vhs"/>
+                                <constraint firstAttribute="bottom" secondItem="aw1-Lr-wMf" secondAttribute="bottom" id="WRo-Og-5qb"/>
+                                <constraint firstAttribute="trailing" secondItem="aw1-Lr-wMf" secondAttribute="trailing" id="xqf-T3-wry"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nBY-4m-Twg" userLabel="View4">
                             <rect key="frame" x="370" y="0.0" width="123" height="44"/>
                             <subviews>
                                 <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4E-Pb-Y6f">
-                                    <rect key="frame" x="46" y="8" width="30" height="29"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="123" height="44"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <state key="normal" title="工地">
                                         <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </state>
                                 </button>
-                                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAd-Jd-PcX" userLabel="Reminder4">
-                                    <rect key="frame" x="81" y="18" width="10" height="10"/>
-                                    <color key="backgroundColor" red="1" green="0.2666666667" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" secondItem="fAd-Jd-PcX" secondAttribute="height" multiplier="1:1" id="J2Q-p5-M36"/>
-                                        <constraint firstAttribute="width" constant="10" id="Yuk-XO-SB6"/>
-                                    </constraints>
-                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="fAd-Jd-PcX" firstAttribute="leading" secondItem="J4E-Pb-Y6f" secondAttribute="trailing" constant="5" id="1if-3F-XoW"/>
-                                <constraint firstItem="J4E-Pb-Y6f" firstAttribute="centerY" secondItem="nBY-4m-Twg" secondAttribute="centerY" id="VQO-uJ-xte"/>
-                                <constraint firstItem="fAd-Jd-PcX" firstAttribute="centerY" secondItem="J4E-Pb-Y6f" secondAttribute="centerY" id="aAu-Hd-Ign"/>
-                                <constraint firstItem="J4E-Pb-Y6f" firstAttribute="centerX" secondItem="nBY-4m-Twg" secondAttribute="centerX" id="rHJ-Hj-v7X"/>
+                                <constraint firstAttribute="bottom" secondItem="J4E-Pb-Y6f" secondAttribute="bottom" id="kcb-I4-KEn"/>
+                                <constraint firstAttribute="trailing" secondItem="J4E-Pb-Y6f" secondAttribute="trailing" id="pRI-rV-vIN"/>
+                                <constraint firstItem="J4E-Pb-Y6f" firstAttribute="top" secondItem="nBY-4m-Twg" secondAttribute="top" id="r32-Pz-d6j"/>
+                                <constraint firstItem="J4E-Pb-Y6f" firstAttribute="leading" secondItem="nBY-4m-Twg" secondAttribute="leading" id="teb-Qw-zdu"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WcV-RB-Vwv" userLabel="SelectedLine">
