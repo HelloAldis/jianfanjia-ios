@@ -33,6 +33,8 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
     
     [self initNav];
     [self initUI];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -43,6 +45,10 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[NotificationDataManager shared] refreshUnreadCount];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark - UI
