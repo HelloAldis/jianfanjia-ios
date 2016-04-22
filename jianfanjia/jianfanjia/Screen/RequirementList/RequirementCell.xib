@@ -268,13 +268,12 @@
                     <constraint firstItem="5Wd-LZ-yfr" firstAttribute="width" secondItem="Muj-uZ-TNh" secondAttribute="width" id="3mk-pF-ceH"/>
                     <constraint firstItem="qSF-mw-V75" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="8Hi-gM-aOM"/>
                     <constraint firstItem="8Vh-Xf-blm" firstAttribute="centerY" secondItem="JHW-cy-oDP" secondAttribute="centerY" id="9xc-iq-hPN"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="Muj-uZ-TNh" secondAttribute="leading" constant="-40" id="CTv-PC-EsO"/>
                     <constraint firstItem="1dE-Qu-coc" firstAttribute="leading" secondItem="Muj-uZ-TNh" secondAttribute="trailing" id="FuK-NW-brf"/>
                     <constraint firstItem="3w5-SK-Y4s" firstAttribute="centerX" secondItem="EVa-yr-c1U" secondAttribute="centerX" id="IMg-9L-S6w"/>
                     <constraint firstItem="nLq-nB-aLB" firstAttribute="centerY" secondItem="JHW-cy-oDP" secondAttribute="centerY" id="M6c-mD-FgL"/>
                     <constraint firstItem="5Wd-LZ-yfr" firstAttribute="centerY" secondItem="Muj-uZ-TNh" secondAttribute="centerY" id="ME6-DD-5ki"/>
                     <constraint firstItem="1dE-Qu-coc" firstAttribute="centerY" secondItem="Muj-uZ-TNh" secondAttribute="centerY" id="S47-ff-Qae"/>
-                    <constraint firstItem="Muj-uZ-TNh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="Sgz-zk-RBS"/>
+                    <constraint firstItem="Muj-uZ-TNh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="Sii-Y2-ycN"/>
                     <constraint firstItem="5Wd-LZ-yfr" firstAttribute="height" secondItem="Muj-uZ-TNh" secondAttribute="height" id="TmV-Yd-BYz"/>
                     <constraint firstItem="3w5-SK-Y4s" firstAttribute="top" secondItem="EVa-yr-c1U" secondAttribute="bottom" id="UfL-eE-Wb0"/>
                     <constraint firstItem="xE4-LP-ulq" firstAttribute="centerY" secondItem="oKf-Zx-gy1" secondAttribute="centerY" id="Vsy-Ad-93s"/>
@@ -293,11 +292,6 @@
                     <constraint firstItem="zMV-91-Bua" firstAttribute="centerY" secondItem="oKf-Zx-gy1" secondAttribute="centerY" id="uLd-QH-xvh"/>
                     <constraint firstItem="EVa-yr-c1U" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="xbB-Z9-H0U"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="CTv-PC-EsO"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <constraints>
                 <constraint firstItem="VHe-P5-2In" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" id="Bz0-Ja-WSM"/>
