@@ -28,6 +28,7 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 
 @interface NotificationDataManager ()
 
+@property (assign, nonatomic) NSInteger myWorksiteNotificationUnreadCount;
 @property (assign, nonatomic) NSInteger myNotificationUnreadCount;
 @property (assign, nonatomic) NSInteger myLeaveMsgUnreadCount;
 @property (assign, nonatomic) NSInteger myTotalUnreadCount;
@@ -77,6 +78,15 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
     return notification;
 }
 
+- (void)subscribeMyWorksiteNotiUnreadCount:(NotificationUnreadUpdateBlock)block {
+    [RACObserve(self, myWorksiteNotificationUnreadCount) subscribeNext:^(id x) {
+        NSInteger unreadCount = [x integerValue];
+        if (block) {
+            block(unreadCount);
+        }
+    }];
+}
+
 - (void)subscribeMyNotificationUnreadCount:(NotificationUnreadUpdateBlock)block {
     [RACObserve(self, myNotificationUnreadCount) subscribeNext:^(id x) {
         NSInteger unreadCount = [x integerValue];
@@ -111,12 +121,13 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 - (void)refreshUnreadCount {
     if ([GVUserDefaults standardUserDefaults].isLogin) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            GetUserUnreadCount *request = [GetUserUnreadCount requestWithTypes:@[[NotificationBusiness userAllNotificationsFilter], [NotificationBusiness userAllLeaveMsgFilter]]];
+            GetUserUnreadCount *request = [GetUserUnreadCount requestWithTypes:@[[NotificationBusiness userAllNotificationsFilter], [NotificationBusiness userAllLeaveMsgFilter], [NotificationBusiness userWorksiteNotificationFilter]]];
             
             [API getUserUnreadCount:request success:^{
                 NSArray *arr = [DataManager shared].data;
                 self.myNotificationUnreadCount = [arr[0] integerValue];
                 self.myLeaveMsgUnreadCount = [arr[1] integerValue];
+                self.myWorksiteNotificationUnreadCount = [arr[2] integerValue];
                 self.myTotalUnreadCount = self.myNotificationUnreadCount + self.myLeaveMsgUnreadCount;
             } failure:^{
                 

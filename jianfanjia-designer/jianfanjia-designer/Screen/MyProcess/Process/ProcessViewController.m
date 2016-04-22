@@ -151,7 +151,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self.sectionActionView.expandView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSectionExpand:)]];
     
     self.wasFirstEnter = NO;
-    [[NotificationDataManager shared] subscribeMyNotificationUnreadCount:^(NSInteger count) {
+    [[NotificationDataManager shared] subscribeMyWorksiteNotiUnreadCount:^(NSInteger count) {
         self.navigationItem.rightBarButtonItem.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
     }];
 }

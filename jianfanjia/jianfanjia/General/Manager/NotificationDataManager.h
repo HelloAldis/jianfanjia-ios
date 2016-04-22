@@ -15,6 +15,7 @@ typedef void (^NotificationUnreadUpdateBlock)(NSInteger count);
 
 @interface NotificationDataManager : NSObject
 
+- (void)subscribeMyWorksiteNotiUnreadCount:(NotificationUnreadUpdateBlock)block;
 - (void)subscribeMyNotificationUnreadCount:(NotificationUnreadUpdateBlock)block;
 - (void)subscribeMyLeaveMsgUnreadCount:(NotificationUnreadUpdateBlock)block;
 - (void)subscribeAppBadgeNumber:(NotificationUnreadUpdateBlock)block;
