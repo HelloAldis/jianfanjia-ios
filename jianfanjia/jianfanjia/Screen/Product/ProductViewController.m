@@ -168,6 +168,7 @@
             [API addFavoriateProduct:request success:^{
                 @strongify(self);
                 [self.navigationItem setRightBarButtonItem:self.unfavoriateBarButton animated:YES];
+                [HUDUtil showSuccessText:@"收藏成功"];
             } failure:^{
             } networkError:^{
             }];
@@ -185,6 +186,7 @@
             [API deleteFavoriateProduct:request success:^{
                 @strongify(self);
                 [self.navigationItem setRightBarButtonItem:self.favoriateBarButton animated:YES];
+                [HUDUtil showSuccessText:@"取消收藏成功"];
             } failure:^{
             } networkError:^{
             }];
