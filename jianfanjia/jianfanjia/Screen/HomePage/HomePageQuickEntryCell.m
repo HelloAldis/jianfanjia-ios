@@ -14,12 +14,11 @@
 CGFloat kHomePageQuickEntryCellHeight;
 
 static const NSInteger COUNT_IN_ONE_ROW = 4;
-static const NSInteger CELL_SPACE = 0;
 static const NSInteger HEADER_HEIGHT = 0;
 static const NSInteger FOOTER_HEIGHT = 8;
-static const NSInteger SECTION_TOP = 10;
-static const NSInteger SECTION_LEFT = 15;
+static const NSInteger SECTION_TOP = 20;
 static const NSInteger ITEM_HEIGHT = 84;
+static const NSInteger IMG_WIDTH = 60;
 
 static NSString *HomePageQuickEntryItemIdentifier = @"HomePageQuickEntryItem";
 static NSString *HomePageQuickEntryItemHeaderIdentifier = @"HomePageQuickEntryItemHeader";
@@ -57,12 +56,14 @@ static NSArray const *quickEntryTexts;
     [self.imgCollection registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:HomePageQuickEntryItemHeaderIdentifier];
     [self.imgCollection registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:HomePageQuickEntryItemFooterIdentifier];
     
-    self.flowLayout.minimumLineSpacing = CELL_SPACE;
-    self.flowLayout.minimumInteritemSpacing = CELL_SPACE;
-    self.flowLayout.sectionInset = UIEdgeInsetsMake(SECTION_TOP, SECTION_LEFT, SECTION_TOP, SECTION_LEFT);
+    self.flowLayout.minimumLineSpacing = 0;
+    self.flowLayout.minimumInteritemSpacing = 0;
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(SECTION_TOP, 0, SECTION_TOP, 0);
     self.flowLayout.headerReferenceSize = CGSizeMake(kScreenWidth, HEADER_HEIGHT);
     self.flowLayout.footerReferenceSize = CGSizeMake(kScreenWidth, FOOTER_HEIGHT);
-    self.quickEntryItemWidth = (kScreenWidth - SECTION_LEFT * 2 - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
+    CGFloat itemInterval = (kScreenWidth - COUNT_IN_ONE_ROW * IMG_WIDTH) / (COUNT_IN_ONE_ROW + 1);
+    self.quickEntryItemWidth = IMG_WIDTH + itemInterval;
+    self.flowLayout.sectionInset = UIEdgeInsetsMake(SECTION_TOP, itemInterval / 2, SECTION_TOP, itemInterval / 2);
     self.flowLayout.itemSize = CGSizeMake(self.quickEntryItemWidth, ITEM_HEIGHT);
 }
 
