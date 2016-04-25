@@ -125,7 +125,7 @@
 
 - (void)adjustTopView {
     if (self.tableView.contentOffset.y >= -kNavWithStatusBarHeight && self.tableView.contentOffset.y <= 200) {
-        CGFloat dy = self.tableView.contentOffset.y - 39;
+        CGFloat dy = self.tableView.contentOffset.y;
         if (dy < 0) {
             dy = 0;
             self.title = nil;
