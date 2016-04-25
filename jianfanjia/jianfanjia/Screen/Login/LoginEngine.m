@@ -35,10 +35,9 @@
 - (void)showWechatLogin:(UIViewController *)controller completion:(LoginEngineLoginBlock)wechatLoginBlock {
     self.wechatLoginBlock = wechatLoginBlock;
     
+    [HUDUtil showWait];
     [[ShareManager shared] wechatLogin:controller compeletion:^(SnsAccountInfo *snsAccount, NSString *error) {
         if (error == nil) {
-            [HUDUtil showText:nil delayShow:0];
-            
             WeChatLogin *request = [[WeChatLogin alloc] init];
             request.username = snsAccount.userName;
             request.sex = snsAccount.gender;
@@ -55,6 +54,7 @@
                 [HUDUtil hideWait];
             }];
         } else {
+            [HUDUtil hideWait];
             [HUDUtil showErrText:error];
         }
     }];
