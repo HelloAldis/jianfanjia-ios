@@ -15,6 +15,7 @@
 
 + (NSString *)imageId:(Comment *)comment;
 + (NSString *)userName:(Comment *)comment;
++ (UIColor *)roleColor:(Comment *)comment;
 + (NSString *)imageIdByNoti:(BaseNotification *)noti;
 + (NSString *)userNameByNoti:(BaseNotification *)noti;
 

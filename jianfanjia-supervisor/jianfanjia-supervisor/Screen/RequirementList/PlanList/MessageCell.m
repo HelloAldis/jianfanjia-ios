@@ -28,13 +28,12 @@
     [self.imgAvatar setImageWithId:[CommentBusiness imageId:comment] withWidth:self.imgAvatar.bounds.size.width];
     self.lblUserNameVal.text = [CommentBusiness userName:comment];
     self.lblRoleTypeVal.text = [NameDict nameForUserType:comment.usertype];
+    self.lblRoleTypeVal.textColor = [CommentBusiness roleColor:comment];
     self.lblTimeVal.text = [comment.date humDateString];
     self.lblMessageVal.text = comment.content;
     
     if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:comment.usertype]) {
-        self.lblRoleTypeVal.textColor = kExcutionStatusColor;
-    } else {
-        self.lblRoleTypeVal.textColor = kPassStatusColor;
+        self.lblRoleTypeVal.text = @"我";
     }
 }
 

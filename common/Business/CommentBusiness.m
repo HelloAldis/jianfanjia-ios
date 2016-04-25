@@ -38,6 +38,20 @@
     return userName;
 }
 
++ (UIColor *)roleColor:(Comment *)comment {
+    UIColor *color = nil;
+    
+    if ([comment.usertype isEqualToString:kUserTypeUser]) {
+        color = kThemeColor;
+    } else if ([comment.usertype isEqualToString:kUserTypeDesigner]) {
+        color = kExcutionStatusColor;
+    } else if ([comment.usertype isEqualToString:kUserTypeSupervisor]) {
+        color = kPassStatusColor;
+    }
+
+    return color;
+}
+
 + (NSString *)imageIdByNoti:(BaseNotification *)noti {
     NSString *imageId = nil;
     
