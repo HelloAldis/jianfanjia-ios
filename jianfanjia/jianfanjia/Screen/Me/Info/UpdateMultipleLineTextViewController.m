@@ -14,6 +14,7 @@ static const CGFloat kMaxMessageHeight = 300;
 @interface UpdateMultipleLineTextViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *tvMultipleLine;
 @property (weak, nonatomic) IBOutlet UILabel *lblLeftCharCount;
+@property (weak, nonatomic) IBOutlet UIButton *btnSave;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tvHeightConstraint;
 @property (copy, nonatomic) void (^DoneBlock)(id value);
 @property (strong, nonatomic) NSString *name;
@@ -47,16 +48,15 @@ static const CGFloat kMaxMessageHeight = 300;
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
-    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
-    self.navigationItem.rightBarButtonItem.enabled = NO;
-    
     self.title = self.name;
 }
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.tvMultipleLine setCornerRadius:5];
+    [self.btnSave setCornerRadius:5];
+
+    self.tvMultipleLine.textContainerInset = UIEdgeInsetsMake(5, 5, 5, 20);
     self.tvMultipleLine.text = self.value;
     
     @weakify(self);
@@ -75,12 +75,13 @@ static const CGFloat kMaxMessageHeight = 300;
             self.tvMultipleLine.text = value;
             [self refreshUI:value];
             CGSize size = [self.tvMultipleLine sizeThatFits:CGSizeMake(self.tvMultipleLine.bounds.size.width, CGFLOAT_MAX)];
-            self.tvHeightConstraint.constant = MIN(kMaxMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height);
+            CGFloat contentHeight = self.lblLeftCharCount.bounds.size.height + size.height;
+            self.tvHeightConstraint.constant = MAX(80, MIN(contentHeight, kMaxMessageHeight));
         }];
 }
 
 #pragma mark - user action
-- (void)onClickDone {
+- (IBAction)onClickSave:(id)sender {
     if (self.DoneBlock) {
         self.DoneBlock(self.tvMultipleLine.text);
     }
@@ -89,7 +90,7 @@ static const CGFloat kMaxMessageHeight = 300;
 
 - (void)refreshUI:(NSString *)msg {
     self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(self.maxCount - msg.length)];
-    self.navigationItem.rightBarButtonItem.enabled = msg.length > 0 ? YES : NO;
+    [self.btnSave enableBgColor:msg.length > 0];
 }
 
 @end

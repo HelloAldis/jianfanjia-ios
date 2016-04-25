@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UpdateOneLineTextViewController">
             <connections>
+                <outlet property="btnSave" destination="1xL-qP-1pz" id="v29-17-832"/>
                 <outlet property="fldOneLine" destination="PEp-vq-aab" id="Bfk-Qy-3DL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -17,8 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="PEp-vq-aab">
-                    <rect key="frame" x="0.0" y="75" width="600" height="40"/>
-                    <animations/>
+                    <rect key="frame" x="15" y="75" width="570" height="40"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="fDU-4J-jyM"/>
@@ -27,13 +27,29 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1xL-qP-1pz">
+                    <rect key="frame" x="15" y="145" width="570" height="40"/>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="s2C-zY-qEY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <state key="normal" title="保存">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onClickSave:" destination="-1" eventType="touchDragInside" id="zHg-Sn-1KA"/>
+                    </connections>
+                </button>
             </subviews>
-            <animations/>
             <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="PEp-vq-aab" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="L9E-MO-4dT"/>
+                <constraint firstItem="1xL-qP-1pz" firstAttribute="leading" secondItem="PEp-vq-aab" secondAttribute="leading" id="8NJ-Rj-2id"/>
+                <constraint firstItem="1xL-qP-1pz" firstAttribute="trailing" secondItem="PEp-vq-aab" secondAttribute="trailing" id="RK1-lQ-1AE"/>
+                <constraint firstItem="PEp-vq-aab" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="aCr-4u-p33"/>
                 <constraint firstItem="PEp-vq-aab" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="pDn-Ik-fwc"/>
-                <constraint firstItem="PEp-vq-aab" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wiB-N6-RYh"/>
+                <constraint firstItem="1xL-qP-1pz" firstAttribute="top" secondItem="PEp-vq-aab" secondAttribute="bottom" constant="30" id="qLe-vD-EHl"/>
+                <constraint firstItem="PEp-vq-aab" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="wiB-N6-RYh"/>
             </constraints>
         </view>
     </objects>

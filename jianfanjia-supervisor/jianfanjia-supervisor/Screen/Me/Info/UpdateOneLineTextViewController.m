@@ -12,6 +12,7 @@
 @interface UpdateOneLineTextViewController ()
 
 @property (weak, nonatomic) IBOutlet UITextField *fldOneLine;
+@property (weak, nonatomic) IBOutlet UIButton *btnSave;
 @property (copy, nonatomic) void (^DoneBlock)(id value);
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) NSString *value;
@@ -42,31 +43,33 @@
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
-    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
-    
     self.title = self.name;
 }
 
 - (void)initUI {
-    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    [self.fldOneLine setCornerRadius:5];
+    [self.btnSave setCornerRadius:5];
+    
+    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 8, 20)];
     self.fldOneLine.leftView = paddingView;
     self.fldOneLine.leftViewMode = UITextFieldViewModeAlways;
     self.fldOneLine.text = self.value;
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     [self.fldOneLine.rac_textSignal subscribeNext:^(NSString *value) {
-        if ([value length] > 0) {
-            self.navigationItem.rightBarButtonItem.enabled = YES;
-        } else {
-            self.navigationItem.rightBarButtonItem.enabled = NO;
-        }
+        [self.btnSave enableBgColor:[value length] > 0];
     }];
 }
 
 #pragma mark - user action
 - (void)onClickDone {
+    if (self.DoneBlock) {
+        self.DoneBlock(self.fldOneLine.text);
+    }
+    [self clickBack];
+}
+
+- (IBAction)onClickSave:(id)sender {
     if (self.DoneBlock) {
         self.DoneBlock(self.fldOneLine.text);
     }
