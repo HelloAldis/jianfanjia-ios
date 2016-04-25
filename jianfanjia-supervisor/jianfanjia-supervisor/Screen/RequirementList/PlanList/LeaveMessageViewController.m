@@ -20,7 +20,7 @@ static NSString *MessageCellIdentifier = @"MessageCell";
 
 static CGFloat kKeyboardHeight = 480;
 static const CGFloat kMinMessageHeight = 50;
-static const CGFloat kMaxMessageHeight = 100;
+static const CGFloat kMaxMessageHeight = 75;
 
 @interface LeaveMessageViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -109,6 +109,7 @@ static const CGFloat kMaxMessageHeight = 100;
     [self.tvMessage setCornerRadius:5];
     [self.footerView setBorder:1 andColor:kUntriggeredColor.CGColor];
     [self.btnSend setCornerRadius:5];
+    self.tvMessage.textContainerInset = UIEdgeInsetsMake(5, 5, 5, 20);
     
     @weakify(self);
     [[self.btnSend rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
