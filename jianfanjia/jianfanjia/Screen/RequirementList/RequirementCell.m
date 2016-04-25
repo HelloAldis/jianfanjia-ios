@@ -26,7 +26,7 @@
 @property (weak, nonatomic) RACDisposable *btnGoToDisposable;
 
 @property (strong, nonatomic) NSMutableArray *currentPlanStatus;
-@property (strong, nonatomic) RequirementDataManager *requirementDataManager;
+@property (strong, nonatomic) RequirementDataManager *dataManager;
 @property (strong, nonatomic) Requirement *requirement;
 
 @end
@@ -35,7 +35,7 @@
 
 - (void)awakeFromNib {
     self.clipsToBounds = YES;
-    self.requirementDataManager = [[RequirementDataManager alloc] init];
+    self.dataManager = [[RequirementDataManager alloc] init];
     self.currentPlanStatus = [[NSMutableArray alloc] initWithCapacity:self.designerAvatar.count];
     
     [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapHeaderView:)]];
@@ -57,15 +57,15 @@
 }
 
 - (void)initWithRequirement:(Requirement *)requirement {
-    self.requirement = requirement;
-    [self updateRequirement:requirement];
     [self.imgHomeOwner setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
     
-    [self.requirementDataManager refreshOrderedDesigners:requirement];
+    self.requirement = requirement;
+    [self.dataManager refreshOrderedDesigners:requirement];
+    [self updateRequirement:requirement];
     
     for (NSInteger i = 0; i < self.designerAvatar.count; i++) {
-        if (i < self.requirementDataManager.orderedDesigners.count) {
-            [self updateDesigner:self.requirementDataManager.orderedDesigners[i] forIndex:i];
+        if (i < self.dataManager.orderedDesigners.count) {
+            [self updateDesigner:self.dataManager.orderedDesigners[i] forIndex:i];
         } else {
             [self updateDesigner:nil forIndex:i];
         }
@@ -164,42 +164,26 @@
 }
 
 - (void)updateRequirement:(Requirement *)requirement {
-//    self.lblRequirementStatusVal.text = [RequirementBusiness isDesignRequirement:requirement.work_type] && [requirement.status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement] ? @"已完成" : [NameDict nameForRequirementStatus:requirement.status];
     self.lblPubulishTimeVal.text = [NSDate yyyy_MM_dd:requirement.create_at];
     self.lblUpdateTimeVal.text = [NSDate yyyy_MM_dd:requirement.last_status_update_time];
     self.lblCellNameVal.text = requirement.basic_address;
     
     NSString *status = requirement.status;
     [StatusBlock matchReqt:status actions:
-     @[[ReqtOrderedDesigner action:^{
-            self.lblRequirementStatusVal.textColor = kPassStatusColor;
-            [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
-            [self gotoShowPreviewWorksite];
-        }],
-       [ReqtDesignerResponded action:^{
-            self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"设计师有新动态，请点击查看" titleColor:kFinishedColor];
-            [self gotoShowOrderedDesigner];
+     @[[ReqtUnorderDesigner action:^{
+            self.lblRequirementStatusVal.textColor = kUntriggeredColor;
+            [self updateGoToWorksite:@"已为您匹配3名设计师请点击前往预约" titleColor:kFinishedColor];
+            [self gotoShowOrderDesigner];
         }],
        [ReqtConfiguredAgreement action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
             [self updateGoToWorksite:@"查看合同" titleColor:kFinishedColor];
             [self gotoShowAgreement];
         }],
-       [ReqtDesignerMeasuredHouse action:^{
-            self.lblRequirementStatusVal.textColor = kPassStatusColor;
-            [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
-            [self gotoShowPreviewWorksite];
-        }],
        [ReqtPlanWasChoosed action:^{
             self.lblRequirementStatusVal.textColor = kPassStatusColor;
             [self updateGoToWorksite:@"查看合同" titleColor:kFinishedColor];
             [self gotoShowAgreement];
-        }],
-       [ReqtDesignerSubmittedPlan action:^{
-            self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"设计师有新动态，请点击查看" titleColor:kFinishedColor];
-            [self gotoShowOrderedDesigner];
         }],
        [ReqtConfiguredWorkSite action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
@@ -212,9 +196,7 @@
             [self gotoShowWorksite];
         }],
        [ElseStatus action:^{
-            self.lblRequirementStatusVal.textColor = kUntriggeredColor;
-            [self updateGoToWorksite:@"已为您匹配3名设计师请点击前往预约" titleColor:kFinishedColor];
-            [self gotoShowOrderDesigner];
+            [self configGotoByPlanStatus];
         }],
       ]];
 }
@@ -308,6 +290,30 @@
         @strongify(self);
         [ViewControllerContainer showAgreement:self.requirement popTo:[ViewControllerContainer getCurrentTapController] refresh:nil];
     }];
+}
+
+- (void)configGotoByPlanStatus {
+    static NSArray *actionStatus;
+    actionStatus = @[kPlanStatusDesignerRespondedWithoutMeasureHouse, kPlanStatusDesignerSubmittedPlan];
+    
+    __block NSInteger actionIndex = -1;
+    [self.dataManager.orderedDesigners enumerateObjectsUsingBlock:^(Designer *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString *status = obj.plan.status;
+        if ([actionStatus containsObject:status]) {
+            actionIndex = idx;
+            *stop = YES;
+        }
+    }];
+    
+    if (actionIndex != -1) {
+        self.lblRequirementStatusVal.textColor = kFinishedColor;
+        [self updateGoToWorksite:@"设计师有新动态，请点击查看" titleColor:kFinishedColor];
+        [self gotoShowOrderedDesigner];
+    } else {
+        self.lblRequirementStatusVal.textColor = kPassStatusColor;
+        [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
+        [self gotoShowPreviewWorksite];
+    }
 }
 
 @end
