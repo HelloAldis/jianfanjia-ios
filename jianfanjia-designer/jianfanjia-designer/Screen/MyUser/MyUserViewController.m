@@ -63,13 +63,9 @@ static NSString *PlanExpiredActionCellIdentifier = @"PlanExpiredActionCell";
     [self initUI];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self refresh:YES];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self refresh:NO];
     [self showTabbar];
 }
 
