@@ -34,7 +34,7 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
     [self initNav];
     [self initUI];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:kShowNotificationDetail object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
