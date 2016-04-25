@@ -129,6 +129,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     self.favoriateBeautifulImageData = [[FavoriateBeautifulImageData alloc] init];
     [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [DataManager shared].isNeedRefreshTotal = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

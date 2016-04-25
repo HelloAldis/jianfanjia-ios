@@ -20,6 +20,9 @@
 //For uplpad image
 @property (nonatomic, strong) NSString *lastUploadImageid;
 
+//For beautiful image
+@property (nonatomic, assign) BOOL isNeedRefreshTotal;
+
 //For collect requirement
 @property (nonatomic, strong) NSString *collectedDecPhase;
 @property (nonatomic, strong) NSArray *collectedDecStyle;

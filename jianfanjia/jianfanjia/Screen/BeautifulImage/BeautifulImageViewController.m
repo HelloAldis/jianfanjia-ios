@@ -69,13 +69,14 @@ static NSMutableArray *decStyleDS;
     [self initUI];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self showTabbar];
+    
+    if ([DataManager shared].isNeedRefreshTotal) {
+        [DataManager shared].isNeedRefreshTotal = NO;
+        [self refreshBeautifulImage:YES];
+    }
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -101,7 +102,7 @@ static NSMutableArray *decStyleDS;
     @weakify(self);
     self.imgCollection.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
-        [self refreshBeautifulImage];
+        [self refreshBeautifulImage:NO];
     }];
     
     self.imgCollection.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -117,7 +118,7 @@ static NSMutableArray *decStyleDS;
     self.curBeautifulImageTypeSpace = UnlimitedValue;
     self.curBeautifulImageTypeHouse = UnlimitedValue;
     self.curBeautifulImageTypeStyle = UnlimitedValue;
-    [self refreshBeautifulImage];
+    [self refreshBeautifulImage:NO];
 }
 
 #pragma mark - collection delegate
@@ -212,7 +213,7 @@ static NSMutableArray *decStyleDS;
                 }
                 
                 //update fall flow data
-                [self refreshBeautifulImage];
+                [self refreshBeautifulImage:NO];
             }
             
             if ([value isEqualToString:UnlimitedValue]) {
@@ -256,14 +257,14 @@ static NSMutableArray *decStyleDS;
 }
 
 #pragma mark - api request
-- (void)refreshBeautifulImage {
+- (void)refreshBeautifulImage:(BOOL)refreshTotal {
     [self resetNoDataTip];
     [self.imgCollection.footer resetNoMoreData];
     
     SearchBeautifulImage *request = [[SearchBeautifulImage alloc] init];
     request.query = [self getQueryDic];
     request.from = @0;
-    request.limit = @20;
+    request.limit = refreshTotal && self.dataManager.beautifulImages.count > 0 ? @(self.dataManager.beautifulImages.count) : @20;
     
     [API searchBeautifulImage:request success:^{
         [self.imgCollection.header endRefreshing];
