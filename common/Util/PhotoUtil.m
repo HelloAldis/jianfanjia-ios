@@ -37,6 +37,7 @@
                 } else {
                     UploadImage *request = [[UploadImage alloc] init];
                     request.image = [originalImage aspectToScale:kScreenWidth];
+//                    request.image = originalImage;//[UIImage imageWithImage:originalImage scaledToWidth:kScreenWidth];
                     [API uploadImage:request success:^{
                         if (block) {
                             block(@[[DataManager shared].lastUploadImageid]);

@@ -13,6 +13,6 @@
 - (NSData *)data;
 - (UIImage *)getCenterSquareImage;
 - (UIImage *)getSubImage:(CGRect)rect;
-- (UIImage *)aspectToScale:(CGFloat)scaleWidth;
+- (UIImage *)aspectToScale:(float)scaleWidth;
 
 @end

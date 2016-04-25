@@ -79,8 +79,8 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self refreshProcess:YES];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [[NotificationDataManager shared] refreshUnreadCount];
     
     if (self.wasFirstEnter) {

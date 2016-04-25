@@ -249,14 +249,17 @@ static CGFloat imgCellWidth;
         return;
     }
     
+    NSString *processid = self.dataManager.process._id;
+    NSString *section = self.dataManager.selectedSection.name;
+    NSString *item = self.item.name;
+    
     @weakify(self);
     [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:MAX_IMG_COUNT - self.item.images.count withBlock:^(NSArray *imageIds) {
         @strongify(self);
-//        DDLogDebug(@"%@", imageIds);
         UploadImageToProcess *request = [[UploadImageToProcess alloc] init];
-        request._id = self.dataManager.process._id;
-        request.section = self.dataManager.selectedSection.name;
-        request.item = self.item.name;
+        request._id = processid;
+        request.section = section;
+        request.item = item;
         request.images = imageIds;
         [API uploadImageToProcess:request success:^{
             if (self.refreshBlock) {
