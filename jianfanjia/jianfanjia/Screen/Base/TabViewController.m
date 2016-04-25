@@ -37,6 +37,8 @@
     [[NotificationDataManager shared] subscribeAppBadgeNumber:^(NSInteger count) {
         my.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
     }];
+    
+    [[NotificationDataManager shared] refreshUnreadCount];
 }
 
 @end
