@@ -32,7 +32,7 @@
     self.lblTimeVal.text = [comment.date humDateString];
     self.lblMessageVal.text = comment.content;
     
-    if ([[GVUserDefaults standardUserDefaults].usertype isEqualToString:comment.usertype]) {
+    if ([[GVUserDefaults standardUserDefaults].userid isEqualToString:comment.by]) {
         self.lblRoleTypeVal.text = @"我";
     }
 }
