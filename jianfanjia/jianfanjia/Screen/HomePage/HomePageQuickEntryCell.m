@@ -58,7 +58,6 @@ static NSArray const *quickEntryTexts;
     
     self.flowLayout.minimumLineSpacing = 0;
     self.flowLayout.minimumInteritemSpacing = 0;
-    self.flowLayout.sectionInset = UIEdgeInsetsMake(SECTION_TOP, 0, SECTION_TOP, 0);
     self.flowLayout.headerReferenceSize = CGSizeMake(kScreenWidth, HEADER_HEIGHT);
     self.flowLayout.footerReferenceSize = CGSizeMake(kScreenWidth, FOOTER_HEIGHT);
     CGFloat itemInterval = (kScreenWidth - COUNT_IN_ONE_ROW * IMG_WIDTH) / (COUNT_IN_ONE_ROW + 1);
