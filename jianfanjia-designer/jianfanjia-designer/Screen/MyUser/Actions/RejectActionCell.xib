@@ -120,7 +120,7 @@
                                 </variation>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="拒绝原因：预算偏低，不符合预期" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OqN-FI-3P2">
-                                <rect key="frame" x="8" y="1" width="484" height="49"/>
+                                <rect key="frame" x="8" y="1" width="474" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -131,20 +131,12 @@
                             <constraint firstAttribute="bottom" secondItem="OqN-FI-3P2" secondAttribute="bottom" id="3T3-Q9-VVO"/>
                             <constraint firstItem="OqN-FI-3P2" firstAttribute="top" secondItem="OJ5-IY-VBR" secondAttribute="top" constant="1" id="6f4-cb-JnI"/>
                             <constraint firstItem="S2F-lO-tgC" firstAttribute="leading" secondItem="OJ5-IY-VBR" secondAttribute="leading" id="9FU-wg-Iqg"/>
-                            <constraint firstItem="OqN-FI-3P2" firstAttribute="leading" secondItem="OJ5-IY-VBR" secondAttribute="leading" id="BSK-uP-rQF"/>
-                            <constraint firstAttribute="trailing" secondItem="OqN-FI-3P2" secondAttribute="trailing" id="T1L-Z7-tU7"/>
+                            <constraint firstAttribute="trailing" secondItem="OqN-FI-3P2" secondAttribute="trailing" constant="10" id="T1L-Z7-tU7"/>
                             <constraint firstAttribute="bottom" secondItem="S2F-lO-tgC" secondAttribute="bottom" id="VNx-Cl-Vhz"/>
-                            <constraint firstItem="OqN-FI-3P2" firstAttribute="width" secondItem="OJ5-IY-VBR" secondAttribute="width" id="Zg1-3K-ir5"/>
                             <constraint firstItem="S2F-lO-tgC" firstAttribute="width" secondItem="OJ5-IY-VBR" secondAttribute="width" id="e7Q-zO-HNh"/>
                             <constraint firstItem="S2F-lO-tgC" firstAttribute="top" secondItem="OJ5-IY-VBR" secondAttribute="top" constant="1" id="jRC-6g-87y"/>
                             <constraint firstAttribute="height" constant="50" id="thO-ec-CFl"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="BSK-uP-rQF"/>
-                                <exclude reference="Zg1-3K-ir5"/>
-                            </mask>
-                        </variation>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
