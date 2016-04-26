@@ -95,12 +95,15 @@ static NSString *JYZShareMenuCollectionCellIdentifier = @"JYZShareMenuCollection
     }];
 }
 
-- (void)dismiss {
+- (void)dismiss:(void (^)(void))completion {
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromBottom animations:^{
         self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
         self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, self.height);
     } completion:^(BOOL finished) {
         [self removeFromSuperview];
+        if (completion) {
+            completion();
+        }
     }];
 }
 
@@ -142,19 +145,19 @@ static NSString *JYZShareMenuCollectionCellIdentifier = @"JYZShareMenuCollection
     CGPoint pointForTargetView = [self.collectionView convertPoint:point fromView:gesture.view];
     
     if (!CGRectContainsPoint(self.collectionView.bounds, pointForTargetView)) {
-        [self dismiss];
+        [self dismiss:nil];
     }
 }
 
 #pragma mark - user action
 - (void)selectItem:(NSString *)value {
-    if (self.chooseItemBlock) {
-        self.chooseItemBlock(value);
-    }
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dismiss];
-    });
+    __weak typeof(self) weakSelf = self;
+    [self dismiss:^{
+        __strong typeof(self) strongSelf = weakSelf;
+        if (strongSelf.chooseItemBlock) {
+            strongSelf.chooseItemBlock(value);
+        }
+    }];
 }
 
 @end
