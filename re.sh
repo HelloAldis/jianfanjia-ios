@@ -272,13 +272,13 @@ elif [[ $build_target = $supervisor_build_target ]]; then
     git push origin "supervisor_$newVersion"
 
     if [ $need_upload = "-upload" ]; then
-        if [[ $build_type = $test_build_type ]]; then
+        # if [[ $build_type = $test_build_type ]]; then
           echo 'uploading to Pgyer'
           ipa distribute:pgyer -f $outputPath -u $pgyer_user_key -a $pgyer_api_key
-        elif [[ $build_type = $pro_build_type ]]; then
-          echo 'uploading to Test Flight'
-          ipa distribute:itunesconnect -f $outputPath -a $testflight_apple_id -p $testflight_apple_pwd -i $testflight_supervisor_app_id -u -w -e --save-keychain --verbose
-        fi
+        # elif [[ $build_type = $pro_build_type ]]; then
+        #   echo 'uploading to Test Flight'
+        #   ipa distribute:itunesconnect -f $outputPath -a $testflight_apple_id -p $testflight_apple_pwd -i $testflight_supervisor_app_id -u -w -e --save-keychain --verbose
+        # fi
 
         osascript -e 'display notification "监理版包上传成功" with title "通知"'
     fi
