@@ -133,11 +133,11 @@ static CGFloat imgCellWidth;
             [self.imgCollection insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:MAX_IMG_COUNT - 1 inSection:0]]];
         } completion:nil];
     } else {
-//        @weakify(self);
-//        [self.imgCollection performBatchUpdates:^{
-//            @strongify(self);
+        @weakify(self);
+        [self.imgCollection performBatchUpdates:^{
+            @strongify(self);
             [self.imgCollection deleteItemsAtIndexPaths:@[indexPath]];
-//        } completion:nil];
+        } completion:nil];
     }
     [self refreshViewContentSize];
     if (self.refreshBlock) {
