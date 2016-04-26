@@ -271,6 +271,7 @@
 		688517731C926FDC000B01DB /* DecCommentInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517711C926FDC000B01DB /* DecCommentInfoCell.m */; };
 		688517741C926FDC000B01DB /* DecCommentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 688517721C926FDC000B01DB /* DecCommentInfoCell.xib */; };
 		6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517791C927A30000B01DB /* SearchUserComment.m */; };
+		68921FFB1CCF55AE00BC80C7 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68921FFA1CCF55AE00BC80C7 /* ToastUtil.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
@@ -931,6 +932,8 @@
 		688517721C926FDC000B01DB /* DecCommentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecCommentInfoCell.xib; sourceTree = "<group>"; };
 		688517781C927A30000B01DB /* SearchUserComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserComment.h; sourceTree = "<group>"; };
 		688517791C927A30000B01DB /* SearchUserComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchUserComment.m; sourceTree = "<group>"; };
+		68921FF91CCF55AE00BC80C7 /* ToastUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastUtil.h; sourceTree = "<group>"; };
+		68921FFA1CCF55AE00BC80C7 /* ToastUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastUtil.m; sourceTree = "<group>"; };
 		689485D11C1A70A7002310FC /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		689485D21C1A70A7002310FC /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
@@ -2297,6 +2300,8 @@
 				6EE34D831C1174DD00C6957E /* StringUtil.m */,
 				686799ED1C8D54D900B380D0 /* PhoneUtil.h */,
 				686799EE1C8D54D900B380D0 /* PhoneUtil.m */,
+				68921FF91CCF55AE00BC80C7 /* ToastUtil.h */,
+				68921FFA1CCF55AE00BC80C7 /* ToastUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -3278,6 +3283,7 @@
 				6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */,
 				68123B5C1C47BBBD008FC9AB /* DropdownMenuView.m in Sources */,
 				6E838D9E1BE6FB3A000BF5CD /* NSArray+Ex.m in Sources */,
+				68921FFB1CCF55AE00BC80C7 /* ToastUtil.m in Sources */,
 				68F73CF41CBB3AB900E97710 /* PlanWasNotChoosed.m in Sources */,
 				683FFB1C1C280E9D002A1AFE /* FavoriteBeautifulImage.m in Sources */,
 				685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */,
