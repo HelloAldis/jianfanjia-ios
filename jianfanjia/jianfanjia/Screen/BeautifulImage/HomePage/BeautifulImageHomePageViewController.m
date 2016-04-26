@@ -428,6 +428,10 @@
     NSInteger count = [self.dataManager loadMoreBeautifulImages];
     self.beautifulImages = self.dataManager.beautifulImages;
     self.index = [self.beautifulImages indexOfObject:self.beautifulImage];
+    if (self.index == NSNotFound) {
+        self.index = 0;
+    }
+    
     self.hasMoreBeautifulImage = count < [self.pageNumber integerValue];
 }
 
