@@ -10,8 +10,7 @@ pod 'ReactiveCocoa', '~> 2.5'
 pod 'MBProgressHUD', '~> 0.9.1'
 pod 'GVUserDefaults'
 pod 'FLEX', '~> 2.1', :configurations => ['Debug']
-pod 'SSKeychain', '~> 1.2.3'
 pod 'UMengAnalytics'
 pod 'GTSDK'
 pod 'WeiboSDK', '~> 3.1.3'
-
+pod 'CRToast', '~> 0.0.7'
