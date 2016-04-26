@@ -38,7 +38,7 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="onClickSave:" destination="-1" eventType="touchDragInside" id="zHg-Sn-1KA"/>
+                        <action selector="onClickSave:" destination="-1" eventType="touchUpInside" id="zDC-RD-cp8"/>
                     </connections>
                 </button>
             </subviews>
