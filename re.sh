@@ -259,7 +259,7 @@ elif [[ $build_target = $supervisor_build_target ]]; then
     ipa build -w $supervisor_workspace -c Debug -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS TEST=1 COCOAPODS=1"' -d "$supervisor_packages_path/test/$newVersion" --ipa $supervisor_ipa_file
   elif [[ $build_type = $pro_build_type ]]; then
     echo 'build supervisor pro build now, please wait.................'
-    ipa build -w $supervisor_workspace -c Release -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$supervisor_packages_path/pro/$newVersion" --ipa $supervisor_ipa_file
+    ipa build -w $supervisor_workspace -c Debug -s $supervisor_schema --clean --xcargs 'GCC_PREPROCESSOR_DEFINITIONS="$GCC_PREPROCESSOR_DEFINITIONS PRO=1 COCOAPODS=1"' -d "$supervisor_packages_path/pro/$newVersion" --ipa $supervisor_ipa_file
   fi
 
     outputPath="$supervisor_packages_path/$build_type/$newVersion/$supervisor_ipa_file"
