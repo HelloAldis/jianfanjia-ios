@@ -10,6 +10,8 @@
 
 typedef void (^ToastTapBlock) (NSMutableDictionary *userInfo);
 
+@class Notification;
+
 @interface ToastUtil : NSObject
 
 + (void)showNotification:(Notification *)notification tapBlock:(ToastTapBlock)tapBlock;

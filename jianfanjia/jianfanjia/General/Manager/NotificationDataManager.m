@@ -45,6 +45,9 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
         if (notification) {
             if (!offLine) {
                 [self showLocalNotification:notification];
+                [ToastUtil showNotification:notification tapBlock:^(NSMutableDictionary *userInfo) {
+                    [self localTriggerToShowDetail:userInfo];
+                }];
             }
         }
     }
