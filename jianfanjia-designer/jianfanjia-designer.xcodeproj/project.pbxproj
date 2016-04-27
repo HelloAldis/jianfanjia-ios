@@ -255,6 +255,7 @@
 		685F2D6F1CABC0A900DC4D43 /* UnexpandSectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D6D1CABC0A900DC4D43 /* UnexpandSectionActionView.xib */; };
 		685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */; };
 		685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */; };
+		68921FFE1CD0D7C300BC80C7 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -764,6 +765,8 @@
 		685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushGifHeader.m; sourceTree = "<group>"; };
 		685F2D7A1CAD0DD400DC4D43 /* DIYGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYGifHeader.h; sourceTree = "<group>"; };
 		685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYGifHeader.m; sourceTree = "<group>"; };
+		68921FFC1CD0D7C300BC80C7 /* ToastUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastUtil.h; sourceTree = "<group>"; };
+		68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastUtil.m; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -1806,6 +1809,8 @@
 		6E378D261BDA2D2E00908B77 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				68921FFC1CD0D7C300BC80C7 /* ToastUtil.h */,
+				68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */,
 				68123CD21C4C99C8008FC9AB /* Aspects.h */,
 				68123CD31C4C99C8008FC9AB /* Aspects.m */,
 				68123CD41C4C99C8008FC9AB /* BaseDynamicObject.h */,
@@ -2239,6 +2244,7 @@
 				68F73D2B1CBB597E00E97710 /* PlanWasNotChoosed.m in Sources */,
 				681240151C4CDA06008FC9AB /* NSNumber+Ex.m in Sources */,
 				682E04F31C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.m in Sources */,
+				68921FFE1CD0D7C300BC80C7 /* ToastUtil.m in Sources */,
 				684B04361C990E910053FFDF /* MyNotificationViewController.m in Sources */,
 				681240B21C4CE471008FC9AB /* DesignerLogin.m in Sources */,
 				681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */,
