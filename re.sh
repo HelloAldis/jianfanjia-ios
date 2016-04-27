@@ -37,9 +37,13 @@ testflight_profession_app_id='1078884606'
 testflight_apple_id='aldis.zhan@myjyz.com'
 testflight_apple_pwd='Jyz20150608'
 
-#app in Pgyer
+#app beta testing in Pgyer
 pgyer_user_key='75a553da1e363a4e3d0d6352c47f03b9'
 pgyer_api_key='23753123eeee6bb7b1645ae8b349f5f3'
+
+#app prod testing in Pgyer
+pgyer_prod_user_key='10e5e2357d124c81a85d2aa4fe6bc3f4'
+pgyer_prod_api_key='5715b70f699798f0e0d71303780afca3'
 
 ################# End Configuration ########################
 
@@ -272,13 +276,13 @@ elif [[ $build_target = $supervisor_build_target ]]; then
     git push origin "supervisor_$newVersion"
 
     if [ $need_upload = "-upload" ]; then
-        # if [[ $build_type = $test_build_type ]]; then
-          echo 'uploading to Pgyer'
+        if [[ $build_type = $test_build_type ]]; then
+          echo 'uploading to Pgyer for Beta testing'
           ipa distribute:pgyer -f $outputPath -u $pgyer_user_key -a $pgyer_api_key
-        # elif [[ $build_type = $pro_build_type ]]; then
-        #   echo 'uploading to Test Flight'
-        #   ipa distribute:itunesconnect -f $outputPath -a $testflight_apple_id -p $testflight_apple_pwd -i $testflight_supervisor_app_id -u -w -e --save-keychain --verbose
-        # fi
+        elif [[ $build_type = $pro_build_type ]]; then
+          echo 'uploading to Pgyer for Prod testing'
+          ipa distribute:pgyer -f $outputPath -u $pgyer_prod_user_key -a $pgyer_prod_api_key
+        fi
 
         osascript -e 'display notification "监理版包上传成功" with title "通知"'
     fi
