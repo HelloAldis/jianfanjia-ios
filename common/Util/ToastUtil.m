@@ -65,8 +65,9 @@ NSString *const kToastDataKey = @"kToastDataKey";
     NSMutableDictionary *data = options[kToastDataKey];
     options[kCRToastInteractionRespondersKey] = @[[CRToastInteractionResponder
                                                    interactionResponderWithInteractionType:CRToastInteractionTypeTap
-                                                                      automaticallyDismiss:YES
+                                                                      automaticallyDismiss:NO
                                                                                      block:^(CRToastInteractionType interactionType){
+                                                                                         [CRToastManager dismissNotification:YES];
                                                                                          if (tapBlock) {
                                                                                              tapBlock(data);
                                                                                          }
@@ -75,7 +76,7 @@ NSString *const kToastDataKey = @"kToastDataKey";
                                                    interactionResponderWithInteractionType:CRToastInteractionTypeSwipe
                                                    automaticallyDismiss:YES
                                                    block:^(CRToastInteractionType interactionType){
-                                                       [CRToastManager dismissNotification:YES];
+                                                       [CRToastManager dismissNotification:NO];
                                                    }]
                                                   ];
     
