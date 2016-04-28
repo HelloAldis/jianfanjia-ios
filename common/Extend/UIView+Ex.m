@@ -127,24 +127,6 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
     [CATransaction commit];
 }
 
-+ (UIImage *)snapshotWindowImage {
-    // create graphics context with screen size
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    UIGraphicsBeginImageContext(screenRect.size);
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    [[UIColor blackColor] set];
-    CGContextFillRect(ctx, screenRect);
-    
-    // grab reference to our window
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    
-    // transfer content into our context
-    [window.layer renderInContext:ctx];
-    UIImage *screengrab = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return screengrab;
-}
-
 - (UIImage *)snapshotImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];
@@ -152,7 +134,6 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
     UIGraphicsEndImageContext();
     return snap;
 }
-
 
 //获得某个范围内的屏幕图像
 - (UIImage *)snapshotImageAtFrame:(CGRect)r {
