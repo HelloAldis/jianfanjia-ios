@@ -17,8 +17,6 @@ typedef NS_ENUM(NSInteger, CommentType) {
 };
 
 static NSString *MessageCellIdentifier = @"MessageCell";
-
-static CGFloat kKeyboardHeight = 480;
 static const CGFloat kMinMessageHeight = 50;
 static const CGFloat kMaxMessageHeight = 75;
 
@@ -28,7 +26,6 @@ static const CGFloat kMaxMessageHeight = 75;
 @property (weak, nonatomic) IBOutlet UITextView *tvMessage;
 @property (weak, nonatomic) IBOutlet UIButton *btnSend;
 @property (weak, nonatomic) IBOutlet UILabel *lblLeftCharCount;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewTopToSuperView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageHeight;
 
 @property (assign, nonatomic) CommentType commentType;
@@ -105,6 +102,12 @@ static const CGFloat kMaxMessageHeight = 75;
 }
 
 - (void)initUI {
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 90;
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    
     self.tvMessage.bgColor = kViewBgColor;
     [self.tvMessage setCornerRadius:5];
     [self.footerView setBorder:1 andColor:kUntriggeredColor.CGColor];
@@ -144,9 +147,6 @@ static const CGFloat kMaxMessageHeight = 75;
         @strongify(self);
         [self loadMoreMessages];
     }];
-    
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 90;
 }
 
 #pragma mark - table view delegate
@@ -231,12 +231,18 @@ static const CGFloat kMaxMessageHeight = 75;
     request.from = @0;
     request.limit = @10;
     
+    [self.tableView.footer resetNoMoreData];
     @weakify(self);
     [API getComments:request success:^{
         @strongify(self);
         [self.tableView.header endRefreshing];
         [self.requirementDataManager refreshComments];
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+        NSInteger currentCount = self.requirementDataManager.comments.count;
+        if (request.limit.integerValue > currentCount) {
+            [self.tableView.footer endRefreshingWithNoMoreData];
+        }
+        
+        [self.tableView reloadData];
     } failure:^{
         [self.tableView.header endRefreshing];
     } networkError:^{
@@ -265,17 +271,11 @@ static const CGFloat kMaxMessageHeight = 75;
         NSInteger currentCount = self.requirementDataManager.comments.count;
         [self.requirementDataManager loadMoreComments];
         NSInteger totalCount = self.requirementDataManager.comments.count;
-        
-        NSMutableArray *insertIndexPaths = [NSMutableArray arrayWithCapacity:totalCount - currentCount];
-        for (NSInteger i = currentCount; i < totalCount; i++) {
-            [insertIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+        if (request.limit.integerValue > (totalCount - currentCount)) {
+            [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
-        if (totalCount > currentCount) {
-            [self.tableView beginUpdates];
-            [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationRight];
-            [self.tableView endUpdates];
-        }
+        [self.tableView reloadData];
     } failure:^{
         [self.tableView.footer endRefreshing];
     } networkError:^{
@@ -285,33 +285,20 @@ static const CGFloat kMaxMessageHeight = 75;
 
 #pragma mark - keyboard
 - (void)keyboardWillShow:(NSNotification *)notification {
-    // get keyboard height
-    kKeyboardHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-    
-    [UIView animateWithDuration:0.6
-                          delay:0 usingSpringWithDamping:1
-          initialSpringVelocity:1
-                        options:UIViewAnimationOptionCurveLinear animations:^{
-                            self.view.frame = CGRectMake(self.view.frame.origin.x, -kKeyboardHeight, self.view.frame.size.width, self.view.frame.size.height);;
-                            self.tableViewTopToSuperView.constant = 64 + kKeyboardHeight;
-                            [self.view layoutIfNeeded];
-                        } completion:nil];
+    CGFloat keyboardHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.view.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - keyboardHeight);
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 - (void) keyboardWillHide:(NSNotification *)notification {
-    [UIView animateWithDuration:0.6
-                          delay:0 usingSpringWithDamping:1.0
-          initialSpringVelocity:1.0
-                        options:UIViewAnimationOptionCurveLinear animations:^{
-                            self.view.frame = CGRectMake(self.view.frame.origin.x, 0, self.view.frame.size.width, self.view.frame.size.height);;
-                            self.tableViewTopToSuperView.constant = 64;
-                            [self.view layoutIfNeeded];
-                        } completion:nil];
-}
-
-#pragma mark - touch
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.view endEditing:YES];
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.view.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 @end
