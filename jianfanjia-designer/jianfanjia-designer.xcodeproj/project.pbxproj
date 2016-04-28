@@ -256,6 +256,7 @@
 		685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */; };
 		685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */; };
 		68921FFE1CD0D7C300BC80C7 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */; };
+		689220071CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220061CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -767,6 +768,8 @@
 		685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYGifHeader.m; sourceTree = "<group>"; };
 		68921FFC1CD0D7C300BC80C7 /* ToastUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastUtil.h; sourceTree = "<group>"; };
 		68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastUtil.m; sourceTree = "<group>"; };
+		689220051CD2104900BC80C7 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
+		689220061CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyboardAnimation.m"; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -1711,6 +1714,8 @@
 		6E378CFE1BDA2D2E00908B77 /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				689220051CD2104900BC80C7 /* UIViewController+KeyboardAnimation.h */,
+				689220061CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m */,
 				685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */,
 				685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */,
 				684B03D01C98141F0053FFDF /* UIView+Badge.h */,
@@ -2322,6 +2327,7 @@
 				6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */,
 				68123E761C4CBE79008FC9AB /* VerifyPhoneViewController.m in Sources */,
 				68123C961C4C9772008FC9AB /* ImageEditorViewController.m in Sources */,
+				689220071CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */,
 				681241211C4CF2D5008FC9AB /* ItemImageCollectionCell.m in Sources */,
 				685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */,
 				6E04266E1BC757C500F984B8 /* main.m in Sources */,

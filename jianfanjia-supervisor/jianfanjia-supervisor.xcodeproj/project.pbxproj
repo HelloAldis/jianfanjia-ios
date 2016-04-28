@@ -241,6 +241,7 @@
 		6850A6131CCA2DDB0085940A /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A60E1CCA2DDB0085940A /* CityCell.xib */; };
 		6850A6141CCA2DDB0085940A /* CitySection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A6101CCA2DDB0085940A /* CitySection.m */; };
 		6850A6151CCA2DDB0085940A /* CitySection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A6111CCA2DDB0085940A /* CitySection.xib */; };
+		689220041CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */; };
 		D248AF3A7C7F296D8418ADE8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D408E462BE9708192EBFFD7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -687,6 +688,8 @@
 		6850A60F1CCA2DDB0085940A /* CitySection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySection.h; sourceTree = "<group>"; };
 		6850A6101CCA2DDB0085940A /* CitySection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySection.m; sourceTree = "<group>"; };
 		6850A6111CCA2DDB0085940A /* CitySection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySection.xib; sourceTree = "<group>"; };
+		689220021CD2103800BC80C7 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
+		689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyboardAnimation.m"; sourceTree = "<group>"; };
 		6DCF3E98975F7E90EE858303 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E62310690E1273E5E41514C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1198,6 +1201,8 @@
 		680C43BF1CC4D4BD008C4BC0 /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				689220021CD2103800BC80C7 /* UIViewController+KeyboardAnimation.h */,
+				689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */,
 				680C43C01CC4D4BD008C4BC0 /* AutoScrollUIScrollView.h */,
 				680C43C11CC4D4BD008C4BC0 /* AutoScrollUIScrollView.m */,
 				680C43C21CC4D4BD008C4BC0 /* CALayer+Ex.h */,
@@ -1799,6 +1804,7 @@
 				680C44F51CC4D4BD008C4BC0 /* PlanDesignerMeasuredHouse.m in Sources */,
 				680C452A1CC4D4BD008C4BC0 /* Comment.m in Sources */,
 				680C45331CC4D4BD008C4BC0 /* Plan.m in Sources */,
+				689220041CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */,
 				680C451D1CC4D4BD008C4BC0 /* UIImageView+Ex.m in Sources */,
 				680C457A1CC4D4BD008C4BC0 /* BaseDynamicObject.m in Sources */,
 				680C42561CC4D4AE008C4BC0 /* ItemImageCollectionCell.m in Sources */,

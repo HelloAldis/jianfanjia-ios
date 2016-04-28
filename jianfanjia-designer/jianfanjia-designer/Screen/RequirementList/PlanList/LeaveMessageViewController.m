@@ -84,15 +84,19 @@ static const CGFloat kMaxMessageHeight = 75;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-    
     [self refreshMessageList];
+    
+    @weakify(self);
+    [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
+        @strongify(self);
+        CGFloat keyboardHeight = keyboardRect.size.height;
+        self.view.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - (isShowing ? keyboardHeight : 0));
+    } completion:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self jfj_unsubscribeKeyboard];
 }
 
 #pragma mark - UI
@@ -278,24 +282,6 @@ static const CGFloat kMaxMessageHeight = 75;
         [self.tableView.footer endRefreshing];
     } networkError:^{
         [self.tableView.footer endRefreshing];
-    }];
-}
-
-#pragma mark - keyboard
-- (void)keyboardWillShow:(NSNotification *)notification {
-    CGFloat keyboardHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.view.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - keyboardHeight);
-    } completion:^(BOOL finished) {
-        
-    }];
-}
-
-- (void) keyboardWillHide:(NSNotification *)notification {
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.view.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight);
-    } completion:^(BOOL finished) {
-        
     }];
 }
 
