@@ -127,6 +127,7 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
     [CATransaction commit];
 }
 
+#pragma mark - snapshot
 - (UIImage *)snapshotImage {
     UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
     [self.layer renderInContext:UIGraphicsGetCurrentContext()];

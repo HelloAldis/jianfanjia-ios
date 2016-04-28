@@ -57,13 +57,22 @@ typedef NS_ENUM(NSInteger, EvaluateDesignerType) {
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    @weakify(self);
+    [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
+        @strongify(self);
+        if (isShowing) {
+            CGFloat keyboardHeight = keyboardRect.size.height;
+            self.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, keyboardHeight, 0);
+            self.scrollView.contentOffset = CGPointMake(0, keyboardHeight-kNavWithStatusBarHeight);
+        } else {
+            self.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
+        }
+    } completion:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self jfj_unsubscribeKeyboard];
 }
 
 #pragma mark - init UI 
@@ -158,26 +167,6 @@ typedef NS_ENUM(NSInteger, EvaluateDesignerType) {
 
 - (void)onClickServiceAttitudeStar:(UIGestureRecognizer *)gesture {
     self.serviceAttitudeStar = [DesignerBusiness setStars:self.serviceAttitudeStars withTouchStar:(UIImageView *)gesture.view fullStar:[UIImage imageNamed:@"star_big"] emptyStar:[UIImage imageNamed:@"star_big_empty"]];
-}
-
-#pragma mark - keyboard
-- (void)keyboardWillShow:(NSNotification *)notification {
-    // get keyboard height
-    CGFloat keyboardHeight = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, keyboardHeight, 0);
-        self.scrollView.contentOffset = CGPointMake(0, keyboardHeight-kNavWithStatusBarHeight);
-    } completion:^(BOOL finished) {
-        
-    }];
-}
-
-- (void) keyboardWillHide:(NSNotification *)notification {
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        self.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
-    } completion:^(BOOL finished) {
-        
-    }];
 }
 
 @end

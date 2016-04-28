@@ -28,5 +28,6 @@
 #import "ProgressWebView.h"
 #import "CALayer+Ex.h"
 #import "UILabel+Ex.h"
+#import "UIViewController+KeyboardAnimation.h"
 
 #endif
