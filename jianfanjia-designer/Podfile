@@ -13,3 +13,4 @@ pod 'FLEX', '~> 2.1', :configurations => ['Debug']
 pod 'UMengAnalytics'
 pod 'GTSDK'
 pod 'CRToast', '~> 0.0.7'
+pod 'RSKImageCropper'
