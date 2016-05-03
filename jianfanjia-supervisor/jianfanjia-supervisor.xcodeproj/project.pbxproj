@@ -241,6 +241,7 @@
 		6850A6131CCA2DDB0085940A /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A60E1CCA2DDB0085940A /* CityCell.xib */; };
 		6850A6141CCA2DDB0085940A /* CitySection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A6101CCA2DDB0085940A /* CitySection.m */; };
 		6850A6151CCA2DDB0085940A /* CitySection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A6111CCA2DDB0085940A /* CitySection.xib */; };
+		68711B5D1CD85D54009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B5C1CD85D54009B585F /* PhotoCropper.m */; };
 		689220041CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */; };
 		D248AF3A7C7F296D8418ADE8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D408E462BE9708192EBFFD7 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -688,6 +689,8 @@
 		6850A60F1CCA2DDB0085940A /* CitySection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySection.h; sourceTree = "<group>"; };
 		6850A6101CCA2DDB0085940A /* CitySection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySection.m; sourceTree = "<group>"; };
 		6850A6111CCA2DDB0085940A /* CitySection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySection.xib; sourceTree = "<group>"; };
+		68711B5B1CD85D54009B585F /* PhotoCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropper.h; sourceTree = "<group>"; };
+		68711B5C1CD85D54009B585F /* PhotoCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropper.m; sourceTree = "<group>"; };
 		689220021CD2103800BC80C7 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
 		689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyboardAnimation.m"; sourceTree = "<group>"; };
 		6DCF3E98975F7E90EE858303 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1426,6 +1429,8 @@
 		680C44901CC4D4BD008C4BC0 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				68711B5B1CD85D54009B585F /* PhotoCropper.h */,
+				68711B5C1CD85D54009B585F /* PhotoCropper.m */,
 				680C44911CC4D4BD008C4BC0 /* Aspects.h */,
 				680C44921CC4D4BD008C4BC0 /* Aspects.m */,
 				680C44931CC4D4BD008C4BC0 /* BaseDynamicObject.h */,
@@ -1843,6 +1848,7 @@
 				680C45151CC4D4BD008C4BC0 /* NSString+Ex.m in Sources */,
 				680C44FC1CC4D4BD008C4BC0 /* PlanWasChoosed.m in Sources */,
 				680C465B1CC5DB96008C4BC0 /* UserInfoViewController.m in Sources */,
+				68711B5D1CD85D54009B585F /* PhotoCropper.m in Sources */,
 				680C42B31CC4D4AE008C4BC0 /* PlanPriceItemExpandCell.m in Sources */,
 				680C453B1CC4D4BD008C4BC0 /* SnsAccountInfo.m in Sources */,
 				680C44A31CC4D4BD008C4BC0 /* APIManager.m in Sources */,

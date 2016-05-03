@@ -17,5 +17,6 @@
 #import "StringUtil.h"
 #import "PhoneUtil.h"
 #import "ToastUtil.h"
+#import "PhotoCropper.h"
 
 #endif

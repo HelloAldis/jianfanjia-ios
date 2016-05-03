@@ -255,6 +255,7 @@
 		685F2D6F1CABC0A900DC4D43 /* UnexpandSectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D6D1CABC0A900DC4D43 /* UnexpandSectionActionView.xib */; };
 		685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */; };
 		685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */; };
+		68711B5A1CD85D3E009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B591CD85D3E009B585F /* PhotoCropper.m */; };
 		68921FFE1CD0D7C300BC80C7 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */; };
 		689220071CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220061CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
@@ -766,6 +767,8 @@
 		685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushGifHeader.m; sourceTree = "<group>"; };
 		685F2D7A1CAD0DD400DC4D43 /* DIYGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYGifHeader.h; sourceTree = "<group>"; };
 		685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYGifHeader.m; sourceTree = "<group>"; };
+		68711B581CD85D3E009B585F /* PhotoCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropper.h; sourceTree = "<group>"; };
+		68711B591CD85D3E009B585F /* PhotoCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropper.m; sourceTree = "<group>"; };
 		68921FFC1CD0D7C300BC80C7 /* ToastUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastUtil.h; sourceTree = "<group>"; };
 		68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastUtil.m; sourceTree = "<group>"; };
 		689220051CD2104900BC80C7 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
@@ -1814,6 +1817,8 @@
 		6E378D261BDA2D2E00908B77 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				68711B581CD85D3E009B585F /* PhotoCropper.h */,
+				68711B591CD85D3E009B585F /* PhotoCropper.m */,
 				68921FFC1CD0D7C300BC80C7 /* ToastUtil.h */,
 				68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */,
 				68123CD21C4C99C8008FC9AB /* Aspects.h */,
@@ -2213,6 +2218,7 @@
 				682E04ED1C55FA9100F1ACAA /* DeleteYsImageFromProcess.m in Sources */,
 				68F73D2C1CBB597E00E97710 /* ReqtConfiguredAgreement.m in Sources */,
 				68123C8F1C4C9772008FC9AB /* InfiniteScrollView.m in Sources */,
+				68711B5A1CD85D3E009B585F /* PhotoCropper.m in Sources */,
 				685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */,
 				681240141C4CDA06008FC9AB /* NSDictionary+Ex.m in Sources */,
 				68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */,

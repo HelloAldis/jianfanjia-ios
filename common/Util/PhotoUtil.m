@@ -32,12 +32,25 @@
                 UIImage *originalImage = (UIImage *)[info objectForKey:UIImagePickerControllerOriginalImage];
                 
                 if (allowsEditing) {
-                    ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithImage:originalImage finishBlock:block];
-                    [controller.navigationController pushViewController:v animated:YES];
+                    [PhotoCropper showPhotoCropper:controller image:originalImage cancel:^{
+                        [controller.navigationController popViewControllerAnimated:YES];
+                    } choose:^(UIImage *croppedImage) {
+                        UploadImage *request = [[UploadImage alloc] init];
+                        request.image = [croppedImage aspectToScale:kScreenWidth];
+
+                        [controller.navigationController popViewControllerAnimated:YES];
+                        [API uploadImage:request success:^{
+                            if (block) {
+                                block(@[[DataManager shared].lastUploadImageid]);
+                            }
+                        } failure:^{
+                        } networkError:^{
+                        }];
+                    }];
+                    
                 } else {
                     UploadImage *request = [[UploadImage alloc] init];
                     request.image = [originalImage aspectToScale:kScreenWidth];
-//                    request.image = originalImage;//[UIImage imageWithImage:originalImage scaledToWidth:kScreenWidth];
                     [API uploadImage:request success:^{
                         if (block) {
                             block(@[[DataManager shared].lastUploadImageid]);

@@ -133,8 +133,22 @@
 
 - (void)onClickDoneSingle:(PHAsset *)asset {
     if (self.allowsEdit) {
-        ImageEditorViewController *v = [[ImageEditorViewController alloc] initWithAsset:asset finishBlock:self.finishUploadBlock];
-        [self.navigationController pushViewController:v animated:YES];
+        [PhotoCropper showPhotoCropper:self asset:asset cancel:^{
+            [self.navigationController popViewControllerAnimated:YES];
+        } choose:^(UIImage *croppedImage) {
+            UploadImage *request = [[UploadImage alloc] init];
+            request.image = [croppedImage aspectToScale:kScreenWidth];
+            
+            NSArray *vcs = self.navigationController.viewControllers;
+            [self.navigationController popToViewController:vcs[vcs.count - 3] animated:NO];
+            [API uploadImage:request success:^{
+                if (self.finishUploadBlock) {
+                    self.finishUploadBlock(@[[DataManager shared].lastUploadImageid]);
+                }
+            } failure:^{
+            } networkError:^{
+            }];
+        }];
     } else {
         [self.imageManager requestImageForAsset:asset targetSize:CGSizeMake(kScreenWidth * kScreenScale, kScreenHeight * kScreenScale)
                                     contentMode:PHImageContentModeAspectFit
