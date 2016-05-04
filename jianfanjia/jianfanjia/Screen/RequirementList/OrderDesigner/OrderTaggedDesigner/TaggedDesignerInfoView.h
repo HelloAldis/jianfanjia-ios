@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ReuseCell.h"
+#import "ReuseScrollView.h"
 
 @interface TaggedDesignerInfoView : ReuseCell
 

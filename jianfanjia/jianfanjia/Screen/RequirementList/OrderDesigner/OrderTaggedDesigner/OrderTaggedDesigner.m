@@ -10,7 +10,10 @@
 #import "ReuseScrollView.h"
 #import "TaggedDesignerInfoView.h"
 
-#define kPadding 20
+#define kScrollViewTop 60
+#define kScrollViewLeft 40
+#define kScrollViewBottom 75
+#define kCellPadding 0
 
 @interface OrderTaggedDesigner () <ReuseScrollViewProtocol>
 @property (strong, nonatomic) ReuseScrollView *scrollView;
@@ -26,9 +29,9 @@
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.scrollView = [[ReuseScrollView alloc] initWithFrame:CGRectMake(-kPadding/2.0, kNavWithStatusBarHeight + 60, kScreenWidth + kPadding, kScreenHeight -kNavWithStatusBarHeight - kTabBarHeight - 60 - 75) items:5];
+    self.scrollView = [[ReuseScrollView alloc] initWithFrame:CGRectMake(kScrollViewLeft, kNavWithStatusBarHeight + kScrollViewTop, kScreenWidth - kScrollViewLeft * 2, kScreenHeight -kNavWithStatusBarHeight - kScrollViewTop - kScrollViewBottom) items:5];
     self.scrollView.reuseDelegate = self;
-    self.scrollView.padding = kPadding;
+    self.scrollView.padding = kCellPadding;
     self.scrollView.clipsToBounds = NO;
     [self.view addSubview:self.scrollView];
 }

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ReuseCell.h"
+
+@class ReuseCell;
 
 @protocol ReuseScrollViewProtocol <NSObject>
 
@@ -18,9 +19,21 @@
 
 @interface ReuseScrollView : UIScrollView
 
+@property (nonatomic, readonly) NSInteger currentPage;
+
 @property (nonatomic, weak) id<ReuseScrollViewProtocol> reuseDelegate;
 @property (nonatomic, assign) NSInteger padding;
 
 - (instancetype)initWithFrame:(CGRect)frame items:(NSInteger)totalItems;
+
+@end
+
+@interface ReuseCell : UIView
+
+@property (nonatomic, readonly) NSInteger page;
+@property (nonatomic, readonly) NSInteger curPage;
+@property (nonatomic, readonly) CGRect originFrame;
+
+- (void)reloadData:(ReuseScrollView *)scrollView;
 
 @end

@@ -27,17 +27,12 @@
 
 + (TaggedDesignerInfoView *)taggedDesignerInfoView {
     TaggedDesignerInfoView *obj = [[[NSBundle mainBundle] loadNibNamed:@"TaggedDesignerInfoView" owner:nil options:nil] lastObject];
-    [obj.btnAdd setCornerRadius:5];
+    [obj setCornerRadius:5];
+    [obj.btnAdd setCornerRadius:obj.btnAdd.frame.size.height / 2.0];
     [obj.btnAdd setBorder:2 andColor:[kThemeColor CGColor]];
     [obj.designerImageView setCornerRadius:30];
     
     return obj;
-}
-
-- (void)awakeFromNib {
-    [self.btnAdd setCornerRadius:5];
-    [self.btnAdd setBorder:2 andColor:[kThemeColor CGColor]];
-    [self.designerImageView setCornerRadius:30];
 }
 
 - (void)initWithDesigner:(Designer *)designer {
@@ -108,9 +103,26 @@
 }
 
 #pragma mark - reload data
-- (void)reloadData {
-    static int i = 0;
-    self.lblDesignerName.text = [NSString stringWithFormat:@"%@", @(i++)];
+- (void)reloadData:(ReuseScrollView *)scrollView {
+    CGRect originFrame = CGRectMake(scrollView.frame.size.width * self.page + scrollView.padding / 2, 0, scrollView.frame.size.width - scrollView.padding, scrollView.frame.size.height);
+    
+    self.lblDesignerName.text = [NSString stringWithFormat:@"%@ curpage %@", @(self.page), @(self.curPage)];
+    
+    const CGFloat deltaW = 30;
+    const CGFloat deltaH = 60;
+    CGRect frame;
+    
+    if (self.page == self.curPage) {
+        frame = originFrame;
+    } else {
+        frame = CGRectMake(originFrame.origin.x + deltaW / 2, originFrame.origin.y + deltaH / 2, originFrame.size.width - deltaW, originFrame.size.height - deltaH);
+    }
+    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
+        self.frame = frame;
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 @end

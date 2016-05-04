@@ -8,6 +8,22 @@
 
 #import "ReuseScrollView.h"
 
+@interface ReuseCell ()
+
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) NSInteger curPage;
+@property (nonatomic, assign) CGRect originFrame;
+
+@end
+
+@implementation ReuseCell
+
+- (void)reloadData:(ReuseScrollView *)scrollView {
+    // need override
+}
+
+@end
+
 @interface ReuseScrollView () <UIScrollViewDelegate>
 
 @property (nonatomic, assign) NSInteger totalItems;
@@ -51,23 +67,29 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self updateCellsForReuse];
     
+    CGFloat floatPage = self.contentOffset.x / self.frame.size.width;
+    NSInteger intPage = floatPage + 0.5;
+    intPage = intPage < 0 ? 0 : intPage >= _totalItems ? _totalItems - 1 : intPage;
+    
     NSInteger page = self.contentOffset.x / self.frame.size.width + 0.5;
     
     for (NSInteger i = page - 1; i <= page + 1; i++) { // preload left and right cell
-        if (i >= 0 && i < self.totalItems) {
+        if (i >= 0 && i < _totalItems) {
             ReuseCell *cell = [self cellForPage:i];
             if (!cell) {
                 ReuseCell *cell = [self dequeueReusableCell];
                 cell.page = i;
+                cell.curPage = intPage;
                 
                 CGRect frame = cell.frame;
-                frame.origin.x = (self.frame.size.width + self.padding) * i + self.padding / 2;
+                frame.origin.x = self.frame.size.width * i + self.padding / 2;
                 cell.frame = frame;
                 
-                [cell reloadData];
+                [cell reloadData:self];
                 [self addSubview:cell];
             } else {
-                [cell reloadData];
+                cell.curPage = intPage;
+                [cell reloadData:self];
             }
         }
     }
@@ -122,9 +144,8 @@
 
 - (void)setPadding:(NSInteger)padding {
     _padding = padding;
-    CGRect frame = self.frame;
-    self.frame = CGRectMake(frame.origin.x - padding / 2, frame.origin.y, frame.size.width + padding, frame.size.height);
-    self.contentSize = CGSizeMake((self.frame.size.width - padding)* _totalItems, self.frame.size.height);
+    self.frame = CGRectMake(self.frame.origin.x - padding / 2, self.frame.origin.y, self.frame.size.width + padding, self.frame.size.height);
+    self.contentSize = CGSizeMake(self.frame.size.width * _totalItems, self.frame.size.height);
 }
 
 @end

@@ -262,7 +262,6 @@
 		68679A471C8EB49900B380D0 /* NotificationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68679A461C8EB49900B380D0 /* NotificationDetailViewController.xib */; };
 		68711B571CD84933009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B561CD84933009B585F /* PhotoCropper.m */; };
 		68711B611CD88EC5009B585F /* ReuseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B601CD88EC5009B585F /* ReuseScrollView.m */; };
-		68711B641CD88F0C009B585F /* ReuseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B631CD88F0C009B585F /* ReuseCell.m */; };
 		68711B681CD89D1C009B585F /* OrderTaggedDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B671CD89D1C009B585F /* OrderTaggedDesigner.m */; };
 		68711B6A1CD89D3B009B585F /* OrderTaggedDesigner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68711B691CD89D3B009B585F /* OrderTaggedDesigner.xib */; };
 		68711B6E1CD8A542009B585F /* TaggedDesignerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B6C1CD8A542009B585F /* TaggedDesignerInfoView.m */; };
@@ -923,8 +922,6 @@
 		68711B561CD84933009B585F /* PhotoCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropper.m; sourceTree = "<group>"; };
 		68711B5F1CD88EC5009B585F /* ReuseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReuseScrollView.h; sourceTree = "<group>"; };
 		68711B601CD88EC5009B585F /* ReuseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReuseScrollView.m; sourceTree = "<group>"; };
-		68711B621CD88F0C009B585F /* ReuseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReuseCell.h; sourceTree = "<group>"; };
-		68711B631CD88F0C009B585F /* ReuseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReuseCell.m; sourceTree = "<group>"; };
 		68711B661CD89D1C009B585F /* OrderTaggedDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTaggedDesigner.h; sourceTree = "<group>"; };
 		68711B671CD89D1C009B585F /* OrderTaggedDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTaggedDesigner.m; sourceTree = "<group>"; };
 		68711B691CD89D3B009B585F /* OrderTaggedDesigner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTaggedDesigner.xib; sourceTree = "<group>"; };
@@ -1873,8 +1870,6 @@
 			children = (
 				68711B5F1CD88EC5009B585F /* ReuseScrollView.h */,
 				68711B601CD88EC5009B585F /* ReuseScrollView.m */,
-				68711B621CD88F0C009B585F /* ReuseCell.h */,
-				68711B631CD88F0C009B585F /* ReuseCell.m */,
 			);
 			path = ReuseView;
 			sourceTree = "<group>";
@@ -3217,7 +3212,6 @@
 				6E20B22B1B87223600E3A8DA /* AppDelegate.m in Sources */,
 				680F49271C240E400055C16C /* BeautifulImage.m in Sources */,
 				6E07DAC41BD88DBE001461DD /* Designer.m in Sources */,
-				68711B641CD88F0C009B585F /* ReuseCell.m in Sources */,
 				683840001C156716004F456E /* SendUpdateRequirement.m in Sources */,
 				6E6D98B61BDF73DE00D45F77 /* MeViewController.m in Sources */,
 				6E78670C1BA920D900DE8B1B /* BannerCell.m in Sources */,
