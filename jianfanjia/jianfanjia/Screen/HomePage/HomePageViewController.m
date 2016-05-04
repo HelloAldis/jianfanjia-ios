@@ -12,6 +12,7 @@
 #import "HomePageProductCell.h"
 #import "HomePageDataManager.h"
 #import "ViewControllerContainer.h"
+#import "OrderTaggedDesigner.h"
 
 static NSString *BannerCellIdentifier = @"BannerCell";
 static NSString *HomePageQuickEntryCellIdentifier = @"HomePageQuickEntryCell";
@@ -166,7 +167,9 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 }
 
 - (void)onClickSearch {
-    [ViewControllerContainer showSearch];
+//    [ViewControllerContainer showSearch];
+    OrderTaggedDesigner *orderTaggedDesigner = [[OrderTaggedDesigner alloc] init];
+    [self.navigationController pushViewController:orderTaggedDesigner animated:YES];
 }
 
 @end
