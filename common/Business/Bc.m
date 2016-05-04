@@ -268,9 +268,11 @@ NSString * const kDesignerPNFromDBYSConfirm = @"21";
  需求的包类型 package_type
  * 0. 默认包
  * 1. 365块每平米基础包
+ * 2. 匠心定制包
  **/
 NSString * const kDecPackageDefault = @"0";
 NSString * const kDecPackage365 = @"1";
+NSString * const kDecPackageJiangXinDingZhi = @"2";
 
 /*
  装修阶段 dec_progress

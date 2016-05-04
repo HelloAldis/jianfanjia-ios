@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @class ReuseCell;
+@class ReuseScrollView;
 
 @protocol ReuseScrollViewProtocol <NSObject>
 
 @required
 - (ReuseCell *)reuseCellFactory;
+
+@optional
+- (void)reuseScrollViewPageDidChange:(ReuseScrollView *)scrollView toPage:(NSInteger)toPage;
 
 @end
 

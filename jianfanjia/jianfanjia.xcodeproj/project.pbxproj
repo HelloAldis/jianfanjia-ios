@@ -262,8 +262,8 @@
 		68679A471C8EB49900B380D0 /* NotificationDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68679A461C8EB49900B380D0 /* NotificationDetailViewController.xib */; };
 		68711B571CD84933009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B561CD84933009B585F /* PhotoCropper.m */; };
 		68711B611CD88EC5009B585F /* ReuseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B601CD88EC5009B585F /* ReuseScrollView.m */; };
-		68711B681CD89D1C009B585F /* OrderTaggedDesigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B671CD89D1C009B585F /* OrderTaggedDesigner.m */; };
-		68711B6A1CD89D3B009B585F /* OrderTaggedDesigner.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68711B691CD89D3B009B585F /* OrderTaggedDesigner.xib */; };
+		68711B681CD89D1C009B585F /* OrderTaggedDesignerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B671CD89D1C009B585F /* OrderTaggedDesignerViewController.m */; };
+		68711B6A1CD89D3B009B585F /* OrderTaggedDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68711B691CD89D3B009B585F /* OrderTaggedDesignerViewController.xib */; };
 		68711B6E1CD8A542009B585F /* TaggedDesignerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B6C1CD8A542009B585F /* TaggedDesignerInfoView.m */; };
 		68711B711CD8A60B009B585F /* TaggedDesignerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68711B701CD8A60B009B585F /* TaggedDesignerInfoView.xib */; };
 		6885175A1C8FF5E1000B01DB /* UserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517591C8FF5E1000B01DB /* UserNotification.m */; };
@@ -922,9 +922,9 @@
 		68711B561CD84933009B585F /* PhotoCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropper.m; sourceTree = "<group>"; };
 		68711B5F1CD88EC5009B585F /* ReuseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReuseScrollView.h; sourceTree = "<group>"; };
 		68711B601CD88EC5009B585F /* ReuseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReuseScrollView.m; sourceTree = "<group>"; };
-		68711B661CD89D1C009B585F /* OrderTaggedDesigner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTaggedDesigner.h; sourceTree = "<group>"; };
-		68711B671CD89D1C009B585F /* OrderTaggedDesigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTaggedDesigner.m; sourceTree = "<group>"; };
-		68711B691CD89D3B009B585F /* OrderTaggedDesigner.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTaggedDesigner.xib; sourceTree = "<group>"; };
+		68711B661CD89D1C009B585F /* OrderTaggedDesignerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTaggedDesignerViewController.h; sourceTree = "<group>"; };
+		68711B671CD89D1C009B585F /* OrderTaggedDesignerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTaggedDesignerViewController.m; sourceTree = "<group>"; };
+		68711B691CD89D3B009B585F /* OrderTaggedDesignerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTaggedDesignerViewController.xib; sourceTree = "<group>"; };
 		68711B6B1CD8A542009B585F /* TaggedDesignerInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaggedDesignerInfoView.h; sourceTree = "<group>"; };
 		68711B6C1CD8A542009B585F /* TaggedDesignerInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaggedDesignerInfoView.m; sourceTree = "<group>"; };
 		68711B701CD8A60B009B585F /* TaggedDesignerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaggedDesignerInfoView.xib; sourceTree = "<group>"; };
@@ -1877,9 +1877,9 @@
 		68711B651CD89CE8009B585F /* OrderTaggedDesigner */ = {
 			isa = PBXGroup;
 			children = (
-				68711B661CD89D1C009B585F /* OrderTaggedDesigner.h */,
-				68711B671CD89D1C009B585F /* OrderTaggedDesigner.m */,
-				68711B691CD89D3B009B585F /* OrderTaggedDesigner.xib */,
+				68711B661CD89D1C009B585F /* OrderTaggedDesignerViewController.h */,
+				68711B671CD89D1C009B585F /* OrderTaggedDesignerViewController.m */,
+				68711B691CD89D3B009B585F /* OrderTaggedDesignerViewController.xib */,
 				68711B6B1CD8A542009B585F /* TaggedDesignerInfoView.h */,
 				68711B6C1CD8A542009B585F /* TaggedDesignerInfoView.m */,
 				68711B701CD8A60B009B585F /* TaggedDesignerInfoView.xib */,
@@ -2853,7 +2853,7 @@
 				68B10CA91C7819E3005866C1 /* ProductCaseCell.xib in Resources */,
 				68134A3F1C3CFE44003C1C10 /* AccountBindViewController.xib in Resources */,
 				684A374D1BFD73DF00F7388C /* RequirementCreateViewController.xib in Resources */,
-				68711B6A1CD89D3B009B585F /* OrderTaggedDesigner.xib in Resources */,
+				68711B6A1CD89D3B009B585F /* OrderTaggedDesignerViewController.xib in Resources */,
 				68123C5D1C4C8B99008FC9AB /* ImageDetailViewController.xib in Resources */,
 				684A37571BFD73DF00F7388C /* SelectPopulationViewController.xib in Resources */,
 				6E4496261BF9BA2600C90851 /* VerifyPhoneViewController.xib in Resources */,
@@ -3190,7 +3190,7 @@
 				68711B611CD88EC5009B585F /* ReuseScrollView.m in Sources */,
 				685F2D501CA917C600DC4D43 /* PlanWasChoosedForDesignCell.m in Sources */,
 				AB4CAF911C0F36D2003680BA /* AgreeReschedule.m in Sources */,
-				68711B681CD89D1C009B585F /* OrderTaggedDesigner.m in Sources */,
+				68711B681CD89D1C009B585F /* OrderTaggedDesignerViewController.m in Sources */,
 				6E4496251BF9BA2600C90851 /* VerifyPhoneViewController.m in Sources */,
 				68E600831CB7C20300C4A8F7 /* ReqtConfiguredAgreement.m in Sources */,
 				6E07DAC71BD88DBE001461DD /* Section.m in Sources */,

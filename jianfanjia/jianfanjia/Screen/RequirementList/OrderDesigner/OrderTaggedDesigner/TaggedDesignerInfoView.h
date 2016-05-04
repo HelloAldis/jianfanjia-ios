@@ -13,6 +13,6 @@
 
 + (TaggedDesignerInfoView *)taggedDesignerInfoView;
 
-- (void)initWithDesigner:(Designer *)designer;
+- (void)initWithDesigners:(NSArray *)designers;
 
 @end

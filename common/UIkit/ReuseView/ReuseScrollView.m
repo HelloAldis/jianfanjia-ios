@@ -29,6 +29,7 @@
 @property (nonatomic, assign) NSInteger totalItems;
 @property (nonatomic, retain) NSMutableArray *cells;
 @property (nonatomic, assign) CGSize cellSize;
+@property (nonatomic, assign) NSInteger currentPage;
 @property (nonatomic, assign) BOOL wasFirstDisplay;
 
 @end
@@ -90,11 +91,18 @@
                 [cell reloadData:self];
                 [self addSubview:cell];
             } else {
-                cell.curPage = intPage;
-                [cell reloadData:self];
+                if (cell.page != -1) {
+                    cell.curPage = intPage;
+                    [cell reloadData:self];
+                }
             }
         }
     }
+    
+    self.currentPage = intPage;
+    
+    if (![_reuseDelegate respondsToSelector:@selector(reuseScrollViewPageDidChange:toPage:)]) return;
+    [_reuseDelegate reuseScrollViewPageDidChange:self toPage:intPage];
 }
 
 /// enqueue invisible cells for reuse

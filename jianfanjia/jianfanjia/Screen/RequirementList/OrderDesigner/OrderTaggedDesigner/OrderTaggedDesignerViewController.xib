@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderTaggedDesignerViewController">
+            <connections>
+                <outlet property="containerView" destination="4MB-1v-KMk" id="VBF-8J-AO0"/>
+                <outlet property="lblTitle" destination="ADT-uA-9PS" id="uyb-ub-7KQ"/>
+                <outlet property="pageControl" destination="baG-Ye-AR4" id="zKV-ZF-dEu"/>
+                <outlet property="view" destination="iN0-l3-epB" id="JMd-Zd-oOI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="您可立即预约1名大咖设计师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ADT-uA-9PS">
+                    <rect key="frame" x="213" y="64" width="175" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="0Su-2q-Z4q"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="baG-Ye-AR4">
+                    <rect key="frame" x="281" y="525" width="39" height="75"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="75" id="xN3-sd-fZN"/>
+                    </constraints>
+                    <color key="pageIndicatorTintColor" red="0.80392156862745101" green="0.80784313725490198" blue="0.81568627450980391" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="currentPageIndicatorTintColor" red="1" green="0.43921568630000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                </pageControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4MB-1v-KMk" userLabel="ContainerView" customClass="TouchDelegateView">
+                    <rect key="frame" x="0.0" y="124" width="600" height="401"/>
+                    <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.94509803921568625" green="0.94901960784313721" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="ADT-uA-9PS" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7qB-ra-FCI"/>
+                <constraint firstItem="4MB-1v-KMk" firstAttribute="top" secondItem="ADT-uA-9PS" secondAttribute="bottom" id="EEn-mA-PKQ"/>
+                <constraint firstAttribute="bottom" secondItem="baG-Ye-AR4" secondAttribute="bottom" id="PSt-dm-UYv"/>
+                <constraint firstItem="4MB-1v-KMk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="bSd-Ui-YGd"/>
+                <constraint firstItem="baG-Ye-AR4" firstAttribute="top" secondItem="4MB-1v-KMk" secondAttribute="bottom" id="iQs-mQ-8dR"/>
+                <constraint firstItem="ADT-uA-9PS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="kxg-i2-G4P"/>
+                <constraint firstItem="baG-Ye-AR4" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="p6b-jJ-C9I"/>
+                <constraint firstItem="4MB-1v-KMk" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="sxo-l0-Uxa"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

@@ -14,6 +14,10 @@ static NSString * const kPkg365Name = @"365基础包";
 @implementation RequirementBusiness
 
 #pragma mark - pkg 365
++ (BOOL)isPkgJiangXinByType:(NSString *)type {
+    return [type isEqualToString:kDecPackageJiangXinDingZhi];
+}
+
 + (BOOL)isPkg365ByType:(NSString *)type {
     return [type isEqualToString:kDecPackage365];
 }

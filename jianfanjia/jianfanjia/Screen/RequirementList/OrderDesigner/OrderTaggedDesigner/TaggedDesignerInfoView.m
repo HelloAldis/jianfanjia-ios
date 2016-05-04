@@ -9,7 +9,7 @@
 #import "TaggedDesignerInfoView.h"
 
 @interface TaggedDesignerInfoView ()
-
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *designerImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *vImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblViewCount;
@@ -19,7 +19,8 @@
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *starts;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 
-@property (weak, nonatomic) Designer *designer;
+@property (strong, nonatomic) Designer *designer;
+@property (strong, nonatomic) NSArray *designers;
 
 @end
 
@@ -32,17 +33,25 @@
     return obj;
 }
 
+#pragma mark - init ui
 - (void)initUI {
     [self setCornerRadius:5];
     [self setBorder:1 andColor:[UIColor colorWithR:0xCB g:0xCC b:0xCD].CGColor];
     [self.btnAdd setCornerRadius:self.btnAdd.frame.size.height / 2.0];
     [self.btnAdd setBorder:2 andColor:[kThemeColor CGColor]];
-    [self.designerImageView setCornerRadius:30];
+    [self.designerImageView setCornerRadius:self.designerImageView.frame.size.height / 2.0];
+    self.backgroundImageView.clipsToBounds = YES;
+}
+
+#pragma mark - init data
+- (void)initWithDesigners:(NSArray *)designers {
+    self.designers = designers;
 }
 
 - (void)initWithDesigner:(Designer *)designer {
     self.designer = designer;
     
+    [self showBackground:designer];
     [self.designerImageView setUserImageWithId:designer.imageid];
     self.lblDesignerName.text = designer.username;
     self.lblViewCount.text = [designer.view_count stringValue];
@@ -55,6 +64,21 @@
     UIImage *full = [UIImage imageNamed:@"star_middle"];
     UIImage *empty = [UIImage imageNamed:@"star_middle_empty"];
     [DesignerBusiness setStars:self.starts withStar:star fullStar:full emptyStar:empty];
+}
+
+- (void)showBackground:(Designer *)designer {
+    NSArray *arr = [designer.data objectForKey:@"products"];
+    NSMutableArray *products = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    
+    for (NSMutableDictionary *dict in arr) {
+        Product *product = [[Product alloc] initWith:dict];
+        [products addObject:product];
+    }
+    
+    if (products.count > 0) {
+        ProductImage *image = [products[0] imageAtIndex:0];
+        [self.backgroundImageView setImageWithId:image.imageid withWidth:self.frame.size.width];
+    }
 }
 
 - (void)refreshAdd {
@@ -109,9 +133,8 @@
 
 #pragma mark - reload data
 - (void)reloadData:(ReuseScrollView *)scrollView {
+    [self initWithDesigner:self.designers[self.page]];
     [self playAnimation:scrollView];
-    
-    self.lblDesignerName.text = [NSString stringWithFormat:@"%@ curpage %@", @(self.page), @(self.curPage)];
 }
 
 - (void)playAnimation:(ReuseScrollView *)scrollView {
@@ -127,9 +150,8 @@
     CGRect originFrame = [scrollView getOriginCellFrame:self.page];
     CGRect frame = CGRectMake(originFrame.origin.x + deltaW * deltaFactor / 2, originFrame.origin.y + deltaH * deltaFactor / 2, originFrame.size.width - deltaW * deltaFactor, originFrame.size.height - deltaH * deltaFactor);
     
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction animations:^{
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionAllowUserInteraction animations:^{
         self.frame = frame;
-        self.bgColor = self.page == self.curPage ? [UIColor whiteColor] : [UIColor colorWithR:0xCB g:0xCC b:0xCD];
     } completion:^(BOOL finished) {
         
     }];

@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface OrderTaggedDesigner : BaseViewController
+@interface OrderTaggedDesignerViewController : BaseViewController
+
+- (id)initWithRequirement:(Requirement *)requirement;
 
 @end

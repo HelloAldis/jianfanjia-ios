@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, DecPackageKind) {
 
 @interface RequirementBusiness : NSObject
 
++ (BOOL)isPkgJiangXinByType:(NSString *)type;
 + (BOOL)isPkg365ByType:(NSString *)type;
 + (BOOL)isPkg365ByArea:(NSUInteger)area;
 + (DecPackageKind)getPkgKindByArea:(NSUInteger)area;

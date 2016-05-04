@@ -116,6 +116,7 @@ extern NSString * const kDesignerPNFromDBYSConfirm;
 
 extern NSString * const kDecPackageDefault;
 extern NSString * const kDecPackage365;
+extern NSString * const kDecPackageJiangXinDingZhi;
 
 extern NSString * const kDecProgressTakeALook;
 extern NSString * const kDecProgressDoingPrepare;

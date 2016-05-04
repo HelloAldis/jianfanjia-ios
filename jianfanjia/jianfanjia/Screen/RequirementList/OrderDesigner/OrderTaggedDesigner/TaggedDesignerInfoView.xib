@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="447" height="389"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vid-sd-jHX" userLabel="background">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vid-sd-jHX" userLabel="background">
                     <rect key="frame" x="0.0" y="0.0" width="447" height="150"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="150" id="Yds-Ka-IJG"/>
@@ -43,6 +43,9 @@
                     <state key="normal" title="添加意向">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="onClickAdd:" destination="iN0-l3-epB" eventType="touchUpInside" id="buh-tp-pOH"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浏览" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKC-OW-gGf">
                     <rect key="frame" x="0.0" y="266" width="149" height="16"/>
@@ -203,7 +206,19 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="backgroundImageView" destination="vid-sd-jHX" id="EqY-N8-OVp"/>
+                <outlet property="btnAdd" destination="a3S-fH-5YW" id="gph-dG-jmc"/>
+                <outlet property="designerImageView" destination="X2R-F3-CEM" id="m2q-GV-29F"/>
                 <outlet property="lblDesignerName" destination="Dks-oc-yBc" id="5pB-wN-fBm"/>
+                <outlet property="lblOrderCount" destination="ZCW-JA-Ucj" id="9jv-YE-fnN"/>
+                <outlet property="lblProductCount" destination="aFg-60-G53" id="y56-aP-RSF"/>
+                <outlet property="lblViewCount" destination="eN1-jt-dHf" id="cBJ-Yo-Enc"/>
+                <outlet property="vImageView" destination="0qN-85-kpG" id="7tX-Aa-1BI"/>
+                <outletCollection property="starts" destination="bNC-OO-zO5" id="nQ9-H3-1hr"/>
+                <outletCollection property="starts" destination="eft-kc-KSf" id="1b9-UY-LZD"/>
+                <outletCollection property="starts" destination="9Xv-LD-Jxc" id="JWJ-hS-tR4"/>
+                <outletCollection property="starts" destination="yKg-4g-nkf" id="ej3-Gm-S8C"/>
+                <outletCollection property="starts" destination="7hF-nk-Blj" id="ppO-j6-PuH"/>
             </connections>
             <point key="canvasLocation" x="620.5" y="436.5"/>
         </view>

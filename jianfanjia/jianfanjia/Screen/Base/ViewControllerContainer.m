@@ -47,6 +47,7 @@
 #import "CommentListViewController.h"
 #import "NotificationDetailViewController.h"
 #import "DecLiveListViewController.h"
+#import "OrderTaggedDesignerViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -330,6 +331,8 @@ static ViewControllerContainer *container;
 }
 
 + (void)showOrderDesigner:(Requirement *)requirement {
+    Class class = [RequirementBusiness isPkgJiangXinByType:requirement.package_type] ? [OrderTaggedDesignerViewController class] : [OrderDesignerViewController class];
+    
     if (container.tab.selectedViewController != container.navTapRequirement) {
         container.tab.selectedViewController = container.navTapRequirement;
     }
@@ -337,14 +340,14 @@ static ViewControllerContainer *container;
     //if has designer order screen pop to
     UINavigationController* nav =  container.tab.selectedViewController;
     for (UIViewController *v in nav.viewControllers) {
-        if ([v isKindOfClass:[OrderDesignerViewController class]]) {
+        if ([v isKindOfClass:class]) {
             [nav popToViewController:v animated:YES];
             return;
         }
     }
     
     //no designer order screen
-    OrderDesignerViewController *v = [[OrderDesignerViewController alloc] initWithRequirement:requirement];
+    UIViewController *v = [[class alloc] initWithRequirement:requirement];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 
