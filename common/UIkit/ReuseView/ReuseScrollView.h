@@ -19,12 +19,13 @@
 
 @interface ReuseScrollView : UIScrollView
 
-@property (nonatomic, readonly) NSInteger currentPage;
-
 @property (nonatomic, weak) id<ReuseScrollViewProtocol> reuseDelegate;
 @property (nonatomic, assign) NSInteger padding;
+@property (nonatomic, readonly) NSInteger currentPage;
+@property (nonatomic, readonly) CGSize cellSize;
 
 - (instancetype)initWithFrame:(CGRect)frame items:(NSInteger)totalItems;
+- (CGRect)getOriginCellFrame:(NSInteger)page;
 
 @end
 

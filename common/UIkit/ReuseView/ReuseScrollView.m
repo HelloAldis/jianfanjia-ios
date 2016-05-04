@@ -28,6 +28,7 @@
 
 @property (nonatomic, assign) NSInteger totalItems;
 @property (nonatomic, retain) NSMutableArray *cells;
+@property (nonatomic, assign) CGSize cellSize;
 @property (nonatomic, assign) BOOL wasFirstDisplay;
 
 @end
@@ -50,7 +51,8 @@
     self.alwaysBounceVertical = NO;
     self.showsHorizontalScrollIndicator = NO;
     self.showsVerticalScrollIndicator = NO;
-    self.contentSize = CGSizeMake((self.frame.size.width -  self.padding) * _totalItems, self.frame.size.height);
+    self.cellSize = CGSizeMake(self.frame.size.width, self.frame.size.height);
+    self.contentSize = CGSizeMake(_cellSize.width * _totalItems, self.frame.size.height);
     
     _cells = @[].mutableCopy;
 }
@@ -82,7 +84,7 @@
                 cell.curPage = intPage;
                 
                 CGRect frame = cell.frame;
-                frame.origin.x = self.frame.size.width * i + self.padding / 2;
+                frame.origin.x = (_cellSize.width + _padding) * i + _padding / 2;
                 cell.frame = frame;
                 
                 [cell reloadData:self];
@@ -120,8 +122,7 @@
     if (![_reuseDelegate respondsToSelector:@selector(reuseCellFactory)]) return nil;
     
     cell = [_reuseDelegate reuseCellFactory];
-    cell.frame = CGRectMake(0, 0, self.frame.size.width - self.padding, self.frame.size.height);
-    cell.bgColor = [UIColor redColor];
+    cell.frame = CGRectMake(0, 0, _cellSize.width, _cellSize.height);
     cell.page = -1;
     [_cells addObject:cell];
     return cell;
@@ -137,6 +138,10 @@
     return nil;
 }
 
+- (CGRect)getOriginCellFrame:(NSInteger)page {
+    return CGRectMake((_cellSize.width + _padding) * page + _padding / 2, 0, _cellSize.width, _cellSize.height);
+}
+
 #pragma mark - properties
 - (void)setReuseDelegate:(id<ReuseScrollViewProtocol>)reuseDelegate {
     _reuseDelegate = reuseDelegate;
@@ -144,8 +149,8 @@
 
 - (void)setPadding:(NSInteger)padding {
     _padding = padding;
-    self.frame = CGRectMake(self.frame.origin.x - padding / 2, self.frame.origin.y, self.frame.size.width + padding, self.frame.size.height);
-    self.contentSize = CGSizeMake(self.frame.size.width * _totalItems, self.frame.size.height);
+    self.frame = CGRectMake(self.frame.origin.x - padding / 2, self.frame.origin.y, _cellSize.width + padding, self.frame.size.height);
+    self.contentSize = CGSizeMake((_cellSize.width + padding) * _totalItems, self.frame.size.height);
 }
 
 @end

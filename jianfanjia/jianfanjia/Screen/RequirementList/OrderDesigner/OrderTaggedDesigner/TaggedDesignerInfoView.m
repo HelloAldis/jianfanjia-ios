@@ -27,12 +27,17 @@
 
 + (TaggedDesignerInfoView *)taggedDesignerInfoView {
     TaggedDesignerInfoView *obj = [[[NSBundle mainBundle] loadNibNamed:@"TaggedDesignerInfoView" owner:nil options:nil] lastObject];
-    [obj setCornerRadius:5];
-    [obj.btnAdd setCornerRadius:obj.btnAdd.frame.size.height / 2.0];
-    [obj.btnAdd setBorder:2 andColor:[kThemeColor CGColor]];
-    [obj.designerImageView setCornerRadius:30];
+    [obj initUI];
     
     return obj;
+}
+
+- (void)initUI {
+    [self setCornerRadius:5];
+    [self setBorder:1 andColor:[UIColor colorWithR:0xCB g:0xCC b:0xCD].CGColor];
+    [self.btnAdd setCornerRadius:self.btnAdd.frame.size.height / 2.0];
+    [self.btnAdd setBorder:2 andColor:[kThemeColor CGColor]];
+    [self.designerImageView setCornerRadius:30];
 }
 
 - (void)initWithDesigner:(Designer *)designer {
@@ -104,22 +109,27 @@
 
 #pragma mark - reload data
 - (void)reloadData:(ReuseScrollView *)scrollView {
-    CGRect originFrame = CGRectMake(scrollView.frame.size.width * self.page + scrollView.padding / 2, 0, scrollView.frame.size.width - scrollView.padding, scrollView.frame.size.height);
+    [self playAnimation:scrollView];
     
     self.lblDesignerName.text = [NSString stringWithFormat:@"%@ curpage %@", @(self.page), @(self.curPage)];
-    
+}
+
+- (void)playAnimation:(ReuseScrollView *)scrollView {
     const CGFloat deltaW = 30;
     const CGFloat deltaH = 60;
-    CGRect frame;
     
-    if (self.page == self.curPage) {
-        frame = originFrame;
-    } else {
-        frame = CGRectMake(originFrame.origin.x + deltaW / 2, originFrame.origin.y + deltaH / 2, originFrame.size.width - deltaW, originFrame.size.height - deltaH);
-    }
+    CGFloat pageSize = scrollView.cellSize.width;
+    CGFloat offset = scrollView.contentOffset.x;
+    CGFloat origin = self.frame.origin.x;
+    CGFloat delta = fabs(origin - offset);
+    CGFloat deltaFactor = delta / pageSize;
     
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionBeginFromCurrentState animations:^{
+    CGRect originFrame = [scrollView getOriginCellFrame:self.page];
+    CGRect frame = CGRectMake(originFrame.origin.x + deltaW * deltaFactor / 2, originFrame.origin.y + deltaH * deltaFactor / 2, originFrame.size.width - deltaW * deltaFactor, originFrame.size.height - deltaH * deltaFactor);
+    
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction animations:^{
         self.frame = frame;
+        self.bgColor = self.page == self.curPage ? [UIColor whiteColor] : [UIColor colorWithR:0xCB g:0xCC b:0xCD];
     } completion:^(BOOL finished) {
         
     }];

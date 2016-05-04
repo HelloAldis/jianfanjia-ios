@@ -27,12 +27,26 @@
     [self initUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.scrollView.clipsToBounds = NO;
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.scrollView.clipsToBounds = YES;
+}
+
+- (void)initNav {
+    [self initLeftBackInNav];
+    self.title = @"匠心定制";
+}
+
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.scrollView = [[ReuseScrollView alloc] initWithFrame:CGRectMake(kScrollViewLeft, kNavWithStatusBarHeight + kScrollViewTop, kScreenWidth - kScrollViewLeft * 2, kScreenHeight -kNavWithStatusBarHeight - kScrollViewTop - kScrollViewBottom) items:5];
     self.scrollView.reuseDelegate = self;
     self.scrollView.padding = kCellPadding;
-    self.scrollView.clipsToBounds = NO;
     [self.view addSubview:self.scrollView];
 }
 
