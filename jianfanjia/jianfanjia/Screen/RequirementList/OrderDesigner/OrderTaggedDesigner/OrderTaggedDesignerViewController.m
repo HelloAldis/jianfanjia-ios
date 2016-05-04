@@ -13,6 +13,7 @@
 #import "RequirementDataManager.h"
 
 #define kScrollViewLeft 40
+#define kScrollCellPadding 20
 
 @interface OrderTaggedDesignerViewController () <ReuseScrollViewProtocol>
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
@@ -62,11 +63,22 @@
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    NSString *value = @"1";
+    NSString *str = [NSString stringWithFormat:@"您可立即预约%@名大咖设计师", value];
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:str];
+    [attributedStr setAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],
+                                   NSForegroundColorAttributeName:kThemeColor,
+                                   }
+                           range:[str rangeOfString:value]];
+    self.lblTitle.attributedText = attributedStr;
 }
 
 - (void)setupReuseCells {
+    self.pageControl.numberOfPages = self.dataManager.recommendedDesigners.count;
     self.scrollView = [[ReuseScrollView alloc] initWithFrame:CGRectMake(kScrollViewLeft, 0, kScreenWidth - kScrollViewLeft * 2, kScreenHeight -kNavWithStatusBarHeight - CGRectGetHeight(self.lblTitle.frame) - CGRectGetHeight(self.pageControl.frame)) items:self.dataManager.recommendedDesigners.count];
     self.scrollView.reuseDelegate = self;
+    self.scrollView.padding = kScrollCellPadding;
     self.scrollView.clipsToBounds = NO;
     [self.containerView addSubview:self.scrollView];
     self.containerView.touchDelegateView = self.scrollView;
@@ -75,7 +87,21 @@
 #pragma mark - reuse delegate
 - (ReuseCell *)reuseCellFactory {
     TaggedDesignerInfoView *taggedDesignerInfoView = [TaggedDesignerInfoView taggedDesignerInfoView];
-    [taggedDesignerInfoView initWithDesigners:self.dataManager.recommendedDesigners];
+    [taggedDesignerInfoView initWithDesigners:self.dataManager.recommendedDesigners done:^(NSString *designerid) {
+        [HUDUtil showWait];
+        OrderDesignder *orderDesigner = [[OrderDesignder alloc] init];
+        orderDesigner.requirementid = self.requirement._id;
+        orderDesigner.designerids = @[designerid];
+        
+        [API orderDesigner:orderDesigner success:^{
+            [HUDUtil hideWait];
+            [self clickBack];
+        } failure:^{
+            [HUDUtil hideWait];
+        } networkError:^{
+            [HUDUtil hideWait];
+        }];
+    }];
     
     return taggedDesignerInfoView;
 }
