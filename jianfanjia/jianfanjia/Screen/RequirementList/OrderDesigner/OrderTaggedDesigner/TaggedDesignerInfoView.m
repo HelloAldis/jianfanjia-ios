@@ -7,6 +7,7 @@
 //
 
 #import "TaggedDesignerInfoView.h"
+#import "ViewControllerContainer.h"
 
 @interface TaggedDesignerInfoView ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 
 @property (strong, nonatomic) Designer *designer;
+@property (strong, nonatomic) Product *product;
 @property (strong, nonatomic) NSArray *designers;
 @property (copy, nonatomic) void (^done)(NSString * designerid);
 
@@ -43,6 +45,9 @@
     [self.designerImageView setCornerRadius:self.designerImageView.frame.size.height / 2.0];
     [self.designerImageView setBorder:1 andColor:[UIColor whiteColor].CGColor];
     self.backgroundImageView.clipsToBounds = YES;
+    
+    [self.backgroundImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapBackground:)]];
+    [self.designerImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTabDesignerAvatar:)]];
 }
 
 #pragma mark - init data
@@ -77,7 +82,8 @@
     }
     
     if (products.count > 0) {
-        ProductImage *image = [products[0] imageAtIndex:0];
+        self.product = products[0];
+        ProductImage *image = [self.product imageAtIndex:0];
         [self.backgroundImageView setImageWithId:image.imageid withWidth:kScreenWidth];
     }
 }
@@ -86,6 +92,14 @@
     if (self.done) {
         self.done(self.designer._id);
     }
+}
+
+- (void)onTapBackground:(UIGestureRecognizer *)g {
+    [ViewControllerContainer showProduct:self.product._id];
+}
+
+- (void)onTabDesignerAvatar:(UIGestureRecognizer *)g {
+    [ViewControllerContainer showDesigner:self.designer._id];
 }
 
 #pragma mark - reload data
