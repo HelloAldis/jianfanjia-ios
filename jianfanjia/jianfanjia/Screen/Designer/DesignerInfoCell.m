@@ -29,7 +29,7 @@
 @implementation DesignerInfoCell
 
 - (void)awakeFromNib {
-    [self.btnAdd setCornerRadius:5];
+    [self.btnAdd setCornerRadius:self.btnAdd.frame.size.height / 2.0];
     [self.btnAdd setBorder:2 andColor:[kThemeColor CGColor]];
     [self.designerImageView setCornerRadius:self.designerImageView.frame.size.width / 2.0];
     [self.designerImageView setBorder:1 andColor:[UIColor whiteColor].CGColor];
