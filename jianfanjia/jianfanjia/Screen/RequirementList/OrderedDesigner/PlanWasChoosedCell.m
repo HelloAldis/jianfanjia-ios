@@ -16,9 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnViewEvaluate;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
 @property (weak, nonatomic) IBOutlet UIButton *btnViewAgreement;
-
-@property (weak, nonatomic) IBOutlet UIImageView *imgIdCardChecked;
-@property (weak, nonatomic) IBOutlet UIImageView *imgBaseInfoChecked;
+@property (weak, nonatomic) IBOutlet UIView *tagView;
+@property (weak, nonatomic) IBOutlet UILabel *lblTag;
+@property (weak, nonatomic) IBOutlet UIImageView *vImage;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *evaluatedStars;
 
 @end
@@ -26,6 +26,7 @@
 @implementation PlanWasChoosedCell
 
 - (void)awakeFromNib {
+    [self.tagView setCornerRadius:self.tagView.bounds.size.height / 2];
     [self.imgAvatar setCornerRadius:30];
     [self.imgAvatar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickDesignerAvatar)]];
     
@@ -48,7 +49,7 @@
 
 - (void)initWithDesigner:(Designer *)designer withRequirement:(Requirement *)requirement withBlock:(PlanStatusRefreshBlock)refreshBlock {
     [super initWithDesigner:designer withRequirement:requirement withBlock:refreshBlock];
-    [self initHeader:self.imgAvatar name:self.lblUserNameVal idCheck:self.imgIdCardChecked infoCheck:self.imgBaseInfoChecked stars:self.evaluatedStars];
+    [self initHeader:self.imgAvatar name:self.lblUserNameVal tagView:self.tagView lblTag:self.lblTag infoCheck:self.vImage stars:self.evaluatedStars];
     [self.btnViewEvaluate setNormTitle:designer.evaluation._id ? @"查看评价" : @"评价设计师"];
     
     self.lblStatus.text = [PlanWasChoosed text:self.requirement.status workType:self.requirement.work_type];

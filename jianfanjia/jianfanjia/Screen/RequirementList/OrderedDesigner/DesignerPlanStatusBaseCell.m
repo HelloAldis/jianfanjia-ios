@@ -29,12 +29,13 @@
     }
 }
 
-- (void)initHeader:(UIImageView *)avatar name:(UILabel *)name idCheck:(UIImageView *)idCheck infoCheck:(UIImageView *)infoCheck stars:(NSArray <UIImageView *> *)evaluatedStars {
+- (void)initHeader:(UIImageView *)avatar name:(UILabel *)name tagView:(UIView *)tagView lblTag:(UILabel *)lblTag infoCheck:(UIImageView *)infoCheck stars:(NSArray <UIImageView *> *)evaluatedStars {
     [avatar setImageWithId:self.designer.imageid withWidth:avatar.bounds.size.width];
     name.text = self.designer.username;
     
-    [DesignerBusiness setIdCardCheck:idCheck withAuthType:self.designer.uid_auth_type];
-    [DesignerBusiness setBaseInfoCheck:infoCheck withAuthType:self.designer.auth_type];
+    tagView.bgColor = [DesignerBusiness designerTagColorByArr:self.designer.tags];
+    lblTag.text = [DesignerBusiness designerTagTextByArr:self.designer.tags];
+    [DesignerBusiness setV:infoCheck withAuthType:self.designer.auth_type];
     [DesignerBusiness setStars:evaluatedStars withStar:(self.designer.respond_speed.floatValue +  self.designer.service_attitude.floatValue) / 2 fullStar:[UIImage imageNamed:@"star_small"] emptyStar:[UIImage imageNamed:@"star_small_empty"]];
 }
 
