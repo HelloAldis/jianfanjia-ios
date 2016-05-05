@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kDesignerSimpleInfoCellHeight 184
+#define kDesignerSimpleInfoCellHeight 186
 
 @interface DesignerSimpleInfoCell : UITableViewCell
 

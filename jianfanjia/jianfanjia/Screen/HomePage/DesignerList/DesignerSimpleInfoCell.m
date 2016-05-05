@@ -10,8 +10,10 @@
 #import "ViewControllerContainer.h"
 
 @interface DesignerSimpleInfoCell ()
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
+@property (weak, nonatomic) IBOutlet UIImageView *imgHandings;
 @property (weak, nonatomic) IBOutlet UILabel *lblDesignerName;
 @property (weak, nonatomic) IBOutlet UIView *tagView;
 @property (weak, nonatomic) IBOutlet UILabel *lblTag;
@@ -57,11 +59,8 @@
     [DesignerBusiness setStars:self.evaluatedStars withStar:(designer.respond_speed.floatValue +  designer.service_attitude.floatValue) / 2 fullStar:[UIImage imageNamed:@"star_small"] emptyStar:[UIImage imageNamed:@"star_small_empty"]];
     
     BOOL isJiangXin = [DesignerBusiness containsJiangXinDingZhiTag:designer.tags];
-    if (isJiangXin) {
-        
-    } else {
-        
-    }
+    [self.containerView setBorder:isJiangXin ? 1.0 : 0.0 andColor:[UIColor colorWithR:0xFF g:0xCF b:0xC5].CGColor];
+    [DesignerBusiness setAvatarHangings:self.imgHandings withTags:designer.tags];
 }
 
 #pragma mark - gesture

@@ -78,6 +78,15 @@
     }];
 }
 
++ (void)setAvatarHangings:(UIImageView *)imageView withTags:(NSArray *)tags {
+    if ([self containsJiangXinDingZhiTag:tags]) {
+        [imageView setImage:[UIImage imageNamed:@"icon_crown"]];
+        imageView.hidden = NO;
+    } else {
+        imageView.hidden = YES;
+    }
+}
+
 + (NSString *)designerTagTextByArr:(NSArray *)tags {
     if (tags && tags.count > 0) {
         return tags[0];

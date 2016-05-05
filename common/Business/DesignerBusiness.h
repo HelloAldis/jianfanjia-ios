@@ -16,6 +16,7 @@
 + (void)setBaseInfoCheck:(UIImageView *)imageView withAuthType:(NSString *)authType;
 + (NSInteger)setStars:(NSArray *)imageViewArray withTouchStar:(UIImageView *)touchedStar fullStar:(UIImage *)full emptyStar:(UIImage *)empty ;
 + (void)displayStars:(NSArray *)imageViewArray withAmount:(NSInteger)amount fullStar:(UIImage *)full emptyStar:(UIImage *)empty;
++ (void)setAvatarHangings:(UIImageView *)imageView withTags:(NSArray *)tags;
 
 + (NSString *)designerTagTextByArr:(NSArray *)tags;
 + (UIColor *)designerTagColorByArr:(NSArray *)tags;

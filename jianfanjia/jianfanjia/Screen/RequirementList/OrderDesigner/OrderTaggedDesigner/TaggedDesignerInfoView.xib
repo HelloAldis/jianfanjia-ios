@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -21,6 +22,13 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="8Ja-sq-Hgn"/>
                         <constraint firstAttribute="width" constant="60" id="FWl-CK-O5f"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_crown" translatesAutoresizingMaskIntoConstraints="NO" id="jjQ-Ez-g54" userLabel="Hangings">
+                    <rect key="frame" x="234" y="335" width="22" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="jjQ-Ez-g54" secondAttribute="height" multiplier="71:66" id="CBo-ad-rH3"/>
+                        <constraint firstAttribute="width" constant="22" id="U9s-fa-SgB"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aFg-60-G53">
@@ -51,6 +59,15 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="案例" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEA-8P-oXv">
                     <rect key="frame" x="149" y="502" width="149" height="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浏览" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yH-5u-LDZ">
+                    <rect key="frame" x="0.0" y="502" width="149" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="qBu-a5-EsW"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -121,15 +138,6 @@
                     <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浏览" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yH-5u-LDZ">
-                    <rect key="frame" x="0.0" y="502" width="149" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="qBu-a5-EsW"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                    <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -153,9 +161,12 @@
                 <constraint firstItem="ZCW-JA-Ucj" firstAttribute="height" secondItem="eN1-jt-dHf" secondAttribute="height" id="P5c-pE-Dia"/>
                 <constraint firstItem="yEA-8P-oXv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Qbn-ZP-LN2"/>
                 <constraint firstItem="Dks-oc-yBc" firstAttribute="top" secondItem="X2R-F3-CEM" secondAttribute="bottom" constant="10" id="RBo-Wz-7m7"/>
+                <constraint firstItem="jjQ-Ez-g54" firstAttribute="trailing" secondItem="X2R-F3-CEM" secondAttribute="trailing" constant="2" id="RkI-89-TRt"/>
                 <constraint firstItem="9Xv-LD-Jxc" firstAttribute="leading" secondItem="eft-kc-KSf" secondAttribute="trailing" constant="2" id="Rxl-Bx-w8W"/>
+                <constraint firstItem="jjQ-Ez-g54" firstAttribute="width" secondItem="jjQ-Ez-g54" secondAttribute="height" multiplier="71:66" id="UHJ-lI-4nW"/>
                 <constraint firstItem="aFg-60-G53" firstAttribute="width" secondItem="eN1-jt-dHf" secondAttribute="width" id="XEl-EP-gYU"/>
                 <constraint firstItem="yEA-8P-oXv" firstAttribute="centerY" secondItem="1yH-5u-LDZ" secondAttribute="centerY" id="Xfl-tL-6tO"/>
+                <constraint firstItem="jjQ-Ez-g54" firstAttribute="top" secondItem="X2R-F3-CEM" secondAttribute="top" constant="-9" id="Xmo-wI-L8m"/>
                 <constraint firstItem="ZCW-JA-Ucj" firstAttribute="leading" secondItem="aFg-60-G53" secondAttribute="trailing" constant="-1" id="Y6G-0z-r7N"/>
                 <constraint firstItem="9xU-vB-Ctj" firstAttribute="height" secondItem="1yH-5u-LDZ" secondAttribute="height" id="ZzX-Xu-n70"/>
                 <constraint firstItem="eft-kc-KSf" firstAttribute="top" secondItem="9Xv-LD-Jxc" secondAttribute="top" id="ah5-6A-HkN"/>
@@ -200,6 +211,7 @@
         </view>
     </objects>
     <resources>
+        <image name="icon_crown" width="22" height="21"/>
         <image name="star_middle_empty" width="17" height="15"/>
         <image name="v" width="16" height="16"/>
     </resources>
