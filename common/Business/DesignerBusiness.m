@@ -106,11 +106,11 @@
 + (UIColor *)designerTagColor:(NSString *)tag {
     UIColor *color = nil;
     if ([tag isEqualToString:kDesignerTagJiangXinDingZhi]) {
-        color = kThemeColor;
+        color = [UIColor colorWithR:0xFF g:0x6F b:0x27];
     } else if ([tag isEqualToString:kDesignerTagXinYueXianFeng]) {
-        color = kExcutionStatusColor;
+        color = [UIColor colorWithR:0x64 g:0xC5 b:0xF4];
     } else if ([tag isEqualToString:kDesignerTagNuanNuanZouXin]) {
-        color = kReminderColor;
+        color = [UIColor colorWithR:0xFF g:0x73 b:0x78];
     } else {
         color = [UIColor clearColor];
     }

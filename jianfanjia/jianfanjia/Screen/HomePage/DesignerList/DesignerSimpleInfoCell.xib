@@ -402,11 +402,11 @@
                 <outlet property="lblStyleVal" destination="oqS-9v-csO" id="Q1r-6w-HBS"/>
                 <outlet property="lblTag" destination="kti-51-NE3" id="BfR-Ot-huH"/>
                 <outlet property="tagView" destination="lUn-GJ-CWI" id="Nk6-Sb-auT"/>
-                <outletCollection property="evaluatedStars" destination="iA4-S9-1dr" id="SQl-DX-zzG"/>
-                <outletCollection property="evaluatedStars" destination="Ahk-mQ-L6u" id="dWJ-6n-Hhr"/>
-                <outletCollection property="evaluatedStars" destination="7f8-J0-FPB" id="eGz-t7-HQ4"/>
-                <outletCollection property="evaluatedStars" destination="6gF-am-Ijf" id="UnV-sM-Eyj"/>
-                <outletCollection property="evaluatedStars" destination="r43-Q0-eKn" id="hdn-C9-UZ3"/>
+                <outletCollection property="evaluatedStars" destination="6gF-am-Ijf" id="8eK-2i-FIZ"/>
+                <outletCollection property="evaluatedStars" destination="Ahk-mQ-L6u" id="DRH-ao-yLB"/>
+                <outletCollection property="evaluatedStars" destination="7f8-J0-FPB" id="esf-qz-E2e"/>
+                <outletCollection property="evaluatedStars" destination="iA4-S9-1dr" id="1BB-sS-FCG"/>
+                <outletCollection property="evaluatedStars" destination="r43-Q0-eKn" id="9qk-5z-OYe"/>
             </connections>
             <point key="canvasLocation" x="325" y="138"/>
         </tableViewCell>

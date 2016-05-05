@@ -59,7 +59,7 @@
     [DesignerBusiness setStars:self.evaluatedStars withStar:(designer.respond_speed.floatValue +  designer.service_attitude.floatValue) / 2 fullStar:[UIImage imageNamed:@"star_small"] emptyStar:[UIImage imageNamed:@"star_small_empty"]];
     
     BOOL isJiangXin = [DesignerBusiness containsJiangXinDingZhiTag:designer.tags];
-    [self.containerView setBorder:isJiangXin ? 1.0 : 0.0 andColor:[UIColor colorWithR:0xFF g:0xCF b:0xC5].CGColor];
+    [self.containerView setBorder:isJiangXin ? 1.5 : 0.0 andColor:[UIColor colorWithR:0xFF g:0xCF b:0xC5].CGColor];
     [DesignerBusiness setAvatarHangings:self.imgHandings withTags:designer.tags];
 }
 
