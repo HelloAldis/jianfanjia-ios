@@ -17,4 +17,9 @@
 + (NSInteger)setStars:(NSArray *)imageViewArray withTouchStar:(UIImageView *)touchedStar fullStar:(UIImage *)full emptyStar:(UIImage *)empty ;
 + (void)displayStars:(NSArray *)imageViewArray withAmount:(NSInteger)amount fullStar:(UIImage *)full emptyStar:(UIImage *)empty;
 
++ (NSString *)designerTagTextByArr:(NSArray *)tags;
++ (UIColor *)designerTagColorByArr:(NSArray *)tags;
++ (UIColor *)designerTagColor:(NSString *)tag;
++ (BOOL)containsJiangXinDingZhiTag:(NSArray *)tags;
+
 @end

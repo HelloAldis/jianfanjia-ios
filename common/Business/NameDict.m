@@ -29,6 +29,7 @@ static NSArray *beautifulTypeArr = nil;
 static NSDictionary *businessTypeDict = nil;
 static NSDictionary *decLiveSectionDict = nil;
 static NSDictionary *decProgressDict = nil;
+static NSArray *desginerTagArr = nil;
 
 + (void)initialize {
     houseTypeDict = @{@"0":@"一室",
@@ -83,6 +84,11 @@ static NSDictionary *decProgressDict = nil;
                       @"1":@"100 - 200",
                       @"2":@"200 - 300",
                       @"3":@"300以上"};
+    
+    desginerTagArr = @[
+                  kDesignerTagXinYueXianFeng,
+                  kDesignerTagNuanNuanZouXin,
+                  kDesignerTagJiangXinDingZhi,];
 
     planStatus = @{
                    kPlanStatusHomeOwnerOrderedWithoutResponse:@"等待响应",
@@ -230,6 +236,10 @@ static NSDictionary *decProgressDict = nil;
 
 + (NSDictionary *)getAllDesignFee {
     return desginFeeDict;
+}
+
++ (NSArray *)getAllDesignerTag {
+    return desginerTagArr;
 }
 
 + (NSString *)nameForUserType:(NSString *)type {

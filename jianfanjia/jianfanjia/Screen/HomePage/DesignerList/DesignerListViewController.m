@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, DesignFilterType) {
     DesignFilterTypeDecType,
     DesignFilterTypeHouseType,
     DesignFilterTypeStyle,
-    DesignFilterTypeDesignFee,
+    DesignFilterTypeDesignerTag,
 };
 
 static NSString *DesignerSimpleInfoCellIdentifier = @"DesignerSimpleInfoCell";
@@ -23,7 +23,7 @@ static NSString *UnlimitedValue = @"不限";
 static NSMutableArray *decTypeDS;
 static NSMutableArray *houseTypeDS;
 static NSMutableArray *decStyleDS;
-static NSMutableArray *designFeeDS;
+static NSMutableArray *designerTagDS;
 
 @interface DesignerListViewController ()
 
@@ -40,7 +40,7 @@ static NSMutableArray *designFeeDS;
 @property (strong, nonatomic) NSString *curDesignFilterTypeDecType;
 @property (strong, nonatomic) NSString *curDesignFilterTypeHouseType;
 @property (strong, nonatomic) NSString *curDesignFilterTypeStyle;
-@property (strong, nonatomic) NSString *curDesignFilterTypeDesignFee;
+@property (strong, nonatomic) NSString *curDesignFilterTypeDesignerTag;
 
 @property (strong, nonatomic) DesignerListDataManager *dataManager;
 
@@ -54,12 +54,12 @@ static NSMutableArray *designFeeDS;
         decTypeDS = [[NameDict getAllDecorationType] sortedValueWithOrder:YES];
         houseTypeDS = [[NameDict getAllHouseType] sortedValueWithOrder:YES];
         decStyleDS = [[NameDict getAllDecorationStyle] sortedValueWithOrder:YES];
-        designFeeDS = [[NameDict getAllDesignFee] sortedValueWithOrder:YES];
+        designerTagDS = [[NameDict getAllDesignerTag] mutableCopy];
         
         [decTypeDS insertObject:UnlimitedValue atIndex:0];
         [houseTypeDS insertObject:UnlimitedValue atIndex:0];
         [decStyleDS insertObject:UnlimitedValue atIndex:0];
-        [designFeeDS insertObject:UnlimitedValue atIndex:0];
+        [designerTagDS insertObject:UnlimitedValue atIndex:0];
     }
 }
 
@@ -103,7 +103,7 @@ static NSMutableArray *designFeeDS;
     self.curDesignFilterTypeDecType = UnlimitedValue;
     self.curDesignFilterTypeHouseType = UnlimitedValue;
     self.curDesignFilterTypeStyle = UnlimitedValue;
-    self.curDesignFilterTypeDesignFee = UnlimitedValue;
+    self.curDesignFilterTypeDesignerTag = UnlimitedValue;
     
     [self refresh];
 }
@@ -156,9 +156,9 @@ static NSMutableArray *designFeeDS;
     } else if (self.designFilterType == DesignFilterTypeStyle) {
         datasource = decStyleDS;
         defaultValue = self.curDesignFilterTypeStyle;
-    } else if (self.designFilterType == DesignFilterTypeDesignFee) {
-        datasource = designFeeDS;
-        defaultValue = self.curDesignFilterTypeDesignFee;
+    } else if (self.designFilterType == DesignFilterTypeDesignerTag) {
+        datasource = designerTagDS;
+        defaultValue = self.curDesignFilterTypeDesignerTag;
     }
     
     @weakify(self);
@@ -174,8 +174,8 @@ static NSMutableArray *designFeeDS;
                     self.curDesignFilterTypeHouseType = value;
                 } else if (self.designFilterType == DesignFilterTypeStyle) {
                     self.curDesignFilterTypeStyle = value;
-                } else if (self.designFilterType == DesignFilterTypeDesignFee) {
-                    self.curDesignFilterTypeDesignFee = value;
+                } else if (self.designFilterType == DesignFilterTypeDesignerTag) {
+                    self.curDesignFilterTypeDesignerTag = value;
                 }
                 
                 //update fall flow data
@@ -203,8 +203,8 @@ static NSMutableArray *designFeeDS;
         case DesignFilterTypeStyle:
             buttonTitle = @"风格";
             break;
-        case DesignFilterTypeDesignFee:
-            buttonTitle = @"报价";
+        case DesignFilterTypeDesignerTag:
+            buttonTitle = @"等级";
             break;
             
         default:
@@ -285,8 +285,8 @@ static NSMutableArray *designFeeDS;
     if (![self.curDesignFilterTypeStyle isEqualToString:UnlimitedValue]) {
         [dic setObject:[[[NameDict getAllDecorationStyle] allKeysForObject:self.curDesignFilterTypeStyle] lastObject] forKey:@"dec_styles"];
     }
-    if (![self.curDesignFilterTypeDesignFee isEqualToString:UnlimitedValue]) {
-        [dic setObject:[[[NameDict getAllDesignFee] allKeysForObject:self.curDesignFilterTypeDesignFee] lastObject] forKey:@"design_fee_range"];
+    if (![self.curDesignFilterTypeDesignerTag isEqualToString:UnlimitedValue]) {
+        [dic setObject:self.curDesignFilterTypeDesignerTag forKey:@"tags"];
     }
     
     return dic;

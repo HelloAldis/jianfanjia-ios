@@ -42,6 +42,8 @@
 @property(nonatomic, strong) NSString *auth_type;
 @property(nonatomic, strong) NSString *uid_auth_type;
 @property(nonatomic, strong) NSNumber *match;
+@property(nonatomic, strong) NSArray *tags;
+
 
 //不动态的属性
 @property(nonatomic, strong) Product *product;

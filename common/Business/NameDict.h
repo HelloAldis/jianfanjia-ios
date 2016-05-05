@@ -25,6 +25,7 @@
 + (NSArray *)getAllBeautifulImageType;
 + (NSDictionary *)getAllBusinessType;
 + (NSDictionary *)getAllDesignFee;
++ (NSArray *)getAllDesignerTag;
 
 + (NSString *)nameForUserType:(NSString *)type;
 + (NSString *)nameForHouseType:(NSString *)type;

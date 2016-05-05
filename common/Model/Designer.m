@@ -38,6 +38,6 @@
 @dynamic auth_type;
 @dynamic uid_auth_type;
 @dynamic match;
-
+@dynamic tags;
 
 @end

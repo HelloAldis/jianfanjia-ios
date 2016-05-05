@@ -65,7 +65,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     NSString *value = @"1";
-    NSString *str = [NSString stringWithFormat:@"您可立即预约%@名大咖设计师", value];
+    NSString *str = [NSString stringWithFormat:@"您可立即预约%@名匠心定制设计师", value];
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:str];
     [attributedStr setAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14],
                                    NSForegroundColorAttributeName:kThemeColor,

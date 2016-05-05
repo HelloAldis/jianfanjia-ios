@@ -284,5 +284,7 @@ NSString * const kDecProgressTakeALook = @"0";
 NSString * const kDecProgressDoingPrepare = @"1";
 NSString * const kDecProgressStartedAlready = @"2";
 
-
+NSString * const kDesignerTagJiangXinDingZhi = @"匠心定制";
+NSString * const kDesignerTagXinYueXianFeng = @"新锐先锋";
+NSString * const kDesignerTagNuanNuanZouXin = @"暖暖走心";
 

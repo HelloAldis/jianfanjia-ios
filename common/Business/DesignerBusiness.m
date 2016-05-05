@@ -78,4 +78,43 @@
     }];
 }
 
++ (NSString *)designerTagTextByArr:(NSArray *)tags {
+    if (tags && tags.count > 0) {
+        return tags[0];
+    }
+    
+    return nil;
+}
+
++ (UIColor *)designerTagColorByArr:(NSArray *)tags {
+    if (tags && tags.count > 0) {
+        return [self designerTagColor:tags[0]];
+    }
+    
+    return nil;
+}
+
++ (UIColor *)designerTagColor:(NSString *)tag {
+    UIColor *color = nil;
+    if ([tag isEqualToString:kDesignerTagJiangXinDingZhi]) {
+        color = kThemeColor;
+    } else if ([tag isEqualToString:kDesignerTagXinYueXianFeng]) {
+        color = kExcutionStatusColor;
+    } else if ([tag isEqualToString:kDesignerTagNuanNuanZouXin]) {
+        color = kReminderColor;
+    } else {
+        color = [UIColor clearColor];
+    }
+    
+    return color;
+}
+
++ (BOOL)containsJiangXinDingZhiTag:(NSArray *)tags {
+    if (tags && tags.count > 0) {
+        return [tags[0] isEqualToString:kDesignerTagJiangXinDingZhi];
+    }
+    
+    return NO;
+}
+
 @end

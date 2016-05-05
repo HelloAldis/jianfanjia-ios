@@ -121,3 +121,7 @@ extern NSString * const kDecPackageJiangXinDingZhi;
 extern NSString * const kDecProgressTakeALook;
 extern NSString * const kDecProgressDoingPrepare;
 extern NSString * const kDecProgressStartedAlready;
+
+extern NSString * const kDesignerTagJiangXinDingZhi;
+extern NSString * const kDesignerTagXinYueXianFeng;
+extern NSString * const kDesignerTagNuanNuanZouXin;
