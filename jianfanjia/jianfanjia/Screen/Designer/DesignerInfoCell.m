@@ -46,6 +46,7 @@
     UIImage *full = [UIImage imageNamed:@"star_middle"];
     UIImage *empty = [UIImage imageNamed:@"star_middle_empty"];
     [DesignerBusiness setStars:self.starts withStar:star fullStar:full emptyStar:empty];
+    [DesignerBusiness setV:self.vImageView withAuthType:designer.auth_type];
 }
 
 - (void)refreshAdd {

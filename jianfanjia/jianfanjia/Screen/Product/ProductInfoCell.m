@@ -31,12 +31,6 @@
     [self.designerImageView addGestureRecognizer:self.tapDesigner];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 - (void)initWithProduct:(Product *)product {
     self.product = product;
     
@@ -49,6 +43,7 @@
     [self.designerImageView setUserImageWithId:self.product.designer.imageid];
     self.lblDescription.text = self.product.product_description;
     [self.lblDescription setRowSpace:10.0f];
+    [DesignerBusiness setV:self.vImageView withAuthType:product.designer.auth_type];
 }
 
 #pragma mark - user action
