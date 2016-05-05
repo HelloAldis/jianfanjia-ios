@@ -57,7 +57,7 @@
     [self showBackground:designer];
     [self.designerImageView setUserImageWithId:designer.imageid];
     self.lblDesignerName.text = designer.username;
-    self.lblViewCount.text = [designer.view_count stringValue];
+    self.lblViewCount.text = [designer.view_count humCountString];
     self.lblProductCount.text = [designer.authed_product_count stringValue];
     self.lblOrderCount.text = [designer.order_count stringValue];
     
