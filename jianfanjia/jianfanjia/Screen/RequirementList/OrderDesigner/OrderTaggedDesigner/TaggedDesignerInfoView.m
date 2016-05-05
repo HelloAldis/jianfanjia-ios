@@ -97,7 +97,7 @@
 }
 
 - (void)playAnimation:(ReuseScrollView *)scrollView {
-    const CGFloat deltaH = 45;
+    const CGFloat deltaH = 55;
     
     CGFloat pageSize = scrollView.cellSize.width;
     CGFloat offset = scrollView.contentOffset.x;
