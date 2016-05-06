@@ -15,6 +15,13 @@
 #import "SelectDecorationStyleViewController.h"
 #import "ViewControllerContainer.h"
 #import "DecPackage365View.h"
+#import "DecPackageJiangXinView.h"
+
+typedef NS_ENUM(NSInteger, PkgShowingType) {
+    PkgShowingTypeDefault,
+    PkgShowingType365,
+    PkgShowingTypeJiangXin,
+};
 
 @interface HouseRequirementCreateViewController ()
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -58,7 +65,10 @@
 @property (strong, nonatomic) UIGestureRecognizer *selectSexTypeGesture;
 
 @property (strong, nonatomic) DecPackage365View *decPkg365View;
-@property (assign, nonatomic) BOOL wasShowPkg;
+@property (strong, nonatomic) DecPackageJiangXinView *decPkgJiangXinView;
+@property (assign, nonatomic) PkgShowingType curPkgShowingType;
+@property (assign, nonatomic) CGFloat originPart3TopConstraintConst;
+@property (assign, nonatomic) CGSize originScrollViewContentSize;
 @property (assign, nonatomic) CGFloat keyboardHeight;
 
 @property (strong, nonatomic) Requirement *originRequirement;
@@ -99,8 +109,14 @@
     [self initUI];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.originPart3TopConstraintConst == 0.0) {
+        self.originPart3TopConstraintConst = self.part3TopConstraint.constant;
+    }
+    if (self.originScrollViewContentSize.height == 0.0) {
+        self.originScrollViewContentSize = self.scrollView.contentSize;
+    }
     [self listenProperties];
 }
 
@@ -127,6 +143,10 @@
     self.decPkg365View.alpha = 0;
     [self.scrollView insertSubview:self.decPkg365View belowSubview:self.decTotalBudgetView.superview];
     
+    self.decPkgJiangXinView = [[DecPackageJiangXinView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(frame), kScreenWidth, kDecPackageJiangXinViewHeight)];
+    self.decPkgJiangXinView.alpha = 0;
+    [self.scrollView insertSubview:self.decPkgJiangXinView belowSubview:self.decTotalBudgetView.superview];
+    
     [[self.fldDecorationAreaVal rac_signalForControlEvents:UIControlEventEditingDidBegin | UIControlEventEditingChanged] subscribeNext:^(id x) {
         [self scrollToMakeDecPkgVisible];
     }];
@@ -142,41 +162,46 @@
     [self.decPkg365View updateData:self.editingRequirement];
 }
 
-- (void)showDecPkg {
-    if (!self.wasShowPkg) {
-        self.wasShowPkg = YES;
-        
+- (void)showDecPkg365 {
+    if (self.originScrollViewContentSize.height == 0.0) return;
+    
+    void (^showDecPkg365Block)(void) = ^ {
         BOOL showError = [self.decPkg365View hasError];
         CGFloat extraHeight = showError ? kDecPackage365ViewErrorHeight : 0;
-        
-        CGFloat constant = self.part3TopConstraint.constant;
-        constant += (kDecPackage365ViewHeight + extraHeight);
-        CGSize contentSize = self.scrollView.contentSize;
-        contentSize.height += (kDecPackage365ViewHeight + extraHeight);
+        CGFloat pkgHeight = kDecPackage365ViewHeight + extraHeight;
+        CGFloat constant = self.originPart3TopConstraintConst + pkgHeight;
+        CGSize contentSize = CGSizeMake(self.originScrollViewContentSize.width, self.originScrollViewContentSize.height + pkgHeight);
+        CGRect frame = CGRectMake(CGRectGetMinX(self.decPkg365View.frame), CGRectGetMinY(self.decPkg365View.frame), CGRectGetWidth(self.decPkg365View.frame), pkgHeight);
         
         [UIView animateWithDuration:0.3 animations:^{
+            self.decPkgJiangXinView.alpha = 0;
             self.decPkg365View.alpha = 1;
+            self.decPkg365View.frame = frame;
             self.part3TopConstraint.constant = constant;
             self.scrollView.contentSize = contentSize;
         }];
+    };
+    
+    if (self.curPkgShowingType == PkgShowingTypeDefault || self.curPkgShowingType == PkgShowingTypeJiangXin) {
+        self.curPkgShowingType = PkgShowingType365;
+        showDecPkg365Block();
     } else {
-        [self updateDecPkgFrame];
+        showDecPkg365Block();
     }
 }
 
-- (void)hideDecPkg {
-    if (self.wasShowPkg) {
-        self.wasShowPkg = NO;
+- (void)showDecPkgJiangXin {
+    if (self.originScrollViewContentSize.height == 0.0) return;
+    
+    if (self.curPkgShowingType == PkgShowingTypeDefault || self.curPkgShowingType == PkgShowingType365) {
+        self.curPkgShowingType = PkgShowingTypeJiangXin;
         
-        BOOL showError = [self.decPkg365View hasError];
-        CGFloat extraHeight = showError ? kDecPackage365ViewErrorHeight : 0;
-        
-        CGFloat constant = self.part3TopConstraint.constant;
-        constant -= (kDecPackage365ViewHeight + extraHeight);
-        CGSize contentSize = self.scrollView.contentSize;
-        contentSize.height -= (kDecPackage365ViewHeight + extraHeight);
+        CGFloat pkgHeight = kDecPackageJiangXinViewHeight;
+        CGFloat constant = self.originPart3TopConstraintConst + pkgHeight;
+        CGSize contentSize = CGSizeMake(self.originScrollViewContentSize.width, self.originScrollViewContentSize.height + pkgHeight);
         
         [UIView animateWithDuration:0.3 animations:^{
+            self.decPkgJiangXinView.alpha = 1;
             self.decPkg365View.alpha = 0;
             self.part3TopConstraint.constant = constant;
             self.scrollView.contentSize = contentSize;
@@ -184,7 +209,19 @@
     }
 }
 
-- (void)updateDecPkgFrame {
+- (void)hideDecPkg {
+    if (self.curPkgShowingType == PkgShowingType365 || self.curPkgShowingType == PkgShowingTypeJiangXin) {
+        self.curPkgShowingType = PkgShowingTypeDefault;
+        [UIView animateWithDuration:0.3 animations:^{
+            self.decPkgJiangXinView.alpha = 0;
+            self.decPkg365View.alpha = 0;
+            self.part3TopConstraint.constant = self.originPart3TopConstraintConst;
+            self.scrollView.contentSize = self.originScrollViewContentSize;
+        }];
+    }
+}
+
+- (void)updateDecPkg365Frame {
     BOOL showError = [self.decPkg365View hasError];
     CGFloat curDecPkgHeight = CGRectGetHeight(self.decPkg365View.frame);
     
@@ -225,6 +262,24 @@
     }
 }
 
+- (BOOL)executeBlockByPkgType:(NSString *)pkgType pkgDef:(BOOL (^)(void))pkgDefaultBlock pkg365:(BOOL (^)(void))pkg365Block pkgJiangXin:(BOOL (^)(void))pkgJiangXinBlock  {
+    if (pkgType == kDecPackageDefault) {
+        if (pkgDefaultBlock) {
+            return pkgDefaultBlock();
+        }
+    } else if (pkgType == kDecPackage365) {
+        if (pkg365Block) {
+            return pkg365Block();
+        }
+    } else if (pkgType == kDecPackageJiangXinDingZhi) {
+        if (pkgJiangXinBlock) {
+            return pkgJiangXinBlock();
+        }
+    }
+    
+    return YES;
+}
+
 #pragma mark - init default value
 - (void)initDefaultValue {
     if ([self isRequirementCreate]) {
@@ -244,7 +299,7 @@
     self.doneSignalDisposale = [[RACSignal combineLatest:@[
                                                            RACObserve(self.lblSelectCityVal, text),
                                                            RACObserve(self.lblSelectHouseTypeVal, text),
-                                                           RACObserve(self.lblSelectWorkTypeVal, text),
+                                                           RACObserve(self.editingRequirement, work_type),
                                                            RACObserve(self.lblSelectPopulationVal, text),
                                                            RACObserve(self.lblSelectPreferredStyleVal, text),
                                                            self.fldBasicAddresVal.rac_textSignal,
@@ -253,90 +308,82 @@
                                                            self.fldDecorationBudgetVal.rac_textSignal
                                                            ]
                                  
-                                                   reduce:^id(
-                                                              NSString *city,
-                                                              NSString *houseType,
-                                                              NSString *workType,
-                                                              NSString *population,
-                                                              NSString *decStyle,
-                                                              NSString *basicAddress,
-                                                              NSString *detailAddress,
-                                                              NSNumber *decArea,
-                                                              NSNumber *decBudget) {
-                                                       
-                                                                BOOL flag = NO;
-                                                                if (city.length > 0
-                                                                    && houseType.length > 0
-                                                                    && workType.length > 0
-                                                                    && population.length > 0
-                                                                    && decStyle.length > 0
-                                                                    && basicAddress.length > 0
-                                                                    && detailAddress.length > 0
-                                                                    && [decArea intValue] > 0
-                                                                    && [decBudget intValue] > 0) {
-                                                                    flag = YES;
-                                                                } else {
-                                                                    flag = NO;
-                                                                }
-                                                       
-                                                                NSUInteger area = [decArea integerValue];
-                                                                NSUInteger budget = [decBudget integerValue];
-                                                                [self updateDecPkgData:area budget:budget];
-                                                                BOOL (^returnFlagBlock)(BOOL) = ^BOOL(BOOL isPkg365) {
-                                                                   BOOL hasErrorForPkg = [self.decPkg365View hasError];
-                                                                   BOOL isDesignRequirement = [RequirementBusiness isDesignRequirement:self.editingRequirement.work_type];
-                                                                   if (isPkg365 && !isDesignRequirement) {
-                                                                       return flag && !hasErrorForPkg;
-                                                                   } else {
-                                                                       return flag;
-                                                                   }
-                                                                };
-
-                                                                if ([self isRequirementCreate]) {
-                                                                   BOOL isPkg365 = [RequirementBusiness isPkg365ByArea:decArea.integerValue];
-                                                                   return @(returnFlagBlock(isPkg365));
-                                                                } else if (self.editType == RequirementOperateTypeView
-                                                                          || self.editType == RequirementOperateTypeEdit) {
-                                                                   
-                                                                   BOOL isPkg365 = [RequirementBusiness isPkg365ByType:self.editingRequirement.package_type];
-                                                                   return @(returnFlagBlock(isPkg365));
-                                                                }
-
-                                                                return @(NO);
-                                                           }]
+                                                  reduce:^id(
+                                                             NSString *city,
+                                                             NSString *houseType,
+                                                             NSString *workType,
+                                                             NSString *population,
+                                                             NSString *decStyle,
+                                                             NSString *basicAddress,
+                                                             NSString *detailAddress,
+                                                             NSNumber *decArea,
+                                                             NSNumber *decBudget) {
+                                                      
+                                                      BOOL flag = NO;
+                                                      if (city.length > 0
+                                                          && houseType.length > 0
+                                                          && workType.length > 0
+                                                          && population.length > 0
+                                                          && decStyle.length > 0
+                                                          && basicAddress.length > 0
+                                                          && detailAddress.length > 0
+                                                          && [decArea intValue] > 0
+                                                          && [decBudget intValue] > 0) {
+                                                          flag = YES;
+                                                      } else {
+                                                          flag = NO;
+                                                      }
+                                                      
+                                                      NSUInteger area = [decArea integerValue];
+                                                      NSUInteger budget = [decBudget integerValue];
+                                                      [self updateDecPkgData:area budget:budget];
+                                                      NSString *curPkgType = [RequirementBusiness getPkgTypeByArea:area budget:budget workType:workType];
+                                                      
+                                                      @weakify(self);
+                                                      return @([self executeBlockByPkgType:curPkgType pkgDef:^BOOL{
+                                                          return flag;
+                                                      } pkg365:^BOOL{
+                                                          @strongify(self);
+                                                          return flag && ![self.decPkg365View hasError];
+                                                      } pkgJiangXin:^BOOL{
+                                                          return flag;
+                                                      }]);
+                                                  }]
                                 
-                                            subscribeNext:^(id x) {
-                                                            [self enableRightBarItem:[x boolValue]];
-                                                       }];
+                                subscribeNext:^(id x) {
+                                    [self enableRightBarItem:[x boolValue]];
+                                }];
     
     [[RACSignal combineLatest:@[self.fldDecorationAreaVal.rac_textSignal,
-                                self.fldDecorationBudgetVal.rac_textSignal
+                                self.fldDecorationBudgetVal.rac_textSignal,
+                                RACObserve(self.editingRequirement, work_type)
                                 ]]
-                 subscribeNext:^(RACTuple *tuple) {
-                     NSUInteger area = [tuple.first integerValue];
-                     NSUInteger budget = [tuple.second integerValue];
-                     [self updateDecPkgData:area budget:budget];
-                     
-                     void (^showDecPkgBlock)(BOOL) = ^(BOOL isPkg365) {
-                         BOOL isDesignRequirement = [RequirementBusiness isDesignRequirement:self.editingRequirement.work_type];
-                         if (isPkg365 && !isDesignRequirement) {
-                             [self showDecPkg];
-                         } else {
-                             [self hideDecPkg];
-                         }
-                         
-                         self.fldDecorationBudgetVal.placeholder = !isDesignRequirement ? @"80-120m² 可使用365基础包" : @"必填";
-                     };
-                     
-                     if ([self isRequirementCreate]) {
-                         BOOL isPkg365 = [RequirementBusiness isPkg365ByArea:area];
-                         showDecPkgBlock(isPkg365);
-                     } else if (self.editType == RequirementOperateTypeView
-                                || self.editType == RequirementOperateTypeEdit) {
-                         BOOL isPkg365 = [RequirementBusiness isPkg365ByType:self.editingRequirement.package_type] && [RequirementBusiness isPkg365ByArea:area];
-                         showDecPkgBlock(isPkg365);
-                     }
-                 }];
+     subscribeNext:^(RACTuple *tuple) {
+         NSUInteger area = [tuple.first integerValue];
+         NSUInteger budget = [tuple.second integerValue];
+         NSString *workType = tuple.third;
+         [self updateDecPkgData:area budget:budget];
+         NSString *curPkgType = [RequirementBusiness getPkgTypeByArea:area budget:budget workType:workType];
+         
+         if (area > 0 && budget > 0 && workType.length > 0) {
+             @weakify(self);
+             [self executeBlockByPkgType:curPkgType pkgDef:^BOOL{
+                 @strongify(self);
+                 [self hideDecPkg];
+                 return YES;
+             } pkg365:^BOOL{
+                 @strongify(self);
+                 [self showDecPkg365];
+                 return YES;
+             } pkgJiangXin:^BOOL{
+                 @strongify(self);
+                 [self showDecPkgJiangXin];
+                 return YES;
+             }];
+         } else {
+             [self hideDecPkg];
+         }
+     }];
     
 }
 
@@ -402,8 +449,8 @@
     //Basic address
     [[self.fldBasicAddresVal rac_textSignal]
      subscribeNext:^(NSString *value) {
-        @strongify(self);
-        self.editingRequirement.basic_address = value;
+         @strongify(self);
+         self.editingRequirement.basic_address = value;
      }];
     
     //Detail address
@@ -464,7 +511,7 @@
 - (void)onTapSection:(UIGestureRecognizer *)gesture {
     UIView *tapView = gesture.view;
     UIViewController *controller;
-
+    
     if (tapView == self.selectCityView) {
         //City
         controller = [[SelectCityViewController alloc] initWithAddress:self.lblSelectCityVal.text valueBlock:^(id value) {
@@ -602,6 +649,11 @@
 
 - (void)keyboardHide:(CGFloat)keyboardHeight {
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+}
+
+#pragma mark - notification
+- (void)broadcastRequirementCreateNotification {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kRequirementCreateNotification object:nil];
 }
 
 @end

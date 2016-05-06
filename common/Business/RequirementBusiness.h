@@ -13,17 +13,12 @@ static NSString * const kRequirementCreateNotification = @"RequirementCreateNoti
 @class PriceItem;
 @class StatusBlock;
 
-typedef NS_ENUM(NSInteger, DecPackageKind) {
-    DecPackageKindDefault,
-    DecPackageKind365,
-};
-
 @interface RequirementBusiness : NSObject
 
 + (BOOL)isPkgJiangXinByType:(NSString *)type;
 + (BOOL)isPkg365ByType:(NSString *)type;
 + (BOOL)isPkg365ByArea:(NSUInteger)area;
-+ (DecPackageKind)getPkgKindByArea:(NSUInteger)area;
++ (NSString *)getPkgTypeByArea:(CGFloat)area budget:(CGFloat)budget workType:(NSString *)workType;
 + (CGFloat)getPkgWPriceByArea:(NSUInteger)area;
 + (CGFloat)getPkgPriceByArea:(NSUInteger)area;
 + (PriceItem *)findPriceItem365:(NSArray <PriceItem *> *)array;

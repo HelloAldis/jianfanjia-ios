@@ -266,6 +266,8 @@
 		68711B6A1CD89D3B009B585F /* OrderTaggedDesignerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68711B691CD89D3B009B585F /* OrderTaggedDesignerViewController.xib */; };
 		68711B6E1CD8A542009B585F /* TaggedDesignerInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B6C1CD8A542009B585F /* TaggedDesignerInfoView.m */; };
 		68711B711CD8A60B009B585F /* TaggedDesignerInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68711B701CD8A60B009B585F /* TaggedDesignerInfoView.xib */; };
+		68711B751CDC7D99009B585F /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B731CDC7D99009B585F /* DecPackageJiangXinView.m */; };
+		68711B761CDC7D99009B585F /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68711B741CDC7D99009B585F /* DecPackageJiangXinView.xib */; };
 		6885175A1C8FF5E1000B01DB /* UserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517591C8FF5E1000B01DB /* UserNotification.m */; };
 		6885175D1C8FFB8A000B01DB /* SearchUserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885175C1C8FFB8A000B01DB /* SearchUserNotification.m */; };
 		688517601C91246D000B01DB /* UILabel+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885175F1C91246D000B01DB /* UILabel+Ex.m */; };
@@ -928,6 +930,9 @@
 		68711B6B1CD8A542009B585F /* TaggedDesignerInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaggedDesignerInfoView.h; sourceTree = "<group>"; };
 		68711B6C1CD8A542009B585F /* TaggedDesignerInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaggedDesignerInfoView.m; sourceTree = "<group>"; };
 		68711B701CD8A60B009B585F /* TaggedDesignerInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TaggedDesignerInfoView.xib; sourceTree = "<group>"; };
+		68711B721CDC7D99009B585F /* DecPackageJiangXinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackageJiangXinView.h; sourceTree = "<group>"; };
+		68711B731CDC7D99009B585F /* DecPackageJiangXinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackageJiangXinView.m; sourceTree = "<group>"; };
+		68711B741CDC7D99009B585F /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
 		688517581C8FF5E1000B01DB /* UserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNotification.h; sourceTree = "<group>"; };
 		688517591C8FF5E1000B01DB /* UserNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNotification.m; sourceTree = "<group>"; };
 		6885175B1C8FFB8A000B01DB /* SearchUserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserNotification.h; sourceTree = "<group>"; };
@@ -1952,6 +1957,9 @@
 		68E600431CB3AFBE00C4A8F7 /* DecPackage */ = {
 			isa = PBXGroup;
 			children = (
+				68711B721CDC7D99009B585F /* DecPackageJiangXinView.h */,
+				68711B731CDC7D99009B585F /* DecPackageJiangXinView.m */,
+				68711B741CDC7D99009B585F /* DecPackageJiangXinView.xib */,
 				68E600441CB3B39500C4A8F7 /* DecPackage365View.h */,
 				68E600451CB3B39500C4A8F7 /* DecPackage365View.m */,
 				68E600461CB3B39500C4A8F7 /* DecPackage365View.xib */,
@@ -2922,6 +2930,7 @@
 				68134A591C44D152003C1C10 /* MultipleLineTextTableViewCell.xib in Resources */,
 				688517741C926FDC000B01DB /* DecCommentInfoCell.xib in Resources */,
 				68C3C26C1C75C41200EEEBD8 /* HomePageProductItem.xib in Resources */,
+				68711B761CDC7D99009B585F /* DecPackageJiangXinView.xib in Resources */,
 				685F2D511CA917C600DC4D43 /* PlanWasChoosedForDesignCell.xib in Resources */,
 				683FFB421C296288002A1AFE /* BeautifulImageCollectionCell.xib in Resources */,
 				68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */,
@@ -3079,6 +3088,7 @@
 				683668F91BFECEBC006A5053 /* EvaluateDesigner.m in Sources */,
 				6E838DB11BEB4FE1000BF5CD /* DesignerProductCell.m in Sources */,
 				685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */,
+				68711B751CDC7D99009B585F /* DecPackageJiangXinView.m in Sources */,
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				684A37501BFD73DF00F7388C /* SelectDecorationStyleViewController.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,

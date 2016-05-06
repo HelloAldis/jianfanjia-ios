@@ -330,6 +330,7 @@
                                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wH-ot-xzq">
                                             <rect key="frame" x="578" y="15" width="7" height="22"/>
                                             <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="4aR-Ti-2mh"/>
                                                 <constraint firstAttribute="width" constant="7" id="5tf-0r-wro"/>
                                             </constraints>
                                             <state key="normal" image="bar_shape"/>

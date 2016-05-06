@@ -237,6 +237,8 @@
 		680C465B1CC5DB96008C4BC0 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46511CC5DB96008C4BC0 /* UserInfoViewController.m */; };
 		680C465C1CC5DB96008C4BC0 /* UserInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C46521CC5DB96008C4BC0 /* UserInfoViewController.xib */; };
 		680C46621CC61C87008C4BC0 /* CommentBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46611CC61C87008C4BC0 /* CommentBusiness.m */; };
+		681031C11CDCAF6300FD26D6 /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681031BF1CDCAF6300FD26D6 /* DecPackageJiangXinView.m */; };
+		681031C21CDCAF6300FD26D6 /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681031C01CDCAF6300FD26D6 /* DecPackageJiangXinView.xib */; };
 		6850A6121CCA2DDB0085940A /* CityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A60D1CCA2DDB0085940A /* CityCell.m */; };
 		6850A6131CCA2DDB0085940A /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A60E1CCA2DDB0085940A /* CityCell.xib */; };
 		6850A6141CCA2DDB0085940A /* CitySection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A6101CCA2DDB0085940A /* CitySection.m */; };
@@ -683,6 +685,9 @@
 		680C46521CC5DB96008C4BC0 /* UserInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserInfoViewController.xib; sourceTree = "<group>"; };
 		680C46601CC61C87008C4BC0 /* CommentBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentBusiness.h; sourceTree = "<group>"; };
 		680C46611CC61C87008C4BC0 /* CommentBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBusiness.m; sourceTree = "<group>"; };
+		681031BE1CDCAF6300FD26D6 /* DecPackageJiangXinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackageJiangXinView.h; sourceTree = "<group>"; };
+		681031BF1CDCAF6300FD26D6 /* DecPackageJiangXinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackageJiangXinView.m; sourceTree = "<group>"; };
+		681031C01CDCAF6300FD26D6 /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
 		6850A60C1CCA2DDB0085940A /* CityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityCell.h; sourceTree = "<group>"; };
 		6850A60D1CCA2DDB0085940A /* CityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityCell.m; sourceTree = "<group>"; };
 		6850A60E1CCA2DDB0085940A /* CityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CityCell.xib; sourceTree = "<group>"; };
@@ -1054,6 +1059,9 @@
 		680C41F11CC4D4AE008C4BC0 /* DecPackage */ = {
 			isa = PBXGroup;
 			children = (
+				681031BE1CDCAF6300FD26D6 /* DecPackageJiangXinView.h */,
+				681031BF1CDCAF6300FD26D6 /* DecPackageJiangXinView.m */,
+				681031C01CDCAF6300FD26D6 /* DecPackageJiangXinView.xib */,
 				680C41F21CC4D4AE008C4BC0 /* DecPackage365View.h */,
 				680C41F31CC4D4AE008C4BC0 /* DecPackage365View.m */,
 				680C41F41CC4D4AE008C4BC0 /* DecPackage365View.xib */,
@@ -1621,6 +1629,7 @@
 				680C42B41CC4D4AE008C4BC0 /* PlanPriceItemExpandCell.xib in Resources */,
 				680C42BD1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.xib in Resources */,
 				680C46161CC4F58F008C4BC0 /* LaunchScreen.xib in Resources */,
+				681031C21CDCAF6300FD26D6 /* DecPackageJiangXinView.xib in Resources */,
 				680C45671CC4D4BD008C4BC0 /* ImageDetailViewController.xib in Resources */,
 				680C45691CC4D4BD008C4BC0 /* ImageEditorViewController.xib in Resources */,
 				680C45631CC4D4BD008C4BC0 /* ImageBrowerViewController.xib in Resources */,
@@ -1872,6 +1881,7 @@
 				680C42D81CC4D4AE008C4BC0 /* RequirementDataManager.m in Sources */,
 				680C44A41CC4D4BD008C4BC0 /* BaseAPI.m in Sources */,
 				680C46191CC5CB9D008C4BC0 /* Supervisor.m in Sources */,
+				681031C11CDCAF6300FD26D6 /* DecPackageJiangXinView.m in Sources */,
 				680C44FA1CC4D4BD008C4BC0 /* PlanHomeOwnerOrdered.m in Sources */,
 				680C42261CC4D4AE008C4BC0 /* ViewControllerContainer.m in Sources */,
 				680C450A1CC4D4BD008C4BC0 /* NotificationBusiness.m in Sources */,

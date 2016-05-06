@@ -6,6 +6,18 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
+/**
+ 优先判断匠心定制包
+ 
+ 匠心定制	家装          商装
+ 半包	>=1000元/平米	 敬请期待
+ 全包	>=2500元/平米	 敬请期待
+ 纯设计	>=200元/平米  敬请期待
+ 
+ 365包
+ 半包／全包 面积要在80~120(包含80和120)
+ **/
+
 #import "RequirementBusiness.h"
 #import "StatusBlock.h"
 
@@ -23,15 +35,29 @@ static NSString * const kPkg365Name = @"365基础包";
 }
 
 + (BOOL)isPkg365ByArea:(NSUInteger)area {
-    return [self getPkgKindByArea:area] == DecPackageKind365;
-}
-
-+ (DecPackageKind)getPkgKindByArea:(NSUInteger)area {
     if (area >= 80 && area <= 120) {
-        return DecPackageKind365;
+        return YES;
     }
     
-    return DecPackageKindDefault;
+    return NO;
+}
+
++ (NSString *)getPkgTypeByArea:(CGFloat)area budget:(CGFloat)budget workType:(NSString *)workType {
+    CGFloat pricePerM = budget * 10000.0f/ area;
+    
+    if ([workType isEqualToString:kWorkTypeHalf] && pricePerM >= 1000.0f) {
+        return kDecPackageJiangXinDingZhi;
+    } else if ([workType isEqualToString:kWorkTypeWhole] && pricePerM >= 2500.0f) {
+        return kDecPackageJiangXinDingZhi;
+    } else if ([workType isEqualToString:kWorkTypeDesign] && pricePerM >= 200.0f) {
+        return kDecPackageJiangXinDingZhi;
+    }
+    
+    if ([self isPkg365ByArea:area] && ![self isDesignRequirement:workType]) {
+        return kDecPackage365;
+    }
+    
+    return kDecPackageDefault;
 }
 
 + (CGFloat)getPkgWPriceByArea:(NSUInteger)area {

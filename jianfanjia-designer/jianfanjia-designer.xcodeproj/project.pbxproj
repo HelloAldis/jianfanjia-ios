@@ -17,6 +17,8 @@
 		680C466B1CC61F5F008C4BC0 /* Supervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C466A1CC61F5F008C4BC0 /* Supervisor.m */; };
 		680C46771CC6310E008C4BC0 /* PlanExpiredActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46751CC6310E008C4BC0 /* PlanExpiredActionCell.m */; };
 		680C46781CC6310E008C4BC0 /* PlanExpiredActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C46761CC6310E008C4BC0 /* PlanExpiredActionCell.xib */; };
+		681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */; };
+		681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
 		68123C8C1C4C9772008FC9AB /* DateAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C6B1C4C9772008FC9AB /* DateAlertViewController.xib */; };
 		68123C8D1C4C9772008FC9AB /* MessageAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6D1C4C9772008FC9AB /* MessageAlertViewController.m */; };
@@ -363,6 +365,9 @@
 		680C46741CC6310E008C4BC0 /* PlanExpiredActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanExpiredActionCell.h; sourceTree = "<group>"; };
 		680C46751CC6310E008C4BC0 /* PlanExpiredActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanExpiredActionCell.m; sourceTree = "<group>"; };
 		680C46761CC6310E008C4BC0 /* PlanExpiredActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanExpiredActionCell.xib; sourceTree = "<group>"; };
+		681031C31CDCAF6D00FD26D6 /* DecPackageJiangXinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackageJiangXinView.h; sourceTree = "<group>"; };
+		681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackageJiangXinView.m; sourceTree = "<group>"; };
+		681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
 		68123C691C4C9772008FC9AB /* DateAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateAlertViewController.h; sourceTree = "<group>"; };
 		68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateAlertViewController.m; sourceTree = "<group>"; };
 		68123C6B1C4C9772008FC9AB /* DateAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DateAlertViewController.xib; sourceTree = "<group>"; };
@@ -1458,6 +1463,9 @@
 		68E600501CB62C5600C4A8F7 /* DecPackage */ = {
 			isa = PBXGroup;
 			children = (
+				681031C31CDCAF6D00FD26D6 /* DecPackageJiangXinView.h */,
+				681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */,
+				681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */,
 				68E600511CB62C5600C4A8F7 /* DecPackage365View.h */,
 				68E600521CB62C5600C4A8F7 /* DecPackage365View.m */,
 				68E600531CB62C5600C4A8F7 /* DecPackage365View.xib */,
@@ -2040,6 +2048,7 @@
 				682E04FE1C588A6100F1ACAA /* NoRequirementImageView.xib in Resources */,
 				681241BF1C4F97D1008FC9AB /* RejectUserAlertViewController.xib in Resources */,
 				68123EBE1C4CBE79008FC9AB /* RefreshViewController.xib in Resources */,
+				681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */,
 				68123C8E1C4C9772008FC9AB /* MessageAlertViewController.xib in Resources */,
 				68123F211C4CBE79008FC9AB /* WelcomeViewController.xib in Resources */,
 				68123F0E1C4CBE79008FC9AB /* SelectHouseTypeViewController.xib in Resources */,
@@ -2372,6 +2381,7 @@
 				681240161C4CDA06008FC9AB /* RACStream+Ex.m in Sources */,
 				68123EEA1C4CBE79008FC9AB /* MessageCell.m in Sources */,
 				684B040B1C98F7060053FFDF /* CommentListViewController.m in Sources */,
+				681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */,
 				6E378D381BDA2D2E00908B77 /* ProcessBusiness.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
