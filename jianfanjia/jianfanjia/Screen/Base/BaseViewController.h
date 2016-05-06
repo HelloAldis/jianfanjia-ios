@@ -11,6 +11,7 @@
 @interface BaseViewController : UIViewController<UIGestureRecognizerDelegate>
 
 - (void)initLeftBackInNav;
+- (void)initLeftWhiteBackInNav;
 - (void)initDefaultNavBarStyle;
 - (void)initTranslucentNavBar;
 - (void)onClickBack;

@@ -20,7 +20,9 @@
 @property (strong, nonatomic) DesignerPageData *designerPageData;
 @property (weak, nonatomic) DesignerSectionCell *section;
 @property (assign, nonatomic) BOOL isShowProductList;
-
+@property (assign, nonatomic) BOOL isJiangXinDingZhi;
+@property (assign, nonatomic) BOOL wasMovedInfoCellToTop;
+@property (strong, nonatomic) DesignerInfoCell *infoCell;
 
 @end
 
@@ -29,26 +31,90 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNav];
+    [self initUI];
+}
+
+- (void)initNav {
+    [self initLeftBackInNav];
+}
+
+- (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerInfoCell" bundle:nil] forCellReuseIdentifier:@"DesignerInfoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerDetailCell" bundle:nil] forCellReuseIdentifier:@"DesignerDetailCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"DesignerProductCell" bundle:nil] forCellReuseIdentifier:@"DesignerProductCell"];
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.tableView.estimatedRowHeight = 260;
+    self.tableView.estimatedRowHeight = kDesignerInfoCellHeight;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
+  
     self.needRefreshDesignerViewController = YES;
     self.isShowProductList = NO;
     self.designerPageData = [[DesignerPageData alloc] init];
+}
+
+- (void)reLayoutUI {
+    self.wasMovedInfoCellToTop = NO;
+    if (self.isJiangXinDingZhi) {
+        [self configFullScreenStyle];
+    } else {
+        [self configDefaultStyle];
+    }
+}
+
+- (void)configFullScreenStyle {
+    [self initTranslucentNavBar];
+    [self initLeftWhiteBackInNav];
     
+    CGFloat extraHeight = kScreenHeight - kDesignerInfoCellHeight - kNavWithStatusBarHeight - 44;
+    UIView *extraView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, extraHeight)];
+    self.tableView.tableHeaderView = extraView;
+    
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
+    imgView.contentMode = UIViewContentModeScaleAspectFill;
+    imgView.image = [UIImage imageNamed:@""];
+    self.tableView.backgroundView = imgView;
+    self.tableView.scrollEnabled = NO;
+    [self enableInfoCellTransparent:YES];
+}
+
+- (void)configDefaultStyle {
+    [self initDefaultNavBarStyle];
     [self initLeftBackInNav];
+    self.tableView.tableHeaderView = nil;
+    self.tableView.backgroundView = nil;
+    self.tableView.scrollEnabled = YES;
+    [self enableInfoCellTransparent:NO];
+}
+
+- (void)moveDesignerInfoToTop {
+    if (self.isJiangXinDingZhi && !self.wasMovedInfoCellToTop) {
+        self.wasMovedInfoCellToTop = YES;
+        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [self configDefaultStyle];
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+}
+
+- (void)initInfoCell {
+    DesignerInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerInfoCell"];
+    [cell initWithDesigner:self.designerPageData.designer];
+    self.infoCell = cell;
+}
+
+- (void)enableInfoCellTransparent:(BOOL)trans {
+    if (self.infoCell) {
+        [self.infoCell enableTransaparent:trans];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (self.needRefreshDesignerViewController) {
+        self.needRefreshDesignerViewController = NO;
         [self refreshDesigner];
         [self refreshProduct];
     }
@@ -99,9 +165,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        DesignerInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerInfoCell"];
-        [cell initWithDesigner:self.designerPageData.designer];
-        return cell;
+        return self.infoCell;
     } else {
         if (self.isShowProductList) {
             DesignerProductCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerProductCell"];
@@ -142,16 +206,18 @@
 
 #pragma mark - User Action
 - (void)onClickDetail {
+    [self moveDesignerInfoToTop];
     if (self.isShowProductList) {
         self.isShowProductList = NO;
         [self.section.btnDetail setNormTitleColor:[UIColor colorWithR:52 g:74 b:93]];
         [self.section.btnProduct setNormTitleColor:[UIColor colorWithR:170 g:177 b:182]];
         self.tableView.footer = nil;
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
     }
 }
 
 - (void)onClickProduct {
+    [self moveDesignerInfoToTop];
     if (!self.isShowProductList) {
         self.isShowProductList = YES;
         [self.section.btnProduct setNormTitleColor:[UIColor colorWithR:52 g:74 b:93]];
@@ -166,7 +232,7 @@
         if (!self.designerPageData.products) {
             [self loadMoreProduct];
         } else {
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
         }
     }
 }
@@ -180,7 +246,9 @@
     [API designerHomePage:request success:^{
         @strongify(self);
         [self.designerPageData refreshDesigner];
-        self.needRefreshDesignerViewController = NO;
+        self.isJiangXinDingZhi = [DesignerBusiness containsJiangXinDingZhiTag:self.designerPageData.designer.tags];
+        [self initInfoCell];
+        [self reLayoutUI];
         [self.tableView reloadData];
     } failure:^{
         
@@ -202,9 +270,9 @@
         [self.tableView.footer endRefreshing];
         if (request.limit.integerValue > count) {
             [self.tableView.footer endRefreshingWithNoMoreData];
-        };
-        
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
+
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
     } failure:^{
         
     } networkError:^{
@@ -227,7 +295,7 @@
             [self.tableView.footer endRefreshingWithNoMoreData];
         };
         
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
     } failure:^{
         [self.tableView.footer endRefreshing];
     } networkError:^{

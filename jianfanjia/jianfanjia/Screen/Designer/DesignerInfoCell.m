@@ -15,14 +15,10 @@
 @property (weak, nonatomic) IBOutlet UIView *tagView;
 @property (weak, nonatomic) IBOutlet UILabel *lblTag;
 @property (weak, nonatomic) IBOutlet UIImageView *vImageView;
-@property (weak, nonatomic) IBOutlet UILabel *lblViewCount;
-@property (weak, nonatomic) IBOutlet UILabel *lblProductCount;
-@property (weak, nonatomic) IBOutlet UILabel *lblOrderCount;
-@property (weak, nonatomic) IBOutlet UILabel *lblDesignerName;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *starts;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
 
-@property (weak, nonatomic) Designer *designer;
+@property (strong, nonatomic) Designer *designer;
 
 @end
 
@@ -63,7 +59,7 @@
 - (void)refreshAdd {
     if ([self.designer.is_my_favorite boolValue]) {
         [self.btnAdd setNormTitle:@"取消意向"];
-        [self.btnAdd setBgColor:[UIColor whiteColor]];
+        [self.btnAdd setBgColor:[UIColor clearColor]];
         [self.btnAdd setNormTitleColor:kThemeColor];
     } else {
         [self.btnAdd setNormTitle:@"添加意向"];
@@ -107,6 +103,28 @@
         } networkError:^{
             
         }];
+    }
+}
+
+- (void)enableTransaparent:(BOOL)trans {
+    if (trans) {
+        self.bgColor = [UIColor clearColor];
+        self.lblViewCount.textColor = [UIColor whiteColor];
+        self.lblProductCount.textColor = [UIColor whiteColor];
+        self.lblOrderCount.textColor = [UIColor whiteColor];
+        self.lblDesignerName.textColor = [UIColor whiteColor];
+        self.lblViewCountTitle.textColor = [UIColor whiteColor];
+        self.lblProductCountTitle.textColor = [UIColor whiteColor];
+        self.lblOrderCountTitle.textColor = [UIColor whiteColor];
+    } else {
+        self.bgColor = [UIColor whiteColor];
+        self.lblViewCount.textColor = kThemeTextColor;
+        self.lblProductCount.textColor = kThemeTextColor;
+        self.lblOrderCount.textColor = kThemeTextColor;
+        self.lblDesignerName.textColor = kThemeTextColor;
+        self.lblViewCountTitle.textColor = kTextColor;
+        self.lblProductCountTitle.textColor = kTextColor;
+        self.lblOrderCountTitle.textColor = kTextColor;
     }
 }
 
