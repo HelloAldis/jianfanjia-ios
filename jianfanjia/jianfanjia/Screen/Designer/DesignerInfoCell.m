@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *vImageView;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *starts;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
+@property (weak, nonatomic) IBOutlet UIImageView *imgAdd;
 
 @property (strong, nonatomic) Designer *designer;
 
@@ -61,10 +62,12 @@
         [self.btnAdd setNormTitle:@"取消意向"];
         [self.btnAdd setBgColor:[UIColor clearColor]];
         [self.btnAdd setNormTitleColor:kThemeColor];
+        self.imgAdd.hidden = YES;
     } else {
         [self.btnAdd setNormTitle:@"添加意向"];
         [self.btnAdd setBgColor:kThemeColor];
         [self.btnAdd setNormTitleColor:[UIColor whiteColor]];
+        self.imgAdd.hidden = NO;
     }
 }
 

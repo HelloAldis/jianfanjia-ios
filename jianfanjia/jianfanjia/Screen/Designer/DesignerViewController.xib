@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DesignerViewController">
             <connections>
+                <outlet property="backgroundImage" destination="LhL-CE-JhV" id="qfy-gU-Ja3"/>
                 <outlet property="tableView" destination="Bku-Nl-7Wo" id="Jaq-Wg-O1L"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -16,9 +17,12 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_designer_bg" translatesAutoresizingMaskIntoConstraints="NO" id="LhL-CE-JhV">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bku-Nl-7Wo">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="2lE-h0-CI6"/>
                         <outlet property="delegate" destination="-1" id="HTq-W7-vau"/>
@@ -27,11 +31,18 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="LhL-CE-JhV" secondAttribute="bottom" id="6zN-Qs-IuK"/>
                 <constraint firstAttribute="bottom" secondItem="Bku-Nl-7Wo" secondAttribute="bottom" id="9jT-Ms-edd"/>
+                <constraint firstItem="LhL-CE-JhV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Alq-I4-ZVf"/>
+                <constraint firstAttribute="trailing" secondItem="LhL-CE-JhV" secondAttribute="trailing" id="H8v-hW-Qkx"/>
                 <constraint firstItem="Bku-Nl-7Wo" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="KKv-7g-mlv"/>
                 <constraint firstAttribute="trailing" secondItem="Bku-Nl-7Wo" secondAttribute="trailing" id="bup-WG-4i7"/>
+                <constraint firstItem="LhL-CE-JhV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eFS-0Q-aH1"/>
                 <constraint firstItem="Bku-Nl-7Wo" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="xLr-AN-NSy"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="img_designer_bg" width="1242" height="2045"/>
+    </resources>
 </document>

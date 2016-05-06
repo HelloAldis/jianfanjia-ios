@@ -16,13 +16,14 @@
 @interface DesignerViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImage;
 @property (strong, nonatomic) DesignerPageData *designerPageData;
 @property (weak, nonatomic) DesignerSectionCell *section;
 @property (assign, nonatomic) BOOL isShowProductList;
 @property (assign, nonatomic) BOOL isJiangXinDingZhi;
 @property (assign, nonatomic) BOOL wasMovedInfoCellToTop;
 @property (strong, nonatomic) DesignerInfoCell *infoCell;
+
 
 @end
 
@@ -58,43 +59,45 @@
     self.wasMovedInfoCellToTop = NO;
     if (self.isJiangXinDingZhi) {
         [self configFullScreenStyle];
+        [self configTransparentNavStyle];
     } else {
         [self configDefaultStyle];
+        [self configDefaultNavStyle];
     }
 }
 
 - (void)configFullScreenStyle {
-    [self initTranslucentNavBar];
-    [self initLeftWhiteBackInNav];
-    
-    CGFloat extraHeight = kScreenHeight - kDesignerInfoCellHeight - kNavWithStatusBarHeight - 44;
-    UIView *extraView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.bounds.size.width, extraHeight)];
-    self.tableView.tableHeaderView = extraView;
-    
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
-    imgView.contentMode = UIViewContentModeScaleAspectFill;
-    imgView.image = [UIImage imageNamed:@""];
-    self.tableView.backgroundView = imgView;
+    CGFloat extraHeight = kScreenHeight - kDesignerInfoCellHeight - 43;
+    self.tableView.contentInset = UIEdgeInsetsMake(extraHeight, 0, 0, 0);
+    self.backgroundImage.alpha = 1;
     self.tableView.scrollEnabled = NO;
     [self enableInfoCellTransparent:YES];
 }
 
 - (void)configDefaultStyle {
-    [self initDefaultNavBarStyle];
-    [self initLeftBackInNav];
-    self.tableView.tableHeaderView = nil;
-    self.tableView.backgroundView = nil;
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
+    self.backgroundImage.alpha = 0;
     self.tableView.scrollEnabled = YES;
     [self enableInfoCellTransparent:NO];
+}
+
+- (void)configTransparentNavStyle {
+    [self initTranslucentNavBar];
+    [self initLeftWhiteBackInNav];
+}
+
+- (void)configDefaultNavStyle {
+    [self initDefaultNavBarStyle];
+    [self initLeftBackInNav];
 }
 
 - (void)moveDesignerInfoToTop {
     if (self.isJiangXinDingZhi && !self.wasMovedInfoCellToTop) {
         self.wasMovedInfoCellToTop = YES;
-        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [self configDefaultStyle];
         } completion:^(BOOL finished) {
-            
+            [self configDefaultNavStyle];
         }];
     }
 }

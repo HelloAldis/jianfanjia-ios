@@ -157,6 +157,13 @@
                             <action selector="onClickAdd:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yoo-cM-q5H"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_favoriate_designer" translatesAutoresizingMaskIntoConstraints="NO" id="cg7-Hj-dVB">
+                        <rect key="frame" x="239" y="241" width="13" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="NV6-bB-xkU"/>
+                            <constraint firstAttribute="width" secondItem="cg7-Hj-dVB" secondAttribute="height" id="wlf-lp-LWc"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="CmF-aq-MHT" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="00a-Y3-Wyo"/>
@@ -165,8 +172,10 @@
                     <constraint firstItem="APo-Do-Qtc" firstAttribute="leading" secondItem="klb-Hh-jFa" secondAttribute="trailing" constant="2" id="4aH-ln-x3f"/>
                     <constraint firstItem="APo-Do-Qtc" firstAttribute="centerX" secondItem="CmF-aq-MHT" secondAttribute="centerX" id="6YD-n0-aYi"/>
                     <constraint firstItem="2j2-Zi-RyX" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="2/3" id="8tk-g7-Rzv"/>
+                    <constraint firstItem="cg7-Hj-dVB" firstAttribute="centerY" secondItem="2j2-Zi-RyX" secondAttribute="centerY" id="9IR-ev-adl"/>
                     <constraint firstItem="hl6-9h-8CQ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/3" id="BGD-s8-GCk"/>
                     <constraint firstItem="hl6-9h-8CQ" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="bottom" constant="20" id="CUq-fT-5p8"/>
+                    <constraint firstItem="cg7-Hj-dVB" firstAttribute="trailing" secondItem="2j2-Zi-RyX" secondAttribute="trailing" constant="-15" id="Dmb-lf-y0t"/>
                     <constraint firstItem="YVX-LH-45b" firstAttribute="leading" secondItem="hl6-9h-8CQ" secondAttribute="leading" id="DqI-Wj-zje"/>
                     <constraint firstItem="CmF-aq-MHT" firstAttribute="width" secondItem="2j2-Zi-RyX" secondAttribute="width" id="EWs-Ye-1SN"/>
                     <constraint firstItem="NSd-gx-JPd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="FF2-Xn-xgK"/>
@@ -211,6 +220,7 @@
             <connections>
                 <outlet property="btnAdd" destination="2j2-Zi-RyX" id="UjR-v7-i8N"/>
                 <outlet property="designerImageView" destination="NSd-gx-JPd" id="mcF-oi-tZT"/>
+                <outlet property="imgAdd" destination="cg7-Hj-dVB" id="nR5-nb-Yd6"/>
                 <outlet property="imgHandings" destination="vlC-ce-Bxm" id="iTx-rT-kQE"/>
                 <outlet property="lblDesignerName" destination="CmF-aq-MHT" id="sq5-aS-FH0"/>
                 <outlet property="lblOrderCount" destination="lfI-S9-rNX" id="1Dq-eR-mG0"/>
@@ -233,6 +243,7 @@
     </objects>
     <resources>
         <image name="icon_crown" width="22" height="21"/>
+        <image name="icon_favoriate_designer" width="13" height="13"/>
         <image name="image_place_holder_2" width="60" height="60"/>
         <image name="star_middle_empty" width="17" height="15"/>
         <image name="v" width="16" height="16"/>
