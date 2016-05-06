@@ -115,9 +115,15 @@
     [super viewWillAppear:animated];
     if (self.needRefreshDesignerViewController) {
         self.needRefreshDesignerViewController = NO;
+        self.tableView.hidden = YES;
         [self refreshDesigner];
         [self refreshProduct];
     }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self initDefaultNavBarStyle];
 }
 
 #pragma mark - scroll view delegate
@@ -242,6 +248,7 @@
     DesignerHomePage *request = [[DesignerHomePage alloc] init];
     request._id = self.designerid;
     
+    [HUDUtil showWait];
     @weakify(self);
     [API designerHomePage:request success:^{
         @strongify(self);
@@ -250,10 +257,12 @@
         [self initInfoCell];
         [self reLayoutUI];
         [self.tableView reloadData];
+        self.tableView.hidden = NO;
+        [HUDUtil hideWait];
     } failure:^{
-        
+        [HUDUtil hideWait];
     } networkError:^{
-        
+        [HUDUtil hideWait];
     }];
 }
 
