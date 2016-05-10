@@ -179,6 +179,7 @@ static NSMutableArray *designerTagDS;
                 }
                 
                 //update fall flow data
+                [self.tableView setContentOffset:CGPointMake(0, -self.tableView.contentInset.top) animated:NO];
                 [self refresh];
             }
             
