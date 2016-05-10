@@ -94,7 +94,7 @@
 - (void)moveDesignerInfoToTop {
     if (self.isJiangXinDingZhi && !self.wasMovedInfoCellToTop) {
         self.wasMovedInfoCellToTop = YES;
-        [UIView animateWithDuration:0.7 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1.0 initialSpringVelocity:1.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [self configDefaultStyle];
         } completion:^(BOOL finished) {
             [self configDefaultNavStyle];
