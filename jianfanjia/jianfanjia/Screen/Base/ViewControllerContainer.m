@@ -352,7 +352,10 @@ static ViewControllerContainer *container;
 }
 
 + (void)showReplaceOrderedDesigner:(NSString *)designerid forRequirement:(Requirement *)requirement {
-    OrderDesignerViewController *v = [[OrderDesignerViewController alloc] initWithRequirement:requirement withToBeReplacedDesigner:designerid];
+    Class class = [RequirementBusiness isPkgJiangXinByType:requirement.package_type] ? [OrderTaggedDesignerViewController class] : [OrderDesignerViewController class];
+    
+    //no designer order screen
+    UIViewController *v = [[class alloc] initWithRequirement:requirement withToBeReplacedDesigner:designerid];
     [container.tab.selectedViewController pushViewController:v animated:YES];
 }
 

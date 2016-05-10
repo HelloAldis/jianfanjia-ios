@@ -15,6 +15,11 @@
 #define kScrollViewLeft 40
 #define kScrollCellPadding 20
 
+typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
+    NormalOrder,
+    ReplaceOrder,
+};
+
 @interface OrderTaggedDesignerViewController () <ReuseScrollViewProtocol>
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet TouchDelegateView *containerView;
@@ -22,16 +27,32 @@
 @property (strong, nonatomic) ReuseScrollView *scrollView;
 
 @property (strong, nonatomic) Requirement *requirement;
+@property (assign, nonatomic) OrderDesignerOrderType orderType;
+@property (strong, nonatomic) NSString *toBeReplacedDesignerId;
 @property (strong, nonatomic) RequirementDataManager *dataManager;
 
 @end
 
 @implementation OrderTaggedDesignerViewController
 
-- (id)initWithRequirement:(Requirement *)requirement {
+#pragma mark - init method
+- (id)initWithRequirement:(Requirement *)requirement withOrderType:(OrderDesignerOrderType)type {
     if (self = [super init]) {
         _requirement = requirement;
+        _orderType = type;
         _dataManager = [[RequirementDataManager alloc] init];
+    }
+    
+    return self;
+}
+
+- (id)initWithRequirement:(Requirement *)requirement {
+    return [self initWithRequirement:requirement withOrderType:NormalOrder];
+}
+
+- (id)initWithRequirement:(Requirement *)requirement withToBeReplacedDesigner:(NSString *)designerid {
+    if (self = [self initWithRequirement:requirement withOrderType:ReplaceOrder]) {
+        _toBeReplacedDesignerId = designerid;
     }
     
     return self;
@@ -88,19 +109,7 @@
 - (ReuseCell *)reuseCellFactory {
     TaggedDesignerInfoView *taggedDesignerInfoView = [TaggedDesignerInfoView taggedDesignerInfoView];
     [taggedDesignerInfoView initWithDesigners:self.dataManager.recommendedDesigners done:^(NSString *designerid) {
-        [HUDUtil showWait];
-        OrderDesignder *orderDesigner = [[OrderDesignder alloc] init];
-        orderDesigner.requirementid = self.requirement._id;
-        orderDesigner.designerids = @[designerid];
-        
-        [API orderDesigner:orderDesigner success:^{
-            [HUDUtil hideWait];
-            [self clickBack];
-        } failure:^{
-            [HUDUtil hideWait];
-        } networkError:^{
-            [HUDUtil hideWait];
-        }];
+        [self orderDesigner:designerid];
     }];
     
     return taggedDesignerInfoView;
@@ -123,6 +132,38 @@
     } networkError:^{
         
     }];
+}
+
+- (void)orderDesigner:(NSString *)designerid {
+    [HUDUtil showWait];
+    if (self.orderType == NormalOrder) {
+        OrderDesignder *orderDesigner = [[OrderDesignder alloc] init];
+        orderDesigner.requirementid = self.requirement._id;
+        orderDesigner.designerids = @[designerid];
+        
+        [API orderDesigner:orderDesigner success:^{
+            [HUDUtil hideWait];
+            [self clickBack];
+        } failure:^{
+            [HUDUtil hideWait];
+        } networkError:^{
+            [HUDUtil hideWait];
+        }];
+    } else {
+        ReplaceOrderedDesigner *request = [[ReplaceOrderedDesigner alloc] init];
+        request.requirementid = self.requirement._id;
+        request.old_designerid = self.toBeReplacedDesignerId;
+        request.replaced_designerid = designerid;
+        
+        [API replaceOrderedDesigner:request success:^{
+            [HUDUtil hideWait];
+            [self clickBack];
+        } failure:^{
+            [HUDUtil hideWait];
+        } networkError:^{
+            [HUDUtil hideWait];
+        }];
+    }
 }
 
 @end

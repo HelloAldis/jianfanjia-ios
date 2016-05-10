@@ -87,7 +87,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
     }];
     
     [self.tableView reloadData];
-    [self refresh:YES];
+    [self refresh:NO];
 }
 
 #pragma mark - table view delegate
