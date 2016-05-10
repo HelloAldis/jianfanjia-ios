@@ -151,7 +151,6 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKf-Zx-gy1">
                                 <rect key="frame" x="1" y="88" width="144" height="17"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -231,8 +230,10 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMV-91-Bua">
-                                <rect key="frame" x="1" y="88" width="144" height="17"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="-27" y="88" width="200" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="w17-W0-l3B"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -255,7 +256,6 @@
                             <constraint firstItem="nLq-nB-aLB" firstAttribute="centerX" secondItem="YMg-AW-6VZ" secondAttribute="centerX" id="ByB-5r-WRc"/>
                             <constraint firstItem="mV0-Ge-wF0" firstAttribute="trailing" secondItem="YMg-AW-6VZ" secondAttribute="trailing" constant="4" id="MYt-Hl-cHS"/>
                             <constraint firstItem="Xiq-gq-8cT" firstAttribute="bottom" secondItem="YMg-AW-6VZ" secondAttribute="bottom" id="YLU-ds-hS8"/>
-                            <constraint firstItem="zMV-91-Bua" firstAttribute="leading" secondItem="1dE-Qu-coc" secondAttribute="leading" constant="1" id="bw3-5T-Um2"/>
                             <constraint firstItem="zMV-91-Bua" firstAttribute="centerX" secondItem="YMg-AW-6VZ" secondAttribute="centerX" id="eha-sM-DxG"/>
                             <constraint firstItem="YMg-AW-6VZ" firstAttribute="centerX" secondItem="1dE-Qu-coc" secondAttribute="centerX" id="fTL-YT-Z0g"/>
                             <constraint firstItem="Xiq-gq-8cT" firstAttribute="trailing" secondItem="YMg-AW-6VZ" secondAttribute="trailing" id="ggG-37-3nK"/>
@@ -302,7 +302,6 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xE4-LP-ulq">
                                 <rect key="frame" x="1" y="88" width="142" height="17"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.20392156862745098" green="0.28627450980392155" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
