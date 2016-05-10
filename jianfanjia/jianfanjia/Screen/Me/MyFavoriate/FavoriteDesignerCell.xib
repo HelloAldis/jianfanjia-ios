@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -22,16 +22,34 @@
                             <constraint firstAttribute="width" constant="60" id="8ex-1A-62P"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="戴涛" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDu-Si-Ogm">
-                        <rect key="frame" x="100" y="17" width="176" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="戴涛" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDu-Si-Ogm">
+                        <rect key="frame" x="100" y="17" width="28" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="176" id="C2d-qM-Wlr"/>
                             <constraint firstAttribute="height" constant="21" id="HTj-nw-Mwk"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                         <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="BYG-wD-14s" userLabel="TagView">
+                        <rect key="frame" x="138" y="18" width="66" height="20"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziE-M2-aQ1">
+                                <rect key="frame" x="7" y="2" width="52" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ziE-M2-aQ1" firstAttribute="centerX" secondItem="BYG-wD-14s" secondAttribute="centerX" id="4Jq-rj-Mom"/>
+                            <constraint firstAttribute="width" constant="66" id="b5E-eY-4P1"/>
+                            <constraint firstItem="ziE-M2-aQ1" firstAttribute="leading" secondItem="BYG-wD-14s" secondAttribute="leading" constant="7" id="eFI-Lm-A2H"/>
+                            <constraint firstAttribute="height" constant="20" id="gYX-Xt-lCr"/>
+                            <constraint firstItem="ziE-M2-aQ1" firstAttribute="centerY" secondItem="BYG-wD-14s" secondAttribute="centerY" id="qtS-Fp-aq0"/>
+                        </constraints>
+                    </view>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_middle_empty" translatesAutoresizingMaskIntoConstraints="NO" id="zfH-Uh-bcp">
                         <rect key="frame" x="100" y="46" width="17" height="15"/>
                         <constraints>
@@ -73,11 +91,14 @@
                     <constraint firstItem="DWR-dl-XGd" firstAttribute="leading" secondItem="oce-Xh-QPJ" secondAttribute="trailing" constant="5" id="6K9-0q-hHJ"/>
                     <constraint firstItem="oRm-dh-dZ5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="6Uo-hW-FTm"/>
                     <constraint firstItem="DWR-dl-XGd" firstAttribute="baseline" secondItem="oce-Xh-QPJ" secondAttribute="baseline" id="Ayl-Wz-KVk"/>
+                    <constraint firstItem="BYG-wD-14s" firstAttribute="leading" secondItem="xDu-Si-Ogm" secondAttribute="trailing" constant="10" id="CLB-jw-wCd"/>
                     <constraint firstItem="Q3z-IC-3Yq" firstAttribute="leading" secondItem="tSE-gV-CMB" secondAttribute="trailing" constant="5" id="GSs-zu-v4d"/>
+                    <constraint firstItem="BYG-wD-14s" firstAttribute="centerY" secondItem="xDu-Si-Ogm" secondAttribute="centerY" id="L16-5x-mTC"/>
                     <constraint firstItem="tSE-gV-CMB" firstAttribute="leading" secondItem="DWR-dl-XGd" secondAttribute="trailing" constant="5" id="O9b-hB-i1p"/>
                     <constraint firstItem="zfH-Uh-bcp" firstAttribute="top" secondItem="xDu-Si-Ogm" secondAttribute="bottom" constant="8" id="QS3-wO-9Nf"/>
                     <constraint firstItem="oce-Xh-QPJ" firstAttribute="leading" secondItem="zfH-Uh-bcp" secondAttribute="trailing" constant="5" id="RyI-vm-AQS"/>
                     <constraint firstItem="xDu-Si-Ogm" firstAttribute="leading" secondItem="oRm-dh-dZ5" secondAttribute="trailing" constant="20" id="XoC-Hm-hUc"/>
+                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="BYG-wD-14s" secondAttribute="trailing" constant="10" id="cZp-cy-jQS"/>
                     <constraint firstItem="Q3z-IC-3Yq" firstAttribute="baseline" secondItem="tSE-gV-CMB" secondAttribute="baseline" id="exm-Zb-xJu"/>
                     <constraint firstItem="tSE-gV-CMB" firstAttribute="baseline" secondItem="DWR-dl-XGd" secondAttribute="baseline" id="fVq-WC-Vgr"/>
                     <constraint firstItem="oRm-dh-dZ5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="gaa-fv-nZf"/>
@@ -88,6 +109,8 @@
             <connections>
                 <outlet property="designerImageView" destination="oRm-dh-dZ5" id="JEp-tX-SKJ"/>
                 <outlet property="lblDesignerName" destination="xDu-Si-Ogm" id="Fma-e6-S9Z"/>
+                <outlet property="lblTag" destination="ziE-M2-aQ1" id="Bar-6y-bPI"/>
+                <outlet property="tagView" destination="BYG-wD-14s" id="Hjg-hV-b7g"/>
                 <outletCollection property="stars" destination="zfH-Uh-bcp" id="Fr6-Rb-nUg"/>
                 <outletCollection property="stars" destination="oce-Xh-QPJ" id="KiC-5G-QbF"/>
                 <outletCollection property="stars" destination="DWR-dl-XGd" id="JvK-Pa-z5B"/>

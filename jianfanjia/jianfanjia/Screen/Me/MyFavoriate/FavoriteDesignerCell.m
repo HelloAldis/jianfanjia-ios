@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *designerImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblDesignerName;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *stars;
+@property (weak, nonatomic) IBOutlet UIView *tagView;
+@property (weak, nonatomic) IBOutlet UILabel *lblTag;
 
 @property (weak, nonatomic) Designer *designer;
 @property (strong, nonatomic) UITapGestureRecognizer *tapDesignerImage;
@@ -23,6 +25,7 @@
 @implementation FavoriteDesignerCell
 
 - (void)awakeFromNib {
+    [self.tagView setCornerRadius:self.tagView.bounds.size.height / 2];
     [self.designerImageView setCornerRadius:30];
     self.tapDesignerImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDesignerImage)];
     [self.contentView addGestureRecognizer:self.tapDesignerImage];
@@ -36,6 +39,8 @@
     self.designer = designer;
     [self.designerImageView setUserImageWithId:self.designer.imageid];
     self.lblDesignerName.text = self.designer.username;
+    self.tagView.bgColor = [DesignerBusiness designerTagColorByArr:self.designer.tags];
+    self.lblTag.text = [DesignerBusiness designerTagTextByArr:self.designer.tags];
     
     double star = (self.designer.service_attitude.doubleValue + self.designer.respond_speed.doubleValue)/2;
     UIImage *full = [UIImage imageNamed:@"star_middle"];
