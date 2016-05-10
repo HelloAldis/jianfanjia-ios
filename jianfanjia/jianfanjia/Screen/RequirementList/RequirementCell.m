@@ -73,11 +73,19 @@
     [self updateRequirement:requirement];
     
     [self.dataManager refreshOrderedDesigners:requirement];
-    for (NSInteger i = 0; i < self.designerAvatar.count; i++) {
-        if (i < self.dataManager.orderedDesigners.count) {
-            [self updateDesigner:self.dataManager.orderedDesigners[i] forIndex:i];
+    if (self.isJiangXin) {
+        if (self.dataManager.orderedDesigners.count > 0) {
+            [self updateDesigner:self.dataManager.orderedDesigners[0] forIndex:1];
         } else {
-            [self updateDesigner:nil forIndex:i];
+            [self updateDesigner:nil forIndex:1];
+        }
+    } else {
+        for (NSInteger i = 0; i < self.designerAvatar.count; i++) {
+            if (i < self.dataManager.orderedDesigners.count) {
+                [self updateDesigner:self.dataManager.orderedDesigners[i] forIndex:i];
+            } else {
+                [self updateDesigner:nil forIndex:i];
+            }
         }
     }
 }
