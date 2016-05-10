@@ -143,6 +143,10 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 100;
+    }
+    
     return 90;
 }
 
