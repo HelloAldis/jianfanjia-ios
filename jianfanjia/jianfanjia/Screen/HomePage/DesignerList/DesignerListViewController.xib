@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DesignerListViewController">
@@ -62,6 +63,7 @@
                                     <rect key="frame" x="69" y="20" width="7" height="5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="7" id="2Mv-HZ-nCs"/>
+                                        <constraint firstAttribute="width" secondItem="69F-Ta-JNt" secondAttribute="height" multiplier="7:5" id="KuL-wY-NKV"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
@@ -152,13 +154,13 @@
                                     </state>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="等级" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4rd-OM-2Vg">
-                                    <rect key="frame" x="37" y="14" width="28" height="17"/>
+                                    <rect key="frame" x="29" y="14" width="28" height="17"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="angle_unexpand" translatesAutoresizingMaskIntoConstraints="NO" id="Wf8-cf-c9m">
-                                    <rect key="frame" x="68" y="20" width="7" height="5"/>
+                                    <rect key="frame" x="60" y="20" width="7" height="5"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,7 +169,7 @@
                                 <constraint firstItem="ImL-lJ-wBZ" firstAttribute="centerY" secondItem="LVE-TU-7zd" secondAttribute="centerY" id="Bil-YC-xUS"/>
                                 <constraint firstItem="ImL-lJ-wBZ" firstAttribute="leading" secondItem="LVE-TU-7zd" secondAttribute="leading" constant="10" id="GCh-oI-3QW"/>
                                 <constraint firstItem="Wf8-cf-c9m" firstAttribute="leading" secondItem="4rd-OM-2Vg" secondAttribute="trailing" constant="3" id="P3n-fH-yQ2"/>
-                                <constraint firstItem="4rd-OM-2Vg" firstAttribute="centerX" secondItem="LVE-TU-7zd" secondAttribute="centerX" id="P91-98-N2g"/>
+                                <constraint firstItem="4rd-OM-2Vg" firstAttribute="centerX" secondItem="LVE-TU-7zd" secondAttribute="centerX" constant="-8" id="P91-98-N2g"/>
                                 <constraint firstItem="ImL-lJ-wBZ" firstAttribute="centerX" secondItem="LVE-TU-7zd" secondAttribute="centerX" id="Y6r-Ae-6WV"/>
                                 <constraint firstItem="ImL-lJ-wBZ" firstAttribute="height" secondItem="LVE-TU-7zd" secondAttribute="height" id="hsW-ar-rpv"/>
                                 <constraint firstItem="4rd-OM-2Vg" firstAttribute="centerY" secondItem="LVE-TU-7zd" secondAttribute="centerY" id="q5j-BR-lhM"/>
