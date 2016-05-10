@@ -67,7 +67,7 @@
 }
 
 - (void)configFullScreenStyle {
-    CGFloat extraHeight = kScreenHeight - kDesignerInfoCellHeight - 43;
+    CGFloat extraHeight = kScreenHeight - kDesignerInfoCellHeight - 50;
     self.tableView.contentInset = UIEdgeInsetsMake(extraHeight, 0, 0, 0);
     self.backgroundImage.alpha = 1;
     self.tableView.scrollEnabled = NO;
@@ -106,6 +106,14 @@
     DesignerInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"DesignerInfoCell"];
     [cell initWithDesigner:self.designerPageData.designer];
     self.infoCell = cell;
+}
+
+- (void)initSectionView {
+    self.section = [DesignerSectionCell sectionView];
+    [self.section.btnDetail addTarget:self action:@selector(onClickDetail) forControlEvents:UIControlEventTouchUpInside];
+    [self.section.btnProduct addTarget:self action:@selector(onClickProduct) forControlEvents:UIControlEventTouchUpInside];
+    [self.section.btnDetail setNormTitleColor:[UIColor colorWithR:52 g:74 b:93]];
+    [self.section.btnProduct setNormTitleColor:self.isJiangXinDingZhi ? [UIColor colorWithR:52 g:74 b:93] : [UIColor colorWithR:170 g:177 b:182]];
 }
 
 - (void)enableInfoCellTransparent:(BOOL)trans {
@@ -192,7 +200,7 @@
     if (section == 0) {
         return 0;
     } else {
-        return 44;
+        return 50;
     }
 }
 
@@ -203,23 +211,20 @@
         if (self.section) {
             return self.section;
         } else {
-            self.section = [DesignerSectionCell sectionView];
-            [self.section.btnProduct addTarget:self action:@selector(onClickProduct) forControlEvents:UIControlEventTouchUpInside];
-            [self.section.btnDetail addTarget:self action:@selector(onClickDetail) forControlEvents:UIControlEventTouchUpInside];
+            [self initSectionView];
+            return self.section;
         }
-   
-        
-        return self.section;
     }
 }
 
 #pragma mark - User Action
 - (void)onClickDetail {
     [self moveDesignerInfoToTop];
+    [self.section.btnDetail setNormTitleColor:[UIColor colorWithR:52 g:74 b:93]];
+    [self.section.btnProduct setNormTitleColor:[UIColor colorWithR:170 g:177 b:182]];
+    
     if (self.isShowProductList) {
         self.isShowProductList = NO;
-        [self.section.btnDetail setNormTitleColor:[UIColor colorWithR:52 g:74 b:93]];
-        [self.section.btnProduct setNormTitleColor:[UIColor colorWithR:170 g:177 b:182]];
         self.tableView.footer = nil;
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
     }
@@ -227,11 +232,11 @@
 
 - (void)onClickProduct {
     [self moveDesignerInfoToTop];
+    [self.section.btnProduct setNormTitleColor:[UIColor colorWithR:52 g:74 b:93]];
+    [self.section.btnDetail setNormTitleColor:[UIColor colorWithR:170 g:177 b:182]];
+    
     if (!self.isShowProductList) {
         self.isShowProductList = YES;
-        [self.section.btnProduct setNormTitleColor:[UIColor colorWithR:52 g:74 b:93]];
-        [self.section.btnDetail setNormTitleColor:[UIColor colorWithR:170 g:177 b:182]];
-        
         @weakify(self);
         self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             @strongify(self);
