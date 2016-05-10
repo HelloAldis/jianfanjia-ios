@@ -11,6 +11,7 @@
 const CGFloat kDecPackageJiangXinViewHeight = 100;
 
 @interface DecPackageJiangXinView()
+@property (weak, nonatomic) IBOutlet UILabel *lblDesc;
 
 @end
 
@@ -28,6 +29,7 @@ const CGFloat kDecPackageJiangXinViewHeight = 100;
 
 - (void)initUI {
     self.clipsToBounds = YES;
+    self.lblDesc.text = @"您完全符合我们“匠心定制包”的标准\n我们的设计师将为您提供全程定制化的服务";
 }
 
 @end
