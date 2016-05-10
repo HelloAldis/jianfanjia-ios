@@ -82,6 +82,7 @@
 - (void)initTranslucentNavBar {
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"translucent"] forBarMetrics:UIBarMetricsDefault];
 }
