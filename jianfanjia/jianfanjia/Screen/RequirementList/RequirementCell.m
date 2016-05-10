@@ -69,7 +69,7 @@
     [self.imgHomeOwner setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
     self.requirement = requirement;
     
-    self.isJiangXin = [requirement.package_type isEqualToString:kDecPackageJiangXinDingZhi];
+    self.isJiangXin = [RequirementBusiness isPkgJiangXinByType:requirement.package_type];
     [self updateDesignerView:self.isJiangXin];
     [self updateRequirement:requirement];
     
@@ -149,9 +149,9 @@
     UILabel *lblTag = self.lblTag[idx];
     lblTag.text = [DesignerBusiness designerTagTextByArr:orderedDesigner.tags];
     
-    UIView *tagView = self.tagView[idx];
-    tagView.bgColor = [DesignerBusiness designerTagColorByArr:orderedDesigner.tags];
-    tagView.hidden = self.isJiangXin;
+//    UIView *tagView = self.tagView[idx];
+//    tagView.bgColor = [DesignerBusiness designerTagColorByArr:orderedDesigner.tags];
+//    tagView.hidden = self.isJiangXin;
 
     [DesignerBusiness setV:authIcon withAuthType:auth_type];
     self.currentPlanStatus[idx] = status;
