@@ -50,7 +50,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     [self.designerTableView registerNib:[UINib nibWithNibName:@"FavoriteDesignerCell" bundle:nil] forCellReuseIdentifier:@"FavoriteDesignerCell"];
     [self.productTableView registerNib:[UINib nibWithNibName:@"FavoriateProductCell" bundle:nil] forCellReuseIdentifier:@"FavoriateProductCell"];
     [self.beautifulImageCollectionView registerNib:[UINib nibWithNibName:@"FavoriateBeautifulImageCell"bundle:nil] forCellWithReuseIdentifier:@"FavoriateBeautifulImageCell"];
-    self.designerTableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
+    self.designerTableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 51, 0, 0, 0);
     self.productTableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
     self.beautifulImageCollectionView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
     self.designerTableView.tableFooterView = [[UIView alloc] init];
