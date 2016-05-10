@@ -207,21 +207,33 @@
                         <rect key="frame" x="0.0" y="96" width="320" height="50"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dcq-4m-nAZ">
-                                <rect key="frame" x="0.0" y="1" width="320" height="49"/>
+                                <rect key="frame" x="161" y="1" width="159" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <state key="normal" title="查看方案">
                                     <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdi-Ly-8Zb">
+                                <rect key="frame" x="0.0" y="1" width="160" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="查看评价">
+                                    <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Dcq-4m-nAZ" firstAttribute="top" secondItem="wzj-wW-kxl" secondAttribute="top" constant="1" id="57R-Tl-VUx"/>
+                            <constraint firstItem="cdi-Ly-8Zb" firstAttribute="width" secondItem="Dcq-4m-nAZ" secondAttribute="width" id="5v3-cg-jYq"/>
+                            <constraint firstAttribute="bottom" secondItem="cdi-Ly-8Zb" secondAttribute="bottom" id="8pu-wq-yBv"/>
+                            <constraint firstItem="cdi-Ly-8Zb" firstAttribute="leading" secondItem="wzj-wW-kxl" secondAttribute="leading" id="9S2-5M-xo6"/>
                             <constraint firstAttribute="bottom" secondItem="Dcq-4m-nAZ" secondAttribute="bottom" id="QRw-VB-ufb"/>
+                            <constraint firstItem="Dcq-4m-nAZ" firstAttribute="top" secondItem="cdi-Ly-8Zb" secondAttribute="top" id="Wp3-fS-Yw5"/>
                             <constraint firstAttribute="height" constant="50" id="aqt-hY-evV"/>
-                            <constraint firstItem="Dcq-4m-nAZ" firstAttribute="leading" secondItem="wzj-wW-kxl" secondAttribute="leading" id="hyz-G2-INc"/>
+                            <constraint firstItem="cdi-Ly-8Zb" firstAttribute="top" secondItem="wzj-wW-kxl" secondAttribute="top" constant="1" id="f2F-qZ-5NZ"/>
                             <constraint firstAttribute="trailing" secondItem="Dcq-4m-nAZ" secondAttribute="trailing" id="isr-I4-6dS"/>
+                            <constraint firstItem="Dcq-4m-nAZ" firstAttribute="leading" secondItem="cdi-Ly-8Zb" secondAttribute="trailing" constant="1" id="pg5-Oa-haV"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -238,6 +250,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnEvaluate" destination="cdi-Ly-8Zb" id="B5J-jE-Ows"/>
                 <outlet property="btnViewPlan" destination="Dcq-4m-nAZ" id="1Tp-qY-OZa"/>
                 <outlet property="imgAvatar" destination="lbf-g3-9B6" id="Cau-BI-gv2"/>
                 <outlet property="lblTag" destination="KgC-AD-QOp" id="F0g-Zf-18u"/>

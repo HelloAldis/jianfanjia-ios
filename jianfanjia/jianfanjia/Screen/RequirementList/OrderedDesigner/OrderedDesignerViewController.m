@@ -138,30 +138,6 @@ static NSString *PlanExpiredIdentifier = @"PlanExpiredCell";
 - (DesignerPlanStatusBaseCell *)loadCellWithDesigner:(Designer *)orderedDesigner withTableView:(UITableView *)tableView forIndex:(NSIndexPath *)path {
     NSString *status = orderedDesigner.plan.status;
     
-    /**
-     重构判断逻辑
-    NSString *cellIdentifier;
-    if ([status isEqualToString:kPlanStatusHomeOwnerOrderedWithoutResponse]) {
-        cellIdentifier = HomeOwnerOrderedWithoutResponseIdentifier;
-    } else if ([status isEqualToString:kPlanStatusDesignerRespondedWithoutMeasureHouse]) {
-        cellIdentifier = DesignerRespondedWithoutMeasureHouseIdentifier;
-    } else if ([status isEqualToString:kPlanStatusDesignerSubmittedPlan]) {
-        cellIdentifier = DesignerSubmittedPlanIdentifier;
-    } else if ([status isEqualToString:kPlanStatusPlanWasChoosed]) {
-        cellIdentifier = [RequirementBusiness isDesignRequirement:self.requirement.work_type] ? PlanWasChoosedForDesignIdentifier : PlanWasChoosedIdentifier;
-    } else if ([status isEqualToString:kPlanStatusDesignerDeclineHomeOwner]) {
-        cellIdentifier = DesignerDeclineHomeOwnerIdentifier;
-    } else if ([status isEqualToString:kPlanStatusPlanWasNotChoosed]) {
-        cellIdentifier = PlanWasNotChoosedIdentifier;
-    } else if ([status isEqualToString:kPlanStatusDesignerMeasureHouseWithoutPlan]) {
-        cellIdentifier = DesignerMeasureHouseWithoutPlanIdentifier;
-    } else if ([status isEqualToString:kPlanStatusExpiredAsDesignerDidNotRespond]) {
-        cellIdentifier = ExpiredAsDesignerDidNotRespondIdentifier;
-    } else {
-        cellIdentifier = ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeIdentifier;
-    }
-     **/
-    
     __block NSString *cellIdentifier;
     [StatusBlock matchPlan:status actions:
      @[[PlanHomeOwnerOrdered action:^{

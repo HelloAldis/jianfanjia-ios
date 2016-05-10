@@ -206,8 +206,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OI8-iU-7uD" userLabel="ActionView">
                         <rect key="frame" x="0.0" y="96" width="320" height="50"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGG-Gs-1fY">
+                                <rect key="frame" x="0.0" y="1" width="160" height="49"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="查看评价">
+                                    <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqJ-T3-wM0">
-                                <rect key="frame" x="0.0" y="1" width="320" height="49"/>
+                                <rect key="frame" x="161" y="1" width="159" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <state key="normal" title="替换">
@@ -217,11 +225,15 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="rqJ-T3-wM0" firstAttribute="top" secondItem="OI8-iU-7uD" secondAttribute="top" constant="1" id="9GU-7h-ORl"/>
+                            <constraint firstItem="rqJ-T3-wM0" firstAttribute="width" secondItem="jGG-Gs-1fY" secondAttribute="width" id="0do-fw-hh5"/>
+                            <constraint firstItem="rqJ-T3-wM0" firstAttribute="top" secondItem="jGG-Gs-1fY" secondAttribute="top" id="2HB-6i-DRr"/>
+                            <constraint firstItem="jGG-Gs-1fY" firstAttribute="top" secondItem="OI8-iU-7uD" secondAttribute="top" constant="1" id="66e-Qf-C5X"/>
+                            <constraint firstAttribute="bottom" secondItem="jGG-Gs-1fY" secondAttribute="bottom" id="8dN-9w-TA3"/>
+                            <constraint firstItem="rqJ-T3-wM0" firstAttribute="leading" secondItem="jGG-Gs-1fY" secondAttribute="trailing" constant="1" id="BQ5-kF-8KO"/>
                             <constraint firstAttribute="bottom" secondItem="rqJ-T3-wM0" secondAttribute="bottom" id="TLb-Q8-wVm"/>
                             <constraint firstAttribute="height" constant="50" id="XOT-u9-GB1"/>
-                            <constraint firstItem="rqJ-T3-wM0" firstAttribute="leading" secondItem="OI8-iU-7uD" secondAttribute="leading" id="hnH-I2-fSE"/>
                             <constraint firstAttribute="trailing" secondItem="rqJ-T3-wM0" secondAttribute="trailing" id="hp5-dc-Zrf"/>
+                            <constraint firstItem="jGG-Gs-1fY" firstAttribute="leading" secondItem="OI8-iU-7uD" secondAttribute="leading" id="s9v-s8-MEQ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -238,6 +250,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnEvaluate" destination="jGG-Gs-1fY" id="2aq-Ea-usA"/>
                 <outlet property="btnReplace" destination="rqJ-T3-wM0" id="qO9-DK-fLd"/>
                 <outlet property="imgAvatar" destination="qJP-6w-0fG" id="Qht-39-EqF"/>
                 <outlet property="lblTag" destination="Ecs-mZ-HbP" id="E6n-ja-Z5x"/>
