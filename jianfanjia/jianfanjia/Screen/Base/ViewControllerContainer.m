@@ -491,6 +491,7 @@ static ViewControllerContainer *container;
     
     [[NotificationDataManager shared] clearUnreadCount];
     [API clearCookie];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLogoutNotification object:nil];
 }
 
 @end

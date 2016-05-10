@@ -7,7 +7,6 @@
 //
 
 #import "RequirementListViewController.h"
-#import "RequirementCreateViewController.h"
 #import "RequirementDataManager.h"
 #import "RequirementCell.h"
 #import "ViewControllerContainer.h"
@@ -20,7 +19,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 @property (weak, nonatomic) IBOutlet UIButton *btnCreate;
 @property (weak, nonatomic) IBOutlet UILabel *lblNoRequirement;
 
-@property (strong, nonatomic) RequirementDataManager *requirementDataManager;
+@property (strong, nonatomic) RequirementDataManager *dataManager;
 
 @end
 
@@ -30,7 +29,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.requirementDataManager = [[RequirementDataManager alloc] init];
+    self.dataManager = [[RequirementDataManager alloc] init];
     
     [self initUI];
     [self initNav];
@@ -66,6 +65,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRequirementCreate) name:kRequirementCreateNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLogout) name:kLogoutNotification object:nil];
 }
 
 - (void)showRequirementList:(BOOL)show {
@@ -79,13 +79,18 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         self.btnCreate.hidden = NO;
         self.lblNoRequirement.hidden = NO;
         self.imageView.hidden = NO;
-        
+
         self.tableView.hidden = YES;
     }
 }
 
 - (void)handleRequirementCreate {
     [self.tableView setContentOffset:CGPointMake(0, -self.tableView.contentInset.top) animated:YES];
+}
+
+- (void)handleLogout {
+    self.dataManager.requirements = nil;
+    [self.tableView reloadData];
 }
 
 #pragma mark - nav
@@ -113,19 +118,19 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.requirementDataManager.requirements count];
+    return [self.dataManager.requirements count];
 }
 
 #pragma mark - table view delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RequirementCell *cell = [tableView dequeueReusableCellWithIdentifier:RequirementCellIdentifier forIndexPath:indexPath];
-    [cell initWithRequirement:self.requirementDataManager.requirements[indexPath.row]];
+    [cell initWithRequirement:self.dataManager.requirements[indexPath.row]];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Requirement *requirement = self.requirementDataManager.requirements[indexPath.row];
+    Requirement *requirement = self.dataManager.requirements[indexPath.row];
     
     __block NSInteger height = 286;
     if ([RequirementBusiness isDesignRequirement:requirement.work_type]) {
@@ -150,8 +155,8 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         [API getUserRequirement:getRequirements success:^{
             [HUDUtil hideWait];
             [self.tableView.header endRefreshing];
-            [self.requirementDataManager refreshRequirementList];
-            [self showRequirementList:self.requirementDataManager.requirements.count > 0];
+            [self.dataManager refreshRequirementList];
+            [self showRequirementList:self.dataManager.requirements.count > 0];
             
             [self.tableView reloadData];
         } failure:^{

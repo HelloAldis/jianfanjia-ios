@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+static NSString * const kLogoutNotification = @"LogoutNotification";
 
 @interface ViewControllerContainer : NSObject
 
