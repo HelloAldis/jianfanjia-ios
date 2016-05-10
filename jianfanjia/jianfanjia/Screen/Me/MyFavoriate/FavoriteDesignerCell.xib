@@ -23,7 +23,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="戴涛" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDu-Si-Ogm">
-                        <rect key="frame" x="100" y="17" width="28" height="21"/>
+                        <rect key="frame" x="100" y="17" width="126" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="HTj-nw-Mwk"/>
                         </constraints>
@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="BYG-wD-14s" userLabel="TagView">
-                        <rect key="frame" x="138" y="18" width="66" height="20"/>
+                        <rect key="frame" x="236" y="18" width="66" height="20"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ziE-M2-aQ1">
                                 <rect key="frame" x="7" y="2" width="52" height="16"/>
@@ -98,7 +98,7 @@
                     <constraint firstItem="zfH-Uh-bcp" firstAttribute="top" secondItem="xDu-Si-Ogm" secondAttribute="bottom" constant="8" id="QS3-wO-9Nf"/>
                     <constraint firstItem="oce-Xh-QPJ" firstAttribute="leading" secondItem="zfH-Uh-bcp" secondAttribute="trailing" constant="5" id="RyI-vm-AQS"/>
                     <constraint firstItem="xDu-Si-Ogm" firstAttribute="leading" secondItem="oRm-dh-dZ5" secondAttribute="trailing" constant="20" id="XoC-Hm-hUc"/>
-                    <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="BYG-wD-14s" secondAttribute="trailing" constant="10" id="cZp-cy-jQS"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="BYG-wD-14s" secondAttribute="trailing" constant="10" id="cZp-cy-jQS"/>
                     <constraint firstItem="Q3z-IC-3Yq" firstAttribute="baseline" secondItem="tSE-gV-CMB" secondAttribute="baseline" id="exm-Zb-xJu"/>
                     <constraint firstItem="tSE-gV-CMB" firstAttribute="baseline" secondItem="DWR-dl-XGd" secondAttribute="baseline" id="fVq-WC-Vgr"/>
                     <constraint firstItem="oRm-dh-dZ5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="gaa-fv-nZf"/>

@@ -44,7 +44,7 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lUn-GJ-CWI" userLabel="TagView">
-                                        <rect key="frame" x="173" y="11" width="66" height="20"/>
+                                        <rect key="frame" x="411" y="11" width="66" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kti-51-NE3">
                                                 <rect key="frame" x="7" y="2" width="52" height="16"/>
@@ -58,11 +58,12 @@
                                             <constraint firstItem="kti-51-NE3" firstAttribute="leading" secondItem="lUn-GJ-CWI" secondAttribute="leading" constant="7" id="40K-xQ-8Uz"/>
                                             <constraint firstItem="kti-51-NE3" firstAttribute="centerX" secondItem="lUn-GJ-CWI" secondAttribute="centerX" id="X3B-qw-TPQ"/>
                                             <constraint firstItem="kti-51-NE3" firstAttribute="centerY" secondItem="lUn-GJ-CWI" secondAttribute="centerY" id="Za1-ME-WdY"/>
+                                            <constraint firstAttribute="width" constant="66" id="Zmt-4d-oMw"/>
                                             <constraint firstAttribute="height" constant="20" id="nqz-Fz-Vag"/>
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Frank" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQp-aZ-97h">
-                                        <rect key="frame" x="113" y="12" width="40" height="17"/>
+                                        <rect key="frame" x="113" y="12" width="278" height="17"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -209,7 +210,7 @@
                                     <constraint firstItem="pQp-aZ-97h" firstAttribute="top" secondItem="sJF-Ht-Zaa" secondAttribute="top" constant="-5" id="gS7-pa-YXY"/>
                                     <constraint firstItem="iA4-S9-1dr" firstAttribute="width" secondItem="6gF-am-Ijf" secondAttribute="width" id="gVk-uP-6D7"/>
                                     <constraint firstItem="X6N-L3-D5H" firstAttribute="trailing" secondItem="sJF-Ht-Zaa" secondAttribute="trailing" id="ggp-kQ-7MR"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="lUn-GJ-CWI" secondAttribute="trailing" constant="15" id="ldi-c7-Qfq"/>
+                                    <constraint firstAttribute="trailing" secondItem="lUn-GJ-CWI" secondAttribute="trailing" constant="15" id="ldi-c7-Qfq"/>
                                     <constraint firstItem="TsC-qJ-0hg" firstAttribute="leading" secondItem="pQp-aZ-97h" secondAttribute="leading" id="lnO-K1-Qab"/>
                                     <constraint firstItem="7f8-J0-FPB" firstAttribute="centerY" secondItem="6gF-am-Ijf" secondAttribute="centerY" id="pij-El-ZNn"/>
                                     <constraint firstItem="7f8-J0-FPB" firstAttribute="width" secondItem="6gF-am-Ijf" secondAttribute="width" id="rGa-MY-ZTs"/>
