@@ -12,6 +12,7 @@
 @interface FavoriteDesignerCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *designerImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *authIcon;
 @property (weak, nonatomic) IBOutlet UILabel *lblDesignerName;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *stars;
 @property (weak, nonatomic) IBOutlet UIView *tagView;
@@ -46,6 +47,7 @@
     UIImage *full = [UIImage imageNamed:@"star_middle"];
     UIImage *empty = [UIImage imageNamed:@"star_middle_empty"];
     [DesignerBusiness setStars:self.stars withStar:star fullStar:full emptyStar:empty];
+    [DesignerBusiness setV:self.authIcon withAuthType:designer.auth_type];
 }
 
 - (void)onTapDesignerImage {

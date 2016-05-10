@@ -22,6 +22,10 @@
                             <constraint firstAttribute="width" constant="60" id="8ex-1A-62P"/>
                         </constraints>
                     </imageView>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="v" translatesAutoresizingMaskIntoConstraints="NO" id="yET-eQ-wDE">
+                        <rect key="frame" x="64" y="54" width="16" height="16"/>
+                        <gestureRecognizers/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="戴涛" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDu-Si-Ogm">
                         <rect key="frame" x="100" y="17" width="126" height="21"/>
                         <constraints>
@@ -97,8 +101,10 @@
                     <constraint firstItem="tSE-gV-CMB" firstAttribute="leading" secondItem="DWR-dl-XGd" secondAttribute="trailing" constant="5" id="O9b-hB-i1p"/>
                     <constraint firstItem="zfH-Uh-bcp" firstAttribute="top" secondItem="xDu-Si-Ogm" secondAttribute="bottom" constant="8" id="QS3-wO-9Nf"/>
                     <constraint firstItem="oce-Xh-QPJ" firstAttribute="leading" secondItem="zfH-Uh-bcp" secondAttribute="trailing" constant="5" id="RyI-vm-AQS"/>
+                    <constraint firstItem="yET-eQ-wDE" firstAttribute="trailing" secondItem="oRm-dh-dZ5" secondAttribute="trailing" id="UPf-C9-1UY"/>
                     <constraint firstItem="xDu-Si-Ogm" firstAttribute="leading" secondItem="oRm-dh-dZ5" secondAttribute="trailing" constant="20" id="XoC-Hm-hUc"/>
                     <constraint firstAttribute="trailingMargin" secondItem="BYG-wD-14s" secondAttribute="trailing" constant="10" id="cZp-cy-jQS"/>
+                    <constraint firstItem="yET-eQ-wDE" firstAttribute="bottom" secondItem="oRm-dh-dZ5" secondAttribute="bottom" id="ejR-3B-UDD"/>
                     <constraint firstItem="Q3z-IC-3Yq" firstAttribute="baseline" secondItem="tSE-gV-CMB" secondAttribute="baseline" id="exm-Zb-xJu"/>
                     <constraint firstItem="tSE-gV-CMB" firstAttribute="baseline" secondItem="DWR-dl-XGd" secondAttribute="baseline" id="fVq-WC-Vgr"/>
                     <constraint firstItem="oRm-dh-dZ5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="gaa-fv-nZf"/>
@@ -107,6 +113,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="authIcon" destination="yET-eQ-wDE" id="ycQ-6f-9JD"/>
                 <outlet property="designerImageView" destination="oRm-dh-dZ5" id="JEp-tX-SKJ"/>
                 <outlet property="lblDesignerName" destination="xDu-Si-Ogm" id="Fma-e6-S9Z"/>
                 <outlet property="lblTag" destination="ziE-M2-aQ1" id="Bar-6y-bPI"/>
@@ -121,5 +128,6 @@
     </objects>
     <resources>
         <image name="star_middle_empty" width="17" height="15"/>
+        <image name="v" width="16" height="16"/>
     </resources>
 </document>
