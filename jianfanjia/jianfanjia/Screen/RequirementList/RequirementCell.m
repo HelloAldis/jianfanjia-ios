@@ -17,6 +17,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblPubulishTimeVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblUpdateTimeVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnEditRequirement;
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *designerView;
+@property (strong, nonatomic) IBOutletCollection(UIView) NSArray *tagView;
+@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *lblTag;
+@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *imgHanging;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *designerAvatar;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *authIcon;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *designerName;
@@ -28,13 +32,13 @@
 @property (strong, nonatomic) NSMutableArray *currentPlanStatus;
 @property (strong, nonatomic) RequirementDataManager *dataManager;
 @property (strong, nonatomic) Requirement *requirement;
+@property (assign, nonatomic) BOOL isJiangXin;
 
 @end
 
 @implementation RequirementCell
 
 - (void)awakeFromNib {
-    self.clipsToBounds = YES;
     self.dataManager = [[RequirementDataManager alloc] init];
     self.currentPlanStatus = [[NSMutableArray alloc] initWithCapacity:self.designerAvatar.count];
     
@@ -46,11 +50,15 @@
         [self.currentPlanStatus addObject:kPlanStatusUnorder];
     }];
     
-    [self.designerAvatar enumerateObjectsUsingBlock:^(UIImageView* _Nonnull imageView, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.designerAvatar enumerateObjectsUsingBlock:^(UIImageView * _Nonnull imageView, NSUInteger idx, BOOL * _Nonnull stop) {
         @strongify(self);
         UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDesignerAvatar:)];
         [imageView setCornerRadius:imageView.bounds.size.width / 2];
         [imageView addGestureRecognizer:gesture];
+    }];
+    
+    [self.tagView enumerateObjectsUsingBlock:^(UIView*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj setCornerRadius:obj.bounds.size.height / 2];
     }];
     
     [self.imgHomeOwner setCornerRadius:self.imgHomeOwner.bounds.size.width / 2];
@@ -58,11 +66,13 @@
 
 - (void)initWithRequirement:(Requirement *)requirement {
     [self.imgHomeOwner setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
-    
     self.requirement = requirement;
-    [self.dataManager refreshOrderedDesigners:requirement];
+    
+    self.isJiangXin = [requirement.package_type isEqualToString:kDecPackageJiangXinDingZhi];
+    [self updateDesignerView:self.isJiangXin];
     [self updateRequirement:requirement];
     
+    [self.dataManager refreshOrderedDesigners:requirement];
     for (NSInteger i = 0; i < self.designerAvatar.count; i++) {
         if (i < self.dataManager.orderedDesigners.count) {
             [self updateDesigner:self.dataManager.orderedDesigners[i] forIndex:i];
@@ -103,22 +113,36 @@
 
 #pragma mark - update status
 - (void)updateDesigner:(Designer *)orderedDesigner forIndex:(NSUInteger)idx {
+    BOOL ordered = orderedDesigner != nil;
     UIImageView *imgView = self.designerAvatar[idx];
+    imgView.tintColor = ordered ? nil : (self.isJiangXin ? kThemeColor: [UIColor grayColor]);
+    [imgView setBorder:ordered ? (self.isJiangXin ? 1 : 0) : 0 andColor:kThemeColor.CGColor];
     
-    if (orderedDesigner) {
+    UIImageView *imgHandings = self.imgHanging[idx];
+    imgHandings.hidden = !self.isJiangXin;
+    
+    if (ordered) {
         [imgView setImageWithId:orderedDesigner.imageid withWidth:imgView.bounds.size.width];
     } else {
         [imgView setImage:[UIImage imageNamed:@"icon_add_designer"]];
+        imgHandings.hidden = YES;
     }
     
     UILabel *lblName = self.designerName[idx];
-    lblName.text = orderedDesigner ? orderedDesigner.username : @"设计师";
+    lblName.text = orderedDesigner ? orderedDesigner.username : (self.isJiangXin ? @"匠心定制设计师" : @"设计师");
     
     NSString *status = orderedDesigner ? orderedDesigner.plan.status : kPlanStatusUnorder;
     NSString *auth_type = orderedDesigner ? orderedDesigner.auth_type : kAuthTypeUnsubmitVerify;
     
     UILabel *lblStatus = self.designerStatus[idx];
     UIImageView *authIcon = self.authIcon[idx];
+    
+    UILabel *lblTag = self.lblTag[idx];
+    lblTag.text = [DesignerBusiness designerTagTextByArr:orderedDesigner.tags];
+    
+    UIView *tagView = self.tagView[idx];
+    tagView.bgColor = [DesignerBusiness designerTagColorByArr:orderedDesigner.tags];
+    tagView.hidden = self.isJiangXin;
 
     [DesignerBusiness setV:authIcon withAuthType:auth_type];
     self.currentPlanStatus[idx] = status;
@@ -149,18 +173,20 @@
        ]];
 
     
-    //判断是否允许继续预约设计师
-    @weakify(self);
-    [self designerAction:status canNotOrder:^{
-        @strongify(self);
-        [self enableDesigner:NO index:idx];
-    } order:^{
-        @strongify(self);
-        [self enableDesigner:YES index:idx];
-    } ordered:^{
-        @strongify(self);
-        [self enableDesigner:YES index:idx];
-    }];
+    if (!self.isJiangXin) {
+        //判断是否允许继续预约设计师
+        @weakify(self);
+        [self designerAction:status canNotOrder:^{
+            @strongify(self);
+            [self enableDesigner:NO index:idx];
+        } order:^{
+            @strongify(self);
+            [self enableDesigner:YES index:idx];
+        } ordered:^{
+            @strongify(self);
+            [self enableDesigner:YES index:idx];
+        }];
+    }
 }
 
 - (void)updateRequirement:(Requirement *)requirement {
@@ -172,7 +198,8 @@
     [StatusBlock matchReqt:status actions:
      @[[ReqtUnorderDesigner action:^{
             self.lblRequirementStatusVal.textColor = kUntriggeredColor;
-            [self updateGoToWorksite:@"已为您匹配3名设计师请点击前往预约" titleColor:kFinishedColor];
+            NSString *text = self.isJiangXin ? @"请点击前往预约1名匠心定制设计师" : @"已为您匹配3名设计师请点击前往预约";
+            [self updateGoToWorksite:text titleColor:kFinishedColor];
             [self gotoShowOrderDesigner];
         }],
        [ReqtConfiguredAgreement action:^{
@@ -242,6 +269,18 @@
 - (void)updateGoToWorksite:(NSString *)title titleColor:(UIColor *)titleColor {
     [self.btnGoToWorkspace setNormTitleColor:titleColor];
     [self.btnGoToWorkspace setNormTitle:title];
+}
+
+- (void)updateDesignerView:(BOOL)isJiangXin {
+    if (isJiangXin) {
+        [self.designerView[0] setHidden:YES];
+        [self.designerView[1] setHidden:NO];
+        [self.designerView[2] setHidden:YES];
+    } else {
+        [self.designerView[0] setHidden:NO];
+        [self.designerView[1] setHidden:NO];
+        [self.designerView[2] setHidden:NO];
+    }
 }
 
 #pragma mark - Go to workspace function

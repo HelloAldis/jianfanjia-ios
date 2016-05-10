@@ -199,11 +199,9 @@
                     <constraint firstAttribute="bottomMargin" secondItem="2j2-Zi-RyX" secondAttribute="bottom" constant="30" id="buQ-hC-Hup"/>
                     <constraint firstItem="KVE-ww-Gyt" firstAttribute="top" secondItem="NSd-gx-JPd" secondAttribute="top" id="d3D-fi-JYW"/>
                     <constraint firstItem="TUP-pj-qDe" firstAttribute="top" secondItem="lcs-IN-5uf" secondAttribute="top" id="dBZ-y5-yLM"/>
-                    <constraint firstItem="vlC-ce-Bxm" firstAttribute="width" secondItem="vlC-ce-Bxm" secondAttribute="height" multiplier="71:66" id="dbr-Yv-4Gb"/>
                     <constraint firstItem="lfI-S9-rNX" firstAttribute="top" secondItem="CYy-TQ-OFB" secondAttribute="top" id="ghm-c6-vlZ"/>
                     <constraint firstItem="vlC-ce-Bxm" firstAttribute="trailing" secondItem="NSd-gx-JPd" secondAttribute="trailing" constant="1" id="hBB-nZ-W5C"/>
                     <constraint firstItem="klb-Hh-jFa" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="top" id="hNV-Kw-evt"/>
-                    <constraint firstItem="vlC-ce-Bxm" firstAttribute="width" secondItem="vlC-ce-Bxm" secondAttribute="height" multiplier="71:66" id="hVB-Gy-AlW"/>
                     <constraint firstItem="CYy-TQ-OFB" firstAttribute="height" secondItem="hl6-9h-8CQ" secondAttribute="height" id="jOD-eG-10P"/>
                     <constraint firstItem="APo-Do-Qtc" firstAttribute="top" secondItem="CmF-aq-MHT" secondAttribute="bottom" constant="8" id="kNC-Np-hOY"/>
                     <constraint firstItem="lfI-S9-rNX" firstAttribute="leading" secondItem="CYy-TQ-OFB" secondAttribute="trailing" constant="-1" id="mjL-Wg-PYE"/>
