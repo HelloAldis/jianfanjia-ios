@@ -134,7 +134,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
     
     __block NSInteger height = 286;
     if ([RequirementBusiness isDesignRequirement:requirement.work_type]) {
-        height = 241;
+        height = 239;
         [StatusBlock matchReqt:requirement.status action:[ReqtUnorderDesigner action:^{
             height = 286;
         }]];

@@ -39,6 +39,7 @@
 @implementation RequirementCell
 
 - (void)awakeFromNib {
+    self.clipsToBounds = YES;
     self.dataManager = [[RequirementDataManager alloc] init];
     self.currentPlanStatus = [[NSMutableArray alloc] initWithCapacity:self.designerAvatar.count];
     
