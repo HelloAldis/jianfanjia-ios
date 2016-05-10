@@ -67,6 +67,7 @@ typedef NS_ENUM(NSInteger, PkgShowingType) {
 @property (strong, nonatomic) DecPackage365View *decPkg365View;
 @property (strong, nonatomic) DecPackageJiangXinView *decPkgJiangXinView;
 @property (assign, nonatomic) PkgShowingType curPkgShowingType;
+@property (strong, nonatomic) NSString *curPkgType;
 @property (assign, nonatomic) CGFloat originPart3TopConstraintConst;
 @property (assign, nonatomic) CGSize originScrollViewContentSize;
 @property (assign, nonatomic) CGFloat keyboardHeight;
@@ -337,10 +338,10 @@ typedef NS_ENUM(NSInteger, PkgShowingType) {
                                                                 NSUInteger area = [decArea integerValue];
                                                                 NSUInteger budget = [decBudget integerValue];
                                                                 [self updateDecPkgData:area budget:budget];
-                                                                NSString *curPkgType = [RequirementBusiness getPkgTypeByArea:area budget:budget workType:workType];
+                                                                self.curPkgType = [RequirementBusiness getPkgTypeByArea:area budget:budget workType:workType];
                                                        
                                                                 @weakify(self);
-                                                                return @([self executeBlockByPkgType:curPkgType pkgDef:^BOOL{
+                                                                return @([self executeBlockByPkgType:self.curPkgType pkgDef:^BOOL{
                                                                     return flag;
                                                                 } pkg365:^BOOL{
                                                                    @strongify(self);
@@ -363,11 +364,11 @@ typedef NS_ENUM(NSInteger, PkgShowingType) {
                      NSUInteger budget = [tuple.second integerValue];
                      NSString *workType = tuple.third;
                      [self updateDecPkgData:area budget:budget];
-                     NSString *curPkgType = [RequirementBusiness getPkgTypeByArea:area budget:budget workType:workType];
+                     self.curPkgType = [RequirementBusiness getPkgTypeByArea:area budget:budget workType:workType];
                      
                      if (area > 0 && budget > 0 && workType.length > 0) {
                          @weakify(self);
-                         [self executeBlockByPkgType:curPkgType pkgDef:^BOOL{
+                         [self executeBlockByPkgType:self.curPkgType pkgDef:^BOOL{
                              @strongify(self);
                              [self hideDecPkg];
                              return YES;
@@ -613,8 +614,20 @@ typedef NS_ENUM(NSInteger, PkgShowingType) {
 - (void)triggerDoneEvent {
     [self enableRightBarItem:NO];
     if ([@"" isEqualToString:self.editingRequirement._id]) {
-        self.editingRequirement.package_type = [RequirementBusiness isPkg365ByArea:self.editingRequirement.house_area.integerValue] ? kDecPackage365 : kDecPackageDefault;
         
+        __block NSString *pkgType = nil;
+        [self executeBlockByPkgType:self.curPkgType pkgDef:^BOOL{
+            pkgType = kDecPackageDefault;
+            return YES;
+        } pkg365:^BOOL{
+            pkgType = kDecPackage365;
+            return YES;
+        } pkgJiangXin:^BOOL{
+            pkgType = kDecPackageJiangXinDingZhi;
+            return YES;
+        }];
+        
+        self.editingRequirement.package_type = pkgType;
         SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
         
         [API sendAddRequirement:sendAddRequirement success:^{
