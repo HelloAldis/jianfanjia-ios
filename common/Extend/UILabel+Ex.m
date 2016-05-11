@@ -12,6 +12,7 @@
 
 - (void)setRowSpace:(NSInteger)space {
     NSString *labelText = self.text;
+    if (!labelText) return;
     
     NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText];
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -22,6 +23,8 @@
 }
 
 - (void)setHtml:(NSString *)htmlString {
+    if (!htmlString) return;
+    
     NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
     ;
     self.attributedText = attrStr;
