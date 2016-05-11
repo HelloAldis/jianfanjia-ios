@@ -43,6 +43,6 @@
         </view>
     </objects>
     <resources>
-        <image name="img_designer_bg" width="1242" height="2045"/>
+        <image name="img_designer_bg" width="414" height="681"/>
     </resources>
 </document>
