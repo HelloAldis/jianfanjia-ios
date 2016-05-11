@@ -29,7 +29,7 @@
                         <gestureRecognizers/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王大雷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGR-gY-nnY">
-                        <rect key="frame" x="93" y="15" width="42" height="17"/>
+                        <rect key="frame" x="93" y="18" width="42" height="17"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,7 +97,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="匹配度：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ne1-vW-hyB">
-                        <rect key="frame" x="93" y="69" width="52" height="16"/>
+                        <rect key="frame" x="93" y="66" width="52" height="16"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -116,7 +116,7 @@
                     <constraint firstItem="K11-rX-Ps0" firstAttribute="leading" secondItem="OXi-le-E8Z" secondAttribute="trailing" constant="3" id="8CO-Wm-9ed"/>
                     <constraint firstItem="orB-hh-Xwp" firstAttribute="centerY" secondItem="Ey4-v4-Lj2" secondAttribute="centerY" id="9KK-so-Y3R"/>
                     <constraint firstItem="Ey4-v4-Lj2" firstAttribute="leading" secondItem="VGR-gY-nnY" secondAttribute="leading" id="EGa-JG-nmb"/>
-                    <constraint firstItem="VGR-gY-nnY" firstAttribute="top" secondItem="5uC-Ri-dVo" secondAttribute="top" constant="-5" id="GLd-KH-hDC"/>
+                    <constraint firstItem="VGR-gY-nnY" firstAttribute="top" secondItem="5uC-Ri-dVo" secondAttribute="top" constant="-2" id="GLd-KH-hDC"/>
                     <constraint firstAttribute="trailingMargin" secondItem="2wm-Mj-hXd" secondAttribute="trailing" constant="8" id="GTa-cQ-x4h"/>
                     <constraint firstItem="5uC-Ri-dVo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="ILp-ht-d94"/>
                     <constraint firstItem="Ey4-v4-Lj2" firstAttribute="width" secondItem="Ey4-v4-Lj2" secondAttribute="height" multiplier="17:15" id="JS9-e2-x2S"/>
@@ -129,7 +129,7 @@
                     <constraint firstItem="5xt-MV-Y43" firstAttribute="leading" secondItem="5uC-Ri-dVo" secondAttribute="trailing" constant="-3" id="ct4-dM-C4M"/>
                     <constraint firstItem="K11-rX-Ps0" firstAttribute="width" secondItem="Ey4-v4-Lj2" secondAttribute="width" id="d5m-df-kDD"/>
                     <constraint firstItem="9FD-0s-APL" firstAttribute="bottom" secondItem="5uC-Ri-dVo" secondAttribute="bottom" id="erc-6B-X8e"/>
-                    <constraint firstItem="Ne1-vW-hyB" firstAttribute="bottom" secondItem="5uC-Ri-dVo" secondAttribute="bottom" constant="5" id="hFd-Em-UL7"/>
+                    <constraint firstItem="Ne1-vW-hyB" firstAttribute="bottom" secondItem="5uC-Ri-dVo" secondAttribute="bottom" constant="2" id="hFd-Em-UL7"/>
                     <constraint firstItem="2wm-Mj-hXd" firstAttribute="leading" secondItem="pgK-Ti-mYq" secondAttribute="trailing" constant="10" id="hUl-OA-L0S"/>
                     <constraint firstItem="5xt-MV-Y43" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="k7f-Mt-fbb"/>
                     <constraint firstItem="2wm-Mj-hXd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="nIJ-AQ-Kkd"/>
