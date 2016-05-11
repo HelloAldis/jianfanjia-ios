@@ -65,13 +65,17 @@ static NSMutableArray *decStyleDS;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initNav];
     [self initUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self initDefaultNavBarStyle];
+    [self initNav];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self showTabbar];
     
     if ([DataManager shared].isNeedRefreshTotal) {
         [DataManager shared].isNeedRefreshTotal = NO;
@@ -79,16 +83,12 @@ static NSMutableArray *decStyleDS;
     }
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if (self.navigationController.viewControllers.count > 1) {
-        [self hideTabbar];
-    }
-}
-
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"装修美图";
+    self.tabBarController.title = @"装修美图";
+    self.tabBarController.navigationItem.titleView = nil;
+    self.tabBarController.navigationItem.leftBarButtonItem = nil;
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
 }
 
 - (void)initUI {

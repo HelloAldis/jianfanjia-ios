@@ -52,10 +52,7 @@
 @interface ViewControllerContainer ()
 
 @property(weak, nonatomic) UIWindow *window;
-@property(strong, nonatomic) UINavigationController *navTapHome;
-@property(strong, nonatomic) UINavigationController *navTapPrettyImg;
-@property(strong, nonatomic) UINavigationController *navTapRequirement;
-@property(strong, nonatomic) UINavigationController *navTapMy;
+@property(strong, nonatomic) UINavigationController *navigation;
 
 @property(strong, nonatomic) TabViewController *tab;
 
@@ -91,6 +88,10 @@ static ViewControllerContainer *container;
     });
 }
 
++ (UINavigationController *)navigation {
+    return container.navigation;
+}
+
 + (void)showAfterLanching {
     if ([GVUserDefaults standardUserDefaults].welcomeVersion < kWelcomeVersion) {
         //显示welcome
@@ -103,29 +104,15 @@ static ViewControllerContainer *container;
 
 + (void)showTab {
     container.tab = [[TabViewController alloc] initWithNibName:nil bundle:nil];
-    HomePageViewController *designerlist = [[HomePageViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTapHome = [[UINavigationController alloc] initWithRootViewController:designerlist];
-    container.navTapHome.hidesBottomBarWhenPushed = YES;
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
-    container.navTapHome.navigationBar.titleTextAttributes = dict;
-    
-    BeautifulImageViewController *beatifulImage = [[BeautifulImageViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTapPrettyImg = [[UINavigationController alloc] initWithRootViewController:beatifulImage];
-    container.navTapPrettyImg.hidesBottomBarWhenPushed = YES;
-    container.navTapPrettyImg.navigationBar.titleTextAttributes = dict;
-    
-    RequirementListViewController *requirementList = [[RequirementListViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTapRequirement = [[UINavigationController alloc] initWithRootViewController:requirementList];
-    container.navTapRequirement.hidesBottomBarWhenPushed = YES;
-    container.navTapRequirement.navigationBar.titleTextAttributes = dict;
-    
-    MeViewController *me = [[MeViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTapMy = [[UINavigationController alloc] initWithRootViewController:me];
-    container.navTapMy.hidesBottomBarWhenPushed = YES;
-    container.navTapMy.navigationBar.titleTextAttributes = dict;
-    
-    container.tab.viewControllers = @[container.navTapHome, container.navTapPrettyImg, container.navTapRequirement, container.navTapMy];
-    container.window.rootViewController = container.tab;
+    container.tab.automaticallyAdjustsScrollViewInsets = NO;
+    container.tab.tapHome = [[HomePageViewController alloc] initWithNibName:nil bundle:nil];
+    container.tab.tapBeautifulImg = [[BeautifulImageViewController alloc] initWithNibName:nil bundle:nil];
+    container.tab.tapRequirement = [[RequirementListViewController alloc] initWithNibName:nil bundle:nil];
+    container.tab.tapMy = [[MeViewController alloc] initWithNibName:nil bundle:nil];
+
+    container.tab.viewControllers = @[container.tab.tapHome, container.tab.tapBeautifulImg, container.tab.tapRequirement, container.tab.tapMy];
+    container.navigation = [[UINavigationController alloc] initWithRootViewController:container.tab];
+    container.window.rootViewController = container.navigation;
 }
 
 + (void)showWelcome {
@@ -134,8 +121,8 @@ static ViewControllerContainer *container;
 }
 
 + (void)showLogin {
-    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
-    UIViewController *nav = presented ? presented : container.tab.selectedViewController;
+    UIViewController *presented = container.navigation.presentedViewController;
+    UIViewController *nav = presented ? presented : container.navigation;
     nav = nav ? nav : container.window.rootViewController;
     
     LoginViewController *v = [[LoginViewController alloc] init];
@@ -146,8 +133,8 @@ static ViewControllerContainer *container;
 }
 
 + (void)showSignup {
-    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
-    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     
     LoginViewController *v = [[LoginViewController alloc] init];
     v.showSignup = YES;
@@ -159,7 +146,7 @@ static ViewControllerContainer *container;
 
 + (void)showAccountBind {
     AccountBindViewController *v = [[AccountBindViewController alloc] init];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showBindPhone:(BindPhoneEvent)bindPhoneEvent callback:(void(^)(void))callback {
@@ -170,15 +157,15 @@ static ViewControllerContainer *container;
     
     v.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     v.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    [container.tab.selectedViewController presentViewController:navi animated:YES completion:nil];
+    [container.navigation presentViewController:navi animated:YES completion:nil];
 }
 
 + (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent callback:(void(^)(void))callback {
     VerifyPhoneViewController *v = [[VerifyPhoneViewController alloc] initWithEvent:verfityPhoneEvent];
     v.callback = callback;
     
-    if (container.window.rootViewController == container.tab) {
-        [((id)container.tab.selectedViewController.presentedViewController) pushViewController:v animated:YES];
+    if (container.window.rootViewController == container.navigation) {
+        [((id)container.navigation.presentedViewController) pushViewController:v animated:YES];
     } else {
         [((id)container.window.rootViewController.presentedViewController) pushViewController:v animated:YES];
     }
@@ -208,37 +195,32 @@ static ViewControllerContainer *container;
 
 + (void)showSearch {
     SearchViewController *v = [[SearchViewController alloc] initWithNibName:nil bundle:nil];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showDesignerList {
     DesignerListViewController *v = [[DesignerListViewController alloc] initWithNibName:nil bundle:nil];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showProductCaseList {
     ProductCaseListViewController *v = [[ProductCaseListViewController alloc] initWithNibName:nil bundle:nil];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showDecLiveList {
     DecLiveListViewController *v = [[DecLiveListViewController alloc] initWithNibName:nil bundle:nil];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
-}
-
-
-+ (void)showBeautifulImage {
-    container.tab.selectedViewController = container.navTapPrettyImg;
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showProcessPreview {
     ProcessViewController *v = [[ProcessViewController alloc] initWithProcessPreview];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showProcess:(NSString *)processid {
     ProcessViewController *v = [[ProcessViewController alloc] initWithProcess:processid];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showProduct:(NSString *)productid {
@@ -246,8 +228,8 @@ static ViewControllerContainer *container;
 }
 
 + (void)showProduct:(NSString *)productid isModal:(BOOL)isModal {
-    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
-    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     BOOL hasProduct = NO;
     for (UIViewController *v in nav.viewControllers) {
         if ([v isKindOfClass:[ProductViewController class]]) {
@@ -278,8 +260,8 @@ static ViewControllerContainer *container;
 }
 
 + (void)showDesigner:(NSString *)designerid {
-    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
-    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     BOOL hasDesigner = NO;
     for (UIViewController *v in nav.viewControllers) {
         if ([v isKindOfClass:[DesignerViewController class]]) {
@@ -302,17 +284,17 @@ static ViewControllerContainer *container;
 }
 
 + (void)showRequirementList {
-    if (container.tab.selectedViewController != container.navTapRequirement) {
-        [container.tab.selectedViewController popToRootViewControllerAnimated:NO];
-        container.tab.selectedViewController = container.navTapRequirement;
+    if (container.tab.selectedViewController != container.tab.tapRequirement) {
+        [container.navigation popToRootViewControllerAnimated:NO];
+        container.tab.selectedViewController = container.tab.tapRequirement;
     }
     
-    [container.tab.selectedViewController popToRootViewControllerAnimated:YES];
+    [container.navigation popToRootViewControllerAnimated:YES];
 }
 
 + (void)showRequirementCreate:(Requirement *)requirement {
     //if has designer order screen pop to
-    UINavigationController* nav =  container.tab.selectedViewController;
+    UINavigationController* nav =  container.navigation;
     for (UIViewController *v in nav.viewControllers) {
         if ([v isKindOfClass:[RequirementCreateViewController class]]) {
             [nav popToViewController:v animated:YES];
@@ -323,103 +305,88 @@ static ViewControllerContainer *container;
     //no reqirement create
     if (requirement) {
         RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToViewRequirement:requirement];
-        [container.tab.selectedViewController pushViewController:v animated:YES];
+        [container.navigation pushViewController:v animated:YES];
     } else {
         RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToCreateRequirement];
-        [container.tab.selectedViewController pushViewController:v animated:YES];
+        [container.navigation pushViewController:v animated:YES];
     }
 }
 
 + (void)showOrderDesigner:(Requirement *)requirement {
     Class class = [RequirementBusiness isPkgJiangXinByType:requirement.package_type] ? [OrderTaggedDesignerViewController class] : [OrderDesignerViewController class];
     
-    if (container.tab.selectedViewController != container.navTapRequirement) {
-        container.tab.selectedViewController = container.navTapRequirement;
-    }
-    
-    //if has designer order screen pop to
-    UINavigationController* nav =  container.tab.selectedViewController;
-    for (UIViewController *v in nav.viewControllers) {
-        if ([v isKindOfClass:class]) {
-            [nav popToViewController:v animated:YES];
-            return;
-        }
-    }
-    
-    //no designer order screen
     UIViewController *v = [[class alloc] initWithRequirement:requirement];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showReplaceOrderedDesigner:(NSString *)designerid forRequirement:(Requirement *)requirement {
     Class class = [RequirementBusiness isPkgJiangXinByType:requirement.package_type] ? [OrderTaggedDesignerViewController class] : [OrderDesignerViewController class];
     
-    //no designer order screen
     UIViewController *v = [[class alloc] initWithRequirement:requirement withToBeReplacedDesigner:designerid];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showPlanList:(NSString *)designerid forRequirement:(Requirement *)requirement {
     PlanListViewController *v = [[PlanListViewController alloc] initWithRequirement:requirement withDesigner:designerid];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)leaveMessage:(Plan *)plan {
     LeaveMessageViewController *v = [[LeaveMessageViewController alloc] initWithPlan:plan];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)leaveMessage:(Process *)process section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
     LeaveMessageViewController *v = [[LeaveMessageViewController alloc] initWithProcess:process section:section item:item block:RefreshBlock];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
     PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan forRequirement:requirement popTo:popTo refresh:refreshBlock];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showPlanPriceDetail:(Plan *)plan requirement:(Requirement *)requirement {
     PlanPriceDetailViewController *v = [[PlanPriceDetailViewController alloc] initWithPlan:plan requirement:requirement];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showOrderedDesigner:(Requirement *)requirement {
     OrderedDesignerViewController *v = [[OrderedDesignerViewController alloc] initWithRequirement:requirement];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showEvaluateDesigner:(Designer *)designer withRequirement:(NSString *)requirementid {
     EvaluateDesignerViewController *v = [[EvaluateDesignerViewController alloc] initWithDesigner:designer withRequirment:requirementid];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showAgreement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
     AgreementViewController *v = [[AgreementViewController alloc] initWithRequirement:requirement popTo:popTo refresh:refreshBlock];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showDBYS:(Section *)section process:(NSString *)processid popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
     DBYSViewController *v = [[DBYSViewController alloc] initWithSection:section process:processid popTo:popTo refresh:refreshBlock];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showMyNotification:(NotificationType)displayType {
     MyNotificationViewController *v = [[MyNotificationViewController alloc] init];
     v.displayType = displayType;
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showNotificationDetail:(NSString *)notificationid readBlock:(NotificationReadBlock)readBlock {
     NotificationDetailViewController *v = [[NotificationDetailViewController alloc] init];
     v.notificationId = notificationid;
     v.readBlock = readBlock;
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showMyComments {
     //if has designer order screen pop to
-    UINavigationController* nav =  container.tab.selectedViewController;
+    UINavigationController* nav =  container.navigation;
     for (UIViewController *v in nav.viewControllers) {
         if ([v isKindOfClass:[CommentListViewController class]]) {
             [nav popToViewController:v animated:YES];
@@ -428,7 +395,7 @@ static ViewControllerContainer *container;
     }
     
     CommentListViewController *v = [[CommentListViewController alloc] init];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [container.navigation pushViewController:v animated:YES];
 }
 
 + (void)showRefresh {
@@ -444,16 +411,16 @@ static ViewControllerContainer *container;
 }
 
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index {
-    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
-    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOffline:offlineImages index:index];
     imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [nav presentViewController:imgDetail animated:YES completion:nil];
 }
 
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index {
-    UIViewController *presented = container.tab.selectedViewController.presentedViewController;
-    UINavigationController *nav = presented ? (UINavigationController *)presented : (UINavigationController *)container.tab.selectedViewController;
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:onlineImages index:index];
     imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [nav presentViewController:imgDetail animated:YES completion:nil];
@@ -465,14 +432,14 @@ static ViewControllerContainer *container;
                           duration:0.5
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
-                            container.window.rootViewController = container.tab;
+                            container.window.rootViewController = container.navigation;
                         }
                         completion:nil];
     });
 }
 
 + (UIViewController *)getCurrentTapController {
-    return ((UINavigationController *)container.tab.selectedViewController).topViewController;
+    return container.navigation.topViewController;
 }
 
 + (void)logout {

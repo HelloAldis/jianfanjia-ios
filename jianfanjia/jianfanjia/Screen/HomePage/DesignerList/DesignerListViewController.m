@@ -66,9 +66,12 @@ static NSMutableArray *designerTagDS;
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self initNav];
     [self initUI];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self initNav];
 }
 
 #pragma mark - UI

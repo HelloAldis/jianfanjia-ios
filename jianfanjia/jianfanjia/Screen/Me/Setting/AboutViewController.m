@@ -21,8 +21,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initNav];
-    
+
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.scrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
@@ -30,8 +29,14 @@
     self.lblVersion.text = [NSString stringWithFormat:@"版本号：%@", version];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self initNav];
+}
+
 #pragma mark - UI
 - (void)initNav {
+    [self initDefaultNavBarStyle];
     [self initLeftBackInNav];
     self.title = @"更多";
 }

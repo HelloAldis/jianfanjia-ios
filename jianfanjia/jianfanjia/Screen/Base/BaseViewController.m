@@ -7,6 +7,11 @@
 //
 
 #import "BaseViewController.h"
+#import "ViewControllerContainer.h"
+
+@interface BaseViewController ()
+
+@end
 
 @implementation BaseViewController
 
@@ -29,6 +34,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self clearTabBarItems];
     [MobClick beginLogPageView:NSStringFromClass(self.class)];
 }
 
@@ -49,16 +55,6 @@
 }
 
 #pragma mark - UI
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesEnded:touches withEvent:event];
-    
-    [self.view endEditing:YES];
-}
-
 - (void)initLeftBackInNav {
     self.navigationController.navigationBarHidden = NO;
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
@@ -72,19 +68,26 @@
 }
 
 - (void)initDefaultNavBarStyle {
+    self.navigationController.navigationBarHidden = NO;
     NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes = dict;
     [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = nil;
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
 }
 
-- (void)initTranslucentNavBar {
+- (void)initTranslucentNavBar:(UIBarStyle)barStyle {
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = YES;
-    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+    [self.navigationController.navigationBar setBarStyle:barStyle];
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"translucent"] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)clearTabBarItems {
+    self.tabBarController.title = nil;
+    self.tabBarController.navigationItem.leftBarButtonItem = nil;
+    self.tabBarController.navigationItem.rightBarButtonItem = nil;
 }
 
 #pragma mark - user actions

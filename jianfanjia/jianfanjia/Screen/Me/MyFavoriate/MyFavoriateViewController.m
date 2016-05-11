@@ -127,20 +127,23 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     self.favoriateDesignerPageData = [[FavoriteDesignerData alloc] init];
     self.favoriateProductPageData = [[FavoriateProductData alloc] init];
     self.favoriateBeautifulImageData = [[FavoriateBeautifulImageData alloc] init];
-    [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [DataManager shared].isNeedRefreshTotal = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+    [self initNav];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self initUIData];
 }
 
 #pragma mark - UI
 - (void)initNav {
-    self.navigationController.navigationBarHidden = NO;
+    [self initDefaultNavBarStyle];
     [self initLeftBackInNav];
     self.title = @"我的收藏";
 }

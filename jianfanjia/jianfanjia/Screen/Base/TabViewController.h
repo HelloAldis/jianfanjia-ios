@@ -10,4 +10,9 @@
 
 @interface TabViewController : UITabBarController
 
+@property(strong, nonatomic) UIViewController *tapHome;
+@property(strong, nonatomic) UIViewController *tapBeautifulImg;
+@property(strong, nonatomic) UIViewController *tapRequirement;
+@property(strong, nonatomic) UIViewController *tapMy;
+
 @end

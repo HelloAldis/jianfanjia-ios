@@ -50,6 +50,7 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
 
 #pragma mark - UI
 - (void)initNav {
+    [self initDefaultNavBarStyle];
     [self initLeftBackInNav];
     self.title = @"我的通知";
 }

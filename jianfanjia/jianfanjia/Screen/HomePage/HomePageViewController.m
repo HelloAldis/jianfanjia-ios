@@ -32,45 +32,25 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initNav];
     [self initUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self showTabbar];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if (self.navigationController.viewControllers.count > 1) {
-        [self hideTabbar];
-    }
+    [self initDefaultNavBarStyle];
+    [self initNav];
 }
 
 #pragma mark - UI
 - (void)initNav {
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickSearch)];
-    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
-    
-    UILabel *titleLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 44)];
-    titleLbl.text = @"简繁家";
-    titleLbl.textColor = kThemeTextColor;
-    titleLbl.textAlignment = NSTextAlignmentCenter;
-    titleLbl.font = [UIFont boldSystemFontOfSize:18];
-    self.navigationItem.titleView = titleLbl;
+    self.tabBarController.title = @"简繁家";
+    self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickSearch)];
+    self.tabBarController.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
+    self.tabBarController.navigationItem.leftBarButtonItem = nil;
 }
 
 - (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.dataManager = [[HomePageDataManager alloc] init];
     self.isTabbarhide = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);

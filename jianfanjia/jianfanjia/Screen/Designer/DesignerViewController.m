@@ -84,7 +84,7 @@
 }
 
 - (void)configTransparentNavStyle {
-    [self initTranslucentNavBar];
+    [self initTranslucentNavBar:UIBarStyleBlack];
     [self initLeftWhiteBackInNav];
 }
 
