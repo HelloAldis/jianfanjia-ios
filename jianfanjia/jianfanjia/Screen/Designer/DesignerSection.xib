@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,14 +15,20 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppF-L9-p1r">
                     <rect key="frame" x="0.0" y="1" width="300" height="49"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="GNz-wM-PBb"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <state key="normal" title="个人资料">
                         <color key="titleColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HcO-kE-tFn">
-                    <rect key="frame" x="301" y="1" width="299" height="49"/>
+                    <rect key="frame" x="301" y="1" width="300" height="49"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="IS6-N3-A3h"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="tintColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="案例作品">
@@ -31,15 +38,12 @@
             </subviews>
             <color key="backgroundColor" red="0.83137254901960778" green="0.83529411764705885" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="HcO-kE-tFn" firstAttribute="top" secondItem="ppF-L9-p1r" secondAttribute="top" id="6FN-kY-35a"/>
-                <constraint firstAttribute="trailing" secondItem="HcO-kE-tFn" secondAttribute="trailing" id="Ai3-5r-Idx"/>
-                <constraint firstItem="HcO-kE-tFn" firstAttribute="bottom" secondItem="ppF-L9-p1r" secondAttribute="bottom" id="MvT-mD-dkG"/>
+                <constraint firstItem="HcO-kE-tFn" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="1/2" id="1TO-JQ-ukF"/>
+                <constraint firstItem="HcO-kE-tFn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="1" id="KvQ-uK-6Pg"/>
                 <constraint firstItem="HcO-kE-tFn" firstAttribute="leading" secondItem="ppF-L9-p1r" secondAttribute="trailing" constant="1" id="QWM-3X-OK8"/>
-                <constraint firstAttribute="bottom" secondItem="ppF-L9-p1r" secondAttribute="bottom" id="Tm0-lX-g6W"/>
+                <constraint firstItem="ppF-L9-p1r" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="1/2" id="Ulz-9S-df4"/>
                 <constraint firstItem="ppF-L9-p1r" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="cMR-KG-OC3"/>
-                <constraint firstItem="HcO-kE-tFn" firstAttribute="width" secondItem="ppF-L9-p1r" secondAttribute="width" id="fMY-Yx-9mn"/>
                 <constraint firstItem="ppF-L9-p1r" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="1" id="fsJ-Z0-jVU"/>
-                <constraint firstItem="HcO-kE-tFn" firstAttribute="height" secondItem="ppF-L9-p1r" secondAttribute="height" id="uiR-Mc-crD"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
