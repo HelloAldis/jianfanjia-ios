@@ -71,9 +71,8 @@
     
     self.isJiangXin = [RequirementBusiness isPkgJiangXinByType:requirement.package_type];
     [self updateDesignerView:self.isJiangXin];
-    [self updateRequirement:requirement];
-    
     [self.dataManager refreshOrderedDesigners:requirement];
+    [self updateRequirement:requirement];
     if (self.isJiangXin) {
         if (self.dataManager.orderedDesigners.count > 0) {
             [self updateDesigner:self.dataManager.orderedDesigners[0] forIndex:1];

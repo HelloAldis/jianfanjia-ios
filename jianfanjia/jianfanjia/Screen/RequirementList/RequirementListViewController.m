@@ -134,16 +134,45 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
     
     __block NSInteger height = 286;
     if ([RequirementBusiness isDesignRequirement:requirement.work_type]) {
-        height = 239;
-        [StatusBlock matchReqt:requirement.status action:[ReqtUnorderDesigner action:^{
-            height = 286;
-        }]];
+        [self.dataManager refreshOrderedDesigners:requirement];
+        NSArray *orderedDesigners = [self.dataManager.orderedDesigners copy];
+        NSString *status = requirement.status;
+        [StatusBlock matchReqt:status actions:
+         @[[ReqtUnorderDesigner action:^{
+                height = 286;
+            }],
+           [ReqtConfiguredAgreement action:^{
+                height = 286;
+            }],
+           [ReqtPlanWasChoosed action:^{
+                height = 286;
+            }],
+           [ElseStatus action:^{
+                static NSArray *actionStatus;
+                actionStatus = @[kPlanStatusDesignerRespondedWithoutMeasureHouse, kPlanStatusDesignerSubmittedPlan];
+                
+                __block NSInteger actionIndex = -1;
+                [orderedDesigners enumerateObjectsUsingBlock:^(Designer *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    NSString *status = obj.plan.status;
+                    if ([actionStatus containsObject:status]) {
+                        actionIndex = idx;
+                        *stop = YES;
+                    }
+                }];
+                
+                if (actionIndex != -1) {
+                    height = 286;
+                } else {
+                    height = 239;
+                }
+            }],
+           ]];
     }
     
     return height;
 }
 
-#pragma mark - send request 
+#pragma mark - send request
 - (void)refreshRequirements:(BOOL)showPlsWait {
     if ([[LoginEngine shared] isLogin]) {
         if (showPlsWait) {
