@@ -33,6 +33,8 @@
 @property (strong, nonatomic) RequirementDataManager *dataManager;
 @property (strong, nonatomic) Requirement *requirement;
 @property (assign, nonatomic) BOOL isJiangXin;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *designerView1LeftConst;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *designerView3RightConst;
 
 @end
 
@@ -284,10 +286,14 @@
         [self.designerView[0] setHidden:YES];
         [self.designerView[1] setHidden:NO];
         [self.designerView[2] setHidden:YES];
+        self.designerView1LeftConst.constant = 0;
+        self.designerView3RightConst.constant = 0;
     } else {
         [self.designerView[0] setHidden:NO];
         [self.designerView[1] setHidden:NO];
         [self.designerView[2] setHidden:NO];
+        self.designerView1LeftConst.constant = 20;
+        self.designerView3RightConst.constant = 20;
     }
 }
 
