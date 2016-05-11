@@ -69,15 +69,17 @@
 - (void)configFullScreenStyle {
     CGFloat extraHeight = kScreenHeight - kDesignerInfoCellHeight - 50;
     self.tableView.contentInset = UIEdgeInsetsMake(extraHeight, 0, 0, 0);
-    self.backgroundImage.alpha = 1;
+    self.tableView.bgColor = [UIColor clearColor];
     self.tableView.scrollEnabled = NO;
+    self.backgroundImage.alpha = 1;
     [self enableInfoCellTransparent:YES];
 }
 
 - (void)configDefaultStyle {
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
-    self.backgroundImage.alpha = 0;
+    self.tableView.bgColor = kViewBgColor;
     self.tableView.scrollEnabled = YES;
+    self.backgroundImage.alpha = 0;
     [self enableInfoCellTransparent:NO];
 }
 
