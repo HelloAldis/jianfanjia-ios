@@ -97,7 +97,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
          @strongify(self);
         [self refreshDesigner];
     }];
-    self.designerTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.designerTableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreDesigner];
     }];
@@ -105,7 +105,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         @strongify(self);
         [self refreshFavoriateProduct];
     }];
-    self.productTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.productTableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreFavoriateProduct];
     }];
@@ -113,7 +113,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         @strongify(self);
         [self refreshFavoriateBeautifulImage];
     }];
-    self.beautifulImageCollectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.beautifulImageCollectionView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreFavoriateBeautifulImage];
     }];

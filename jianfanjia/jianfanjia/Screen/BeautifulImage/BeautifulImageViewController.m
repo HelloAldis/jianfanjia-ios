@@ -105,7 +105,7 @@ static NSMutableArray *decStyleDS;
         [self refreshBeautifulImage:NO];
     }];
     
-    self.imgCollection.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.imgCollection.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreBeautifulImage];
     }];

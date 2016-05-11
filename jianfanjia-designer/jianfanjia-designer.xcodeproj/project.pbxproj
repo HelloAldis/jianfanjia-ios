@@ -258,6 +258,7 @@
 		685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */; };
 		685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */; };
 		68711B5A1CD85D3E009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B591CD85D3E009B585F /* PhotoCropper.m */; };
+		687EEB581CE2C69E00A277DC /* DIYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB571CE2C69E00A277DC /* DIYRefreshFooter.m */; };
 		68921FFE1CD0D7C300BC80C7 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */; };
 		689220071CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220061CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
@@ -774,6 +775,8 @@
 		685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYGifHeader.m; sourceTree = "<group>"; };
 		68711B581CD85D3E009B585F /* PhotoCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropper.h; sourceTree = "<group>"; };
 		68711B591CD85D3E009B585F /* PhotoCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropper.m; sourceTree = "<group>"; };
+		687EEB561CE2C69E00A277DC /* DIYRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYRefreshFooter.h; sourceTree = "<group>"; };
+		687EEB571CE2C69E00A277DC /* DIYRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYRefreshFooter.m; sourceTree = "<group>"; };
 		68921FFC1CD0D7C300BC80C7 /* ToastUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastUtil.h; sourceTree = "<group>"; };
 		68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastUtil.m; sourceTree = "<group>"; };
 		689220051CD2104900BC80C7 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
@@ -1442,6 +1445,8 @@
 		685F2D771CAD0DD400DC4D43 /* RefreshComponent */ = {
 			isa = PBXGroup;
 			children = (
+				687EEB561CE2C69E00A277DC /* DIYRefreshFooter.h */,
+				687EEB571CE2C69E00A277DC /* DIYRefreshFooter.m */,
 				685F2D781CAD0DD400DC4D43 /* BrushGifHeader.h */,
 				685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */,
 				685F2D7A1CAD0DD400DC4D43 /* DIYGifHeader.h */,
@@ -2311,6 +2316,7 @@
 				681240BB1C4CE471008FC9AB /* GetProcess.m in Sources */,
 				684B03FD1C98193B0053FFDF /* GetUserUnreadCount.m in Sources */,
 				681240DA1C4CE471008FC9AB /* VerifyPhone.m in Sources */,
+				687EEB581CE2C69E00A277DC /* DIYRefreshFooter.m in Sources */,
 				68F73D281CBB597E00E97710 /* PlanHomeOwnerOrdered.m in Sources */,
 				68123EF01C4CBE79008FC9AB /* PlanPreviewViewController.m in Sources */,
 				68F73D241CBB597E00E97710 /* PlanDesignerResponded.m in Sources */,

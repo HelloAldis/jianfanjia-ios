@@ -244,6 +244,7 @@
 		6850A6141CCA2DDB0085940A /* CitySection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A6101CCA2DDB0085940A /* CitySection.m */; };
 		6850A6151CCA2DDB0085940A /* CitySection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A6111CCA2DDB0085940A /* CitySection.xib */; };
 		68711B5D1CD85D54009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B5C1CD85D54009B585F /* PhotoCropper.m */; };
+		687EEB5B1CE2C6C100A277DC /* DIYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB5A1CE2C6C100A277DC /* DIYRefreshFooter.m */; };
 		689220041CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */; };
 		D248AF3A7C7F296D8418ADE8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D408E462BE9708192EBFFD7 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -696,6 +697,8 @@
 		6850A6111CCA2DDB0085940A /* CitySection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySection.xib; sourceTree = "<group>"; };
 		68711B5B1CD85D54009B585F /* PhotoCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropper.h; sourceTree = "<group>"; };
 		68711B5C1CD85D54009B585F /* PhotoCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropper.m; sourceTree = "<group>"; };
+		687EEB591CE2C6C100A277DC /* DIYRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYRefreshFooter.h; sourceTree = "<group>"; };
+		687EEB5A1CE2C6C100A277DC /* DIYRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYRefreshFooter.m; sourceTree = "<group>"; };
 		689220021CD2103800BC80C7 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
 		689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyboardAnimation.m"; sourceTree = "<group>"; };
 		6DCF3E98975F7E90EE858303 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1397,6 +1400,8 @@
 		680C44781CC4D4BD008C4BC0 /* RefreshComponent */ = {
 			isa = PBXGroup;
 			children = (
+				687EEB591CE2C6C100A277DC /* DIYRefreshFooter.h */,
+				687EEB5A1CE2C6C100A277DC /* DIYRefreshFooter.m */,
 				680C44791CC4D4BD008C4BC0 /* BrushGifHeader.h */,
 				680C447A1CC4D4BD008C4BC0 /* BrushGifHeader.m */,
 				680C447B1CC4D4BD008C4BC0 /* DIYGifHeader.h */,
@@ -1762,6 +1767,7 @@
 				680C457C1CC4D4BD008C4BC0 /* LeakMoniter.m in Sources */,
 				680C42D41CC4D4AE008C4BC0 /* SelectSexTypeViewController.m in Sources */,
 				680C45311CC4D4BD008C4BC0 /* LeafImage.m in Sources */,
+				687EEB5B1CE2C6C100A277DC /* DIYRefreshFooter.m in Sources */,
 				680C44F91CC4D4BD008C4BC0 /* PlanDesignerSubmittedPlan.m in Sources */,
 				680C456B1CC4D4BD008C4BC0 /* BrushGifHeader.m in Sources */,
 				6850A6121CCA2DDB0085940A /* CityCell.m in Sources */,

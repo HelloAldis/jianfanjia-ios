@@ -18,5 +18,6 @@
 #import "SelectCityViewController.h"
 #import "CollectionFallsFlowLayout.h"
 #import "BrushGifHeader.h"
+#import "DIYRefreshFooter.h"
 
 #endif /* JYZUIKit_h */

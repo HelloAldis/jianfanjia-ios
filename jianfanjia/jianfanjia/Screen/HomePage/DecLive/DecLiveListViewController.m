@@ -64,7 +64,7 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
         [self refresh];
     }];
     
-    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMore];
     }];

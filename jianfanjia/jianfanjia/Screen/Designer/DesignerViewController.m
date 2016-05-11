@@ -238,7 +238,7 @@
     if (!self.isShowProductList) {
         self.isShowProductList = YES;
         @weakify(self);
-        self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
             @strongify(self);
             [self loadMoreProduct];
         }];

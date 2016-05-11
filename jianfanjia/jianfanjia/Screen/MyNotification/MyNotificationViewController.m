@@ -73,7 +73,7 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
     }];
     self.tableView.header.ignoredScrollViewContentInsetTop = 6;
     
-    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMore];
     }];

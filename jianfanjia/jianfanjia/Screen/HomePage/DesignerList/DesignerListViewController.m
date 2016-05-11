@@ -90,7 +90,7 @@ static NSMutableArray *designerTagDS;
         [self refresh];
     }];
     
-    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMore];
     }];

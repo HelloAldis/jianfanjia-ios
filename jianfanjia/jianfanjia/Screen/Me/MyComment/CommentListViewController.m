@@ -73,7 +73,7 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
         [self refresh];
     }];
     
-    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMore];
     }];

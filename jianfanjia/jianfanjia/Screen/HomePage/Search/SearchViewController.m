@@ -101,12 +101,12 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
     self.imgCollectionLayout.delegate = self;
     
     @weakify(self);
-    self.tableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMore];
     }];
     
-    self.imgCollection.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    self.imgCollection.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMore];
     }];
