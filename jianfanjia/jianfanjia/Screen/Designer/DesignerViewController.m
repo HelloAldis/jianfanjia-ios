@@ -144,7 +144,7 @@
     [self adjustTopView];
     
     if (!scrollView.isDecelerating) {
-        if (self.presentingViewController && scrollView.contentOffset.y < -(kNavWithStatusBarHeight + 30)) {
+        if (self.presentingViewController && scrollView.contentOffset.y < -(scrollView.contentInset.top + 30)) {
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         }
     }

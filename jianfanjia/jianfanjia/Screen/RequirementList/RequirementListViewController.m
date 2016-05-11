@@ -135,7 +135,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
     __block NSInteger height = 286;
     if ([RequirementBusiness isDesignRequirement:requirement.work_type]) {
         [self.dataManager refreshOrderedDesigners:requirement];
-        NSArray *orderedDesigners = [self.dataManager.orderedDesigners copy];
+        NSArray *orderedDesigners = self.dataManager.orderedDesigners;
         NSString *status = requirement.status;
         [StatusBlock matchReqt:status actions:
          @[[ReqtUnorderDesigner action:^{
