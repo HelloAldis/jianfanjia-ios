@@ -29,7 +29,7 @@
                         <gestureRecognizers/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王大雷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jo-5d-2Jr">
-                        <rect key="frame" x="93" y="23" width="42" height="17"/>
+                        <rect key="frame" x="93" y="23" width="87" height="17"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,6 +98,7 @@
                     <constraint firstItem="YbZ-hk-hyo" firstAttribute="leading" secondItem="jSg-JM-jKH" secondAttribute="trailing" constant="3" id="1T7-qf-QCM"/>
                     <constraint firstItem="cHI-3M-R9c" firstAttribute="centerY" secondItem="22d-OP-ugr" secondAttribute="centerY" id="1cH-Zp-fln"/>
                     <constraint firstItem="Jkw-UO-N0R" firstAttribute="trailing" secondItem="Yt7-8r-JtW" secondAttribute="trailing" id="1id-h4-dZS"/>
+                    <constraint firstItem="7jo-5d-2Jr" firstAttribute="trailing" secondItem="ejs-og-pNB" secondAttribute="trailing" id="CS8-5J-uVS"/>
                     <constraint firstItem="7jo-5d-2Jr" firstAttribute="top" secondItem="Yt7-8r-JtW" secondAttribute="top" constant="8" id="EIX-Ex-D7l"/>
                     <constraint firstItem="cHI-3M-R9c" firstAttribute="width" secondItem="22d-OP-ugr" secondAttribute="width" id="FkN-9I-mfb"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Fpm-33-ch0" secondAttribute="trailing" constant="8" id="GAj-tw-Rfu"/>

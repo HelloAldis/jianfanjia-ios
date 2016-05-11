@@ -29,7 +29,7 @@
                         <gestureRecognizers/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王大雷" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGR-gY-nnY">
-                        <rect key="frame" x="93" y="18" width="42" height="17"/>
+                        <rect key="frame" x="93" y="18" width="87" height="17"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -115,6 +115,7 @@
                     <constraint firstItem="orB-hh-Xwp" firstAttribute="leading" secondItem="ufA-c9-1ge" secondAttribute="trailing" constant="3" id="7Rr-9x-Ucd"/>
                     <constraint firstItem="K11-rX-Ps0" firstAttribute="leading" secondItem="OXi-le-E8Z" secondAttribute="trailing" constant="3" id="8CO-Wm-9ed"/>
                     <constraint firstItem="orB-hh-Xwp" firstAttribute="centerY" secondItem="Ey4-v4-Lj2" secondAttribute="centerY" id="9KK-so-Y3R"/>
+                    <constraint firstItem="VGR-gY-nnY" firstAttribute="trailing" secondItem="K11-rX-Ps0" secondAttribute="trailing" id="9jQ-rJ-emg"/>
                     <constraint firstItem="Ey4-v4-Lj2" firstAttribute="leading" secondItem="VGR-gY-nnY" secondAttribute="leading" id="EGa-JG-nmb"/>
                     <constraint firstItem="VGR-gY-nnY" firstAttribute="top" secondItem="5uC-Ri-dVo" secondAttribute="top" constant="-2" id="GLd-KH-hDC"/>
                     <constraint firstAttribute="trailingMargin" secondItem="2wm-Mj-hXd" secondAttribute="trailing" constant="8" id="GTa-cQ-x4h"/>
