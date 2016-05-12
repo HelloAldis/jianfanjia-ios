@@ -187,12 +187,14 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     
     if (animated) {
         if (expand) {
-            [self.unexpandSectionActionView.expandIcon playRotationZAnimation:0.3 angle:M_PI completion:ReloadBlock];
+            [self.unexpandSectionActionView.expandIcon playRotationZAnimation:0.25 angle:M_PI completion:ReloadBlock];
         } else {
-            [self.sectionActionView.expandIcon playRotationZAnimation:0.3 angle:M_PI completion:ReloadBlock];
+            [self.sectionActionView.expandIcon playRotationZAnimation:0.25 angle:M_PI completion:ReloadBlock];
         }
     } else {
-        ReloadBlock();
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            ReloadBlock();
+        });
     }
 }
 
