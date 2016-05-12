@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HouseRequirementCreateViewController">
@@ -506,6 +507,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="gWF-Ar-5as"/>
                                                 <constraint firstAttribute="width" constant="7" id="hWP-OE-X4N"/>
+                                                <constraint firstAttribute="width" secondItem="JWt-xg-756" secondAttribute="height" multiplier="7:22" id="jbx-oy-0OH"/>
                                             </constraints>
                                             <state key="normal" image="bar_shape"/>
                                             <variation key="default">
@@ -567,7 +569,9 @@
                                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-dy-39c">
                                             <rect key="frame" x="578" y="15" width="7" height="22"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" secondItem="ydv-dy-39c" secondAttribute="height" multiplier="7:22" id="E15-Uu-UWG"/>
                                                 <constraint firstAttribute="width" constant="20" id="EVk-Xn-mRT"/>
+                                                <constraint firstAttribute="width" constant="7" id="uII-CD-pVe"/>
                                             </constraints>
                                             <state key="normal" image="bar_shape"/>
                                             <variation key="default">
@@ -695,6 +699,8 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="PZw-KX-Qae"/>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="Sku-AW-mQo"/>
+                                                <constraint firstAttribute="width" secondItem="PBc-Gq-NhQ" secondAttribute="height" multiplier="7:22" id="WBd-OX-8kZ"/>
+                                                <constraint firstAttribute="width" constant="7" id="bD3-ge-5al"/>
                                             </constraints>
                                             <state key="normal" image="bar_shape"/>
                                             <variation key="default">
