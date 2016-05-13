@@ -79,8 +79,9 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self refreshProcess:YES];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[NotificationDataManager shared] refreshUnreadCount];
     
     if (self.wasFirstEnter) {
         [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
@@ -90,6 +91,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
+    
+    UIButton *bellButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
+    [bellButton setImage:[UIImage imageNamed:@"notification-bell"] forState:UIControlStateNormal];
+    [bellButton addTarget:self action:@selector(onClickMyNotification) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:bellButton];
 }
 
 - (void)initUI {
@@ -108,6 +114,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.header.backgroundColor = self.view.backgroundColor;
+    self.statusLineTopConstraint.constant = kNavWithStatusBarHeight + kSectionViewHeight;
     
     //init container view
     self.sectionContainerView = [[TouchDelegateView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kSectionViewHeight)];
@@ -145,6 +152,9 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self.sectionActionView.expandView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSectionExpand:)]];
     
     self.wasFirstEnter = NO;
+    [[NotificationDataManager shared] subscribeMyWorksiteNotiUnreadCount:^(NSInteger count) {
+        self.navigationItem.rightBarButtonItem.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
+    }];
 }
 
 #pragma mark - gesture
@@ -182,7 +192,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [self.tableView beginUpdates];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView endUpdates];
-        self.statusLineTopConstraint.constant = expand ? kNavWithStatusBarHeight + kSectionViewHeight + kSectionActionViewHeight : kNavWithStatusBarHeight + kSectionViewHeight;
     };
     
     if (animated) {
@@ -455,9 +464,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     }
     
     self.dataManager.selectedSectionIndex = self.dataManager.ongoingSectionIndex;
-    [UIView animateWithDuration:0.5 animations:^{
-        [self.sectionScrollView setContentOffset:CGPointMake(self.dataManager.selectedSectionIndex * kSectionViewWidth, 0) animated:NO];
-    }];
+    [self.sectionScrollView setContentOffset:CGPointMake(self.dataManager.selectedSectionIndex * kSectionViewWidth, 0) animated:YES];
     
     return YES;
 }
@@ -548,6 +555,11 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)refreshSectionBackground {
     self.statusLine.backgroundColor = [self.dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished] ? kThemeColor : kUntriggeredColor;
+}
+
+#pragma mark - user action
+- (void)onClickMyNotification {
+    [ViewControllerContainer showMyNotification:NotificationTypeWorksite];
 }
 
 @end
