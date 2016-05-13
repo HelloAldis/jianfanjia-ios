@@ -81,7 +81,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [[NotificationDataManager shared] refreshUnreadCount];
     
     if (self.wasFirstEnter) {
         [self refreshForIndexPath:self.lastSelectedIndexPath isExpand:YES];
@@ -91,11 +90,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    
-    UIButton *bellButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 20, 20)];
-    [bellButton setImage:[UIImage imageNamed:@"notification-bell"] forState:UIControlStateNormal];
-    [bellButton addTarget:self action:@selector(onClickMyNotification) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:bellButton];
 }
 
 - (void)initUI {
@@ -152,9 +146,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     [self.sectionActionView.expandView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSectionExpand:)]];
     
     self.wasFirstEnter = NO;
-    [[NotificationDataManager shared] subscribeMyWorksiteNotiUnreadCount:^(NSInteger count) {
-        self.navigationItem.rightBarButtonItem.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
-    }];
 }
 
 #pragma mark - gesture
@@ -555,11 +546,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
 
 - (void)refreshSectionBackground {
     self.statusLine.backgroundColor = [self.dataManager.selectedSection.status isEqualToString:kSectionStatusAlreadyFinished] ? kThemeColor : kUntriggeredColor;
-}
-
-#pragma mark - user action
-- (void)onClickMyNotification {
-    [ViewControllerContainer showMyNotification:NotificationTypeWorksite];
 }
 
 @end
