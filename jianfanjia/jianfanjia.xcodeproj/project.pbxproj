@@ -269,6 +269,10 @@
 		68711B751CDC7D99009B585F /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B731CDC7D99009B585F /* DecPackageJiangXinView.m */; };
 		68711B761CDC7D99009B585F /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68711B741CDC7D99009B585F /* DecPackageJiangXinView.xib */; };
 		687EEB551CE2C55B00A277DC /* DIYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB541CE2C55B00A277DC /* DIYRefreshFooter.m */; };
+		687EEB5F1CE56FF400A277DC /* UIViewController+JYZNavigationBarTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB5E1CE56FF400A277DC /* UIViewController+JYZNavigationBarTransition.m */; };
+		687EEB641CE570E900A277DC /* JYZSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB611CE570E900A277DC /* JYZSwizzle.m */; };
+		687EEB651CE570E900A277DC /* JYZWeakObjectContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB631CE570E900A277DC /* JYZWeakObjectContainer.m */; };
+		687EEB681CE5723900A277DC /* UINavigationController+JYZNavigationBarTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB671CE5723900A277DC /* UINavigationController+JYZNavigationBarTransition.m */; };
 		6885175A1C8FF5E1000B01DB /* UserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517591C8FF5E1000B01DB /* UserNotification.m */; };
 		6885175D1C8FFB8A000B01DB /* SearchUserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885175C1C8FFB8A000B01DB /* SearchUserNotification.m */; };
 		688517601C91246D000B01DB /* UILabel+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885175F1C91246D000B01DB /* UILabel+Ex.m */; };
@@ -936,6 +940,14 @@
 		68711B741CDC7D99009B585F /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
 		687EEB531CE2C55B00A277DC /* DIYRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYRefreshFooter.h; sourceTree = "<group>"; };
 		687EEB541CE2C55B00A277DC /* DIYRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYRefreshFooter.m; sourceTree = "<group>"; };
+		687EEB5D1CE56FF400A277DC /* UIViewController+JYZNavigationBarTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+JYZNavigationBarTransition.h"; sourceTree = "<group>"; };
+		687EEB5E1CE56FF400A277DC /* UIViewController+JYZNavigationBarTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+JYZNavigationBarTransition.m"; sourceTree = "<group>"; };
+		687EEB601CE570E900A277DC /* JYZSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZSwizzle.h; sourceTree = "<group>"; };
+		687EEB611CE570E900A277DC /* JYZSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZSwizzle.m; sourceTree = "<group>"; };
+		687EEB621CE570E900A277DC /* JYZWeakObjectContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZWeakObjectContainer.h; sourceTree = "<group>"; };
+		687EEB631CE570E900A277DC /* JYZWeakObjectContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JYZWeakObjectContainer.m; sourceTree = "<group>"; };
+		687EEB661CE5723900A277DC /* UINavigationController+JYZNavigationBarTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+JYZNavigationBarTransition.h"; sourceTree = "<group>"; };
+		687EEB671CE5723900A277DC /* UINavigationController+JYZNavigationBarTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+JYZNavigationBarTransition.m"; sourceTree = "<group>"; };
 		688517581C8FF5E1000B01DB /* UserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNotification.h; sourceTree = "<group>"; };
 		688517591C8FF5E1000B01DB /* UserNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNotification.m; sourceTree = "<group>"; };
 		6885175B1C8FFB8A000B01DB /* SearchUserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserNotification.h; sourceTree = "<group>"; };
@@ -1471,6 +1483,7 @@
 		68123C301C4C8B99008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				687EEB5C1CE56C2400A277DC /* JYZNavigationBarTransition */,
 				68711B5E1CD88D59009B585F /* ReuseView */,
 				685F2D701CABDC0D00DC4D43 /* RefreshComponent */,
 				68BA507F1C9FD8BB002E5572 /* WebView */,
@@ -1895,6 +1908,21 @@
 				68711B701CD8A60B009B585F /* TaggedDesignerInfoView.xib */,
 			);
 			path = OrderTaggedDesigner;
+			sourceTree = "<group>";
+		};
+		687EEB5C1CE56C2400A277DC /* JYZNavigationBarTransition */ = {
+			isa = PBXGroup;
+			children = (
+				687EEB601CE570E900A277DC /* JYZSwizzle.h */,
+				687EEB611CE570E900A277DC /* JYZSwizzle.m */,
+				687EEB621CE570E900A277DC /* JYZWeakObjectContainer.h */,
+				687EEB631CE570E900A277DC /* JYZWeakObjectContainer.m */,
+				687EEB5D1CE56FF400A277DC /* UIViewController+JYZNavigationBarTransition.h */,
+				687EEB5E1CE56FF400A277DC /* UIViewController+JYZNavigationBarTransition.m */,
+				687EEB661CE5723900A277DC /* UINavigationController+JYZNavigationBarTransition.h */,
+				687EEB671CE5723900A277DC /* UINavigationController+JYZNavigationBarTransition.m */,
+			);
+			path = JYZNavigationBarTransition;
 			sourceTree = "<group>";
 		};
 		68B10C811C76D489005866C1 /* DesignerList */ = {
@@ -3242,6 +3270,7 @@
 				685272C71C2D1602002E62EC /* SelectBusinessTypeViewController.m in Sources */,
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
 				68E600721CB7BDC900C4A8F7 /* ReqtUnorderDesigner.m in Sources */,
+				687EEB641CE570E900A277DC /* JYZSwizzle.m in Sources */,
 				680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
 				680C46201CC5CCC3008C4BC0 /* GVUserDefaults+Manager.m in Sources */,
@@ -3258,8 +3287,10 @@
 				68F73CEF1CBB3AB900E97710 /* PlanDesignerSubmitPlanExpired.m in Sources */,
 				68C3C2611C7598FE00EEEBD8 /* HomePageQuickEntryItem.m in Sources */,
 				684A37671BFDE24900F7388C /* EvaluateDesignerViewController.m in Sources */,
+				687EEB651CE570E900A277DC /* JYZWeakObjectContainer.m in Sources */,
 				68123C5A1C4C8B99008FC9AB /* ThumbnailCell.m in Sources */,
 				680C46051CC4EA36008C4BC0 /* ShareManager.m in Sources */,
+				687EEB681CE5723900A277DC /* UINavigationController+JYZNavigationBarTransition.m in Sources */,
 				6E7E4A691B9A90BA00503B35 /* LoginViewController.m in Sources */,
 				6804A7011CA5312400E7A9AF /* AutoScrollUIScrollView.m in Sources */,
 				684B03C21C96C3DE0053FFDF /* DecLiveListDataManager.m in Sources */,
@@ -3272,6 +3303,7 @@
 				6E07DAC31BD88DBE001461DD /* Comment.m in Sources */,
 				68134A351C3CAEC2003C1C10 /* SnsAccountInfo.m in Sources */,
 				6E4496291BF9DF9700C90851 /* UserSignup.m in Sources */,
+				687EEB5F1CE56FF400A277DC /* UIViewController+JYZNavigationBarTransition.m in Sources */,
 				68342DF51BFC0F960000EBBE /* Plan.m in Sources */,
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
