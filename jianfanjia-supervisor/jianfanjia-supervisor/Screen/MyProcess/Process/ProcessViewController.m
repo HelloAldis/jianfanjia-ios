@@ -108,7 +108,6 @@ static NSString *ItemCellIdentifier = @"ItemCell";
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.header.backgroundColor = self.view.backgroundColor;
-    self.statusLineTopConstraint.constant = kNavWithStatusBarHeight + kSectionViewHeight;
     
     //init container view
     self.sectionContainerView = [[TouchDelegateView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kSectionViewHeight)];
@@ -183,6 +182,7 @@ static NSString *ItemCellIdentifier = @"ItemCell";
         [self.tableView beginUpdates];
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView endUpdates];
+        self.statusLineTopConstraint.constant = expand ? kNavWithStatusBarHeight + kSectionViewHeight + kSectionActionViewHeight : kNavWithStatusBarHeight + kSectionViewHeight;
     };
     
     if (animated) {
