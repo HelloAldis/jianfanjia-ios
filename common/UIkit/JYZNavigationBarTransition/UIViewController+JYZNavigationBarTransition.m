@@ -46,22 +46,22 @@
 }
 
 - (void)jyz_viewWillLayoutSubviews {
-    id<UIViewControllerTransitionCoordinator> tc = self.transitionCoordinator;
-    UIViewController *fromViewController = [tc viewControllerForKey:UITransitionContextFromViewControllerKey];
-    UIViewController *toViewController = [tc viewControllerForKey:UITransitionContextToViewControllerKey];
-    
-    fromViewController.view.clipsToBounds = NO;
-    toViewController.view.clipsToBounds = NO;
-    if (self.navigationController.navigationBar.translucent) {
-        [tc containerView].backgroundColor = [UIColor whiteColor];
-    }
-
-    if (!self.jyz_transitionNavigationBar) {
-        [self jyz_addTransitionNavigationBarIfNeeded];
-        [[self.navigationController.navigationBar valueForKey:@"_backgroundView"]
-         setHidden:YES];
-    }
-    
+//    id<UIViewControllerTransitionCoordinator> tc = self.transitionCoordinator;
+//    UIViewController *fromViewController = [tc viewControllerForKey:UITransitionContextFromViewControllerKey];
+//    UIViewController *toViewController = [tc viewControllerForKey:UITransitionContextToViewControllerKey];
+//    
+//    fromViewController.view.clipsToBounds = NO;
+//    toViewController.view.clipsToBounds = NO;
+//    if (self.navigationController.navigationBar.translucent) {
+//        [tc containerView].backgroundColor = [UIColor whiteColor];
+//    }
+//
+//    if (!self.jyz_transitionNavigationBar) {
+//        [self jyz_addTransitionNavigationBarIfNeeded];
+//        [[self.navigationController.navigationBar valueForKey:@"_backgroundView"]
+//         setHidden:YES];
+//    }
+//    
     if (self.jyz_transitionNavigationBar) {
         [self jyz_resizeTransitionNavigationBarFrame];
         [self.view bringSubviewToFront:self.jyz_transitionNavigationBar];
@@ -91,7 +91,7 @@
 }
 
 - (void)jyz_addTransitionNavigationBarIfNeeded {
-    if ([self isKindOfClass:[UINavigationController class]] || [self isKindOfClass:[UITabBarController class]]) {
+    if ([self isKindOfClass:[UINavigationController class]] || [self isKindOfClass:[UITabBarController class]] || [self isKindOfClass:[UIAlertController class]]) {
         [self hideBackgroundView];
         return;
     }
@@ -101,6 +101,8 @@
         [self jyz_resizeTransitionNavigationBarFrame];
         
         UINavigationBar *bar = self.jyz_transitionNavigationBar;
+        [[bar valueForKey:@"_backgroundView"]
+         setHidden:YES];
         bar.backgroundColor = [UIColor clearColor];
         bar.barStyle = self.navigationController.navigationBar.barStyle;
         bar.translucent = self.navigationController.navigationBar.translucent;
@@ -132,12 +134,10 @@
 }
 
 - (void)hideBackgroundView {
+    self.navigationController.navigationBar.hidden = YES;
     [self.navigationController setNavigationBarHidden:YES animated:NO];
-    for (UIView *view in self.navigationController.navigationBar.subviews) {
-        if ([view isKindOfClass:NSClassFromString(@"_UINavigationBarBackground")]) {
-            [view removeFromSuperview];
-        }
-    }
+    [[self.navigationController.navigationBar valueForKey:@"_backgroundView"]
+     setHidden:YES];
 }
 
 @end
