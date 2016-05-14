@@ -67,17 +67,20 @@ static NSMutableArray *designerTagDS;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     [self initNav];
 }
 
+
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"全部设计师";
+    self.navigationItem.title = @"全部设计师";
     [self initLeftBackInNav];
+    self.navigationController.navigationBar.translucent = YES;
+//        [self.navigationController.navigationBar setBarStyle:barStyle];
+//    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:255 blue:0 alpha:1];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
 }
 
 - (void)initUI {

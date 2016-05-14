@@ -56,19 +56,20 @@
 
 #pragma mark - UI
 - (void)initLeftBackInNav {
-    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBarHidden = NO;
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
     self.navigationItem.leftBarButtonItem = item;
+    
 }
 
 - (void)initLeftWhiteBackInNav {
-    self.navigationController.navigationBarHidden = NO;
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"white_back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
-    self.navigationItem.leftBarButtonItem = item;
+//    self.navigationController.navigationBarHidden = NO;
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"white_back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+//    self.navigationItem.leftBarButtonItem = item;
 }
 
 - (void)initDefaultNavBarStyle {
-    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBarHidden = NO;
     NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes = dict;
     [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
@@ -77,17 +78,17 @@
 }
 
 - (void)initTranslucentNavBar:(UIBarStyle)barStyle {
-    self.navigationController.navigationBarHidden = NO;
-    self.navigationController.navigationBar.translucent = YES;
-    [self.navigationController.navigationBar setBarStyle:barStyle];
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"translucent"] forBarMetrics:UIBarMetricsDefault];
+//    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBar.translucent = YES;
+//    [self.navigationController.navigationBar setBarStyle:barStyle];
+//    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"translucent"] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)clearTabBarItems {
-    self.tabBarController.title = nil;
-    self.tabBarController.navigationItem.leftBarButtonItem = nil;
-    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+//    self.tabBarController.title = nil;
+//    self.tabBarController.navigationItem.leftBarButtonItem = nil;
+//    self.tabBarController.navigationItem.rightBarButtonItem = nil;
 }
 
 #pragma mark - user actions

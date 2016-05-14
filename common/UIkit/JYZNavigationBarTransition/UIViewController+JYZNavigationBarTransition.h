@@ -10,4 +10,6 @@
 
 @interface UIViewController (JYZNavigationBarTransition)
 
+- (UINavigationBar *)jyz_transitionNavigationBar;
+
 @end
