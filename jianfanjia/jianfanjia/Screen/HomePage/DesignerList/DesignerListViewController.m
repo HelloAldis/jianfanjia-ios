@@ -77,7 +77,6 @@ static NSMutableArray *designerTagDS;
     [self initLeftBackInNav];
     self.navigationController.navigationBar.translucent = YES;
 //        [self.navigationController.navigationBar setBarStyle:barStyle];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0 green:255 blue:0 alpha:1];
 //    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
 //    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
 //    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];

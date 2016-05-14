@@ -101,9 +101,8 @@
         [self jyz_resizeTransitionNavigationBarFrame];
         
         UINavigationBar *bar = self.jyz_transitionNavigationBar;
-        [[bar valueForKey:@"_backgroundView"]
-         setHidden:YES];
-        bar.backgroundColor = [UIColor clearColor];
+//        [[bar valueForKey:@"_backgroundView"]
+//         setHidden:YES];
         bar.barStyle = self.navigationController.navigationBar.barStyle;
         bar.translucent = self.navigationController.navigationBar.translucent;
         bar.barTintColor = self.navigationController.navigationBar.barTintColor;
