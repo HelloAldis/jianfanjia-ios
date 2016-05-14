@@ -18,7 +18,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.jyz_EnableFakeNavigationBar = YES;
+    self.krs_EnableFakeNavigationBar = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {

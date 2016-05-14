@@ -1,15 +1,15 @@
 //
-//  JYZSwizzleMethod
-//  jianfanjia
+//  KRSSwizzle.m
+//  KRSFakeNavigationBar
 //
-//  Created by Karos on 16/5/13.
-//  Copyright © 2016年 JYZ. All rights reserved.
+//  Created by Karos on 16/5/14.
+//  Copyright © 2016年 karosli. All rights reserved.
 //
 
-#import "JYZSwizzle.h"
+#import "KRSSwizzle.h"
 #import <objc/runtime.h>
 
-void JYZSwizzleMethod(Class cls, SEL originalSelector, SEL swizzledSelector)
+void KRSSwizzleMethod(Class cls, SEL originalSelector, SEL swizzledSelector)
 {
     Method originalMethod = class_getInstanceMethod(cls, originalSelector);
     Method swizzledMethod = class_getInstanceMethod(cls, swizzledSelector);

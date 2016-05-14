@@ -73,7 +73,7 @@ static NSMutableArray *designerTagDS;
 
 #pragma mark - UI
 - (void)initNav {
-    self.navigationItem.title = @"全部设计师";
+    self.title = @"全部设计师";
     [self initLeftBackInNav];
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
