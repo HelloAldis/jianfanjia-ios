@@ -42,6 +42,7 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
     
     [self initNav];
     [self initUI];
+//    self.navigationController.navigationBar.translucent = NO;
 }
 
 #pragma mark - UI

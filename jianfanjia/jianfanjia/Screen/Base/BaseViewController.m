@@ -51,6 +51,10 @@
     [super viewDidDisappear:animated];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     DDLogError(@"didReceiveMemoryWarning");
@@ -74,11 +78,12 @@
 
 - (void)initDefaultNavBarStyle {
 //    self.navigationController.navigationBarHidden = NO;
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
-    self.navigationController.navigationBar.titleTextAttributes = dict;
-    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
-    self.navigationController.navigationBar.shadowImage = nil;
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+//    self.navigationController.navigationBar.translucent = YES;
+//    NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
+//    self.navigationController.navigationBar.titleTextAttributes = dict;
+//    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
+//    self.navigationController.navigationBar.shadowImage = nil;
+//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)initTranslucentNavBar:(UIBarStyle)barStyle {

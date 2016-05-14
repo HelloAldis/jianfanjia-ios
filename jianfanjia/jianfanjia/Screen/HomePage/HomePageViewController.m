@@ -47,6 +47,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 //    self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickSearch)];
 //    self.tabBarController.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
 //    self.tabBarController.navigationItem.leftBarButtonItem = nil;
+//    self.navigationController.navigationBar.translucent = YES;
 }
 
 - (void)initUI {

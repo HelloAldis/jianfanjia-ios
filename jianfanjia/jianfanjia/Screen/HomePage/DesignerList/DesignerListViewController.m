@@ -75,8 +75,8 @@ static NSMutableArray *designerTagDS;
 - (void)initNav {
     self.title = @"全部设计师";
     [self initLeftBackInNav];
-    self.navigationController.navigationBar.translucent = YES;
-    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+//    self.navigationController.navigationBar.translucent = YES;
+//    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
 //    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
