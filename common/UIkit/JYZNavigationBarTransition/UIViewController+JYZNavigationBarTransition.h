@@ -10,6 +10,6 @@
 
 @interface UIViewController (JYZNavigationBarTransition)
 
-- (UINavigationBar *)jyz_transitionNavigationBar;
+- (void)setJyz_EnableFakeNavigationBar:(BOOL)enable;
 
 @end

@@ -18,12 +18,16 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.jyz_EnableFakeNavigationBar = YES;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if (self.navigationController && self.navigationController.viewControllers.firstObject != self) {
+    if (self.tabBarController) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    } else if (self.navigationController && self.navigationController.viewControllers.firstObject != self) {
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     } else {

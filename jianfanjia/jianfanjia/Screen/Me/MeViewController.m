@@ -42,11 +42,14 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self updateCache];
     [self updateUnreadNumber];
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self initTranslucentNavBar:UIBarStyleBlack];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -76,10 +76,10 @@ static NSMutableArray *designerTagDS;
     self.navigationItem.title = @"全部设计师";
     [self initLeftBackInNav];
     self.navigationController.navigationBar.translucent = YES;
-//        [self.navigationController.navigationBar setBarStyle:barStyle];
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
 //    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-//    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
 }
 
 - (void)initUI {
