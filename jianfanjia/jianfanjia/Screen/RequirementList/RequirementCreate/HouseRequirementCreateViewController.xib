@@ -502,7 +502,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWt-xg-756">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JWt-xg-756">
                                             <rect key="frame" x="578" y="15" width="7" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="gWF-Ar-5as"/>
@@ -552,7 +552,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbU-bi-dUL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbU-bi-dUL">
                                             <rect key="frame" x="568" y="26" width="0.0" height="0.0"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="lfF-Xm-bTu"/>
@@ -566,7 +566,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-dy-39c">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydv-dy-39c">
                                             <rect key="frame" x="578" y="15" width="7" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="ydv-dy-39c" secondAttribute="height" multiplier="7:22" id="E15-Uu-UWG"/>
@@ -680,7 +680,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfY-AV-L9U">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bfY-AV-L9U">
                                             <rect key="frame" x="568" y="26" width="0.0" height="0.0"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="150" id="XBg-Fz-GbP"/>
@@ -694,7 +694,7 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBc-Gq-NhQ">
+                                        <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PBc-Gq-NhQ">
                                             <rect key="frame" x="578" y="15" width="7" height="22"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="20" id="PZw-KX-Qae"/>

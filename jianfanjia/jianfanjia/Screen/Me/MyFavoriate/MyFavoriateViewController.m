@@ -47,6 +47,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNav];
     [self.designerTableView registerNib:[UINib nibWithNibName:@"FavoriteDesignerCell" bundle:nil] forCellReuseIdentifier:@"FavoriteDesignerCell"];
     [self.productTableView registerNib:[UINib nibWithNibName:@"FavoriateProductCell" bundle:nil] forCellReuseIdentifier:@"FavoriateProductCell"];
     [self.beautifulImageCollectionView registerNib:[UINib nibWithNibName:@"FavoriateBeautifulImageCell"bundle:nil] forCellWithReuseIdentifier:@"FavoriateBeautifulImageCell"];
@@ -127,20 +128,17 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     self.favoriateDesignerPageData = [[FavoriteDesignerData alloc] init];
     self.favoriateProductPageData = [[FavoriateProductData alloc] init];
     self.favoriateBeautifulImageData = [[FavoriateBeautifulImageData alloc] init];
-    [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [DataManager shared].isNeedRefreshTotal = YES;
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self initUIData];
 }
 
 #pragma mark - UI
 - (void)initNav {
-    self.navigationController.navigationBarHidden = NO;
     [self initLeftBackInNav];
     self.title = @"我的收藏";
 }

@@ -7,6 +7,7 @@
 //
 
 #import "TabViewController.h"
+#import "ViewControllerContainer.h"
 
 @interface TabViewController ()
 
@@ -16,6 +17,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     self.tabBar.tintColor = kThemeColor;
     UITabBarItem *home = [self.tabBar.items objectAtIndex:0];

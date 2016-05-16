@@ -37,6 +37,7 @@
 }
 
 - (void)initNav {
+    [self initTransparentNavBar:UIBarStyleBlack];
     [self initLeftBackInNav];
 }
 
@@ -84,13 +85,15 @@
 }
 
 - (void)configTransparentNavStyle {
-    [self initTranslucentNavBar];
+    [self initTransparentNavBar:UIBarStyleBlack];
     [self initLeftWhiteBackInNav];
+    [self krs_updateFakeNavBar];
 }
 
 - (void)configDefaultNavStyle {
-    [self initDefaultNavBarStyle];
+    [self initThemeNavBar];
     [self initLeftBackInNav];
+    [self krs_updateFakeNavBar];
 }
 
 - (void)moveDesignerInfoToTop {
@@ -132,11 +135,6 @@
         [self refreshDesigner];
         [self refreshProduct];
     }
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self initDefaultNavBarStyle];
 }
 
 #pragma mark - scroll view delegate

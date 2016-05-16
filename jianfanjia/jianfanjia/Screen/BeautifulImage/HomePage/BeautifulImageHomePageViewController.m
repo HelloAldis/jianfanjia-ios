@@ -73,23 +73,6 @@
     [self reloadAllImage];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    [self initDefaultNavBarStyle];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-}
-
 #pragma mark - ui
 - (void)initNav {
     [self initLeftBackInNav];
@@ -99,7 +82,6 @@
         @strongify(self);
         [self onClickFavoriteButton];
     }];
-    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)initRightNaviBarItems {
@@ -112,6 +94,7 @@
 
 - (void)initUI {
     [self initRightNaviBarItems];
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.imgDescription.text = nil;
     self.imgTag.text = nil;
     self.btnDownload.hidden = YES;

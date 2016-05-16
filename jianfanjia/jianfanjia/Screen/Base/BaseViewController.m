@@ -7,18 +7,28 @@
 //
 
 #import "BaseViewController.h"
+#import "ViewControllerContainer.h"
+
+@interface BaseViewController ()
+
+@end
 
 @implementation BaseViewController
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.krs_EnableFakeNavigationBar = YES;
+    [self initThemeNavBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    if (self.navigationController && self.navigationController.viewControllers.firstObject != self) {
+    if (self.tabBarController) {
+        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    } else if (self.navigationController && self.navigationController.viewControllers.firstObject != self) {
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
     } else {
@@ -41,6 +51,10 @@
     [super viewDidDisappear:animated];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleDefault;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     DDLogError(@"didReceiveMemoryWarning");
@@ -49,42 +63,39 @@
 }
 
 #pragma mark - UI
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleLightContent;
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    [super touchesEnded:touches withEvent:event];
-    
-    [self.view endEditing:YES];
-}
-
 - (void)initLeftBackInNav {
-    self.navigationController.navigationBarHidden = NO;
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
     self.navigationItem.leftBarButtonItem = item;
+    
 }
 
 - (void)initLeftWhiteBackInNav {
-    self.navigationController.navigationBarHidden = NO;
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"white_back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
     self.navigationItem.leftBarButtonItem = item;
 }
 
-- (void)initDefaultNavBarStyle {
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
-    self.navigationController.navigationBar.titleTextAttributes = dict;
-    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = nil;
+- (void)initThemeNavBar {
+    [self initTranslucentNavBarStyle];
+    [self initNavBarAttributes];
 }
 
-- (void)initTranslucentNavBar {
-    self.navigationController.navigationBarHidden = NO;
+- (void)initNavBarAttributes  {
+    NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes = dict;
+}
+
+- (void)initTranslucentNavBarStyle {
     self.navigationController.navigationBar.translucent = YES;
-    [self.navigationController.navigationBar setBarStyle:UIBarStyleBlack];
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"translucent"] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
+    self.navigationController.navigationBar.shadowImage = nil;
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)initTransparentNavBar:(UIBarStyle)barStyle {
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setBarStyle:barStyle];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 }
 
 #pragma mark - user actions

@@ -20,19 +20,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self initNav];
     [self initUI];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    [self initNav];
     [self enableButtons:YES];
 }
 
 #pragma mark - init UI
 - (void)initNav {
-    self.navigationController.navigationBarHidden = YES;
+    [self initTransparentNavBar:UIBarStyleBlack];
 }
 
 - (void)initUI {

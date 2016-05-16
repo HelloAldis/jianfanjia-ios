@@ -19,12 +19,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNav];
     
     [self.textView setCornerRadius:5];
     [self.btnDone setCornerRadius:5];
-    [self initNav];
-    
-    
+
     @weakify(self);
     [self.textView.rac_textSignal subscribeNext:^(id text) {
         @strongify(self);

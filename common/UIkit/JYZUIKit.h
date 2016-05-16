@@ -19,5 +19,6 @@
 #import "CollectionFallsFlowLayout.h"
 #import "BrushGifHeader.h"
 #import "DIYRefreshFooter.h"
+#import "UIViewController+KRSFakeNavigationBar.h"
 
 #endif /* JYZUIKit_h */

@@ -36,6 +36,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNav];
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     [self.userThumnail setCornerRadius:self.userThumnail.frame.size.width / 2];
     [self.userThumnail setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
@@ -44,36 +45,20 @@
     [self updateUnreadNumber];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self initUIData];
-    
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-//    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self showTabbar];
+    [self initUIData];
     
     if (CGRectGetHeight(self.originUserImageFrame) == 0) {
         self.originUserImageFrame = self.userImageView.frame;
     }
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if (self.navigationController.viewControllers.count > 1) {
-        [self hideTabbar];
-    }
+#pragma mark - UI
+- (void)initNav {
+    [self initTransparentNavBar:UIBarStyleBlack];
 }
 
-#pragma mark - UI
 - (void)initUIData {
     if ([[LoginEngine shared] isLogin]) {
         self.lblUsername.text = [GVUserDefaults standardUserDefaults].username;
@@ -112,7 +97,7 @@
 - (IBAction)onTapUserImageView:(id)sender {
     if ([[LoginEngine shared] isLogin]) {
         UserInfoViewController *v = [[UserInfoViewController alloc] initWithNibName:nil bundle:nil];
-        [self.navigationController pushViewController:v animated:YES];
+        [[ViewControllerContainer navigation] pushViewController:v animated:YES];
     } else {
         [[LoginEngine shared] showLogin:^(BOOL logined) {
             if (logined) {
@@ -134,7 +119,7 @@
     [[LoginEngine shared] showLogin:^(BOOL logined) {
         if (logined) {
             MyFavoriateViewController *v = [[MyFavoriateViewController alloc] initWithNibName:nil bundle:nil];
-            [self.navigationController pushViewController:v animated:YES];
+            [[ViewControllerContainer navigation] pushViewController:v animated:YES];
         }
     }];
 }
@@ -178,16 +163,16 @@
 
 - (IBAction)onClickSuggestion:(id)sender {
     FeedbackViewController *v = [[FeedbackViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:v animated:YES];
+    [[ViewControllerContainer navigation]pushViewController:v animated:YES];
 }
 
 - (IBAction)onClickOnlineService:(id)sender {
-    [self.navigationController pushViewController:[CustomerServiceViewController instance] animated:YES];
+    [[ViewControllerContainer navigation] pushViewController:[CustomerServiceViewController instance] animated:YES];
 }
 
 - (IBAction)onClickMore:(id)sender {
     AboutViewController *v = [[AboutViewController alloc] init];
-    [self.navigationController pushViewController:v animated:YES];
+    [[ViewControllerContainer navigation] pushViewController:v animated:YES];
 }
 
 - (IBAction)onClickPhoneConsult:(id)sender {

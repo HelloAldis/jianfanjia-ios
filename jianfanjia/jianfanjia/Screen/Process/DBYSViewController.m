@@ -58,10 +58,6 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     [self initUI];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];

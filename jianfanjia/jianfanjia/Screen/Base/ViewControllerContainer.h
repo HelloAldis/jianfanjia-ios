@@ -13,6 +13,7 @@ static NSString * const kLogoutNotification = @"LogoutNotification";
 
 @interface ViewControllerContainer : NSObject
 
++ (UINavigationController *)navigation;
 + (void)showAfterLanching;
 + (void)showWelcome;
 + (void)showLogin;
@@ -28,7 +29,6 @@ static NSString * const kLogoutNotification = @"LogoutNotification";
 + (void)showDesignerList;
 + (void)showProductCaseList;
 + (void)showDecLiveList;
-+ (void)showBeautifulImage;
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
 + (void)showProduct:(NSString *)productid;

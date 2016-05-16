@@ -71,18 +71,10 @@ static NSMutableArray *decStyleDS;
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self showTabbar];
     
     if ([DataManager shared].isNeedRefreshTotal) {
         [DataManager shared].isNeedRefreshTotal = NO;
         [self refreshBeautifulImage:YES];
-    }
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if (self.navigationController.viewControllers.count > 1) {
-        [self hideTabbar];
     }
 }
 

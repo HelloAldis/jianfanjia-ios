@@ -46,8 +46,8 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
 
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"装修直播";
     [self initLeftBackInNav];
+    self.title = @"装修直播";
 }
 
 - (void)initUI {

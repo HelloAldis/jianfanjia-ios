@@ -28,9 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.userImageView setCornerRadius:30];
+    [self initNav];
     [self initUIData];
     [self refreshUserInfo];
 }

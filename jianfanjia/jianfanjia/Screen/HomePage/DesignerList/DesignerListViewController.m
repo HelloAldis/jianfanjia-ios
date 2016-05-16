@@ -66,15 +66,15 @@ static NSMutableArray *designerTagDS;
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self initNav];
     [self initUI];
+    [self initNav];
 }
+
 
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"全部设计师";
     [self initLeftBackInNav];
+    self.title = @"全部设计师";
 }
 
 - (void)initUI {
