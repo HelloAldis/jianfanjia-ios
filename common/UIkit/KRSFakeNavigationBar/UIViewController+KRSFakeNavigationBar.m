@@ -20,8 +20,8 @@
                          @selector(krs_viewWillAppear:));
         
         KRSSwizzleMethod([self class],
-                        @selector(viewWillLayoutSubviews),
-                        @selector(krs_viewWillLayoutSubviews));
+                         @selector(viewWillLayoutSubviews),
+                         @selector(krs_viewWillLayoutSubviews));
         
         KRSSwizzleMethod([self class],
                          @selector(navigationItem),
@@ -39,6 +39,8 @@
 }
 
 - (void)krs_viewWillLayoutSubviews {
+    [self.transitionCoordinator containerView].backgroundColor = [UIColor whiteColor];
+    
     if (self.krs_transitionNavigationBar) {
         [self krs_resizeTransitionNavigationBarFrame];
         [self.view bringSubviewToFront:self.krs_transitionNavigationBar];
@@ -47,6 +49,10 @@
 }
 
 - (UINavigationItem *)krs_navigationItem {
+    if (![self krs_EnableFakeNavigationBar]) {
+        return self.krs_navigationItem;
+    }
+    
     if (!self.krs_transitionNavigationItem) {
         self.krs_transitionNavigationItem = [[UINavigationItem alloc] init];
     }
@@ -64,7 +70,8 @@
         return;
     }
     
-    self.krs_transitionNavigationBar.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 64.0);
+    UIView *backgroundView = [self.navigationController.navigationBar valueForKey:@"_backgroundView"];
+    self.krs_transitionNavigationBar.frame = CGRectMake(0, 0, CGRectGetWidth(backgroundView.frame), CGRectGetHeight(backgroundView.frame));
 }
 
 - (void)krs_addTransitionFakeNavigationBar {
