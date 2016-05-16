@@ -39,6 +39,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self initStatusBarStyle:UIStatusBarStyleDefault];
     [MobClick beginLogPageView:NSStringFromClass(self.class)];
 }
 
@@ -49,10 +50,6 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-}
-
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleDefault;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -96,6 +93,10 @@
     [self.navigationController.navigationBar setBarStyle:barStyle];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)initStatusBarStyle:(UIStatusBarStyle)barStyle {
+    [[UIApplication sharedApplication] setStatusBarStyle:barStyle];
 }
 
 #pragma mark - user actions

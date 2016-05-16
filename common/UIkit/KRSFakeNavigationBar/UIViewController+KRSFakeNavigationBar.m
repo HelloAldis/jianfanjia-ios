@@ -95,6 +95,7 @@
         bar.barStyle = self.navigationController.navigationBar.barStyle;
         bar.translucent = self.navigationController.navigationBar.translucent;
         bar.barTintColor = self.navigationController.navigationBar.barTintColor;
+        bar.backgroundColor = self.navigationController.navigationBar.backgroundColor;
         [bar setBackgroundImage:[self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault] forBarMetrics:UIBarMetricsDefault];
         bar.shadowImage = self.navigationController.navigationBar.shadowImage;
     }

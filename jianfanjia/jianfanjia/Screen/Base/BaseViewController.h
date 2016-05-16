@@ -12,6 +12,7 @@
 
 - (void)initLeftBackInNav;
 - (void)initLeftWhiteBackInNav;
+- (void)initStatusBarStyle:(UIStatusBarStyle)barStyle;
 - (void)initThemeNavBar;
 - (void)initTranslucentNavBarStyle;
 - (void)initTransparentNavBar:(UIBarStyle)barStyle;

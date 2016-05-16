@@ -9,20 +9,18 @@
 #import "BeautifulImageHomePageViewController.h"
 #import "BeautifulImageDataManager.h"
 #import "BeautifulImageCollectionCell.h"
+#import "ViewControllerContainer.h"
 
 @interface BeautifulImageHomePageViewController ()
 
-@property (weak, nonatomic) IBOutlet UIView *navBarView;
-@property (weak, nonatomic) IBOutlet UIButton *backButton;
-@property (weak, nonatomic) IBOutlet UIButton *shareButton;
-@property (weak, nonatomic) IBOutlet UIButton *favoriateButton;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *imgDescription;
 @property (weak, nonatomic) IBOutlet UILabel *imgTag;
 @property (weak, nonatomic) IBOutlet UIButton *btnDownload;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewBottomToSuper;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *navBarViewTopToSuper;
+
+@property (strong, nonatomic) UIBarButtonItem *favoriteItem;
+@property (strong, nonatomic) UIBarButtonItem *shareItem;
 
 @property (nonatomic, strong) NSMutableArray<UIImageView *> *imageViewArray;
 @property (nonatomic, strong) NSMutableArray<UIScrollView *> *subscrollViewArray;
@@ -73,22 +71,38 @@
     [self reloadAllImage];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self initStatusBarStyle:UIStatusBarStyleLightContent];
+}
+
 #pragma mark - ui
 - (void)initNav {
-    [self initLeftBackInNav];
-    
+    [self initTransparentNavBar:UIBarStyleBlack];
+    [self initLeftWhiteBackInNav];
+    self.navigationController.navigationBar.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
+    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes = dict;
+
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
     @weakify(self);
-    [self.favoriateButton addTapBounceAnimation:^{
+    [imageView addTapBounceAnimation:^{
         @strongify(self);
         [self onClickFavoriteButton];
     }];
+    self.favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:imageView];
+    self.favoriteItem.tintColor = [UIColor whiteColor];
+
+    self.shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShareButton)];
+    self.shareItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItems = @[self.shareItem, self.favoriteItem];
 }
 
 - (void)initRightNaviBarItems {
     if ([self.beautifulImage.is_my_favorite boolValue]) {
-        [self.favoriateButton setNormImg:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
+        [self.favoriteItem.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
     } else {
-        [self.favoriateButton setNormImg:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
+        [self.favoriteItem.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
     }
 }
 
@@ -98,7 +112,7 @@
     self.imgDescription.text = nil;
     self.imgTag.text = nil;
     self.btnDownload.hidden = YES;
-    self.shareButton.enabled = NO;
+    self.shareItem.enabled = NO;
     
     LeafImage *leafImg = [self.beautifulImage leafImageAtIndex:0];
     CGFloat scaleFactor = leafImg.width.integerValue / kScreenWidth;
@@ -166,7 +180,7 @@
     [self reloadImageView:self.imageViewArray[2] withImage:nextImageid];
     
     self.scrollView.contentOffset = CGPointMake(kScreenWidth, 0);
-    self.titleLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.index+1), @(self.total)];
+    self.title = [NSString stringWithFormat:@"%@/%@", @(self.index+1), @(self.total)];
     self.imgDescription.text = self.beautifulImage.title;
     self.imgTag.text = [[[self.beautifulImage.keywords componentsSeparatedByString:@","] map:^id(id obj) {
         return [NSString stringWithFormat:@"#%@", obj];
@@ -176,7 +190,7 @@
 - (void)resetUI {
     [self initRightNaviBarItems];
     self.btnDownload.hidden = YES;
-    self.shareButton.enabled = NO;
+    self.shareItem.enabled = NO;
     [self.subscrollViewArray[1] setZoomScale:1];
 }
 
@@ -192,7 +206,7 @@
         if (error == nil) {
             if (imgView == self.imageViewArray[1]) {
                 self.btnDownload.hidden = NO;
-                self.shareButton.enabled = YES;
+                self.shareItem.enabled = YES;
             }
         }
     }];
@@ -276,7 +290,7 @@
 }
 
 #pragma mark - user action
-- (IBAction)onClickBackButton:(id)sender {
+- (void)onClickBack {
     if (self.dismissBlock) {
         self.dismissBlock(self.index);
     }
@@ -291,7 +305,7 @@
                 
                 [API favoriteBeautifulImage:request success:^{
                     self.beautifulImage.is_my_favorite = @1;
-                    [self.favoriateButton setNormImg:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
+                    [self.favoriteItem.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_yes"]];
                     [HUDUtil showSuccessText:@"收藏成功"];
                 } failure:^{
                     [HUDUtil showErrText:@"收藏失败"];
@@ -303,7 +317,7 @@
                 
                 [API unfavoriteBeautifulImage:request success:^{
                     self.beautifulImage.is_my_favorite = @0;
-                    [self.favoriateButton setNormImg:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
+                    [self.favoriteItem.customView setImage:[UIImage imageNamed:@"beautiful_img_favoriate_no"]];
                     [HUDUtil showSuccessText:@"取消收藏成功"];
                 } failure:^{
                     [HUDUtil showErrText:@"取消收藏失败"];
@@ -314,7 +328,7 @@
     }];
 }
 
-- (IBAction)onClickShareButton:(id)sender {
+- (void)onClickShareButton {
     NSString *title = self.beautifulImage.title;
     UIImage *shareImage = [self.imageViewArray[1] image];
     NSString *imgid = [[self.beautifulImage leafImageAtIndex:0] imageid];
@@ -343,7 +357,6 @@
 - (void)onSingleTap {
     self.isHidden = !self.isHidden;
     [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
-        self.navBarViewTopToSuper.constant = self.isHidden ? -44 : 20;
         self.textViewBottomToSuper.constant = self.isHidden ? -35 : 0;
         [self.view layoutIfNeeded];
     } completion:nil];
@@ -419,7 +432,7 @@
 }
 
 - (void)presentFromImageView:(UIImageView *)fromImageView fromController:(UIViewController *)controller {
-    UIView *toContainer = controller.navigationController.view;
+    UIView *toContainer = [ViewControllerContainer navigation].view;
     CGRect fromFrame = [toContainer convertRect:fromImageView.bounds fromView:fromImageView];
     
     UIImageView *fromViewImage = [[UIImageView alloc] initWithFrame:fromFrame];
@@ -442,13 +455,13 @@
     }completion:^(BOOL finished) {
         [fromViewImage removeFromSuperview];
         [background removeFromSuperview];
-        [controller.navigationController pushViewController:self animated:NO];
+        [[ViewControllerContainer navigation] pushViewController:self animated:NO];
     }];
 }
 
 - (void)dismissToRect:(CGRect)toFrame {
-    UIViewController *controller = self.navigationController.viewControllers[self.navigationController.viewControllers.count - 2];
-    [self.navigationController popViewControllerAnimated:NO];
+    UIViewController *controller = [ViewControllerContainer navigation].viewControllers[[ViewControllerContainer navigation].viewControllers.count - 2];
+    [[ViewControllerContainer navigation] popViewControllerAnimated:NO];
     UIView *toContainer = controller.view;
 
     UIImageView *enterImageView = self.imageViewArray[1];
