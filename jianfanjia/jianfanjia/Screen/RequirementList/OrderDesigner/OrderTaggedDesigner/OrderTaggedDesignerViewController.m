@@ -97,7 +97,8 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
 
 - (void)setupReuseCells {
     self.pageControl.numberOfPages = self.dataManager.recommendedDesigners.count;
-    self.scrollView = [[ReuseScrollView alloc] initWithFrame:CGRectMake(kScrollViewLeft, 0, kScreenWidth - kScrollViewLeft * 2, kScreenHeight -kNavWithStatusBarHeight - CGRectGetHeight(self.lblTitle.frame) - CGRectGetHeight(self.pageControl.frame)) items:self.dataManager.recommendedDesigners.count];
+    self.scrollView = [[ReuseScrollView alloc] initWithFrame:CGRectMake(kScrollViewLeft, 0, kScreenWidth - kScrollViewLeft * 2, kScreenHeight -kNavWithStatusBarHeight - CGRectGetHeight(self.lblTitle.frame) - CGRectGetHeight(self.pageControl.frame))];
+    self.scrollView.items = self.dataManager.recommendedDesigners.count;
     self.scrollView.reuseDelegate = self;
     self.scrollView.padding = kScrollCellPadding;
     self.scrollView.clipsToBounds = NO;
