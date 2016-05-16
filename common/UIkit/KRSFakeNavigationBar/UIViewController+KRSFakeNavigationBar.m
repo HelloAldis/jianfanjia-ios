@@ -39,9 +39,8 @@
 }
 
 - (void)krs_viewWillLayoutSubviews {
-    [self.transitionCoordinator containerView].backgroundColor = [UIColor whiteColor];
-    
     if (self.krs_transitionNavigationBar) {
+        [self.transitionCoordinator containerView].backgroundColor = [UIColor whiteColor];
         [self krs_resizeTransitionNavigationBarFrame];
         [self.view bringSubviewToFront:self.krs_transitionNavigationBar];
     }
