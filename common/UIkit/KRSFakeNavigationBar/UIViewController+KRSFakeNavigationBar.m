@@ -71,7 +71,9 @@
     }
     
     UIView *backgroundView = [self.navigationController.navigationBar valueForKey:@"_backgroundView"];
-    self.krs_transitionNavigationBar.frame = CGRectMake(0, 0, CGRectGetWidth(backgroundView.frame), CGRectGetHeight(backgroundView.frame));
+    if (backgroundView) {
+        self.krs_transitionNavigationBar.frame = CGRectMake(0, 0, CGRectGetWidth(backgroundView.frame), CGRectGetHeight(backgroundView.frame));
+    }
 }
 
 - (void)krs_addTransitionFakeNavigationBar {
