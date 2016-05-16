@@ -105,10 +105,16 @@ static ViewControllerContainer *container;
 + (void)showTab {
     container.tab = [[TabViewController alloc] initWithNibName:nil bundle:nil];
     container.tab.automaticallyAdjustsScrollViewInsets = NO;
-    container.tab.tapHome = [[HomePageViewController alloc] initWithNibName:nil bundle:nil];
-    container.tab.tapBeautifulImg = [[BeautifulImageViewController alloc] initWithNibName:nil bundle:nil];
-    container.tab.tapRequirement = [[RequirementListViewController alloc] initWithNibName:nil bundle:nil];
-    container.tab.tapMy = [[MeViewController alloc] initWithNibName:nil bundle:nil];
+    
+    HomePageViewController *home = [[HomePageViewController alloc] initWithNibName:nil bundle:nil];
+    BeautifulImageViewController *beautifulImg = [[BeautifulImageViewController alloc] initWithNibName:nil bundle:nil];
+    RequirementListViewController *requirement = [[RequirementListViewController alloc] initWithNibName:nil bundle:nil];
+    MeViewController *me = [[MeViewController alloc] initWithNibName:nil bundle:nil];
+
+    container.tab.tapHome = [[UINavigationController alloc] initWithRootViewController:home];
+    container.tab.tapBeautifulImg = [[UINavigationController alloc] initWithRootViewController:beautifulImg];
+    container.tab.tapRequirement = [[UINavigationController alloc] initWithRootViewController:requirement];
+    container.tab.tapMy = [[UINavigationController alloc] initWithRootViewController:me];
 
     container.tab.viewControllers = @[container.tab.tapHome, container.tab.tapBeautifulImg, container.tab.tapRequirement, container.tab.tapMy];
     container.navigation = [[UINavigationController alloc] initWithRootViewController:container.tab];

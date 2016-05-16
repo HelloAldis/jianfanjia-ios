@@ -19,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.krs_EnableFakeNavigationBar = YES;
+    [self initThemeNavBar];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -38,7 +39,6 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self clearTabBarItems];
     [MobClick beginLogPageView:NSStringFromClass(self.class)];
 }
 
@@ -64,40 +64,38 @@
 
 #pragma mark - UI
 - (void)initLeftBackInNav {
-//    self.navigationController.navigationBarHidden = NO;
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
     self.navigationItem.leftBarButtonItem = item;
     
 }
 
 - (void)initLeftWhiteBackInNav {
-//    self.navigationController.navigationBarHidden = NO;
-//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"white_back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
-//    self.navigationItem.leftBarButtonItem = item;
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"white_back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    self.navigationItem.leftBarButtonItem = item;
 }
 
-- (void)initDefaultNavBarStyle {
-//    self.navigationController.navigationBarHidden = NO;
-//    self.navigationController.navigationBar.translucent = YES;
-//    NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
-//    self.navigationController.navigationBar.titleTextAttributes = dict;
-//    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
-//    self.navigationController.navigationBar.shadowImage = nil;
-//    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+- (void)initThemeNavBar {
+    [self initTranslucentNavBarStyle];
+    [self initNavBarAttributes];
 }
 
-- (void)initTranslucentNavBar:(UIBarStyle)barStyle {
-//    self.navigationController.navigationBarHidden = NO;
-//    self.navigationController.navigationBar.translucent = YES;
-//    [self.navigationController.navigationBar setBarStyle:barStyle];
-//    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-//    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"translucent"] forBarMetrics:UIBarMetricsDefault];
+- (void)initNavBarAttributes  {
+    NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes = dict;
 }
 
-- (void)clearTabBarItems {
-//    self.tabBarController.title = nil;
-//    self.tabBarController.navigationItem.leftBarButtonItem = nil;
-//    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+- (void)initTranslucentNavBarStyle {
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setBarStyle:UIBarStyleDefault];
+    self.navigationController.navigationBar.shadowImage = nil;
+    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+}
+
+- (void)initTransparentNavBar:(UIBarStyle)barStyle {
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setBarStyle:barStyle];
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 }
 
 #pragma mark - user actions

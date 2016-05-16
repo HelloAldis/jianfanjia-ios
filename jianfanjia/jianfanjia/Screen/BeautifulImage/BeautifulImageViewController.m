@@ -65,13 +65,8 @@ static NSMutableArray *decStyleDS;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initUI];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self initDefaultNavBarStyle];
     [self initNav];
+    [self initUI];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -85,10 +80,7 @@ static NSMutableArray *decStyleDS;
 
 #pragma mark - UI
 - (void)initNav {
-    self.tabBarController.title = @"装修美图";
-    self.tabBarController.navigationItem.titleView = nil;
-    self.tabBarController.navigationItem.leftBarButtonItem = nil;
-    self.tabBarController.navigationItem.rightBarButtonItem = nil;
+    self.title = @"装修美图";
 }
 
 - (void)initUI {

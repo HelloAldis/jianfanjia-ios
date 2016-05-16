@@ -33,21 +33,14 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self initDefaultNavBarStyle];
     [self initNav];
 }
 
 #pragma mark - UI
 - (void)initNav {
-//    self.tabBarController.title = @"简繁家";
-//    self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickSearch)];
-//    self.tabBarController.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
-//    self.tabBarController.navigationItem.leftBarButtonItem = nil;
-//    self.navigationController.navigationBar.translucent = YES;
+    self.title = @"简繁家";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickSearch)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
 }
 
 - (void)initUI {

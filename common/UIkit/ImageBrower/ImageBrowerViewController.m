@@ -83,7 +83,6 @@
 
 #pragma mark - UI
 - (void)initNav {
-    self.navigationController.navigationBarHidden = NO;
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
     self.navigationItem.leftBarButtonItem = item;
     

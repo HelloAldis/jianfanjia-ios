@@ -43,6 +43,8 @@ static NSString* cellId = @"decStyleCell";
 
 #pragma mark - UI
 - (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.collectionView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     [self.collectionView registerNib:[UINib nibWithNibName:@"DecorationStyleCell" bundle:nil] forCellWithReuseIdentifier:cellId];
     CGFloat cellWidth = (kScreenWidth - CELL_SPACE * (COUNT_IN_ROW - 1)) / COUNT_IN_ROW;
     CGFloat cellHeight = cellWidth / CELL_WIDTH_ASPECT * CELL_HEIGHT_ASPECT;

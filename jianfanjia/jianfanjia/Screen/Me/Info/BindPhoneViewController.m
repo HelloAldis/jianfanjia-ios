@@ -50,13 +50,10 @@
 }
 
 - (void)initNavi {
-    self.navigationController.navigationBarHidden = NO;
+    [self initTransparentNavBar:UIBarStyleBlack];
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_delete"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
     self.navigationItem.leftBarButtonItem = item;
-    
-    self.navigationController.navigationBarHidden = NO;
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
+
     self.automaticallyAdjustsScrollViewInsets = NO;
 }
 

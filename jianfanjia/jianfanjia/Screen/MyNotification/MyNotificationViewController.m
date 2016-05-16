@@ -44,13 +44,8 @@ static NSString *WorksiteNotificationCellIdentifier = @"WorksiteNotificationCell
     [self initUI];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
 #pragma mark - UI
 - (void)initNav {
-    [self initDefaultNavBarStyle];
     [self initLeftBackInNav];
     self.title = @"我的通知";
 }

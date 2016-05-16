@@ -35,20 +35,15 @@ static BOOL isReload;
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNav];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.request = [NSURLRequest requestWithURL:[NSURL URLWithString:CustomerServiceLink]];
     
     [self loadPage];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self initNav];
-}
-
 #pragma mark - UI
 - (void)initNav {
-    [self initDefaultNavBarStyle];
     [self initLeftBackInNav];
     self.title = @"在线客服";
 }

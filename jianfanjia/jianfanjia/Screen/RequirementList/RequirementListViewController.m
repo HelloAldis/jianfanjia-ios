@@ -30,11 +30,6 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initUI];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self initDefaultNavBarStyle];
     [self initNav];
 }
 
@@ -44,6 +39,13 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 }
 
 #pragma mark - init ui
+- (void)initNav {
+    self.title = @"我要装修";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate:)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+}
+
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.dataManager = [[RequirementDataManager alloc] init];
@@ -83,16 +85,6 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 - (void)handleLogout {
     self.dataManager.requirements = nil;
     [self.tableView reloadData];
-}
-
-#pragma mark - nav
-- (void)initNav {
-    self.tabBarController.title = @"我要装修";
-    self.tabBarController.navigationItem.titleView = nil;
-    
-    self.tabBarController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate:)];
-    self.tabBarController.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-    [self.tabBarController.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
 
 #pragma mark - actions

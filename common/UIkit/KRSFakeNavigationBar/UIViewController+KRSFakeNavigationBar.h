@@ -11,5 +11,6 @@
 @interface UIViewController (KRSFakeNavigationBar)
 
 - (void)setKrs_EnableFakeNavigationBar:(BOOL)enable;
+- (void)krs_updateFakeNavBar;
 
 @end

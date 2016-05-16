@@ -42,13 +42,12 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
     
     [self initNav];
     [self initUI];
-//    self.navigationController.navigationBar.translucent = NO;
 }
 
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"装修直播";
     [self initLeftBackInNav];
+    self.title = @"装修直播";
 }
 
 - (void)initUI {

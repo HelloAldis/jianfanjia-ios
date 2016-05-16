@@ -80,16 +80,23 @@
     if (!self.krs_transitionNavigationBar && [self krs_EnableFakeNavigationBar]) {
         [self.navigationController setNavigationBarHidden:YES animated:NO];
         self.krs_transitionNavigationBar = [[UINavigationBar alloc] init];
-        [self krs_resizeTransitionNavigationBarFrame];
         self.krs_transitionNavigationBar.items = @[self.navigationItem];
+        [self krs_resizeTransitionNavigationBarFrame];
+        [self.view addSubview:self.krs_transitionNavigationBar];
         
+        [self krs_updateFakeNavBar];
+    }
+}
+
+- (void)krs_updateFakeNavBar {
+    if (self.krs_transitionNavigationBar) {
         UINavigationBar *bar = self.krs_transitionNavigationBar;
+        bar.titleTextAttributes = self.navigationController.navigationBar.titleTextAttributes;
         bar.barStyle = self.navigationController.navigationBar.barStyle;
         bar.translucent = self.navigationController.navigationBar.translucent;
         bar.barTintColor = self.navigationController.navigationBar.barTintColor;
         [bar setBackgroundImage:[self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault] forBarMetrics:UIBarMetricsDefault];
         bar.shadowImage = self.navigationController.navigationBar.shadowImage;
-        [self.view addSubview:bar];
     }
 }
 

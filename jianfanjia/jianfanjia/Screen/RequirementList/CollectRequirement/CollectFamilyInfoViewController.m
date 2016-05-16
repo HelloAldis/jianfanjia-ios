@@ -44,17 +44,15 @@ static const NSInteger MaxCollectedFamilyInfoCount = 1;
 
 #pragma mark - init UI
 - (void)initNav {
-    self.navigationController.navigationBarHidden = NO;
+    [self initTransparentNavBar:UIBarStyleBlack];
     [self initLeftBackInNav];
-
+    
     NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
     self.navigationController.navigationBar.titleTextAttributes = dict;
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
-    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     [self.btnNext setCornerRadius:5];
     [self.btnNext setBgColor:kUntriggeredColor];
     self.btnNext.enabled = NO;

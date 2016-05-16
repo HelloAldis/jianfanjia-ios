@@ -12,8 +12,9 @@
 
 - (void)initLeftBackInNav;
 - (void)initLeftWhiteBackInNav;
-- (void)initDefaultNavBarStyle;
-- (void)initTranslucentNavBar:(UIBarStyle)barStyle;
+- (void)initThemeNavBar;
+- (void)initTranslucentNavBarStyle;
+- (void)initTransparentNavBar:(UIBarStyle)barStyle;
 - (void)onClickBack;
 - (void)clickBack;
 

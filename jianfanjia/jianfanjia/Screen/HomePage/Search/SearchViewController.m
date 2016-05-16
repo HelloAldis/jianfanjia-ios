@@ -61,14 +61,6 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
     [self initUI];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-}
-
 #pragma mark - UI
 - (void)initNav {
     self.navigationItem.hidesBackButton = YES;
@@ -76,13 +68,16 @@ static NSString *BeautifulImageCollectionCellIdentifier = @"BeautifulImageCollec
     self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
     
-    UISearchBar *searchBar = [[UISearchBar alloc] init];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 60, 44)];
     searchBar.backgroundImage = [[UIImage alloc] init];
     searchBar.placeholder = @"设计师、案例、美图";
     searchBar.delegate = self;
     [searchBar sizeToFit];
     [searchBar becomeFirstResponder];
-    self.navigationItem.titleView = searchBar;
+    
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 20, kScreenWidth, 44)];
+    [view addSubview:searchBar];
+    self.navigationItem.titleView = view;
     self.searchBar = searchBar;
 }
 

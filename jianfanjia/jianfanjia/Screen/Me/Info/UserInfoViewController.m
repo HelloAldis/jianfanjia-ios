@@ -30,13 +30,9 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.userImageView setCornerRadius:30];
+    [self initNav];
     [self initUIData];
     [self refreshUserInfo];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self initNav];
 }
 
 - (void)refreshUserInfo {
@@ -52,7 +48,6 @@
 
 #pragma mark - UI
 - (void)initNav {
-    [self initDefaultNavBarStyle];
     [self initLeftBackInNav];
     self.title = @"个人信息";
 }

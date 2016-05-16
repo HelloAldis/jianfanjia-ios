@@ -19,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNav];
     
     [self.textView setCornerRadius:5];
     [self.btnDone setCornerRadius:5];
@@ -30,14 +31,8 @@
     }];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self initNav];
-}
-
 #pragma mark - UI
 - (void)initNav {
-    [self initDefaultNavBarStyle];
     [self initLeftBackInNav];
     self.title = @"意见反馈";
 }

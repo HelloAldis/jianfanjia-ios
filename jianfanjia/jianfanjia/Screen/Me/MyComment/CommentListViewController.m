@@ -30,14 +30,10 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initNav];
     [self initUI];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:kShowNotificationDetail object:nil];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self initNav];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -56,9 +52,8 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
 
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"我的留言";
-    [self initDefaultNavBarStyle];
     [self initLeftBackInNav];
+    self.title = @"我的留言";
 }
 
 - (void)initUI {
