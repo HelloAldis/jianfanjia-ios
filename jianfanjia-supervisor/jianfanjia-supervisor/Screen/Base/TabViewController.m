@@ -16,6 +16,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
     
     self.tabBar.tintColor = kThemeColor;
     UITabBarItem *my_process = [self.tabBar.items objectAtIndex:0];

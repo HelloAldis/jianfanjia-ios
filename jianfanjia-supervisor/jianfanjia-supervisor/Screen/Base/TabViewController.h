@@ -10,4 +10,7 @@
 
 @interface TabViewController : UITabBarController
 
+@property(strong, nonatomic) UIViewController *tapMyProcess;
+@property(strong, nonatomic) UIViewController *tapMy;
+
 @end

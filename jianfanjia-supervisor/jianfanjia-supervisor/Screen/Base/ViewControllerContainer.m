@@ -27,8 +27,7 @@
 @interface ViewControllerContainer ()
 
 @property(weak, nonatomic) UIWindow *window;
-@property(strong, nonatomic) UINavigationController *navTapMyProcess;
-@property(strong, nonatomic) UINavigationController *navTapMy;
+@property(strong, nonatomic) UINavigationController *navigation;
 
 @property(strong, nonatomic) TabViewController *tab;
 
@@ -51,6 +50,10 @@ static ViewControllerContainer *container;
     return self;
 }
 
++ (UINavigationController *)navigation {
+    return container.navigation;
+}
+
 + (void)showAfterLanching {
     if ([GVUserDefaults standardUserDefaults].isLogin) {
         //显示首页
@@ -63,20 +66,17 @@ static ViewControllerContainer *container;
 
 + (void)showTab {
     container.tab = [[TabViewController alloc] initWithNibName:nil bundle:nil];
+    container.tab.automaticallyAdjustsScrollViewInsets = NO;
     
     MyProcessViewController *myProcess = [[MyProcessViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTapMyProcess = [[UINavigationController alloc] initWithRootViewController:myProcess];
-    container.navTapMyProcess.hidesBottomBarWhenPushed = YES;
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];
-    container.navTapMyProcess.navigationBar.titleTextAttributes = dict;
-    
     MeViewController *me = [[MeViewController alloc] initWithNibName:nil bundle:nil];
-    container.navTapMy = [[UINavigationController alloc] initWithRootViewController:me];
-    container.navTapMy.hidesBottomBarWhenPushed = YES;
-    container.navTapMy.navigationBar.titleTextAttributes = dict;
+
+    container.tab.tapMyProcess = [[UINavigationController alloc] initWithRootViewController:myProcess];
+    container.tab.tapMy = [[UINavigationController alloc] initWithRootViewController:me];
     
-    container.tab.viewControllers = @[container.navTapMyProcess, container.navTapMy];
-    container.window.rootViewController = container.tab;
+    container.tab.viewControllers = @[container.tab.tapMyProcess, container.tab.tapMy];
+    container.navigation = [[UINavigationController alloc] initWithRootViewController:container.tab];
+    container.window.rootViewController = container.navigation;
 }
 
 + (void)showLogin {
@@ -92,13 +92,8 @@ static ViewControllerContainer *container;
 
 + (void)showVerifyPhone:(VerfityPhoneEvent)verfityPhoneEvent {
     VerifyPhoneViewController *v = [[VerifyPhoneViewController alloc] initWithEvent:verfityPhoneEvent];
-    
-    if (verfityPhoneEvent == VerfityPhoneEventBindPhone) {
-        [((id)container.tab.selectedViewController.presentedViewController) pushViewController:v animated:YES];
-    } else {
-        UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
-        [nav pushViewController:v animated:YES];
-    }
+    UINavigationController *nav =  (UINavigationController *)container.window.rootViewController;
+    [nav pushViewController:v animated:YES];
 }
 
 + (void)showResetPass {
@@ -109,48 +104,48 @@ static ViewControllerContainer *container;
 
 + (void)showProcessPreview {
     ProcessViewController *v = [[ProcessViewController alloc] initWithProcessPreview];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [[container navigation] pushViewController:v animated:YES];
 }
 
 + (void)showProcess:(NSString *)processid {
     ProcessViewController *v = [[ProcessViewController alloc] initWithProcess:processid];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [[container navigation] pushViewController:v animated:YES];
 }
 
 + (void)showRequirementCreate:(Requirement *)requirement {
     //no reqirement create
     if (requirement) {
         RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToViewRequirement:requirement];
-        [container.tab.selectedViewController pushViewController:v animated:YES];
+        [[container navigation] pushViewController:v animated:YES];
     } else {
         RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToCreateRequirement];
-        [container.tab.selectedViewController pushViewController:v animated:YES];
+        [[container navigation] pushViewController:v animated:YES];
     }
 }
 
 + (void)leaveMessage:(Plan *)plan {
     LeaveMessageViewController *v = [[LeaveMessageViewController alloc] initWithPlan:plan];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [[container navigation] pushViewController:v animated:YES];
 }
 
 + (void)leaveMessage:(Process *)process section:(NSString *)section item:(NSString *)item block:(void(^)(void))RefreshBlock {
     LeaveMessageViewController *v = [[LeaveMessageViewController alloc] initWithProcess:process section:section item:item block:RefreshBlock];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [[container navigation] pushViewController:v animated:YES];
 }
 
 + (void)showPlanPerview:(Plan *)plan forRequirement:(Requirement *)requirement popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock {
     PlanPreviewViewController *v = [[PlanPreviewViewController alloc] initWithPlan:plan forRequirement:requirement popTo:popTo refresh:refreshBlock];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [[container navigation] pushViewController:v animated:YES];
 }
 
 + (void)showPlanPriceDetail:(Plan *)plan requirement:(Requirement *)requirement {
     PlanPriceDetailViewController *v = [[PlanPriceDetailViewController alloc] initWithPlan:plan requirement:requirement];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [[container navigation] pushViewController:v animated:YES];
 }
 
 + (void)showDBYS:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock {
     DBYSViewController *v = [[DBYSViewController alloc] initWithSection:section process:processid popTo:nil refresh:refreshBlock];
-    [container.tab.selectedViewController pushViewController:v animated:YES];
+    [[container navigation] pushViewController:v animated:YES];
 }
 
 + (void)showRefresh {
@@ -190,13 +185,11 @@ static ViewControllerContainer *container;
 }
 
 + (UIViewController *)getCurrentTapController {
-    return ((UINavigationController *)container.tab.selectedViewController).topViewController;
+    return container.navigation.topViewController;
 }
 
 + (void)logout {
     container.tab = nil;
-    container.navTapMyProcess = nil;
-    container.navTapMy = nil;
     [GVUserDefaults standardUserDefaults].isLogin = NO;
     [GVUserDefaults standardUserDefaults].phone = nil;
     [GVUserDefaults standardUserDefaults].usertype = nil;
