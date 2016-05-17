@@ -10,7 +10,8 @@
 #import "ReuseScrollView.h"
 
 @interface PhotoGroupItem()
-@property (nonatomic, strong) UIImage *UIImage;
+
+@property (nonatomic, strong) UIImage *loadedImage;
 
 @end
 
@@ -23,13 +24,10 @@
 @property (nonatomic, strong) UIView *imageContainerView;
 @property (nonatomic, strong) UIImageView *imageView;
 
-@property (nonatomic, assign) BOOL showProgress;
-@property (nonatomic, assign) CGFloat progress;
-@property (nonatomic, strong) CAShapeLayer *progressLayer;
-
 @property (nonatomic, strong) PhotoGroupItem *item;
-@property (nonatomic, readonly) BOOL itemDidLoad;
+
 - (void)resizeSubviewSize;
+
 @end
 
 @implementation PhotoGroupCell
@@ -37,7 +35,8 @@
 - (instancetype)init {
     self = super.init;
     if (!self) return nil;
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
+    self.frame = [UIScreen mainScreen].bounds;
+    _scrollView = [UIScrollView new];
     _scrollView.delegate = self;
     _scrollView.bouncesZoom = YES;
     _scrollView.maximumZoomScale = 3;
@@ -45,70 +44,37 @@
     _scrollView.alwaysBounceVertical = NO;
     _scrollView.showsVerticalScrollIndicator = YES;
     _scrollView.showsHorizontalScrollIndicator = NO;
+    _scrollView.frame = self.bounds;
     [self addSubview:_scrollView];
 
     _imageContainerView = [UIView new];
     _imageContainerView.clipsToBounds = YES;
+    _imageContainerView.frame = self.bounds;
     [_scrollView addSubview:_imageContainerView];
     
-    _imageView = [YYAnimatedImageView new];
+    _imageView = [UIImageView new];
+    _imageView.contentMode = UIViewContentModeScaleAspectFit;
     _imageView.clipsToBounds = YES;
-    _imageView.backgroundColor = [UIColor colorWithWhite:1.000 alpha:0.500];
+    _imageView.backgroundColor = [UIColor clearColor];
+    _imageView.frame = self.bounds;
     [_imageContainerView addSubview:_imageView];
     
-    CGRect frame = CGRectMake(0, 0, 40, 40);
-    _progressLayer = [CAShapeLayer layer];
-    _progressLayer.frame = frame;
-    _progressLayer.cornerRadius = 20;
-    _progressLayer.backgroundColor = [UIColor colorWithWhite:0.000 alpha:0.500].CGColor;
-    UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(_progressLayer.bounds, 7, 7) cornerRadius:(40 / 2 - 7)];
-    _progressLayer.path = path.CGPath;
-    _progressLayer.fillColor = [UIColor clearColor].CGColor;
-    _progressLayer.strokeColor = [UIColor whiteColor].CGColor;
-    _progressLayer.lineWidth = 4;
-    _progressLayer.lineCap = kCALineCapRound;
-    _progressLayer.strokeStart = 0;
-    _progressLayer.strokeEnd = 0;
-    _progressLayer.hidden = YES;
-    [_scrollView.layer addSublayer:_progressLayer];
     return self;
-}
-
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    CGPoint center = CGPointMake(_scrollView.frame.size.width / 2, _scrollView.frame.size.height / 2);
-    CGRect frame = _progressLayer.frame;
-    frame.origin.x = center.x - frame.size.width * 0.5;
-    frame.origin.y = center.y - frame.size.height * 0.5;
-    _progressLayer.frame = frame;
 }
 
 - (void)setItem:(PhotoGroupItem *)item {
     if (_item == item) return;
     _item = item;
-    _itemDidLoad = NO;
-    
+    _item.loadedImage = nil;
     
     [_scrollView setZoomScale:1.0 animated:NO];
-    _scrollView.maximumZoomScale = 1;
-    _progressLayer.hidden = NO;
-    [CATransaction begin];
-    [CATransaction setDisableActions:YES];
-    _progressLayer.strokeEnd = 0;
-    _progressLayer.hidden = YES;
-    [CATransaction commit];
-    
-    if (!_item) {
-        _imageView.image = nil;
-        return;
-    }
+    _scrollView.maximumZoomScale = 3;
     
     @weakify(self);
-    [_imageView setImageWithId:item.imageid withWidth:kScreenWidth completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
+    [_imageView setImageWithId:_item.imageid withWidth:self.bounds.size.width completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
         @strongify(self);
-        self.progressLayer.hidden = YES;
         if (error == nil) {
-            self->_itemDidLoad = YES;
+            self.item.loadedImage = image;
             [self resizeSubviewSize];
             if (self.item.loadedBlock) {
                 self.item.loadedBlock(image);
@@ -132,7 +98,7 @@
         if (height < 1 || isnan(height)) height = _scrollView.frame.size.height;
         height = floor(height);
         frame.size.height = height;
-        frame.origin.y = _scrollView.frame.size.height / 2;
+        frame.origin.y = (_scrollView.frame.size.height - height)/ 2;
         _imageContainerView.frame = frame;
     }
     if (_imageContainerView.frame.size.height > _scrollView.frame.size.height && _imageContainerView.frame.size.height - _scrollView.frame.size.height <= 1) {
@@ -172,7 +138,7 @@
 }
 
 - (void)reloadData:(ReuseScrollView *)scrollView item:(id)item {
-    _item = item;
+    self.item = item;
 }
 
 @end
@@ -185,13 +151,15 @@
 
 @implementation PhotoGroupView
 
-- (instancetype)initWithGroupItems:(NSArray *)groupItems {
-    self = [super init];
-    if (groupItems.count == 0) return nil;
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    [self initUI];
     
+    return self;
+}
+
+- (void)initUI  {
     self.scrollView = [[ReuseScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
-    self.scrollView.items = self.groupItems;
-    self.scrollView.index = self.index;
     self.scrollView.reuseDelegate = self;
     self.scrollView.padding = 20;
     self.scrollView.clipsToBounds = NO;
@@ -204,8 +172,16 @@
     doubleTap.numberOfTapsRequired = 2;
     [self.scrollView addGestureRecognizer:doubleTap];
     [singleTap requireGestureRecognizerToFail:doubleTap];
-    
-    return self;
+}
+
+- (void)setGroupItems:(NSArray<PhotoGroupItem *> *)groupItems {
+    _groupItems = groupItems;
+    self.scrollView.items = groupItems;
+}
+
+- (void)setIndex:(NSInteger)index {
+    _index = index;
+    self.scrollView.index = index;
 }
 
 #pragma mark - reuse delegate
@@ -214,13 +190,29 @@
     return cell;
 }
 
-- (void)reuseScrollViewPageDidChange:(ReuseScrollView *)scrollView toPage:(NSInteger)toPage {
+- (void)reuseScrollViewDidEndDragging:(ReuseScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (decelerate) {
+        CGFloat offsetX = scrollView.contentOffset.x;
+        CGFloat lastCellOffsetX = (scrollView.cellSize.width + scrollView.padding) * (self.groupItems.count - 1);
+        if (scrollView.currentPage == self.groupItems.count - 1 && offsetX > lastCellOffsetX) {
+            if ([_delegate respondsToSelector:@selector(photoGrouopViewWillLoadMore:)]) {
+                [_delegate photoGrouopViewWillLoadMore:self];
+            }
+        }
+    }
+}
 
+- (void)reuseScrollViewDidChangePage:(ReuseScrollView *)scrollView toPage:(NSInteger)toPage {
+    if ([_delegate respondsToSelector:@selector(photoGrouopViewDidChangePage:toPage:)]) {
+        [_delegate photoGrouopViewDidChangePage:self toPage:toPage];
+    }
 }
 
 #pragma mark - gesture
 - (void)onSingleTap {
-
+    if ([_delegate respondsToSelector:@selector(photoGrouopViewDidSingleTap:)]) {
+        [_delegate photoGrouopViewDidSingleTap:self];
+    }
 }
 
 - (void)onDoubleTap:(UITapGestureRecognizer *)g {
@@ -230,7 +222,7 @@
     if (subscrollView.zoomScale > 1) {
         [subscrollView setZoomScale:1.0 animated:YES];
     } else {
-        UIImageView *imgView = subscrollView.subviews[0];
+        UIImageView *imgView = cell.imageView;
         CGPoint touchPoint = [g locationInView:imgView];
         CGFloat newZoomScale = subscrollView.maximumZoomScale;
         CGFloat xsize = subscrollView.frame.size.width / newZoomScale;

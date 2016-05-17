@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class ReuseScrollView;
+@class PhotoGroupView;
+
 typedef void (^PhotoGroupItemLoadedBlock)(UIImage *image);
 
 @interface PhotoGroupItem : NSObject
@@ -18,9 +21,20 @@ typedef void (^PhotoGroupItemLoadedBlock)(UIImage *image);
 
 @end
 
+@protocol PhotoGroupViewProtocol <NSObject>
+
+@optional
+- (void)photoGrouopViewDidChangePage:(PhotoGroupView *)photoGroupView toPage:(NSInteger)toPage;
+- (void)photoGrouopViewDidSingleTap:(PhotoGroupView *)photoGroupView;
+- (void)photoGrouopViewWillLoadMore:(PhotoGroupView *)photoGroupView;
+
+@end
+
 @interface PhotoGroupView : UIView
 
+@property (nonatomic, readonly) ReuseScrollView *scrollView;
 @property (nonatomic, strong) NSArray<PhotoGroupItem *> *groupItems;
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, weak) id<PhotoGroupViewProtocol> delegate;
 
 @end

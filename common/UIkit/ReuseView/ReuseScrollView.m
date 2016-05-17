@@ -106,8 +106,19 @@
     
     self.currentPage = intPage;
     
-    if (![_reuseDelegate respondsToSelector:@selector(reuseScrollViewPageDidChange:toPage:)]) return;
-    [_reuseDelegate reuseScrollViewPageDidChange:self toPage:intPage];
+    if ([_reuseDelegate respondsToSelector:@selector(reuseScrollViewDidScroll:)]) {
+        [_reuseDelegate reuseScrollViewDidScroll:self];
+    }
+    
+    if ([_reuseDelegate respondsToSelector:@selector(reuseScrollViewDidChangePage:toPage:)]) {
+        [_reuseDelegate reuseScrollViewDidChangePage:self toPage:intPage];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if ([_reuseDelegate respondsToSelector:@selector(reuseScrollViewDidEndDragging:willDecelerate:)]) {
+        [_reuseDelegate reuseScrollViewDidEndDragging:self willDecelerate:decelerate];
+    }
 }
 
 /// enqueue invisible cells for reuse

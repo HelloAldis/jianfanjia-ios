@@ -7,10 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BeautifulImageHomePageViewController">
             <connections>
+                <outlet property="bottomView" destination="lfV-B3-NTB" id="zf4-Mq-Rwj"/>
                 <outlet property="btnDownload" destination="l8H-PR-avr" id="yVn-nP-FT7"/>
                 <outlet property="imgDescription" destination="Okj-ek-3Xn" id="6tK-sF-baa"/>
                 <outlet property="imgTag" destination="anZ-3W-hZM" id="6i9-TZ-x5q"/>
-                <outlet property="scrollView" destination="nR9-Us-fow" id="oJF-p4-Naz"/>
                 <outlet property="textViewBottomToSuper" destination="b3M-bk-PDN" id="PHs-rW-6Q7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -20,13 +20,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nR9-Us-fow">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="Gqh-gB-mbl"/>
-                    </connections>
-                </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lfV-B3-NTB">
                     <rect key="frame" x="0.0" y="643" width="414" height="93"/>
                     <subviews>
@@ -69,13 +62,9 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="nR9-Us-fow" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BSI-VW-xXO"/>
                 <constraint firstItem="lfV-B3-NTB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="T9n-r4-UDO"/>
-                <constraint firstAttribute="bottom" secondItem="nR9-Us-fow" secondAttribute="bottom" id="Yab-T7-Zqu"/>
                 <constraint firstAttribute="bottom" secondItem="lfV-B3-NTB" secondAttribute="bottom" id="b3M-bk-PDN"/>
                 <constraint firstItem="lfV-B3-NTB" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="eRE-GQ-QGA"/>
-                <constraint firstItem="nR9-Us-fow" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gUs-mq-K1Z"/>
-                <constraint firstAttribute="trailing" secondItem="nR9-Us-fow" secondAttribute="trailing" id="kHk-VD-0SA"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
         </view>

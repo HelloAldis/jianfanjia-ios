@@ -116,7 +116,7 @@ typedef NS_ENUM(NSInteger, OrderDesignerOrderType) {
     return taggedDesignerInfoView;
 }
 
-- (void)reuseScrollViewPageDidChange:(ReuseScrollView *)scrollView toPage:(NSInteger)toPage {
+- (void)reuseScrollViewDidChangePage:(ReuseScrollView *)scrollView toPage:(NSInteger)toPage {
     self.pageControl.currentPage = toPage;
 }
 

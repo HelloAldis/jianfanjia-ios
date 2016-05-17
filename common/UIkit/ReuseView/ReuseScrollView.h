@@ -17,7 +17,9 @@
 - (ReuseCell *)reuseCellFactory;
 
 @optional
-- (void)reuseScrollViewPageDidChange:(ReuseScrollView *)scrollView toPage:(NSInteger)toPage;
+- (void)reuseScrollViewDidScroll:(ReuseScrollView *)scrollView;
+- (void)reuseScrollViewDidEndDragging:(ReuseScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+- (void)reuseScrollViewDidChangePage:(ReuseScrollView *)scrollView toPage:(NSInteger)toPage;
 
 @end
 
