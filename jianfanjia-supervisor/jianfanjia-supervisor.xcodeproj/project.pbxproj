@@ -70,35 +70,14 @@
 		680C42B81CC4D4AE008C4BC0 /* PlanPriceTotalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41E41CC4D4AE008C4BC0 /* PlanPriceTotalCell.xib */; };
 		680C42B91CC4D4AE008C4BC0 /* PlanPriceTotalPkg365Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41E61CC4D4AE008C4BC0 /* PlanPriceTotalPkg365Cell.m */; };
 		680C42BA1CC4D4AE008C4BC0 /* PlanPriceTotalPkg365Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41E71CC4D4AE008C4BC0 /* PlanPriceTotalPkg365Cell.xib */; };
-		680C42BB1CC4D4AE008C4BC0 /* BaseSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41EA1CC4D4AE008C4BC0 /* BaseSelectionViewController.m */; };
 		680C42BC1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41EC1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.m */; };
 		680C42BD1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41ED1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.xib */; };
-		680C42BE1CC4D4AE008C4BC0 /* DecorationStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41EF1CC4D4AE008C4BC0 /* DecorationStyleCell.m */; };
-		680C42BF1CC4D4AE008C4BC0 /* DecorationStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41F01CC4D4AE008C4BC0 /* DecorationStyleCell.xib */; };
 		680C42C01CC4D4AE008C4BC0 /* DecPackage365View.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41F31CC4D4AE008C4BC0 /* DecPackage365View.m */; };
 		680C42C11CC4D4AE008C4BC0 /* DecPackage365View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41F41CC4D4AE008C4BC0 /* DecPackage365View.xib */; };
 		680C42C21CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41F61CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.m */; };
 		680C42C31CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41F71CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.xib */; };
-		680C42C41CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41F91CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.m */; };
-		680C42C51CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41FA1CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.xib */; };
 		680C42C61CC4D4AE008C4BC0 /* RequirementCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C41FD1CC4D4AE008C4BC0 /* RequirementCreateViewController.m */; };
 		680C42C71CC4D4AE008C4BC0 /* RequirementCreateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C41FE1CC4D4AE008C4BC0 /* RequirementCreateViewController.xib */; };
-		680C42C81CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C42001CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.m */; };
-		680C42C91CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C42011CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.xib */; };
-		680C42CA1CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C42031CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.m */; };
-		680C42CB1CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C42041CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.xib */; };
-		680C42CC1CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C42061CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.m */; };
-		680C42CD1CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C42071CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.xib */; };
-		680C42CE1CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C42091CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.m */; };
-		680C42CF1CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C420A1CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.xib */; };
-		680C42D01CC4D4AE008C4BC0 /* SelectHouseTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C420C1CC4D4AE008C4BC0 /* SelectHouseTypeViewController.m */; };
-		680C42D11CC4D4AE008C4BC0 /* SelectHouseTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C420D1CC4D4AE008C4BC0 /* SelectHouseTypeViewController.xib */; };
-		680C42D21CC4D4AE008C4BC0 /* SelectPopulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C420F1CC4D4AE008C4BC0 /* SelectPopulationViewController.m */; };
-		680C42D31CC4D4AE008C4BC0 /* SelectPopulationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C42101CC4D4AE008C4BC0 /* SelectPopulationViewController.xib */; };
-		680C42D41CC4D4AE008C4BC0 /* SelectSexTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C42121CC4D4AE008C4BC0 /* SelectSexTypeViewController.m */; };
-		680C42D51CC4D4AE008C4BC0 /* SelectSexTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C42131CC4D4AE008C4BC0 /* SelectSexTypeViewController.xib */; };
-		680C42D61CC4D4AE008C4BC0 /* SelectWorkTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C42151CC4D4AE008C4BC0 /* SelectWorkTypeViewController.m */; };
-		680C42D71CC4D4AE008C4BC0 /* SelectWorkTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C42161CC4D4AE008C4BC0 /* SelectWorkTypeViewController.xib */; };
 		680C42D81CC4D4AE008C4BC0 /* RequirementDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C42181CC4D4AE008C4BC0 /* RequirementDataManager.m */; };
 		680C44A31CC4D4BD008C4BC0 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C42E21CC4D4BC008C4BC0 /* APIManager.m */; };
 		680C44A41CC4D4BD008C4BC0 /* BaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C42E41CC4D4BC008C4BC0 /* BaseAPI.m */; };
@@ -243,6 +222,27 @@
 		6850A6131CCA2DDB0085940A /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A60E1CCA2DDB0085940A /* CityCell.xib */; };
 		6850A6141CCA2DDB0085940A /* CitySection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A6101CCA2DDB0085940A /* CitySection.m */; };
 		6850A6151CCA2DDB0085940A /* CitySection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A6111CCA2DDB0085940A /* CitySection.xib */; };
+		685B14AE1CEB12110076996A /* BaseSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B148F1CEB12110076996A /* BaseSelectionViewController.m */; };
+		685B14AF1CEB12110076996A /* DecorationStyleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14911CEB12110076996A /* DecorationStyleCell.m */; };
+		685B14B01CEB12110076996A /* DecorationStyleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14921CEB12110076996A /* DecorationStyleCell.xib */; };
+		685B14B11CEB12110076996A /* MultipleLineTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14941CEB12110076996A /* MultipleLineTextTableViewCell.m */; };
+		685B14B21CEB12110076996A /* MultipleLineTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14951CEB12110076996A /* MultipleLineTextTableViewCell.xib */; };
+		685B14B31CEB12110076996A /* SelectBusinessTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14971CEB12110076996A /* SelectBusinessTypeViewController.m */; };
+		685B14B41CEB12110076996A /* SelectBusinessTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14981CEB12110076996A /* SelectBusinessTypeViewController.xib */; };
+		685B14B51CEB12110076996A /* SelectCommunicationTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B149A1CEB12110076996A /* SelectCommunicationTypeViewController.m */; };
+		685B14B61CEB12110076996A /* SelectCommunicationTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B149B1CEB12110076996A /* SelectCommunicationTypeViewController.xib */; };
+		685B14B71CEB12110076996A /* SelectDecorationStyleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B149D1CEB12110076996A /* SelectDecorationStyleViewController.m */; };
+		685B14B81CEB12110076996A /* SelectDecorationStyleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B149E1CEB12110076996A /* SelectDecorationStyleViewController.xib */; };
+		685B14B91CEB12110076996A /* SelectDecorationTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14A01CEB12110076996A /* SelectDecorationTypeViewController.m */; };
+		685B14BA1CEB12110076996A /* SelectDecorationTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14A11CEB12110076996A /* SelectDecorationTypeViewController.xib */; };
+		685B14BB1CEB12110076996A /* SelectHouseTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14A31CEB12110076996A /* SelectHouseTypeViewController.m */; };
+		685B14BC1CEB12110076996A /* SelectHouseTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14A41CEB12110076996A /* SelectHouseTypeViewController.xib */; };
+		685B14BD1CEB12110076996A /* SelectPopulationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14A61CEB12110076996A /* SelectPopulationViewController.m */; };
+		685B14BE1CEB12110076996A /* SelectPopulationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14A71CEB12110076996A /* SelectPopulationViewController.xib */; };
+		685B14BF1CEB12110076996A /* SelectSexTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14A91CEB12110076996A /* SelectSexTypeViewController.m */; };
+		685B14C01CEB12110076996A /* SelectSexTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14AA1CEB12110076996A /* SelectSexTypeViewController.xib */; };
+		685B14C11CEB12110076996A /* SelectWorkTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14AC1CEB12110076996A /* SelectWorkTypeViewController.m */; };
+		685B14C21CEB12110076996A /* SelectWorkTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14AD1CEB12110076996A /* SelectWorkTypeViewController.xib */; };
 		68711B5D1CD85D54009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B5C1CD85D54009B585F /* PhotoCropper.m */; };
 		687EEB5B1CE2C6C100A277DC /* DIYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB5A1CE2C6C100A277DC /* DIYRefreshFooter.m */; };
 		689220041CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */; };
@@ -373,51 +373,19 @@
 		680C41E51CC4D4AE008C4BC0 /* PlanPriceTotalPkg365Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceTotalPkg365Cell.h; sourceTree = "<group>"; };
 		680C41E61CC4D4AE008C4BC0 /* PlanPriceTotalPkg365Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceTotalPkg365Cell.m; sourceTree = "<group>"; };
 		680C41E71CC4D4AE008C4BC0 /* PlanPriceTotalPkg365Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceTotalPkg365Cell.xib; sourceTree = "<group>"; };
-		680C41E91CC4D4AE008C4BC0 /* BaseSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectionViewController.h; sourceTree = "<group>"; };
-		680C41EA1CC4D4AE008C4BC0 /* BaseSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectionViewController.m; sourceTree = "<group>"; };
 		680C41EB1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusinessRequirementCreateViewController.h; sourceTree = "<group>"; };
 		680C41EC1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusinessRequirementCreateViewController.m; sourceTree = "<group>"; };
 		680C41ED1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BusinessRequirementCreateViewController.xib; sourceTree = "<group>"; };
-		680C41EE1CC4D4AE008C4BC0 /* DecorationStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecorationStyleCell.h; sourceTree = "<group>"; };
-		680C41EF1CC4D4AE008C4BC0 /* DecorationStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecorationStyleCell.m; sourceTree = "<group>"; };
-		680C41F01CC4D4AE008C4BC0 /* DecorationStyleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecorationStyleCell.xib; sourceTree = "<group>"; };
 		680C41F21CC4D4AE008C4BC0 /* DecPackage365View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackage365View.h; sourceTree = "<group>"; };
 		680C41F31CC4D4AE008C4BC0 /* DecPackage365View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackage365View.m; sourceTree = "<group>"; };
 		680C41F41CC4D4AE008C4BC0 /* DecPackage365View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackage365View.xib; sourceTree = "<group>"; };
 		680C41F51CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HouseRequirementCreateViewController.h; sourceTree = "<group>"; };
 		680C41F61CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HouseRequirementCreateViewController.m; sourceTree = "<group>"; };
 		680C41F71CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HouseRequirementCreateViewController.xib; sourceTree = "<group>"; };
-		680C41F81CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleLineTextTableViewCell.h; sourceTree = "<group>"; };
-		680C41F91CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleLineTextTableViewCell.m; sourceTree = "<group>"; };
-		680C41FA1CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleLineTextTableViewCell.xib; sourceTree = "<group>"; };
 		680C41FB1CC4D4AE008C4BC0 /* RequirementCreateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementCreateProtocol.h; sourceTree = "<group>"; };
 		680C41FC1CC4D4AE008C4BC0 /* RequirementCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementCreateViewController.h; sourceTree = "<group>"; };
 		680C41FD1CC4D4AE008C4BC0 /* RequirementCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementCreateViewController.m; sourceTree = "<group>"; };
 		680C41FE1CC4D4AE008C4BC0 /* RequirementCreateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementCreateViewController.xib; sourceTree = "<group>"; };
-		680C41FF1CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBusinessTypeViewController.h; sourceTree = "<group>"; };
-		680C42001CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBusinessTypeViewController.m; sourceTree = "<group>"; };
-		680C42011CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectBusinessTypeViewController.xib; sourceTree = "<group>"; };
-		680C42021CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCommunicationTypeViewController.h; sourceTree = "<group>"; };
-		680C42031CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCommunicationTypeViewController.m; sourceTree = "<group>"; };
-		680C42041CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCommunicationTypeViewController.xib; sourceTree = "<group>"; };
-		680C42051CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDecorationStyleViewController.h; sourceTree = "<group>"; };
-		680C42061CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDecorationStyleViewController.m; sourceTree = "<group>"; };
-		680C42071CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDecorationStyleViewController.xib; sourceTree = "<group>"; };
-		680C42081CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDecorationTypeViewController.h; sourceTree = "<group>"; };
-		680C42091CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDecorationTypeViewController.m; sourceTree = "<group>"; };
-		680C420A1CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDecorationTypeViewController.xib; sourceTree = "<group>"; };
-		680C420B1CC4D4AE008C4BC0 /* SelectHouseTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectHouseTypeViewController.h; sourceTree = "<group>"; };
-		680C420C1CC4D4AE008C4BC0 /* SelectHouseTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectHouseTypeViewController.m; sourceTree = "<group>"; };
-		680C420D1CC4D4AE008C4BC0 /* SelectHouseTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectHouseTypeViewController.xib; sourceTree = "<group>"; };
-		680C420E1CC4D4AE008C4BC0 /* SelectPopulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPopulationViewController.h; sourceTree = "<group>"; };
-		680C420F1CC4D4AE008C4BC0 /* SelectPopulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPopulationViewController.m; sourceTree = "<group>"; };
-		680C42101CC4D4AE008C4BC0 /* SelectPopulationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPopulationViewController.xib; sourceTree = "<group>"; };
-		680C42111CC4D4AE008C4BC0 /* SelectSexTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSexTypeViewController.h; sourceTree = "<group>"; };
-		680C42121CC4D4AE008C4BC0 /* SelectSexTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSexTypeViewController.m; sourceTree = "<group>"; };
-		680C42131CC4D4AE008C4BC0 /* SelectSexTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectSexTypeViewController.xib; sourceTree = "<group>"; };
-		680C42141CC4D4AE008C4BC0 /* SelectWorkTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWorkTypeViewController.h; sourceTree = "<group>"; };
-		680C42151CC4D4AE008C4BC0 /* SelectWorkTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWorkTypeViewController.m; sourceTree = "<group>"; };
-		680C42161CC4D4AE008C4BC0 /* SelectWorkTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectWorkTypeViewController.xib; sourceTree = "<group>"; };
 		680C42171CC4D4AE008C4BC0 /* RequirementDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequirementDataManager.h; sourceTree = "<group>"; };
 		680C42181CC4D4AE008C4BC0 /* RequirementDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequirementDataManager.m; sourceTree = "<group>"; };
 		680C42E11CC4D4BC008C4BC0 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
@@ -695,6 +663,38 @@
 		6850A60F1CCA2DDB0085940A /* CitySection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySection.h; sourceTree = "<group>"; };
 		6850A6101CCA2DDB0085940A /* CitySection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySection.m; sourceTree = "<group>"; };
 		6850A6111CCA2DDB0085940A /* CitySection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySection.xib; sourceTree = "<group>"; };
+		685B148E1CEB12110076996A /* BaseSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseSelectionViewController.h; sourceTree = "<group>"; };
+		685B148F1CEB12110076996A /* BaseSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseSelectionViewController.m; sourceTree = "<group>"; };
+		685B14901CEB12110076996A /* DecorationStyleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecorationStyleCell.h; sourceTree = "<group>"; };
+		685B14911CEB12110076996A /* DecorationStyleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecorationStyleCell.m; sourceTree = "<group>"; };
+		685B14921CEB12110076996A /* DecorationStyleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecorationStyleCell.xib; sourceTree = "<group>"; };
+		685B14931CEB12110076996A /* MultipleLineTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultipleLineTextTableViewCell.h; sourceTree = "<group>"; };
+		685B14941CEB12110076996A /* MultipleLineTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultipleLineTextTableViewCell.m; sourceTree = "<group>"; };
+		685B14951CEB12110076996A /* MultipleLineTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultipleLineTextTableViewCell.xib; sourceTree = "<group>"; };
+		685B14961CEB12110076996A /* SelectBusinessTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBusinessTypeViewController.h; sourceTree = "<group>"; };
+		685B14971CEB12110076996A /* SelectBusinessTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBusinessTypeViewController.m; sourceTree = "<group>"; };
+		685B14981CEB12110076996A /* SelectBusinessTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectBusinessTypeViewController.xib; sourceTree = "<group>"; };
+		685B14991CEB12110076996A /* SelectCommunicationTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCommunicationTypeViewController.h; sourceTree = "<group>"; };
+		685B149A1CEB12110076996A /* SelectCommunicationTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCommunicationTypeViewController.m; sourceTree = "<group>"; };
+		685B149B1CEB12110076996A /* SelectCommunicationTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCommunicationTypeViewController.xib; sourceTree = "<group>"; };
+		685B149C1CEB12110076996A /* SelectDecorationStyleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDecorationStyleViewController.h; sourceTree = "<group>"; };
+		685B149D1CEB12110076996A /* SelectDecorationStyleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDecorationStyleViewController.m; sourceTree = "<group>"; };
+		685B149E1CEB12110076996A /* SelectDecorationStyleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDecorationStyleViewController.xib; sourceTree = "<group>"; };
+		685B149F1CEB12110076996A /* SelectDecorationTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDecorationTypeViewController.h; sourceTree = "<group>"; };
+		685B14A01CEB12110076996A /* SelectDecorationTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDecorationTypeViewController.m; sourceTree = "<group>"; };
+		685B14A11CEB12110076996A /* SelectDecorationTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDecorationTypeViewController.xib; sourceTree = "<group>"; };
+		685B14A21CEB12110076996A /* SelectHouseTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectHouseTypeViewController.h; sourceTree = "<group>"; };
+		685B14A31CEB12110076996A /* SelectHouseTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectHouseTypeViewController.m; sourceTree = "<group>"; };
+		685B14A41CEB12110076996A /* SelectHouseTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectHouseTypeViewController.xib; sourceTree = "<group>"; };
+		685B14A51CEB12110076996A /* SelectPopulationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectPopulationViewController.h; sourceTree = "<group>"; };
+		685B14A61CEB12110076996A /* SelectPopulationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectPopulationViewController.m; sourceTree = "<group>"; };
+		685B14A71CEB12110076996A /* SelectPopulationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectPopulationViewController.xib; sourceTree = "<group>"; };
+		685B14A81CEB12110076996A /* SelectSexTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSexTypeViewController.h; sourceTree = "<group>"; };
+		685B14A91CEB12110076996A /* SelectSexTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSexTypeViewController.m; sourceTree = "<group>"; };
+		685B14AA1CEB12110076996A /* SelectSexTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectSexTypeViewController.xib; sourceTree = "<group>"; };
+		685B14AB1CEB12110076996A /* SelectWorkTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWorkTypeViewController.h; sourceTree = "<group>"; };
+		685B14AC1CEB12110076996A /* SelectWorkTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWorkTypeViewController.m; sourceTree = "<group>"; };
+		685B14AD1CEB12110076996A /* SelectWorkTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectWorkTypeViewController.xib; sourceTree = "<group>"; };
 		68711B5B1CD85D54009B585F /* PhotoCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropper.h; sourceTree = "<group>"; };
 		68711B5C1CD85D54009B585F /* PhotoCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropper.m; sourceTree = "<group>"; };
 		687EEB591CE2C6C100A277DC /* DIYRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYRefreshFooter.h; sourceTree = "<group>"; };
@@ -1013,48 +1013,16 @@
 			isa = PBXGroup;
 			children = (
 				680C41F11CC4D4AE008C4BC0 /* DecPackage */,
-				680C41E91CC4D4AE008C4BC0 /* BaseSelectionViewController.h */,
-				680C41EA1CC4D4AE008C4BC0 /* BaseSelectionViewController.m */,
 				680C41EB1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.h */,
 				680C41EC1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.m */,
 				680C41ED1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.xib */,
-				680C41EE1CC4D4AE008C4BC0 /* DecorationStyleCell.h */,
-				680C41EF1CC4D4AE008C4BC0 /* DecorationStyleCell.m */,
-				680C41F01CC4D4AE008C4BC0 /* DecorationStyleCell.xib */,
 				680C41F51CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.h */,
 				680C41F61CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.m */,
 				680C41F71CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.xib */,
-				680C41F81CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.h */,
-				680C41F91CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.m */,
-				680C41FA1CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.xib */,
 				680C41FB1CC4D4AE008C4BC0 /* RequirementCreateProtocol.h */,
 				680C41FC1CC4D4AE008C4BC0 /* RequirementCreateViewController.h */,
 				680C41FD1CC4D4AE008C4BC0 /* RequirementCreateViewController.m */,
 				680C41FE1CC4D4AE008C4BC0 /* RequirementCreateViewController.xib */,
-				680C41FF1CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.h */,
-				680C42001CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.m */,
-				680C42011CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.xib */,
-				680C42021CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.h */,
-				680C42031CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.m */,
-				680C42041CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.xib */,
-				680C42051CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.h */,
-				680C42061CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.m */,
-				680C42071CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.xib */,
-				680C42081CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.h */,
-				680C42091CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.m */,
-				680C420A1CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.xib */,
-				680C420B1CC4D4AE008C4BC0 /* SelectHouseTypeViewController.h */,
-				680C420C1CC4D4AE008C4BC0 /* SelectHouseTypeViewController.m */,
-				680C420D1CC4D4AE008C4BC0 /* SelectHouseTypeViewController.xib */,
-				680C420E1CC4D4AE008C4BC0 /* SelectPopulationViewController.h */,
-				680C420F1CC4D4AE008C4BC0 /* SelectPopulationViewController.m */,
-				680C42101CC4D4AE008C4BC0 /* SelectPopulationViewController.xib */,
-				680C42111CC4D4AE008C4BC0 /* SelectSexTypeViewController.h */,
-				680C42121CC4D4AE008C4BC0 /* SelectSexTypeViewController.m */,
-				680C42131CC4D4AE008C4BC0 /* SelectSexTypeViewController.xib */,
-				680C42141CC4D4AE008C4BC0 /* SelectWorkTypeViewController.h */,
-				680C42151CC4D4AE008C4BC0 /* SelectWorkTypeViewController.m */,
-				680C42161CC4D4AE008C4BC0 /* SelectWorkTypeViewController.xib */,
 			);
 			path = RequirementCreate;
 			sourceTree = "<group>";
@@ -1323,6 +1291,7 @@
 		680C44591CC4D4BD008C4BC0 /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				685B148D1CEB12110076996A /* Selection */,
 				680C44861CC4D4BD008C4BC0 /* WebView */,
 				680C445C1CC4D4BD008C4BC0 /* CustomAlert */,
 				680C44631CC4D4BD008C4BC0 /* CustomScroll */,
@@ -1501,6 +1470,45 @@
 			path = Info;
 			sourceTree = "<group>";
 		};
+		685B148D1CEB12110076996A /* Selection */ = {
+			isa = PBXGroup;
+			children = (
+				685B148E1CEB12110076996A /* BaseSelectionViewController.h */,
+				685B148F1CEB12110076996A /* BaseSelectionViewController.m */,
+				685B14901CEB12110076996A /* DecorationStyleCell.h */,
+				685B14911CEB12110076996A /* DecorationStyleCell.m */,
+				685B14921CEB12110076996A /* DecorationStyleCell.xib */,
+				685B14931CEB12110076996A /* MultipleLineTextTableViewCell.h */,
+				685B14941CEB12110076996A /* MultipleLineTextTableViewCell.m */,
+				685B14951CEB12110076996A /* MultipleLineTextTableViewCell.xib */,
+				685B14961CEB12110076996A /* SelectBusinessTypeViewController.h */,
+				685B14971CEB12110076996A /* SelectBusinessTypeViewController.m */,
+				685B14981CEB12110076996A /* SelectBusinessTypeViewController.xib */,
+				685B14991CEB12110076996A /* SelectCommunicationTypeViewController.h */,
+				685B149A1CEB12110076996A /* SelectCommunicationTypeViewController.m */,
+				685B149B1CEB12110076996A /* SelectCommunicationTypeViewController.xib */,
+				685B149C1CEB12110076996A /* SelectDecorationStyleViewController.h */,
+				685B149D1CEB12110076996A /* SelectDecorationStyleViewController.m */,
+				685B149E1CEB12110076996A /* SelectDecorationStyleViewController.xib */,
+				685B149F1CEB12110076996A /* SelectDecorationTypeViewController.h */,
+				685B14A01CEB12110076996A /* SelectDecorationTypeViewController.m */,
+				685B14A11CEB12110076996A /* SelectDecorationTypeViewController.xib */,
+				685B14A21CEB12110076996A /* SelectHouseTypeViewController.h */,
+				685B14A31CEB12110076996A /* SelectHouseTypeViewController.m */,
+				685B14A41CEB12110076996A /* SelectHouseTypeViewController.xib */,
+				685B14A51CEB12110076996A /* SelectPopulationViewController.h */,
+				685B14A61CEB12110076996A /* SelectPopulationViewController.m */,
+				685B14A71CEB12110076996A /* SelectPopulationViewController.xib */,
+				685B14A81CEB12110076996A /* SelectSexTypeViewController.h */,
+				685B14A91CEB12110076996A /* SelectSexTypeViewController.m */,
+				685B14AA1CEB12110076996A /* SelectSexTypeViewController.xib */,
+				685B14AB1CEB12110076996A /* SelectWorkTypeViewController.h */,
+				685B14AC1CEB12110076996A /* SelectWorkTypeViewController.m */,
+				685B14AD1CEB12110076996A /* SelectWorkTypeViewController.xib */,
+			);
+			path = Selection;
+			sourceTree = "<group>";
+		};
 		D6B825A02D971D6B5FD48F5F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1617,43 +1625,40 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				680C42CF1CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.xib in Resources */,
 				680C42C71CC4D4AE008C4BC0 /* RequirementCreateViewController.xib in Resources */,
-				680C42D11CC4D4AE008C4BC0 /* SelectHouseTypeViewController.xib in Resources */,
 				680C42281CC4D4AE008C4BC0 /* LoginViewController.xib in Resources */,
 				680C42C11CC4D4AE008C4BC0 /* DecPackage365View.xib in Resources */,
-				680C42C51CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.xib in Resources */,
 				680C425E1CC4D4AE008C4BC0 /* SectionActionView.xib in Resources */,
 				680C45711CC4D4BD008C4BC0 /* SelectCityViewController.xib in Resources */,
-				680C42CD1CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.xib in Resources */,
 				680C42651CC4D4AE008C4BC0 /* ProcessCell.xib in Resources */,
 				680C40AB1CC48F59008C4BC0 /* Assets.xcassets in Resources */,
-				680C42D71CC4D4AE008C4BC0 /* SelectWorkTypeViewController.xib in Resources */,
-				680C42CB1CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.xib in Resources */,
 				680C42B81CC4D4AE008C4BC0 /* PlanPriceTotalCell.xib in Resources */,
 				680C42B41CC4D4AE008C4BC0 /* PlanPriceItemExpandCell.xib in Resources */,
+				685B14C01CEB12110076996A /* SelectSexTypeViewController.xib in Resources */,
+				685B14B21CEB12110076996A /* MultipleLineTextTableViewCell.xib in Resources */,
 				680C42BD1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.xib in Resources */,
 				680C46161CC4F58F008C4BC0 /* LaunchScreen.xib in Resources */,
 				681031C21CDCAF6300FD26D6 /* DecPackageJiangXinView.xib in Resources */,
 				680C45671CC4D4BD008C4BC0 /* ImageDetailViewController.xib in Resources */,
 				680C45691CC4D4BD008C4BC0 /* ImageEditorViewController.xib in Resources */,
 				680C45631CC4D4BD008C4BC0 /* ImageBrowerViewController.xib in Resources */,
+				685B14B81CEB12110076996A /* SelectDecorationStyleViewController.xib in Resources */,
 				680C465A1CC5DB96008C4BC0 /* UpdateOneLineTextViewController.xib in Resources */,
 				680C42551CC4D4AE008C4BC0 /* ItemExpandImageCell.xib in Resources */,
 				680C42B01CC4D4AE008C4BC0 /* PlanPriceDetailViewController.xib in Resources */,
 				680C42A61CC4D4AE008C4BC0 /* LeaveMessageViewController.xib in Resources */,
 				680C42B61CC4D4AE008C4BC0 /* PlanPriceItemSection.xib in Resources */,
+				685B14BE1CEB12110076996A /* SelectPopulationViewController.xib in Resources */,
+				685B14C21CEB12110076996A /* SelectWorkTypeViewController.xib in Resources */,
 				680C422C1CC4D4AE008C4BC0 /* SignupSuccessViewController.xib in Resources */,
-				680C42D51CC4D4AE008C4BC0 /* SelectSexTypeViewController.xib in Resources */,
 				680C456F1CC4D4BD008C4BC0 /* province2city.js in Resources */,
 				680C425C1CC4D4AE008C4BC0 /* ProcessViewController.xib in Resources */,
-				680C42BF1CC4D4AE008C4BC0 /* DecorationStyleCell.xib in Resources */,
 				680C456D1CC4D4BD008C4BC0 /* allprovince.js in Resources */,
 				680C422E1CC4D4AE008C4BC0 /* VerifyPhoneViewController.xib in Resources */,
+				685B14B41CEB12110076996A /* SelectBusinessTypeViewController.xib in Resources */,
 				680C456E1CC4D4BD008C4BC0 /* city2area.js in Resources */,
 				680C45601CC4D4BD008C4BC0 /* MessageAlertViewController.xib in Resources */,
 				6850A6151CCA2DDB0085940A /* CitySection.xib in Resources */,
-				680C42C91CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.xib in Resources */,
 				680C42601CC4D4AE008C4BC0 /* SectionView.xib in Resources */,
 				680C42571CC4D4AE008C4BC0 /* ItemImageCollectionCell.xib in Resources */,
 				680C455E1CC4D4BD008C4BC0 /* DateAlertViewController.xib in Resources */,
@@ -1672,11 +1677,14 @@
 				680C424D1CC4D4AE008C4BC0 /* MyProcessViewController.xib in Resources */,
 				680C42B21CC4D4AE008C4BC0 /* PlanPriceItemCell.xib in Resources */,
 				680C422A1CC4D4AE008C4BC0 /* ResetPassViewController.xib in Resources */,
+				685B14B61CEB12110076996A /* SelectCommunicationTypeViewController.xib in Resources */,
 				680C42A81CC4D4AE008C4BC0 /* MessageCell.xib in Resources */,
+				685B14BC1CEB12110076996A /* SelectHouseTypeViewController.xib in Resources */,
 				680C423B1CC4D4AE008C4BC0 /* AboutViewController.xib in Resources */,
 				6850A6131CCA2DDB0085940A /* CityCell.xib in Resources */,
+				685B14BA1CEB12110076996A /* SelectDecorationTypeViewController.xib in Resources */,
+				685B14B01CEB12110076996A /* DecorationStyleCell.xib in Resources */,
 				680C42AE1CC4D4AE008C4BC0 /* PlanPreviewViewController.xib in Resources */,
-				680C42D31CC4D4AE008C4BC0 /* SelectPopulationViewController.xib in Resources */,
 				680C42321CC4D4AE008C4BC0 /* MeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1764,8 +1772,8 @@
 				680C422D1CC4D4AE008C4BC0 /* VerifyPhoneViewController.m in Sources */,
 				680C45361CC4D4BD008C4BC0 /* Product.m in Sources */,
 				680C44C01CC4D4BD008C4BC0 /* GetComments.m in Sources */,
+				685B14B31CEB12110076996A /* SelectBusinessTypeViewController.m in Sources */,
 				680C457C1CC4D4BD008C4BC0 /* LeakMoniter.m in Sources */,
-				680C42D41CC4D4AE008C4BC0 /* SelectSexTypeViewController.m in Sources */,
 				680C45311CC4D4BD008C4BC0 /* LeafImage.m in Sources */,
 				687EEB5B1CE2C6C100A277DC /* DIYRefreshFooter.m in Sources */,
 				680C44F91CC4D4BD008C4BC0 /* PlanDesignerSubmittedPlan.m in Sources */,
@@ -1777,6 +1785,7 @@
 				680C45321CC4D4BD008C4BC0 /* Notification.m in Sources */,
 				680C45E81CC4E913008C4BC0 /* SetWorksiteStartTimeViewController.m in Sources */,
 				680C42231CC4D4AE008C4BC0 /* API.m in Sources */,
+				685B14BB1CEB12110076996A /* SelectHouseTypeViewController.m in Sources */,
 				680C42241CC4D4AE008C4BC0 /* BaseViewController.m in Sources */,
 				680C452B1CC4D4BD008C4BC0 /* DecLive.m in Sources */,
 				680C42A31CC4D4AE008C4BC0 /* RefreshViewController.m in Sources */,
@@ -1789,13 +1798,11 @@
 				680C44F11CC4D4BD008C4BC0 /* AccountBusiness.m in Sources */,
 				680C451C1CC4D4BD008C4BC0 /* UIImagePickerController+Ex.m in Sources */,
 				680C45291CC4D4BD008C4BC0 /* BeautifulImagePosition.m in Sources */,
-				680C42BE1CC4D4AE008C4BC0 /* DecorationStyleCell.m in Sources */,
 				680C452F1CC4D4BD008C4BC0 /* Evaluation.m in Sources */,
-				680C42D21CC4D4AE008C4BC0 /* SelectPopulationViewController.m in Sources */,
 				680C44A81CC4D4BD008C4BC0 /* BaseRequest.m in Sources */,
 				680C45351CC4D4BD008C4BC0 /* Process.m in Sources */,
-				680C42D01CC4D4AE008C4BC0 /* SelectHouseTypeViewController.m in Sources */,
 				680C409D1CC48F59008C4BC0 /* main.m in Sources */,
+				685B14B51CEB12110076996A /* SelectCommunicationTypeViewController.m in Sources */,
 				680C45081CC4D4BD008C4BC0 /* DesignerBusiness.m in Sources */,
 				680C46571CC5DB96008C4BC0 /* UpdateMultipleLineTextViewController.m in Sources */,
 				680C42C61CC4D4AE008C4BC0 /* RequirementCreateViewController.m in Sources */,
@@ -1804,8 +1811,6 @@
 				680C462D1CC5CD69008C4BC0 /* DataManager.m in Sources */,
 				680C46381CC5CFFF008C4BC0 /* SupervisorGetProcessList.m in Sources */,
 				680C44F41CC4D4BD008C4BC0 /* PlanDesignerDeclined.m in Sources */,
-				680C42C41CC4D4AE008C4BC0 /* MultipleLineTextTableViewCell.m in Sources */,
-				680C42C81CC4D4AE008C4BC0 /* SelectBusinessTypeViewController.m in Sources */,
 				680C457D1CC4D4BD008C4BC0 /* LogFormatter.m in Sources */,
 				680C44F61CC4D4BD008C4BC0 /* PlanDesignerResponded.m in Sources */,
 				680C45061CC4D4BD008C4BC0 /* ReqtUnorderDesigner.m in Sources */,
@@ -1814,14 +1819,15 @@
 				680C45181CC4D4BD008C4BC0 /* UIBarButtonItem+Badge.m in Sources */,
 				680C45011CC4D4BD008C4BC0 /* ReqtDesignerResponded.m in Sources */,
 				680C42B91CC4D4AE008C4BC0 /* PlanPriceTotalPkg365Cell.m in Sources */,
+				685B14C11CEB12110076996A /* SelectWorkTypeViewController.m in Sources */,
 				680C457F1CC4D4BD008C4BC0 /* PhotoUtil.m in Sources */,
 				680C45071CC4D4BD008C4BC0 /* StatusBlock.m in Sources */,
-				680C42CE1CC4D4AE008C4BC0 /* SelectDecorationTypeViewController.m in Sources */,
 				680C425F1CC4D4AE008C4BC0 /* SectionView.m in Sources */,
 				680C44E41CC4D4BD008C4BC0 /* SendVerifyCode.m in Sources */,
 				680C45221CC4D4BD008C4BC0 /* UIView+Ex.m in Sources */,
 				680C45051CC4D4BD008C4BC0 /* ReqtPlanWasChoosed.m in Sources */,
 				680C44F51CC4D4BD008C4BC0 /* PlanDesignerMeasuredHouse.m in Sources */,
+				685B14AF1CEB12110076996A /* DecorationStyleCell.m in Sources */,
 				680C452A1CC4D4BD008C4BC0 /* Comment.m in Sources */,
 				680C45331CC4D4BD008C4BC0 /* Plan.m in Sources */,
 				689220041CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */,
@@ -1833,11 +1839,12 @@
 				680C453A1CC4D4BD008C4BC0 /* Section.m in Sources */,
 				680C463D1CC5D04B008C4BC0 /* SupervisorUpdateInfo.m in Sources */,
 				680C44D51CC4D4BD008C4BC0 /* RefreshSession.m in Sources */,
+				685B14BD1CEB12110076996A /* SelectPopulationViewController.m in Sources */,
+				685B14BF1CEB12110076996A /* SelectSexTypeViewController.m in Sources */,
 				680C456C1CC4D4BD008C4BC0 /* DIYGifHeader.m in Sources */,
 				680C45201CC4D4BD008C4BC0 /* UITabBarItem+Badge.m in Sources */,
 				680C45111CC4D4BD008C4BC0 /* NSDate+Ex.m in Sources */,
 				680C45661CC4D4BD008C4BC0 /* ImageDetailViewController.m in Sources */,
-				680C42BB1CC4D4AE008C4BC0 /* BaseSelectionViewController.m in Sources */,
 				680C42C21CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.m in Sources */,
 				680C42B51CC4D4AE008C4BC0 /* PlanPriceItemSection.m in Sources */,
 				680C42AF1CC4D4AE008C4BC0 /* PlanPriceDetailViewController.m in Sources */,
@@ -1869,15 +1876,12 @@
 				680C44A31CC4D4BD008C4BC0 /* APIManager.m in Sources */,
 				680C45281CC4D4BD008C4BC0 /* BeautifulImage.m in Sources */,
 				680C425B1CC4D4AE008C4BC0 /* ProcessViewController.m in Sources */,
-				680C42CA1CC4D4AE008C4BC0 /* SelectCommunicationTypeViewController.m in Sources */,
 				680C44FE1CC4D4BD008C4BC0 /* ReqtConfiguredAgreement.m in Sources */,
 				680C451E1CC4D4BD008C4BC0 /* UILabel+Ex.m in Sources */,
-				680C42CC1CC4D4AE008C4BC0 /* SelectDecorationStyleViewController.m in Sources */,
 				680C450C1CC4D4BD008C4BC0 /* RequirementBusiness.m in Sources */,
 				680C463A1CC5CFFF008C4BC0 /* SupervisorLogin.m in Sources */,
 				680C45031CC4D4BD008C4BC0 /* ReqtFinishedWorkSite.m in Sources */,
 				680C42291CC4D4AE008C4BC0 /* ResetPassViewController.m in Sources */,
-				680C42D61CC4D4AE008C4BC0 /* SelectWorkTypeViewController.m in Sources */,
 				680C455F1CC4D4BD008C4BC0 /* MessageAlertViewController.m in Sources */,
 				680C46621CC61C87008C4BC0 /* CommentBusiness.m in Sources */,
 				680C455C1CC4D4BD008C4BC0 /* CollectionFallsFlowLayout.m in Sources */,
@@ -1886,11 +1890,13 @@
 				680C450F1CC4D4BD008C4BC0 /* CALayer+Ex.m in Sources */,
 				680C42D81CC4D4AE008C4BC0 /* RequirementDataManager.m in Sources */,
 				680C44A41CC4D4BD008C4BC0 /* BaseAPI.m in Sources */,
+				685B14B91CEB12110076996A /* SelectDecorationTypeViewController.m in Sources */,
 				680C46191CC5CB9D008C4BC0 /* Supervisor.m in Sources */,
 				681031C11CDCAF6300FD26D6 /* DecPackageJiangXinView.m in Sources */,
 				680C44FA1CC4D4BD008C4BC0 /* PlanHomeOwnerOrdered.m in Sources */,
 				680C42261CC4D4AE008C4BC0 /* ViewControllerContainer.m in Sources */,
 				680C450A1CC4D4BD008C4BC0 /* NotificationBusiness.m in Sources */,
+				685B14AE1CEB12110076996A /* BaseSelectionViewController.m in Sources */,
 				680C45371CC4D4BD008C4BC0 /* ProductImage.m in Sources */,
 				680C45801CC4D4BD008C4BC0 /* StringUtil.m in Sources */,
 				680C45121CC4D4BD008C4BC0 /* NSDictionary+Ex.m in Sources */,
@@ -1917,10 +1923,12 @@
 				680C44F31CC4D4BD008C4BC0 /* ElseStatus.m in Sources */,
 				680C45681CC4D4BD008C4BC0 /* ImageEditorViewController.m in Sources */,
 				6850A6141CCA2DDB0085940A /* CitySection.m in Sources */,
+				685B14B11CEB12110076996A /* MultipleLineTextTableViewCell.m in Sources */,
 				680C45211CC4D4BD008C4BC0 /* UIView+Badge.m in Sources */,
 				680C45791CC4D4BD008C4BC0 /* Aspects.m in Sources */,
 				680C46411CC5D40E008C4BC0 /* DBYSViewController.m in Sources */,
 				680C45611CC4D4BD008C4BC0 /* InfiniteScrollView.m in Sources */,
+				685B14B71CEB12110076996A /* SelectDecorationStyleViewController.m in Sources */,
 				680C44EA1CC4D4BD008C4BC0 /* UploadImageToProcess.m in Sources */,
 				680C45161CC4D4BD008C4BC0 /* ProgressWebView.m in Sources */,
 				680C45001CC4D4BD008C4BC0 /* ReqtDesignerMeasuredHouse.m in Sources */,
