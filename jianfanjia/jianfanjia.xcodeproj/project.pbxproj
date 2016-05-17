@@ -219,6 +219,7 @@
 		6855E6321BFAC78A00E789D4 /* RequirementCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6855E6301BFAC78A00E789D4 /* RequirementCell.m */; };
 		6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6855E6311BFAC78A00E789D4 /* RequirementCell.xib */; };
 		6857265D1C30E472006F6188 /* NSDictionary+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6857265C1C30E472006F6188 /* NSDictionary+Ex.m */; };
+		685B14131CE9D4E20076996A /* PhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14121CE9D4E20076996A /* PhotoGroupView.m */; };
 		685B51061BE76D45001C8B34 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B51051BE76D45001C8B34 /* UIColor+Ex.m */; };
 		685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 685BF2FD1C0BE3D700ECA4C9 /* PhotoUtil.m */; };
 		685BF3011C0C346600ECA4C9 /* UploadImageToProcess.m in Sources */ = {isa = PBXBuildFile; fileRef = 685BF3001C0C346600ECA4C9 /* UploadImageToProcess.m */; };
@@ -854,6 +855,8 @@
 		6855E6311BFAC78A00E789D4 /* RequirementCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequirementCell.xib; sourceTree = "<group>"; };
 		6857265B1C30E472006F6188 /* NSDictionary+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Ex.h"; sourceTree = "<group>"; };
 		6857265C1C30E472006F6188 /* NSDictionary+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Ex.m"; sourceTree = "<group>"; };
+		685B14111CE9D4E20076996A /* PhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGroupView.h; sourceTree = "<group>"; };
+		685B14121CE9D4E20076996A /* PhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGroupView.m; sourceTree = "<group>"; };
 		685B51041BE76D45001C8B34 /* UIColor+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Ex.h"; sourceTree = "<group>"; };
 		685B51051BE76D45001C8B34 /* UIColor+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Ex.m"; sourceTree = "<group>"; };
 		685BF2FC1C0BE3D700ECA4C9 /* PhotoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUtil.h; sourceTree = "<group>"; };
@@ -1477,6 +1480,7 @@
 		68123C301C4C8B99008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				685B14101CE9D4BA0076996A /* PhotoGroup */,
 				687EEBDA1CE71B5000A277DC /* KRSFakeNavigationBar */,
 				68711B5E1CD88D59009B585F /* ReuseView */,
 				685F2D701CABDC0D00DC4D43 /* RefreshComponent */,
@@ -1823,6 +1827,15 @@
 				684B03BC1C96C3DE0053FFDF /* DecLiveListDataManager.m */,
 			);
 			path = DecLive;
+			sourceTree = "<group>";
+		};
+		685B14101CE9D4BA0076996A /* PhotoGroup */ = {
+			isa = PBXGroup;
+			children = (
+				685B14111CE9D4E20076996A /* PhotoGroupView.h */,
+				685B14121CE9D4E20076996A /* PhotoGroupView.m */,
+			);
+			path = PhotoGroup;
 			sourceTree = "<group>";
 		};
 		685DD4481C89761E00A76B9C /* MyComment */ = {
@@ -3178,6 +3191,7 @@
 				6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */,
 				683FFB411C296288002A1AFE /* BeautifulImageCollectionCell.m in Sources */,
 				6857265D1C30E472006F6188 /* NSDictionary+Ex.m in Sources */,
+				685B14131CE9D4E20076996A /* PhotoGroupView.m in Sources */,
 				68B10CA81C7819E3005866C1 /* ProductCaseCell.m in Sources */,
 				684A37581BFD73DF00F7388C /* SelectSexTypeViewController.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,

@@ -24,7 +24,7 @@
 @interface ReuseScrollView : UIScrollView
 
 @property (nonatomic, weak) id<ReuseScrollViewProtocol> reuseDelegate;
-@property (nonatomic, assign) NSInteger items;
+@property (nonatomic, strong) NSArray *items;
 @property (nonatomic, assign) NSInteger padding;
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, readonly) NSInteger currentPage;
@@ -41,6 +41,6 @@
 @property (nonatomic, readonly) NSInteger curPage;
 @property (nonatomic, readonly) CGRect originFrame;
 
-- (void)reloadData:(ReuseScrollView *)scrollView;
+- (void)reloadData:(ReuseScrollView *)scrollView item:(id)item;
 
 @end

@@ -13,6 +13,6 @@
 
 + (TaggedDesignerInfoView *)taggedDesignerInfoView;
 
-- (void)initWithDesigners:(NSArray *)designers done:(void (^)(NSString * designerid))block;
+- (void)initWithDoneBlock:(void (^)(NSString * designerid))block;
 
 @end

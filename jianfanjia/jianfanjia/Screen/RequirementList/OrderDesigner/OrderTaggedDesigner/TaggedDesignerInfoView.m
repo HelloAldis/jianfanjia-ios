@@ -51,8 +51,7 @@
 }
 
 #pragma mark - init data
-- (void)initWithDesigners:(NSArray *)designers done:(void (^)(NSString * designerid))block {
-    self.designers = designers;
+- (void)initWithDoneBlock:(void (^)(NSString * designerid))block {
     self.done = block;
 }
 
@@ -104,9 +103,9 @@
 }
 
 #pragma mark - reload data
-- (void)reloadData:(ReuseScrollView *)scrollView {
+- (void)reloadData:(ReuseScrollView *)scrollView item:(id)item {
     if (self.page == self.curPage + 1 || self.page == self.curPage - 1 || self.page == self.curPage) {
-        [self initWithDesigner:self.designers[self.page]];
+        [self initWithDesigner:item];
         [self playAnimation:scrollView];
     }
 }

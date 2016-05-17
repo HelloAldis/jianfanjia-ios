@@ -18,7 +18,7 @@
 
 @implementation ReuseCell
 
-- (void)reloadData:(ReuseScrollView *)scrollView {
+- (void)reloadData:(ReuseScrollView *)scrollView item:(id)item {
     // need override
 }
 
@@ -70,12 +70,12 @@
     
     CGFloat floatPage = self.contentOffset.x / self.frame.size.width;
     NSInteger intPage = floatPage + 0.5;
-    intPage = intPage < 0 ? 0 : intPage >= _items ? _items - 1 : intPage;
+    intPage = intPage < 0 ? 0 : intPage >= _items.count ? _items.count - 1 : intPage;
     
     NSInteger page = self.contentOffset.x / self.frame.size.width + 0.5;
     
     for (NSInteger i = page - 1; i <= page + 1; i++) { // preload left and right cell
-        if (i >= 0 && i < _items) {
+        if (i >= 0 && i < _items.count) {
             ReuseCell *cell = [self cellForPage:i];
             if (!cell) {
                 ReuseCell *cell = [self dequeueReusableCell];
@@ -86,12 +86,12 @@
                 frame.origin.x = (_cellSize.width + _padding) * i + _padding / 2;
                 cell.frame = frame;
                 
-                [cell reloadData:self];
+                [cell reloadData:self item:_items[i]];
                 [self addSubview:cell];
             } else {
                 if (cell.page != -1) {
                     cell.curPage = intPage;
-                    [cell reloadData:self];
+                    [cell reloadData:self item:_items[i]];
                 }
             }
         }
@@ -156,12 +156,12 @@
 - (void)setPadding:(NSInteger)padding {
     _padding = padding;
     self.frame = CGRectMake(self.frame.origin.x - _padding / 2, self.frame.origin.y, _cellSize.width + _padding, self.frame.size.height);
-    self.contentSize = CGSizeMake((_cellSize.width + _padding) * _items, self.frame.size.height);
+    self.contentSize = CGSizeMake((_cellSize.width + _padding) * _items.count, self.frame.size.height);
 }
 
-- (void)setItems:(NSInteger)items {
+- (void)setItems:(NSArray *)items {
     _items = items;
-    self.contentSize = CGSizeMake((_cellSize.width + _padding) * _items, self.frame.size.height);
+    self.contentSize = CGSizeMake((_cellSize.width + _padding) * _items.count, self.frame.size.height);
 }
 
 @end
