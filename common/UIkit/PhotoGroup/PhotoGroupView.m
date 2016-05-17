@@ -68,12 +68,13 @@
     _item.loadedImage = nil;
     
     [_scrollView setZoomScale:1.0 animated:NO];
-    _scrollView.maximumZoomScale = 3;
+    _scrollView.maximumZoomScale = 1;
     
     @weakify(self);
     [_imageView setImageWithId:_item.imageid withWidth:self.bounds.size.width completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
         @strongify(self);
         if (error == nil) {
+            self.scrollView.maximumZoomScale = 3;
             self.item.loadedImage = image;
             [self resizeSubviewSize];
             if (self.item.loadedBlock) {
