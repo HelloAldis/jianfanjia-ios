@@ -147,10 +147,12 @@
 
 - (void)photoGrouopViewDidSingleTap:(PhotoGroupView *)photoGroupView {
     self.isHidden = !self.isHidden;
-    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
+    [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:1 initialSpringVelocity:1 options:UIViewAnimationOptionTransitionFlipFromTop animations:^{
         self.textViewBottomToSuper.constant = self.isHidden ? -35 : 0;
         [self.view layoutIfNeeded];
     } completion:nil];
+    
+    [self setKrs_NavigationBarHidden:self.isHidden animated:YES];
 }
 
 - (void)photoGrouopViewWillLoadMore:(PhotoGroupView *)photoGroupView {

@@ -12,5 +12,6 @@
 
 - (void)setKrs_EnableFakeNavigationBar:(BOOL)enable;
 - (void)krs_updateFakeNavBar;
+- (void)setKrs_NavigationBarHidden:(BOOL)hidden animated:(BOOL)animated;
 
 @end

@@ -71,7 +71,7 @@
     
     UIView *backgroundView = [self.navigationController.navigationBar valueForKey:@"_backgroundView"];
     if (backgroundView) {
-        self.krs_transitionNavigationBar.frame = CGRectMake(0, 0, CGRectGetWidth(backgroundView.frame), CGRectGetHeight(backgroundView.frame));
+        self.krs_transitionNavigationBar.frame = CGRectMake(0, self.krs_FakeNavigationBarHidden ? -CGRectGetHeight(backgroundView.frame) : 0.0, CGRectGetWidth(backgroundView.frame), CGRectGetHeight(backgroundView.frame));
     }
 }
 
@@ -122,6 +122,32 @@
 
 - (void)setKrs_EnableFakeNavigationBar:(BOOL)enable {
     objc_setAssociatedObject(self, @selector(krs_EnableFakeNavigationBar), @(enable), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (BOOL)krs_FakeNavigationBarHidden {
+    return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+
+- (void)setKrs_FakeNavigationBarHidden:(BOOL)hidden {
+    objc_setAssociatedObject(self, @selector(krs_FakeNavigationBarHidden), @(hidden), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)setKrs_NavigationBarHidden:(BOOL)hidden animated:(BOOL)animated {
+    if ([self krs_transitionNavigationBar]) {
+        self.krs_FakeNavigationBarHidden = hidden;
+        CGRect frame = self.krs_transitionNavigationBar.frame;
+        frame.origin.y = hidden ? -frame.size.height : 0.0;
+        
+        [UIView animateWithDuration:animated ? 0.3 : 0.0
+                              delay:0.0
+                            options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionBeginFromCurrentState
+                         animations:^{
+                             self.krs_transitionNavigationBar.frame = frame;
+                         }
+                         completion:^(BOOL finished) {
+                             
+                         }];
+    }
 }
 
 @end

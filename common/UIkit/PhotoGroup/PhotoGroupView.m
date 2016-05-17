@@ -162,7 +162,7 @@
     self.scrollView = [[ReuseScrollView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds))];
     self.scrollView.reuseDelegate = self;
     self.scrollView.padding = 20;
-    self.scrollView.clipsToBounds = NO;
+    self.scrollView.clipsToBounds = YES;
     [self addSubview:self.scrollView];
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap)];
