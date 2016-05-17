@@ -22,6 +22,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initTransparentNavBar:UIBarStyleDefault];
     
     [self.btnAddRequirement setCornerRadius:5];
     [self.btnBala setCornerRadius:5];

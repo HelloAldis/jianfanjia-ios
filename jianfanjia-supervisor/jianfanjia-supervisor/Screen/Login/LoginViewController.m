@@ -38,6 +38,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initTransparentNavBar:UIBarStyleDefault];
     
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
         return YES;
@@ -110,11 +111,6 @@
     if (self.showSignup) {
         [self swipeLeft:nil];
     }
-}
-
-#pragma mark - UI
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleDefault;
 }
 
 #pragma mark - user actions

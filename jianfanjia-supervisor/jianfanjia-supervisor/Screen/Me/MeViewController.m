@@ -45,29 +45,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self initUIData];
-    
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self showTabbar];
     
     if (CGRectGetHeight(self.originUserImageFrame) == 0) {
         self.originUserImageFrame = self.userImageView.frame;
-    }
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if (self.navigationController.viewControllers.count > 1) {
-        [self hideTabbar];
     }
 }
 

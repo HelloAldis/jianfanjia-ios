@@ -23,6 +23,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initTransparentNavBar:UIBarStyleDefault];
 
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
         return YES;
