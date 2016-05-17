@@ -55,6 +55,13 @@
     _cells = @[].mutableCopy;
 }
 
+- (instancetype)init {
+    self = super.init;
+    if (!self) return nil;
+    
+    return self;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     if (!self.wasFirstDisplay) {
