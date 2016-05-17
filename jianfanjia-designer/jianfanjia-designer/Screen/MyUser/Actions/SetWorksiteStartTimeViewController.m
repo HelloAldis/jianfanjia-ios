@@ -52,15 +52,6 @@
 
 #pragma mark - init UI
 - (void)initNav {
-    /**
-     重构判断逻辑
-    if ([self.requirement.status isEqualToString:kRequirementStatusPlanWasChoosedWithoutAgreement]) {
-        self.title = @"设置开工时间";
-    } else {
-        self.title = @"合同概况";
-    }
-     **/
-
     [StatusBlock matchReqt:self.requirement.status actions:
      @[[ReqtPlanWasChoosed action:^{
             self.title = @"设置开工时间";
@@ -70,7 +61,6 @@
         }]
        ]];
     
-    self.navigationController.navigationBarHidden = NO;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_delete"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickDismiss)];
 
     NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];

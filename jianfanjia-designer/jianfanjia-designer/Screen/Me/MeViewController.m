@@ -35,6 +35,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initTransparentNavBar:UIBarStyleDefault];
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
     [self.userThumnail setCornerRadius:self.userThumnail.frame.size.width / 2];
@@ -47,29 +48,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self initUIData];
-    
-    [self.navigationController setNavigationBarHidden:YES animated:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self showTabbar];
     
     if (CGRectGetHeight(self.originUserImageFrame) == 0) {
         self.originUserImageFrame = self.userImageView.frame;
-    }
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if (self.navigationController.viewControllers.count > 1) {
-        [self hideTabbar];
     }
 }
 
@@ -130,16 +115,16 @@
 
 - (IBAction)onClickSuggestion:(id)sender {
     FeedbackViewController *v = [[FeedbackViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:v animated:YES];
+    [[ViewControllerContainer navigation] pushViewController:v animated:YES];
 }
 
 - (IBAction)onClickOnlineService:(id)sender {
-    [self.navigationController pushViewController:[CustomerServiceViewController instance] animated:YES];
+    [[ViewControllerContainer navigation] pushViewController:[CustomerServiceViewController instance] animated:YES];
 }
 
 - (IBAction)onClickMore:(id)sender {
     SettingViewController *v = [[SettingViewController alloc] init];
-    [self.navigationController pushViewController:v animated:YES];
+    [[ViewControllerContainer navigation] pushViewController:v animated:YES];
 }
 
 - (IBAction)onClickPhoneConsult:(id)sender {

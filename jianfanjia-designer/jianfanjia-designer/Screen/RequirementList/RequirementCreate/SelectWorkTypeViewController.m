@@ -48,6 +48,8 @@ static NSDictionary *work_type;
 
 #pragma mark - UI
 - (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.tableFooterView = [[UIView alloc] init];
     [self.tableView registerNib:[UINib nibWithNibName:cellId bundle:nil] forCellReuseIdentifier:cellId];
     self.tableView.rowHeight = UITableViewAutomaticDimension;

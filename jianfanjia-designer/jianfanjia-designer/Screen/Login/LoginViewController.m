@@ -39,6 +39,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initTransparentNavBar:UIBarStyleDefault];
     
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
         return YES;
@@ -97,8 +98,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES];
-
+    
     if (kIs35inchScreen) {
         self.topConstraint.constant = 10;
     } else {
@@ -116,11 +116,6 @@
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
-#pragma mark - UI
-- (UIStatusBarStyle)preferredStatusBarStyle {
-    return UIStatusBarStyleDefault;
 }
 
 #pragma mark - user actions

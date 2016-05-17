@@ -66,14 +66,6 @@ static NSString *PlanExpiredActionCellIdentifier = @"PlanExpiredActionCell";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self refresh:NO];
-    [self showTabbar];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    if (self.navigationController.viewControllers.count > 1) {
-        [self hideTabbar];
-    }
 }
 
 #pragma mark - UI

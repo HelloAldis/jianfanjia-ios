@@ -52,7 +52,7 @@
 #pragma mark - init UI
 - (void)initNav {
     self.title = @"设置量房时间";
-    self.navigationController.navigationBarHidden = NO;
+
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_delete"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickDismiss)];
 
     NSDictionary * dict = [NSDictionary dictionaryWithObject:kThemeTextColor forKey: NSForegroundColorAttributeName];

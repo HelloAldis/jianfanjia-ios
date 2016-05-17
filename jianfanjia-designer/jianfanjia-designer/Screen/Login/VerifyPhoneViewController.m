@@ -59,11 +59,6 @@
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:animated];
-}
-
 #pragma mark - user action
 - (IBAction)onClickSignup:(id)sender {
     switch (self.verfityPhoneEvent) {

@@ -37,13 +37,8 @@ static BOOL isReload;
     [super viewDidLoad];
     
     self.request = [NSURLRequest requestWithURL:[NSURL URLWithString:CustomerServiceLink]];
-    
-    [self loadPage];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
     [self initNav];
+    [self loadPage];
 }
 
 #pragma mark - UI

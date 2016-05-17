@@ -249,6 +249,8 @@
 		6850A61D1CCA2DEA0085940A /* CityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A6181CCA2DEA0085940A /* CityCell.xib */; };
 		6850A61E1CCA2DEA0085940A /* CitySection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6850A61A1CCA2DEA0085940A /* CitySection.m */; };
 		6850A61F1CCA2DEA0085940A /* CitySection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6850A61B1CCA2DEA0085940A /* CitySection.xib */; };
+		685B14191CEAFF600076996A /* KRSSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14161CEAFF600076996A /* KRSSwizzle.m */; };
+		685B141A1CEAFF600076996A /* UIViewController+KRSFakeNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14181CEAFF600076996A /* UIViewController+KRSFakeNavigationBar.m */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -759,6 +761,10 @@
 		6850A6191CCA2DEA0085940A /* CitySection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitySection.h; sourceTree = "<group>"; };
 		6850A61A1CCA2DEA0085940A /* CitySection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitySection.m; sourceTree = "<group>"; };
 		6850A61B1CCA2DEA0085940A /* CitySection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CitySection.xib; sourceTree = "<group>"; };
+		685B14151CEAFF600076996A /* KRSSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSSwizzle.h; sourceTree = "<group>"; };
+		685B14161CEAFF600076996A /* KRSSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSSwizzle.m; sourceTree = "<group>"; };
+		685B14171CEAFF600076996A /* UIViewController+KRSFakeNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KRSFakeNavigationBar.h"; sourceTree = "<group>"; };
+		685B14181CEAFF600076996A /* UIViewController+KRSFakeNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KRSFakeNavigationBar.m"; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -992,6 +998,7 @@
 		68123C671C4C9772008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				685B14141CEAFF600076996A /* KRSFakeNavigationBar */,
 				685F2D771CAD0DD400DC4D43 /* RefreshComponent */,
 				68BA50F51C9FE815002E5572 /* WebView */,
 				68123C681C4C9772008FC9AB /* CustomAlert */,
@@ -1440,6 +1447,17 @@
 				684B04221C990E910053FFDF /* BaseNotificationCell.m */,
 			);
 			path = MyNotification;
+			sourceTree = "<group>";
+		};
+		685B14141CEAFF600076996A /* KRSFakeNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				685B14151CEAFF600076996A /* KRSSwizzle.h */,
+				685B14161CEAFF600076996A /* KRSSwizzle.m */,
+				685B14171CEAFF600076996A /* UIViewController+KRSFakeNavigationBar.h */,
+				685B14181CEAFF600076996A /* UIViewController+KRSFakeNavigationBar.m */,
+			);
+			path = KRSFakeNavigationBar;
 			sourceTree = "<group>";
 		};
 		685F2D771CAD0DD400DC4D43 /* RefreshComponent */ = {
@@ -2253,6 +2271,7 @@
 				68F73D311CBB597E00E97710 /* ReqtFinishedWorkSite.m in Sources */,
 				681240C81C4CE471008FC9AB /* RefreshSession.m in Sources */,
 				68123F111C4CBE79008FC9AB /* SelectSexTypeViewController.m in Sources */,
+				685B14191CEAFF600076996A /* KRSSwizzle.m in Sources */,
 				68123F0F1C4CBE79008FC9AB /* SelectPopulationViewController.m in Sources */,
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
 				68F73D301CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m in Sources */,
@@ -2386,6 +2405,7 @@
 				68123F091C4CBE79008FC9AB /* SelectDecorationStyleViewController.m in Sources */,
 				681240161C4CDA06008FC9AB /* RACStream+Ex.m in Sources */,
 				68123EEA1C4CBE79008FC9AB /* MessageCell.m in Sources */,
+				685B141A1CEAFF600076996A /* UIViewController+KRSFakeNavigationBar.m in Sources */,
 				684B040B1C98F7060053FFDF /* CommentListViewController.m in Sources */,
 				681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */,
 				6E378D381BDA2D2E00908B77 /* ProcessBusiness.m in Sources */,

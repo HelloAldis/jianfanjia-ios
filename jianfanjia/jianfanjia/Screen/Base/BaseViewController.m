@@ -108,23 +108,4 @@
     [self onClickBack];
 }
 
-#pragma mark - Util
-- (void)hideTabbar {
-    CGRect frame = self.tabBarController.tabBar.frame;
-    if (frame.origin.y != kScreenHeight) {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight, CGRectGetWidth(frame), CGRectGetHeight(frame));
-        }];
-    }
-}
-
-- (void)showTabbar {
-    CGRect frame = self.tabBarController.tabBar.frame;
-    if (frame.origin.y != (kScreenHeight - CGRectGetHeight(frame))) {
-        [UIView animateWithDuration:0.2 animations:^{
-            self.tabBarController.tabBar.frame = CGRectMake(0, kScreenHeight - CGRectGetHeight(frame), CGRectGetWidth(frame), CGRectGetHeight(frame));
-        }];
-    }
-}
-
 @end

@@ -39,8 +39,16 @@
 }
 
 - (void)krs_viewWillLayoutSubviews {
+    id<UIViewControllerTransitionCoordinator> tc = self.transitionCoordinator;
+    UIViewController *toViewController = [tc viewControllerForKey:UITransitionContextToViewControllerKey];
+    
     if (self.krs_transitionNavigationBar) {
-        [self.transitionCoordinator containerView].backgroundColor = [UIColor whiteColor];
+        if ([self isEqual:self.navigationController.viewControllers.lastObject] && [toViewController isEqual:self]) {
+            if (self.krs_transitionNavigationBar.translucent) {
+                [tc containerView].backgroundColor = [UIColor whiteColor];
+            }
+        }
+
         [self krs_resizeTransitionNavigationBarFrame];
         [self.view bringSubviewToFront:self.krs_transitionNavigationBar];
     }

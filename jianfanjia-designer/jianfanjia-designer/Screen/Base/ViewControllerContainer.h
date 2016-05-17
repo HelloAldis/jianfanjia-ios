@@ -12,6 +12,7 @@
 
 @interface ViewControllerContainer : NSObject
 
++ (UINavigationController *)navigation;
 + (void)showAfterLanching;
 + (void)showLogin;
 + (void)showSignup;
