@@ -32,6 +32,7 @@
 + (void)showMyNotification:(NotificationType)displayType;
 + (void)showNotificationDetail:(NSString *)notificationid readBlock:(NotificationReadBlock)readBlock;
 + (void)showMyComments;
++ (void)showDesignerAuth;
 + (void)showInfoAuth;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;

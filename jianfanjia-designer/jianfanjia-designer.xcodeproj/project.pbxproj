@@ -271,6 +271,8 @@
 		685B15191CEC60950076996A /* SelectionEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B150E1CEC60950076996A /* SelectionEditCell.xib */; };
 		685B151A1CEC60950076996A /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15101CEC60950076996A /* TextEditCell.m */; };
 		685B151B1CEC60950076996A /* TextEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15111CEC60950076996A /* TextEditCell.xib */; };
+		685B151F1CEC67450076996A /* DesignerAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B151D1CEC67450076996A /* DesignerAuthViewController.m */; };
+		685B15201CEC67450076996A /* DesignerAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B151E1CEC67450076996A /* DesignerAuthViewController.xib */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -817,6 +819,9 @@
 		685B150F1CEC60950076996A /* TextEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEditCell.h; sourceTree = "<group>"; };
 		685B15101CEC60950076996A /* TextEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditCell.m; sourceTree = "<group>"; };
 		685B15111CEC60950076996A /* TextEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextEditCell.xib; sourceTree = "<group>"; };
+		685B151C1CEC67450076996A /* DesignerAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerAuthViewController.h; sourceTree = "<group>"; };
+		685B151D1CEC67450076996A /* DesignerAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerAuthViewController.m; sourceTree = "<group>"; };
+		685B151E1CEC67450076996A /* DesignerAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerAuthViewController.xib; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1534,6 +1539,9 @@
 		685B14EB1CEC520C0076996A /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				685B151C1CEC67450076996A /* DesignerAuthViewController.h */,
+				685B151D1CEC67450076996A /* DesignerAuthViewController.m */,
+				685B151E1CEC67450076996A /* DesignerAuthViewController.xib */,
 				685B14EC1CEC526C0076996A /* EmailAuth */,
 				685B14ED1CEC526C0076996A /* IDAuth */,
 				685B14EE1CEC526C0076996A /* InfoAuth */,
@@ -2170,6 +2178,7 @@
 				68123F001C4CBE79008FC9AB /* HouseRequirementCreateViewController.xib in Resources */,
 				68E600551CB62C5600C4A8F7 /* DecPackage365View.xib in Resources */,
 				685B14F51CEC52B00076996A /* InfoAuthViewController.xib in Resources */,
+				685B15201CEC67450076996A /* DesignerAuthViewController.xib in Resources */,
 				685B14FA1CEC54B60076996A /* AvtarImageCell.xib in Resources */,
 				684B040E1C98F7060053FFDF /* DecCommentInfoCell.xib in Resources */,
 				6EA0C19C1C577F7500D04A4F /* PlanPriceItemCell.xib in Resources */,
@@ -2570,6 +2579,7 @@
 				685B147B1CEB11CF0076996A /* MultipleLineTextTableViewCell.m in Sources */,
 				68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */,
 				68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */,
+				685B151F1CEC67450076996A /* DesignerAuthViewController.m in Sources */,
 				681240161C4CDA06008FC9AB /* RACStream+Ex.m in Sources */,
 				68123EEA1C4CBE79008FC9AB /* MessageCell.m in Sources */,
 				685B141A1CEAFF600076996A /* UIViewController+KRSFakeNavigationBar.m in Sources */,

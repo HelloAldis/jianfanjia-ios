@@ -66,7 +66,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     
     self.sectionArr2 = @[
                          [EditCellItem createAttrSelection:[[NSAttributedString alloc] initWithString:@"设计师认证中心"] attrValue:[@"正在认证中" attrStrWithFont:[UIFont systemFontOfSize:14] color:kExcutionStatusColor] placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
-                             
+                             [ViewControllerContainer showDesignerAuth];
                          }],
                          [EditCellItem createAttrSelection:[@"接单资料 (完善资料，提高接单精准度)" attrSubStr:@"(完善资料，提高接单精准度)" font:[UIFont systemFontOfSize:12] color:kThemeColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_service_material"] tapBlock:^(EditCellItem *curItem) {
                              
