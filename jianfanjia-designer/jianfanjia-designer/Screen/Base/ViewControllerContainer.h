@@ -34,6 +34,7 @@
 + (void)showMyComments;
 + (void)showDesignerAuth;
 + (void)showInfoAuth;
++ (void)showProductAuth;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
 + (void)showRefresh;

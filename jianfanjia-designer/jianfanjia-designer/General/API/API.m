@@ -135,6 +135,10 @@
     [API POST:@"designer_remind_user_house_check" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)designerGetProducts:(DesignerGetProducts *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/product" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 

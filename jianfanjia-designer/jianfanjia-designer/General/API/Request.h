@@ -43,5 +43,6 @@
 #import "GetUserUnreadCount.h"
 #import "GetDesignerUnreadCount.h"
 #import "DesignerNotifyUserToConfirmMeasureHouse.h"
+#import "DesignerGetProducts.h"
 
 #endif

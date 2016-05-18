@@ -26,6 +26,7 @@
 @property (strong, nonatomic) NSString *work_type;
 @property (strong, nonatomic) NSNumber *total_price;
 @property (strong, nonatomic) NSString *product_description;
+@property (strong, nonatomic) NSString *cover_imageid;
 @property (strong, nonatomic) NSMutableArray *images;
 @property (strong, nonatomic) NSNumber *is_my_favorite;
 @property (strong, nonatomic) NSNumber *is_deleted;

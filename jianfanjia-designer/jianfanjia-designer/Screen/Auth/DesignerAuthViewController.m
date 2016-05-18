@@ -49,7 +49,7 @@
                             
                         }],
                         [EditCellItem createSelection:@"作品认证" value:nil placeholder:nil image:nil tapBlock:^(EditCellItem *curItem) {
-                            
+                            [ViewControllerContainer showProductAuth];
                         }],
                         [EditCellItem createSelection:@"施工团队认证" value:nil placeholder:nil image:nil tapBlock:^(EditCellItem *curItem) {
                             

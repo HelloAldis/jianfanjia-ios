@@ -273,6 +273,14 @@
 		685B151B1CEC60950076996A /* TextEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15111CEC60950076996A /* TextEditCell.xib */; };
 		685B151F1CEC67450076996A /* DesignerAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B151D1CEC67450076996A /* DesignerAuthViewController.m */; };
 		685B15201CEC67450076996A /* DesignerAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B151E1CEC67450076996A /* DesignerAuthViewController.xib */; };
+		685B15291CEC71010076996A /* ProductAuthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15221CEC71010076996A /* ProductAuthCell.m */; };
+		685B152A1CEC71010076996A /* ProductAuthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15231CEC71010076996A /* ProductAuthCell.xib */; };
+		685B152B1CEC71010076996A /* ProductAuthDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15251CEC71010076996A /* ProductAuthDataManager.m */; };
+		685B152C1CEC71010076996A /* ProductAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15271CEC71010076996A /* ProductAuthViewController.m */; };
+		685B152D1CEC71010076996A /* ProductAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15281CEC71010076996A /* ProductAuthViewController.xib */; };
+		685B15311CEC73AD0076996A /* ProductUploadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B152F1CEC73AD0076996A /* ProductUploadCell.m */; };
+		685B15321CEC73AD0076996A /* ProductUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15301CEC73AD0076996A /* ProductUploadCell.xib */; };
+		685B15381CEC790A0076996A /* DesignerGetProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15371CEC790A0076996A /* DesignerGetProducts.m */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -822,6 +830,19 @@
 		685B151C1CEC67450076996A /* DesignerAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerAuthViewController.h; sourceTree = "<group>"; };
 		685B151D1CEC67450076996A /* DesignerAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerAuthViewController.m; sourceTree = "<group>"; };
 		685B151E1CEC67450076996A /* DesignerAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerAuthViewController.xib; sourceTree = "<group>"; };
+		685B15211CEC71010076996A /* ProductAuthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAuthCell.h; sourceTree = "<group>"; };
+		685B15221CEC71010076996A /* ProductAuthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAuthCell.m; sourceTree = "<group>"; };
+		685B15231CEC71010076996A /* ProductAuthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductAuthCell.xib; sourceTree = "<group>"; };
+		685B15241CEC71010076996A /* ProductAuthDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAuthDataManager.h; sourceTree = "<group>"; };
+		685B15251CEC71010076996A /* ProductAuthDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAuthDataManager.m; sourceTree = "<group>"; };
+		685B15261CEC71010076996A /* ProductAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAuthViewController.h; sourceTree = "<group>"; };
+		685B15271CEC71010076996A /* ProductAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAuthViewController.m; sourceTree = "<group>"; };
+		685B15281CEC71010076996A /* ProductAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductAuthViewController.xib; sourceTree = "<group>"; };
+		685B152E1CEC73AD0076996A /* ProductUploadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductUploadCell.h; sourceTree = "<group>"; };
+		685B152F1CEC73AD0076996A /* ProductUploadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductUploadCell.m; sourceTree = "<group>"; };
+		685B15301CEC73AD0076996A /* ProductUploadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductUploadCell.xib; sourceTree = "<group>"; };
+		685B15361CEC790A0076996A /* DesignerGetProducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerGetProducts.h; sourceTree = "<group>"; };
+		685B15371CEC790A0076996A /* DesignerGetProducts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerGetProducts.m; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1581,6 +1602,17 @@
 		685B14EF1CEC526C0076996A /* ProductAuth */ = {
 			isa = PBXGroup;
 			children = (
+				685B15261CEC71010076996A /* ProductAuthViewController.h */,
+				685B15271CEC71010076996A /* ProductAuthViewController.m */,
+				685B15281CEC71010076996A /* ProductAuthViewController.xib */,
+				685B15211CEC71010076996A /* ProductAuthCell.h */,
+				685B15221CEC71010076996A /* ProductAuthCell.m */,
+				685B15231CEC71010076996A /* ProductAuthCell.xib */,
+				685B152E1CEC73AD0076996A /* ProductUploadCell.h */,
+				685B152F1CEC73AD0076996A /* ProductUploadCell.m */,
+				685B15301CEC73AD0076996A /* ProductUploadCell.xib */,
+				685B15241CEC71010076996A /* ProductAuthDataManager.h */,
+				685B15251CEC71010076996A /* ProductAuthDataManager.m */,
 			);
 			path = ProductAuth;
 			sourceTree = "<group>";
@@ -1799,6 +1831,8 @@
 		6E378CD11BDA2D2E00908B77 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				685B15361CEC790A0076996A /* DesignerGetProducts.h */,
+				685B15371CEC790A0076996A /* DesignerGetProducts.m */,
 				684B04431C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.h */,
 				684B04441C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.m */,
 				684B04141C98FB580053FFDF /* GetDesignerNotificationDetail.h */,
@@ -2210,6 +2244,7 @@
 				68123EE91C4CBE79008FC9AB /* LeaveMessageViewController.xib in Resources */,
 				6812411A1C4CF2D5008FC9AB /* DBYSViewController.xib in Resources */,
 				68FB6ED21C50DC81001C0613 /* SetWorksiteStartTimeViewController.xib in Resources */,
+				685B152D1CEC71010076996A /* ProductAuthViewController.xib in Resources */,
 				68123EFC1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.xib in Resources */,
 				6EA0C1A81C585C5B00D04A4F /* PlanPriceItemExpandCell.xib in Resources */,
 				681241A41C4F3B1C008FC9AB /* MeasuredHouseActionCell.xib in Resources */,
@@ -2242,6 +2277,7 @@
 				68123F211C4CBE79008FC9AB /* WelcomeViewController.xib in Resources */,
 				684B040C1C98F7060053FFDF /* CommentListViewController.xib in Resources */,
 				681241AF1C4F3BCF008FC9AB /* SubmitedPlanActionCell.xib in Resources */,
+				685B152A1CEC71010076996A /* ProductAuthCell.xib in Resources */,
 				685B15191CEC60950076996A /* SelectionEditCell.xib in Resources */,
 				684B04101C98F7060053FFDF /* PlanCommentInfoCell.xib in Resources */,
 				68123C931C4C9772008FC9AB /* ThumbnailCell.xib in Resources */,
@@ -2259,6 +2295,7 @@
 				68123E921C4CBE79008FC9AB /* AboutViewController.xib in Resources */,
 				681241B41C4F3D31008FC9AB /* UnchoosedPlanActionCell.xib in Resources */,
 				6850A61D1CCA2DEA0085940A /* CityCell.xib in Resources */,
+				685B15321CEC73AD0076996A /* ProductUploadCell.xib in Resources */,
 				681240E71C4CF2CC008FC9AB /* MyProcessViewController.xib in Resources */,
 				68E6005A1CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.xib in Resources */,
 				68123C911C4C9772008FC9AB /* ImageBrowerViewController.xib in Resources */,
@@ -2383,6 +2420,7 @@
 				68123F291C4CCBF9008FC9AB /* MyUserViewController.m in Sources */,
 				68123F151C4CBE79008FC9AB /* RequirementDataManager.m in Sources */,
 				68123FE11C4CCF4A008FC9AB /* Product.m in Sources */,
+				685B152B1CEC71010076996A /* ProductAuthDataManager.m in Sources */,
 				681241B71C4F6BBB008FC9AB /* BaseActionCell.m in Sources */,
 				68123EBD1C4CBE79008FC9AB /* RefreshViewController.m in Sources */,
 				681240B81C4CE471008FC9AB /* GetComments.m in Sources */,
@@ -2391,6 +2429,7 @@
 				681241A91C4F3B1C008FC9AB /* RespondedActionCell.m in Sources */,
 				681240D61C4CE471008FC9AB /* UploadImageToProcess.m in Sources */,
 				6E378D541BDA2D2E00908B77 /* Ys.m in Sources */,
+				685B15291CEC71010076996A /* ProductAuthCell.m in Sources */,
 				684B043C1C990E910053FFDF /* SystemAnnouncementCell.m in Sources */,
 				68E600541CB62C5600C4A8F7 /* DecPackage365View.m in Sources */,
 				6812417F1C4F22B0008FC9AB /* DesignerGetUserRequirements.m in Sources */,
@@ -2477,6 +2516,7 @@
 				681240B01C4CE471008FC9AB /* DesignerGetInfo.m in Sources */,
 				6812401F1C4CDA78008FC9AB /* CollectionFallsFlowLayout.m in Sources */,
 				6E378D4E1BDA2D2E00908B77 /* Comment.m in Sources */,
+				685B15381CEC790A0076996A /* DesignerGetProducts.m in Sources */,
 				684B04131C98F8240053FFDF /* DesignerNotification.m in Sources */,
 				681241351C4CF2D5008FC9AB /* UIItemImageCollectionView.m in Sources */,
 				685B15161CEC60950076996A /* GroupImageEditCell.m in Sources */,
@@ -2486,6 +2526,7 @@
 				68123EEE1C4CBE79008FC9AB /* PlanListViewController.m in Sources */,
 				68123CE51C4C99C9008FC9AB /* LeakMoniter.m in Sources */,
 				68123E6D1C4CBE79008FC9AB /* BaseViewController.m in Sources */,
+				685B15311CEC73AD0076996A /* ProductUploadCell.m in Sources */,
 				68123CF41C4C9A34008FC9AB /* Notification.m in Sources */,
 				681240DE1C4CED53008FC9AB /* GetDesignerProcess.m in Sources */,
 				680C40E51CC4C1AF008C4BC0 /* APIManager.m in Sources */,
@@ -2532,6 +2573,7 @@
 				681240D31C4CE471008FC9AB /* UpdatePass.m in Sources */,
 				681240A81C4CE471008FC9AB /* BaseRequest.m in Sources */,
 				68F73D331CBB597E00E97710 /* ReqtPlanWasChoosed.m in Sources */,
+				685B152C1CEC71010076996A /* ProductAuthViewController.m in Sources */,
 				685B14831CEB11CF0076996A /* SelectDecorationTypeViewController.m in Sources */,
 				684B043E1C990E910053FFDF /* WorksiteNotificationCell.m in Sources */,
 				681240121C4CDA06008FC9AB /* NSArray+Ex.m in Sources */,

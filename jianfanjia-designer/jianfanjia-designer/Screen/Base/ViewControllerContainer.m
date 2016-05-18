@@ -32,6 +32,7 @@
 #import "NotificationDetailViewController.h"
 #import "DesignerAuthViewController.h"
 #import "InfoAuthViewController.h"
+#import "ProductAuthViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -222,6 +223,11 @@ static ViewControllerContainer *container;
 
 + (void)showInfoAuth {
     InfoAuthViewController *v = [[InfoAuthViewController alloc] init];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showProductAuth {
+    ProductAuthViewController *v = [[ProductAuthViewController alloc] init];
     [container.navigation pushViewController:v animated:YES];
 }
 

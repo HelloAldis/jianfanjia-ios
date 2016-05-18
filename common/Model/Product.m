@@ -23,6 +23,7 @@
 @dynamic work_type;
 @dynamic total_price;
 @dynamic product_description;
+@dynamic cover_imageid;
 @dynamic images;
 @dynamic is_my_favorite;
 @dynamic is_deleted;
