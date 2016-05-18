@@ -92,6 +92,24 @@
     return [emailTest evaluateWithObject:self];
 }
 
+- (NSAttributedString *)attrStrWithFont:(UIFont *)font color:(UIColor *)color {
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:self];
+    [attributedStr setAttributes:@{NSFontAttributeName:font,
+                                   NSForegroundColorAttributeName:color,
+                                   }
+                           range:NSMakeRange(0, self.length)];
+    return attributedStr;
+}
+
+- (NSAttributedString *)attrSubStr:(NSString *)subStr font:(UIFont *)font color:(UIColor *)color {
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:self];
+    [attributedStr setAttributes:@{NSFontAttributeName:font,
+                                   NSForegroundColorAttributeName:color,
+                                   }
+                           range:[self rangeOfString:subStr]];
+    return attributedStr;
+}
+
 + (BOOL)compareStrWithIgnoreNil:(NSString *)aString other:(NSString *)bString {
     return [aString ? aString : @"" isEqualToString:bString ? bString : @""];
 }

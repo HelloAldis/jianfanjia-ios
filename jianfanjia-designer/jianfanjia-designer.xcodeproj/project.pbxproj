@@ -251,6 +251,26 @@
 		685B148A1CEB11CF0076996A /* SelectSexTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14741CEB11CF0076996A /* SelectSexTypeViewController.xib */; };
 		685B148B1CEB11CF0076996A /* SelectWorkTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14761CEB11CF0076996A /* SelectWorkTypeViewController.m */; };
 		685B148C1CEB11CF0076996A /* SelectWorkTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14771CEB11CF0076996A /* SelectWorkTypeViewController.xib */; };
+		685B14D41CEB1CD20076996A /* AvtarInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14D21CEB1CD20076996A /* AvtarInfoCell.m */; };
+		685B14D51CEB1CD20076996A /* AvtarInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14D31CEB1CD20076996A /* AvtarInfoCell.xib */; };
+		685B14D91CEB20EC0076996A /* QuickLinkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14D71CEB20EC0076996A /* QuickLinkCell.m */; };
+		685B14DA1CEB20EC0076996A /* QuickLinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14D81CEB20EC0076996A /* QuickLinkCell.xib */; };
+		685B14DE1CEB266E0076996A /* ConsultPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14DC1CEB266E0076996A /* ConsultPhoneCell.m */; };
+		685B14DF1CEB266E0076996A /* ConsultPhoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14DD1CEB266E0076996A /* ConsultPhoneCell.xib */; };
+		685B14F41CEC52B00076996A /* InfoAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14F21CEC52B00076996A /* InfoAuthViewController.m */; };
+		685B14F51CEC52B00076996A /* InfoAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14F31CEC52B00076996A /* InfoAuthViewController.xib */; };
+		685B14F91CEC54B60076996A /* AvtarImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14F71CEC54B60076996A /* AvtarImageCell.m */; };
+		685B14FA1CEC54B60076996A /* AvtarImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14F81CEC54B60076996A /* AvtarImageCell.xib */; };
+		685B15121CEC60950076996A /* BaseEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15021CEC60950076996A /* BaseEditCell.m */; };
+		685B15131CEC60950076996A /* EditCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15051CEC60950076996A /* EditCellItem.m */; };
+		685B15141CEC60950076996A /* FieldEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15071CEC60950076996A /* FieldEditCell.m */; };
+		685B15151CEC60950076996A /* FieldEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15081CEC60950076996A /* FieldEditCell.xib */; };
+		685B15161CEC60950076996A /* GroupImageEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B150A1CEC60950076996A /* GroupImageEditCell.m */; };
+		685B15171CEC60950076996A /* GroupImageEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B150B1CEC60950076996A /* GroupImageEditCell.xib */; };
+		685B15181CEC60950076996A /* SelectionEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B150D1CEC60950076996A /* SelectionEditCell.m */; };
+		685B15191CEC60950076996A /* SelectionEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B150E1CEC60950076996A /* SelectionEditCell.xib */; };
+		685B151A1CEC60950076996A /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15101CEC60950076996A /* TextEditCell.m */; };
+		685B151B1CEC60950076996A /* TextEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15111CEC60950076996A /* TextEditCell.xib */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -765,6 +785,38 @@
 		685B14751CEB11CF0076996A /* SelectWorkTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWorkTypeViewController.h; sourceTree = "<group>"; };
 		685B14761CEB11CF0076996A /* SelectWorkTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWorkTypeViewController.m; sourceTree = "<group>"; };
 		685B14771CEB11CF0076996A /* SelectWorkTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectWorkTypeViewController.xib; sourceTree = "<group>"; };
+		685B14D11CEB1CD20076996A /* AvtarInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvtarInfoCell.h; sourceTree = "<group>"; };
+		685B14D21CEB1CD20076996A /* AvtarInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvtarInfoCell.m; sourceTree = "<group>"; };
+		685B14D31CEB1CD20076996A /* AvtarInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvtarInfoCell.xib; sourceTree = "<group>"; };
+		685B14D61CEB20EC0076996A /* QuickLinkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickLinkCell.h; sourceTree = "<group>"; };
+		685B14D71CEB20EC0076996A /* QuickLinkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickLinkCell.m; sourceTree = "<group>"; };
+		685B14D81CEB20EC0076996A /* QuickLinkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuickLinkCell.xib; sourceTree = "<group>"; };
+		685B14DB1CEB266E0076996A /* ConsultPhoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsultPhoneCell.h; sourceTree = "<group>"; };
+		685B14DC1CEB266E0076996A /* ConsultPhoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsultPhoneCell.m; sourceTree = "<group>"; };
+		685B14DD1CEB266E0076996A /* ConsultPhoneCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConsultPhoneCell.xib; sourceTree = "<group>"; };
+		685B14F11CEC52B00076996A /* InfoAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAuthViewController.h; sourceTree = "<group>"; };
+		685B14F21CEC52B00076996A /* InfoAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAuthViewController.m; sourceTree = "<group>"; };
+		685B14F31CEC52B00076996A /* InfoAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoAuthViewController.xib; sourceTree = "<group>"; };
+		685B14F61CEC54B60076996A /* AvtarImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvtarImageCell.h; sourceTree = "<group>"; };
+		685B14F71CEC54B60076996A /* AvtarImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvtarImageCell.m; sourceTree = "<group>"; };
+		685B14F81CEC54B60076996A /* AvtarImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvtarImageCell.xib; sourceTree = "<group>"; };
+		685B15011CEC60950076996A /* BaseEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEditCell.h; sourceTree = "<group>"; };
+		685B15021CEC60950076996A /* BaseEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseEditCell.m; sourceTree = "<group>"; };
+		685B15031CEC60950076996A /* CellEditComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellEditComponent.h; sourceTree = "<group>"; };
+		685B15041CEC60950076996A /* EditCellItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditCellItem.h; sourceTree = "<group>"; };
+		685B15051CEC60950076996A /* EditCellItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCellItem.m; sourceTree = "<group>"; };
+		685B15061CEC60950076996A /* FieldEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldEditCell.h; sourceTree = "<group>"; };
+		685B15071CEC60950076996A /* FieldEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldEditCell.m; sourceTree = "<group>"; };
+		685B15081CEC60950076996A /* FieldEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldEditCell.xib; sourceTree = "<group>"; };
+		685B15091CEC60950076996A /* GroupImageEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupImageEditCell.h; sourceTree = "<group>"; };
+		685B150A1CEC60950076996A /* GroupImageEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupImageEditCell.m; sourceTree = "<group>"; };
+		685B150B1CEC60950076996A /* GroupImageEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupImageEditCell.xib; sourceTree = "<group>"; };
+		685B150C1CEC60950076996A /* SelectionEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionEditCell.h; sourceTree = "<group>"; };
+		685B150D1CEC60950076996A /* SelectionEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionEditCell.m; sourceTree = "<group>"; };
+		685B150E1CEC60950076996A /* SelectionEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionEditCell.xib; sourceTree = "<group>"; };
+		685B150F1CEC60950076996A /* TextEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextEditCell.h; sourceTree = "<group>"; };
+		685B15101CEC60950076996A /* TextEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextEditCell.m; sourceTree = "<group>"; };
+		685B15111CEC60950076996A /* TextEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextEditCell.xib; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -998,6 +1050,7 @@
 		68123C671C4C9772008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				685B15001CEC60950076996A /* EditCellComponent */,
 				685B14571CEB11CF0076996A /* Selection */,
 				685B14141CEAFF600076996A /* KRSFakeNavigationBar */,
 				685F2D771CAD0DD400DC4D43 /* RefreshComponent */,
@@ -1104,6 +1157,7 @@
 				68123DCB1C4CBE79008FC9AB /* Refresh */,
 				68123DCF1C4CBE79008FC9AB /* RequirementList */,
 				684B04201C990E910053FFDF /* MyNotification */,
+				685B14EB1CEC520C0076996A /* Auth */,
 				68123E5D1C4CBE79008FC9AB /* Welcome */,
 			);
 			path = Screen;
@@ -1150,6 +1204,15 @@
 				68123D6D1C4CBE79008FC9AB /* MeViewController.h */,
 				68123D6E1C4CBE79008FC9AB /* MeViewController.m */,
 				68123D6F1C4CBE79008FC9AB /* MeViewController.xib */,
+				685B14D11CEB1CD20076996A /* AvtarInfoCell.h */,
+				685B14D21CEB1CD20076996A /* AvtarInfoCell.m */,
+				685B14D31CEB1CD20076996A /* AvtarInfoCell.xib */,
+				685B14D61CEB20EC0076996A /* QuickLinkCell.h */,
+				685B14D71CEB20EC0076996A /* QuickLinkCell.m */,
+				685B14D81CEB20EC0076996A /* QuickLinkCell.xib */,
+				685B14DB1CEB266E0076996A /* ConsultPhoneCell.h */,
+				685B14DC1CEB266E0076996A /* ConsultPhoneCell.m */,
+				685B14DD1CEB266E0076996A /* ConsultPhoneCell.xib */,
 			);
 			path = Me;
 			sourceTree = "<group>";
@@ -1466,6 +1529,83 @@
 				685B14771CEB11CF0076996A /* SelectWorkTypeViewController.xib */,
 			);
 			path = Selection;
+			sourceTree = "<group>";
+		};
+		685B14EB1CEC520C0076996A /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				685B14EC1CEC526C0076996A /* EmailAuth */,
+				685B14ED1CEC526C0076996A /* IDAuth */,
+				685B14EE1CEC526C0076996A /* InfoAuth */,
+				685B14EF1CEC526C0076996A /* ProductAuth */,
+				685B14F01CEC526C0076996A /* TeamAuth */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		685B14EC1CEC526C0076996A /* EmailAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = EmailAuth;
+			sourceTree = "<group>";
+		};
+		685B14ED1CEC526C0076996A /* IDAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = IDAuth;
+			sourceTree = "<group>";
+		};
+		685B14EE1CEC526C0076996A /* InfoAuth */ = {
+			isa = PBXGroup;
+			children = (
+				685B14F11CEC52B00076996A /* InfoAuthViewController.h */,
+				685B14F21CEC52B00076996A /* InfoAuthViewController.m */,
+				685B14F31CEC52B00076996A /* InfoAuthViewController.xib */,
+				685B14F61CEC54B60076996A /* AvtarImageCell.h */,
+				685B14F71CEC54B60076996A /* AvtarImageCell.m */,
+				685B14F81CEC54B60076996A /* AvtarImageCell.xib */,
+			);
+			path = InfoAuth;
+			sourceTree = "<group>";
+		};
+		685B14EF1CEC526C0076996A /* ProductAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProductAuth;
+			sourceTree = "<group>";
+		};
+		685B14F01CEC526C0076996A /* TeamAuth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TeamAuth;
+			sourceTree = "<group>";
+		};
+		685B15001CEC60950076996A /* EditCellComponent */ = {
+			isa = PBXGroup;
+			children = (
+				685B15031CEC60950076996A /* CellEditComponent.h */,
+				685B15011CEC60950076996A /* BaseEditCell.h */,
+				685B15021CEC60950076996A /* BaseEditCell.m */,
+				685B15041CEC60950076996A /* EditCellItem.h */,
+				685B15051CEC60950076996A /* EditCellItem.m */,
+				685B15061CEC60950076996A /* FieldEditCell.h */,
+				685B15071CEC60950076996A /* FieldEditCell.m */,
+				685B15081CEC60950076996A /* FieldEditCell.xib */,
+				685B15091CEC60950076996A /* GroupImageEditCell.h */,
+				685B150A1CEC60950076996A /* GroupImageEditCell.m */,
+				685B150B1CEC60950076996A /* GroupImageEditCell.xib */,
+				685B150C1CEC60950076996A /* SelectionEditCell.h */,
+				685B150D1CEC60950076996A /* SelectionEditCell.m */,
+				685B150E1CEC60950076996A /* SelectionEditCell.xib */,
+				685B150F1CEC60950076996A /* TextEditCell.h */,
+				685B15101CEC60950076996A /* TextEditCell.m */,
+				685B15111CEC60950076996A /* TextEditCell.xib */,
+			);
+			path = EditCellComponent;
 			sourceTree = "<group>";
 		};
 		685F2D771CAD0DD400DC4D43 /* RefreshComponent */ = {
@@ -2029,6 +2169,8 @@
 			files = (
 				68123F001C4CBE79008FC9AB /* HouseRequirementCreateViewController.xib in Resources */,
 				68E600551CB62C5600C4A8F7 /* DecPackage365View.xib in Resources */,
+				685B14F51CEC52B00076996A /* InfoAuthViewController.xib in Resources */,
+				685B14FA1CEC54B60076996A /* AvtarImageCell.xib in Resources */,
 				684B040E1C98F7060053FFDF /* DecCommentInfoCell.xib in Resources */,
 				6EA0C19C1C577F7500D04A4F /* PlanPriceItemCell.xib in Resources */,
 				68123E791C4CBE79008FC9AB /* CustomerServiceViewController.xib in Resources */,
@@ -2046,10 +2188,12 @@
 				685B147A1CEB11CF0076996A /* DecorationStyleCell.xib in Resources */,
 				684B043B1C990E910053FFDF /* RequirementNotificationCell.xib in Resources */,
 				6812411C1C4CF2D5008FC9AB /* ItemCell.xib in Resources */,
+				685B14DF1CEB266E0076996A /* ConsultPhoneCell.xib in Resources */,
 				685B14881CEB11CF0076996A /* SelectPopulationViewController.xib in Resources */,
 				68123EEF1C4CBE79008FC9AB /* PlanListViewController.xib in Resources */,
 				6E0426791BC757C500F984B8 /* Assets.xcassets in Resources */,
 				68123F041C4CBE79008FC9AB /* RequirementCreateViewController.xib in Resources */,
+				685B15171CEC60950076996A /* GroupImageEditCell.xib in Resources */,
 				6EA0C19A1C577F7500D04A4F /* PlanPriceDetailViewController.xib in Resources */,
 				681241911C4F2F35008FC9AB /* UnrespondActionCell.xib in Resources */,
 				681241A61C4F3B1C008FC9AB /* SubmitPlanExpiredActionCell.xib in Resources */,
@@ -2071,6 +2215,7 @@
 				681240E91C4CF2CC008FC9AB /* ProcessCell.xib in Resources */,
 				685B14821CEB11CF0076996A /* SelectDecorationStyleViewController.xib in Resources */,
 				682E04E61C55D85200F1ACAA /* iTunesArtwork in Resources */,
+				685B14D51CEB1CD20076996A /* AvtarInfoCell.xib in Resources */,
 				681241221C4CF2D5008FC9AB /* ItemImageCollectionCell.xib in Resources */,
 				68123E751C4CBE79008FC9AB /* SignupSuccessViewController.xib in Resources */,
 				682E04F41C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.xib in Resources */,
@@ -2088,17 +2233,20 @@
 				68123F211C4CBE79008FC9AB /* WelcomeViewController.xib in Resources */,
 				684B040C1C98F7060053FFDF /* CommentListViewController.xib in Resources */,
 				681241AF1C4F3BCF008FC9AB /* SubmitedPlanActionCell.xib in Resources */,
+				685B15191CEC60950076996A /* SelectionEditCell.xib in Resources */,
 				684B04101C98F7060053FFDF /* PlanCommentInfoCell.xib in Resources */,
 				68123C931C4C9772008FC9AB /* ThumbnailCell.xib in Resources */,
 				685F2D6F1CABC0A900DC4D43 /* UnexpandSectionActionView.xib in Resources */,
 				681241341C4CF2D5008FC9AB /* SectionView.xib in Resources */,
 				68123C991C4C9772008FC9AB /* allprovince.js in Resources */,
 				685B14861CEB11CF0076996A /* SelectHouseTypeViewController.xib in Resources */,
+				685B14DA1CEB20EC0076996A /* QuickLinkCell.xib in Resources */,
 				681241CA1C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib in Resources */,
 				68123E711C4CBE79008FC9AB /* LoginViewController.xib in Resources */,
 				68123E771C4CBE79008FC9AB /* VerifyPhoneViewController.xib in Resources */,
 				6EA0C1A31C57827A00D04A4F /* PlanPriceTotalCell.xib in Resources */,
 				684B043F1C990E910053FFDF /* WorksiteNotificationCell.xib in Resources */,
+				685B15151CEC60950076996A /* FieldEditCell.xib in Resources */,
 				68123E921C4CBE79008FC9AB /* AboutViewController.xib in Resources */,
 				681241B41C4F3D31008FC9AB /* UnchoosedPlanActionCell.xib in Resources */,
 				6850A61D1CCA2DEA0085940A /* CityCell.xib in Resources */,
@@ -2111,6 +2259,7 @@
 				685F2D651CAA8DDE00DC4D43 /* SectionActionView.xib in Resources */,
 				68123C971C4C9772008FC9AB /* ImageEditorViewController.xib in Resources */,
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
+				685B151B1CEC60950076996A /* TextEditCell.xib in Resources */,
 				68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */,
 				684B04391C990E910053FFDF /* NotificationDetailViewController.xib in Resources */,
 				6EA0C19E1C577F7500D04A4F /* PlanPriceItemSection.xib in Resources */,
@@ -2206,6 +2355,7 @@
 				6E378D361BDA2D2E00908B77 /* AccountBusiness.m in Sources */,
 				685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */,
 				68123FE01C4CCF4A008FC9AB /* PriceItem.m in Sources */,
+				685B15131CEC60950076996A /* EditCellItem.m in Sources */,
 				6EA0C19D1C577F7500D04A4F /* PlanPriceItemSection.m in Sources */,
 				681240E81C4CF2CC008FC9AB /* ProcessCell.m in Sources */,
 				684B04341C990E910053FFDF /* BaseNotificationCell.m in Sources */,
@@ -2215,6 +2365,7 @@
 				68123E841C4CBE79008FC9AB /* MeViewController.m in Sources */,
 				68E600591CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */,
 				684B040F1C98F7060053FFDF /* PlanCommentInfoCell.m in Sources */,
+				685B14DE1CEB266E0076996A /* ConsultPhoneCell.m in Sources */,
 				6812401A1C4CDA06008FC9AB /* UIImage+Ex.m in Sources */,
 				680C40D71CC4B85F008C4BC0 /* API.m in Sources */,
 				68123E721C4CBE79008FC9AB /* ResetPassViewController.m in Sources */,
@@ -2270,6 +2421,7 @@
 				684B043A1C990E910053FFDF /* RequirementNotificationCell.m in Sources */,
 				684B040A1C98F7060053FFDF /* CommentListDataManager.m in Sources */,
 				68F73D2E1CBB597E00E97710 /* ReqtDesignerMeasuredHouse.m in Sources */,
+				685B151A1CEC60950076996A /* TextEditCell.m in Sources */,
 				68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */,
 				681241BE1C4F97D1008FC9AB /* RejectUserAlertViewController.m in Sources */,
 				68123C981C4C9772008FC9AB /* OverlayView.m in Sources */,
@@ -2277,6 +2429,7 @@
 				684B041C1C98FB580053FFDF /* GetDesignerNotificationDetail.m in Sources */,
 				681241BA1C4F8C5F008FC9AB /* DesignerGetRequirementPlans.m in Sources */,
 				68123E931C4CBE79008FC9AB /* FeedbackViewController.m in Sources */,
+				685B15141CEC60950076996A /* FieldEditCell.m in Sources */,
 				6E378D511BDA2D2E00908B77 /* Process.m in Sources */,
 				6812401B1C4CDA06008FC9AB /* UIImagePickerController+Ex.m in Sources */,
 				68F73D311CBB597E00E97710 /* ReqtFinishedWorkSite.m in Sources */,
@@ -2294,6 +2447,7 @@
 				685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */,
 				68123EE81C4CBE79008FC9AB /* LeaveMessageViewController.m in Sources */,
 				6850A61C1CCA2DEA0085940A /* CityCell.m in Sources */,
+				685B14F41CEC52B00076996A /* InfoAuthViewController.m in Sources */,
 				68F73D2B1CBB597E00E97710 /* PlanWasNotChoosed.m in Sources */,
 				681240151C4CDA06008FC9AB /* NSNumber+Ex.m in Sources */,
 				682E04F31C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.m in Sources */,
@@ -2316,6 +2470,7 @@
 				6E378D4E1BDA2D2E00908B77 /* Comment.m in Sources */,
 				684B04131C98F8240053FFDF /* DesignerNotification.m in Sources */,
 				681241351C4CF2D5008FC9AB /* UIItemImageCollectionView.m in Sources */,
+				685B15161CEC60950076996A /* GroupImageEditCell.m in Sources */,
 				6E378D371BDA2D2E00908B77 /* Bc.m in Sources */,
 				68123E6F1C4CBE79008FC9AB /* ViewControllerContainer.m in Sources */,
 				681240D51C4CE471008FC9AB /* UploadImage.m in Sources */,
@@ -2358,8 +2513,10 @@
 				6E0426711BC757C500F984B8 /* AppDelegate.m in Sources */,
 				685F2D6E1CABC0A900DC4D43 /* UnexpandSectionActionView.m in Sources */,
 				680C45F61CC4E9F7008C4BC0 /* NotificationDataManager.m in Sources */,
+				685B15121CEC60950076996A /* BaseEditCell.m in Sources */,
 				68123F201C4CBE79008FC9AB /* WelcomeViewController.m in Sources */,
 				68123C9C1C4C9772008FC9AB /* SelectCityViewController.m in Sources */,
+				685B14D91CEB20EC0076996A /* QuickLinkCell.m in Sources */,
 				68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */,
 				681241A51C4F3B1C008FC9AB /* SubmitPlanExpiredActionCell.m in Sources */,
 				685B147F1CEB11CF0076996A /* SelectCommunicationTypeViewController.m in Sources */,
@@ -2375,6 +2532,7 @@
 				6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */,
 				68123E761C4CBE79008FC9AB /* VerifyPhoneViewController.m in Sources */,
 				68123C961C4C9772008FC9AB /* ImageEditorViewController.m in Sources */,
+				685B14F91CEC54B60076996A /* AvtarImageCell.m in Sources */,
 				689220071CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */,
 				681241211C4CF2D5008FC9AB /* ItemImageCollectionCell.m in Sources */,
 				685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */,
@@ -2407,6 +2565,7 @@
 				68123FDE1C4CCF4A008FC9AB /* LeafImage.m in Sources */,
 				681241A31C4F3B1C008FC9AB /* MeasuredHouseActionCell.m in Sources */,
 				68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */,
+				685B14D41CEB1CD20076996A /* AvtarInfoCell.m in Sources */,
 				68F73D341CBB597E00E97710 /* ReqtUnorderDesigner.m in Sources */,
 				685B147B1CEB11CF0076996A /* MultipleLineTextTableViewCell.m in Sources */,
 				68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */,
@@ -2417,6 +2576,7 @@
 				684B040B1C98F7060053FFDF /* CommentListViewController.m in Sources */,
 				681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */,
 				6E378D381BDA2D2E00908B77 /* ProcessBusiness.m in Sources */,
+				685B15181CEC60950076996A /* SelectionEditCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,6 +30,7 @@
 #import "CommentListViewController.h"
 #import "MyNotificationViewController.h"
 #import "NotificationDetailViewController.h"
+#import "InfoAuthViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -210,6 +211,11 @@ static ViewControllerContainer *container;
     }
     
     CommentListViewController *v = [[CommentListViewController alloc] init];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showInfoAuth {
+    InfoAuthViewController *v = [[InfoAuthViewController alloc] init];
     [container.navigation pushViewController:v animated:YES];
 }
 

@@ -16,5 +16,7 @@
 - (BOOL)isEmpty;
 - (NSString *)trim;
 + (BOOL)compareStrWithIgnoreNil:(NSString *)aString other:(NSString *)bString;
+- (NSAttributedString *)attrStrWithFont:(UIFont *)font color:(UIColor *)color;
+- (NSAttributedString *)attrSubStr:(NSString *)subStr font:(UIFont *)font color:(UIColor *)color;
 
 @end

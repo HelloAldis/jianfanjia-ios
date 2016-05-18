@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="161" id="KGk-i7-Jjw" customClass="TextEditCell">
+            <rect key="frame" x="0.0" y="0.0" width="506" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="506" height="149"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="清空缓存" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ojI-xe-hqO">
+                        <rect key="frame" x="18" y="0.0" width="56" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="bUe-tc-m6R"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yS-uG-PHJ" userLabel="line">
+                        <rect key="frame" x="0.0" y="148" width="506" height="1"/>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="fDO-gN-32X"/>
+                        </constraints>
+                    </view>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IKy-oc-TVu">
+                        <rect key="frame" x="18" y="35" width="470" height="99"/>
+                        <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="99" id="a3r-0q-9zK"/>
+                        </constraints>
+                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="ojI-xe-hqO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="8kz-VF-JHE"/>
+                    <constraint firstItem="ojI-xe-hqO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Cj7-Wa-NzU"/>
+                    <constraint firstItem="IKy-oc-TVu" firstAttribute="leading" secondItem="ojI-xe-hqO" secondAttribute="leading" id="F37-aH-Nhr"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="1yS-uG-PHJ" secondAttribute="trailing" constant="-8" id="VDu-5w-97C"/>
+                    <constraint firstItem="1yS-uG-PHJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="aRE-HU-xa8"/>
+                    <constraint firstItem="IKy-oc-TVu" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ceX-Cr-2gn"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="1yS-uG-PHJ" secondAttribute="bottom" constant="-8" id="jUo-vR-aEZ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ojI-xe-hqO" secondAttribute="bottom" constant="-9" id="s2h-Jh-4vP"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="IKy-oc-TVu" secondAttribute="bottom" constant="7" id="wC0-6V-Gvf"/>
+                    <constraint firstItem="IKy-oc-TVu" firstAttribute="top" secondItem="ojI-xe-hqO" secondAttribute="bottom" id="z6q-bz-41H"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="s2h-Jh-4vP"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="lblTitle" destination="ojI-xe-hqO" id="Dhz-Za-yJj"/>
+                <outlet property="twValue" destination="IKy-oc-TVu" id="fsL-5T-dG1"/>
+            </connections>
+            <point key="canvasLocation" x="495" y="548"/>
+        </tableViewCell>
+    </objects>
+</document>
