@@ -45,6 +45,7 @@ static NSString *ProductAuthCellIdentifier = @"ProductAuthCell";
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     [self.tableView registerNib:[UINib nibWithNibName:ProductUploadCellIdentifier bundle:nil] forCellReuseIdentifier:ProductUploadCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:ProductAuthCellIdentifier bundle:nil] forCellReuseIdentifier:ProductAuthCellIdentifier];
+    self.tableView.header.ignoredScrollViewContentInsetTop = 8;
     
     @weakify(self);
     self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
