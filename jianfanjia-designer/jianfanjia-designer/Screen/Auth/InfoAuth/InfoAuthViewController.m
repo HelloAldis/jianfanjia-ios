@@ -35,6 +35,7 @@ static NSString *AvtarImageCellIdentifier = @"AvtarImageCell";
 
 #pragma mark - UI
 - (void)initNav {
+    [self initLeftBackInNav];
     self.title = @"基本资料认证";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
