@@ -46,5 +46,7 @@
 #import "DesignerGetProducts.h"
 #import "DesignerDeleteProduct.h"
 #import "ProductHomePage.h"
+#import "DesignerGetTeams.h"
+#import "DesignerDeleteTeam.h"
 
 #endif

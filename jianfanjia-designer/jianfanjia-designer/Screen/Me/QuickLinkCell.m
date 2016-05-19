@@ -7,12 +7,13 @@
 //
 
 #import "QuickLinkCell.h"
+#import "ViewControllerContainer.h"
 
 @interface QuickLinkCell ()
-
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
-@property (weak, nonatomic) IBOutlet UILabel *lblUserName;
-@property (weak, nonatomic) IBOutlet UILabel *lblPhone;
+@property (weak, nonatomic) IBOutlet UIView *myProductView;
+@property (weak, nonatomic) IBOutlet UIView *myTeamView;
+@property (weak, nonatomic) IBOutlet UIView *myMessageView;
+@property (weak, nonatomic) IBOutlet UIButton *btnMyLeaveMsg;
 
 @end
 
@@ -20,23 +21,26 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self.myProductView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapMyProduct)]];
+    [self.myTeamView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapMyTeam)]];
+    [self.myMessageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapMyMessage)]];
     
+    [[NotificationDataManager shared] subscribeMyLeaveMsgUnreadCount:^(NSInteger count) {
+        self.btnMyLeaveMsg.shouldHideBadgeAtZero = YES;
+        self.btnMyLeaveMsg.badgeNumber = [@(count) stringValue];
+    }];
 }
 
-- (void)updateUnreadNumber {
-    //    [[NotificationDataManager shared] subscribeMyNotificationUnreadCount:^(NSInteger count) {
-    //        self.btnMyNotification.shouldHideBadgeAtZero = YES;
-    //        self.btnMyNotification.badgeNumber = [@(count) stringValue];
-    //    }];
-    //
-    //    [[NotificationDataManager shared] subscribeMyLeaveMsgUnreadCount:^(NSInteger count) {
-    //        self.btnMyLeaveMsg.shouldHideBadgeAtZero = YES;
-    //        self.btnMyLeaveMsg.badgeNumber = [@(count) stringValue];
-    //    }];
+- (void)onTapMyProduct {
+    [ViewControllerContainer showProductAuth];
 }
 
-//- (IBAction)onClickComment:(id)sender {
-//    [ViewControllerContainer showMyComments];
-//}
+- (void)onTapMyTeam {
+    [ViewControllerContainer showTeamAuth];
+}
+
+- (void)onTapMyMessage {
+    [ViewControllerContainer showMyComments];
+}
 
 @end

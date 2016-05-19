@@ -34,5 +34,6 @@
 #import "DecLiveSection.h"
 #import "DesignerNotification.h"
 #import "Supervisor.h"
+#import "Team.h"
 
 #endif /* Model_h */

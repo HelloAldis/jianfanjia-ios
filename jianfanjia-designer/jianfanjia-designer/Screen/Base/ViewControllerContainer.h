@@ -37,6 +37,7 @@
 + (void)showDesignerAuth;
 + (void)showInfoAuth;
 + (void)showProductAuth;
++ (void)showTeamAuth;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
 + (void)showRefresh;

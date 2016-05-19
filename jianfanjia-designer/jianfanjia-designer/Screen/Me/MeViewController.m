@@ -51,6 +51,10 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     [bellButton setImage:[UIImage imageNamed:@"notification-bell"] forState:UIControlStateNormal];
     [bellButton addTarget:self action:@selector(onClickNotification) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:bellButton];
+    
+    [[NotificationDataManager shared] subscribeMyWorksiteNotiUnreadCount:^(NSInteger count) {
+        self.navigationItem.rightBarButtonItem.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
+    }];
 }
 
 - (void)initUI {

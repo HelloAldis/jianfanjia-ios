@@ -292,6 +292,16 @@
 		685B15511CED70620076996A /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B154A1CED70620076996A /* ProductViewController.xib */; };
 		685B15541CED71950076996A /* ProductHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15531CED71950076996A /* ProductHomePage.m */; };
 		685B15571CED73D50076996A /* UILabel+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15561CED73D50076996A /* UILabel+Ex.m */; };
+		685B155A1CED8EFD0076996A /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15591CED8EFD0076996A /* Team.m */; };
+		685B155D1CED92A70076996A /* DesignerGetTeams.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B155C1CED92A70076996A /* DesignerGetTeams.m */; };
+		685B15601CED92EE0076996A /* DesignerDeleteTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B155F1CED92EE0076996A /* DesignerDeleteTeam.m */; };
+		685B156E1CED93BB0076996A /* TeamAuthDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15651CED93BB0076996A /* TeamAuthDataManager.m */; };
+		685B156F1CED93BB0076996A /* TeamAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15671CED93BB0076996A /* TeamAuthViewController.m */; };
+		685B15701CED93BB0076996A /* TeamAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15681CED93BB0076996A /* TeamAuthViewController.xib */; };
+		685B15711CED93BB0076996A /* TeamUploadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B156A1CED93BB0076996A /* TeamUploadCell.m */; };
+		685B15721CED93BB0076996A /* TeamUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B156B1CED93BB0076996A /* TeamUploadCell.xib */; };
+		685B15761CED96D00076996A /* TeamAuthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15741CED96D00076996A /* TeamAuthCell.m */; };
+		685B15771CED96D00076996A /* TeamAuthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15751CED96D00076996A /* TeamAuthCell.xib */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -873,6 +883,23 @@
 		685B15531CED71950076996A /* ProductHomePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductHomePage.m; sourceTree = "<group>"; };
 		685B15551CED73D50076996A /* UILabel+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Ex.h"; sourceTree = "<group>"; };
 		685B15561CED73D50076996A /* UILabel+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Ex.m"; sourceTree = "<group>"; };
+		685B15581CED8EFD0076996A /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		685B15591CED8EFD0076996A /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		685B155B1CED92A70076996A /* DesignerGetTeams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerGetTeams.h; sourceTree = "<group>"; };
+		685B155C1CED92A70076996A /* DesignerGetTeams.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerGetTeams.m; sourceTree = "<group>"; };
+		685B155E1CED92EE0076996A /* DesignerDeleteTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDeleteTeam.h; sourceTree = "<group>"; };
+		685B155F1CED92EE0076996A /* DesignerDeleteTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDeleteTeam.m; sourceTree = "<group>"; };
+		685B15641CED93BB0076996A /* TeamAuthDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamAuthDataManager.h; sourceTree = "<group>"; };
+		685B15651CED93BB0076996A /* TeamAuthDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamAuthDataManager.m; sourceTree = "<group>"; };
+		685B15661CED93BB0076996A /* TeamAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamAuthViewController.h; sourceTree = "<group>"; };
+		685B15671CED93BB0076996A /* TeamAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamAuthViewController.m; sourceTree = "<group>"; };
+		685B15681CED93BB0076996A /* TeamAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamAuthViewController.xib; sourceTree = "<group>"; };
+		685B15691CED93BB0076996A /* TeamUploadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamUploadCell.h; sourceTree = "<group>"; };
+		685B156A1CED93BB0076996A /* TeamUploadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamUploadCell.m; sourceTree = "<group>"; };
+		685B156B1CED93BB0076996A /* TeamUploadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamUploadCell.xib; sourceTree = "<group>"; };
+		685B15731CED96D00076996A /* TeamAuthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamAuthCell.h; sourceTree = "<group>"; };
+		685B15741CED96D00076996A /* TeamAuthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamAuthCell.m; sourceTree = "<group>"; };
+		685B15751CED96D00076996A /* TeamAuthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamAuthCell.xib; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1651,6 +1678,17 @@
 		685B14F01CEC526C0076996A /* TeamAuth */ = {
 			isa = PBXGroup;
 			children = (
+				685B15661CED93BB0076996A /* TeamAuthViewController.h */,
+				685B15671CED93BB0076996A /* TeamAuthViewController.m */,
+				685B15681CED93BB0076996A /* TeamAuthViewController.xib */,
+				685B15691CED93BB0076996A /* TeamUploadCell.h */,
+				685B156A1CED93BB0076996A /* TeamUploadCell.m */,
+				685B156B1CED93BB0076996A /* TeamUploadCell.xib */,
+				685B15731CED96D00076996A /* TeamAuthCell.h */,
+				685B15741CED96D00076996A /* TeamAuthCell.m */,
+				685B15751CED96D00076996A /* TeamAuthCell.xib */,
+				685B15641CED93BB0076996A /* TeamAuthDataManager.h */,
+				685B15651CED93BB0076996A /* TeamAuthDataManager.m */,
 			);
 			path = TeamAuth;
 			sourceTree = "<group>";
@@ -1880,6 +1918,10 @@
 		6E378CD11BDA2D2E00908B77 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				685B155E1CED92EE0076996A /* DesignerDeleteTeam.h */,
+				685B155F1CED92EE0076996A /* DesignerDeleteTeam.m */,
+				685B155B1CED92A70076996A /* DesignerGetTeams.h */,
+				685B155C1CED92A70076996A /* DesignerGetTeams.m */,
 				685B15521CED71950076996A /* ProductHomePage.h */,
 				685B15531CED71950076996A /* ProductHomePage.m */,
 				685B153C1CED6C930076996A /* DesignerDeleteProduct.h */,
@@ -2043,6 +2085,8 @@
 		6E378D141BDA2D2E00908B77 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				685B15581CED8EFD0076996A /* Team.h */,
+				685B15591CED8EFD0076996A /* Team.m */,
 				6850A5FC1CC75C6B0085940A /* BaseNotification.h */,
 				6850A5FD1CC75C6B0085940A /* BaseNotification.m */,
 				680C46691CC61F5F008C4BC0 /* Supervisor.h */,
@@ -2273,6 +2317,7 @@
 				685B14FA1CEC54B60076996A /* AvtarImageCell.xib in Resources */,
 				684B040E1C98F7060053FFDF /* DecCommentInfoCell.xib in Resources */,
 				6EA0C19C1C577F7500D04A4F /* PlanPriceItemCell.xib in Resources */,
+				685B15721CED93BB0076996A /* TeamUploadCell.xib in Resources */,
 				68123E791C4CBE79008FC9AB /* CustomerServiceViewController.xib in Resources */,
 				68123E961C4CBE79008FC9AB /* SettingViewController.xib in Resources */,
 				68123EED1C4CBE79008FC9AB /* PlanCell.xib in Resources */,
@@ -2315,6 +2360,7 @@
 				685B147C1CEB11CF0076996A /* MultipleLineTextTableViewCell.xib in Resources */,
 				681240E91C4CF2CC008FC9AB /* ProcessCell.xib in Resources */,
 				685B14821CEB11CF0076996A /* SelectDecorationStyleViewController.xib in Resources */,
+				685B15771CED96D00076996A /* TeamAuthCell.xib in Resources */,
 				682E04E61C55D85200F1ACAA /* iTunesArtwork in Resources */,
 				685B14D51CEB1CD20076996A /* AvtarInfoCell.xib in Resources */,
 				681241221C4CF2D5008FC9AB /* ItemImageCollectionCell.xib in Resources */,
@@ -2370,6 +2416,7 @@
 				684B04391C990E910053FFDF /* NotificationDetailViewController.xib in Resources */,
 				6EA0C19E1C577F7500D04A4F /* PlanPriceItemSection.xib in Resources */,
 				68123E941C4CBE79008FC9AB /* FeedbackViewController.xib in Resources */,
+				685B15701CED93BB0076996A /* TeamAuthViewController.xib in Resources */,
 				68123C9A1C4C9772008FC9AB /* city2area.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2446,6 +2493,7 @@
 				685B14781CEB11CF0076996A /* BaseSelectionViewController.m in Sources */,
 				681240191C4CDA06008FC9AB /* UIColor+Ex.m in Sources */,
 				68123F031C4CBE79008FC9AB /* RequirementCreateViewController.m in Sources */,
+				685B15761CED96D00076996A /* TeamAuthCell.m in Sources */,
 				68123F1A1C4CBE79008FC9AB /* W2View.m in Sources */,
 				68123E701C4CBE79008FC9AB /* LoginViewController.m in Sources */,
 				685B153B1CED5C350076996A /* ProductBusiness.m in Sources */,
@@ -2453,6 +2501,7 @@
 				685B14811CEB11CF0076996A /* SelectDecorationStyleViewController.m in Sources */,
 				681240B61C4CE471008FC9AB /* Feedback.m in Sources */,
 				6E378D501BDA2D2E00908B77 /* Item.m in Sources */,
+				685B155A1CED8EFD0076996A /* Team.m in Sources */,
 				681240CB1C4CE471008FC9AB /* Reschedule.m in Sources */,
 				685B14851CEB11CF0076996A /* SelectHouseTypeViewController.m in Sources */,
 				68123FDF1C4CCF4A008FC9AB /* Plan.m in Sources */,
@@ -2474,6 +2523,7 @@
 				68E600591CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */,
 				684B040F1C98F7060053FFDF /* PlanCommentInfoCell.m in Sources */,
 				685B14DE1CEB266E0076996A /* ConsultPhoneCell.m in Sources */,
+				685B15601CED92EE0076996A /* DesignerDeleteTeam.m in Sources */,
 				6812401A1C4CDA06008FC9AB /* UIImage+Ex.m in Sources */,
 				680C40D71CC4B85F008C4BC0 /* API.m in Sources */,
 				68123E721C4CBE79008FC9AB /* ResetPassViewController.m in Sources */,
@@ -2488,6 +2538,7 @@
 				68123EBD1C4CBE79008FC9AB /* RefreshViewController.m in Sources */,
 				681240B81C4CE471008FC9AB /* GetComments.m in Sources */,
 				684B04351C990E910053FFDF /* MyNotificationDataManager.m in Sources */,
+				685B15711CED93BB0076996A /* TeamUploadCell.m in Sources */,
 				6E378D471BDA2D2E00908B77 /* NSString+Ex.m in Sources */,
 				681241A91C4F3B1C008FC9AB /* RespondedActionCell.m in Sources */,
 				681240D61C4CE471008FC9AB /* UploadImageToProcess.m in Sources */,
@@ -2510,6 +2561,7 @@
 				68123FF41C4CD1E3008FC9AB /* EvaluateDesignerViewController.m in Sources */,
 				68123CE41C4C99C9008FC9AB /* HUDUtil.m in Sources */,
 				685B14791CEB11CF0076996A /* DecorationStyleCell.m in Sources */,
+				685B156E1CED93BB0076996A /* TeamAuthDataManager.m in Sources */,
 				684B03FA1C9818CF0053FFDF /* NotificationBusiness.m in Sources */,
 				681241331C4CF2D5008FC9AB /* SectionView.m in Sources */,
 				68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */,
@@ -2666,6 +2718,7 @@
 				685B14891CEB11CF0076996A /* SelectSexTypeViewController.m in Sources */,
 				685B14871CEB11CF0076996A /* SelectPopulationViewController.m in Sources */,
 				685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */,
+				685B156F1CED93BB0076996A /* TeamAuthViewController.m in Sources */,
 				6E378D461BDA2D2E00908B77 /* NSObject+Ex.m in Sources */,
 				68F73D251CBB597E00E97710 /* PlanDesignerRespondExpired.m in Sources */,
 				68123FEB1C4CCFFF008FC9AB /* NameDict.m in Sources */,
@@ -2690,6 +2743,7 @@
 				68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */,
 				68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */,
 				685B151F1CEC67450076996A /* DesignerAuthViewController.m in Sources */,
+				685B155D1CED92A70076996A /* DesignerGetTeams.m in Sources */,
 				681240161C4CDA06008FC9AB /* RACStream+Ex.m in Sources */,
 				68123EEA1C4CBE79008FC9AB /* MessageCell.m in Sources */,
 				685B141A1CEAFF600076996A /* UIViewController+KRSFakeNavigationBar.m in Sources */,

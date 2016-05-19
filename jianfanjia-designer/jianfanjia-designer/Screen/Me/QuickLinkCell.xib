@@ -160,6 +160,12 @@
                     <constraint firstItem="qOb-BW-JZN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="w9j-XB-2dR"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="btnMyLeaveMsg" destination="icb-oP-Agq" id="z81-bK-Uly"/>
+                <outlet property="myMessageView" destination="GdU-2h-ktd" id="hFc-H6-Onp"/>
+                <outlet property="myProductView" destination="hpI-lF-wYG" id="JIc-bs-xN6"/>
+                <outlet property="myTeamView" destination="mt7-jH-Khz" id="DHP-N0-iuS"/>
+            </connections>
             <point key="canvasLocation" x="494" y="474"/>
         </tableViewCell>
     </objects>

@@ -52,7 +52,7 @@
                             [ViewControllerContainer showProductAuth];
                         }],
                         [EditCellItem createSelection:@"施工团队认证" value:nil placeholder:nil image:nil tapBlock:^(EditCellItem *curItem) {
-                            
+                            [ViewControllerContainer showTeamAuth];
                         }],
                         [EditCellItem createSelection:@"邮箱认证" value:nil placeholder:nil image:nil tapBlock:^(EditCellItem *curItem) {
                             

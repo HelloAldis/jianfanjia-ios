@@ -35,7 +35,7 @@ static NSString *ProductAuthCellIdentifier = @"ProductAuthCell";
 
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"全部案例";
+    self.title = @"我的作品";
     [self initLeftBackInNav];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
@@ -80,11 +80,11 @@ static NSString *ProductAuthCellIdentifier = @"ProductAuthCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        ProductUploadCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductUploadCellIdentifier];
+        ProductUploadCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductUploadCellIdentifier forIndexPath:indexPath];
         return cell;
     }
     
-    ProductAuthCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthCellIdentifier];
+    ProductAuthCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthCellIdentifier forIndexPath:indexPath];
     [cell initWithProduct:self.dataManager.products[indexPath.row] edit:self.isEditing deleteBlock:^{
         [self.dataManager.products removeObjectAtIndex:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];

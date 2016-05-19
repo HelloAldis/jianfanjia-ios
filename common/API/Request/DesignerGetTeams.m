@@ -6,10 +6,11 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "ProductHomePage.h"
+#import "DesignerGetTeams.h"
 
-@implementation ProductHomePage
+@implementation DesignerGetTeams
 
-@dynamic _id;
+@dynamic from;
+@dynamic limit;
 
 @end

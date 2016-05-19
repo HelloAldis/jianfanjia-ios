@@ -147,6 +147,14 @@
     [API POST:@"designer/product/one" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)designerGetTeams:(DesignerGetTeams *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/team/get" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerDeleteTeam:(DesignerDeleteTeam *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/team/delete" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 
