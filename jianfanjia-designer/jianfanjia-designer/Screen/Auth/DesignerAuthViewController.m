@@ -46,8 +46,8 @@ static NSArray *authArr = nil;
     [self initUI];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self initData];
 }
 
@@ -93,6 +93,8 @@ static NSArray *authArr = nil;
                 teamAuthType,
                 emailAuthType,
                 ];
+    
+    [self.collectionView reloadData];
 }
 
 @end
