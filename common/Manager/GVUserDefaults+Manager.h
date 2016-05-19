@@ -27,6 +27,11 @@
 @property (nonatomic, strong) NSNumber *respond_speed;
 @property (nonatomic, strong) NSNumber *service_attitude;
 @property (nonatomic, strong) NSString *auth_type;
+@property (nonatomic, strong) NSString *work_auth_type;
+@property (nonatomic, strong) NSString *email_auth_type;
+@property (nonatomic, strong) NSString *uid_auth_type;
+@property (nonatomic, strong) NSNumber *product_count;
+@property (nonatomic, strong) NSNumber *authed_product_count;
 @property (nonatomic, strong) NSArray *dec_styles;
 @property (nonatomic, strong) NSString *family_description;
 @property (nonatomic, strong) NSString *wechat_openid;

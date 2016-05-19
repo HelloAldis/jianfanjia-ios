@@ -25,4 +25,19 @@
     return image;
 }
 
++ (UIColor *)productAuthTypeColor:(NSString *)authType {
+    UIColor *color = nil;
+    if ([authType isEqualToString:kProductAuthTypeUnsubmitVerify]) {
+        color = kExcutionStatusColor;
+    } else if ([authType isEqualToString:kProductAuthTypeVerifyPass]) {
+        color = kPassStatusColor;
+    } else if ([authType isEqualToString:kProductAuthTypeVerifyNotPass]) {
+        color = kReminderColor;
+    } else {
+        color = kReminderColor;
+    }
+    
+    return color;
+}
+
 @end

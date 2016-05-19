@@ -117,10 +117,11 @@ static NSArray *desginerTagArr = nil;
                           };
     
     authType = @{
-                @"0":@"未审核",
-                @"1":@"审核通过",
-                @"2":@"审核不通过",
-                @"3":@"违规屏蔽"
+                kAuthTypeUnsubmitVerify:@"未提交审核",
+                kAuthTypeSubmitedVerifyButNotPass:@"认证中",
+                kAuthTypeVerifyPass:@"认证成功",
+                kAuthTypeVerifyNotPass:@"认证失败",
+                kAuthTypeBreakRule:@"违规屏蔽"
                 };
     
     productAuthType = @{

@@ -27,6 +27,8 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
 @property (nonatomic, strong) NSArray *sectionArr3;
 @property (nonatomic, strong) NSArray *sectionArr4;
 
+@property (nonatomic, strong) EditCellItem *authCenterItem;
+
 @end
 
 @implementation MeViewController
@@ -40,6 +42,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [self refreshInfo];
     [[NotificationDataManager shared] refreshUnreadCount];
 }
 
@@ -68,10 +71,12 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     self.tableView.estimatedRowHeight = 50;
     [EditCellItem registerCells:self.tableView];
     
+    self.authCenterItem = [EditCellItem createAttrSelection:[[NSAttributedString alloc] initWithString:@"设计师认证中心"] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
+        [ViewControllerContainer showDesignerAuth];
+    }];
+    
     self.sectionArr2 = @[
-                         [EditCellItem createAttrSelection:[[NSAttributedString alloc] initWithString:@"设计师认证中心"] attrValue:[@"正在认证中" attrStrWithFont:[UIFont systemFontOfSize:14] color:kExcutionStatusColor] placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
-                             [ViewControllerContainer showDesignerAuth];
-                         }],
+                         self.authCenterItem,
                          [EditCellItem createAttrSelection:[@"接单资料 (完善资料，提高接单精准度)" attrSubStr:@"(完善资料，提高接单精准度)" font:[UIFont systemFontOfSize:12] color:kThemeColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_service_material"] tapBlock:^(EditCellItem *curItem) {
                              
                          }],
@@ -187,5 +192,26 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
 //    [self presentViewController:alert animated:YES completion:nil];
 //}
 //
+
+#pragma mark - api request
+- (void)refreshInfo {
+    DesignerGetInfo *request = [[DesignerGetInfo alloc] init];
+    [API designerGetInfo:request success:^{
+        [self updateAuthCenter];
+        [self.tableView reloadData];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
+}
+
+- (void)updateAuthCenter {
+    CGFloat progress = [DesignerBusiness getDesignerAuthProgress];
+    NSString *progressZeroStr = @"请前往认证";
+    NSString *progressStr = [NSString stringWithFormat:@"已完成认证 %@%%", @(progress * 100)];
+    
+    self.authCenterItem.attrValue = [progress > 0? progressStr : progressZeroStr attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeColor];
+}
 
 @end

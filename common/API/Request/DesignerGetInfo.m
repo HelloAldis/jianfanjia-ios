@@ -26,6 +26,11 @@
     [GVUserDefaults standardUserDefaults].respond_speed = [designer respond_speed];
     [GVUserDefaults standardUserDefaults].service_attitude = [designer service_attitude];
     [GVUserDefaults standardUserDefaults].auth_type = [designer auth_type];
+    [GVUserDefaults standardUserDefaults].work_auth_type = [designer work_auth_type];
+    [GVUserDefaults standardUserDefaults].uid_auth_type = [designer uid_auth_type];
+    [GVUserDefaults standardUserDefaults].email_auth_type = [designer email_auth_type];
+    [GVUserDefaults standardUserDefaults].product_count = [designer product_count];
+    [GVUserDefaults standardUserDefaults].authed_product_count = [designer authed_product_count];
 }
 
 @end

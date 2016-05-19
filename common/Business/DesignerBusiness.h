@@ -23,4 +23,7 @@
 + (UIColor *)designerTagColor:(NSString *)tag;
 + (BOOL)containsJiangXinDingZhiTag:(NSArray *)tags;
 
++ (UIColor *)authTypeColor:(NSString *)authType;
++ (CGFloat)getDesignerAuthProgress;
+
 @end

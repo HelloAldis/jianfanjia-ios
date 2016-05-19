@@ -302,6 +302,8 @@
 		685B15721CED93BB0076996A /* TeamUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B156B1CED93BB0076996A /* TeamUploadCell.xib */; };
 		685B15761CED96D00076996A /* TeamAuthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15741CED96D00076996A /* TeamAuthCell.m */; };
 		685B15771CED96D00076996A /* TeamAuthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15751CED96D00076996A /* TeamAuthCell.xib */; };
+		685B157B1CEDC13F0076996A /* DesignerAuthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15791CEDC13F0076996A /* DesignerAuthCell.m */; };
+		685B157C1CEDC13F0076996A /* DesignerAuthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B157A1CEDC13F0076996A /* DesignerAuthCell.xib */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -900,6 +902,9 @@
 		685B15731CED96D00076996A /* TeamAuthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamAuthCell.h; sourceTree = "<group>"; };
 		685B15741CED96D00076996A /* TeamAuthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamAuthCell.m; sourceTree = "<group>"; };
 		685B15751CED96D00076996A /* TeamAuthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamAuthCell.xib; sourceTree = "<group>"; };
+		685B15781CEDC13F0076996A /* DesignerAuthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerAuthCell.h; sourceTree = "<group>"; };
+		685B15791CEDC13F0076996A /* DesignerAuthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerAuthCell.m; sourceTree = "<group>"; };
+		685B157A1CEDC13F0076996A /* DesignerAuthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerAuthCell.xib; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1621,6 +1626,9 @@
 				685B151C1CEC67450076996A /* DesignerAuthViewController.h */,
 				685B151D1CEC67450076996A /* DesignerAuthViewController.m */,
 				685B151E1CEC67450076996A /* DesignerAuthViewController.xib */,
+				685B15781CEDC13F0076996A /* DesignerAuthCell.h */,
+				685B15791CEDC13F0076996A /* DesignerAuthCell.m */,
+				685B157A1CEDC13F0076996A /* DesignerAuthCell.xib */,
 				685B14EC1CEC526C0076996A /* EmailAuth */,
 				685B14ED1CEC526C0076996A /* IDAuth */,
 				685B14EE1CEC526C0076996A /* InfoAuth */,
@@ -2331,6 +2339,7 @@
 				685B14841CEB11CF0076996A /* SelectDecorationTypeViewController.xib in Resources */,
 				684B04371C990E910053FFDF /* MyNotificationViewController.xib in Resources */,
 				685B147A1CEB11CF0076996A /* DecorationStyleCell.xib in Resources */,
+				685B157C1CEDC13F0076996A /* DesignerAuthCell.xib in Resources */,
 				684B043B1C990E910053FFDF /* RequirementNotificationCell.xib in Resources */,
 				6812411C1C4CF2D5008FC9AB /* ItemCell.xib in Resources */,
 				685B14DF1CEB266E0076996A /* ConsultPhoneCell.xib in Resources */,
@@ -2750,6 +2759,7 @@
 				684B040B1C98F7060053FFDF /* CommentListViewController.m in Sources */,
 				681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */,
 				6E378D381BDA2D2E00908B77 /* ProcessBusiness.m in Sources */,
+				685B157B1CEDC13F0076996A /* DesignerAuthCell.m in Sources */,
 				685B15181CEC60950076996A /* SelectionEditCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

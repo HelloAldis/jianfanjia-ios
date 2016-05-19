@@ -126,4 +126,53 @@
     return NO;
 }
 
++ (UIColor *)authTypeColor:(NSString *)authType {
+    UIColor *color = nil;
+    if ([authType isEqualToString:kAuthTypeUnsubmitVerify]) {
+        color = kExcutionStatusColor;;
+    } else if ([authType isEqualToString:kAuthTypeSubmitedVerifyButNotPass]) {
+        color = kExcutionStatusColor;;
+    } else if ([authType isEqualToString:kAuthTypeVerifyPass]) {
+        color = kPassStatusColor;;
+    } else if ([authType isEqualToString:kAuthTypeVerifyNotPass]) {
+        color = kReminderColor;
+    } else {
+        color = kReminderColor;
+    }
+
+    return color;
+}
+
++ (CGFloat)getDesignerAuthProgress {
+    NSString *basicAuthType = [GVUserDefaults standardUserDefaults].auth_type;
+    NSString *teamAuthType = [GVUserDefaults standardUserDefaults].work_auth_type;
+    NSString *uidAuthType = [GVUserDefaults standardUserDefaults].uid_auth_type;
+    NSString *emailAuthType = [GVUserDefaults standardUserDefaults].email_auth_type;
+    NSNumber *authedProductCount = [GVUserDefaults standardUserDefaults].authed_product_count;
+    
+    CGFloat total = 5.0;
+    CGFloat cur = 0.0;
+    if ([basicAuthType isEqualToString:kAuthTypeVerifyPass]) {
+        cur += 1;
+    }
+    
+    if ([teamAuthType isEqualToString:kAuthTypeVerifyPass]) {
+        cur += 1;
+    }
+    
+    if ([uidAuthType isEqualToString:kAuthTypeVerifyPass]) {
+        cur += 1;
+    }
+    
+    if ([emailAuthType isEqualToString:kAuthTypeVerifyPass]) {
+        cur += 1;
+    }
+    
+    if (authedProductCount.integerValue > 3) {
+        cur += 1;
+    }
+    
+    return cur / total;
+}
+
 @end

@@ -27,6 +27,11 @@
 @dynamic respond_speed;
 @dynamic service_attitude;
 @dynamic auth_type;
+@dynamic work_auth_type;
+@dynamic email_auth_type;
+@dynamic uid_auth_type;
+@dynamic product_count;
+@dynamic authed_product_count;
 @dynamic dec_styles;
 @dynamic family_description;
 @dynamic wechat_openid;

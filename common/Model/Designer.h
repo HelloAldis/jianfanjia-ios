@@ -26,6 +26,7 @@
 @property(nonatomic, strong) NSString *email;
 @property(nonatomic, strong) NSNumber *view_count;
 @property(nonatomic, strong) NSNumber *authed_product_count;
+@property(nonatomic, strong) NSNumber *product_count;
 @property(nonatomic, strong) NSNumber *order_count;
 @property(nonatomic, strong) NSArray *dec_types;
 @property(nonatomic, strong) NSArray *dec_house_types;
@@ -43,7 +44,8 @@
 @property(nonatomic, strong) NSString *uid_auth_type;
 @property(nonatomic, strong) NSNumber *match;
 @property(nonatomic, strong) NSArray *tags;
-
+@property(nonatomic, strong) NSString *work_auth_type;
+@property(nonatomic, strong) NSString *email_auth_type;
 
 //不动态的属性
 @property(nonatomic, strong) Product *product;

@@ -22,6 +22,7 @@
 @dynamic email;
 @dynamic view_count;
 @dynamic authed_product_count;
+@dynamic product_count;
 @dynamic order_count;
 @dynamic dec_types;
 @dynamic dec_house_types;
@@ -39,5 +40,7 @@
 @dynamic uid_auth_type;
 @dynamic match;
 @dynamic tags;
+@dynamic work_auth_type;
+@dynamic email_auth_type;
 
 @end

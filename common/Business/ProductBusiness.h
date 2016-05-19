@@ -11,5 +11,6 @@
 @interface ProductBusiness : NSObject
 
 + (UIImage *)productAuthTypeImage:(NSString *)authType;
++ (UIColor *)productAuthTypeColor:(NSString *)authType;
 
 @end
