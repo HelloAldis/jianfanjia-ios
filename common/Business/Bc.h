@@ -55,6 +55,11 @@ extern NSString * const kAuthTypeVerifyPass;
 extern NSString * const kAuthTypeVerifyNotPass;
 extern NSString * const kAuthTypeBreakRule;
 
+extern NSString * const kProductAuthTypeUnsubmitVerify;
+extern NSString * const kProductAuthTypeVerifyPass;
+extern NSString * const kProductAuthTypeVerifyNotPass;
+extern NSString * const kProductAuthTypeBreakRule;
+
 extern NSString * const kTopicTypePlan;
 extern NSString * const kTopicTypeProcess;
 

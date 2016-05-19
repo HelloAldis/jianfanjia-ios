@@ -22,6 +22,7 @@ static NSDictionary *sex_type = nil;
 static NSArray *population_type = nil;
 static NSDictionary *planStatus = nil;
 static NSDictionary *requirementStatus = nil;
+static NSDictionary *productAuthType = nil;
 static NSDictionary *authType = nil;
 static NSDictionary *userType = nil;
 static NSDictionary *sectionStatusDic = nil;
@@ -121,6 +122,18 @@ static NSArray *desginerTagArr = nil;
                 @"2":@"审核不通过",
                 @"3":@"违规屏蔽"
                 };
+    
+    productAuthType = @{
+                 kProductAuthTypeUnsubmitVerify:@"认证中",
+                 kProductAuthTypeVerifyPass:@"认证成功",
+                 kProductAuthTypeVerifyNotPass:@"认证失败",
+                 kProductAuthTypeBreakRule:@"违规屏蔽"
+                 };
+    
+    extern NSString * const kProductAuthTypeUnsubmitVerify;
+    extern NSString * const kProductAuthTypeVerifyPass;
+    extern NSString * const kProductAuthTypeVerifyNotPass;
+    extern NSString * const kProductAuthTypeBreakRule;
     
     userType = @{
                  @"0":@"管理员",
@@ -276,6 +289,10 @@ static NSArray *desginerTagArr = nil;
 
 + (NSString *)nameForAuthType:(NSString *)type {
     return [authType objectForKey:type];
+}
+
++ (NSString *)nameForProductAuthType:(NSString *)type {
+    return [productAuthType objectForKey:type];
 }
 
 + (NSString *)nameForPlanStatus:(NSString *)status {

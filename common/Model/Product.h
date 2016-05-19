@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSNumber *house_area;
 @property (strong, nonatomic) NSString *dec_style;
 @property (strong, nonatomic) NSString *work_type;
+@property (strong, nonatomic) NSString *auth_type;
 @property (strong, nonatomic) NSNumber *total_price;
 @property (strong, nonatomic) NSString *product_description;
 @property (strong, nonatomic) NSString *cover_imageid;

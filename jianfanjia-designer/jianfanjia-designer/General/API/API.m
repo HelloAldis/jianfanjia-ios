@@ -139,6 +139,14 @@
     [API POST:@"designer/product" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)designerDeleteProduct:(DesignerDeleteProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/product/delete" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerGetOneProduct:(ProductHomePage *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/product/one" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 

@@ -33,6 +33,7 @@
 #import "DesignerAuthViewController.h"
 #import "InfoAuthViewController.h"
 #import "ProductAuthViewController.h"
+#import "ProductViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -140,6 +141,42 @@ static ViewControllerContainer *container;
 + (void)showProcess:(NSString *)processid {
     ProcessViewController *v = [[ProcessViewController alloc] initWithProcess:processid];
     [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showProduct:(NSString *)productid {
+    [self showProduct:productid isModal:NO];
+}
+
++ (void)showProduct:(NSString *)productid isModal:(BOOL)isModal {
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
+    BOOL hasProduct = NO;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[ProductViewController class]]) {
+            hasProduct = YES;
+            ProductViewController *p = (ProductViewController *)v;
+            if (![p.productid isEqualToString:productid]) {
+                p.productid = productid;
+                p.needRefreshProductViewController = YES;
+            }
+            [nav popToViewController:v animated:YES];
+        }
+    }
+    
+    if (!hasProduct) {
+        ProductViewController *v = [[ProductViewController alloc] initWithNibName:nil bundle:nil];
+        v.productid = productid;
+        
+        if (isModal) {
+            UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
+            v.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+            v.modalPresentationStyle = UIModalPresentationOverFullScreen;
+            
+            [nav presentViewController:navi animated:YES completion:nil];
+        } else {
+            [nav pushViewController:v animated:YES];
+        }
+    }
 }
 
 + (void)showRequirementCreate:(Requirement *)requirement {

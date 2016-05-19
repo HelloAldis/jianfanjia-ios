@@ -19,6 +19,7 @@ static NSString *ProductAuthCellIdentifier = @"ProductAuthCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) ProductAuthDataManager *dataManager;
+@property (assign, nonatomic) BOOL isEditing;
 
 @end
 
@@ -36,16 +37,19 @@ static NSString *ProductAuthCellIdentifier = @"ProductAuthCell";
 - (void)initNav {
     self.title = @"全部案例";
     [self initLeftBackInNav];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
 
 - (void)initUI {
     self.dataManager = [[ProductAuthDataManager alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 8, 0, 0, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     [self.tableView registerNib:[UINib nibWithNibName:ProductUploadCellIdentifier bundle:nil] forCellReuseIdentifier:ProductUploadCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:ProductAuthCellIdentifier bundle:nil] forCellReuseIdentifier:ProductAuthCellIdentifier];
-    self.tableView.header.ignoredScrollViewContentInsetTop = 8;
     
     @weakify(self);
     self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
@@ -81,7 +85,10 @@ static NSString *ProductAuthCellIdentifier = @"ProductAuthCell";
     }
     
     ProductAuthCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthCellIdentifier];
-    [cell initWithProduct:self.dataManager.products[indexPath.row]];
+    [cell initWithProduct:self.dataManager.products[indexPath.row] edit:self.isEditing deleteBlock:^{
+        [self.dataManager.products removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }];
     return cell;
 }
 
@@ -134,6 +141,19 @@ static NSString *ProductAuthCellIdentifier = @"ProductAuthCell";
     } networkError:^{
         [self.tableView.footer endRefreshing];
     }];
+}
+
+#pragma mark - user action
+- (void)onClickEdit {
+    self.isEditing = !self.isEditing;
+    
+    if (self.isEditing) {
+        self.navigationItem.rightBarButtonItem.title = @"完成";
+    } else {
+        self.navigationItem.rightBarButtonItem.title = @"编辑";
+    }
+    
+    [self.tableView reloadData];
 }
 
 @end

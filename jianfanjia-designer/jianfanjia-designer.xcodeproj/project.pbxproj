@@ -281,6 +281,17 @@
 		685B15311CEC73AD0076996A /* ProductUploadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B152F1CEC73AD0076996A /* ProductUploadCell.m */; };
 		685B15321CEC73AD0076996A /* ProductUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15301CEC73AD0076996A /* ProductUploadCell.xib */; };
 		685B15381CEC790A0076996A /* DesignerGetProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15371CEC790A0076996A /* DesignerGetProducts.m */; };
+		685B153B1CED5C350076996A /* ProductBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B153A1CED5C350076996A /* ProductBusiness.m */; };
+		685B153E1CED6C930076996A /* DesignerDeleteProduct.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B153D1CED6C930076996A /* DesignerDeleteProduct.m */; };
+		685B154B1CED70620076996A /* ProductImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15411CED70620076996A /* ProductImageCell.m */; };
+		685B154C1CED70620076996A /* ProductImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15421CED70620076996A /* ProductImageCell.xib */; };
+		685B154D1CED70620076996A /* ProductInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15441CED70620076996A /* ProductInfoCell.m */; };
+		685B154E1CED70620076996A /* ProductInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15451CED70620076996A /* ProductInfoCell.xib */; };
+		685B154F1CED70620076996A /* ProductPageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15471CED70620076996A /* ProductPageData.m */; };
+		685B15501CED70620076996A /* ProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15491CED70620076996A /* ProductViewController.m */; };
+		685B15511CED70620076996A /* ProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B154A1CED70620076996A /* ProductViewController.xib */; };
+		685B15541CED71950076996A /* ProductHomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15531CED71950076996A /* ProductHomePage.m */; };
+		685B15571CED73D50076996A /* UILabel+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15561CED73D50076996A /* UILabel+Ex.m */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -843,6 +854,25 @@
 		685B15301CEC73AD0076996A /* ProductUploadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductUploadCell.xib; sourceTree = "<group>"; };
 		685B15361CEC790A0076996A /* DesignerGetProducts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerGetProducts.h; sourceTree = "<group>"; };
 		685B15371CEC790A0076996A /* DesignerGetProducts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerGetProducts.m; sourceTree = "<group>"; };
+		685B15391CED5C350076996A /* ProductBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductBusiness.h; sourceTree = "<group>"; };
+		685B153A1CED5C350076996A /* ProductBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductBusiness.m; sourceTree = "<group>"; };
+		685B153C1CED6C930076996A /* DesignerDeleteProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerDeleteProduct.h; sourceTree = "<group>"; };
+		685B153D1CED6C930076996A /* DesignerDeleteProduct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerDeleteProduct.m; sourceTree = "<group>"; };
+		685B15401CED70620076996A /* ProductImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductImageCell.h; sourceTree = "<group>"; };
+		685B15411CED70620076996A /* ProductImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductImageCell.m; sourceTree = "<group>"; };
+		685B15421CED70620076996A /* ProductImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductImageCell.xib; sourceTree = "<group>"; };
+		685B15431CED70620076996A /* ProductInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductInfoCell.h; sourceTree = "<group>"; };
+		685B15441CED70620076996A /* ProductInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductInfoCell.m; sourceTree = "<group>"; };
+		685B15451CED70620076996A /* ProductInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductInfoCell.xib; sourceTree = "<group>"; };
+		685B15461CED70620076996A /* ProductPageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductPageData.h; sourceTree = "<group>"; };
+		685B15471CED70620076996A /* ProductPageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductPageData.m; sourceTree = "<group>"; };
+		685B15481CED70620076996A /* ProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductViewController.h; sourceTree = "<group>"; };
+		685B15491CED70620076996A /* ProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductViewController.m; sourceTree = "<group>"; };
+		685B154A1CED70620076996A /* ProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductViewController.xib; sourceTree = "<group>"; };
+		685B15521CED71950076996A /* ProductHomePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductHomePage.h; sourceTree = "<group>"; };
+		685B15531CED71950076996A /* ProductHomePage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductHomePage.m; sourceTree = "<group>"; };
+		685B15551CED73D50076996A /* UILabel+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Ex.h"; sourceTree = "<group>"; };
+		685B15561CED73D50076996A /* UILabel+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Ex.m"; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1184,6 +1214,7 @@
 				68123DCF1C4CBE79008FC9AB /* RequirementList */,
 				684B04201C990E910053FFDF /* MyNotification */,
 				685B14EB1CEC520C0076996A /* Auth */,
+				685B153F1CED70620076996A /* Product */,
 				68123E5D1C4CBE79008FC9AB /* Welcome */,
 			);
 			path = Screen;
@@ -1648,6 +1679,24 @@
 			path = EditCellComponent;
 			sourceTree = "<group>";
 		};
+		685B153F1CED70620076996A /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				685B15481CED70620076996A /* ProductViewController.h */,
+				685B15491CED70620076996A /* ProductViewController.m */,
+				685B154A1CED70620076996A /* ProductViewController.xib */,
+				685B15401CED70620076996A /* ProductImageCell.h */,
+				685B15411CED70620076996A /* ProductImageCell.m */,
+				685B15421CED70620076996A /* ProductImageCell.xib */,
+				685B15431CED70620076996A /* ProductInfoCell.h */,
+				685B15441CED70620076996A /* ProductInfoCell.m */,
+				685B15451CED70620076996A /* ProductInfoCell.xib */,
+				685B15461CED70620076996A /* ProductPageData.h */,
+				685B15471CED70620076996A /* ProductPageData.m */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
 		685F2D771CAD0DD400DC4D43 /* RefreshComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -1831,6 +1880,10 @@
 		6E378CD11BDA2D2E00908B77 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				685B15521CED71950076996A /* ProductHomePage.h */,
+				685B15531CED71950076996A /* ProductHomePage.m */,
+				685B153C1CED6C930076996A /* DesignerDeleteProduct.h */,
+				685B153D1CED6C930076996A /* DesignerDeleteProduct.m */,
 				685B15361CEC790A0076996A /* DesignerGetProducts.h */,
 				685B15371CEC790A0076996A /* DesignerGetProducts.m */,
 				684B04431C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.h */,
@@ -1921,6 +1974,8 @@
 				684B03F91C9818CF0053FFDF /* NotificationBusiness.m */,
 				68123FE51C4CCFFF008FC9AB /* DesignerBusiness.h */,
 				68123FE61C4CCFFF008FC9AB /* DesignerBusiness.m */,
+				685B15391CED5C350076996A /* ProductBusiness.h */,
+				685B153A1CED5C350076996A /* ProductBusiness.m */,
 				68123FE71C4CCFFF008FC9AB /* EnumBusiness.h */,
 				68123FE81C4CCFFF008FC9AB /* NameDict.h */,
 				68123FE91C4CCFFF008FC9AB /* NameDict.m */,
@@ -1940,6 +1995,8 @@
 			children = (
 				689220051CD2104900BC80C7 /* UIViewController+KeyboardAnimation.h */,
 				689220061CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m */,
+				685B15551CED73D50076996A /* UILabel+Ex.h */,
+				685B15561CED73D50076996A /* UILabel+Ex.m */,
 				685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */,
 				685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */,
 				684B03D01C98141F0053FFDF /* UIView+Badge.h */,
@@ -2274,8 +2331,10 @@
 				68123EBE1C4CBE79008FC9AB /* RefreshViewController.xib in Resources */,
 				681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */,
 				68123C8E1C4C9772008FC9AB /* MessageAlertViewController.xib in Resources */,
+				685B154E1CED70620076996A /* ProductInfoCell.xib in Resources */,
 				68123F211C4CBE79008FC9AB /* WelcomeViewController.xib in Resources */,
 				684B040C1C98F7060053FFDF /* CommentListViewController.xib in Resources */,
+				685B154C1CED70620076996A /* ProductImageCell.xib in Resources */,
 				681241AF1C4F3BCF008FC9AB /* SubmitedPlanActionCell.xib in Resources */,
 				685B152A1CEC71010076996A /* ProductAuthCell.xib in Resources */,
 				685B15191CEC60950076996A /* SelectionEditCell.xib in Resources */,
@@ -2286,6 +2345,7 @@
 				68123C991C4C9772008FC9AB /* allprovince.js in Resources */,
 				685B14861CEB11CF0076996A /* SelectHouseTypeViewController.xib in Resources */,
 				685B14DA1CEB20EC0076996A /* QuickLinkCell.xib in Resources */,
+				685B15511CED70620076996A /* ProductViewController.xib in Resources */,
 				681241CA1C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib in Resources */,
 				68123E711C4CBE79008FC9AB /* LoginViewController.xib in Resources */,
 				68123E771C4CBE79008FC9AB /* VerifyPhoneViewController.xib in Resources */,
@@ -2388,6 +2448,8 @@
 				68123F031C4CBE79008FC9AB /* RequirementCreateViewController.m in Sources */,
 				68123F1A1C4CBE79008FC9AB /* W2View.m in Sources */,
 				68123E701C4CBE79008FC9AB /* LoginViewController.m in Sources */,
+				685B153B1CED5C350076996A /* ProductBusiness.m in Sources */,
+				685B15501CED70620076996A /* ProductViewController.m in Sources */,
 				685B14811CEB11CF0076996A /* SelectDecorationStyleViewController.m in Sources */,
 				681240B61C4CE471008FC9AB /* Feedback.m in Sources */,
 				6E378D501BDA2D2E00908B77 /* Item.m in Sources */,
@@ -2418,6 +2480,7 @@
 				681240E61C4CF2CC008FC9AB /* MyProcessViewController.m in Sources */,
 				68F73D2F1CBB597E00E97710 /* ReqtDesignerResponded.m in Sources */,
 				68123F291C4CCBF9008FC9AB /* MyUserViewController.m in Sources */,
+				685B15541CED71950076996A /* ProductHomePage.m in Sources */,
 				68123F151C4CBE79008FC9AB /* RequirementDataManager.m in Sources */,
 				68123FE11C4CCF4A008FC9AB /* Product.m in Sources */,
 				685B152B1CEC71010076996A /* ProductAuthDataManager.m in Sources */,
@@ -2453,6 +2516,7 @@
 				680C46271CC5CD15008C4BC0 /* GVUserDefaults+Manager.m in Sources */,
 				68123FE21C4CCF4A008FC9AB /* ProductImage.m in Sources */,
 				681241A71C4F3B1C008FC9AB /* RejectActionCell.m in Sources */,
+				685B154D1CED70620076996A /* ProductInfoCell.m in Sources */,
 				68123E6E1C4CBE79008FC9AB /* TabViewController.m in Sources */,
 				68123E911C4CBE79008FC9AB /* AboutViewController.m in Sources */,
 				684B04471C9A76480053FFDF /* UIBarButtonItem+Badge.m in Sources */,
@@ -2482,6 +2546,7 @@
 				6812401B1C4CDA06008FC9AB /* UIImagePickerController+Ex.m in Sources */,
 				68F73D311CBB597E00E97710 /* ReqtFinishedWorkSite.m in Sources */,
 				681240C81C4CE471008FC9AB /* RefreshSession.m in Sources */,
+				685B154F1CED70620076996A /* ProductPageData.m in Sources */,
 				685B14191CEAFF600076996A /* KRSSwizzle.m in Sources */,
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
 				68F73D301CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m in Sources */,
@@ -2566,6 +2631,7 @@
 				685B15121CEC60950076996A /* BaseEditCell.m in Sources */,
 				68123F201C4CBE79008FC9AB /* WelcomeViewController.m in Sources */,
 				68123C9C1C4C9772008FC9AB /* SelectCityViewController.m in Sources */,
+				685B154B1CED70620076996A /* ProductImageCell.m in Sources */,
 				685B14D91CEB20EC0076996A /* QuickLinkCell.m in Sources */,
 				68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */,
 				681241A51C4F3B1C008FC9AB /* SubmitPlanExpiredActionCell.m in Sources */,
@@ -2581,6 +2647,7 @@
 				680C46771CC6310E008C4BC0 /* PlanExpiredActionCell.m in Sources */,
 				68F73D261CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.m in Sources */,
 				6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */,
+				685B153E1CED6C930076996A /* DesignerDeleteProduct.m in Sources */,
 				68123E761C4CBE79008FC9AB /* VerifyPhoneViewController.m in Sources */,
 				68123C961C4C9772008FC9AB /* ImageEditorViewController.m in Sources */,
 				685B14F91CEC54B60076996A /* AvtarImageCell.m in Sources */,
@@ -2615,6 +2682,7 @@
 				68123EEC1C4CBE79008FC9AB /* PlanCell.m in Sources */,
 				68123FDE1C4CCF4A008FC9AB /* LeafImage.m in Sources */,
 				681241A31C4F3B1C008FC9AB /* MeasuredHouseActionCell.m in Sources */,
+				685B15571CED73D50076996A /* UILabel+Ex.m in Sources */,
 				68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */,
 				685B14D41CEB1CD20076996A /* AvtarInfoCell.m in Sources */,
 				68F73D341CBB597E00E97710 /* ReqtUnorderDesigner.m in Sources */,

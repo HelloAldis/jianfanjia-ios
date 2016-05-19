@@ -10,8 +10,10 @@
 
 #define kProductAuthCellHeight 280
 
+typedef void (^ProductAuthCellDeleteBlock)(void);
+
 @interface ProductAuthCell : UITableViewCell
 
-- (void)initWithProduct:(Product *)product;
+- (void)initWithProduct:(Product *)product edit:(BOOL)edit deleteBlock:(ProductAuthCellDeleteBlock)deleteBlock;
 
 @end

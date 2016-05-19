@@ -36,6 +36,7 @@
 + (NSString *)nameForCommunicationType:(NSString *)type;
 + (NSString *)nameForSexType:(NSString *)type;
 + (NSString *)nameForAuthType:(NSString *)type;
++ (NSString *)nameForProductAuthType:(NSString *)type;
 + (NSString *)nameForPlanStatus:(NSString *)status;
 + (NSString *)nameForRequirementStatus:(NSString *)status;
 + (NSString *)nameForSectionStatus:(NSString *)status;

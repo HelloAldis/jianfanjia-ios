@@ -128,6 +128,18 @@ NSString * const kAuthTypeBreakRule  = @"4";
 
 
 /**
+ 作品认证状态 auth_type
+ * 0. 未审核
+ * 1. 审核通过
+ * 2. 审核不通过
+ * 3. 违规屏蔽
+ **/
+NSString * const kProductAuthTypeUnsubmitVerify = @"0";
+NSString * const kProductAuthTypeVerifyPass = @"1";
+NSString * const kProductAuthTypeVerifyNotPass = @"2";
+NSString * const kProductAuthTypeBreakRule  = @"3";
+
+/**
  评论类别 topictype
  * 0. 方案的评论
  * 1. 装修流程的小点的评论

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kProductUploadCellHeight 50
+#define kProductUploadCellHeight 66
 
 @interface ProductUploadCell : UITableViewCell
 

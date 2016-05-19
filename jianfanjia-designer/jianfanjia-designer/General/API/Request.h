@@ -44,5 +44,7 @@
 #import "GetDesignerUnreadCount.h"
 #import "DesignerNotifyUserToConfirmMeasureHouse.h"
 #import "DesignerGetProducts.h"
+#import "DesignerDeleteProduct.h"
+#import "ProductHomePage.h"
 
 #endif

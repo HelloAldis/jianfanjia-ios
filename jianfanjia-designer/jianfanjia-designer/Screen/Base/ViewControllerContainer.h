@@ -20,6 +20,8 @@
 + (void)showResetPass;
 + (void)showProcessPreview;
 + (void)showProcess:(NSString *)processid;
++ (void)showProduct:(NSString *)productid;
++ (void)showProduct:(NSString *)productid isModal:(BOOL)isModal;
 + (void)showRequirementCreate:(Requirement *)requirement;
 + (void)showEvaluate:(Designer *)designer evaluation:(Evaluation *)evaluation;
 + (void)showPlanList:(Requirement *)requirement;

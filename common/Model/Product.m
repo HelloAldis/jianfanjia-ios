@@ -20,6 +20,7 @@
 @dynamic dec_type;
 @dynamic house_area;
 @dynamic dec_style;
+@dynamic auth_type;
 @dynamic work_type;
 @dynamic total_price;
 @dynamic product_description;
