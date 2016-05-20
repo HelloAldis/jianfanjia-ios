@@ -74,6 +74,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     self.authCenterItem = [EditCellItem createAttrSelection:[[NSAttributedString alloc] initWithString:@"设计师认证中心"] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
         [ViewControllerContainer showDesignerAuth];
     }];
+    [self updateAuthCenter];
     
     self.sectionArr2 = @[
                          self.authCenterItem,
@@ -166,32 +167,9 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
 }
 
 #pragma mark - user action
-- (IBAction)onClickNotification {
+- (void)onClickNotification {
     [ViewControllerContainer showMyNotification:NotificationTypeAll];
 }
-
-//
-//- (IBAction)onClickClearCache:(id)sender {
-//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清空缓存？" message:nil preferredStyle:UIAlertControllerStyleAlert];
-//    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-//        //Do nothing
-//    }];
-//    
-//    @weakify(self)
-//    UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        @strongify(self);
-//        YYImageCache *cache = [YYWebImageManager sharedManager].cache;
-//        [cache.memoryCache removeAllObjects];
-//        [cache.diskCache removeAllObjects];
-////        [self updateCache];
-//    }];
-//    
-//    [alert addAction:cancel];
-//    [alert addAction:done];
-//    
-//    [self presentViewController:alert animated:YES completion:nil];
-//}
-//
 
 #pragma mark - api request
 - (void)refreshInfo {

@@ -304,6 +304,8 @@
 		685B15771CED96D00076996A /* TeamAuthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15751CED96D00076996A /* TeamAuthCell.xib */; };
 		685B157B1CEDC13F0076996A /* DesignerAuthCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15791CEDC13F0076996A /* DesignerAuthCell.m */; };
 		685B157C1CEDC13F0076996A /* DesignerAuthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B157A1CEDC13F0076996A /* DesignerAuthCell.xib */; };
+		685B15801CEEB1510076996A /* LogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B157E1CEEB1510076996A /* LogoutCell.m */; };
+		685B15811CEEB1510076996A /* LogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B157F1CEEB1510076996A /* LogoutCell.xib */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -905,6 +907,9 @@
 		685B15781CEDC13F0076996A /* DesignerAuthCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerAuthCell.h; sourceTree = "<group>"; };
 		685B15791CEDC13F0076996A /* DesignerAuthCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerAuthCell.m; sourceTree = "<group>"; };
 		685B157A1CEDC13F0076996A /* DesignerAuthCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerAuthCell.xib; sourceTree = "<group>"; };
+		685B157D1CEEB1510076996A /* LogoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutCell.h; sourceTree = "<group>"; };
+		685B157E1CEEB1510076996A /* LogoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutCell.m; sourceTree = "<group>"; };
+		685B157F1CEEB1510076996A /* LogoutCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoutCell.xib; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1328,6 +1333,9 @@
 				68123D8A1C4CBE79008FC9AB /* SettingViewController.h */,
 				68123D8B1C4CBE79008FC9AB /* SettingViewController.m */,
 				68123D8C1C4CBE79008FC9AB /* SettingViewController.xib */,
+				685B157D1CEEB1510076996A /* LogoutCell.h */,
+				685B157E1CEEB1510076996A /* LogoutCell.m */,
+				685B157F1CEEB1510076996A /* LogoutCell.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -2401,6 +2409,7 @@
 				685B14861CEB11CF0076996A /* SelectHouseTypeViewController.xib in Resources */,
 				685B14DA1CEB20EC0076996A /* QuickLinkCell.xib in Resources */,
 				685B15511CED70620076996A /* ProductViewController.xib in Resources */,
+				685B15811CEEB1510076996A /* LogoutCell.xib in Resources */,
 				681241CA1C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib in Resources */,
 				68123E711C4CBE79008FC9AB /* LoginViewController.xib in Resources */,
 				68123E771C4CBE79008FC9AB /* VerifyPhoneViewController.xib in Resources */,
@@ -2607,6 +2616,7 @@
 				6812401B1C4CDA06008FC9AB /* UIImagePickerController+Ex.m in Sources */,
 				68F73D311CBB597E00E97710 /* ReqtFinishedWorkSite.m in Sources */,
 				681240C81C4CE471008FC9AB /* RefreshSession.m in Sources */,
+				685B15801CEEB1510076996A /* LogoutCell.m in Sources */,
 				685B154F1CED70620076996A /* ProductPageData.m in Sources */,
 				685B14191CEAFF600076996A /* KRSSwizzle.m in Sources */,
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
