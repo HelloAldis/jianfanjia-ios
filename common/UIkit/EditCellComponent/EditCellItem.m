@@ -10,6 +10,7 @@ static NSString *SelectionEditCellIdentifier = @"SelectionEditCell";
 static NSString *FieldEditCellIdentifier = @"FieldEditCell";
 static NSString *TextEditCellIdentifier = @"TextEditCell";
 static NSString *GroupImageEditCellIdentifier = @"GroupImageEditCell";
+static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
 
 #import "EditCellItem.h"
 #import "BaseEditCell.h"
@@ -26,6 +27,8 @@ static NSString *GroupImageEditCellIdentifier = @"GroupImageEditCell";
         cellIdentifier = TextEditCellIdentifier;
     } else if (self.cellEditType == CellEditTypeGroupImage) {
         cellIdentifier = GroupImageEditCellIdentifier;
+    } else if (self.cellEditType == CellEditTypeCompareImage) {
+        cellIdentifier = CompareImageEditCellIdentifier;
     }
     
     BaseEditCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
@@ -39,6 +42,7 @@ static NSString *GroupImageEditCellIdentifier = @"GroupImageEditCell";
     [tableView registerNib:[UINib nibWithNibName:FieldEditCellIdentifier bundle:nil] forCellReuseIdentifier:FieldEditCellIdentifier];
     [tableView registerNib:[UINib nibWithNibName:TextEditCellIdentifier bundle:nil] forCellReuseIdentifier:TextEditCellIdentifier];
     [tableView registerNib:[UINib nibWithNibName:GroupImageEditCellIdentifier bundle:nil] forCellReuseIdentifier:GroupImageEditCellIdentifier];
+    [tableView registerNib:[UINib nibWithNibName:CompareImageEditCellIdentifier bundle:nil] forCellReuseIdentifier:CompareImageEditCellIdentifier];
 }
 
 + (EditCellItem *)createSelection:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder tapBlock:(EditCellItemTapBlock)tapBlock {
@@ -102,6 +106,16 @@ static NSString *GroupImageEditCellIdentifier = @"GroupImageEditCell";
     item.cellEditType = CellEditTypeGroupImage;
     item.title = title;
     item.value = value;
+    
+    return item;
+}
+
++ (EditCellItem *)createCompareImage:(NSString *)title compareImage:(UIImage *)compareImage uploadImage:(NSString *)uploadImage {
+    EditCellItem *item = [[EditCellItem alloc] init];
+    item.cellEditType = CellEditTypeCompareImage;
+    item.title = title;
+    item.compareImage = compareImage;
+    item.uploadImage = uploadImage;
     
     return item;
 }

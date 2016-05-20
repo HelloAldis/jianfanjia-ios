@@ -306,6 +306,10 @@
 		685B157C1CEDC13F0076996A /* DesignerAuthCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B157A1CEDC13F0076996A /* DesignerAuthCell.xib */; };
 		685B15801CEEB1510076996A /* LogoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B157E1CEEB1510076996A /* LogoutCell.m */; };
 		685B15811CEEB1510076996A /* LogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B157F1CEEB1510076996A /* LogoutCell.xib */; };
+		685B15851CEEE5210076996A /* CompareImageEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15831CEEE5210076996A /* CompareImageEditCell.m */; };
+		685B15861CEEE5210076996A /* CompareImageEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15841CEEE5210076996A /* CompareImageEditCell.xib */; };
+		685B158A1CEEEC010076996A /* IDAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15881CEEEC010076996A /* IDAuthViewController.m */; };
+		685B158B1CEEEC010076996A /* IDAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15891CEEEC010076996A /* IDAuthViewController.xib */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -910,6 +914,12 @@
 		685B157D1CEEB1510076996A /* LogoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogoutCell.h; sourceTree = "<group>"; };
 		685B157E1CEEB1510076996A /* LogoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogoutCell.m; sourceTree = "<group>"; };
 		685B157F1CEEB1510076996A /* LogoutCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogoutCell.xib; sourceTree = "<group>"; };
+		685B15821CEEE5210076996A /* CompareImageEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompareImageEditCell.h; sourceTree = "<group>"; };
+		685B15831CEEE5210076996A /* CompareImageEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompareImageEditCell.m; sourceTree = "<group>"; };
+		685B15841CEEE5210076996A /* CompareImageEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompareImageEditCell.xib; sourceTree = "<group>"; };
+		685B15871CEEEC010076996A /* IDAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDAuthViewController.h; sourceTree = "<group>"; };
+		685B15881CEEEC010076996A /* IDAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDAuthViewController.m; sourceTree = "<group>"; };
+		685B15891CEEEC010076996A /* IDAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDAuthViewController.xib; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1656,6 +1666,9 @@
 		685B14ED1CEC526C0076996A /* IDAuth */ = {
 			isa = PBXGroup;
 			children = (
+				685B15871CEEEC010076996A /* IDAuthViewController.h */,
+				685B15881CEEEC010076996A /* IDAuthViewController.m */,
+				685B15891CEEEC010076996A /* IDAuthViewController.xib */,
 			);
 			path = IDAuth;
 			sourceTree = "<group>";
@@ -1729,6 +1742,9 @@
 				685B150F1CEC60950076996A /* TextEditCell.h */,
 				685B15101CEC60950076996A /* TextEditCell.m */,
 				685B15111CEC60950076996A /* TextEditCell.xib */,
+				685B15821CEEE5210076996A /* CompareImageEditCell.h */,
+				685B15831CEEE5210076996A /* CompareImageEditCell.m */,
+				685B15841CEEE5210076996A /* CompareImageEditCell.xib */,
 			);
 			path = EditCellComponent;
 			sourceTree = "<group>";
@@ -2334,6 +2350,7 @@
 				684B040E1C98F7060053FFDF /* DecCommentInfoCell.xib in Resources */,
 				6EA0C19C1C577F7500D04A4F /* PlanPriceItemCell.xib in Resources */,
 				685B15721CED93BB0076996A /* TeamUploadCell.xib in Resources */,
+				685B158B1CEEEC010076996A /* IDAuthViewController.xib in Resources */,
 				68123E791C4CBE79008FC9AB /* CustomerServiceViewController.xib in Resources */,
 				68123E961C4CBE79008FC9AB /* SettingViewController.xib in Resources */,
 				68123EED1C4CBE79008FC9AB /* PlanCell.xib in Resources */,
@@ -2436,6 +2453,7 @@
 				68123E941C4CBE79008FC9AB /* FeedbackViewController.xib in Resources */,
 				685B15701CED93BB0076996A /* TeamAuthViewController.xib in Resources */,
 				68123C9A1C4C9772008FC9AB /* city2area.js in Resources */,
+				685B15861CEEE5210076996A /* CompareImageEditCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2752,12 +2770,14 @@
 				680C466B1CC61F5F008C4BC0 /* Supervisor.m in Sources */,
 				68123EFB1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.m in Sources */,
 				68123EEC1C4CBE79008FC9AB /* PlanCell.m in Sources */,
+				685B15851CEEE5210076996A /* CompareImageEditCell.m in Sources */,
 				68123FDE1C4CCF4A008FC9AB /* LeafImage.m in Sources */,
 				681241A31C4F3B1C008FC9AB /* MeasuredHouseActionCell.m in Sources */,
 				685B15571CED73D50076996A /* UILabel+Ex.m in Sources */,
 				68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */,
 				685B14D41CEB1CD20076996A /* AvtarInfoCell.m in Sources */,
 				68F73D341CBB597E00E97710 /* ReqtUnorderDesigner.m in Sources */,
+				685B158A1CEEEC010076996A /* IDAuthViewController.m in Sources */,
 				685B147B1CEB11CF0076996A /* MultipleLineTextTableViewCell.m in Sources */,
 				68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */,
 				68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */,

@@ -58,6 +58,8 @@ static CGFloat imgCellWidth;
         self.lblTitle.attributedText = nil;
         self.lblTitle.text = item.title;
     }
+    
+    [self refreshViewContentSize];
 }
 //
 //- (void)initWithItem:(Item *)item withDataManager:(ProcessDataManager *)dataManager withBlock:(void(^)(BOOL isNeedReload))refreshBlock {
@@ -72,25 +74,25 @@ static CGFloat imgCellWidth;
 
 #pragma mark - collection delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+    return 1;
 }
 
 //- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 //    return self.numberOfItemsInsection;
 //}
 //
-//- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    ItemImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ImageCollectionCellIdentifier forIndexPath:indexPath];
-//
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    ItemImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ImageCollectionCellIdentifier forIndexPath:indexPath];
+
 //    if (indexPath.row < self.item.images.count) {
 //        NSString *imgURL = self.item.images[indexPath.row];
 //        [cell initWithImage:imgURL width:self.imgCollectionLayout.itemSize.width];
 //    } else {
-//        [cell initWithImage:nil width:0];
+        [cell initWithImage:nil width:0];
 //    }
-//
-//    return cell;
-//}
+
+    return cell;
+}
 //
 //#pragma mark - user action
 //- (void)deleteImage:(NSIndexPath *)indexPath {
@@ -241,10 +243,10 @@ static CGFloat imgCellWidth;
 //    self.numberOfItemsInsection = self.item.images.count < MAX_IMG_COUNT ? self.item.images.count + 1 : self.item.images.count;
 //}
 //
-//- (void)refreshViewContentSize {
-//    self.imgCollectionLayout.itemSize = CGSizeMake(imgCellWidth, imgCellWidth);
-//    self.imgCollection.viewContentSize = CGSizeMake(imgCollectionWidth,  (imgCellWidth + CELL_SPACE) * (self.numberOfItemsInsection % COUNT_IN_ONE_ROW == 0 ? self.numberOfItemsInsection / COUNT_IN_ONE_ROW : (NSInteger)(self.numberOfItemsInsection / COUNT_IN_ONE_ROW) + 1));
-//    [self.imgCollection invalidateIntrinsicContentSize];
-//}
+- (void)refreshViewContentSize {
+    self.imgCollectionLayout.itemSize = CGSizeMake(imgCellWidth, imgCellWidth);
+    self.imgCollection.viewContentSize = CGSizeMake(imgCollectionWidth,  (imgCellWidth + CELL_SPACE) * (self.numberOfItemsInsection % COUNT_IN_ONE_ROW == 0 ? self.numberOfItemsInsection / COUNT_IN_ONE_ROW : (NSInteger)(self.numberOfItemsInsection / COUNT_IN_ONE_ROW) + 1));
+    [self.imgCollection invalidateIntrinsicContentSize];
+}
 
 @end

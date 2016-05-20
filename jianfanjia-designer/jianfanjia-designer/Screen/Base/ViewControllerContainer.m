@@ -35,6 +35,7 @@
 #import "ProductAuthViewController.h"
 #import "ProductViewController.h"
 #import "TeamAuthViewController.h"
+#import "IDAuthViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -261,6 +262,11 @@ static ViewControllerContainer *container;
 
 + (void)showInfoAuth {
     InfoAuthViewController *v = [[InfoAuthViewController alloc] init];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showIDAuth {
+    IDAuthViewController *v = [[IDAuthViewController alloc] init];
     [container.navigation pushViewController:v animated:YES];
 }
 

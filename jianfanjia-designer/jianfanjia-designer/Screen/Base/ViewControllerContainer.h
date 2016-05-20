@@ -36,6 +36,7 @@
 + (void)showMyComments;
 + (void)showDesignerAuth;
 + (void)showInfoAuth;
++ (void)showIDAuth;
 + (void)showProductAuth;
 + (void)showTeamAuth;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;

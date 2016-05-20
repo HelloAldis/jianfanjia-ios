@@ -13,6 +13,7 @@ typedef NS_ENUM(NSInteger, CellEditType) {
     CellEditTypeFld,
     CellEditTypeText,
     CellEditTypeGroupImage,
+    CellEditTypeCompareImage,
 };
 
 @class EditCellItem;
@@ -31,6 +32,10 @@ typedef void (^EditCellItemTapBlock)(EditCellItem *curItem);
 @property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic, copy) EditCellItemTapBlock itemTapBlock;
 
+
+@property (nonatomic, strong) UIImage *compareImage;
+@property (nonatomic, strong) NSString *uploadImage;
+
 - (BaseEditCell *)dequeueReusableCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 + (void)registerCells:(UITableView *)tableView;
 
@@ -43,5 +48,7 @@ typedef void (^EditCellItemTapBlock)(EditCellItem *curItem);
 + (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
 + (EditCellItem *)createText:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
 + (EditCellItem *)createGroupImage:(NSString *)title value:(NSString *)value;
+
++ (EditCellItem *)createCompareImage:(NSString *)title compareImage:(UIImage *)compareImage uploadImage:(NSString *)uploadImage;
 
 @end
