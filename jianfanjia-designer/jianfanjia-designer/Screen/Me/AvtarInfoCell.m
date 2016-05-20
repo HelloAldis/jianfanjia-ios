@@ -34,7 +34,6 @@
     }
     
     [self.avatarImgView setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
-    [[NotificationDataManager shared] refreshUnreadCount];
 }
 
 - (void)onTap {

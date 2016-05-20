@@ -55,7 +55,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     [bellButton addTarget:self action:@selector(onClickNotification) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:bellButton];
     
-    [[NotificationDataManager shared] subscribeMyWorksiteNotiUnreadCount:^(NSInteger count) {
+    [[NotificationDataManager shared] subscribeMyNotificationUnreadCount:^(NSInteger count) {
         self.navigationItem.rightBarButtonItem.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
     }];
 }
