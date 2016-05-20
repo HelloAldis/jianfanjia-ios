@@ -12,5 +12,6 @@
 
 + (UIImage *)productAuthTypeImage:(NSString *)authType;
 + (UIColor *)productAuthTypeColor:(NSString *)authType;
++ (UIColor *)productAuthTypeColorByProductCount;
 
 @end

@@ -14,6 +14,7 @@ extern NSString * const kPkg365Url;
 extern int const kWelcomeVersion;
 extern int const kPhoneLength;
 extern int const kPasswordLength;
+extern int const kMinAuthedProductCount;
 
 extern NSString * const kUserTypeUser;
 extern NSString * const kUserTypeDesigner;

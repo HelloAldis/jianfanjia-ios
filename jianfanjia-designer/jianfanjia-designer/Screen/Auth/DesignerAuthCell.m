@@ -55,9 +55,9 @@ static NSDictionary *imageDic = nil;
     self.authImageView.image = imageDic[type];
     
     if ([type isEqualToString:AuthCellTypeProduct]) {
-        self.lblAuthStatus.text = @"点击查看";
-        self.lblAuthStatus.bgColor = [ProductBusiness productAuthTypeColor:authType];
-        self.authBgView.bgColor = [ProductBusiness productAuthTypeColor:authType];
+        self.lblAuthStatus.text = @"前往查看";
+        self.lblAuthStatus.bgColor = [ProductBusiness productAuthTypeColorByProductCount];
+        self.authBgView.bgColor = [ProductBusiness productAuthTypeColorByProductCount];
     } else {
         self.lblAuthStatus.text = [NameDict nameForAuthType:authType];
         self.lblAuthStatus.bgColor = [DesignerBusiness authTypeColor:authType];

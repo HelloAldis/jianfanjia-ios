@@ -51,6 +51,11 @@ static NSArray *authArr = nil;
     [self initData];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self refreshInfo];
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
@@ -85,16 +90,27 @@ static NSArray *authArr = nil;
     NSString *teamAuthType = [GVUserDefaults standardUserDefaults].work_auth_type;
     NSString *uidAuthType = [GVUserDefaults standardUserDefaults].uid_auth_type;
     NSString *emailAuthType = [GVUserDefaults standardUserDefaults].email_auth_type;
-//    NSNumber *authedProductCount = [GVUserDefaults standardUserDefaults].authed_product_count;
     
     authArr = @[basicAuthType,
                 uidAuthType,
-                kProductAuthTypeVerifyPass,
+                @"",
                 teamAuthType,
                 emailAuthType,
                 ];
     
     [self.collectionView reloadData];
+}
+
+#pragma mark - api request
+- (void)refreshInfo {
+    DesignerGetInfo *request = [[DesignerGetInfo alloc] init];
+    [API designerGetInfo:request success:^{
+        [self initData];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
 }
 
 @end

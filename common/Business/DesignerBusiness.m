@@ -129,11 +129,11 @@
 + (UIColor *)authTypeColor:(NSString *)authType {
     UIColor *color = nil;
     if ([authType isEqualToString:kAuthTypeUnsubmitVerify]) {
-        color = kExcutionStatusColor;;
+        color = [UIColor colorWithR:0xB3 g:0xB9 b:0xBC];
     } else if ([authType isEqualToString:kAuthTypeSubmitedVerifyButNotPass]) {
-        color = kExcutionStatusColor;;
+        color = kExcutionStatusColor;
     } else if ([authType isEqualToString:kAuthTypeVerifyPass]) {
-        color = kPassStatusColor;;
+        color = kPassStatusColor;
     } else if ([authType isEqualToString:kAuthTypeVerifyNotPass]) {
         color = kReminderColor;
     } else {
@@ -168,7 +168,7 @@
         cur += 1;
     }
     
-    if (authedProductCount.integerValue > 3) {
+    if (authedProductCount.integerValue >= kMinAuthedProductCount) {
         cur += 1;
     }
     

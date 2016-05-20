@@ -117,7 +117,7 @@ static NSArray *desginerTagArr = nil;
                           };
     
     authType = @{
-                kAuthTypeUnsubmitVerify:@"未提交审核",
+                kAuthTypeUnsubmitVerify:@"前往认证",
                 kAuthTypeSubmitedVerifyButNotPass:@"认证中",
                 kAuthTypeVerifyPass:@"认证成功",
                 kAuthTypeVerifyNotPass:@"认证失败",
