@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kDesignerAuthCellHeight 244
+#define kDesignerAuthCellHeight 208
 
 static NSString *AuthCellTypeBasicInfo = @"AuthCellTypeBasicInfo";
 static NSString *AuthCellTypeUid = @"AuthCellTypeUid";
