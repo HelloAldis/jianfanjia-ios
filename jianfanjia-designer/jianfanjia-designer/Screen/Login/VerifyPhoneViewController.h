@@ -10,6 +10,8 @@
 
 @interface VerifyPhoneViewController : BaseViewController
 
+@property (nonatomic, copy) void (^callback)(void);
+
 - (id)initWithEvent:(VerfityPhoneEvent)verfityPhoneEvent;
 
 @end

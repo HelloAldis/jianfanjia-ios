@@ -34,13 +34,14 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self initTransparentNavBar:UIBarStyleBlack];
+
     [[RACSignal
       combineLatest:@[self.fldVerifyCode.rac_textSignal]
       reduce:^(NSString *verifyCode) {
          return @([verifyCode trim].length > 0);
       }] subscribeNext:^(id x) {
-         [self.btnSignup enableBgColor:[x boolValue]];
+          [self.btnSignup enableBgColor:[x boolValue]];
       }];
     
     [self.btnSignup setCornerRadius:5];
@@ -63,59 +64,40 @@
 - (IBAction)onClickSignup:(id)sender {
     switch (self.verfityPhoneEvent) {
         case VerfityPhoneEventResetPassword: {
-                UpdatePass *request = [[UpdatePass alloc] init];
-                request.phone = [DataManager shared].signupPagePhone;
-                request.pass = [DataManager shared].signupPagePass;
-                request.code = [self.fldVerifyCode.text trim];
+            UpdatePass *request = [[UpdatePass alloc] init];
+            request.phone = [DataManager shared].signupPagePhone;
+            request.pass = [DataManager shared].signupPagePass;
+            request.code = [self.fldVerifyCode.text trim];
+            
+            [HUDUtil showWait];
+            @weakify(self);
+            [API updatePass:request success:^{
+                @strongify(self);
+                [HUDUtil showSuccessText:@"密码更新成功"];
+                [self.navigationController popToRootViewControllerAnimated:YES];
+            } failure:^{
                 
-                [HUDUtil showWait];
-                @weakify(self);
-                [API updatePass:request success:^{
-                    @strongify(self);
-                    [HUDUtil showSuccessText:@"密码更新成功"];
-                    [self.navigationController popToRootViewControllerAnimated:YES];
-                } failure:^{
-                    
-                } networkError:^{
-                    
-                }];
-            }
+            } networkError:^{
+                
+            }];
+        }
             
             break;
         case VerfityPhoneEventSignup: {
-                DesignerSignup *request = [[DesignerSignup alloc] init];
-                request.phone = [DataManager shared].signupPagePhone;
-                request.pass = [DataManager shared].signupPagePass;
-                request.code = [self.fldVerifyCode.text trim];
+            DesignerSignup *request = [[DesignerSignup alloc] init];
+            request.phone = [DataManager shared].signupPagePhone;
+            request.pass = [DataManager shared].signupPagePass;
+            request.code = [self.fldVerifyCode.text trim];
+            
+            [HUDUtil showWait];
+            [API designerSignup:request success:^{
+                [ViewControllerContainer showTab];
+            } failure:^{
                 
-                [HUDUtil showWait];
-                [API designerSignup:request success:^{
-                    [ViewControllerContainer showTab];
-                } failure:^{
-                    
-                } networkError:^{
-                    
-                }];
-            }
-            
-            break;
-        case VerfityPhoneEventBindPhone: {
-//                BindPhone *request = [[BindPhone alloc] init];
-//                request.phone = [DataManager shared].signupPagePhone;
-//                request.code = [self.fldVerifyCode.text trim];
-//                
-//                [HUDUtil showWait];
-//                [API bindPhone:request success:^{
-//                    [GVUserDefaults standardUserDefaults].phone = request.phone;
-//                    [HUDUtil showSuccessText:@"绑定成功"];
-//                    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-//                } failure:^{
-//                    
-//                } networkError:^{
-//                    
-//                }];
-            }
-            
+            } networkError:^{
+                
+            }];
+        }
             break;
         default:
             break;

@@ -16,7 +16,6 @@
 #import "MeViewController.h"
 #import "RefreshViewController.h"
 #import "VerifyPhoneViewController.h"
-#import "SignupSuccessViewController.h"
 #import "ResetPassViewController.h"
 #import "EvaluateDesignerViewController.h"
 #import "PlanListViewController.h"

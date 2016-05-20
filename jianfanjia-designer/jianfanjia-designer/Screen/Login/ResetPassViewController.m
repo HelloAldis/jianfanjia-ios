@@ -23,7 +23,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initTransparentNavBar:UIBarStyleDefault];
+    [self initTransparentNavBar:UIBarStyleBlack];
 
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
         return YES;
@@ -44,9 +44,9 @@
     [[RACSignal
       combineLatest:@[self.fldPhone.rac_textSignal, self.fldPassword.rac_textSignal]
       reduce:^(NSString *phone, NSString *password) {
-         return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
+          return @([AccountBusiness validatePhone:phone] && [AccountBusiness validatePass:password]);
       }] subscribeNext:^(id x) {
-         [self.btnNext enableBgColor:[x boolValue]];
+          [self.btnNext enableBgColor:[x boolValue]];
       }];
     
     [self initLeftBackInNav];
@@ -77,7 +77,7 @@
     [API sendVerifyCode:req success:^{
         [ViewControllerContainer showVerifyPhone:VerfityPhoneEventResetPassword];
     } failure:^{
-
+        
     } networkError:^{
         
     }];

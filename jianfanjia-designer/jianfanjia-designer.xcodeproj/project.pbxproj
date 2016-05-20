@@ -50,14 +50,6 @@
 		68123E6D1C4CBE79008FC9AB /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D461C4CBE79008FC9AB /* BaseViewController.m */; };
 		68123E6E1C4CBE79008FC9AB /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D481C4CBE79008FC9AB /* TabViewController.m */; };
 		68123E6F1C4CBE79008FC9AB /* ViewControllerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D4A1C4CBE79008FC9AB /* ViewControllerContainer.m */; };
-		68123E701C4CBE79008FC9AB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D4D1C4CBE79008FC9AB /* LoginViewController.m */; };
-		68123E711C4CBE79008FC9AB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D4E1C4CBE79008FC9AB /* LoginViewController.xib */; };
-		68123E721C4CBE79008FC9AB /* ResetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D501C4CBE79008FC9AB /* ResetPassViewController.m */; };
-		68123E731C4CBE79008FC9AB /* ResetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D511C4CBE79008FC9AB /* ResetPassViewController.xib */; };
-		68123E741C4CBE79008FC9AB /* SignupSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D531C4CBE79008FC9AB /* SignupSuccessViewController.m */; };
-		68123E751C4CBE79008FC9AB /* SignupSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D541C4CBE79008FC9AB /* SignupSuccessViewController.xib */; };
-		68123E761C4CBE79008FC9AB /* VerifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D561C4CBE79008FC9AB /* VerifyPhoneViewController.m */; };
-		68123E771C4CBE79008FC9AB /* VerifyPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D571C4CBE79008FC9AB /* VerifyPhoneViewController.xib */; };
 		68123E781C4CBE79008FC9AB /* CustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D5B1C4CBE79008FC9AB /* CustomerServiceViewController.m */; };
 		68123E791C4CBE79008FC9AB /* CustomerServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123D5C1C4CBE79008FC9AB /* CustomerServiceViewController.xib */; };
 		68123E841C4CBE79008FC9AB /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123D6E1C4CBE79008FC9AB /* MeViewController.m */; };
@@ -310,6 +302,12 @@
 		685B15861CEEE5210076996A /* CompareImageEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15841CEEE5210076996A /* CompareImageEditCell.xib */; };
 		685B158A1CEEEC010076996A /* IDAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15881CEEEC010076996A /* IDAuthViewController.m */; };
 		685B158B1CEEEC010076996A /* IDAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15891CEEEC010076996A /* IDAuthViewController.xib */; };
+		685B15951CEEF7E30076996A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B158D1CEEF7E30076996A /* LoginViewController.m */; };
+		685B15961CEEF7E30076996A /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B158E1CEEF7E30076996A /* LoginViewController.xib */; };
+		685B15971CEEF7E30076996A /* ResetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15901CEEF7E30076996A /* ResetPassViewController.m */; };
+		685B15981CEEF7E30076996A /* ResetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15911CEEF7E30076996A /* ResetPassViewController.xib */; };
+		685B15991CEEF7E30076996A /* VerifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15931CEEF7E30076996A /* VerifyPhoneViewController.m */; };
+		685B159A1CEEF7E30076996A /* VerifyPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15941CEEF7E30076996A /* VerifyPhoneViewController.xib */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -485,18 +483,6 @@
 		68123D481C4CBE79008FC9AB /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
 		68123D491C4CBE79008FC9AB /* ViewControllerContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewControllerContainer.h; sourceTree = "<group>"; };
 		68123D4A1C4CBE79008FC9AB /* ViewControllerContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewControllerContainer.m; sourceTree = "<group>"; };
-		68123D4C1C4CBE79008FC9AB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		68123D4D1C4CBE79008FC9AB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		68123D4E1C4CBE79008FC9AB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		68123D4F1C4CBE79008FC9AB /* ResetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPassViewController.h; sourceTree = "<group>"; };
-		68123D501C4CBE79008FC9AB /* ResetPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPassViewController.m; sourceTree = "<group>"; };
-		68123D511C4CBE79008FC9AB /* ResetPassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPassViewController.xib; sourceTree = "<group>"; };
-		68123D521C4CBE79008FC9AB /* SignupSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupSuccessViewController.h; sourceTree = "<group>"; };
-		68123D531C4CBE79008FC9AB /* SignupSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupSuccessViewController.m; sourceTree = "<group>"; };
-		68123D541C4CBE79008FC9AB /* SignupSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupSuccessViewController.xib; sourceTree = "<group>"; };
-		68123D551C4CBE79008FC9AB /* VerifyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyPhoneViewController.h; sourceTree = "<group>"; };
-		68123D561C4CBE79008FC9AB /* VerifyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyPhoneViewController.m; sourceTree = "<group>"; };
-		68123D571C4CBE79008FC9AB /* VerifyPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerifyPhoneViewController.xib; sourceTree = "<group>"; };
 		68123D5A1C4CBE79008FC9AB /* CustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerServiceViewController.h; sourceTree = "<group>"; };
 		68123D5B1C4CBE79008FC9AB /* CustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerServiceViewController.m; sourceTree = "<group>"; };
 		68123D5C1C4CBE79008FC9AB /* CustomerServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewController.xib; sourceTree = "<group>"; };
@@ -920,6 +906,15 @@
 		685B15871CEEEC010076996A /* IDAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDAuthViewController.h; sourceTree = "<group>"; };
 		685B15881CEEEC010076996A /* IDAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDAuthViewController.m; sourceTree = "<group>"; };
 		685B15891CEEEC010076996A /* IDAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDAuthViewController.xib; sourceTree = "<group>"; };
+		685B158C1CEEF7E30076996A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		685B158D1CEEF7E30076996A /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		685B158E1CEEF7E30076996A /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		685B158F1CEEF7E30076996A /* ResetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPassViewController.h; sourceTree = "<group>"; };
+		685B15901CEEF7E30076996A /* ResetPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPassViewController.m; sourceTree = "<group>"; };
+		685B15911CEEF7E30076996A /* ResetPassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPassViewController.xib; sourceTree = "<group>"; };
+		685B15921CEEF7E30076996A /* VerifyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyPhoneViewController.h; sourceTree = "<group>"; };
+		685B15931CEEF7E30076996A /* VerifyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyPhoneViewController.m; sourceTree = "<group>"; };
+		685B15941CEEF7E30076996A /* VerifyPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerifyPhoneViewController.xib; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1283,18 +1278,15 @@
 		68123D4B1C4CBE79008FC9AB /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				68123D4C1C4CBE79008FC9AB /* LoginViewController.h */,
-				68123D4D1C4CBE79008FC9AB /* LoginViewController.m */,
-				68123D4E1C4CBE79008FC9AB /* LoginViewController.xib */,
-				68123D4F1C4CBE79008FC9AB /* ResetPassViewController.h */,
-				68123D501C4CBE79008FC9AB /* ResetPassViewController.m */,
-				68123D511C4CBE79008FC9AB /* ResetPassViewController.xib */,
-				68123D521C4CBE79008FC9AB /* SignupSuccessViewController.h */,
-				68123D531C4CBE79008FC9AB /* SignupSuccessViewController.m */,
-				68123D541C4CBE79008FC9AB /* SignupSuccessViewController.xib */,
-				68123D551C4CBE79008FC9AB /* VerifyPhoneViewController.h */,
-				68123D561C4CBE79008FC9AB /* VerifyPhoneViewController.m */,
-				68123D571C4CBE79008FC9AB /* VerifyPhoneViewController.xib */,
+				685B158C1CEEF7E30076996A /* LoginViewController.h */,
+				685B158D1CEEF7E30076996A /* LoginViewController.m */,
+				685B158E1CEEF7E30076996A /* LoginViewController.xib */,
+				685B158F1CEEF7E30076996A /* ResetPassViewController.h */,
+				685B15901CEEF7E30076996A /* ResetPassViewController.m */,
+				685B15911CEEF7E30076996A /* ResetPassViewController.xib */,
+				685B15921CEEF7E30076996A /* VerifyPhoneViewController.h */,
+				685B15931CEEF7E30076996A /* VerifyPhoneViewController.m */,
+				685B15941CEEF7E30076996A /* VerifyPhoneViewController.xib */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -2357,6 +2349,7 @@
 				68123EF11C4CBE79008FC9AB /* PlanPreviewViewController.xib in Resources */,
 				68123C9D1C4C9772008FC9AB /* SelectCityViewController.xib in Resources */,
 				681241291C4CF2D5008FC9AB /* ProcessViewController.xib in Resources */,
+				685B159A1CEEF7E30076996A /* VerifyPhoneViewController.xib in Resources */,
 				68123C951C4C9772008FC9AB /* ImageDetailViewController.xib in Resources */,
 				68123EEB1C4CBE79008FC9AB /* MessageCell.xib in Resources */,
 				681241A81C4F3B1C008FC9AB /* RejectActionCell.xib in Resources */,
@@ -2387,18 +2380,17 @@
 				68123E851C4CBE79008FC9AB /* MeViewController.xib in Resources */,
 				685B147E1CEB11CF0076996A /* SelectBusinessTypeViewController.xib in Resources */,
 				681241201C4CF2D5008FC9AB /* ItemExpandImageCell.xib in Resources */,
-				68123E731C4CBE79008FC9AB /* ResetPassViewController.xib in Resources */,
 				68123C8C1C4C9772008FC9AB /* DateAlertViewController.xib in Resources */,
 				685B148C1CEB11CF0076996A /* SelectWorkTypeViewController.xib in Resources */,
 				681240271C4CDC78008FC9AB /* LaunchScreen.xib in Resources */,
 				685B147C1CEB11CF0076996A /* MultipleLineTextTableViewCell.xib in Resources */,
 				681240E91C4CF2CC008FC9AB /* ProcessCell.xib in Resources */,
+				685B15961CEEF7E30076996A /* LoginViewController.xib in Resources */,
 				685B14821CEB11CF0076996A /* SelectDecorationStyleViewController.xib in Resources */,
 				685B15771CED96D00076996A /* TeamAuthCell.xib in Resources */,
 				682E04E61C55D85200F1ACAA /* iTunesArtwork in Resources */,
 				685B14D51CEB1CD20076996A /* AvtarInfoCell.xib in Resources */,
 				681241221C4CF2D5008FC9AB /* ItemImageCollectionCell.xib in Resources */,
-				68123E751C4CBE79008FC9AB /* SignupSuccessViewController.xib in Resources */,
 				682E04F41C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.xib in Resources */,
 				684B043D1C990E910053FFDF /* SystemAnnouncementCell.xib in Resources */,
 				68123C9B1C4C9772008FC9AB /* province2city.js in Resources */,
@@ -2424,12 +2416,11 @@
 				681241341C4CF2D5008FC9AB /* SectionView.xib in Resources */,
 				68123C991C4C9772008FC9AB /* allprovince.js in Resources */,
 				685B14861CEB11CF0076996A /* SelectHouseTypeViewController.xib in Resources */,
+				685B15981CEEF7E30076996A /* ResetPassViewController.xib in Resources */,
 				685B14DA1CEB20EC0076996A /* QuickLinkCell.xib in Resources */,
 				685B15511CED70620076996A /* ProductViewController.xib in Resources */,
 				685B15811CEEB1510076996A /* LogoutCell.xib in Resources */,
 				681241CA1C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib in Resources */,
-				68123E711C4CBE79008FC9AB /* LoginViewController.xib in Resources */,
-				68123E771C4CBE79008FC9AB /* VerifyPhoneViewController.xib in Resources */,
 				6EA0C1A31C57827A00D04A4F /* PlanPriceTotalCell.xib in Resources */,
 				684B043F1C990E910053FFDF /* WorksiteNotificationCell.xib in Resources */,
 				685B15151CEC60950076996A /* FieldEditCell.xib in Resources */,
@@ -2530,8 +2521,8 @@
 				681240191C4CDA06008FC9AB /* UIColor+Ex.m in Sources */,
 				68123F031C4CBE79008FC9AB /* RequirementCreateViewController.m in Sources */,
 				685B15761CED96D00076996A /* TeamAuthCell.m in Sources */,
+				685B15951CEEF7E30076996A /* LoginViewController.m in Sources */,
 				68123F1A1C4CBE79008FC9AB /* W2View.m in Sources */,
-				68123E701C4CBE79008FC9AB /* LoginViewController.m in Sources */,
 				685B153B1CED5C350076996A /* ProductBusiness.m in Sources */,
 				685B15501CED70620076996A /* ProductViewController.m in Sources */,
 				685B14811CEB11CF0076996A /* SelectDecorationStyleViewController.m in Sources */,
@@ -2562,7 +2553,6 @@
 				685B15601CED92EE0076996A /* DesignerDeleteTeam.m in Sources */,
 				6812401A1C4CDA06008FC9AB /* UIImage+Ex.m in Sources */,
 				680C40D71CC4B85F008C4BC0 /* API.m in Sources */,
-				68123E721C4CBE79008FC9AB /* ResetPassViewController.m in Sources */,
 				681240E61C4CF2CC008FC9AB /* MyProcessViewController.m in Sources */,
 				68F73D2F1CBB597E00E97710 /* ReqtDesignerResponded.m in Sources */,
 				68123F291C4CCBF9008FC9AB /* MyUserViewController.m in Sources */,
@@ -2623,6 +2613,7 @@
 				68F73D2E1CBB597E00E97710 /* ReqtDesignerMeasuredHouse.m in Sources */,
 				685B151A1CEC60950076996A /* TextEditCell.m in Sources */,
 				68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */,
+				685B15971CEEF7E30076996A /* ResetPassViewController.m in Sources */,
 				681241BE1C4F97D1008FC9AB /* RejectUserAlertViewController.m in Sources */,
 				68123C981C4C9772008FC9AB /* OverlayView.m in Sources */,
 				684B041F1C98FB580053FFDF /* SearchDesignerNotification.m in Sources */,
@@ -2658,6 +2649,7 @@
 				681240B21C4CE471008FC9AB /* DesignerLogin.m in Sources */,
 				681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */,
 				684B041E1C98FB580053FFDF /* SearchDesignerComment.m in Sources */,
+				685B15991CEEF7E30076996A /* VerifyPhoneViewController.m in Sources */,
 				6E378D481BDA2D2E00908B77 /* UIButton+Ex.m in Sources */,
 				684B03D31C98141F0053FFDF /* UIView+Badge.m in Sources */,
 				682E04FD1C588A6100F1ACAA /* NoRequirementImageView.m in Sources */,
@@ -2697,7 +2689,6 @@
 				681241821C4F235B008FC9AB /* MyUserDataManager.m in Sources */,
 				68F73D211CBB597E00E97710 /* ElseStatus.m in Sources */,
 				68123F181C4CBE79008FC9AB /* W1View.m in Sources */,
-				68123E741C4CBE79008FC9AB /* SignupSuccessViewController.m in Sources */,
 				6E378D2F1BDA2D2E00908B77 /* BaseAPI.m in Sources */,
 				681240BB1C4CE471008FC9AB /* GetProcess.m in Sources */,
 				684B03FD1C98193B0053FFDF /* GetUserUnreadCount.m in Sources */,
@@ -2737,7 +2728,6 @@
 				68F73D261CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.m in Sources */,
 				6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */,
 				685B153E1CED6C930076996A /* DesignerDeleteProduct.m in Sources */,
-				68123E761C4CBE79008FC9AB /* VerifyPhoneViewController.m in Sources */,
 				68123C961C4C9772008FC9AB /* ImageEditorViewController.m in Sources */,
 				685B14F91CEC54B60076996A /* AvtarImageCell.m in Sources */,
 				689220071CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */,
