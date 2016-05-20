@@ -15,15 +15,8 @@
 @interface ProductViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIView *designerView;
-@property (weak, nonatomic) IBOutlet UIImageView *designerImageView;
-@property (weak, nonatomic) IBOutlet UILabel *lblName;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
 
 @property (strong, nonatomic) ProductPageData *productPageData;
-
-@property (strong, nonatomic) UIBarButtonItem *favoriateBarButton;
-@property (strong, nonatomic) UIBarButtonItem *unfavoriateBarButton;
 
 @end
 
@@ -51,21 +44,15 @@
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
+    self.title = @"作品详情";
 }
 
 - (void)initUI {
-    [self.designerImageView setCornerRadius:15];
-    [self.designerImageView setBorder:1 andColor:[[UIColor whiteColor] CGColor]];
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 300;
-}
-
-- (void)initUIData {
-    [self.designerImageView setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
-    self.lblName.text = self.productPageData.product.designer.username;
 }
 
 #pragma mark - table view delegate
@@ -93,8 +80,6 @@
 
 #pragma mark - scroll view delegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self adjustTopView];
-    
     if (!scrollView.isDecelerating) {
         if (self.presentingViewController && scrollView.contentOffset.y < -(scrollView.contentInset.top + 30)) {
             [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -102,26 +87,7 @@
     }
 }
 
-- (void)adjustTopView {
-    if (self.tableView.contentOffset.y >= -kNavWithStatusBarHeight && self.tableView.contentOffset.y <= 200) {
-        CGFloat dy = self.tableView.contentOffset.y;
-        if (dy < 0) {
-            dy = 0;
-            self.title = nil;
-        } else if (dy > 44) {
-            dy = 44;
-            self.title = self.productPageData.product.cell;
-        }
-        
-        self.topConstraint.constant = 20 + dy;
-    }
-}
-
 #pragma mark - user action
-- (IBAction)onTapDesigner:(id)sender {
-//    [ViewControllerContainer showDesigner:self.productPageData.product.designer._id];
-}
-
 - (void)onClickBack {
     if (self.presentingViewController) {
         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
@@ -140,9 +106,7 @@
         @strongify(self);
         [self.productPageData refresh];
         self.needRefreshProductViewController = NO;
-        [self initUIData];
         [self.tableView reloadData];
-        [self adjustTopView];
     } failure:^{
     } networkError:^{
         
