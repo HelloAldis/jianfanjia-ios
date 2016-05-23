@@ -45,6 +45,10 @@
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"作品详情";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
 
 - (void)initUI {
@@ -94,6 +98,10 @@
     } else {
         [super onClickBack];
     }
+}
+
+- (void)onClickEdit {
+    [ViewControllerContainer showProductAuthUploadPart1:self.productPageData.product];
 }
 
 #pragma mark - Util

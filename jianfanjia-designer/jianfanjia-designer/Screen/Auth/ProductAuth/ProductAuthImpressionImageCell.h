@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#define kProductAuthPlanImageCellHeight 316
+#define kProductAuthImpressionImageCellHeight 466
 
-@interface ProductAuthPlanImageCell : UITableViewCell
+@interface ProductAuthImpressionImageCell : UITableViewCell
 
 - (void)initWithProduct:(Product *)product image:(ProductImage *)image;
 

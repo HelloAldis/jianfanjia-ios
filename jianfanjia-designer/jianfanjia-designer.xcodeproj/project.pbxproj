@@ -321,6 +321,8 @@
 		685B15C81CF2E52B0076996A /* ProductAuthImageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15C71CF2E52B0076996A /* ProductAuthImageHeaderView.xib */; };
 		685B15CC1CF2EA230076996A /* ProductAuthImageFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15CA1CF2EA230076996A /* ProductAuthImageFooterView.m */; };
 		685B15CD1CF2EA230076996A /* ProductAuthImageFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15CB1CF2EA230076996A /* ProductAuthImageFooterView.xib */; };
+		685B15D11CF3006B0076996A /* ProductAuthImpressionImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15CF1CF3006B0076996A /* ProductAuthImpressionImageCell.m */; };
+		685B15D21CF3006B0076996A /* ProductAuthImpressionImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15D01CF3006B0076996A /* ProductAuthImpressionImageCell.xib */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -949,6 +951,9 @@
 		685B15C91CF2EA230076996A /* ProductAuthImageFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAuthImageFooterView.h; sourceTree = "<group>"; };
 		685B15CA1CF2EA230076996A /* ProductAuthImageFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAuthImageFooterView.m; sourceTree = "<group>"; };
 		685B15CB1CF2EA230076996A /* ProductAuthImageFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductAuthImageFooterView.xib; sourceTree = "<group>"; };
+		685B15CE1CF3006B0076996A /* ProductAuthImpressionImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAuthImpressionImageCell.h; sourceTree = "<group>"; };
+		685B15CF1CF3006B0076996A /* ProductAuthImpressionImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAuthImpressionImageCell.m; sourceTree = "<group>"; };
+		685B15D01CF3006B0076996A /* ProductAuthImpressionImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductAuthImpressionImageCell.xib; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1745,6 +1750,9 @@
 				685B15C21CF2E5180076996A /* ProductAuthPlanImageCell.h */,
 				685B15C31CF2E5180076996A /* ProductAuthPlanImageCell.m */,
 				685B15C41CF2E5180076996A /* ProductAuthPlanImageCell.xib */,
+				685B15CE1CF3006B0076996A /* ProductAuthImpressionImageCell.h */,
+				685B15CF1CF3006B0076996A /* ProductAuthImpressionImageCell.m */,
+				685B15D01CF3006B0076996A /* ProductAuthImpressionImageCell.xib */,
 			);
 			path = ProductAuth;
 			sourceTree = "<group>";
@@ -2433,6 +2441,7 @@
 				68FB6ED21C50DC81001C0613 /* SetWorksiteStartTimeViewController.xib in Resources */,
 				685B152D1CEC71010076996A /* ProductAuthViewController.xib in Resources */,
 				68123EFC1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.xib in Resources */,
+				685B15D21CF3006B0076996A /* ProductAuthImpressionImageCell.xib in Resources */,
 				6EA0C1A81C585C5B00D04A4F /* PlanPriceItemExpandCell.xib in Resources */,
 				681241A41C4F3B1C008FC9AB /* MeasuredHouseActionCell.xib in Resources */,
 				68123E851C4CBE79008FC9AB /* MeViewController.xib in Resources */,
@@ -2790,6 +2799,7 @@
 				685B152C1CEC71010076996A /* ProductAuthViewController.m in Sources */,
 				685B14831CEB11CF0076996A /* SelectDecorationTypeViewController.m in Sources */,
 				684B043E1C990E910053FFDF /* WorksiteNotificationCell.m in Sources */,
+				685B15D11CF3006B0076996A /* ProductAuthImpressionImageCell.m in Sources */,
 				681240121C4CDA06008FC9AB /* NSArray+Ex.m in Sources */,
 				68F73D221CBB597E00E97710 /* PlanDesignerDeclined.m in Sources */,
 				680C46771CC6310E008C4BC0 /* PlanExpiredActionCell.m in Sources */,

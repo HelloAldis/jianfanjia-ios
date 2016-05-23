@@ -12,8 +12,12 @@
 #import "ProductAuthImageHeaderView.h"
 #import "ProductAuthImageFooterView.h"
 #import "ProductAuthProductDescriptionCell.h"
+#import "ProductAuthPlanImageCell.h"
+#import "ProductAuthImpressionImageCell.h"
 
 static NSString *ProductAuthProductDescriptionCellIdentifier = @"ProductAuthProductDescriptionCell";
+static NSString *ProductAuthPlanImageCellIdentifier = @"ProductAuthPlanImageCell";
+static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpressionImageCell";
 
 @interface ProductAuthUploadPart2ViewController ()
 
@@ -24,6 +28,7 @@ static NSString *ProductAuthProductDescriptionCellIdentifier = @"ProductAuthProd
 
 @property (nonatomic, strong) ProductAuthImageFooterView *addPlanView;
 @property (nonatomic, strong) ProductAuthImageFooterView *addImpressionView;
+@property (nonatomic, strong) ProductAuthProductDescriptionCell *productDescCell;
 
 @end
 
@@ -71,6 +76,8 @@ static NSString *ProductAuthProductDescriptionCellIdentifier = @"ProductAuthProd
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView registerNib:[UINib nibWithNibName:ProductAuthProductDescriptionCellIdentifier bundle:nil] forCellReuseIdentifier:ProductAuthProductDescriptionCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:ProductAuthPlanImageCellIdentifier bundle:nil] forCellReuseIdentifier:ProductAuthPlanImageCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:ProductAuthImpressionImageCellIdentifier bundle:nil] forCellReuseIdentifier:ProductAuthImpressionImageCellIdentifier];
     
     @weakify(self);
     self.addPlanView = [ProductAuthImageFooterView productAuthImageFooterView];
@@ -137,7 +144,9 @@ static NSString *ProductAuthProductDescriptionCellIdentifier = @"ProductAuthProd
     if (section == 0) {
         return 1;
     } else if (section == 1) {
-        return 0;
+        return self.product.plan_images.count;
+    } else if (section == 2) {
+        return self.product.images.count;
     }
     
     return 0;
@@ -145,24 +154,35 @@ static NSString *ProductAuthProductDescriptionCellIdentifier = @"ProductAuthProd
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        ProductAuthProductDescriptionCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthProductDescriptionCellIdentifier forIndexPath:indexPath];
+        if (!self.productDescCell) {
+            self.productDescCell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthProductDescriptionCellIdentifier forIndexPath:indexPath];
+            [self.productDescCell initWithProduct:self.product];
+            self.productDescCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        }
+        
+        return self.productDescCell;
+    } else if (indexPath.section == 1) {
+        ProductAuthPlanImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthPlanImageCellIdentifier forIndexPath:indexPath];
+        [cell initWithProduct:self.product image:[self.product planImageAtIndex:indexPath.row]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    } else if (indexPath.section == 2) {
+        ProductAuthImpressionImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthImpressionImageCellIdentifier forIndexPath:indexPath];
+        [cell initWithProduct:self.product image:[self.product imageAtIndex:indexPath.row]];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     
-//    if (indexPath.section == 0) {
-//        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-//        return cell;
-//    } else if (indexPath.section == 1) {
-//        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-//        return cell;
-//    }
-//    
     return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return kProductAuthProductDescriptionCellHeight;
+    } else if (indexPath.section == 1) {
+        return kProductAuthPlanImageCellHeight;
+    } else if (indexPath.section == 2) {
+        return kProductAuthImpressionImageCellHeight;
     }
     
     return 0;

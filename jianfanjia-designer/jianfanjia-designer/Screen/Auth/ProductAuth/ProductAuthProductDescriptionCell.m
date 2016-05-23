@@ -20,7 +20,14 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+}
+
+- (void)initWithProduct:(Product *)product {
+    self.tvDesc.text = product.product_description;
+    [self limitTextViewLength];
+}
+
+- (void)limitTextViewLength {
     @weakify(self);
     [[self.tvDesc.rac_textSignal
       length:^NSInteger{

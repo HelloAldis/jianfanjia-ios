@@ -25,6 +25,7 @@
 @dynamic total_price;
 @dynamic product_description;
 @dynamic cover_imageid;
+@dynamic plan_images;
 @dynamic images;
 @dynamic is_my_favorite;
 @dynamic is_deleted;
@@ -45,7 +46,16 @@
     }
 }
 
-- (ProductImage *)imageAtIndex:(NSInteger )index {
+- (ProductImage *)planImageAtIndex:(NSInteger)index {
+    if (index >= 0 && index < self.plan_images.count) {
+        NSMutableDictionary *dict = [self.plan_images objectAtIndex:index];
+        return [[ProductImage alloc] initWith:dict];
+    } else {
+        return nil;
+    }
+}
+
+- (ProductImage *)imageAtIndex:(NSInteger)index {
     if (index >= 0 && index < self.images.count) {
         NSMutableDictionary *dict = [self.images objectAtIndex:index];
         return [[ProductImage alloc] initWith:dict];

@@ -23,6 +23,7 @@
 + (NSDictionary *)getAllPlanStatus;
 + (NSDictionary *)getAllRequirementStatus;
 + (NSArray *)getAllBeautifulImageType;
++ (NSArray *)getAllHomeType;
 + (NSDictionary *)getAllBusinessType;
 + (NSDictionary *)getAllDesignFee;
 + (NSArray *)getAllDesignerTag;

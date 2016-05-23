@@ -28,6 +28,7 @@ static NSDictionary *userType = nil;
 static NSDictionary *sectionStatusDic = nil;
 static NSArray *beautifulTypeArr = nil;
 static NSDictionary *businessTypeDict = nil;
+static NSArray *homeTypeArr = nil;
 static NSDictionary *decLiveSectionDict = nil;
 static NSDictionary *decProgressDict = nil;
 static NSArray *desginerTagArr = nil;
@@ -164,16 +165,28 @@ static NSArray *desginerTagArr = nil;
                          @"走廊",
                          @"储物间",];
     
+    homeTypeArr = @[@"厨房",
+                     @"客厅",
+                     @"卫生间",
+                     @"卧室",
+                     @"餐厅",
+                     @"书房",
+                     @"玄关",
+                     @"阳台",
+                     @"儿童房",
+                     @"走廊",
+                     @"储物间",];
+    
     businessTypeDict = @{
-                       @"0":@"餐厅",
-                       @"1":@"服装店",
-                       @"2":@"酒吧",
-                       @"3":@"美容院",
-                       @"4":@"办公室",
-                       @"5":@"美发店",
-                       @"6":@"幼儿园",
-                       @"7":@"酒店",
-                       @"9999":@"其他",};
+                         @"0":@"餐厅",
+                         @"1":@"服装店",
+                         @"2":@"酒吧",
+                         @"3":@"美容院",
+                         @"4":@"办公室",
+                         @"5":@"美发店",
+                         @"6":@"幼儿园",
+                         @"7":@"酒店",
+                         @"9999":@"其他",};
     
     decLiveSectionDict = @{
                            @"0":@"量房",
@@ -242,6 +255,10 @@ static NSArray *desginerTagArr = nil;
 
 + (NSArray *)getAllBeautifulImageType {
     return beautifulTypeArr;
+}
+
++ (NSArray *)getAllHomeType {
+    return homeTypeArr;
 }
 
 + (NSDictionary *)getAllBusinessType {

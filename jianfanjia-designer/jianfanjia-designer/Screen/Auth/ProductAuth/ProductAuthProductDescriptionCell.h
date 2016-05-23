@@ -14,4 +14,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextView *tvDesc;
 
+- (void)initWithProduct:(Product *)product;
+
 @end

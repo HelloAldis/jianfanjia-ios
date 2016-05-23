@@ -28,6 +28,7 @@
 @property (strong, nonatomic) NSNumber *total_price;
 @property (strong, nonatomic) NSString *product_description;
 @property (strong, nonatomic) NSString *cover_imageid;
+@property (strong, nonatomic) NSMutableArray *plan_images;
 @property (strong, nonatomic) NSMutableArray *images;
 @property (strong, nonatomic) NSNumber *is_my_favorite;
 @property (strong, nonatomic) NSNumber *is_deleted;
@@ -36,7 +37,8 @@
 //不动态的属性
 @property (strong, nonatomic) Designer *designer;
 
-- (ProductImage *)imageAtIndex:(NSInteger )index;
+- (ProductImage *)planImageAtIndex:(NSInteger)index;
+- (ProductImage *)imageAtIndex:(NSInteger)index;
 
 @end
 
