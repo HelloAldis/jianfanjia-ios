@@ -19,7 +19,7 @@
                         <rect key="frame" x="20" y="5" width="524" height="104"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_auth_add" translatesAutoresizingMaskIntoConstraints="NO" id="Zkz-zS-C4y">
-                        <rect key="frame" x="274" y="34" width="16" height="16"/>
+                        <rect key="frame" x="269" y="29" width="26" height="26"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请不要放置电话号码或违反法律法规的信息。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kwc-Nc-frN">
                         <rect key="frame" x="142" y="67" width="280" height="17"/>
@@ -43,7 +43,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_auth_add" width="16" height="16"/>
+        <image name="icon_auth_add" width="26" height="26"/>
         <image name="icon_auth_upload" width="386" height="40"/>
     </resources>
 </document>

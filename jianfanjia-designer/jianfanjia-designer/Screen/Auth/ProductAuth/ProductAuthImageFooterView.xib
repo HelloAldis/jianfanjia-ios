@@ -11,11 +11,11 @@
             <rect key="frame" x="0.0" y="0.0" width="589" height="140"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_auth_upload" translatesAutoresizingMaskIntoConstraints="NO" id="IXi-dk-1HI">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_auth_upload_border" translatesAutoresizingMaskIntoConstraints="NO" id="IXi-dk-1HI">
                     <rect key="frame" x="20" y="15" width="550" height="105"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_auth_add" translatesAutoresizingMaskIntoConstraints="NO" id="Yjw-8b-ne8">
-                    <rect key="frame" x="287" y="45" width="16" height="16"/>
+                    <rect key="frame" x="282" y="40" width="26" height="26"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请不要放置电话号码或违反法律法规的信息。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tq-Pl-lEt">
                     <rect key="frame" x="155" y="78" width="280" height="17"/>
@@ -40,7 +40,7 @@
         </view>
     </objects>
     <resources>
-        <image name="icon_auth_add" width="16" height="16"/>
-        <image name="icon_auth_upload" width="386" height="40"/>
+        <image name="icon_auth_add" width="26" height="26"/>
+        <image name="icon_auth_upload_border" width="372" height="116"/>
     </resources>
 </document>
