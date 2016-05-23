@@ -308,6 +308,8 @@
 		685B15981CEEF7E30076996A /* ResetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15911CEEF7E30076996A /* ResetPassViewController.xib */; };
 		685B15991CEEF7E30076996A /* VerifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15931CEEF7E30076996A /* VerifyPhoneViewController.m */; };
 		685B159A1CEEF7E30076996A /* VerifyPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15941CEEF7E30076996A /* VerifyPhoneViewController.xib */; };
+		685B159E1CF29FD00076996A /* ProductAuthUploadPart1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B159C1CF29FD00076996A /* ProductAuthUploadPart1ViewController.m */; };
+		685B159F1CF29FD00076996A /* ProductAuthUploadPart1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B159D1CF29FD00076996A /* ProductAuthUploadPart1ViewController.xib */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -915,6 +917,10 @@
 		685B15921CEEF7E30076996A /* VerifyPhoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyPhoneViewController.h; sourceTree = "<group>"; };
 		685B15931CEEF7E30076996A /* VerifyPhoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyPhoneViewController.m; sourceTree = "<group>"; };
 		685B15941CEEF7E30076996A /* VerifyPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerifyPhoneViewController.xib; sourceTree = "<group>"; };
+		685B159B1CF29FD00076996A /* ProductAuthUploadPart1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAuthUploadPart1ViewController.h; sourceTree = "<group>"; };
+		685B159C1CF29FD00076996A /* ProductAuthUploadPart1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAuthUploadPart1ViewController.m; sourceTree = "<group>"; };
+		685B159D1CF29FD00076996A /* ProductAuthUploadPart1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductAuthUploadPart1ViewController.xib; sourceTree = "<group>"; };
+		685B15A01CF2B32C0076996A /* SelectionValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectionValue.h; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1594,6 +1600,7 @@
 		685B14571CEB11CF0076996A /* Selection */ = {
 			isa = PBXGroup;
 			children = (
+				685B15A01CF2B32C0076996A /* SelectionValue.h */,
 				685B14581CEB11CF0076996A /* BaseSelectionViewController.h */,
 				685B14591CEB11CF0076996A /* BaseSelectionViewController.m */,
 				685B145A1CEB11CF0076996A /* DecorationStyleCell.h */,
@@ -1692,6 +1699,9 @@
 				685B15301CEC73AD0076996A /* ProductUploadCell.xib */,
 				685B15241CEC71010076996A /* ProductAuthDataManager.h */,
 				685B15251CEC71010076996A /* ProductAuthDataManager.m */,
+				685B159B1CF29FD00076996A /* ProductAuthUploadPart1ViewController.h */,
+				685B159C1CF29FD00076996A /* ProductAuthUploadPart1ViewController.m */,
+				685B159D1CF29FD00076996A /* ProductAuthUploadPart1ViewController.xib */,
 			);
 			path = ProductAuth;
 			sourceTree = "<group>";
@@ -2438,6 +2448,7 @@
 				68123C971C4C9772008FC9AB /* ImageEditorViewController.xib in Resources */,
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
 				685B151B1CEC60950076996A /* TextEditCell.xib in Resources */,
+				685B159F1CF29FD00076996A /* ProductAuthUploadPart1ViewController.xib in Resources */,
 				68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */,
 				684B04391C990E910053FFDF /* NotificationDetailViewController.xib in Resources */,
 				6EA0C19E1C577F7500D04A4F /* PlanPriceItemSection.xib in Resources */,
@@ -2586,6 +2597,7 @@
 				68123FE31C4CCF4A008FC9AB /* Requirement.m in Sources */,
 				68123FF41C4CD1E3008FC9AB /* EvaluateDesignerViewController.m in Sources */,
 				68123CE41C4C99C9008FC9AB /* HUDUtil.m in Sources */,
+				685B159E1CF29FD00076996A /* ProductAuthUploadPart1ViewController.m in Sources */,
 				685B14791CEB11CF0076996A /* DecorationStyleCell.m in Sources */,
 				685B156E1CED93BB0076996A /* TeamAuthDataManager.m in Sources */,
 				684B03FA1C9818CF0053FFDF /* NotificationBusiness.m in Sources */,

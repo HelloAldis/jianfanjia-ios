@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NTj-GX-s29">
-                        <rect key="frame" x="94" y="17" width="397" height="17"/>
+                        <rect key="frame" x="94" y="17" width="380" height="17"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -44,7 +44,7 @@
                     <constraint firstItem="NTj-GX-s29" firstAttribute="leading" secondItem="ojI-xe-hqO" secondAttribute="trailing" constant="20" id="O4t-X8-pAX"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1yS-uG-PHJ" secondAttribute="trailing" constant="-8" id="VDu-5w-97C"/>
                     <constraint firstItem="1yS-uG-PHJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="aRE-HU-xa8"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="NTj-GX-s29" secondAttribute="trailing" constant="7" id="g60-2e-kbc"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NTj-GX-s29" secondAttribute="trailing" constant="24" id="g60-2e-kbc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1yS-uG-PHJ" secondAttribute="bottom" constant="-8" id="jUo-vR-aEZ"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ojI-xe-hqO" secondAttribute="bottom" constant="-9" id="s2h-Jh-4vP"/>
                     <constraint firstItem="NTj-GX-s29" firstAttribute="centerY" secondItem="ojI-xe-hqO" secondAttribute="centerY" id="sJT-ie-vZX"/>

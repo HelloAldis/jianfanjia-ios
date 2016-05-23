@@ -93,19 +93,33 @@
 }
 
 - (NSAttributedString *)attrStrWithFont:(UIFont *)font color:(UIColor *)color {
+    NSMutableDictionary *dic = [@{} mutableCopy];
+    if (font) {
+        dic[NSFontAttributeName] = font;
+    }
+    
+    if (color) {
+        dic[NSForegroundColorAttributeName] = color;
+    }
+    
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:self];
-    [attributedStr setAttributes:@{NSFontAttributeName:font,
-                                   NSForegroundColorAttributeName:color,
-                                   }
+    [attributedStr setAttributes:dic
                            range:NSMakeRange(0, self.length)];
     return attributedStr;
 }
 
 - (NSAttributedString *)attrSubStr:(NSString *)subStr font:(UIFont *)font color:(UIColor *)color {
+    NSMutableDictionary *dic = [@{} mutableCopy];
+    if (font) {
+        dic[NSFontAttributeName] = font;
+    }
+    
+    if (color) {
+        dic[NSForegroundColorAttributeName] = color;
+    }
+    
     NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:self];
-    [attributedStr setAttributes:@{NSFontAttributeName:font,
-                                   NSForegroundColorAttributeName:color,
-                                   }
+    [attributedStr setAttributes:dic
                            range:[self rangeOfString:subStr]];
     return attributedStr;
 }

@@ -20,5 +20,6 @@
 #import "BrushGifHeader.h"
 #import "DIYRefreshFooter.h"
 #import "UIViewController+KRSFakeNavigationBar.h"
+#import "SelectionValue.h"
 
 #endif /* JYZUIKit_h */

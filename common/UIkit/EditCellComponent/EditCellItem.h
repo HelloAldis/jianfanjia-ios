@@ -46,6 +46,7 @@ typedef void (^EditCellItemTapBlock)(EditCellItem *curItem);
 + (EditCellItem *)createAttrSelection:(NSAttributedString *)attrTitle attrValue:(NSAttributedString *)attrValue placeholder:(NSString *)placeholder image:(UIImage *)image tapBlock:(EditCellItemTapBlock)tapBlock;
 
 + (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
++ (EditCellItem *)createAttrField:(NSAttributedString *)attrTitle attrValue:(NSAttributedString *)attrValue placeholder:(NSString *)placeholder;
 + (EditCellItem *)createText:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
 + (EditCellItem *)createGroupImage:(NSString *)title value:(NSString *)value;
 

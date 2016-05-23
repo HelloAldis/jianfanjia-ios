@@ -7,6 +7,7 @@
 //
 
 #import "ProductUploadCell.h"
+#import "ViewControllerContainer.h"
 
 @interface ProductUploadCell ()
 
@@ -20,7 +21,7 @@
 }
 
 - (void)onTap {
-    
+    [ViewControllerContainer showProductAuthUploadPart1:nil];
 }
 
 @end

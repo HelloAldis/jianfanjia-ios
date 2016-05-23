@@ -7,12 +7,6 @@
 //
 
 #import "HouseRequirementCreateViewController.h"
-#import "SelectHouseTypeViewController.h"
-#import "SelectPopulationViewController.h"
-#import "SelectCommunicationTypeViewController.h"
-#import "SelectWorkTypeViewController.h"
-#import "SelectSexTypeViewController.h"
-#import "SelectDecorationStyleViewController.h"
 #import "ViewControllerContainer.h"
 #import "DecPackage365View.h"
 #import "DecPackageJiangXinView.h"

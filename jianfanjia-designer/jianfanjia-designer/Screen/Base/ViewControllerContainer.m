@@ -32,6 +32,7 @@
 #import "DesignerAuthViewController.h"
 #import "InfoAuthViewController.h"
 #import "ProductAuthViewController.h"
+#import "ProductAuthUploadPart1ViewController.h"
 #import "ProductViewController.h"
 #import "TeamAuthViewController.h"
 #import "IDAuthViewController.h"
@@ -272,6 +273,15 @@ static ViewControllerContainer *container;
 + (void)showProductAuth {
     ProductAuthViewController *v = [[ProductAuthViewController alloc] init];
     [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showProductAuthUploadPart1:(Product *)product {
+    ProductAuthUploadPart1ViewController *v = [[ProductAuthUploadPart1ViewController alloc] initWithProduct:product];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showProductAuthUploadPart2:(Product *)product {
+    
 }
 
 + (void)showTeamAuth {

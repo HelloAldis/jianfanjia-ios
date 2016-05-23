@@ -55,6 +55,8 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
     self.data = [[NameDict getAllSexType] sortedKeyWithOrder:YES];
     if (self.curValue) {
         self.curValueIndex = [self.data indexOfObject:self.curValue];
+    } else {
+        self.curValueIndex = -1;
     }
 }
 

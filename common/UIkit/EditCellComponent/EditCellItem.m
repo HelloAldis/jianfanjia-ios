@@ -91,6 +91,16 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     return item;
 }
 
++ (EditCellItem *)createAttrField:(NSAttributedString *)attrTitle attrValue:(NSAttributedString *)attrValue placeholder:(NSString *)placeholder {
+    EditCellItem *item = [[EditCellItem alloc] init];
+    item.cellEditType = CellEditTypeFld;
+    item.attrTitle = attrTitle;
+    item.attrValue = attrValue;
+    item.placeholder = placeholder;
+    
+    return item;
+}
+
 + (EditCellItem *)createText:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder {
     EditCellItem *item = [[EditCellItem alloc] init];
     item.cellEditType = CellEditTypeText;
