@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProductAuthImageFooterView">
+            <rect key="frame" x="0.0" y="0.0" width="589" height="140"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_auth_upload" translatesAutoresizingMaskIntoConstraints="NO" id="IXi-dk-1HI">
+                    <rect key="frame" x="20" y="15" width="550" height="105"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_auth_add" translatesAutoresizingMaskIntoConstraints="NO" id="Yjw-8b-ne8">
+                    <rect key="frame" x="287" y="45" width="16" height="16"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请不要放置电话号码或违反法律法规的信息。" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4tq-Pl-lEt">
+                    <rect key="frame" x="155" y="78" width="280" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="IXi-dk-1HI" secondAttribute="bottom" constant="20" id="44E-v8-bbt"/>
+                <constraint firstItem="IXi-dk-1HI" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="96h-b2-zqt"/>
+                <constraint firstItem="IXi-dk-1HI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="GL7-gH-77E"/>
+                <constraint firstItem="4tq-Pl-lEt" firstAttribute="centerX" secondItem="IXi-dk-1HI" secondAttribute="centerX" id="Prb-T6-7tc"/>
+                <constraint firstItem="Yjw-8b-ne8" firstAttribute="centerX" secondItem="IXi-dk-1HI" secondAttribute="centerX" id="Xyo-KM-UYT"/>
+                <constraint firstItem="IXi-dk-1HI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="YUi-ZN-HhA"/>
+                <constraint firstItem="Yjw-8b-ne8" firstAttribute="centerY" secondItem="IXi-dk-1HI" secondAttribute="centerY" constant="-15" id="YVZ-2t-H0S"/>
+                <constraint firstItem="4tq-Pl-lEt" firstAttribute="bottom" secondItem="IXi-dk-1HI" secondAttribute="bottom" constant="-25" id="l4D-iK-D5V"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="36.5" y="319"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_auth_add" width="16" height="16"/>
+        <image name="icon_auth_upload" width="386" height="40"/>
+    </resources>
+</document>

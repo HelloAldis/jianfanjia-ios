@@ -38,6 +38,19 @@
     }
     
     self.fldValue.placeholder = item.placeholder;
+    
+    @weakify(self);
+    [[[[self.fldValue rac_textSignal]
+       filterNonDigit:^BOOL {
+           return item.isNumber;
+       }]
+      length:^NSInteger {
+          return item.length;
+      }]
+     subscribeNext:^(NSString *value) {
+         @strongify(self);
+         self.fldValue.text = value;
+     }];
 }
 
 @end

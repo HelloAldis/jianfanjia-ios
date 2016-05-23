@@ -48,5 +48,6 @@
 #import "ProductHomePage.h"
 #import "DesignerGetTeams.h"
 #import "DesignerDeleteTeam.h"
+#import "DesignerUploadProduct.h"
 
 #endif

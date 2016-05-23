@@ -95,6 +95,11 @@
 }
 
 - (void)initTitleAndRight {
+    if (self.maxCount == NSIntegerMax) {
+        self.title = @"请选择";
+        return;
+    }
+    
     self.title = [NSString stringWithFormat:@"还可以选%@张", [@(self.maxCount - self.selectingCount) stringValue]];
     self.navigationItem.rightBarButtonItem.enabled = self.selectingCount > 0;
 }

@@ -12,5 +12,6 @@
 
 + (void)showUserAvatarSelector:(nonnull UIViewController *)controller inView:(nullable UIView *)sourceView withBlock:(nullable FinishUploadBlock)block;
 + (void)showDecorationNodeImageSelector:(nonnull UIViewController *)controller inView:(nullable UIView *)sourceView max:(NSInteger)count withBlock:(nullable FinishUploadBlock)block;
++ (void)showUploadProductImageSelector:(nonnull UIViewController *)controller inView:(nullable UIView *)sourceView max:(NSInteger)count withBlock:(nullable FinishUploadBlock)block;
 
 @end

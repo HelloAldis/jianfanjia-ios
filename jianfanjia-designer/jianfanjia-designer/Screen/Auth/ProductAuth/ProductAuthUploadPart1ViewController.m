@@ -109,7 +109,7 @@
                              [self.navigationController pushViewController:controller animated:YES];
                              
                          }],
-                         [EditCellItem createAttrField:[@"建筑面积 (m²)" attrSubStr:@"(m²)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:nil placeholder:@"请输入"],
+                         [EditCellItem createAttrField:[@"建筑面积 (m²)" attrSubStr:@"(m²)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.house_area ? [[NSAttributedString alloc] initWithString:[self.product.house_area stringValue]] : nil placeholder:@"请输入" length:6 isNumber:YES],
                          [EditCellItem createSelection:@"装修风格" value:[NameDict nameForDecStyle:self.product.dec_style] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                          
                              SelectDecorationStyleViewController *controller = [[SelectDecorationStyleViewController alloc] initWithValueBlock:^(id value) {
@@ -134,7 +134,7 @@
                              [self.navigationController pushViewController:controller animated:YES];
                              
                          }],
-                         [EditCellItem createAttrField:[@"装修造价 (万元)" attrSubStr:@"(万元)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:nil placeholder:@"请输入"],
+                         [EditCellItem createAttrField:[@"装修造价 (万元)" attrSubStr:@"(万元)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.total_price ? [[NSAttributedString alloc] initWithString:[self.product.total_price stringValue]] : nil placeholder:@"请输入" length:3 isNumber:YES],
                          ];
 }
 
@@ -175,7 +175,7 @@
 
 #pragma mark - user action
 - (void)onClickNext {
-    
+    [ViewControllerContainer showProductAuthUploadPart2:self.product];
 }
 
 #pragma mark - other

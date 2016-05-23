@@ -18,6 +18,10 @@
     [self showPhotoSelector:controller inView:sourceView allowsEditing:NO isMultiSelection:YES withMaxSelection:count withBlock:block];
 }
 
++ (void)showUploadProductImageSelector:(nonnull UIViewController *)controller inView:(UIView *)sourceView max:(NSInteger)count withBlock:(FinishUploadBlock)block {
+    [self showImageBrowser:controller allowsEditing:NO isMultiSelection:YES withMaxSelection:count withBlock:block];
+}
+
 + (void)showPhotoSelector:(nonnull UIViewController *)controller inView:(UIView *)sourceView allowsEditing:(BOOL)allowsEditing isMultiSelection:(BOOL)allowsMultiSection withMaxSelection:(NSInteger)maxCount withBlock:(FinishUploadBlock)block {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择照片上传" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -72,23 +76,7 @@
         }
     }];
     UIAlertAction *photo = [UIAlertAction actionWithTitle:@"从相册中选取" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] == YES)) {
-            ImageBrowerViewController *v = [[ImageBrowerViewController alloc] initWithNibName:nil bundle:nil];
-            v.cellCountInOneRow = 3;
-            v.cellSpace = 1;
-            v.maxCount = maxCount;
-            v.finishUploadBlock = block;
-            v.allowsMultipleSelection = allowsMultiSection;
-            v.allowsEdit = allowsEditing;
-            
-            if (allowsMultiSection) {
-                v.allowsMultipleSelection = YES;
-            } else {
-                v.allowsMultipleSelection = NO;
-            }
-            
-            [controller.navigationController pushViewController:v animated:YES];
-        }
+        [self showImageBrowser:controller allowsEditing:allowsEditing isMultiSelection:allowsMultiSection withMaxSelection:maxCount withBlock:block];
     }];
     
     [alert addAction:cancel];
@@ -102,6 +90,26 @@
         [controller presentViewController:alert animated:YES completion:nil];
     } else {
         [controller presentViewController:alert animated:YES completion:nil];
+    }
+}
+
++ (void)showImageBrowser:(UIViewController *)controller allowsEditing:(BOOL)allowsEditing isMultiSelection:(BOOL)allowsMultiSection withMaxSelection:(NSInteger)maxCount withBlock:(FinishUploadBlock)block  {
+    if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] == YES)) {
+        ImageBrowerViewController *v = [[ImageBrowerViewController alloc] initWithNibName:nil bundle:nil];
+        v.cellCountInOneRow = 3;
+        v.cellSpace = 1;
+        v.maxCount = maxCount;
+        v.finishUploadBlock = block;
+        v.allowsMultipleSelection = allowsMultiSection;
+        v.allowsEdit = allowsEditing;
+        
+        if (allowsMultiSection) {
+            v.allowsMultipleSelection = YES;
+        } else {
+            v.allowsMultipleSelection = NO;
+        }
+        
+        [controller.navigationController pushViewController:v animated:YES];
     }
 }
 

@@ -30,6 +30,8 @@ typedef void (^EditCellItemTapBlock)(EditCellItem *curItem);
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *value;
 @property (nonatomic, strong) NSString *placeholder;
+@property (nonatomic, assign) NSInteger length;
+@property (nonatomic, assign) BOOL isNumber;
 @property (nonatomic, copy) EditCellItemTapBlock itemTapBlock;
 
 
@@ -47,6 +49,9 @@ typedef void (^EditCellItemTapBlock)(EditCellItem *curItem);
 
 + (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
 + (EditCellItem *)createAttrField:(NSAttributedString *)attrTitle attrValue:(NSAttributedString *)attrValue placeholder:(NSString *)placeholder;
++ (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder length:(NSInteger)length isNumber:(BOOL)isNumber;
++ (EditCellItem *)createAttrField:(NSAttributedString *)attrTitle attrValue:(NSAttributedString *)attrValue placeholder:(NSString *)placeholder length:(NSInteger)length isNumber:(BOOL)isNumber;
+
 + (EditCellItem *)createText:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
 + (EditCellItem *)createGroupImage:(NSString *)title value:(NSString *)value;
 
