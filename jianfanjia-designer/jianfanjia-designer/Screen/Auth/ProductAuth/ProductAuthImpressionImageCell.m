@@ -9,7 +9,7 @@
 #import "ProductAuthImpressionImageCell.h"
 #import "ProductAuthImageActionView.h"
 
-#define kMaxProductImpressoinImageDescLength 120
+#define kMaxProductImpressoinImageDescLength 140
 
 @interface ProductAuthImpressionImageCell ()
 

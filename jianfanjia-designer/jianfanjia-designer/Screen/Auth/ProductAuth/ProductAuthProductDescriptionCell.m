@@ -8,7 +8,7 @@
 
 #import "ProductAuthProductDescriptionCell.h"
 
-#define kMaxProductDescLength 240
+#define kMaxProductDescLength 140
 
 @interface ProductAuthProductDescriptionCell ()
 
