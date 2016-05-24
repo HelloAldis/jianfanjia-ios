@@ -5,6 +5,7 @@
 //  Created by JYZ on 15/11/20.
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
+#import <Photos/Photos.h>
 
 typedef void (^FinishUploadBlock)(NSArray *imageIds);
 

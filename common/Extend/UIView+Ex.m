@@ -138,11 +138,17 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
 
 //获得某个范围内的屏幕图像
 - (UIImage *)snapshotImageAtFrame:(CGRect)r {
-    UIGraphicsBeginImageContextWithOptions(r.size, self.opaque, 0);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSaveGState(context);
-    UIRectClip(r);
-    [self.layer renderInContext:context];
+//    UIGraphicsBeginImageContextWithOptions(r.size, self.opaque, 0);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextSaveGState(context);
+//    UIRectClip(r);
+//    [self.layer renderInContext:context];
+//    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    return snap;
+    
+    UIGraphicsBeginImageContextWithOptions(r.size, NO, [UIScreen mainScreen].scale);
+    [self drawViewHierarchyInRect:CGRectMake(-r.origin.x, -r.origin.y, self.bounds.size.width, self.bounds.size.height) afterScreenUpdates:YES];
     UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return snap;

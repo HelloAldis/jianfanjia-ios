@@ -16,16 +16,16 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="841"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2m9-ql-D6y">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="2m9-ql-D6y" customClass="ReorderTableView">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="841"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="ehL-fG-KTB"/>
                         <outlet property="delegate" destination="-1" id="lDm-7a-4da"/>
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="2m9-ql-D6y" firstAttribute="top" secondItem="K2E-tc-g2O" secondAttribute="top" id="8MZ-j6-GNM"/>
                 <constraint firstAttribute="trailing" secondItem="2m9-ql-D6y" secondAttribute="trailing" id="Umv-fe-BTy"/>

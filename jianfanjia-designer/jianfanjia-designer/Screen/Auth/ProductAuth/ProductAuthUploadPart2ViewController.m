@@ -14,6 +14,7 @@
 #import "ProductAuthProductDescriptionCell.h"
 #import "ProductAuthPlanImageCell.h"
 #import "ProductAuthImpressionImageCell.h"
+#import "ReorderTableView.h"
 
 static NSString *ProductAuthProductDescriptionCellIdentifier = @"ProductAuthProductDescriptionCell";
 static NSString *ProductAuthPlanImageCellIdentifier = @"ProductAuthPlanImageCell";
@@ -21,7 +22,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 
 @interface ProductAuthUploadPart2ViewController ()
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet ReorderTableView *tableView;
 
 @property (strong, nonatomic) ProductAuthDataManager *dataManager;
 @property (nonatomic, strong) Product *product;
@@ -72,6 +73,10 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 - (void)initUI {
     self.dataManager = [[ProductAuthDataManager alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, -200, kScreenWidth, 200)];
+    view.bgColor = [UIColor colorWithR:0xF1 g:0xF2 b:0xF4];
+    [self.tableView addSubview:view];
+    
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 10, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -102,7 +107,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return 10;
+        return 0.1;
     }
     
     return kProductAuthImageHeaderViewHeight;
@@ -188,9 +193,25 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
     return 0;
 }
 
+- (CGRect)orderTableView:(UITableView *)tableView dragViewRectAtIndexPath:(NSIndexPath *)indexPath {
+    return CGRectMake(20, 23, kScreenWidth-20 * 2, 40);
+}
+
+- (BOOL)orderTableView:(UITableView *)tableView canDragAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return NO;
+    } else if (indexPath.section == 1) {
+        return YES;
+    } else if (indexPath.section == 2) {
+        return YES;
+    }
+    
+    return NO;
+}
+
 #pragma mark - api request
 - (void)refresh {
-    [self.tableView reloadData];
+//    [self.tableView reloadData];
 }
 
 #pragma mark - user action

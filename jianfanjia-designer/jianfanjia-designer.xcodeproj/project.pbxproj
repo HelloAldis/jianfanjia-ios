@@ -30,9 +30,6 @@
 		68123C931C4C9772008FC9AB /* ThumbnailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C781C4C9772008FC9AB /* ThumbnailCell.xib */; };
 		68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C7B1C4C9772008FC9AB /* ImageDetailViewController.m */; };
 		68123C951C4C9772008FC9AB /* ImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C7C1C4C9772008FC9AB /* ImageDetailViewController.xib */; };
-		68123C961C4C9772008FC9AB /* ImageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C7F1C4C9772008FC9AB /* ImageEditorViewController.m */; };
-		68123C971C4C9772008FC9AB /* ImageEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C801C4C9772008FC9AB /* ImageEditorViewController.xib */; };
-		68123C981C4C9772008FC9AB /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C821C4C9772008FC9AB /* OverlayView.m */; };
 		68123C991C4C9772008FC9AB /* allprovince.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C851C4C9772008FC9AB /* allprovince.js */; };
 		68123C9A1C4C9772008FC9AB /* city2area.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C861C4C9772008FC9AB /* city2area.js */; };
 		68123C9B1C4C9772008FC9AB /* province2city.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C871C4C9772008FC9AB /* province2city.js */; };
@@ -323,6 +320,7 @@
 		685B15CD1CF2EA230076996A /* ProductAuthImageFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15CB1CF2EA230076996A /* ProductAuthImageFooterView.xib */; };
 		685B15D11CF3006B0076996A /* ProductAuthImpressionImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15CF1CF3006B0076996A /* ProductAuthImpressionImageCell.m */; };
 		685B15D21CF3006B0076996A /* ProductAuthImpressionImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15D01CF3006B0076996A /* ProductAuthImpressionImageCell.xib */; };
+		685B15DA1CF3E79D0076996A /* ReorderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15D91CF3E79D0076996A /* ReorderTableView.m */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -460,11 +458,6 @@
 		68123C7A1C4C9772008FC9AB /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
 		68123C7B1C4C9772008FC9AB /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
 		68123C7C1C4C9772008FC9AB /* ImageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailViewController.xib; sourceTree = "<group>"; };
-		68123C7E1C4C9772008FC9AB /* ImageEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEditorViewController.h; sourceTree = "<group>"; };
-		68123C7F1C4C9772008FC9AB /* ImageEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEditorViewController.m; sourceTree = "<group>"; };
-		68123C801C4C9772008FC9AB /* ImageEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageEditorViewController.xib; sourceTree = "<group>"; };
-		68123C811C4C9772008FC9AB /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
-		68123C821C4C9772008FC9AB /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
 		68123C831C4C9772008FC9AB /* JYZUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZUIKit.h; sourceTree = "<group>"; };
 		68123C851C4C9772008FC9AB /* allprovince.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = allprovince.js; sourceTree = "<group>"; };
 		68123C861C4C9772008FC9AB /* city2area.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = city2area.js; sourceTree = "<group>"; };
@@ -954,6 +947,8 @@
 		685B15CE1CF3006B0076996A /* ProductAuthImpressionImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAuthImpressionImageCell.h; sourceTree = "<group>"; };
 		685B15CF1CF3006B0076996A /* ProductAuthImpressionImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAuthImpressionImageCell.m; sourceTree = "<group>"; };
 		685B15D01CF3006B0076996A /* ProductAuthImpressionImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductAuthImpressionImageCell.xib; sourceTree = "<group>"; };
+		685B15D81CF3E79D0076996A /* ReorderTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReorderTableView.h; sourceTree = "<group>"; };
+		685B15D91CF3E79D0076996A /* ReorderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReorderTableView.m; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1187,6 +1182,7 @@
 		68123C671C4C9772008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				685B15D71CF3E79D0076996A /* ReorderView */,
 				685B15001CEC60950076996A /* EditCellComponent */,
 				685B14571CEB11CF0076996A /* Selection */,
 				685B14141CEAFF600076996A /* KRSFakeNavigationBar */,
@@ -1196,7 +1192,6 @@
 				68123C6F1C4C9772008FC9AB /* CustomScroll */,
 				68123C721C4C9772008FC9AB /* ImageBrower */,
 				68123C791C4C9772008FC9AB /* ImageDetail */,
-				68123C7D1C4C9772008FC9AB /* ImageEditor */,
 				68123C841C4C9772008FC9AB /* SelectCity */,
 				6812401D1C4CDA78008FC9AB /* CollectionFallsFlowLayout.h */,
 				6812401E1C4CDA78008FC9AB /* CollectionFallsFlowLayout.m */,
@@ -1250,18 +1245,6 @@
 				68123C7C1C4C9772008FC9AB /* ImageDetailViewController.xib */,
 			);
 			path = ImageDetail;
-			sourceTree = "<group>";
-		};
-		68123C7D1C4C9772008FC9AB /* ImageEditor */ = {
-			isa = PBXGroup;
-			children = (
-				68123C7E1C4C9772008FC9AB /* ImageEditorViewController.h */,
-				68123C7F1C4C9772008FC9AB /* ImageEditorViewController.m */,
-				68123C801C4C9772008FC9AB /* ImageEditorViewController.xib */,
-				68123C811C4C9772008FC9AB /* OverlayView.h */,
-				68123C821C4C9772008FC9AB /* OverlayView.m */,
-			);
-			path = ImageEditor;
 			sourceTree = "<group>";
 		};
 		68123C841C4C9772008FC9AB /* SelectCity */ = {
@@ -1818,6 +1801,15 @@
 				685B15471CED70620076996A /* ProductPageData.m */,
 			);
 			path = Product;
+			sourceTree = "<group>";
+		};
+		685B15D71CF3E79D0076996A /* ReorderView */ = {
+			isa = PBXGroup;
+			children = (
+				685B15D81CF3E79D0076996A /* ReorderTableView.h */,
+				685B15D91CF3E79D0076996A /* ReorderTableView.m */,
+			);
+			path = ReorderView;
 			sourceTree = "<group>";
 		};
 		685F2D771CAD0DD400DC4D43 /* RefreshComponent */ = {
@@ -2504,7 +2496,6 @@
 				685B148A1CEB11CF0076996A /* SelectSexTypeViewController.xib in Resources */,
 				68123F191C4CBE79008FC9AB /* W1View.xib in Resources */,
 				685F2D651CAA8DDE00DC4D43 /* SectionActionView.xib in Resources */,
-				68123C971C4C9772008FC9AB /* ImageEditorViewController.xib in Resources */,
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
 				685B151B1CEC60950076996A /* TextEditCell.xib in Resources */,
 				685B159F1CF29FD00076996A /* ProductAuthUploadPart1ViewController.xib in Resources */,
@@ -2689,7 +2680,6 @@
 				68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */,
 				685B15971CEEF7E30076996A /* ResetPassViewController.m in Sources */,
 				681241BE1C4F97D1008FC9AB /* RejectUserAlertViewController.m in Sources */,
-				68123C981C4C9772008FC9AB /* OverlayView.m in Sources */,
 				684B041F1C98FB580053FFDF /* SearchDesignerNotification.m in Sources */,
 				684B041C1C98FB580053FFDF /* GetDesignerNotificationDetail.m in Sources */,
 				681241BA1C4F8C5F008FC9AB /* DesignerGetRequirementPlans.m in Sources */,
@@ -2701,6 +2691,7 @@
 				681240C81C4CE471008FC9AB /* RefreshSession.m in Sources */,
 				685B15801CEEB1510076996A /* LogoutCell.m in Sources */,
 				685B154F1CED70620076996A /* ProductPageData.m in Sources */,
+				685B15DA1CF3E79D0076996A /* ReorderTableView.m in Sources */,
 				685B15C51CF2E5180076996A /* ProductAuthPlanImageCell.m in Sources */,
 				685B15A41CF2CED80076996A /* ProductAuthUploadPart2ViewController.m in Sources */,
 				685B14191CEAFF600076996A /* KRSSwizzle.m in Sources */,
@@ -2806,7 +2797,6 @@
 				68F73D261CBB597E00E97710 /* PlanDesignerSubmitPlanExpired.m in Sources */,
 				6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */,
 				685B153E1CED6C930076996A /* DesignerDeleteProduct.m in Sources */,
-				68123C961C4C9772008FC9AB /* ImageEditorViewController.m in Sources */,
 				685B14F91CEC54B60076996A /* AvtarImageCell.m in Sources */,
 				689220071CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */,
 				681241211C4CF2D5008FC9AB /* ItemImageCollectionCell.m in Sources */,
