@@ -193,8 +193,16 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
     return 0;
 }
 
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    if (sourceIndexPath.section == 1) {
+        [self.product.plan_images exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+    } else if (sourceIndexPath.section == 2) {
+        [self.product.images exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+    }
+}
+
 - (CGRect)orderTableView:(UITableView *)tableView dragViewRectAtIndexPath:(NSIndexPath *)indexPath {
-    return CGRectMake(20, 23, kScreenWidth-20 * 2, 40);
+    return CGRectMake(20, 24, kScreenWidth-20 * 2, 40);
 }
 
 - (BOOL)orderTableView:(UITableView *)tableView canDragAtIndexPath:(NSIndexPath *)indexPath {
