@@ -45,7 +45,7 @@
 
 - (void)showTool:(BOOL)animated {
     if (!self.isOpen) {
-        [UIView animateWithDuration:animated ? 0.3 : 0.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        [UIView animateWithDuration:animated ? 0.2 : 0.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             self.closeConst.constant = [self rightToTrailConst:0];
             self.deleteConst.constant = [self rightToTrailConst:1];
             self.editConst.constant = [self rightToTrailConst:2];
@@ -65,7 +65,7 @@
 
 - (void)closeTool:(BOOL)animated {
     if (self.isOpen) {
-        [UIView animateWithDuration:animated ? 0.3 : 0.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
+        [UIView animateWithDuration:animated ? 0.2 : 0.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             self.closeConst.constant = [self rightToTrailConst:0];
             self.deleteConst.constant = [self rightToTrailConst:0];
             self.editConst.constant = [self rightToTrailConst:0];

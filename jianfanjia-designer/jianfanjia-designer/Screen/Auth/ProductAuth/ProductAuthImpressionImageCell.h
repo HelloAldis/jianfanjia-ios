@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProductAuthImageActionView.h"
 
 #define kProductAuthImpressionImageCellHeight 466
 
 @interface ProductAuthImpressionImageCell : UITableViewCell
 
-- (void)initWithProduct:(Product *)product image:(ProductImage *)image;
+- (void)initWithProduct:(Product *)product image:(ProductImage *)image actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock;
 
 @end

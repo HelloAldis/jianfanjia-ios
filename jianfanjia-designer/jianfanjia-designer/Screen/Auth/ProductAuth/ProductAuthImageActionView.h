@@ -10,7 +10,7 @@
 
 #define kImgViewWidth 40
 #define kImgViewSpace 24
-#define kProductAuthImageActionViewWidth (3 * (kImgViewWidth + kImgViewSpace))
+#define kProductAuthImageActionViewWidth (4 * (kImgViewWidth + kImgViewSpace))
 #define kProductAuthImageActionViewHeight 41
 
 typedef NS_ENUM(NSInteger, ProductAuthImageAction) {
@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, ProductAuthImageAction) {
     ProductAuthImageActionSetCover,
 };
 
-typedef void (^ProductAuthImageActionViewTapBlock)(ProductAuthImageAction);
+typedef void (^ProductAuthImageActionViewTapBlock)(ProductAuthImageAction action);
 
 @interface ProductAuthImageActionView : UIView
 

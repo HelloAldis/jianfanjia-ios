@@ -7,7 +7,6 @@
 //
 
 #import "ProductAuthImpressionImageCell.h"
-#import "ProductAuthImageActionView.h"
 
 #define kMaxProductImpressoinImageDescLength 140
 
@@ -37,12 +36,12 @@
     [self.selectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSelection)]];
 }
 
-- (void)initWithProduct:(Product *)product image:(ProductImage *)image {
+- (void)initWithProduct:(Product *)product image:(ProductImage *)image actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock {
     [self.imgView setImageWithId:image.imageid withWidth:kScreenWidth];
     self.tvDesc.text = image.productImage_description;
     self.lblSelection.text = image.section;
     self.coverImgView.hidden = ![product.cover_imageid isEqualToString:image.imageid];
-    [self initActionView];
+    [self initActionView:actionBlock];
     [self limitTextViewLength];
 }
 
@@ -64,14 +63,13 @@
      }];
 }
 
-- (void)initActionView {
+- (void)initActionView:(ProductAuthImageActionViewTapBlock)actionBlock {
     if (!self.actionView) {
         self.actionView = [[ProductAuthImageActionView alloc] initWithFrame:CGRectMake(kScreenWidth - kProductAuthImageActionViewWidth - 30, kProductAuthImpressionImageCellHeight - kProductAuthImageActionViewHeight - 180, kProductAuthImageActionViewWidth, kProductAuthImageActionViewHeight)];
         [self.contentView addSubview:self.actionView];
-        self.actionView.tapBlock = ^(ProductAuthImageAction action){
-            
-        };
     }
+    
+    self.actionView.tapBlock = actionBlock;
 }
 
 - (void)onTapImgView {

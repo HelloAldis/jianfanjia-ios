@@ -94,7 +94,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
     self.addImpressionView = [ProductAuthImageFooterView productAuthImageFooterView];
     self.addImpressionView.tapBlock = ^{
         @strongify(self);
-        [self onTapAddImpressoinImg];
+        [self onTapAddImpressionImg];
     };
     
     [self refresh];
@@ -168,12 +168,16 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
         return self.productDescCell;
     } else if (indexPath.section == 1) {
         ProductAuthPlanImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthPlanImageCellIdentifier forIndexPath:indexPath];
-        [cell initWithProduct:self.product image:[self.product planImageAtIndex:indexPath.row]];
+        [cell initWithProduct:self.product image:[self.product planImageAtIndex:indexPath.row] actionBlock:^(ProductAuthImageAction action) {
+            [self onTapAction:action indexPath:indexPath];
+        }];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else if (indexPath.section == 2) {
         ProductAuthImpressionImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthImpressionImageCellIdentifier forIndexPath:indexPath];
-        [cell initWithProduct:self.product image:[self.product imageAtIndex:indexPath.row]];
+        [cell initWithProduct:self.product image:[self.product imageAtIndex:indexPath.row] actionBlock:^(ProductAuthImageAction action) {
+            [self onTapAction:action indexPath:indexPath];
+        }];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -223,15 +227,85 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 }
 
 #pragma mark - user action
-- (void)onTapAddPlanImg {
-    [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:NSIntegerMax withBlock:^(NSArray *imageIds) {
-        
+- (void)onTapAction:(ProductAuthImageAction)action indexPath:(NSIndexPath *)indexPath {
+    if (action == ProductAuthImageActionDelete) {
+        if (indexPath.section == 1) {
+            [self onTapDeletePlanImg:indexPath];
+        } else if (indexPath.section == 2) {
+            [self onTapDeleteImpressionImg:indexPath];
+        }
+    } else if (action == ProductAuthImageActionEdit) {
+        if (indexPath.section == 1) {
+            [self onTapReplacePlanImg:indexPath];
+        } else if (indexPath.section == 2) {
+            [self onTapReplaceImpressionImg:indexPath];
+        }
+    } else if (action == ProductAuthImageActionSetCover) {
+        if (indexPath.section == 1) {
+        } else if (indexPath.section == 2) {
+            [self onTapSetCoverImg:indexPath];
+        }
+    }
+}
+
+- (void)onTapSetCoverImg:(NSIndexPath *)indexPath {
+    ProductImage *img = [self.product imageAtIndex:indexPath.row];
+    self.product.cover_imageid = img.imageid;
+    [self.tableView reloadData];
+}
+
+- (void)onTapDeletePlanImg:(NSIndexPath *)indexPath {
+    [self.product.plan_images removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
+}
+
+- (void)onTapDeleteImpressionImg:(NSIndexPath *)indexPath {
+    [self.product.images removeObjectAtIndex:indexPath.row];
+    [self.tableView reloadData];
+}
+
+- (void)onTapReplacePlanImg:(NSIndexPath *)indexPath {
+    [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:1 withBlock:^(NSArray *imageIds) {
+        ProductImage *img = [self.product planImageAtIndex:indexPath.row];
+        img.imageid = imageIds[0];
+        [self.tableView reloadData];
     }];
 }
 
-- (void)onTapAddImpressoinImg {
-    [PhotoUtil showUploadProductImageSelector:self inView:self.addImpressionView max:NSIntegerMax withBlock:^(NSArray *imageIds) {
+- (void)onTapReplaceImpressionImg:(NSIndexPath *)indexPath {
+    [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:1 withBlock:^(NSArray *imageIds) {
+        ProductImage *img = [self.product imageAtIndex:indexPath.row];
+        img.imageid = imageIds[0];
+        [self.tableView reloadData];
+    }];
+}
+
+- (void)onTapAddPlanImg {
+    [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:NSIntegerMax withBlock:^(NSArray *imageIds) {
+        NSArray *arr = [imageIds map:^id(id obj) {
+            ProductImage *img = [[ProductImage alloc] init];
+            img.imageid = obj;
+            
+            return img;
+        }];
         
+        [self.product.plan_images insertObjects:arr atIndexes:[NSIndexSet indexSetWithIndex:self.product.plan_images.count]];
+        [self.tableView reloadData];
+    }];
+}
+
+- (void)onTapAddImpressionImg {
+    [PhotoUtil showUploadProductImageSelector:self inView:self.addImpressionView max:NSIntegerMax withBlock:^(NSArray *imageIds) {
+        NSArray *arr = [imageIds map:^id(id obj) {
+            ProductImage *img = [[ProductImage alloc] init];
+            img.section = @"客厅";
+            img.imageid = obj;
+            
+            return img;
+        }];
+        
+        [self.product.images insertObjects:arr atIndexes:[NSIndexSet indexSetWithIndex:self.product.images.count]];
+        [self.tableView reloadData];
     }];
 }
 
