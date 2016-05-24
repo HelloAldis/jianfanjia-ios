@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="705" height="465"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1iw-IK-HV3">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1iw-IK-HV3">
                         <rect key="frame" x="20" y="23" width="665" height="279"/>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_product_move" translatesAutoresizingMaskIntoConstraints="NO" id="iSF-BO-syd">

@@ -202,7 +202,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 }
 
 - (CGRect)orderTableView:(UITableView *)tableView dragViewRectAtIndexPath:(NSIndexPath *)indexPath {
-    return CGRectMake(20, 24, kScreenWidth-20 * 2, 40);
+    return CGRectMake(20, 24, kScreenWidth - 20 * 2, 40);
 }
 
 - (BOOL)orderTableView:(UITableView *)tableView canDragAtIndexPath:(NSIndexPath *)indexPath {

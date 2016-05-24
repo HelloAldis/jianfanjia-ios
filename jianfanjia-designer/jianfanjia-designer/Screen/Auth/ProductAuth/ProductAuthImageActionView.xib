@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ProductAuthImageActionView">
+            <rect key="frame" x="0.0" y="0.0" width="232" height="41"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_product_set_cover" translatesAutoresizingMaskIntoConstraints="NO" id="ZGm-WM-UfM">
+                    <rect key="frame" x="192" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="RHV-yq-eKA"/>
+                        <constraint firstAttribute="width" secondItem="ZGm-WM-UfM" secondAttribute="height" id="iL9-uk-7f5"/>
+                    </constraints>
+                </imageView>
+                <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_product_edit" translatesAutoresizingMaskIntoConstraints="NO" id="K8W-Un-2R4">
+                    <rect key="frame" x="192" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="EK6-ym-YbD"/>
+                        <constraint firstAttribute="width" secondItem="K8W-Un-2R4" secondAttribute="height" id="t6h-HF-vMX"/>
+                    </constraints>
+                </imageView>
+                <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_product_delete" translatesAutoresizingMaskIntoConstraints="NO" id="ikA-IO-m79">
+                    <rect key="frame" x="192" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="JdV-Gj-6F8"/>
+                        <constraint firstAttribute="width" secondItem="ikA-IO-m79" secondAttribute="height" multiplier="1:1" id="fh7-0R-GNt"/>
+                    </constraints>
+                </imageView>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_tool_close" translatesAutoresizingMaskIntoConstraints="NO" id="d5L-Sa-tJA">
+                    <rect key="frame" x="192" y="0.0" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="d5L-Sa-tJA" secondAttribute="height" multiplier="1:1" id="3Bp-yx-bBy"/>
+                        <constraint firstAttribute="width" constant="40" id="Vlh-4w-Cqi"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ZGm-WM-UfM" secondAttribute="trailing" id="9kd-om-Yfa"/>
+                <constraint firstItem="K8W-Un-2R4" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="CU1-eG-Jlv"/>
+                <constraint firstItem="ZGm-WM-UfM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="S1I-Ff-BKh"/>
+                <constraint firstAttribute="trailing" secondItem="ikA-IO-m79" secondAttribute="trailing" id="Tyk-TI-cUx"/>
+                <constraint firstItem="ikA-IO-m79" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dZ7-66-6uL"/>
+                <constraint firstAttribute="trailing" secondItem="K8W-Un-2R4" secondAttribute="trailing" id="otO-Mi-uNd"/>
+                <constraint firstItem="d5L-Sa-tJA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="sLJ-fV-bnl"/>
+                <constraint firstAttribute="trailing" secondItem="d5L-Sa-tJA" secondAttribute="trailing" id="xLF-B7-xsi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="closeConst" destination="xLF-B7-xsi" id="UHf-Ok-Ta6"/>
+                <outlet property="closeImgView" destination="d5L-Sa-tJA" id="9OU-kA-0u6"/>
+                <outlet property="deleteConst" destination="Tyk-TI-cUx" id="bur-Dh-EgT"/>
+                <outlet property="deleteImgView" destination="ikA-IO-m79" id="YyQ-1O-8u4"/>
+                <outlet property="editConst" destination="otO-Mi-uNd" id="25z-h2-KCG"/>
+                <outlet property="editImgView" destination="K8W-Un-2R4" id="FA8-4U-0TG"/>
+                <outlet property="setCoverConst" destination="9kd-om-Yfa" id="afR-Zn-R7d"/>
+                <outlet property="setCoverImgView" destination="ZGm-WM-UfM" id="6rS-Gz-T5L"/>
+            </connections>
+            <point key="canvasLocation" x="182" y="368.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_product_delete" width="40" height="40"/>
+        <image name="icon_product_edit" width="40" height="40"/>
+        <image name="icon_product_set_cover" width="40" height="40"/>
+        <image name="icon_tool_close" width="40" height="40"/>
+    </resources>
+</document>

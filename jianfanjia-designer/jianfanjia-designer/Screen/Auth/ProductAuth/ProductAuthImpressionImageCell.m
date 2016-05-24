@@ -7,6 +7,7 @@
 //
 
 #import "ProductAuthImpressionImageCell.h"
+#import "ProductAuthImageActionView.h"
 
 #define kMaxProductImpressoinImageDescLength 120
 
@@ -20,6 +21,8 @@
 @property (weak, nonatomic) IBOutlet UITextView *tvDesc;
 @property (weak, nonatomic) IBOutlet UILabel *lblLeftLength;
 
+@property (strong, nonatomic) ProductAuthImageActionView *actionView;
+
 @end
 
 @implementation ProductAuthImpressionImageCell
@@ -30,6 +33,7 @@
     [self.imgView setBorder:0.5 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
     [self.bottomView setCornerRadius:5];
     [self.bottomView setBorder:0.5 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
+    [self.imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImgView)]];
     [self.selectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSelection)]];
 }
 
@@ -38,6 +42,7 @@
     self.tvDesc.text = image.productImage_description;
     self.lblSelection.text = image.section;
     self.coverImgView.hidden = ![product.cover_imageid isEqualToString:image.imageid];
+    [self initActionView];
     [self limitTextViewLength];
 }
 
@@ -57,6 +62,20 @@
          self.tvDesc.text = value;
          self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxProductImpressoinImageDescLength - value.length), @(kMaxProductImpressoinImageDescLength)];
      }];
+}
+
+- (void)initActionView {
+    if (!self.actionView) {
+        self.actionView = [[ProductAuthImageActionView alloc] initWithFrame:CGRectMake(kScreenWidth - kProductAuthImageActionViewWidth - 30, kProductAuthImpressionImageCellHeight - kProductAuthImageActionViewHeight - 180, kProductAuthImageActionViewWidth, kProductAuthImageActionViewHeight)];
+        [self.contentView addSubview:self.actionView];
+        self.actionView.tapBlock = ^(ProductAuthImageAction action){
+            
+        };
+    }
+}
+
+- (void)onTapImgView {
+    
 }
 
 - (void)onTapSelection {
