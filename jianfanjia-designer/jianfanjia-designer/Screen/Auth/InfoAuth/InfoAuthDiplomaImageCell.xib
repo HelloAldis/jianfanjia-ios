@@ -19,7 +19,7 @@
                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1iw-IK-HV3">
                         <rect key="frame" x="20" y="23" width="665" height="284"/>
                     </imageView>
-                    <imageView alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_product_delete" translatesAutoresizingMaskIntoConstraints="NO" id="UxF-xE-Mim">
+                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_product_delete" translatesAutoresizingMaskIntoConstraints="NO" id="UxF-xE-Mim">
                         <rect key="frame" x="635" y="247" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="PIa-Nl-YaI"/>
