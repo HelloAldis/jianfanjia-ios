@@ -14,8 +14,9 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSArray *sectionArr1;
-@property (nonatomic, strong) NSArray *sectionArr2;
+@property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr1;
+@property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr2;
+@property (nonatomic, strong) NSMutableArray<EditCellItem *> *totalArr;
 
 @property (nonatomic, strong) Product *product;
 
@@ -111,7 +112,7 @@
                              [self.navigationController pushViewController:controller animated:YES];
                              
                          }],
-                         [EditCellItem createAttrField:[@"建筑面积 (m²)" attrSubStr:@"(m²)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.house_area ? [[NSAttributedString alloc] initWithString:[self.product.house_area stringValue]] : nil placeholder:@"请输入" length:6 isNumber:YES],
+                         [EditCellItem createAttrField:[@"建筑面积 (m²)" attrSubStr:@"(m²)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.house_area ? [[NSMutableAttributedString alloc] initWithString:[self.product.house_area stringValue]] : nil placeholder:@"请输入" length:6 isNumber:YES],
                          [EditCellItem createSelection:@"装修风格" value:[NameDict nameForDecStyle:self.product.dec_style] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                          
                              SelectDecorationStyleViewController *controller = [[SelectDecorationStyleViewController alloc] initWithValueBlock:^(id value) {
@@ -136,8 +137,13 @@
                              [self.navigationController pushViewController:controller animated:YES];
                              
                          }],
-                         [EditCellItem createAttrField:[@"装修造价 (万元)" attrSubStr:@"(万元)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.total_price ? [[NSAttributedString alloc] initWithString:[self.product.total_price stringValue]] : nil placeholder:@"请输入" length:3 isNumber:YES],
+                         [EditCellItem createAttrField:[@"装修造价 (万元)" attrSubStr:@"(万元)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.total_price ? [[NSMutableAttributedString alloc] initWithString:[self.product.total_price stringValue]] : nil placeholder:@"请输入" length:3 isNumber:YES],
                          ];
+    
+    self.totalArr = [NSMutableArray array];
+    [self.totalArr addObjectsFromArray:self.sectionArr1];
+    [self.totalArr addObjectsFromArray:self.sectionArr2];
+    [self refreshNextButtonStatus];
 }
 
 #pragma mark - table view delegate
@@ -183,6 +189,27 @@
 #pragma mark - other
 - (BOOL)isNewProd {
     return self.product == nil || self.product._id == nil || [self.product._id isEqualToString:@""];
+}
+
+- (void)refreshNextButtonStatus {
+    [[RACObserve(self, totalArr) flattenMap:^RACStream *(NSArray *items) {
+        NSMutableArray *signals = [NSMutableArray array];
+        for (EditCellItem *item in items) {
+            [signals addObject:RACObserve(item, value)];
+        }
+        
+        return [RACSignal combineLatest:(signals)];
+    }] subscribeNext:^(RACTuple *tuple) {
+        __block BOOL isAllInputed = YES;
+        [tuple.allObjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[NSNull class]]|| [obj length] == 0) {
+                isAllInputed = NO;
+                *stop = YES;
+            }
+        }];
+        
+        self.navigationItem.rightBarButtonItem.enabled = isAllInputed;
+    }];
 }
 
 @end

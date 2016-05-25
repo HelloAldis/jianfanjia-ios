@@ -81,7 +81,7 @@ static NSString *SelectionMenuCollectionCellIdentifier = @"SelectionMenuCollecti
     self.flowLayout.itemSize = CGSizeMake(cellWidth, cellHeight);
     self.flowLayout.sectionInset = self.insets;
 
-    NSInteger rowCount = self.datasoure.count % self.columnCount > 0 ? self.datasoure.count / self.columnCount + 1 : self.datasoure.count / self.columnCount;
+//    NSInteger rowCount = self.datasoure.count % self.columnCount > 0 ? self.datasoure.count / self.columnCount + 1 : self.datasoure.count / self.columnCount;
 //    self.height = self.rowSpace * (rowCount - 1) + cellHeight * rowCount + self.insets.top + self.insets.bottom;
     self.height = kSelectionMenuViewHeight;
     self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, self.height);

@@ -38,6 +38,7 @@
     }
     
     self.fldValue.placeholder = item.placeholder;
+    self.fldValue.keyboardType = item.isNumber ? UIKeyboardTypeNumberPad : UIKeyboardTypeDefault;
     
     if (item.length == 0) {
         item.length = NSIntegerMax;
@@ -54,6 +55,10 @@
      subscribeNext:^(NSString *value) {
          @strongify(self);
          self.fldValue.text = value;
+         self.item.value = value;
+         if (item.attrValue) {
+             self.item.attrValue.mutableString.string = value;
+         }
      }];
 }
 

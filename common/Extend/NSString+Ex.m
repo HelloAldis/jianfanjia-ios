@@ -92,7 +92,7 @@
     return [emailTest evaluateWithObject:self];
 }
 
-- (NSAttributedString *)attrStrWithFont:(UIFont *)font color:(UIColor *)color {
+- (NSMutableAttributedString *)attrStrWithFont:(UIFont *)font color:(UIColor *)color {
     NSMutableDictionary *dic = [@{} mutableCopy];
     if (font) {
         dic[NSFontAttributeName] = font;
@@ -108,7 +108,7 @@
     return attributedStr;
 }
 
-- (NSAttributedString *)attrSubStr:(NSString *)subStr font:(UIFont *)font color:(UIColor *)color {
+- (NSMutableAttributedString *)attrSubStr:(NSString *)subStr font:(UIFont *)font color:(UIColor *)color {
     NSMutableDictionary *dic = [@{} mutableCopy];
     if (font) {
         dic[NSFontAttributeName] = font;

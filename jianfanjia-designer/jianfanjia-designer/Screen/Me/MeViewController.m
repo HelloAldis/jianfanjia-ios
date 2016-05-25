@@ -71,7 +71,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     self.tableView.estimatedRowHeight = 50;
     [EditCellItem registerCells:self.tableView];
     
-    self.authCenterItem = [EditCellItem createAttrSelection:[[NSAttributedString alloc] initWithString:@"设计师认证中心"] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
+    self.authCenterItem = [EditCellItem createAttrSelection:[[NSMutableAttributedString alloc] initWithString:@"设计师认证中心"] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
         [ViewControllerContainer showDesignerAuth];
     }];
     [self updateAuthCenter];

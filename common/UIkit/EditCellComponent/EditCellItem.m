@@ -56,7 +56,7 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     return item;
 }
 
-+ (EditCellItem *)createAttrSelection:(NSAttributedString *)attrTitle attrValue:(NSAttributedString *)attrValue placeholder:(NSString *)placeholder tapBlock:(EditCellItemTapBlock)tapBlock {
++ (EditCellItem *)createAttrSelection:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder tapBlock:(EditCellItemTapBlock)tapBlock {
     EditCellItem *item = [[EditCellItem alloc] init];
     item.cellEditType = CellEditTypeSelection;
     item.attrTitle = attrTitle;
@@ -74,7 +74,7 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     return item;
 }
 
-+ (EditCellItem *)createAttrSelection:(NSAttributedString *)attrTitle attrValue:(NSAttributedString *)attrValue placeholder:(NSString *)placeholder image:(UIImage *)image tapBlock:(EditCellItemTapBlock)tapBlock {
++ (EditCellItem *)createAttrSelection:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder image:(UIImage *)image tapBlock:(EditCellItemTapBlock)tapBlock {
     EditCellItem *item = [EditCellItem createAttrSelection:attrTitle attrValue:attrValue placeholder:placeholder tapBlock:tapBlock];
     item.image = image;
     
@@ -91,7 +91,7 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     return item;
 }
 
-+ (EditCellItem *)createAttrField:(NSAttributedString *)attrTitle attrValue:(NSAttributedString *)attrValue placeholder:(NSString *)placeholder {
++ (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder {
     EditCellItem *item = [[EditCellItem alloc] init];
     item.cellEditType = CellEditTypeFld;
     item.attrTitle = attrTitle;
@@ -109,7 +109,7 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     return item;
 }
 
-+ (EditCellItem *)createAttrField:(NSAttributedString *)attrTitle attrValue:(NSAttributedString *)attrValue placeholder:(NSString *)placeholder length:(NSInteger)length isNumber:(BOOL)isNumber {
++ (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder length:(NSInteger)length isNumber:(BOOL)isNumber {
     EditCellItem *item = [EditCellItem createAttrField:attrTitle attrValue:attrValue placeholder:placeholder];
     item.length = length;
     item.isNumber = isNumber;
