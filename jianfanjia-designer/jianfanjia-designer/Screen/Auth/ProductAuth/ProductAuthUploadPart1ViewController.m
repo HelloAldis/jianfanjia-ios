@@ -69,7 +69,7 @@
     self.tableView.estimatedRowHeight = 50;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [EditCellItem registerCells:self.tableView];
-
+    
     self.sectionArr1 = @[
                          [EditCellItem createSelection:@"所在城市" value:[self isNewProd] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.product.province, self.product.city, self.product.district] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              
@@ -85,7 +85,11 @@
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createField:@"小区名字" value:self.product.cell placeholder:@"请输入"],
+                         [EditCellItem createField:@"小区名字" value:self.product.cell placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             if (itemEditType ==  EditCellItemEditTypeChange) {
+                                 self.product.cell = curItem.value;
+                             }
+                         }],
                          ];
     
     self.sectionArr2 = @[
@@ -112,7 +116,11 @@
                              [self.navigationController pushViewController:controller animated:YES];
                              
                          }],
-                         [EditCellItem createAttrField:[@"建筑面积 (m²)" attrSubStr:@"(m²)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.house_area ? [[NSMutableAttributedString alloc] initWithString:[self.product.house_area stringValue]] : nil placeholder:@"请输入" length:6 isNumber:YES],
+                         [EditCellItem createAttrField:[@"建筑面积 (m²)" attrSubStr:@"(m²)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.house_area ? [[NSMutableAttributedString alloc] initWithString:[self.product.house_area stringValue]] : nil placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             if (itemEditType ==  EditCellItemEditTypeChange) {
+                                 self.product.house_area = @([curItem.value integerValue]);
+                             }
+                         } length:6 isNumber:YES],
                          [EditCellItem createSelection:@"装修风格" value:[NameDict nameForDecStyle:self.product.dec_style] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                          
                              SelectDecorationStyleViewController *controller = [[SelectDecorationStyleViewController alloc] initWithValueBlock:^(id value) {
@@ -137,7 +145,11 @@
                              [self.navigationController pushViewController:controller animated:YES];
                              
                          }],
-                         [EditCellItem createAttrField:[@"装修造价 (万元)" attrSubStr:@"(万元)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.total_price ? [[NSMutableAttributedString alloc] initWithString:[self.product.total_price stringValue]] : nil placeholder:@"请输入" length:3 isNumber:YES],
+                         [EditCellItem createAttrField:[@"装修造价 (万元)" attrSubStr:@"(万元)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.total_price ? [[NSMutableAttributedString alloc] initWithString:[self.product.total_price stringValue]] : nil placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             if (itemEditType ==  EditCellItemEditTypeChange) {
+                                 self.product.total_price = @([curItem.value integerValue]);
+                             }
+                         } length:3 isNumber:YES],
                          ];
     
     self.totalArr = [NSMutableArray array];

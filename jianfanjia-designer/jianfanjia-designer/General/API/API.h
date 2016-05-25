@@ -48,5 +48,6 @@
 + (void)designerGetTeams:(DesignerGetTeams *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 + (void)designerDeleteTeam:(DesignerDeleteTeam *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 + (void)designerUploadProduct:(DesignerUploadProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
++ (void)designerUpdateProduct:(DesignerUploadProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 
 @end

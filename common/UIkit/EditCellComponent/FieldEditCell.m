@@ -8,7 +8,7 @@
 
 #import "FieldEditCell.h"
 
-@interface FieldEditCell ()
+@interface FieldEditCell () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UITextField *fldValue;
@@ -19,6 +19,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.fldValue.delegate = self;
 }
 
 - (void)initWithItem:(EditCellItem *)item {
@@ -59,7 +60,22 @@
          if (item.attrValue) {
              self.item.attrValue.mutableString.string = value;
          }
+         if (self.item.itemEditBlock) {
+             self.item.itemEditBlock(self.item, EditCellItemEditTypeChange);
+         }
      }];
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    if (self.item.itemEditBlock) {
+        self.item.itemEditBlock(self.item, EditCellItemEditTypeBegin);
+    }
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField; {
+    if (self.item.itemEditBlock) {
+        self.item.itemEditBlock(self.item, EditCellItemEditTypeEnd);
+    }
 }
 
 @end

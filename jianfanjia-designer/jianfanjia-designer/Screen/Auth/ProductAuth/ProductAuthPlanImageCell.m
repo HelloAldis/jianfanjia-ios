@@ -33,7 +33,7 @@
     self.product = product;
     self.image = image;
     [self.imgView setImageWithId:image.imageid withWidth:kScreenWidth];
-    self.coverImgView.hidden = ![product.cover_imageid isEqualToString:image.imageid];
+    self.coverImgView.hidden = YES;
     [self initActionView:actionBlock];
 }
 

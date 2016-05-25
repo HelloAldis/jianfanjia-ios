@@ -16,10 +16,17 @@ typedef NS_ENUM(NSInteger, CellEditType) {
     CellEditTypeCompareImage,
 };
 
+typedef NS_ENUM(NSInteger, EditCellItemEditType) {
+    EditCellItemEditTypeBegin,
+    EditCellItemEditTypeChange,
+    EditCellItemEditTypeEnd,
+};
+
 @class EditCellItem;
 @class BaseEditCell;
 
 typedef void (^EditCellItemTapBlock)(EditCellItem *curItem);
+typedef void (^EditCellItemEditBlock)(EditCellItem *curItem, EditCellItemEditType itemEditType);
 
 @interface EditCellItem : NSObject
 
@@ -33,7 +40,7 @@ typedef void (^EditCellItemTapBlock)(EditCellItem *curItem);
 @property (nonatomic, assign) NSInteger length;
 @property (nonatomic, assign) BOOL isNumber;
 @property (nonatomic, copy) EditCellItemTapBlock itemTapBlock;
-
+@property (nonatomic, copy) EditCellItemEditBlock itemEditBlock;
 
 @property (nonatomic, strong) UIImage *compareImage;
 @property (nonatomic, strong) NSString *uploadImage;
@@ -47,10 +54,10 @@ typedef void (^EditCellItemTapBlock)(EditCellItem *curItem);
 + (EditCellItem *)createAttrSelection:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder tapBlock:(EditCellItemTapBlock)tapBlock;
 + (EditCellItem *)createAttrSelection:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder image:(UIImage *)image tapBlock:(EditCellItemTapBlock)tapBlock;
 
-+ (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
-+ (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder;
-+ (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder length:(NSInteger)length isNumber:(BOOL)isNumber;
-+ (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder length:(NSInteger)length isNumber:(BOOL)isNumber;
++ (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock;
++ (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock;
++ (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length isNumber:(BOOL)isNumber;
++ (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length isNumber:(BOOL)isNumber;
 
 + (EditCellItem *)createText:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
 + (EditCellItem *)createGroupImage:(NSString *)title value:(NSString *)value;

@@ -22,13 +22,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    [self limitTextViewLength];
 }
 
 - (void)initWithProduct:(Product *)product {
     self.product = product;
     self.tvDesc.text = product.product_description;
+    [self limitTextViewLength];
 }
 
 - (void)limitTextViewLength {

@@ -8,13 +8,13 @@
 
 #import "ProductAuthUploadPart2ViewController.h"
 #import "ViewControllerContainer.h"
-#import "ProductAuthDataManager.h"
 #import "ProductAuthImageHeaderView.h"
 #import "ProductAuthImageFooterView.h"
 #import "ProductAuthProductDescriptionCell.h"
 #import "ProductAuthPlanImageCell.h"
 #import "ProductAuthImpressionImageCell.h"
 #import "ReorderTableView.h"
+#import "ProductAuthViewController.h"
 
 static NSString *ProductAuthProductDescriptionCellIdentifier = @"ProductAuthProductDescriptionCell";
 static NSString *ProductAuthPlanImageCellIdentifier = @"ProductAuthPlanImageCell";
@@ -24,9 +24,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 
 @property (weak, nonatomic) IBOutlet ReorderTableView *tableView;
 
-@property (strong, nonatomic) ProductAuthDataManager *dataManager;
 @property (nonatomic, strong) Product *product;
-
 @property (nonatomic, strong) ProductAuthImageFooterView *addPlanView;
 @property (nonatomic, strong) ProductAuthImageFooterView *addImpressionView;
 @property (nonatomic, strong) ProductAuthProductDescriptionCell *productDescCell;
@@ -66,7 +64,6 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 }
 
 - (void)initUI {
-    self.dataManager = [[ProductAuthDataManager alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, -200, kScreenWidth, 200)];
     view.bgColor = [UIColor colorWithR:0xF1 g:0xF2 b:0xF4];
@@ -304,10 +301,10 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
             ProductImage *img = [[ProductImage alloc] init];
             img.imageid = obj;
             
-            return img;
+            return img.data;
         }];
         
-        [self.product.plan_images insertObjects:arr atIndexes:[NSIndexSet indexSetWithIndex:self.product.plan_images.count]];
+        [self.product.plan_images addObjectsFromArray:arr];
         [self refresh];
     }];
 }
@@ -319,20 +316,58 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
             img.section = @"客厅";
             img.imageid = obj;
             
-            return img;
+            return img.data;
         }];
         
-        [self.product.images insertObjects:arr atIndexes:[NSIndexSet indexSetWithIndex:self.product.images.count]];
+        if (self.product.images.count == 0 && arr.count > 0) {
+            self.product.cover_imageid = arr[0][@"imageid"];
+        }
+        
+        [self.product.images addObjectsFromArray:arr];
         [self refresh];
     }];
 }
 
 - (void)onClickNext {
     if ([self isNewProd]) {
+        [HUDUtil showWait];
         DesignerUploadProduct *request = [[DesignerUploadProduct alloc] initWithProduct:self.product];
-    } else {
         
+        [API designerUploadProduct:request success:^{
+            [HUDUtil hideWait];
+            [self navigateToOriginController];
+            [HUDUtil showSuccessText:@"提交成功"];
+        } failure:^{
+            [HUDUtil hideWait];
+        } networkError:^{
+            [HUDUtil hideWait];
+        }];
+    } else {
+        [HUDUtil showWait];
+        DesignerUploadProduct *request = [[DesignerUploadProduct alloc] initWithProduct:self.product];
+        
+        [API designerUpdateProduct:request success:^{
+            [HUDUtil hideWait];
+            [self navigateToOriginController];
+            [HUDUtil showSuccessText:@"提交成功"];
+        } failure:^{
+            [HUDUtil hideWait];
+        } networkError:^{
+            [HUDUtil hideWait];
+        }];
     }
+}
+
+- (void)navigateToOriginController {
+    UIViewController *popTo = nil;
+    for (UIViewController *controller in [self.navigationController.viewControllers reverseObjectEnumerator]) {
+        if ([controller isKindOfClass:[ProductAuthViewController class]]) {
+            popTo = controller;
+            break;
+        }
+    }
+    
+    [self.navigationController popToViewController:popTo animated:YES];
 }
 
 #pragma mark - other

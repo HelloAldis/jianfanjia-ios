@@ -52,7 +52,7 @@ static NSString *AvtarImageCellIdentifier = @"AvtarImageCell";
     [EditCellItem registerCells:self.tableView];
     
     self.sectionArr2 = @[
-                         [EditCellItem createField:@"姓名" value:nil placeholder:@"请输入真实姓名"],
+                         [EditCellItem createField:@"姓名" value:nil placeholder:@"请输入真实姓名" itemEditBlock:nil],
                          [EditCellItem createSelection:@"性别" value:nil placeholder:nil tapBlock:^(EditCellItem *curItem) {
                              
                          }],
@@ -63,11 +63,11 @@ static NSString *AvtarImageCellIdentifier = @"AvtarImageCell";
                          ];
     
     self.sectionArr3 = @[
-                         [EditCellItem createField:@"毕业院校" value:nil placeholder:@"请输入"],
+                         [EditCellItem createField:@"毕业院校" value:nil placeholder:@"请输入" itemEditBlock:nil],
                          [EditCellItem createSelection:@"工作年限" value:nil placeholder:nil tapBlock:^(EditCellItem *curItem) {
                          
                          }],
-                         [EditCellItem createField:@"曾就职装修公司" value:nil placeholder:@"请输入"],
+                         [EditCellItem createField:@"曾就职装修公司" value:nil placeholder:@"请输入" itemEditBlock:nil],
                          [EditCellItem createText:@"设计成就" value:nil placeholder:nil],
                          [EditCellItem createText:@"设计理念" value:nil placeholder:nil],
                          ];

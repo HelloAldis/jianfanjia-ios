@@ -46,14 +46,14 @@
     [EditCellItem registerCells:self.tableView];
     
     self.sectionArr1 = @[
-                         [EditCellItem createField:@"真实姓名" value:nil placeholder:@"请输入真实姓名"],
-                         [EditCellItem createField:@"身份证号" value:nil placeholder:@"请输入15位或18位或带x身份证号码"],
+                         [EditCellItem createField:@"真实姓名" value:nil placeholder:@"请输入真实姓名" itemEditBlock:nil],
+                         [EditCellItem createField:@"身份证号" value:nil placeholder:@"请输入15位或18位或带x身份证号码" itemEditBlock:nil],
                          [EditCellItem createCompareImage:@"上传身份证正面照" compareImage:[UIImage imageNamed:@"img_uid_foreground"] uploadImage:nil],
                          [EditCellItem createCompareImage:@"上传身份证背面照" compareImage:[UIImage imageNamed:@"img_uid_background"] uploadImage:nil],
                          ];
     
     self.sectionArr2 = @[
-                         [EditCellItem createField:@"银行卡号" value:nil placeholder:@"请输入16或19位银行卡号"],
+                         [EditCellItem createField:@"银行卡号" value:nil placeholder:@"请输入16或19位银行卡号" itemEditBlock:nil],
                          [EditCellItem createSelection:@"开户银行" value:nil placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                          
                          }],
