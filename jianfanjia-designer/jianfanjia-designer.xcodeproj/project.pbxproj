@@ -254,8 +254,6 @@
 		685B15131CEC60950076996A /* EditCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15051CEC60950076996A /* EditCellItem.m */; };
 		685B15141CEC60950076996A /* FieldEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15071CEC60950076996A /* FieldEditCell.m */; };
 		685B15151CEC60950076996A /* FieldEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15081CEC60950076996A /* FieldEditCell.xib */; };
-		685B15161CEC60950076996A /* GroupImageEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B150A1CEC60950076996A /* GroupImageEditCell.m */; };
-		685B15171CEC60950076996A /* GroupImageEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B150B1CEC60950076996A /* GroupImageEditCell.xib */; };
 		685B15181CEC60950076996A /* SelectionEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B150D1CEC60950076996A /* SelectionEditCell.m */; };
 		685B15191CEC60950076996A /* SelectionEditCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B150E1CEC60950076996A /* SelectionEditCell.xib */; };
 		685B151A1CEC60950076996A /* TextEditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15101CEC60950076996A /* TextEditCell.m */; };
@@ -327,6 +325,13 @@
 		685B15E81CF535010076996A /* SelectionMenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15E31CF535010076996A /* SelectionMenuCollectionCell.xib */; };
 		685B15E91CF535010076996A /* SelectionMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15E51CF535010076996A /* SelectionMenuView.m */; };
 		685B15EA1CF535010076996A /* SelectionMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15E61CF535010076996A /* SelectionMenuView.xib */; };
+		685B15F11CF5A94F0076996A /* InfoAuthImageHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15EF1CF5A94F0076996A /* InfoAuthImageHeaderView.m */; };
+		685B15F21CF5A94F0076996A /* InfoAuthImageHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15F01CF5A94F0076996A /* InfoAuthImageHeaderView.xib */; };
+		685B15F91CF5AD4C0076996A /* InfoAuthAwardImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15F41CF5AD4C0076996A /* InfoAuthAwardImageCell.m */; };
+		685B15FA1CF5AD4C0076996A /* InfoAuthAwardImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15F51CF5AD4C0076996A /* InfoAuthAwardImageCell.xib */; };
+		685B15FB1CF5AD4C0076996A /* InfoAuthDiplomaImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15F71CF5AD4C0076996A /* InfoAuthDiplomaImageCell.m */; };
+		685B15FC1CF5AD4C0076996A /* InfoAuthDiplomaImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15F81CF5AD4C0076996A /* InfoAuthDiplomaImageCell.xib */; };
+		685B15FF1CF5B29F0076996A /* AwardDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15FE1CF5B29F0076996A /* AwardDetail.m */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -847,9 +852,6 @@
 		685B15061CEC60950076996A /* FieldEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FieldEditCell.h; sourceTree = "<group>"; };
 		685B15071CEC60950076996A /* FieldEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FieldEditCell.m; sourceTree = "<group>"; };
 		685B15081CEC60950076996A /* FieldEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FieldEditCell.xib; sourceTree = "<group>"; };
-		685B15091CEC60950076996A /* GroupImageEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupImageEditCell.h; sourceTree = "<group>"; };
-		685B150A1CEC60950076996A /* GroupImageEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupImageEditCell.m; sourceTree = "<group>"; };
-		685B150B1CEC60950076996A /* GroupImageEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupImageEditCell.xib; sourceTree = "<group>"; };
 		685B150C1CEC60950076996A /* SelectionEditCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionEditCell.h; sourceTree = "<group>"; };
 		685B150D1CEC60950076996A /* SelectionEditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionEditCell.m; sourceTree = "<group>"; };
 		685B150E1CEC60950076996A /* SelectionEditCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionEditCell.xib; sourceTree = "<group>"; };
@@ -964,6 +966,17 @@
 		685B15E41CF535010076996A /* SelectionMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionMenuView.h; sourceTree = "<group>"; };
 		685B15E51CF535010076996A /* SelectionMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionMenuView.m; sourceTree = "<group>"; };
 		685B15E61CF535010076996A /* SelectionMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionMenuView.xib; sourceTree = "<group>"; };
+		685B15EE1CF5A94F0076996A /* InfoAuthImageHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAuthImageHeaderView.h; sourceTree = "<group>"; };
+		685B15EF1CF5A94F0076996A /* InfoAuthImageHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAuthImageHeaderView.m; sourceTree = "<group>"; };
+		685B15F01CF5A94F0076996A /* InfoAuthImageHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoAuthImageHeaderView.xib; sourceTree = "<group>"; };
+		685B15F31CF5AD4C0076996A /* InfoAuthAwardImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAuthAwardImageCell.h; sourceTree = "<group>"; };
+		685B15F41CF5AD4C0076996A /* InfoAuthAwardImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAuthAwardImageCell.m; sourceTree = "<group>"; };
+		685B15F51CF5AD4C0076996A /* InfoAuthAwardImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoAuthAwardImageCell.xib; sourceTree = "<group>"; };
+		685B15F61CF5AD4C0076996A /* InfoAuthDiplomaImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoAuthDiplomaImageCell.h; sourceTree = "<group>"; };
+		685B15F71CF5AD4C0076996A /* InfoAuthDiplomaImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoAuthDiplomaImageCell.m; sourceTree = "<group>"; };
+		685B15F81CF5AD4C0076996A /* InfoAuthDiplomaImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoAuthDiplomaImageCell.xib; sourceTree = "<group>"; };
+		685B15FD1CF5B29F0076996A /* AwardDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardDetail.h; sourceTree = "<group>"; };
+		685B15FE1CF5B29F0076996A /* AwardDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardDetail.m; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1713,6 +1726,15 @@
 				685B14F61CEC54B60076996A /* AvtarImageCell.h */,
 				685B14F71CEC54B60076996A /* AvtarImageCell.m */,
 				685B14F81CEC54B60076996A /* AvtarImageCell.xib */,
+				685B15EE1CF5A94F0076996A /* InfoAuthImageHeaderView.h */,
+				685B15EF1CF5A94F0076996A /* InfoAuthImageHeaderView.m */,
+				685B15F01CF5A94F0076996A /* InfoAuthImageHeaderView.xib */,
+				685B15F31CF5AD4C0076996A /* InfoAuthAwardImageCell.h */,
+				685B15F41CF5AD4C0076996A /* InfoAuthAwardImageCell.m */,
+				685B15F51CF5AD4C0076996A /* InfoAuthAwardImageCell.xib */,
+				685B15F61CF5AD4C0076996A /* InfoAuthDiplomaImageCell.h */,
+				685B15F71CF5AD4C0076996A /* InfoAuthDiplomaImageCell.m */,
+				685B15F81CF5AD4C0076996A /* InfoAuthDiplomaImageCell.xib */,
 			);
 			path = InfoAuth;
 			sourceTree = "<group>";
@@ -1788,9 +1810,6 @@
 				685B15061CEC60950076996A /* FieldEditCell.h */,
 				685B15071CEC60950076996A /* FieldEditCell.m */,
 				685B15081CEC60950076996A /* FieldEditCell.xib */,
-				685B15091CEC60950076996A /* GroupImageEditCell.h */,
-				685B150A1CEC60950076996A /* GroupImageEditCell.m */,
-				685B150B1CEC60950076996A /* GroupImageEditCell.xib */,
 				685B150C1CEC60950076996A /* SelectionEditCell.h */,
 				685B150D1CEC60950076996A /* SelectionEditCell.m */,
 				685B150E1CEC60950076996A /* SelectionEditCell.xib */,
@@ -2196,6 +2215,8 @@
 		6E378D141BDA2D2E00908B77 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				685B15FD1CF5B29F0076996A /* AwardDetail.h */,
+				685B15FE1CF5B29F0076996A /* AwardDetail.m */,
 				685B15581CED8EFD0076996A /* Team.h */,
 				685B15591CED8EFD0076996A /* Team.m */,
 				6850A5FC1CC75C6B0085940A /* BaseNotification.h */,
@@ -2454,7 +2475,6 @@
 				68123EEF1C4CBE79008FC9AB /* PlanListViewController.xib in Resources */,
 				6E0426791BC757C500F984B8 /* Assets.xcassets in Resources */,
 				68123F041C4CBE79008FC9AB /* RequirementCreateViewController.xib in Resources */,
-				685B15171CEC60950076996A /* GroupImageEditCell.xib in Resources */,
 				6EA0C19A1C577F7500D04A4F /* PlanPriceDetailViewController.xib in Resources */,
 				681241911C4F2F35008FC9AB /* UnrespondActionCell.xib in Resources */,
 				681241A61C4F3B1C008FC9AB /* SubmitPlanExpiredActionCell.xib in Resources */,
@@ -2471,6 +2491,7 @@
 				68123E851C4CBE79008FC9AB /* MeViewController.xib in Resources */,
 				685B147E1CEB11CF0076996A /* SelectBusinessTypeViewController.xib in Resources */,
 				681241201C4CF2D5008FC9AB /* ItemExpandImageCell.xib in Resources */,
+				685B15F21CF5A94F0076996A /* InfoAuthImageHeaderView.xib in Resources */,
 				68123C8C1C4C9772008FC9AB /* DateAlertViewController.xib in Resources */,
 				685B148C1CEB11CF0076996A /* SelectWorkTypeViewController.xib in Resources */,
 				681240271C4CDC78008FC9AB /* LaunchScreen.xib in Resources */,
@@ -2483,11 +2504,13 @@
 				685B14D51CEB1CD20076996A /* AvtarInfoCell.xib in Resources */,
 				681241221C4CF2D5008FC9AB /* ItemImageCollectionCell.xib in Resources */,
 				685B15C61CF2E5180076996A /* ProductAuthPlanImageCell.xib in Resources */,
+				685B15FA1CF5AD4C0076996A /* InfoAuthAwardImageCell.xib in Resources */,
 				682E04F41C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.xib in Resources */,
 				684B043D1C990E910053FFDF /* SystemAnnouncementCell.xib in Resources */,
 				68123C9B1C4C9772008FC9AB /* province2city.js in Resources */,
 				681241A21C4F3B1C008FC9AB /* ChoosedPlanActionCell.xib in Resources */,
 				6850A61F1CCA2DEA0085940A /* CitySection.xib in Resources */,
+				685B15FC1CF5AD4C0076996A /* InfoAuthDiplomaImageCell.xib in Resources */,
 				68123FF51C4CD1E3008FC9AB /* EvaluateDesignerViewController.xib in Resources */,
 				680C46781CC6310E008C4BC0 /* PlanExpiredActionCell.xib in Resources */,
 				682E04FE1C588A6100F1ACAA /* NoRequirementImageView.xib in Resources */,
@@ -2693,8 +2716,10 @@
 				684B03FA1C9818CF0053FFDF /* NotificationBusiness.m in Sources */,
 				681241331C4CF2D5008FC9AB /* SectionView.m in Sources */,
 				68FB6ECD1C50C3DF001C0613 /* PhoneUtil.m in Sources */,
+				685B15F91CF5AD4C0076996A /* InfoAuthAwardImageCell.m in Sources */,
 				680C46271CC5CD15008C4BC0 /* GVUserDefaults+Manager.m in Sources */,
 				68123FE21C4CCF4A008FC9AB /* ProductImage.m in Sources */,
+				685B15FF1CF5B29F0076996A /* AwardDetail.m in Sources */,
 				681241A71C4F3B1C008FC9AB /* RejectActionCell.m in Sources */,
 				685B154D1CED70620076996A /* ProductInfoCell.m in Sources */,
 				68123E6E1C4CBE79008FC9AB /* TabViewController.m in Sources */,
@@ -2732,6 +2757,7 @@
 				685B15DA1CF3E79D0076996A /* ReorderTableView.m in Sources */,
 				685B15C51CF2E5180076996A /* ProductAuthPlanImageCell.m in Sources */,
 				685B15A41CF2CED80076996A /* ProductAuthUploadPart2ViewController.m in Sources */,
+				685B15FB1CF5AD4C0076996A /* InfoAuthDiplomaImageCell.m in Sources */,
 				685B14191CEAFF600076996A /* KRSSwizzle.m in Sources */,
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
 				68F73D301CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m in Sources */,
@@ -2770,7 +2796,6 @@
 				685B15381CEC790A0076996A /* DesignerGetProducts.m in Sources */,
 				684B04131C98F8240053FFDF /* DesignerNotification.m in Sources */,
 				681241351C4CF2D5008FC9AB /* UIItemImageCollectionView.m in Sources */,
-				685B15161CEC60950076996A /* GroupImageEditCell.m in Sources */,
 				6E378D371BDA2D2E00908B77 /* Bc.m in Sources */,
 				68123E6F1C4CBE79008FC9AB /* ViewControllerContainer.m in Sources */,
 				681240D51C4CE471008FC9AB /* UploadImage.m in Sources */,
@@ -2869,6 +2894,7 @@
 				685B15851CEEE5210076996A /* CompareImageEditCell.m in Sources */,
 				68123FDE1C4CCF4A008FC9AB /* LeafImage.m in Sources */,
 				681241A31C4F3B1C008FC9AB /* MeasuredHouseActionCell.m in Sources */,
+				685B15F11CF5A94F0076996A /* InfoAuthImageHeaderView.m in Sources */,
 				685B15571CED73D50076996A /* UILabel+Ex.m in Sources */,
 				68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */,
 				685B14D41CEB1CD20076996A /* AvtarInfoCell.m in Sources */,

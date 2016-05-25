@@ -55,13 +55,12 @@
                     <constraint firstItem="RIY-RU-fcP" firstAttribute="bottom" secondItem="fp9-yr-J9A" secondAttribute="bottom" constant="-12" id="1Gt-ou-yWB"/>
                     <constraint firstAttribute="trailingMargin" secondItem="hof-CG-tel" secondAttribute="trailing" constant="7" id="3gI-2j-s8d"/>
                     <constraint firstItem="RIY-RU-fcP" firstAttribute="leading" secondItem="ojI-xe-hqO" secondAttribute="leading" id="406-tP-b2a"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="fp9-yr-J9A" secondAttribute="bottom" constant="17" id="Abt-gq-rZ6"/>
+                    <constraint firstItem="fp9-yr-J9A" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="C1p-Eo-cDq"/>
                     <constraint firstItem="fp9-yr-J9A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="20" id="I0B-sQ-cpU"/>
                     <constraint firstItem="ojI-xe-hqO" firstAttribute="leading" secondItem="fp9-yr-J9A" secondAttribute="trailing" constant="20" id="QdB-rU-Fcf"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1yS-uG-PHJ" secondAttribute="trailing" constant="-8" id="VDu-5w-97C"/>
                     <constraint firstItem="hof-CG-tel" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="YCC-jY-c7G"/>
                     <constraint firstItem="1yS-uG-PHJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="aRE-HU-xa8"/>
-                    <constraint firstItem="fp9-yr-J9A" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="16" id="fMy-SU-PPF"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1yS-uG-PHJ" secondAttribute="bottom" constant="-8" id="jUo-vR-aEZ"/>
                     <constraint firstItem="ojI-xe-hqO" firstAttribute="top" secondItem="fp9-yr-J9A" secondAttribute="top" constant="8" id="m64-Ga-dKJ"/>
                     <constraint firstItem="hof-CG-tel" firstAttribute="leading" secondItem="ojI-xe-hqO" secondAttribute="trailing" constant="15" id="oC0-V1-0B7"/>

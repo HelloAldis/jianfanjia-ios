@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kQuickLinkCellHeight 90
+
 @interface QuickLinkCell : UITableViewCell
 
 @end

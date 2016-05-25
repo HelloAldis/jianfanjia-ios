@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#define kAvtarInfoCellHeight 115
+
 @interface AvtarInfoCell : UITableViewCell
 
-- (void)initUI;
+- (void)initWithDeisgner:(Designer *)designer;
 
 @end

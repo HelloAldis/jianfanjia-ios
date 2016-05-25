@@ -10,4 +10,6 @@
 
 @interface InfoAuthViewController : BaseViewController
 
+- (instancetype)initWithDesigner:(Designer *)designer;
+
 @end

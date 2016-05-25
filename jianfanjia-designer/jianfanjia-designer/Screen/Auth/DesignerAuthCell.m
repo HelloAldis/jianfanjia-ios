@@ -20,6 +20,7 @@ static NSDictionary *imageDic = nil;
 @property (weak, nonatomic) IBOutlet UILabel *lblAuthStatus;
 
 @property (strong, nonatomic) NSString *cellType;
+@property (strong, nonatomic) Designer *designer;
 
 @end
 
@@ -49,7 +50,8 @@ static NSDictionary *imageDic = nil;
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)]];
 }
 
-- (void)initWithCellType:(NSString *)type authType:(NSString *)authType {
+- (void)initWithDesigner:(Designer *)designer cellType:(NSString *)type authType:(NSString *)authType {
+    self.designer = designer;
     self.cellType = type;
     self.lblAuthType.text = titleDic[type];
     self.authImageView.image = imageDic[type];
@@ -67,7 +69,7 @@ static NSDictionary *imageDic = nil;
 
 - (void)onTap {
     if ([self.cellType isEqualToString:AuthCellTypeBasicInfo]) {
-        [ViewControllerContainer showInfoAuth];
+        [ViewControllerContainer showInfoAuth:self.designer];
     } else if ([self.cellType isEqualToString:AuthCellTypeUid]) {
         [ViewControllerContainer showIDAuth];
     } else if ([self.cellType isEqualToString:AuthCellTypeProduct]) {

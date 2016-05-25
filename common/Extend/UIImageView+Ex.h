@@ -63,6 +63,7 @@ typedef void (^JYZWebImageCompletionBlock)(UIImage *image, NSURL *url, JYZWebIma
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width height:(NSInteger)height;
 - (void)setUserImageWithId:(NSString *)imageid;
+- (void)setUserImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder;
 - (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image;
 
 @end

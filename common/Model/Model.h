@@ -35,5 +35,6 @@
 #import "DesignerNotification.h"
 #import "Supervisor.h"
 #import "Team.h"
+#import "AwardDetail.h"
 
 #endif /* Model_h */

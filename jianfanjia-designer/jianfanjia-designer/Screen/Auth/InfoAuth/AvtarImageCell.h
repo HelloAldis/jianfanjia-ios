@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kAvtarImageCellHeight 100
+
 @interface AvtarImageCell : UITableViewCell
 
 - (void)initUI;

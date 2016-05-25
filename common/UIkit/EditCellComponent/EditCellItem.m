@@ -9,11 +9,10 @@
 static NSString *SelectionEditCellIdentifier = @"SelectionEditCell";
 static NSString *FieldEditCellIdentifier = @"FieldEditCell";
 static NSString *TextEditCellIdentifier = @"TextEditCell";
-static NSString *GroupImageEditCellIdentifier = @"GroupImageEditCell";
 static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
 
 #import "EditCellItem.h"
-#import "BaseEditCell.h"
+#import "CellEditComponent.h"
 
 @implementation EditCellItem
 
@@ -25,8 +24,6 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
         cellIdentifier = FieldEditCellIdentifier;
     } else if (self.cellEditType == CellEditTypeText) {
         cellIdentifier = TextEditCellIdentifier;
-    } else if (self.cellEditType == CellEditTypeGroupImage) {
-        cellIdentifier = GroupImageEditCellIdentifier;
     } else if (self.cellEditType == CellEditTypeCompareImage) {
         cellIdentifier = CompareImageEditCellIdentifier;
     }
@@ -37,11 +34,25 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     return cell;
 }
 
+- (CGFloat)cellheight {
+    CGFloat cellHeight = 0;
+    if (self.cellEditType == CellEditTypeSelection) {
+        cellHeight = kSelectionEditCellHeight;
+    } else if (self.cellEditType == CellEditTypeFld) {
+        cellHeight = kFieldEditCellHeight;
+    } else if (self.cellEditType == CellEditTypeText) {
+        cellHeight = kTextEditCellHeight;
+    } else if (self.cellEditType == CellEditTypeCompareImage) {
+        cellHeight = kCompareImageEditCellHeight;
+    }
+
+    return cellHeight;
+}
+
 + (void)registerCells:(UITableView *)tableView {
     [tableView registerNib:[UINib nibWithNibName:SelectionEditCellIdentifier bundle:nil] forCellReuseIdentifier:SelectionEditCellIdentifier];
     [tableView registerNib:[UINib nibWithNibName:FieldEditCellIdentifier bundle:nil] forCellReuseIdentifier:FieldEditCellIdentifier];
     [tableView registerNib:[UINib nibWithNibName:TextEditCellIdentifier bundle:nil] forCellReuseIdentifier:TextEditCellIdentifier];
-    [tableView registerNib:[UINib nibWithNibName:GroupImageEditCellIdentifier bundle:nil] forCellReuseIdentifier:GroupImageEditCellIdentifier];
     [tableView registerNib:[UINib nibWithNibName:CompareImageEditCellIdentifier bundle:nil] forCellReuseIdentifier:CompareImageEditCellIdentifier];
 }
 
@@ -119,21 +130,12 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     return item;
 }
 
-+ (EditCellItem *)createText:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder {
++ (EditCellItem *)createText:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock {
     EditCellItem *item = [[EditCellItem alloc] init];
     item.cellEditType = CellEditTypeText;
     item.title = title;
     item.value = value;
     item.placeholder = placeholder;
-    
-    return item;
-}
-
-+ (EditCellItem *)createGroupImage:(NSString *)title value:(NSString *)value {
-    EditCellItem *item = [[EditCellItem alloc] init];
-    item.cellEditType = CellEditTypeGroupImage;
-    item.title = title;
-    item.value = value;
     
     return item;
 }

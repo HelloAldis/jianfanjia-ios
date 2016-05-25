@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblUserName;
 @property (weak, nonatomic) IBOutlet UILabel *lblPhone;
 
+@property (strong, nonatomic) Designer *designer;
+
 @end
 
 @implementation AvtarInfoCell
@@ -25,7 +27,8 @@
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)]];
 }
 
-- (void)initUI {
+- (void)initWithDeisgner:(Designer *)designer {
+    self.designer = designer;
     self.lblUserName.text = [GVUserDefaults standardUserDefaults].username;
     if ([GVUserDefaults standardUserDefaults].phone) {
         self.lblPhone.text = [NSString stringWithFormat:@"帐号：%@", [GVUserDefaults standardUserDefaults].phone];
@@ -37,7 +40,7 @@
 }
 
 - (void)onTap {
-    [ViewControllerContainer showInfoAuth];
+    [ViewControllerContainer showInfoAuth:self.designer];
 }
 
 @end

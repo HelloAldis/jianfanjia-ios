@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define kConsultPhoneCellHeight 50
+
 @interface ConsultPhoneCell : UITableViewCell
 
 @end

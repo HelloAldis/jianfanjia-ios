@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BaseEditCell.h"
 
+#define kCompareImageEditCellHeight 200
+
 @interface CompareImageEditCell : BaseEditCell
 
 @end

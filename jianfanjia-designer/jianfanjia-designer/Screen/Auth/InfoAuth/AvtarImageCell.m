@@ -7,12 +7,12 @@
 //
 
 #import "AvtarImageCell.h"
+#import "ViewControllerContainer.h"
 
 @interface AvtarImageCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserName;
-@property (weak, nonatomic) IBOutlet UILabel *lblPhone;
 
 @end
 
@@ -25,11 +25,16 @@
 }
 
 - (void)initUI {
-    [self.avatarImgView setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
+    [self.avatarImgView setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid placeholder:[UIImage imageNamed:@"img_upload_avatar"]];
 }
 
 - (void)onTapAvatar {
-    
+    @weakify(self);
+    [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTapController] inView:self withBlock:^(NSArray *imageIds) {
+        @strongify(self);
+        [self initUI];
+        [GVUserDefaults standardUserDefaults].imageid = imageIds[0];
+    }];
 }
 
 @end

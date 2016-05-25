@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BaseEditCell.h"
 
+#define kTextEditCellHeight 150
+
 @interface TextEditCell : BaseEditCell
 
 @end

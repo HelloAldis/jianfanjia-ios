@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "BaseEditCell.h"
 
+#define kSelectionEditCellHeight 50
+
 @interface SelectionEditCell : BaseEditCell
 
 @end

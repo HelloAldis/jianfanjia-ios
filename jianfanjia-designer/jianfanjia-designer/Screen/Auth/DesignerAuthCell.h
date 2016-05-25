@@ -18,7 +18,7 @@ static NSString *AuthCellTypeProduct = @"AuthCellTypeProduct";
 
 @interface DesignerAuthCell : UICollectionViewCell
 
-- (void)initWithCellType:(NSString *)type authType:(NSString *)authType;
+- (void)initWithDesigner:(Designer *)designer cellType:(NSString *)type authType:(NSString *)authType;
 
 @end
 

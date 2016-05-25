@@ -22,7 +22,7 @@
                             <constraint firstAttribute="height" constant="50" id="Z0p-Cw-NOU"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.4549019608" green="0.50196078430000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NTj-GX-s29">
@@ -55,13 +55,12 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="hof-CG-tel" secondAttribute="trailing" constant="7" id="3gI-2j-s8d"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ojI-xe-hqO" secondAttribute="bottom" constant="-9" id="5C7-RB-yrT"/>
+                    <constraint firstItem="ojI-xe-hqO" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5fP-1p-F8Z"/>
                     <constraint firstItem="NTj-GX-s29" firstAttribute="centerY" secondItem="ojI-xe-hqO" secondAttribute="centerY" id="Hhx-RE-nez"/>
                     <constraint firstItem="hof-CG-tel" firstAttribute="leading" secondItem="NTj-GX-s29" secondAttribute="trailing" constant="10" id="NRp-KZ-Eec"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1yS-uG-PHJ" secondAttribute="trailing" constant="-8" id="VDu-5w-97C"/>
                     <constraint firstItem="ojI-xe-hqO" firstAttribute="leading" secondItem="4mc-2g-qZ4" secondAttribute="trailing" constant="10" id="VP0-0z-lLy"/>
                     <constraint firstItem="1yS-uG-PHJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="aRE-HU-xa8"/>
-                    <constraint firstItem="ojI-xe-hqO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="hfU-i8-qFE"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1yS-uG-PHJ" secondAttribute="bottom" constant="-8" id="jUo-vR-aEZ"/>
                     <constraint firstItem="4mc-2g-qZ4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="jtX-39-Gxm"/>
                     <constraint firstItem="4mc-2g-qZ4" firstAttribute="centerY" secondItem="ojI-xe-hqO" secondAttribute="centerY" id="nEF-ej-ffC"/>

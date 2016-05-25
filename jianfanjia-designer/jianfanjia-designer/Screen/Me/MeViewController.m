@@ -23,6 +23,9 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
 @interface MeViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) Designer *designer;
+
 @property (nonatomic, strong) NSArray *sectionArr2;
 @property (nonatomic, strong) NSArray *sectionArr3;
 @property (nonatomic, strong) NSArray *sectionArr4;
@@ -67,8 +70,6 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     [self.tableView registerNib:[UINib nibWithNibName:ConsultPhoneCellIdentifier bundle:nil] forCellReuseIdentifier:ConsultPhoneCellIdentifier];
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 60, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 50;
     [EditCellItem registerCells:self.tableView];
     
     self.authCenterItem = [EditCellItem createAttrSelection:[[NSMutableAttributedString alloc] initWithString:@"设计师认证中心"] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
@@ -138,7 +139,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
         if (indexPath.row == 0) {
             AvtarInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:AvtarInfoCellIdentifier forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [cell initUI];
+            [cell initWithDeisgner:self.designer];
             return cell;
         } else if (indexPath.row == 1) {
             QuickLinkCell *cell = [tableView dequeueReusableCellWithIdentifier:QuickLinkCellIdentifier forIndexPath:indexPath];
@@ -162,6 +163,26 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     return nil;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            return kAvtarInfoCellHeight;
+        } else if (indexPath.row == 1) {
+            return kQuickLinkCellHeight;
+        }
+    } else if (indexPath.section == 1) {
+        return [self.sectionArr2[indexPath.row] cellheight];
+    } else if (indexPath.section == 2) {
+        return [self.sectionArr3[indexPath.row] cellheight];
+    } else if (indexPath.section == 3) {
+        return [self.sectionArr4[indexPath.row] cellheight];
+    } else if (indexPath.section == 4) {
+        return kConsultPhoneCellHeight;
+    }
+    
+    return 0.0;
+}
+
 #pragma mark - user action
 - (void)onClickNotification {
     [ViewControllerContainer showMyNotification:NotificationTypeAll];
@@ -171,6 +192,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
 - (void)refreshInfo {
     DesignerGetInfo *request = [[DesignerGetInfo alloc] init];
     [API designerGetInfo:request success:^{
+        self.designer = [[Designer alloc] initWith:[DataManager shared].data];
         [self updateAuthCenter];
         [self.tableView reloadData];
     } failure:^{

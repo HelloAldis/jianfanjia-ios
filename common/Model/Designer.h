@@ -11,6 +11,7 @@
 @class Plan;
 @class Requirement;
 @class Evaluation;
+@class AwardDetail;
 
 @interface Designer : BaseModel
 
@@ -46,6 +47,10 @@
 @property(nonatomic, strong) NSArray *tags;
 @property(nonatomic, strong) NSString *work_auth_type;
 @property(nonatomic, strong) NSString *email_auth_type;
+@property(nonatomic, strong) NSString *university;
+@property(nonatomic, strong) NSString *diploma_imageid;
+@property(nonatomic, strong) NSString *work_year;
+@property(nonatomic, strong) NSMutableArray *award_details;
 
 //不动态的属性
 @property(nonatomic, strong) Product *product;
@@ -55,5 +60,7 @@
 @property(nonatomic, strong) Requirement *requirement;
 //不动态属性
 @property(nonatomic, strong) Evaluation *evaluation;
+
+- (AwardDetail *)awardAtIndex:(NSInteger)index;
 
 @end

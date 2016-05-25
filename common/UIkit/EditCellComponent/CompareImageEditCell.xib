@@ -21,7 +21,7 @@
                             <constraint firstAttribute="height" constant="35" id="bUe-tc-m6R"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="textColor" red="0.4549019608" green="0.50196078430000002" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yS-uG-PHJ" userLabel="line">
@@ -36,6 +36,11 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="150" id="Uoe-ZS-bu3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Uoe-ZS-bu3"/>
+                            </mask>
+                        </variation>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_add_image" translatesAutoresizingMaskIntoConstraints="NO" id="xRn-2g-xP5">
                         <rect key="frame" x="263" y="34" width="225" height="150"/>
@@ -47,21 +52,15 @@
                     <constraint firstItem="ojI-xe-hqO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="Cj7-Wa-NzU"/>
                     <constraint firstItem="xRn-2g-xP5" firstAttribute="centerY" secondItem="h9o-Sq-5Vj" secondAttribute="centerY" id="D6h-K8-7dc"/>
                     <constraint firstItem="xRn-2g-xP5" firstAttribute="leading" secondItem="h9o-Sq-5Vj" secondAttribute="trailing" constant="20" id="I4P-5M-8Ef"/>
-                    <constraint firstItem="xRn-2g-xP5" firstAttribute="height" secondItem="h9o-Sq-5Vj" secondAttribute="height" id="TjQ-y5-028"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1yS-uG-PHJ" secondAttribute="trailing" constant="-8" id="VDu-5w-97C"/>
                     <constraint firstItem="1yS-uG-PHJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="aRE-HU-xa8"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xRn-2g-xP5" secondAttribute="trailing" constant="10" id="aaq-A9-mHG"/>
                     <constraint firstItem="xRn-2g-xP5" firstAttribute="width" secondItem="h9o-Sq-5Vj" secondAttribute="width" id="gY9-V2-Thz"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1yS-uG-PHJ" secondAttribute="bottom" constant="-8" id="jUo-vR-aEZ"/>
                     <constraint firstItem="h9o-Sq-5Vj" firstAttribute="leading" secondItem="ojI-xe-hqO" secondAttribute="leading" id="o2u-aS-6P5"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ojI-xe-hqO" secondAttribute="bottom" constant="-9" id="s2h-Jh-4vP"/>
                     <constraint firstItem="h9o-Sq-5Vj" firstAttribute="top" secondItem="ojI-xe-hqO" secondAttribute="bottom" constant="-1" id="t0b-61-S36"/>
+                    <constraint firstItem="xRn-2g-xP5" firstAttribute="height" secondItem="h9o-Sq-5Vj" secondAttribute="height" id="utf-k4-evq"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="s2h-Jh-4vP"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="compareImgView" destination="h9o-Sq-5Vj" id="cgW-GH-Efj"/>

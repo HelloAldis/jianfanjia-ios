@@ -42,5 +42,18 @@
 @dynamic tags;
 @dynamic work_auth_type;
 @dynamic email_auth_type;
+@dynamic university;
+@dynamic diploma_imageid;
+@dynamic work_year;
+@dynamic award_details;
+
+- (AwardDetail *)awardAtIndex:(NSInteger)index {
+    if (index >= 0 && index < self.award_details.count) {
+        NSMutableDictionary *dict = [self.award_details objectAtIndex:index];
+        return [[AwardDetail alloc] initWith:dict];
+    } else {
+        return nil;
+    }
+}
 
 @end

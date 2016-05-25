@@ -23,6 +23,7 @@ static NSArray *authArr = nil;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionLayout;
 
 @property (nonatomic, strong) NSArray *sectionArr;
+@property (nonatomic, strong) Designer *designer;
 
 @end
 
@@ -80,7 +81,7 @@ static NSArray *authArr = nil;
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     DesignerAuthCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:DesignerAuthCellIdentifier forIndexPath:indexPath];
-    [cell initWithCellType:cellArr[indexPath.row] authType:authArr[indexPath.row]];
+    [cell initWithDesigner:self.designer cellType:cellArr[indexPath.row] authType:authArr[indexPath.row]];
     
     return cell;
 }
@@ -105,6 +106,7 @@ static NSArray *authArr = nil;
 - (void)refreshInfo {
     DesignerGetInfo *request = [[DesignerGetInfo alloc] init];
     [API designerGetInfo:request success:^{
+        self.designer = [[Designer alloc] initWith:[DataManager shared].data];
         [self initData];
     } failure:^{
         

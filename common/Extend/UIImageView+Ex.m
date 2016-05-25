@@ -27,6 +27,10 @@
     [self yy_setImageWithURL:[self imageurl:imageid withWidth:60] placeholder:[UIImage imageNamed:@"image_place_holder_2"] options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
 }
 
+- (void)setUserImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder {
+    [self yy_setImageWithURL:[self imageurl:imageid withWidth:60] placeholder:placeholder options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
+}
+
 - (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image {
     [self yy_setImageWithURL:[self imageurl:imageid] placeholder:image options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
 }

@@ -12,7 +12,6 @@ typedef NS_ENUM(NSInteger, CellEditType) {
     CellEditTypeSelection,
     CellEditTypeFld,
     CellEditTypeText,
-    CellEditTypeGroupImage,
     CellEditTypeCompareImage,
 };
 
@@ -46,6 +45,7 @@ typedef void (^EditCellItemEditBlock)(EditCellItem *curItem, EditCellItemEditTyp
 @property (nonatomic, strong) NSString *uploadImage;
 
 - (BaseEditCell *)dequeueReusableCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
+- (CGFloat)cellheight;
 + (void)registerCells:(UITableView *)tableView;
 
 + (EditCellItem *)createSelection:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder tapBlock:(EditCellItemTapBlock)tapBlock;
@@ -59,9 +59,7 @@ typedef void (^EditCellItemEditBlock)(EditCellItem *curItem, EditCellItemEditTyp
 + (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length isNumber:(BOOL)isNumber;
 + (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length isNumber:(BOOL)isNumber;
 
-+ (EditCellItem *)createText:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder;
-+ (EditCellItem *)createGroupImage:(NSString *)title value:(NSString *)value;
-
++ (EditCellItem *)createText:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock;
 + (EditCellItem *)createCompareImage:(NSString *)title compareImage:(UIImage *)compareImage uploadImage:(NSString *)uploadImage;
 
 @end
