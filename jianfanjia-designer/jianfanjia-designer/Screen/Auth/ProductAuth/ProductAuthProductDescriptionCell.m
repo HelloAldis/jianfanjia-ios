@@ -14,17 +14,21 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *lblLeftLength;
 
+@property (strong, nonatomic) Product *product;
+
 @end
 
 @implementation ProductAuthProductDescriptionCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    [self limitTextViewLength];
 }
 
 - (void)initWithProduct:(Product *)product {
+    self.product = product;
     self.tvDesc.text = product.product_description;
-    [self limitTextViewLength];
 }
 
 - (void)limitTextViewLength {
@@ -41,6 +45,7 @@
          }
          
          self.tvDesc.text = value;
+         self.product.product_description = value;
          self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxProductDescLength - value.length), @(kMaxProductDescLength)];
      }];
 }

@@ -93,7 +93,7 @@
                              
                              SelectDecorationTypeViewController *controller = [[SelectDecorationTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForDecType:value];
-                                 self.product.work_type = value;
+                                 self.product.dec_type = value;
                                  
                                  [self.tableView reloadData];
                              } curValue:self.product.dec_type];

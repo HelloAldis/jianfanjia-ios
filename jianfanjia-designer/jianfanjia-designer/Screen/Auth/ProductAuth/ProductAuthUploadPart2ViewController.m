@@ -156,6 +156,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
             self.productDescCell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthProductDescriptionCellIdentifier forIndexPath:indexPath];
             [self.productDescCell initWithProduct:self.product];
             self.productDescCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [self refreshNextButtonStatus];
         }
         
         return self.productDescCell;
@@ -327,12 +328,36 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 }
 
 - (void)onClickNext {
-    DesignerUploadProduct *request = [[DesignerUploadProduct alloc] initWithProduct:self.product];
+    if ([self isNewProd]) {
+        DesignerUploadProduct *request = [[DesignerUploadProduct alloc] initWithProduct:self.product];
+    } else {
+        
+    }
 }
 
 #pragma mark - other
+- (BOOL)isNewProd {
+    return self.product == nil || self.product._id == nil || [self.product._id isEqualToString:@""];
+}
+
 - (BOOL)isCoverImg:(ProductImage *)img {
     return [self.product.cover_imageid isEqualToString:img.imageid];
+}
+
+- (void)refreshNextButtonStatus {
+    [[RACSignal combineLatest:@[RACObserve(self.product, product_description),
+                               RACObserve(self.product, plan_images),
+                               RACObserve(self.product, images),
+                               ]
+                      reduce:^id(NSString *desc, NSMutableArray *planImage, NSMutableArray *impressionImage) {
+                          if (desc.length > 0 && planImage.count >= 1 && impressionImage.count >= 1) {
+                              return @YES;
+                          }
+        
+                          return @NO;
+                      }] subscribeNext:^(id x) {
+                          self.navigationItem.rightBarButtonItem.enabled = [x boolValue];
+                      }];
 }
 
 @end
