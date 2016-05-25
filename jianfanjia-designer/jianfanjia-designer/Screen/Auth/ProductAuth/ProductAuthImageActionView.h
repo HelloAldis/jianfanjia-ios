@@ -23,6 +23,11 @@ typedef void (^ProductAuthImageActionViewTapBlock)(ProductAuthImageAction action
 
 @interface ProductAuthImageActionView : UIView
 
+@property (weak, nonatomic) IBOutlet UIImageView *closeImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *deleteImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *editImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *setCoverImgView;
+
 @property (nonatomic, copy) ProductAuthImageActionViewTapBlock tapBlock;
 
 @end

@@ -96,8 +96,6 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
         @strongify(self);
         [self onTapAddImpressionImg];
     };
-    
-    [self refresh];
 }
 
 #pragma mark - table view delegate
@@ -223,7 +221,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 
 #pragma mark - api request
 - (void)refresh {
-//    [self.tableView reloadData];
+    [self.tableView reloadData];
 }
 
 #pragma mark - user action
@@ -251,32 +249,56 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 - (void)onTapSetCoverImg:(NSIndexPath *)indexPath {
     ProductImage *img = [self.product imageAtIndex:indexPath.row];
     self.product.cover_imageid = img.imageid;
-    [self.tableView reloadData];
+    [self refresh];
 }
 
 - (void)onTapDeletePlanImg:(NSIndexPath *)indexPath {
+    ProductImage *img = [self.product planImageAtIndex:indexPath.row];
+    BOOL isCover = [self isCoverImg:img];
     [self.product.plan_images removeObjectAtIndex:indexPath.row];
-    [self.tableView reloadData];
+    
+    if (isCover && self.product.plan_images.count > 0) {
+        ProductImage *img = [self.product planImageAtIndex:0];
+        self.product.cover_imageid = img.imageid;
+    }
+    
+    [self refresh];
 }
 
 - (void)onTapDeleteImpressionImg:(NSIndexPath *)indexPath {
+    ProductImage *img = [self.product imageAtIndex:indexPath.row];
+    BOOL isCover = [self isCoverImg:img];
     [self.product.images removeObjectAtIndex:indexPath.row];
-    [self.tableView reloadData];
+    
+    if (isCover && self.product.images.count > 0) {
+        ProductImage *img = [self.product imageAtIndex:0];
+        self.product.cover_imageid = img.imageid;
+    }
+    
+    [self refresh];
 }
 
 - (void)onTapReplacePlanImg:(NSIndexPath *)indexPath {
     [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:1 withBlock:^(NSArray *imageIds) {
         ProductImage *img = [self.product planImageAtIndex:indexPath.row];
+        if ([self isCoverImg:img]) {
+            self.product.cover_imageid = imageIds[0];
+        }
         img.imageid = imageIds[0];
-        [self.tableView reloadData];
+        
+        [self refresh];
     }];
 }
 
 - (void)onTapReplaceImpressionImg:(NSIndexPath *)indexPath {
     [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:1 withBlock:^(NSArray *imageIds) {
         ProductImage *img = [self.product imageAtIndex:indexPath.row];
+        if ([self isCoverImg:img]) {
+            self.product.cover_imageid = imageIds[0];
+        }
         img.imageid = imageIds[0];
-        [self.tableView reloadData];
+        
+        [self refresh];
     }];
 }
 
@@ -290,7 +312,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
         }];
         
         [self.product.plan_images insertObjects:arr atIndexes:[NSIndexSet indexSetWithIndex:self.product.plan_images.count]];
-        [self.tableView reloadData];
+        [self refresh];
     }];
 }
 
@@ -305,12 +327,17 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
         }];
         
         [self.product.images insertObjects:arr atIndexes:[NSIndexSet indexSetWithIndex:self.product.images.count]];
-        [self.tableView reloadData];
+        [self refresh];
     }];
 }
 
 - (void)onClickNext {
     DesignerUploadProduct *request = [[DesignerUploadProduct alloc] initWithProduct:self.product];
+}
+
+#pragma mark - other
+- (BOOL)isCoverImg:(ProductImage *)img {
+    return [self.product.cover_imageid isEqualToString:img.imageid];
 }
 
 @end

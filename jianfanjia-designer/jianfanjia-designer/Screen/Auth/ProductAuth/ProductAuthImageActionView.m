@@ -9,10 +9,6 @@
 #import "ProductAuthImageActionView.h"
 
 @interface ProductAuthImageActionView ()
-@property (weak, nonatomic) IBOutlet UIImageView *closeImgView;
-@property (weak, nonatomic) IBOutlet UIImageView *deleteImgView;
-@property (weak, nonatomic) IBOutlet UIImageView *editImgView;
-@property (weak, nonatomic) IBOutlet UIImageView *setCoverImgView;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *closeConst;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *deleteConst;
@@ -43,7 +39,7 @@
     self.closeImgView.transform = CGAffineTransformRotate(self.closeImgView.transform, M_PI_4);
 }
 
-- (void)showTool:(BOOL)animated {
+- (void)showTool:(BOOL)animated completion:(void (^)(void))completion {
     if (!self.isOpen) {
         [UIView animateWithDuration:animated ? 0.2 : 0.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             self.closeConst.constant = [self rightToTrailConst:0];
@@ -59,11 +55,14 @@
             [self layoutIfNeeded];
         } completion:^(BOOL finished) {
             self.isOpen = YES;
+            if (completion) {
+                completion();
+            }
         }];
     }
 }
 
-- (void)closeTool:(BOOL)animated {
+- (void)closeTool:(BOOL)animated completion:(void (^)(void))completion {
     if (self.isOpen) {
         [UIView animateWithDuration:animated ? 0.2 : 0.0 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
             self.closeConst.constant = [self rightToTrailConst:0];
@@ -79,6 +78,9 @@
             [self layoutIfNeeded];
         } completion:^(BOOL finished) {
             self.isOpen = NO;
+            if (completion) {
+                completion();
+            }
         }];
     }
 }
@@ -86,28 +88,40 @@
 #pragma mark - tap actions
 - (void)onTapClose {
     if (self.isOpen) {
-        [self closeTool:YES];
+        [self closeTool:YES completion:nil];
     } else {
-        [self showTool:YES];
+        [self showTool:YES completion:nil];
     }
 }
 
 - (void)onTapDelete {
-    if (self.tapBlock) {
-        self.tapBlock(ProductAuthImageActionDelete);
-    }
+    @weakify(self);
+    [self closeTool:YES completion:^{
+        @strongify(self);
+        if (self.tapBlock) {
+            self.tapBlock(ProductAuthImageActionDelete);
+        }
+    }];
 }
 
 - (void)onTapEdit {
-    if (self.tapBlock) {
-        self.tapBlock(ProductAuthImageActionEdit);
-    }
+    @weakify(self);
+    [self closeTool:YES completion:^{
+        @strongify(self);
+        if (self.tapBlock) {
+            self.tapBlock(ProductAuthImageActionEdit);
+        }
+    }];
 }
 
 - (void)onTapSetCover {
-    if (self.tapBlock) {
-        self.tapBlock(ProductAuthImageActionSetCover);
-    }
+    @weakify(self);
+    [self closeTool:YES completion:^{
+        @strongify(self);
+        if (self.tapBlock) {
+            self.tapBlock(ProductAuthImageActionSetCover);
+        }
+    }];
 }
 
 #pragma mark - other
