@@ -39,6 +39,10 @@
     
     self.fldValue.placeholder = item.placeholder;
     
+    if (item.length == 0) {
+        item.length = NSIntegerMax;
+    }
+    
     @weakify(self);
     [[[[self.fldValue rac_textSignal]
        filterNonDigit:^BOOL {

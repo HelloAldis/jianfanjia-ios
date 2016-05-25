@@ -7,12 +7,16 @@
 //
 
 #import "ProductAuthPlanImageCell.h"
+#import "ViewControllerContainer.h"
 
 @interface ProductAuthPlanImageCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImgView;
 @property (strong, nonatomic) ProductAuthImageActionView *actionView;
+
+@property (strong, nonatomic) Product *product;
+@property (strong, nonatomic) ProductImage *image;
 
 @end
 
@@ -26,6 +30,8 @@
 }
 
 - (void)initWithProduct:(Product *)product image:(ProductImage *)image actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock {
+    self.product = product;
+    self.image = image;
     [self.imgView setImageWithId:image.imageid withWidth:kScreenWidth];
     self.coverImgView.hidden = ![product.cover_imageid isEqualToString:image.imageid];
     [self initActionView:actionBlock];
@@ -42,7 +48,11 @@
 }
 
 - (void)onTapImgView {
-
+    NSArray *imageArray = [self.product.plan_images map:^(NSDictionary *dict) {
+        return [dict objectForKey:@"imageid"];
+    }];
+    
+    [ViewControllerContainer showOnlineImages:imageArray index:[imageArray indexOfObject:self.image.imageid]];
 }
 
 @end

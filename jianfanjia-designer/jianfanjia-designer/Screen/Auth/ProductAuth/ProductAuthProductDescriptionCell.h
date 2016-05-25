@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kProductAuthProductDescriptionCellHeight 200
+#define kProductAuthProductDescriptionCellHeight 230
 
 @interface ProductAuthProductDescriptionCell : UITableViewCell
 

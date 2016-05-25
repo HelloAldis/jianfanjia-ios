@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblLeftLength;
 
 @property (strong, nonatomic) ProductAuthImageActionView *actionView;
+@property (strong, nonatomic) Product *product;
+@property (strong, nonatomic) ProductImage *image;
 
 @end
 
@@ -35,13 +37,18 @@
     [self.bottomView setBorder:0.5 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
     [self.imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImgView)]];
     [self.selectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSelection)]];
+    
+    [self updateValue];
 }
 
 - (void)initWithProduct:(Product *)product image:(ProductImage *)image actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock {
+    self.product = product;
+    self.image = image;
     [self.imgView setImageWithId:image.imageid withWidth:kScreenWidth];
     self.tvDesc.text = image.productImage_description;
     self.lblSelection.text = image.section;
     self.coverImgView.hidden = ![product.cover_imageid isEqualToString:image.imageid];
+    
     [self initActionView:actionBlock];
     [self limitTextViewLength];
 }
@@ -73,8 +80,25 @@
     self.actionView.tapBlock = actionBlock;
 }
 
-- (void)onTapImgView {
+- (void)updateValue {
+    @weakify(self);
+    [self.tvDesc.rac_textSignal subscribeNext:^(id x) {
+        @strongify(self);
+        self.image.productImage_description = x;
+    }];
     
+    [RACObserve(self.lblSelection, text) subscribeNext:^(id x) {
+        @strongify(self);
+        self.image.section = x;
+    }];
+}
+
+- (void)onTapImgView {
+    NSArray *imageArray = [self.product.images map:^(NSDictionary *dict) {
+        return [dict objectForKey:@"imageid"];
+    }];
+    
+    [ViewControllerContainer showOnlineImages:imageArray index:[imageArray indexOfObject:self.image.imageid]];
 }
 
 - (void)onTapSelection {

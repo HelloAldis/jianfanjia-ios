@@ -30,6 +30,8 @@
         } else {
             _product = [[Product alloc] init];
             _product._id = @"";
+            _product.plan_images = [[NSMutableArray alloc] init];
+            _product.images = [[NSMutableArray alloc] init];
         }
     }
     
@@ -66,7 +68,7 @@
     self.tableView.estimatedRowHeight = 50;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [EditCellItem registerCells:self.tableView];
-    
+
     self.sectionArr1 = @[
                          [EditCellItem createSelection:@"所在城市" value:[self isNewProd] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.product.province, self.product.city, self.product.district] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              
@@ -82,7 +84,7 @@
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createField:@"小区名字" value:nil placeholder:@"请输入"],
+                         [EditCellItem createField:@"小区名字" value:self.product.cell placeholder:@"请输入"],
                          ];
     
     self.sectionArr2 = @[
@@ -180,7 +182,7 @@
 
 #pragma mark - other
 - (BOOL)isNewProd {
-    return [self.product._id isEqualToString:@""];
+    return self.product == nil || self.product._id == nil || [self.product._id isEqualToString:@""];
 }
 
 @end

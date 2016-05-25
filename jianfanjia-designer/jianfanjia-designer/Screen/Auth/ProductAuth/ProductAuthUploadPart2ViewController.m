@@ -37,12 +37,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 
 - (instancetype)initWithProduct:(Product *)product {
     if (self = [super init]) {
-        if (product) {
-            _product = product;
-        } else {
-            _product = [[Product alloc] init];
-            _product._id = @"";
-        }
+        _product = product;
     }
     
     return self;
