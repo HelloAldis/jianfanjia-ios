@@ -20,5 +20,6 @@
 #import "DIYRefreshFooter.h"
 #import "UIViewController+KRSFakeNavigationBar.h"
 #import "SelectionValue.h"
+#import "SelectionMenuView.h"
 
 #endif /* JYZUIKit_h */

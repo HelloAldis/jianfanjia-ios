@@ -323,6 +323,10 @@
 		685B15DA1CF3E79D0076996A /* ReorderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15D91CF3E79D0076996A /* ReorderTableView.m */; };
 		685B15DE1CF444FC0076996A /* ProductAuthImageActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15DC1CF444FC0076996A /* ProductAuthImageActionView.m */; };
 		685B15DF1CF444FC0076996A /* ProductAuthImageActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15DD1CF444FC0076996A /* ProductAuthImageActionView.xib */; };
+		685B15E71CF535010076996A /* SelectionMenuCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15E21CF535010076996A /* SelectionMenuCollectionCell.m */; };
+		685B15E81CF535010076996A /* SelectionMenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15E31CF535010076996A /* SelectionMenuCollectionCell.xib */; };
+		685B15E91CF535010076996A /* SelectionMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B15E51CF535010076996A /* SelectionMenuView.m */; };
+		685B15EA1CF535010076996A /* SelectionMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B15E61CF535010076996A /* SelectionMenuView.xib */; };
 		685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D571CA9404100DC4D43 /* TouchDelegateView.m */; };
 		685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D5F1CAA8D9300DC4D43 /* CALayer+Ex.m */; };
 		685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D621CAA8DDE00DC4D43 /* SectionActionView.m */; };
@@ -954,6 +958,12 @@
 		685B15DB1CF444FC0076996A /* ProductAuthImageActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductAuthImageActionView.h; sourceTree = "<group>"; };
 		685B15DC1CF444FC0076996A /* ProductAuthImageActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductAuthImageActionView.m; sourceTree = "<group>"; };
 		685B15DD1CF444FC0076996A /* ProductAuthImageActionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductAuthImageActionView.xib; sourceTree = "<group>"; };
+		685B15E11CF535010076996A /* SelectionMenuCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionMenuCollectionCell.h; sourceTree = "<group>"; };
+		685B15E21CF535010076996A /* SelectionMenuCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionMenuCollectionCell.m; sourceTree = "<group>"; };
+		685B15E31CF535010076996A /* SelectionMenuCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionMenuCollectionCell.xib; sourceTree = "<group>"; };
+		685B15E41CF535010076996A /* SelectionMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionMenuView.h; sourceTree = "<group>"; };
+		685B15E51CF535010076996A /* SelectionMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionMenuView.m; sourceTree = "<group>"; };
+		685B15E61CF535010076996A /* SelectionMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionMenuView.xib; sourceTree = "<group>"; };
 		685F2D561CA9404100DC4D43 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		685F2D571CA9404100DC4D43 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		685F2D5E1CAA8D9300DC4D43 /* CALayer+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Ex.h"; sourceTree = "<group>"; };
@@ -1621,6 +1631,7 @@
 		685B14571CEB11CF0076996A /* Selection */ = {
 			isa = PBXGroup;
 			children = (
+				685B15E01CF535010076996A /* SelectionMenu */,
 				685B15A01CF2B32C0076996A /* SelectionValue.h */,
 				685B14581CEB11CF0076996A /* BaseSelectionViewController.h */,
 				685B14591CEB11CF0076996A /* BaseSelectionViewController.m */,
@@ -1818,6 +1829,19 @@
 				685B15D91CF3E79D0076996A /* ReorderTableView.m */,
 			);
 			path = ReorderView;
+			sourceTree = "<group>";
+		};
+		685B15E01CF535010076996A /* SelectionMenu */ = {
+			isa = PBXGroup;
+			children = (
+				685B15E11CF535010076996A /* SelectionMenuCollectionCell.h */,
+				685B15E21CF535010076996A /* SelectionMenuCollectionCell.m */,
+				685B15E31CF535010076996A /* SelectionMenuCollectionCell.xib */,
+				685B15E41CF535010076996A /* SelectionMenuView.h */,
+				685B15E51CF535010076996A /* SelectionMenuView.m */,
+				685B15E61CF535010076996A /* SelectionMenuView.xib */,
+			);
+			path = SelectionMenu;
 			sourceTree = "<group>";
 		};
 		685F2D771CAD0DD400DC4D43 /* RefreshComponent */ = {
@@ -2505,10 +2529,12 @@
 				68123F191C4CBE79008FC9AB /* W1View.xib in Resources */,
 				685B15DF1CF444FC0076996A /* ProductAuthImageActionView.xib in Resources */,
 				685F2D651CAA8DDE00DC4D43 /* SectionActionView.xib in Resources */,
+				685B15EA1CF535010076996A /* SelectionMenuView.xib in Resources */,
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
 				685B151B1CEC60950076996A /* TextEditCell.xib in Resources */,
 				685B159F1CF29FD00076996A /* ProductAuthUploadPart1ViewController.xib in Resources */,
 				68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */,
+				685B15E81CF535010076996A /* SelectionMenuCollectionCell.xib in Resources */,
 				684B04391C990E910053FFDF /* NotificationDetailViewController.xib in Resources */,
 				6EA0C19E1C577F7500D04A4F /* PlanPriceItemSection.xib in Resources */,
 				68123E941C4CBE79008FC9AB /* FeedbackViewController.xib in Resources */,
@@ -2632,6 +2658,7 @@
 				685B152B1CEC71010076996A /* ProductAuthDataManager.m in Sources */,
 				681241B71C4F6BBB008FC9AB /* BaseActionCell.m in Sources */,
 				68123EBD1C4CBE79008FC9AB /* RefreshViewController.m in Sources */,
+				685B15E71CF535010076996A /* SelectionMenuCollectionCell.m in Sources */,
 				681240B81C4CE471008FC9AB /* GetComments.m in Sources */,
 				684B04351C990E910053FFDF /* MyNotificationDataManager.m in Sources */,
 				685B15711CED93BB0076996A /* TeamUploadCell.m in Sources */,
@@ -2678,6 +2705,7 @@
 				68123C8F1C4C9772008FC9AB /* InfiniteScrollView.m in Sources */,
 				68711B5A1CD85D3E009B585F /* PhotoCropper.m in Sources */,
 				685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */,
+				685B15E91CF535010076996A /* SelectionMenuView.m in Sources */,
 				681240141C4CDA06008FC9AB /* NSDictionary+Ex.m in Sources */,
 				685B148B1CEB11CF0076996A /* SelectWorkTypeViewController.m in Sources */,
 				68FB6ED11C50DC80001C0613 /* SetWorksiteStartTimeViewController.m in Sources */,

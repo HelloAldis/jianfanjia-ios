@@ -7,6 +7,7 @@
 //
 
 #import "ProductAuthImpressionImageCell.h"
+#import "ViewControllerContainer.h"
 
 #define kMaxProductImpressoinImageDescLength 140
 
@@ -77,7 +78,9 @@
 }
 
 - (void)onTapSelection {
-    
+    [SelectionMenuView show:[ViewControllerContainer getCurrentTapController] datasource:[NameDict getAllHomeType] defaultValue:self.lblSelection.text block:^(id value) {
+        self.lblSelection.text = value;
+    }];
 }
 
 @end
