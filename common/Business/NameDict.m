@@ -21,6 +21,7 @@ static NSDictionary *communication_type = nil;
 static NSDictionary *sex_type = nil;
 static NSArray *population_type = nil;
 static NSArray *bank_type = nil;
+static NSArray *good_at = nil;
 static NSDictionary *planStatus = nil;
 static NSDictionary *requirementStatus = nil;
 static NSDictionary *productAuthType = nil;
@@ -75,6 +76,8 @@ static NSArray *desginerTagArr = nil;
     population_type = @[@"单身", @"幸福小两口", @"三口之家", @"三代同堂", @"其他"];
     
     bank_type = @[@"中国工商银行", @"招商银行", @"中国农业银行", @"中国建设银行", @"中国银行", @"中国民生银行", @"中国光大银行", @"中信银行", @"交通银行", @"兴业银行", @"上海浦东发展银行", @"中国人民银行", @"华夏银行", @"国家开发银行", @"中国进出口银行", @"中国农业发展银行", @"北京银行", @"上海银行", @"中国邮政储蓄银行",];
+    
+    good_at = @[@"水电", @"木工", @"油工", @"泥工",];
     
     communication_type = @{@"0":@"不限",
                            @"1":@"表达型",
@@ -234,6 +237,10 @@ static NSArray *desginerTagArr = nil;
 
 + (NSArray *)getAllBankType {
     return bank_type;
+}
+
++ (NSArray *)getAllGoodAt {
+    return good_at;
 }
 
 + (NSDictionary *)getAllWorkType {

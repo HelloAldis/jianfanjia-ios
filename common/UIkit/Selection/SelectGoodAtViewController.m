@@ -6,19 +6,19 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "SelectBankTypeViewController.h"
+#import "SelectGoodAtViewController.h"
 #import "MultipleLineTextTableViewCell.h"
 
 static NSString* cellId = @"MultipleLineTextTableViewCell";
 
-@interface SelectBankTypeViewController ()
+@interface SelectGoodAtViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *data;
 @property (assign, nonatomic) NSInteger curValueIndex;
 
 @end
 
-@implementation SelectBankTypeViewController
+@implementation SelectGoodAtViewController
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -33,7 +33,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 - (void)initNav {
     [self initLeftBackInNav];
 
-    self.title = @"开户银行";
+    self.title = @"擅长工种";
 }
 
 #pragma mark - UI
@@ -48,7 +48,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [NameDict getAllBankType];
+    self.data = [NameDict getAllGoodAt];
     if (self.curValue) {
         self.curValueIndex = [self.data indexOfObject:self.curValue];
     } else {

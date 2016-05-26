@@ -163,6 +163,14 @@
     [API POST:@"designer/team/delete" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)designerAddTeam:(DesignerUpdateTeam *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/team/add" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerUpdateTeam:(DesignerUpdateTeam *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/team/update" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 + (void)designerUploadProduct:(DesignerUploadProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"designer/product/add" data:request.data handler:request success:success failure:failure networkError:error];
 }

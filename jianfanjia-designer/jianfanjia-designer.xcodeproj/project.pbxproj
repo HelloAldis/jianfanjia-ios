@@ -25,6 +25,11 @@
 		680F65801CF6CE21000E1EEF /* SelectBankTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F657E1CF6CE21000E1EEF /* SelectBankTypeViewController.m */; };
 		680F65811CF6CE21000E1EEF /* SelectBankTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F657F1CF6CE21000E1EEF /* SelectBankTypeViewController.xib */; };
 		680F65841CF6D36F000E1EEF /* DesignerUpdateUIDBankInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F65831CF6D36F000E1EEF /* DesignerUpdateUIDBankInfo.m */; };
+		680F65881CF6D545000E1EEF /* TeamAuthUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F65861CF6D545000E1EEF /* TeamAuthUpdateViewController.m */; };
+		680F65891CF6D545000E1EEF /* TeamAuthUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F65871CF6D545000E1EEF /* TeamAuthUpdateViewController.xib */; };
+		680F658D1CF6E247000E1EEF /* SelectGoodAtViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F658B1CF6E247000E1EEF /* SelectGoodAtViewController.m */; };
+		680F658E1CF6E247000E1EEF /* SelectGoodAtViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F658C1CF6E247000E1EEF /* SelectGoodAtViewController.xib */; };
+		680F65911CF6E3EA000E1EEF /* DesignerUpdateTeam.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F65901CF6E3EA000E1EEF /* DesignerUpdateTeam.m */; };
 		681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */; };
 		681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
@@ -471,6 +476,14 @@
 		680F657F1CF6CE21000E1EEF /* SelectBankTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectBankTypeViewController.xib; sourceTree = "<group>"; };
 		680F65821CF6D36F000E1EEF /* DesignerUpdateUIDBankInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerUpdateUIDBankInfo.h; sourceTree = "<group>"; };
 		680F65831CF6D36F000E1EEF /* DesignerUpdateUIDBankInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerUpdateUIDBankInfo.m; sourceTree = "<group>"; };
+		680F65851CF6D545000E1EEF /* TeamAuthUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamAuthUpdateViewController.h; sourceTree = "<group>"; };
+		680F65861CF6D545000E1EEF /* TeamAuthUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamAuthUpdateViewController.m; sourceTree = "<group>"; };
+		680F65871CF6D545000E1EEF /* TeamAuthUpdateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamAuthUpdateViewController.xib; sourceTree = "<group>"; };
+		680F658A1CF6E247000E1EEF /* SelectGoodAtViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectGoodAtViewController.h; sourceTree = "<group>"; };
+		680F658B1CF6E247000E1EEF /* SelectGoodAtViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectGoodAtViewController.m; sourceTree = "<group>"; };
+		680F658C1CF6E247000E1EEF /* SelectGoodAtViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectGoodAtViewController.xib; sourceTree = "<group>"; };
+		680F658F1CF6E3EA000E1EEF /* DesignerUpdateTeam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerUpdateTeam.h; sourceTree = "<group>"; };
+		680F65901CF6E3EA000E1EEF /* DesignerUpdateTeam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerUpdateTeam.m; sourceTree = "<group>"; };
 		681031C31CDCAF6D00FD26D6 /* DecPackageJiangXinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackageJiangXinView.h; sourceTree = "<group>"; };
 		681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackageJiangXinView.m; sourceTree = "<group>"; };
 		681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
@@ -1703,6 +1716,9 @@
 				680F657D1CF6CE21000E1EEF /* SelectBankTypeViewController.h */,
 				680F657E1CF6CE21000E1EEF /* SelectBankTypeViewController.m */,
 				680F657F1CF6CE21000E1EEF /* SelectBankTypeViewController.xib */,
+				680F658A1CF6E247000E1EEF /* SelectGoodAtViewController.h */,
+				680F658B1CF6E247000E1EEF /* SelectGoodAtViewController.m */,
+				680F658C1CF6E247000E1EEF /* SelectGoodAtViewController.xib */,
 			);
 			path = Selection;
 			sourceTree = "<group>";
@@ -1827,6 +1843,9 @@
 				685B15751CED96D00076996A /* TeamAuthCell.xib */,
 				685B15641CED93BB0076996A /* TeamAuthDataManager.h */,
 				685B15651CED93BB0076996A /* TeamAuthDataManager.m */,
+				680F65851CF6D545000E1EEF /* TeamAuthUpdateViewController.h */,
+				680F65861CF6D545000E1EEF /* TeamAuthUpdateViewController.m */,
+				680F65871CF6D545000E1EEF /* TeamAuthUpdateViewController.xib */,
 			);
 			path = TeamAuth;
 			sourceTree = "<group>";
@@ -2078,6 +2097,8 @@
 		6E378CD11BDA2D2E00908B77 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				680F658F1CF6E3EA000E1EEF /* DesignerUpdateTeam.h */,
+				680F65901CF6E3EA000E1EEF /* DesignerUpdateTeam.m */,
 				680F65821CF6D36F000E1EEF /* DesignerUpdateUIDBankInfo.h */,
 				680F65831CF6D36F000E1EEF /* DesignerUpdateUIDBankInfo.m */,
 				680F656F1CF6A348000E1EEF /* DesignerUpdateInfo.h */,
@@ -2478,6 +2499,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				680F65891CF6D545000E1EEF /* TeamAuthUpdateViewController.xib in Resources */,
 				68123F001C4CBE79008FC9AB /* HouseRequirementCreateViewController.xib in Resources */,
 				68E600551CB62C5600C4A8F7 /* DecPackage365View.xib in Resources */,
 				685B14F51CEC52B00076996A /* InfoAuthViewController.xib in Resources */,
@@ -2598,6 +2620,7 @@
 				68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */,
 				685B15E81CF535010076996A /* SelectionMenuCollectionCell.xib in Resources */,
 				684B04391C990E910053FFDF /* NotificationDetailViewController.xib in Resources */,
+				680F658E1CF6E247000E1EEF /* SelectGoodAtViewController.xib in Resources */,
 				6EA0C19E1C577F7500D04A4F /* PlanPriceItemSection.xib in Resources */,
 				68123E941C4CBE79008FC9AB /* FeedbackViewController.xib in Resources */,
 				685B15701CED93BB0076996A /* TeamAuthViewController.xib in Resources */,
@@ -2767,6 +2790,7 @@
 				684B04471C9A76480053FFDF /* UIBarButtonItem+Badge.m in Sources */,
 				682E04ED1C55FA9100F1ACAA /* DeleteYsImageFromProcess.m in Sources */,
 				68F73D2C1CBB597E00E97710 /* ReqtConfiguredAgreement.m in Sources */,
+				680F65881CF6D545000E1EEF /* TeamAuthUpdateViewController.m in Sources */,
 				68123C8F1C4C9772008FC9AB /* InfiniteScrollView.m in Sources */,
 				68711B5A1CD85D3E009B585F /* PhotoCropper.m in Sources */,
 				685F2D601CAA8D9300DC4D43 /* CALayer+Ex.m in Sources */,
@@ -2802,6 +2826,7 @@
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
 				68F73D301CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m in Sources */,
 				68123FDC1C4CCF4A008FC9AB /* BeautifulImage.m in Sources */,
+				680F658D1CF6E247000E1EEF /* SelectGoodAtViewController.m in Sources */,
 				68F73D351CBB597E00E97710 /* StatusBlock.m in Sources */,
 				6EA0C1A71C585C5B00D04A4F /* PlanPriceItemExpandCell.m in Sources */,
 				68123C8D1C4C9772008FC9AB /* MessageAlertViewController.m in Sources */,
@@ -2837,6 +2862,7 @@
 				685B15381CEC790A0076996A /* DesignerGetProducts.m in Sources */,
 				684B04131C98F8240053FFDF /* DesignerNotification.m in Sources */,
 				681241351C4CF2D5008FC9AB /* UIItemImageCollectionView.m in Sources */,
+				680F65911CF6E3EA000E1EEF /* DesignerUpdateTeam.m in Sources */,
 				6E378D371BDA2D2E00908B77 /* Bc.m in Sources */,
 				68123E6F1C4CBE79008FC9AB /* ViewControllerContainer.m in Sources */,
 				681240D51C4CE471008FC9AB /* UploadImage.m in Sources */,

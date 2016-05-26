@@ -41,6 +41,7 @@
 + (void)showProductAuthUploadPart1:(Product *)product;
 + (void)showProductAuthUploadPart2:(Product *)product;
 + (void)showTeamAuth;
++ (void)showTeamAuthUpdate:(Team *)team;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
 + (void)showRefresh;

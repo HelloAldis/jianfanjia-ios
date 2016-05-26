@@ -50,7 +50,7 @@
 }
 
 - (void)onTap {
-
+    [ViewControllerContainer showTeamAuthUpdate:self.team];
 }
 
 - (IBAction)onClickDelete:(id)sender {

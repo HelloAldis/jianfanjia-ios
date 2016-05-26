@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "CardImageCell.h"
 
-#define kIDAuthBankCardImageCellHeight 150
+extern CGFloat kIDAuthBankCardImageCellHeight;
 
 @interface IDAuthBankCardImageCell : UITableViewCell
 
 - (void)initWithDesigner:(Designer *)designer actionBlock:(CardImageCellActionBlock)actionBlock;
+- (void)initWithTeam:(Team *)team actionBlock:(CardImageCellActionBlock)actionBlock;
 
 @end

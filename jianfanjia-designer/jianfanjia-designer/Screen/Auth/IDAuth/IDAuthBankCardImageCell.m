@@ -9,6 +9,8 @@
 #import "IDAuthBankCardImageCell.h"
 #import "ViewControllerContainer.h"
 
+CGFloat kIDAuthBankCardImageCellHeight;
+
 @interface IDAuthBankCardImageCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *idCardLeftImgView;
@@ -17,11 +19,19 @@
 @property (weak, nonatomic) IBOutlet UIImageView *rightDelImgView;
 
 @property (strong, nonatomic) Designer *designer;
+@property (strong, nonatomic) Team *team;
 @property (copy, nonatomic) CardImageCellActionBlock actionBlock;
 
 @end
 
 @implementation IDAuthBankCardImageCell
+
++ (void)initialize {
+    if ([self class] == [IDAuthBankCardImageCell class]) {
+        CGFloat aspect =  545.0 / ((kScreenWidth  - 42) / 2.0);
+        kIDAuthBankCardImageCellHeight = round(342.0 / aspect) + 32;
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -33,23 +43,32 @@
 
 - (void)initWithDesigner:(Designer *)designer actionBlock:(CardImageCellActionBlock)actionBlock {
     self.designer = designer;
+    self.team = nil;
+    self.actionBlock = actionBlock;
+    [self initUI];
+}
+
+- (void)initWithTeam:(Team *)team actionBlock:(CardImageCellActionBlock)actionBlock {
+    self.designer = nil;
+    self.team = team;
     self.actionBlock = actionBlock;
     [self initUI];
 }
 
 - (void)initUI {
-    [self.idCardLeftImgView setImageWithId:self.designer.bank_card_image1 withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_bank_card_front"]];
-    self.leftDelImgView.hidden = self.designer.bank_card_image1.length > 0 ? NO : YES;
-    self.idCardLeftImgView.contentMode = self.designer.bank_card_image1.length > 0 ? UIViewContentModeScaleAspectFill : UIViewContentModeScaleToFill;
-    [self.idCardLeftImgView setBorder:self.designer.bank_card_image1.length > 0 ? 0.5 : 0.0 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
+    id obj = self.designer ? self.designer : self.team;
+    [self.idCardLeftImgView setImageWithId:[obj bank_card_image1] withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_bank_card_front"]];
+    self.leftDelImgView.hidden = [obj bank_card_image1].length > 0 ? NO : YES;
+    [self.idCardLeftImgView setBorder:[obj bank_card_image1].length > 0 ? 0.5 : 0.0 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
 }
 
 - (void)onTapLeftImgView {
-    if (self.designer.bank_card_image1.length > 0) {
-        [ViewControllerContainer showOnlineImages:@[self.designer.bank_card_image1] index:0];
+    id obj = self.designer ? self.designer : self.team;
+    if ([obj bank_card_image1].length > 0) {
+        [ViewControllerContainer showOnlineImages:@[[obj bank_card_image1]] index:0];
     } else {
         [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTapController] inView:self max:1 withBlock:^(NSArray *imageIds) {
-            self.designer.bank_card_image1 = imageIds[0];
+            [obj setBank_card_image1:imageIds[0]];
             [self initUI];
             if (self.actionBlock) {
                 self.actionBlock(CardImageActionAdd, CardImageTypeFront);
@@ -59,7 +78,9 @@
 }
 
 - (void)onTapLeftDelImgView {
-    self.designer.bank_card_image1 = @"";
+    id obj = self.designer ? self.designer : self.team;
+    [obj setUid_image1:@""];
+    [obj setBank_card_image1:@""];
     [self initUI];
     if (self.actionBlock) {
         self.actionBlock(CardImageActionDelete, CardImageTypeFront);

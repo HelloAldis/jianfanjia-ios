@@ -14,7 +14,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="505" height="66"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjN-tL-DTG">
+                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjN-tL-DTG">
                         <rect key="frame" x="14" y="13" width="477" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="添加施工团队" backgroundImage="icon_auth_upload">
@@ -45,7 +45,7 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="icon_auth_add" width="16" height="16"/>
+        <image name="icon_auth_add" width="26" height="26"/>
         <image name="icon_auth_upload" width="386" height="40"/>
     </resources>
 </document>

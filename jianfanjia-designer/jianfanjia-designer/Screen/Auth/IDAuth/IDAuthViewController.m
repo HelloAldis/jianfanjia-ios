@@ -194,7 +194,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
     } else if (indexPath.section == 2) {
         return [self.sectionArr3[indexPath.row] cellheight];
     } else if (indexPath.section == 3) {
-        return kIDAuthIDCardImageCellHeight;
+        return kIDAuthBankCardImageCellHeight;
     }
     
     return 0.0;

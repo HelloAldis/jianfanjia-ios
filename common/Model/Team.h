@@ -14,7 +14,7 @@
 @property(nonatomic, strong) NSString *designerid;
 @property(nonatomic, strong) NSString *manager;
 @property(nonatomic, strong) NSString *company;
-@property(nonatomic, strong) NSString *work_year;
+@property(nonatomic, strong) NSNumber *work_year;
 @property(nonatomic, strong) NSString *good_at;
 @property(nonatomic, strong) NSString *working_on;
 @property(nonatomic, strong) NSString *sex;
@@ -22,5 +22,8 @@
 @property(nonatomic, strong) NSString *city;
 @property(nonatomic, strong) NSString *district;
 @property(nonatomic, strong) NSNumber *create_at;
+@property(nonatomic, strong) NSString *uid;
+@property(nonatomic, strong) NSString *uid_image1;
+@property(nonatomic, strong) NSString *uid_image2;
 
 @end

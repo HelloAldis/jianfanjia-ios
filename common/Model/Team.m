@@ -22,5 +22,8 @@
 @dynamic city;
 @dynamic district;
 @dynamic create_at;
+@dynamic uid;
+@dynamic uid_image1;
+@dynamic uid_image2;
 
 @end

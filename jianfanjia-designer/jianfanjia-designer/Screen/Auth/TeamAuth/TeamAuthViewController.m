@@ -39,6 +39,11 @@ static NSString *TeamAuthCellIdentifier = @"TeamAuthCell";
     [self initUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self refresh];
+}
+
 #pragma mark - UI
 - (void)initNav {
     self.title = @"我的施工团队";
@@ -71,8 +76,6 @@ static NSString *TeamAuthCellIdentifier = @"TeamAuthCell";
         @strongify(self);
         [self loadMore];
     }];
-    
-    [self refresh];
 }
 
 #pragma mark - collection delegate

@@ -7,6 +7,7 @@
 //
 
 #import "TeamUploadCell.h"
+#import "ViewControllerContainer.h"
 
 @interface TeamUploadCell ()
 
@@ -20,7 +21,7 @@
 }
 
 - (void)onTap {
-
+    [ViewControllerContainer showTeamAuthUpdate:nil];
 }
 
 @end

@@ -17,5 +17,6 @@
 #import "SelectDecorationStyleViewController.h"
 #import "SelectDecorationTypeViewController.h"
 #import "SelectBankTypeViewController.h"
+#import "SelectGoodAtViewController.h"
 
 #endif /* SelectionValue_h */

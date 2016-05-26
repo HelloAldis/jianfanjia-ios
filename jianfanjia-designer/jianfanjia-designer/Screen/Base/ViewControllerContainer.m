@@ -37,6 +37,7 @@
 #import "ProductViewController.h"
 #import "TeamAuthViewController.h"
 #import "IDAuthViewController.h"
+#import "TeamAuthUpdateViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -288,6 +289,11 @@ static ViewControllerContainer *container;
 
 + (void)showTeamAuth {
     TeamAuthViewController *v = [[TeamAuthViewController alloc] init];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showTeamAuthUpdate:(Team *)team {
+    TeamAuthUpdateViewController *v = [[TeamAuthUpdateViewController alloc] initWithTeam:team];
     [container.navigation pushViewController:v animated:YES];
 }
 
