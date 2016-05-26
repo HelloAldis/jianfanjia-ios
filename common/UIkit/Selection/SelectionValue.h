@@ -16,5 +16,6 @@
 #import "SelectSexTypeViewController.h"
 #import "SelectDecorationStyleViewController.h"
 #import "SelectDecorationTypeViewController.h"
+#import "SelectBankTypeViewController.h"
 
 #endif /* SelectionValue_h */

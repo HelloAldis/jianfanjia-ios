@@ -369,7 +369,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     [API designerUpdateInfo:request success:^{
         [HUDUtil hideWait];
         [self.navigationController popViewControllerAnimated:YES];
-        [HUDUtil showSuccessText:@"更新成功"];
+        [HUDUtil showSuccessText:@"提交成功"];
     } failure:^{
         [HUDUtil hideWait];
     } networkError:^{

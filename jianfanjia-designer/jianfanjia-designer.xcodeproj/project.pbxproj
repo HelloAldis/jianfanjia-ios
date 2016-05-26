@@ -22,6 +22,8 @@
 		680F65761CF6B064000E1EEF /* IDAuthIDCardImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F65741CF6B064000E1EEF /* IDAuthIDCardImageCell.xib */; };
 		680F657A1CF6C375000E1EEF /* IDAuthBankCardImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F65781CF6C375000E1EEF /* IDAuthBankCardImageCell.m */; };
 		680F657B1CF6C375000E1EEF /* IDAuthBankCardImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F65791CF6C375000E1EEF /* IDAuthBankCardImageCell.xib */; };
+		680F65801CF6CE21000E1EEF /* SelectBankTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F657E1CF6CE21000E1EEF /* SelectBankTypeViewController.m */; };
+		680F65811CF6CE21000E1EEF /* SelectBankTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F657F1CF6CE21000E1EEF /* SelectBankTypeViewController.xib */; };
 		681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */; };
 		681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
@@ -463,6 +465,9 @@
 		680F65781CF6C375000E1EEF /* IDAuthBankCardImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDAuthBankCardImageCell.m; sourceTree = "<group>"; };
 		680F65791CF6C375000E1EEF /* IDAuthBankCardImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDAuthBankCardImageCell.xib; sourceTree = "<group>"; };
 		680F657C1CF6C3B2000E1EEF /* CardImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardImageCell.h; sourceTree = "<group>"; };
+		680F657D1CF6CE21000E1EEF /* SelectBankTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectBankTypeViewController.h; sourceTree = "<group>"; };
+		680F657E1CF6CE21000E1EEF /* SelectBankTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectBankTypeViewController.m; sourceTree = "<group>"; };
+		680F657F1CF6CE21000E1EEF /* SelectBankTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectBankTypeViewController.xib; sourceTree = "<group>"; };
 		681031C31CDCAF6D00FD26D6 /* DecPackageJiangXinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackageJiangXinView.h; sourceTree = "<group>"; };
 		681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackageJiangXinView.m; sourceTree = "<group>"; };
 		681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
@@ -1692,6 +1697,9 @@
 				685B14751CEB11CF0076996A /* SelectWorkTypeViewController.h */,
 				685B14761CEB11CF0076996A /* SelectWorkTypeViewController.m */,
 				685B14771CEB11CF0076996A /* SelectWorkTypeViewController.xib */,
+				680F657D1CF6CE21000E1EEF /* SelectBankTypeViewController.h */,
+				680F657E1CF6CE21000E1EEF /* SelectBankTypeViewController.m */,
+				680F657F1CF6CE21000E1EEF /* SelectBankTypeViewController.xib */,
 			);
 			path = Selection;
 			sourceTree = "<group>";
@@ -2550,6 +2558,7 @@
 				685B152A1CEC71010076996A /* ProductAuthCell.xib in Resources */,
 				685B15191CEC60950076996A /* SelectionEditCell.xib in Resources */,
 				684B04101C98F7060053FFDF /* PlanCommentInfoCell.xib in Resources */,
+				680F65811CF6CE21000E1EEF /* SelectBankTypeViewController.xib in Resources */,
 				68123C931C4C9772008FC9AB /* ThumbnailCell.xib in Resources */,
 				685F2D6F1CABC0A900DC4D43 /* UnexpandSectionActionView.xib in Resources */,
 				681241341C4CF2D5008FC9AB /* SectionView.xib in Resources */,
@@ -2888,6 +2897,7 @@
 				685B153E1CED6C930076996A /* DesignerDeleteProduct.m in Sources */,
 				685B14F91CEC54B60076996A /* AvtarImageCell.m in Sources */,
 				689220071CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */,
+				680F65801CF6CE21000E1EEF /* SelectBankTypeViewController.m in Sources */,
 				681241211C4CF2D5008FC9AB /* ItemImageCollectionCell.m in Sources */,
 				685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */,
 				6E04266E1BC757C500F984B8 /* main.m in Sources */,

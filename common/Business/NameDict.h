@@ -16,6 +16,7 @@
 + (NSDictionary *)getAllDecorationStyle;
 + (NSDictionary *)getAllDecorationType;
 + (NSArray *)getAllPopulationType;
++ (NSArray *)getAllBankType;
 + (NSDictionary *)getAllCommunicationType;
 + (NSDictionary *)getAllWorkType;
 + (NSDictionary *)getAllSexType;

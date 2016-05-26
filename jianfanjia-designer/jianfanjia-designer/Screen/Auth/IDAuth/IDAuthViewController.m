@@ -21,9 +21,14 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, strong) Designer *designer;
+@property (nonatomic, strong) NSString *idCardFrontImageid;
+@property (nonatomic, strong) NSString *idCardBackImageid;
+@property (nonatomic, strong) NSString *bankCardFrontImageid;
 
-@property (nonatomic, strong) NSArray *sectionArr1;
-@property (nonatomic, strong) NSArray *sectionArr3;
+@property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr1;
+@property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr3;
+
+@property (nonatomic, strong) NSMutableArray<EditCellItem *> *totalArr;
 
 @end
 
@@ -48,7 +53,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"身份认证";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交认证" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
@@ -62,29 +67,41 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
     [self.tableView registerNib:[UINib nibWithNibName:IDAuthBankCardImageCellIdentifier bundle:nil] forCellReuseIdentifier:IDAuthBankCardImageCellIdentifier];
     [EditCellItem registerCells:self.tableView];
     
+    self.idCardFrontImageid = self.designer.uid_image1;
+    self.idCardBackImageid = self.designer.uid_image2;
+    self.bankCardFrontImageid = self.designer.bank_card_image1;
     self.sectionArr1 = @[
-                         [EditCellItem createField:@"真实姓名" value:nil placeholder:@"请输入真实姓名" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                         [EditCellItem createField:@"真实姓名" value:self.designer.realname placeholder:@"请输入真实姓名" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              if (itemEditType ==  EditCellItemEditTypeChange) {
-//                                 self.designer.university = curItem.value;
+                                 self.designer.realname = curItem.value;
                              }
                          }],
-                         [EditCellItem createField:@"身份证号" value:nil placeholder:@"请输入15位或18位或带x身份证号码" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                         [EditCellItem createField:@"身份证号" value:self.designer.uid placeholder:@"请输入15位或18位或带x身份证号码" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              if (itemEditType ==  EditCellItemEditTypeChange) {
-//                                 self.designer.university = curItem.value;
+                                 self.designer.uid = curItem.value;
                              }
                          }],
                          ];
     
     self.sectionArr3 = @[
-                         [EditCellItem createField:@"银行卡号" value:nil placeholder:@"请输入16或19位银行卡号" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                         [EditCellItem createField:@"银行卡号" value:self.designer.bank_card placeholder:@"请输入16或19位银行卡号" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              if (itemEditType ==  EditCellItemEditTypeChange) {
-//                                 self.designer.university = curItem.value;
+                                 self.designer.bank_card = curItem.value;
                              }
                          }],
-                         [EditCellItem createSelection:@"开户银行" value:nil placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"开户银行" value:self.designer.bank placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                             SelectBankTypeViewController *controller = [[SelectBankTypeViewController alloc] initWithValueBlock:^(id value) {
+                                 self.designer.bank = value;
+                                 [self.tableView reloadData];
+                             } curValue:self.designer.bank];
                              
+                             [self.navigationController pushViewController:controller animated:YES];
                          }],
                          ];
+    self.totalArr = [NSMutableArray array];
+    [self.totalArr addObjectsFromArray:self.sectionArr1];
+    [self.totalArr addObjectsFromArray:self.sectionArr3];
+    [self refreshNextButtonStatus];
 }
 
 #pragma mark - table view delegate
@@ -143,6 +160,12 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
     } else if (indexPath.section == 1) {
         IDAuthIDCardImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:IDAuthIDCardImageCellIdentifier forIndexPath:indexPath];
         [cell initWithDesigner:self.designer actionBlock:^(CardImageAction action, CardImageType type) {
+            if (type == CardImageTypeFront) {
+                self.idCardFrontImageid = self.designer.uid_image1;
+            } else {
+                self.idCardBackImageid = self.designer.uid_image2;
+            }
+            
             [self.tableView reloadData];
         }];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -153,6 +176,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
     } else if (indexPath.section == 3) {
         IDAuthBankCardImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:IDAuthBankCardImageCellIdentifier forIndexPath:indexPath];
         [cell initWithDesigner:self.designer actionBlock:^(CardImageAction action, CardImageType type) {
+            self.bankCardFrontImageid = self.designer.bank_card_image1;
             [self.tableView reloadData];
         }];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -178,7 +202,46 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 
 #pragma mark - user action
 - (void)onClickNext {
+    [self.view endEditing:YES];
+    DesignerUpdateInfo *request = [[DesignerUpdateInfo alloc] initWithDesigner:self.designer];
     
+    [HUDUtil showWait];
+    [API designerUpdateInfo:request success:^{
+        [HUDUtil hideWait];
+        [self.navigationController popViewControllerAnimated:YES];
+        [HUDUtil showSuccessText:@"提交成功"];
+    } failure:^{
+        [HUDUtil hideWait];
+    } networkError:^{
+        [HUDUtil hideWait];
+    }];
+}
+
+#pragma mark - other
+- (void)refreshNextButtonStatus {
+    @weakify(self);
+    [[RACObserve(self, totalArr) flattenMap:^RACStream *(NSArray *items) {
+        @strongify(self)
+        NSMutableArray *signals = [NSMutableArray array];
+        [signals addObject:RACObserve(self, idCardFrontImageid)];
+        [signals addObject:RACObserve(self, idCardBackImageid)];
+        [signals addObject:RACObserve(self, bankCardFrontImageid)];
+        for (EditCellItem *item in items) {
+            [signals addObject:RACObserve(item, value)];
+        }
+        
+        return [RACSignal combineLatest:signals];
+    }] subscribeNext:^(RACTuple *tuple) {
+        __block BOOL isAllInputed = YES;
+        [tuple.allObjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj isKindOfClass:[NSNull class]]|| [obj length] == 0) {
+                isAllInputed = NO;
+                *stop = YES;
+            }
+        }];
+        
+        self.navigationItem.rightBarButtonItem.enabled = isAllInputed;
+    }];
 }
 
 @end
