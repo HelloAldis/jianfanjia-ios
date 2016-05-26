@@ -18,6 +18,10 @@
 		680C46771CC6310E008C4BC0 /* PlanExpiredActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46751CC6310E008C4BC0 /* PlanExpiredActionCell.m */; };
 		680C46781CC6310E008C4BC0 /* PlanExpiredActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C46761CC6310E008C4BC0 /* PlanExpiredActionCell.xib */; };
 		680F65711CF6A348000E1EEF /* DesignerUpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F65701CF6A348000E1EEF /* DesignerUpdateInfo.m */; };
+		680F65751CF6B064000E1EEF /* IDAuthIDCardImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F65731CF6B064000E1EEF /* IDAuthIDCardImageCell.m */; };
+		680F65761CF6B064000E1EEF /* IDAuthIDCardImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F65741CF6B064000E1EEF /* IDAuthIDCardImageCell.xib */; };
+		680F657A1CF6C375000E1EEF /* IDAuthBankCardImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F65781CF6C375000E1EEF /* IDAuthBankCardImageCell.m */; };
+		680F657B1CF6C375000E1EEF /* IDAuthBankCardImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F65791CF6C375000E1EEF /* IDAuthBankCardImageCell.xib */; };
 		681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */; };
 		681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
@@ -452,6 +456,13 @@
 		680C46761CC6310E008C4BC0 /* PlanExpiredActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanExpiredActionCell.xib; sourceTree = "<group>"; };
 		680F656F1CF6A348000E1EEF /* DesignerUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerUpdateInfo.h; sourceTree = "<group>"; };
 		680F65701CF6A348000E1EEF /* DesignerUpdateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerUpdateInfo.m; sourceTree = "<group>"; };
+		680F65721CF6B064000E1EEF /* IDAuthIDCardImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDAuthIDCardImageCell.h; sourceTree = "<group>"; };
+		680F65731CF6B064000E1EEF /* IDAuthIDCardImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDAuthIDCardImageCell.m; sourceTree = "<group>"; };
+		680F65741CF6B064000E1EEF /* IDAuthIDCardImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDAuthIDCardImageCell.xib; sourceTree = "<group>"; };
+		680F65771CF6C375000E1EEF /* IDAuthBankCardImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDAuthBankCardImageCell.h; sourceTree = "<group>"; };
+		680F65781CF6C375000E1EEF /* IDAuthBankCardImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDAuthBankCardImageCell.m; sourceTree = "<group>"; };
+		680F65791CF6C375000E1EEF /* IDAuthBankCardImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDAuthBankCardImageCell.xib; sourceTree = "<group>"; };
+		680F657C1CF6C3B2000E1EEF /* CardImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardImageCell.h; sourceTree = "<group>"; };
 		681031C31CDCAF6D00FD26D6 /* DecPackageJiangXinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackageJiangXinView.h; sourceTree = "<group>"; };
 		681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackageJiangXinView.m; sourceTree = "<group>"; };
 		681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
@@ -1716,6 +1727,13 @@
 				685B15871CEEEC010076996A /* IDAuthViewController.h */,
 				685B15881CEEEC010076996A /* IDAuthViewController.m */,
 				685B15891CEEEC010076996A /* IDAuthViewController.xib */,
+				680F65721CF6B064000E1EEF /* IDAuthIDCardImageCell.h */,
+				680F65731CF6B064000E1EEF /* IDAuthIDCardImageCell.m */,
+				680F65741CF6B064000E1EEF /* IDAuthIDCardImageCell.xib */,
+				680F65771CF6C375000E1EEF /* IDAuthBankCardImageCell.h */,
+				680F65781CF6C375000E1EEF /* IDAuthBankCardImageCell.m */,
+				680F65791CF6C375000E1EEF /* IDAuthBankCardImageCell.xib */,
+				680F657C1CF6C3B2000E1EEF /* CardImageCell.h */,
 			);
 			path = IDAuth;
 			sourceTree = "<group>";
@@ -2503,6 +2521,7 @@
 				685B147C1CEB11CF0076996A /* MultipleLineTextTableViewCell.xib in Resources */,
 				681240E91C4CF2CC008FC9AB /* ProcessCell.xib in Resources */,
 				685B15961CEEF7E30076996A /* LoginViewController.xib in Resources */,
+				680F657B1CF6C375000E1EEF /* IDAuthBankCardImageCell.xib in Resources */,
 				685B14821CEB11CF0076996A /* SelectDecorationStyleViewController.xib in Resources */,
 				685B15771CED96D00076996A /* TeamAuthCell.xib in Resources */,
 				682E04E61C55D85200F1ACAA /* iTunesArtwork in Resources */,
@@ -2541,6 +2560,7 @@
 				685B15511CED70620076996A /* ProductViewController.xib in Resources */,
 				685B15811CEEB1510076996A /* LogoutCell.xib in Resources */,
 				681241CA1C5085B2008FC9AB /* SetMeasureHouseTimeViewController.xib in Resources */,
+				680F65761CF6B064000E1EEF /* IDAuthIDCardImageCell.xib in Resources */,
 				6EA0C1A31C57827A00D04A4F /* PlanPriceTotalCell.xib in Resources */,
 				684B043F1C990E910053FFDF /* WorksiteNotificationCell.xib in Resources */,
 				685B15151CEC60950076996A /* FieldEditCell.xib in Resources */,
@@ -2891,6 +2911,7 @@
 				684B04381C990E910053FFDF /* NotificationDetailViewController.m in Sources */,
 				681241C21C5073DB008FC9AB /* DesignerRejectUser.m in Sources */,
 				6E378D491BDA2D2E00908B77 /* UIImageView+Ex.m in Sources */,
+				680F65751CF6B064000E1EEF /* IDAuthIDCardImageCell.m in Sources */,
 				681240131C4CDA06008FC9AB /* NSDate+Ex.m in Sources */,
 				681241C91C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m in Sources */,
 				681240B31C4CE471008FC9AB /* DesignerSignup.m in Sources */,
@@ -2908,6 +2929,7 @@
 				685B158A1CEEEC010076996A /* IDAuthViewController.m in Sources */,
 				685B147B1CEB11CF0076996A /* MultipleLineTextTableViewCell.m in Sources */,
 				68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */,
+				680F657A1CF6C375000E1EEF /* IDAuthBankCardImageCell.m in Sources */,
 				68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */,
 				685B151F1CEC67450076996A /* DesignerAuthViewController.m in Sources */,
 				685B155D1CED92A70076996A /* DesignerGetTeams.m in Sources */,

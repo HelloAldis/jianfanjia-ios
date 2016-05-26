@@ -266,8 +266,8 @@ static ViewControllerContainer *container;
     [container.navigation pushViewController:v animated:YES];
 }
 
-+ (void)showIDAuth {
-    IDAuthViewController *v = [[IDAuthViewController alloc] init];
++ (void)showIDAuth:(Designer *)designer {
+    IDAuthViewController *v = [[IDAuthViewController alloc] initWithDesigner:designer];
     [container.navigation pushViewController:v animated:YES];
 }
 

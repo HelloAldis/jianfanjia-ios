@@ -71,7 +71,7 @@ static NSDictionary *imageDic = nil;
     if ([self.cellType isEqualToString:AuthCellTypeBasicInfo]) {
         [ViewControllerContainer showInfoAuth:self.designer];
     } else if ([self.cellType isEqualToString:AuthCellTypeUid]) {
-        [ViewControllerContainer showIDAuth];
+        [ViewControllerContainer showIDAuth:self.designer];
     } else if ([self.cellType isEqualToString:AuthCellTypeProduct]) {
         [ViewControllerContainer showProductAuth];
     } else if ([self.cellType isEqualToString:AuthCellTypeTeam]) {

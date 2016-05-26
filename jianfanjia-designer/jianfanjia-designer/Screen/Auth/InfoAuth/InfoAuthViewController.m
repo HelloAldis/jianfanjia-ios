@@ -101,7 +101,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                                  
                                  [self.tableView reloadData];
                              } curValue:self.designer.sex];
-                             
+                             controller.selectSexType = SelectSexTypeUserSex;
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
                          [EditCellItem createSelection:@"所在地区" value:[NSString stringWithFormat:@"%@ %@ %@", self.designer.province, self.designer.city, self.designer.district] placeholder:nil tapBlock:^(EditCellItem *curItem) {

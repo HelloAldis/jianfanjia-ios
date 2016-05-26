@@ -13,6 +13,7 @@
 @dynamic _id;
 @dynamic phone;
 @dynamic username;
+@dynamic realname;
 @dynamic sex;
 @dynamic province;
 @dynamic city;
@@ -46,6 +47,12 @@
 @dynamic diploma_imageid;
 @dynamic work_year;
 @dynamic award_details;
+@dynamic bank;
+@dynamic bank_card;
+@dynamic bank_card_image1;
+@dynamic uid;
+@dynamic uid_image1;
+@dynamic uid_image2;
 
 - (AwardDetail *)awardAtIndex:(NSInteger)index {
     if (index >= 0 && index < self.award_details.count) {

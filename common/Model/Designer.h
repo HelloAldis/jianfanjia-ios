@@ -18,6 +18,7 @@
 @property(nonatomic, strong) NSString *_id;
 @property(nonatomic, strong) NSString *phone;
 @property(nonatomic, strong) NSString *username;
+@property(nonatomic, strong) NSString *realname;
 @property(nonatomic, strong) NSString *sex;
 @property(nonatomic, strong) NSString *province;
 @property(nonatomic, strong) NSString *city;
@@ -51,6 +52,13 @@
 @property(nonatomic, strong) NSString *diploma_imageid;
 @property(nonatomic, strong) NSNumber *work_year;
 @property(nonatomic, strong) NSMutableArray *award_details;
+@property(nonatomic, strong) NSString *bank;
+@property(nonatomic, strong) NSString *bank_card;
+@property(nonatomic, strong) NSString *bank_card_image1;
+@property(nonatomic, strong) NSString *uid;
+@property(nonatomic, strong) NSString *uid_image1;
+@property(nonatomic, strong) NSString *uid_image2;
+
 
 //不动态的属性
 @property(nonatomic, strong) Product *product;

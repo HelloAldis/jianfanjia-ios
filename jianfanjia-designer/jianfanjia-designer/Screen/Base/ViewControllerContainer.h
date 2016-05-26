@@ -36,7 +36,7 @@
 + (void)showMyComments;
 + (void)showDesignerAuth;
 + (void)showInfoAuth:(Designer *)designer;
-+ (void)showIDAuth;
++ (void)showIDAuth:(Designer *)designer;
 + (void)showProductAuth;
 + (void)showProductAuthUploadPart1:(Product *)product;
 + (void)showProductAuthUploadPart2:(Product *)product;
