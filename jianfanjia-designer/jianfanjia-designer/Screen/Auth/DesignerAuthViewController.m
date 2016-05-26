@@ -8,6 +8,7 @@
 
 #import "DesignerAuthViewController.h"
 #import "DesignerAuthCell.h"
+#import "ViewControllerContainer.h"
 
 static const NSInteger COUNT_IN_ONE_ROW = 2;
 static const NSInteger CELL_SPACE = 0;
@@ -84,6 +85,22 @@ static NSArray *authArr = nil;
     [cell initWithDesigner:self.designer cellType:cellArr[indexPath.row] authType:authArr[indexPath.row]];
     
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *cellType = cellArr[indexPath.row];
+    
+    if ([cellType isEqualToString:AuthCellTypeBasicInfo]) {
+        [ViewControllerContainer showInfoAuth:self.designer];
+    } else if ([cellType isEqualToString:AuthCellTypeUid]) {
+        [ViewControllerContainer showIDAuth:self.designer];
+    } else if ([cellType isEqualToString:AuthCellTypeProduct]) {
+        [ViewControllerContainer showProductAuth];
+    } else if ([cellType isEqualToString:AuthCellTypeTeam]) {
+        [ViewControllerContainer showTeamAuth];
+    } else if ([cellType isEqualToString:AuthCellTypeEmail]) {
+        
+    }
 }
 
 - (void)initData {

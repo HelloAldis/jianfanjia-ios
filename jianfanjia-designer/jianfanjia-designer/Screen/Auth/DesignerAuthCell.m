@@ -7,7 +7,6 @@
 //
 
 #import "DesignerAuthCell.h"
-#import "ViewControllerContainer.h"
 
 static NSDictionary *titleDic = nil;
 static NSDictionary *imageDic = nil;
@@ -47,7 +46,6 @@ static NSDictionary *imageDic = nil;
     [self.authBgView setCornerRadius:self.authBgView.frame.size.width / 2];
     [self.lblAuthStatus setCornerRadius:self.lblAuthStatus.frame.size.height / 2];
     [self setBorder:0.3 andColor:kViewBgColor.CGColor];
-    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)]];
 }
 
 - (void)initWithDesigner:(Designer *)designer cellType:(NSString *)type authType:(NSString *)authType {
@@ -64,20 +62,6 @@ static NSDictionary *imageDic = nil;
         self.lblAuthStatus.text = [NameDict nameForAuthType:authType];
         self.lblAuthStatus.bgColor = [DesignerBusiness authTypeColor:authType];
         self.authBgView.bgColor = [DesignerBusiness authTypeColor:authType];
-    }
-}
-
-- (void)onTap {
-    if ([self.cellType isEqualToString:AuthCellTypeBasicInfo]) {
-        [ViewControllerContainer showInfoAuth:self.designer];
-    } else if ([self.cellType isEqualToString:AuthCellTypeUid]) {
-        [ViewControllerContainer showIDAuth:self.designer];
-    } else if ([self.cellType isEqualToString:AuthCellTypeProduct]) {
-        [ViewControllerContainer showProductAuth];
-    } else if ([self.cellType isEqualToString:AuthCellTypeTeam]) {
-        [ViewControllerContainer showTeamAuth];
-    } else if ([self.cellType isEqualToString:AuthCellTypeEmail]) {
-        
     }
 }
 
