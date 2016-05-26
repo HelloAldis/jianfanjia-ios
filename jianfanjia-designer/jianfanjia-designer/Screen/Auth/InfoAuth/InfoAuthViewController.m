@@ -178,7 +178,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     }
     
     if (section == 3) {
-        return !self.designer.diploma_imageid ? kInfoAuthImageHeaderViewHeight : 0.1;
+        return [self isDiplomaImgEmpty] ? kProductAuthImageFooterViewHeight : 0.1;
     }
     
     return kProductAuthImageFooterViewHeight;
@@ -200,7 +200,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == 3) {
-        return !self.designer.diploma_imageid ? self.addDiplomaView : nil;
+        return [self isDiplomaImgEmpty] ? self.addDiplomaView : nil;
     } else if (section == 6) {
         return self.addAwardView;
     }
@@ -216,7 +216,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     } else if (section == 2) {
         return self.sectionArr3.count;
     } else if (section == 3) {
-        return self.designer.diploma_imageid ? 1 : 0;
+        return [self isDiplomaImgEmpty] ? 0 : 1;
     } else if (section == 4) {
         return self.sectionArr5.count;
     } else if (section == 5) {
@@ -305,7 +305,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 }
 
 - (void)onTapDeleteDiplomaImg:(NSIndexPath *)indexPath {
-    self.designer.diploma_imageid = nil;
+    self.designer.diploma_imageid = @"";
     [self.tableView reloadData];
 }
 
@@ -342,6 +342,10 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
         [self.designer.award_details addObjectsFromArray:arr];
         [self.tableView reloadData];
     }];
+}
+
+- (BOOL)isDiplomaImgEmpty {
+    return self.designer.diploma_imageid == nil || [self.designer.diploma_imageid isEqualToString:@""];
 }
 
 - (void)onClickNext {
