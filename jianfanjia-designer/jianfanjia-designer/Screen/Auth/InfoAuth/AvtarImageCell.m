@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserName;
 
+@property (strong, nonatomic) Designer *designer;
+@property (copy, nonatomic) AvtarImageCellUpdateBlock updateBlock;
+
 @end
 
 @implementation AvtarImageCell
@@ -24,16 +27,25 @@
     [self.avatarImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAvatar)]];
 }
 
-- (void)initUI {
-    [self.avatarImgView setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid placeholder:[UIImage imageNamed:@"img_upload_avatar"]];
+- (void)initWithDesigner:(Designer *)designer updateBlock:(AvtarImageCellUpdateBlock)updateBlock {
+    self.designer = designer;
+    self.updateBlock = updateBlock;
+    [self refreshAvatar];
+}
+
+- (void)refreshAvatar {
+    [self.avatarImgView setUserImageWithId:self.designer.imageid placeholder:[UIImage imageNamed:@"img_upload_avatar"]];
 }
 
 - (void)onTapAvatar {
     @weakify(self);
     [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTapController] inView:self withBlock:^(NSArray *imageIds) {
         @strongify(self);
-        [self initUI];
-        [GVUserDefaults standardUserDefaults].imageid = imageIds[0];
+        self.designer.imageid = imageIds[0];
+        [self refreshAvatar];
+        if (self.updateBlock) {
+            self.updateBlock(imageIds[0]);
+        }
     }];
 }
 

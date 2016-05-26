@@ -10,8 +10,10 @@
 
 #define kAvtarImageCellHeight 100
 
+typedef void (^AvtarImageCellUpdateBlock)(NSString *imageid);
+
 @interface AvtarImageCell : UITableViewCell
 
-- (void)initUI;
+- (void)initWithDesigner:(Designer *)designer updateBlock:(AvtarImageCellUpdateBlock)updateBlock;
 
 @end
