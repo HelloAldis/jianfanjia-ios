@@ -50,5 +50,6 @@
 #import "DesignerDeleteTeam.h"
 #import "DesignerUploadProduct.h"
 #import "DesignerUpdateInfo.h"
+#import "DesignerUpdateUIDBankInfo.h"
 
 #endif

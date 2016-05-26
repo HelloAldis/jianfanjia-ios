@@ -203,10 +203,10 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 #pragma mark - user action
 - (void)onClickNext {
     [self.view endEditing:YES];
-    DesignerUpdateInfo *request = [[DesignerUpdateInfo alloc] initWithDesigner:self.designer];
+    DesignerUpdateUIDBankInfo *request = [[DesignerUpdateUIDBankInfo alloc] initWithDesigner:self.designer];
     
     [HUDUtil showWait];
-    [API designerUpdateInfo:request success:^{
+    [API designerUpdateUIDBankInfo:request success:^{
         [HUDUtil hideWait];
         [self.navigationController popViewControllerAnimated:YES];
         [HUDUtil showSuccessText:@"提交成功"];
