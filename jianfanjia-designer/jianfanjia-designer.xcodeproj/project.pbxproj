@@ -17,6 +17,7 @@
 		680C466B1CC61F5F008C4BC0 /* Supervisor.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C466A1CC61F5F008C4BC0 /* Supervisor.m */; };
 		680C46771CC6310E008C4BC0 /* PlanExpiredActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C46751CC6310E008C4BC0 /* PlanExpiredActionCell.m */; };
 		680C46781CC6310E008C4BC0 /* PlanExpiredActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C46761CC6310E008C4BC0 /* PlanExpiredActionCell.xib */; };
+		680F65711CF6A348000E1EEF /* DesignerUpdateInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F65701CF6A348000E1EEF /* DesignerUpdateInfo.m */; };
 		681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */; };
 		681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
@@ -449,6 +450,8 @@
 		680C46741CC6310E008C4BC0 /* PlanExpiredActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanExpiredActionCell.h; sourceTree = "<group>"; };
 		680C46751CC6310E008C4BC0 /* PlanExpiredActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanExpiredActionCell.m; sourceTree = "<group>"; };
 		680C46761CC6310E008C4BC0 /* PlanExpiredActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanExpiredActionCell.xib; sourceTree = "<group>"; };
+		680F656F1CF6A348000E1EEF /* DesignerUpdateInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerUpdateInfo.h; sourceTree = "<group>"; };
+		680F65701CF6A348000E1EEF /* DesignerUpdateInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerUpdateInfo.m; sourceTree = "<group>"; };
 		681031C31CDCAF6D00FD26D6 /* DecPackageJiangXinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackageJiangXinView.h; sourceTree = "<group>"; };
 		681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackageJiangXinView.m; sourceTree = "<group>"; };
 		681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
@@ -2046,6 +2049,8 @@
 		6E378CD11BDA2D2E00908B77 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				680F656F1CF6A348000E1EEF /* DesignerUpdateInfo.h */,
+				680F65701CF6A348000E1EEF /* DesignerUpdateInfo.m */,
 				685B15A61CF2D40F0076996A /* DesignerUploadProduct.h */,
 				685B15A71CF2D40F0076996A /* DesignerUploadProduct.m */,
 				685B155E1CED92EE0076996A /* DesignerDeleteTeam.h */,
@@ -2775,6 +2780,7 @@
 				68F73D2B1CBB597E00E97710 /* PlanWasNotChoosed.m in Sources */,
 				681240151C4CDA06008FC9AB /* NSNumber+Ex.m in Sources */,
 				682E04F31C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.m in Sources */,
+				680F65711CF6A348000E1EEF /* DesignerUpdateInfo.m in Sources */,
 				68921FFE1CD0D7C300BC80C7 /* ToastUtil.m in Sources */,
 				684B04361C990E910053FFDF /* MyNotificationViewController.m in Sources */,
 				681240B21C4CE471008FC9AB /* DesignerLogin.m in Sources */,

@@ -73,7 +73,7 @@
 
 - (void)initActionView:(ProductAuthImageActionViewTapBlock)actionBlock {
     if (!self.actionView) {
-        self.actionView = [[ProductAuthImageActionView alloc] initWithFrame:CGRectMake(kScreenWidth - kProductAuthImageActionViewWidth - 30, kInfoAuthAwardImageCellHeight - kProductAuthImageActionViewHeight - 180, kProductAuthImageActionViewWidth, kProductAuthImageActionViewHeight)];
+        self.actionView = [[ProductAuthImageActionView alloc] initWithFrame:CGRectMake(kScreenWidth - kProductAuthImageActionViewWidth - 30, kInfoAuthAwardImageCellHeight - kProductAuthImageActionViewHeight - 130, kProductAuthImageActionViewWidth, kProductAuthImageActionViewHeight)];
         self.actionView.setCoverImgView.hidden = YES;
         [self.contentView addSubview:self.actionView];
     }

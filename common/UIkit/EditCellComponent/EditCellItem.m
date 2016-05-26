@@ -136,6 +136,7 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     item.title = title;
     item.value = value;
     item.placeholder = placeholder;
+    item.itemEditBlock = itemEditBlock;
     
     return item;
 }

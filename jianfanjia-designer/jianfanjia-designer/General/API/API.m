@@ -79,6 +79,10 @@
     [API GET:@"designer/info" handler:request success:success failure:failure networkError:error];
 }
 
++ (void)designerUpdateInfo:(DesignerUpdateInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/info" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 + (void)getDesignerProcess:(GetDesignerProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API GET:@"process/list" handler:request success:success failure:failure networkError:error];
 }

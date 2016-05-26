@@ -49,5 +49,6 @@
 #import "DesignerGetTeams.h"
 #import "DesignerDeleteTeam.h"
 #import "DesignerUploadProduct.h"
+#import "DesignerUpdateInfo.h"
 
 #endif

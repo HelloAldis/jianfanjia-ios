@@ -59,7 +59,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"基本资料认证";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
@@ -362,7 +362,19 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 }
 
 - (void)onClickNext {
+    [self.view endEditing:YES];
+    DesignerUpdateInfo *request = [[DesignerUpdateInfo alloc] initWithDesigner:self.designer];
     
+    [HUDUtil showWait];
+    [API designerUpdateInfo:request success:^{
+        [HUDUtil hideWait];
+        [self.navigationController popViewControllerAnimated:YES];
+        [HUDUtil showSuccessText:@"更新成功"];
+    } failure:^{
+        [HUDUtil hideWait];
+    } networkError:^{
+        [HUDUtil hideWait];
+    }];
 }
 
 #pragma mark - other

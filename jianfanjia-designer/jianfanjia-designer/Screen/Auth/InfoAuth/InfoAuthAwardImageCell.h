@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ProductAuthImageActionView.h"
 
-#define kInfoAuthAwardImageCellHeight 400
+#define kInfoAuthAwardImageCellHeight 416
 
 @interface InfoAuthAwardImageCell : UITableViewCell
 
