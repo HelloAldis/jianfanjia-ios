@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIView *imageContainerView;
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, assign) BOOL needZoom;
 
 @property (nonatomic, strong) PhotoGroupItem *item;
 
@@ -59,6 +60,8 @@
     _imageView.frame = self.bounds;
     [_imageContainerView addSubview:_imageView];
     
+    _needZoom = YES;
+    
     return self;
 }
 
@@ -74,7 +77,7 @@
     [_imageView setImageWithId:_item.imageid withWidth:self.bounds.size.width completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
         @strongify(self);
         if (error == nil) {
-            self.scrollView.maximumZoomScale = 3;
+            self.scrollView.maximumZoomScale = self.needZoom ? 3 : 1;
             self.item.loadedImage = image;
             [self resizeSubviewSize];
             if (self.item.loadedBlock) {
@@ -188,6 +191,7 @@
 #pragma mark - reuse delegate
 - (ReuseCell *)reuseCellFactory {
     PhotoGroupCell *cell = [[PhotoGroupCell alloc] init];
+    cell.needZoom = self.needZoom;
     return cell;
 }
 

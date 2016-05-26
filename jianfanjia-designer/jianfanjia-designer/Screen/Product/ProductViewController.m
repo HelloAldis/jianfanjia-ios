@@ -9,6 +9,7 @@
 #import "ProductViewController.h"
 #import "ProductInfoCell.h"
 #import "ProductImageCell.h"
+#import "HorizontalImageCell.h"
 #import "ViewControllerContainer.h"
 #import "ProductPageData.h"
 
@@ -27,6 +28,7 @@
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"ProductInfoCell" bundle:nil] forCellReuseIdentifier:@"ProductInfoCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"ProductImageCell" bundle:nil] forCellReuseIdentifier:@"ProductImageCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"HorizontalImageCell" bundle:nil] forCellReuseIdentifier:@"HorizontalImageCell"];
     
     self.needRefreshProductViewController = YES;
     self.productPageData = [[ProductPageData alloc] init];
@@ -60,26 +62,50 @@
 }
 
 #pragma mark - table view delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (self.productPageData.product) {
-            return 1 + self.productPageData.product.images.count;
-    } else {
-        return 0;
+    if (section == 0) {
+        return 1;
+    } else if (section == 1) {
+        return 1;
+    } else if (section == 2) {
+        return self.productPageData.product.images.count;
     }
+    
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
+    if (indexPath.section == 0) {
         ProductInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ProductInfoCell"];
         [cell initWithProduct:self.productPageData.product];
         return cell;
-    } else {
+    } else if (indexPath.section == 1) {
+        HorizontalImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HorizontalImageCell"];
+        [cell initWithImages:[self.productPageData.product.plan_images map:^id(id obj) {
+            return obj[@"imageid"];
+        }]];
+        return cell;
+    } else if (indexPath.section == 2) {
         ProductImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ProductImageCell"];
-        [cell initWithProductImage:[self.productPageData.product imageAtIndex:indexPath.row - 1]
-                          andIndex:indexPath.row - 1
+        [cell initWithProductImage:[self.productPageData.product imageAtIndex:indexPath.row]
+                          andIndex:indexPath.row
                          andImages:self.productPageData.product.images];
         return cell;
     }
+    
+    return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 1) {
+        return self.productPageData.product.plan_images.count > 0 ? kHorizontalImageCellHeight + 20 : 0.0;
+    }
+    
+    return UITableViewAutomaticDimension;
 }
 
 #pragma mark - scroll view delegate

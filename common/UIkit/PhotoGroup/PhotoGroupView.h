@@ -36,5 +36,6 @@ typedef void (^PhotoGroupItemLoadedBlock)(UIImage *image);
 @property (nonatomic, strong) NSArray<PhotoGroupItem *> *groupItems;
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, weak) id<PhotoGroupViewProtocol> delegate;
+@property (nonatomic, assign) BOOL needZoom;
 
 @end
