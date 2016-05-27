@@ -47,11 +47,14 @@ static NSString *LogoutCellIdentifier = @"LogoutCell";
     self.tableView.estimatedRowHeight = 50;
     [EditCellItem registerCells:self.tableView];
     
+    @weakify(self);
     self.sectionArr1 = @[
                          [EditCellItem createSelection:@"清除缓存" value:[self getCacheValue] placeholder:nil image:[UIImage imageNamed:@"icon_invite_friend"] tapBlock:^(EditCellItem *curItem) {
+                             @strongify(self);
                              [self onClickClearCache:curItem];
                          }],
                          [EditCellItem createSelection:@"关于我们" value:nil placeholder:nil image:[UIImage imageNamed:@"icon_online_service"] tapBlock:^(EditCellItem *curItem) {
+                             @strongify(self);
                              AboutViewController *v = [[AboutViewController alloc] initWithNibName:nil bundle:nil];
                              [self.navigationController pushViewController:v animated:YES];
                          }],

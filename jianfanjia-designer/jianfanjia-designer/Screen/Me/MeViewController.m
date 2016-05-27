@@ -77,9 +77,11 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     }];
     [self updateAuthCenter];
     
+    @weakify(self)
     self.sectionArr2 = @[
                          self.authCenterItem,
                          [EditCellItem createAttrSelection:[@"接单资料 (完善资料，提高接单精准度)" attrSubStr:@"(完善资料，提高接单精准度)" font:[UIFont systemFontOfSize:12] color:kThemeColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_service_material"] tapBlock:^(EditCellItem *curItem) {
+                             @strongify(self);
                              [ViewControllerContainer showServiceArea:self.designer];
                          }],
                          ];

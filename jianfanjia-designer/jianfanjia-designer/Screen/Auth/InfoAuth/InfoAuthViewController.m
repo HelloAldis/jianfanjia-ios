@@ -88,13 +88,16 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     };
     
     self.avatarImageid = self.designer.imageid;
+    
     self.sectionArr2 = @[
                          [EditCellItem createField:@"姓名" value:self.designer.username placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.username = curItem.value;
                              }
                          }],
                          [EditCellItem createSelection:@"性别" value:[NameDict nameForSexType:self.designer.sex] placeholder:nil tapBlock:^(EditCellItem *curItem) {
+                             @strongify(self);
                              SelectSexTypeViewController *controller = [[SelectSexTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForSexType:value];
                                  self.designer.sex = value;
@@ -105,6 +108,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
                          [EditCellItem createSelection:@"所在地区" value:[NSString stringWithFormat:@"%@ %@ %@", self.designer.province, self.designer.city, self.designer.district] placeholder:nil tapBlock:^(EditCellItem *curItem) {
+                             @strongify(self);
                              SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:nil valueBlock:^(id value) {
                                  curItem.value = value;
                                  NSArray *addressArr = [value componentsSeparatedByString:@" "];
@@ -118,11 +122,13 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
                          [EditCellItem createText:@"邮寄详细地址" value:self.designer.address placeholder:nil itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.address = curItem.value;
                              }
                          }],
                          [EditCellItem createText:@"设计理念" value:self.designer.philosophy placeholder:nil itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.philosophy = curItem.value;
                              }
@@ -131,6 +137,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     
     self.sectionArr3 = @[
                          [EditCellItem createField:@"毕业院校" value:self.designer.university placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.university = curItem.value;
                              }
@@ -139,11 +146,13 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     
     self.sectionArr5 = @[
                          [EditCellItem createField:@"曾就职公司" value:self.designer.company placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.company = curItem.value;
                              }
                          }],
                          [EditCellItem createField:@"工作年限" value:[self.designer.work_year stringValue] placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.work_year = @([curItem.value integerValue]);
                              }
@@ -152,6 +161,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     
     self.sectionArr6 = @[
                          [EditCellItem createText:@"设计成就" value:self.designer.achievement placeholder:nil itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.achievement = curItem.value;
                              }

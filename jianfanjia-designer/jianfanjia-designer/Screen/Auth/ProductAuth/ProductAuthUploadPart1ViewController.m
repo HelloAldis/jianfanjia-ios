@@ -90,9 +90,10 @@
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [EditCellItem registerCells:self.tableView];
     
+    @weakify(self);
     self.sectionArr1 = @[
                          [EditCellItem createSelection:@"所在城市" value:[self isNewProd] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.product.province, self.product.city, self.product.district] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
-                             
+                             @strongify(self);
                              SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:nil valueBlock:^(id value) {
                                  curItem.value = value;
                                  NSArray *addressArr = [value componentsSeparatedByString:@" "];
@@ -106,6 +107,7 @@
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
                          [EditCellItem createField:@"小区名字" value:self.product.cell placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.product.cell = curItem.value;
                              }
@@ -114,7 +116,7 @@
     
     self.sectionArr2 = @[
                          [EditCellItem createSelection:@"装修类型" value:[NameDict nameForDecType:self.product.dec_type] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
-                             
+                             @strongify(self);
                              SelectDecorationTypeViewController *controller = [[SelectDecorationTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForDecType:value];
                                  self.product.dec_type = value;
@@ -125,7 +127,7 @@
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
                          [EditCellItem createSelection:@"装修户型" value:[NameDict nameForDecStyle:self.product.house_type] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
-                             
+                             @strongify(self);
                              SelectHouseTypeViewController *controller = [[SelectHouseTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForHouseType:value];
                                  self.product.house_type = value;
@@ -137,12 +139,13 @@
                              
                          }],
                          [EditCellItem createAttrField:[@"建筑面积 (m²)" attrSubStr:@"(m²)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.house_area ? [[NSMutableAttributedString alloc] initWithString:[self.product.house_area stringValue]] : nil placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.product.house_area = @([curItem.value integerValue]);
                              }
                          } length:6 isNumber:YES],
                          [EditCellItem createSelection:@"装修风格" value:[NameDict nameForDecStyle:self.product.dec_style] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
-                         
+                             @strongify(self);
                              SelectDecorationStyleViewController *controller = [[SelectDecorationStyleViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForDecStyle:value];
                                  self.product.dec_style = value;
@@ -154,7 +157,7 @@
                              
                          }],
                          [EditCellItem createSelection:@"包工类型" value:[NameDict nameForWorkType:self.product.work_type] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
-                             
+                             @strongify(self);
                              SelectWorkTypeViewController *controller = [[SelectWorkTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForWorkType:value];
                                  self.product.work_type = value;
@@ -166,6 +169,7 @@
                              
                          }],
                          [EditCellItem createAttrField:[@"装修造价 (万元)" attrSubStr:@"(万元)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.total_price ? [[NSMutableAttributedString alloc] initWithString:[self.product.total_price stringValue]] : nil placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.product.total_price = @([curItem.value integerValue]);
                              }

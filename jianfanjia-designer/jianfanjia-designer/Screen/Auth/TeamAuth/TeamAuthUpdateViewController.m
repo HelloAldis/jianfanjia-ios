@@ -71,13 +71,17 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
     
     self.idCardFrontImageid = self.team.uid_image1;
     self.idCardBackImageid = self.team.uid_image2;
+    
+    @weakify(self);
     self.sectionArr1 = @[
                          [EditCellItem createField:@"项目经理" value:self.team.manager placeholder:@"请输入真实姓名" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.team.manager = curItem.value;
                              }
                          }],
                          [EditCellItem createSelection:@"性别" value:[NameDict nameForSexType:self.team.sex] placeholder:nil tapBlock:^(EditCellItem *curItem) {
+                             @strongify(self);
                              SelectSexTypeViewController *controller = [[SelectSexTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForSexType:value];
                                  self.team.sex = value;
@@ -88,6 +92,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
                          [EditCellItem createSelection:@"所在地区" value:[self isNewTeam] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.team.province, self.team.city, self.team.district] placeholder:nil tapBlock:^(EditCellItem *curItem) {
+                             @strongify(self);
                              SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:nil valueBlock:^(id value) {
                                  curItem.value = value;
                                  NSArray *addressArr = [value componentsSeparatedByString:@" "];
@@ -104,6 +109,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
     
     self.sectionArr2 = @[
                          [EditCellItem createField:@"身份证号" value:self.team.uid placeholder:@"请输入15位或18位或带x身份证号码" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.team.uid = curItem.value;
                              }
@@ -112,16 +118,19 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
     
     self.sectionArr3 = @[
                          [EditCellItem createField:@"曾就职公司" value:self.team.company placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.team.company = curItem.value;
                              }
                          }],
                          [EditCellItem createField:@"工作年限" value:[self.team.work_year stringValue] placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.team.work_year = @([curItem.value integerValue]);
                              }
                          }],
                          [EditCellItem createSelection:@"擅长工种" value:self.team.good_at placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                             @strongify(self);
                              SelectGoodAtViewController *controller = [[SelectGoodAtViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = value;
                                  self.team.good_at = value;
@@ -131,6 +140,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
                          [EditCellItem createField:@"正在施工工地" value:self.team.working_on placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.team.working_on = curItem.value;
                              }

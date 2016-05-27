@@ -70,13 +70,17 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
     self.idCardFrontImageid = self.designer.uid_image1;
     self.idCardBackImageid = self.designer.uid_image2;
     self.bankCardFrontImageid = self.designer.bank_card_image1;
+    
+    @weakify(self);
     self.sectionArr1 = @[
                          [EditCellItem createField:@"真实姓名" value:self.designer.realname placeholder:@"请输入真实姓名" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.realname = curItem.value;
                              }
                          }],
                          [EditCellItem createField:@"身份证号" value:self.designer.uid placeholder:@"请输入15位或18位或带x身份证号码" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.uid = curItem.value;
                              }
@@ -85,11 +89,13 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
     
     self.sectionArr3 = @[
                          [EditCellItem createField:@"银行卡号" value:self.designer.bank_card placeholder:@"请输入16或19位银行卡号" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                             @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.bank_card = curItem.value;
                              }
                          }],
                          [EditCellItem createSelection:@"开户银行" value:self.designer.bank placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                             @strongify(self);
                              SelectBankTypeViewController *controller = [[SelectBankTypeViewController alloc] initWithValueBlock:^(id value) {
                                  self.designer.bank = value;
                                  [self.tableView reloadData];
