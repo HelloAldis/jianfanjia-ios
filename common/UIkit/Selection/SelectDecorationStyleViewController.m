@@ -11,7 +11,8 @@
 
 #define kMaxSelectionCount 3
 
-static const NSInteger CELL_SPACE = 1;
+static const NSInteger CELL_SPACE = 4;
+static const NSInteger SECTION_LEFT = 4;
 static const NSInteger COUNT_IN_ROW = 2;
 static const NSInteger CELL_WIDTH_ASPECT = 4;
 static const NSInteger CELL_HEIGHT_ASPECT = 3;
@@ -56,12 +57,12 @@ static NSString* cellId = @"decStyleCell";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.collectionView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     [self.collectionView registerNib:[UINib nibWithNibName:@"DecorationStyleCell" bundle:nil] forCellWithReuseIdentifier:cellId];
-    CGFloat cellWidth = (kScreenWidth - CELL_SPACE * (COUNT_IN_ROW - 1)) / COUNT_IN_ROW;
+    CGFloat cellWidth = (kScreenWidth - SECTION_LEFT * 2 - CELL_SPACE * (COUNT_IN_ROW - 1)) / COUNT_IN_ROW;
     CGFloat cellHeight = cellWidth / CELL_WIDTH_ASPECT * CELL_HEIGHT_ASPECT;
     self.collectionFlowLayout.itemSize = CGSizeMake(cellWidth, cellHeight);
     self.collectionFlowLayout.minimumInteritemSpacing = CELL_SPACE;
     self.collectionFlowLayout.minimumLineSpacing = CELL_SPACE;
-    self.collectionFlowLayout.sectionInset = UIEdgeInsetsZero;
+    self.collectionFlowLayout.sectionInset = UIEdgeInsetsMake(10, SECTION_LEFT, 10, SECTION_LEFT);
 }
 
 #pragma mark - init data 
@@ -83,9 +84,9 @@ static NSString* cellId = @"decStyleCell";
     [cell initWithImage:[UIImage imageNamed:imageName]];
     
     if ([self.selectedData containsObject:key]) {
-        [cell setBorder:1 andColor:kThemeColor.CGColor];
+        [cell setBorder:3 andColor:kThemeColor.CGColor];
     } else if ([self.curValue isEqualToString:key]) {
-        [cell setBorder:1 andColor:kThemeColor.CGColor];
+        [cell setBorder:3 andColor:kThemeColor.CGColor];
     } else {
         [cell setBorder:0 andColor:kThemeColor.CGColor];
     }
@@ -97,7 +98,7 @@ static NSString* cellId = @"decStyleCell";
     if (self.selectionType == SelectionTypeMultiple) {
         if (self.selectedData && [self.selectedData containsObject:self.keys[indexPath.row]]) {
             [self.selectedData removeObject:self.keys[indexPath.row]];
-        } else if (self.selectedData.count < self.keys.count) {
+        } else if (self.selectedData.count < kMaxSelectionCount) {
             [self.selectedData addObject:self.keys[indexPath.row]];
         }
         
