@@ -6,21 +6,21 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "SelectCommunicationTypeViewController.h"
+#import "SelectDesignFeeViewController.h"
 #import "MultipleLineTextTableViewCell.h"
 #import "SelectAllCell.h"
 
 static NSString* SelectAllCellId = @"SelectAllCell";
 static NSString* cellId = @"MultipleLineTextTableViewCell";
 
-@interface SelectCommunicationTypeViewController ()
+@interface SelectDesignFeeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *data;
 @property (strong, nonatomic) NSMutableArray *selectedData;
 
 @end
 
-@implementation SelectCommunicationTypeViewController
+@implementation SelectDesignFeeViewController
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -35,7 +35,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 - (void)initNav {
     [self initLeftBackInNav];
 
-    self.title = @"偏好设计师";
+    self.title = @"设计费报价";
     
     if (self.selectionType == SelectionTypeMultiple) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(onClickOk)];
@@ -57,7 +57,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [[NameDict getAllCommunicationType] sortedKeyWithOrder:YES];
+    self.data = [[NameDict getAllDesignFee] sortedKeyWithOrder:YES];
     self.selectedData = [self.curValues mutableCopy];
 }
 
@@ -107,7 +107,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
         NSString *key = self.data[indexPath.row];
         
         MultipleLineTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-        cell.lblText.text = [NameDict getAllCommunicationType][key];
+        cell.lblText.text = [NameDict getAllDesignFee][key];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         if ([self.selectedData containsObject:key]) {
@@ -153,7 +153,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
             self.ValueBlock(self.curValue);
         }
     }
-    
+
     [self.navigationController popViewControllerAnimated:YES];
 }
 

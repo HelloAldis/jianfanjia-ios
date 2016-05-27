@@ -27,6 +27,7 @@
 @dynamic order_count;
 @dynamic dec_types;
 @dynamic dec_house_types;
+@dynamic work_types;
 @dynamic dec_districts;
 @dynamic dec_styles;
 @dynamic philosophy;
@@ -37,8 +38,11 @@
 @dynamic is_my_favorite;
 @dynamic service_attitude;
 @dynamic respond_speed;
+@dynamic dec_fee_half;
+@dynamic dec_fee_all;
 @dynamic auth_type;
 @dynamic uid_auth_type;
+@dynamic communication_type;
 @dynamic match;
 @dynamic tags;
 @dynamic work_auth_type;

@@ -21,9 +21,9 @@ typedef void(^ValueBlock)(id value);
 @property (assign, nonatomic) SelectionType selectionType;
 @property (copy, nonatomic) ValueBlock ValueBlock;
 @property (strong, nonatomic) NSString *curValue;
-@property (strong, nonatomic) NSMutableArray *curValues;
+@property (strong, nonatomic) NSArray *curValues;
 
 - (id)initWithValueBlock:(ValueBlock)ValueBlock curValue:(NSString *)curValue;
-- (id)initWithValueBlock:(ValueBlock)ValueBlock curValues:(NSMutableArray *)curValues;
+- (id)initWithValueBlock:(ValueBlock)ValueBlock curValues:(NSArray *)curValues;
 
 @end

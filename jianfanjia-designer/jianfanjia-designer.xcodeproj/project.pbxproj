@@ -38,6 +38,14 @@
 		680F66391CF7FB11000E1EEF /* ServiceAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F66371CF7FB11000E1EEF /* ServiceAreaViewController.xib */; };
 		680F66421CF81CC3000E1EEF /* SelectAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F66401CF81CC3000E1EEF /* SelectAllCell.m */; };
 		680F66431CF81CC3000E1EEF /* SelectAllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F66411CF81CC3000E1EEF /* SelectAllCell.xib */; };
+		680F664D1CF82EF2000E1EEF /* SelectDesignFeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F66451CF82EF2000E1EEF /* SelectDesignFeeViewController.m */; };
+		680F664E1CF82EF2000E1EEF /* SelectDesignFeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F66461CF82EF2000E1EEF /* SelectDesignFeeViewController.xib */; };
+		680F664F1CF82EF2000E1EEF /* SelectServiceAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F66481CF82EF2000E1EEF /* SelectServiceAreaViewController.m */; };
+		680F66501CF82EF2000E1EEF /* SelectServiceAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F66491CF82EF2000E1EEF /* SelectServiceAreaViewController.xib */; };
+		680F66511CF82EF2000E1EEF /* SelectWorkFeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F664B1CF82EF2000E1EEF /* SelectWorkFeeViewController.m */; };
+		680F66521CF82EF2000E1EEF /* SelectWorkFeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F664C1CF82EF2000E1EEF /* SelectWorkFeeViewController.xib */; };
+		680F66561CF8317E000E1EEF /* InputTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F66541CF8317E000E1EEF /* InputTextTableViewCell.m */; };
+		680F66571CF8317E000E1EEF /* InputTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F66551CF8317E000E1EEF /* InputTextTableViewCell.xib */; };
 		681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */; };
 		681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
@@ -505,6 +513,18 @@
 		680F663F1CF81CC3000E1EEF /* SelectAllCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectAllCell.h; sourceTree = "<group>"; };
 		680F66401CF81CC3000E1EEF /* SelectAllCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectAllCell.m; sourceTree = "<group>"; };
 		680F66411CF81CC3000E1EEF /* SelectAllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectAllCell.xib; sourceTree = "<group>"; };
+		680F66441CF82EF2000E1EEF /* SelectDesignFeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectDesignFeeViewController.h; sourceTree = "<group>"; };
+		680F66451CF82EF2000E1EEF /* SelectDesignFeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectDesignFeeViewController.m; sourceTree = "<group>"; };
+		680F66461CF82EF2000E1EEF /* SelectDesignFeeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectDesignFeeViewController.xib; sourceTree = "<group>"; };
+		680F66471CF82EF2000E1EEF /* SelectServiceAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectServiceAreaViewController.h; sourceTree = "<group>"; };
+		680F66481CF82EF2000E1EEF /* SelectServiceAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectServiceAreaViewController.m; sourceTree = "<group>"; };
+		680F66491CF82EF2000E1EEF /* SelectServiceAreaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectServiceAreaViewController.xib; sourceTree = "<group>"; };
+		680F664A1CF82EF2000E1EEF /* SelectWorkFeeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWorkFeeViewController.h; sourceTree = "<group>"; };
+		680F664B1CF82EF2000E1EEF /* SelectWorkFeeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWorkFeeViewController.m; sourceTree = "<group>"; };
+		680F664C1CF82EF2000E1EEF /* SelectWorkFeeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectWorkFeeViewController.xib; sourceTree = "<group>"; };
+		680F66531CF8317E000E1EEF /* InputTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputTextTableViewCell.h; sourceTree = "<group>"; };
+		680F66541CF8317E000E1EEF /* InputTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputTextTableViewCell.m; sourceTree = "<group>"; };
+		680F66551CF8317E000E1EEF /* InputTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputTextTableViewCell.xib; sourceTree = "<group>"; };
 		681031C31CDCAF6D00FD26D6 /* DecPackageJiangXinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackageJiangXinView.h; sourceTree = "<group>"; };
 		681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackageJiangXinView.m; sourceTree = "<group>"; };
 		681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
@@ -1773,6 +1793,18 @@
 				680F658A1CF6E247000E1EEF /* SelectGoodAtViewController.h */,
 				680F658B1CF6E247000E1EEF /* SelectGoodAtViewController.m */,
 				680F658C1CF6E247000E1EEF /* SelectGoodAtViewController.xib */,
+				680F66441CF82EF2000E1EEF /* SelectDesignFeeViewController.h */,
+				680F66451CF82EF2000E1EEF /* SelectDesignFeeViewController.m */,
+				680F66461CF82EF2000E1EEF /* SelectDesignFeeViewController.xib */,
+				680F66471CF82EF2000E1EEF /* SelectServiceAreaViewController.h */,
+				680F66481CF82EF2000E1EEF /* SelectServiceAreaViewController.m */,
+				680F66491CF82EF2000E1EEF /* SelectServiceAreaViewController.xib */,
+				680F664A1CF82EF2000E1EEF /* SelectWorkFeeViewController.h */,
+				680F664B1CF82EF2000E1EEF /* SelectWorkFeeViewController.m */,
+				680F664C1CF82EF2000E1EEF /* SelectWorkFeeViewController.xib */,
+				680F66531CF8317E000E1EEF /* InputTextTableViewCell.h */,
+				680F66541CF8317E000E1EEF /* InputTextTableViewCell.m */,
+				680F66551CF8317E000E1EEF /* InputTextTableViewCell.xib */,
 			);
 			path = Selection;
 			sourceTree = "<group>";
@@ -2562,6 +2594,7 @@
 				68E600551CB62C5600C4A8F7 /* DecPackage365View.xib in Resources */,
 				685B14F51CEC52B00076996A /* InfoAuthViewController.xib in Resources */,
 				685B15201CEC67450076996A /* DesignerAuthViewController.xib in Resources */,
+				680F664E1CF82EF2000E1EEF /* SelectDesignFeeViewController.xib in Resources */,
 				685B14FA1CEC54B60076996A /* AvtarImageCell.xib in Resources */,
 				684B040E1C98F7060053FFDF /* DecCommentInfoCell.xib in Resources */,
 				6EA0C19C1C577F7500D04A4F /* PlanPriceItemCell.xib in Resources */,
@@ -2583,6 +2616,7 @@
 				685B14801CEB11CF0076996A /* SelectCommunicationTypeViewController.xib in Resources */,
 				685B14841CEB11CF0076996A /* SelectDecorationTypeViewController.xib in Resources */,
 				684B04371C990E910053FFDF /* MyNotificationViewController.xib in Resources */,
+				680F66521CF82EF2000E1EEF /* SelectWorkFeeViewController.xib in Resources */,
 				685B147A1CEB11CF0076996A /* DecorationStyleCell.xib in Resources */,
 				685B157C1CEDC13F0076996A /* DesignerAuthCell.xib in Resources */,
 				684B043B1C990E910053FFDF /* RequirementNotificationCell.xib in Resources */,
@@ -2669,12 +2703,14 @@
 				68E6005A1CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.xib in Resources */,
 				68123C911C4C9772008FC9AB /* ImageBrowerViewController.xib in Resources */,
 				685B15A51CF2CED80076996A /* ProductAuthUploadPart2ViewController.xib in Resources */,
+				680F66501CF82EF2000E1EEF /* SelectServiceAreaViewController.xib in Resources */,
 				68123F2A1C4CCBF9008FC9AB /* MyUserViewController.xib in Resources */,
 				685B148A1CEB11CF0076996A /* SelectSexTypeViewController.xib in Resources */,
 				68123F191C4CBE79008FC9AB /* W1View.xib in Resources */,
 				685B15DF1CF444FC0076996A /* ProductAuthImageActionView.xib in Resources */,
 				685F2D651CAA8DDE00DC4D43 /* SectionActionView.xib in Resources */,
 				685B15EA1CF535010076996A /* SelectionMenuView.xib in Resources */,
+				680F66571CF8317E000E1EEF /* InputTextTableViewCell.xib in Resources */,
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
 				685B151B1CEC60950076996A /* TextEditCell.xib in Resources */,
 				685B159F1CF29FD00076996A /* ProductAuthUploadPart1ViewController.xib in Resources */,
@@ -2778,6 +2814,7 @@
 				681240AF1C4CE471008FC9AB /* DeleteImageFromProcess.m in Sources */,
 				68F73D231CBB597E00E97710 /* PlanDesignerMeasuredHouse.m in Sources */,
 				681240C91C4CE471008FC9AB /* RejectReschedule.m in Sources */,
+				680F66511CF82EF2000E1EEF /* SelectWorkFeeViewController.m in Sources */,
 				6E378D361BDA2D2E00908B77 /* AccountBusiness.m in Sources */,
 				685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */,
 				68123FE01C4CCF4A008FC9AB /* PriceItem.m in Sources */,
@@ -2923,6 +2960,7 @@
 				6E378D4E1BDA2D2E00908B77 /* Comment.m in Sources */,
 				685B15381CEC790A0076996A /* DesignerGetProducts.m in Sources */,
 				684B04131C98F8240053FFDF /* DesignerNotification.m in Sources */,
+				680F66561CF8317E000E1EEF /* InputTextTableViewCell.m in Sources */,
 				681241351C4CF2D5008FC9AB /* UIItemImageCollectionView.m in Sources */,
 				680F65911CF6E3EA000E1EEF /* DesignerUpdateTeam.m in Sources */,
 				6E378D371BDA2D2E00908B77 /* Bc.m in Sources */,
@@ -3030,7 +3068,9 @@
 				68123FDE1C4CCF4A008FC9AB /* LeafImage.m in Sources */,
 				681241A31C4F3B1C008FC9AB /* MeasuredHouseActionCell.m in Sources */,
 				685B15F11CF5A94F0076996A /* InfoAuthImageHeaderView.m in Sources */,
+				680F664F1CF82EF2000E1EEF /* SelectServiceAreaViewController.m in Sources */,
 				685B15571CED73D50076996A /* UILabel+Ex.m in Sources */,
+				680F664D1CF82EF2000E1EEF /* SelectDesignFeeViewController.m in Sources */,
 				68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */,
 				685B14D41CEB1CD20076996A /* AvtarInfoCell.m in Sources */,
 				68F73D341CBB597E00E97710 /* ReqtUnorderDesigner.m in Sources */,

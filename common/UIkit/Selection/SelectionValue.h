@@ -18,5 +18,8 @@
 #import "SelectDecorationTypeViewController.h"
 #import "SelectBankTypeViewController.h"
 #import "SelectGoodAtViewController.h"
+#import "SelectDesignFeeViewController.h"
+#import "SelectServiceAreaViewController.h"
+#import "SelectWorkFeeViewController.h"
 
 #endif /* SelectionValue_h */

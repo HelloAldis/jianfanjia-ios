@@ -22,6 +22,7 @@ static NSString* cellId = @"decStyleCell";
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionFlowLayout;
 @property (strong, nonatomic) NSArray *keys;
+@property (strong, nonatomic) NSMutableArray *selectedData;
 
 @end
 
@@ -66,6 +67,7 @@ static NSString* cellId = @"decStyleCell";
 #pragma mark - init data 
 - (void)initData {
     self.keys = [[NameDict getAllDecorationStyle] sortedKeyWithOrder:YES];
+    self.selectedData = [self.curValues mutableCopy];
 }
 
 #pragma mark - collection view delegate
@@ -80,7 +82,7 @@ static NSString* cellId = @"decStyleCell";
     NSString* imageName = [NSString stringWithFormat:@"dec_style_%@", key];
     [cell initWithImage:[UIImage imageNamed:imageName]];
     
-    if ([self.curValues containsObject:key]) {
+    if ([self.selectedData containsObject:key]) {
         [cell setBorder:1 andColor:kThemeColor.CGColor];
     } else if ([self.curValue isEqualToString:key]) {
         [cell setBorder:1 andColor:kThemeColor.CGColor];
@@ -93,10 +95,10 @@ static NSString* cellId = @"decStyleCell";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.selectionType == SelectionTypeMultiple) {
-        if (self.curValues && [self.curValues containsObject:self.keys[indexPath.row]]) {
-            [self.curValues removeObject:self.keys[indexPath.row]];
-        } else if (self.curValues.count < self.keys.count) {
-            [self.curValues addObject:self.keys[indexPath.row]];
+        if (self.selectedData && [self.selectedData containsObject:self.keys[indexPath.row]]) {
+            [self.selectedData removeObject:self.keys[indexPath.row]];
+        } else if (self.selectedData.count < self.keys.count) {
+            [self.selectedData addObject:self.keys[indexPath.row]];
         }
         
         [self.collectionView reloadData];
@@ -109,7 +111,7 @@ static NSString* cellId = @"decStyleCell";
 - (void)onClickOk {
     if (self.selectionType == SelectionTypeMultiple) {
         if (self.ValueBlock) {
-            self.ValueBlock(self.curValues);
+            self.ValueBlock(self.selectedData);
         }
     } else {
         if (self.ValueBlock) {

@@ -17,7 +17,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 @interface SelectBusinessTypeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *data;
-@property (assign, nonatomic) NSInteger curValueIndex;
+@property (strong, nonatomic) NSMutableArray *selectedData;
 
 @end
 
@@ -59,6 +59,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 #pragma mark - init data 
 - (void)initData {
     self.data = [[NameDict getAllBusinessType] sortedKeyWithOrder:YES];
+    self.selectedData = [self.curValues mutableCopy];
 }
 
 #pragma mark - table view delegate
@@ -94,9 +95,9 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
         [cell initWithBlock:^(BOOL isAll) {
             @strongify(self);
             if (isAll) {
-                self.curValues = [self.data mutableCopy];
+                self.selectedData = [self.data mutableCopy];
             } else {
-                [self.curValues removeAllObjects];
+                [self.selectedData removeAllObjects];
             }
             
             [self.tableView reloadData];
@@ -110,7 +111,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
         cell.lblText.text = [NameDict getAllBusinessType][key];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        if ([self.curValues containsObject:key]) {
+        if ([self.selectedData containsObject:key]) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         } else if ([self.curValue isEqualToString:key]) {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -130,10 +131,10 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
     }
     
     if (self.selectionType == SelectionTypeMultiple) {
-        if (self.curValues && [self.curValues containsObject:self.data[indexPath.row]]) {
-            [self.curValues removeObject:self.data[indexPath.row]];
-        } else if (self.curValues.count < self.data.count) {
-            [self.curValues addObject:self.data[indexPath.row]];
+        if (self.selectedData && [self.selectedData containsObject:self.data[indexPath.row]]) {
+            [self.selectedData removeObject:self.data[indexPath.row]];
+        } else if (self.selectedData.count < self.data.count) {
+            [self.selectedData addObject:self.data[indexPath.row]];
         }
         
         [self.tableView reloadData];
@@ -146,7 +147,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 - (void)onClickOk {
     if (self.selectionType == SelectionTypeMultiple) {
         if (self.ValueBlock) {
-            self.ValueBlock(self.curValues);
+            self.ValueBlock(self.selectedData);
         }
     } else {
         if (self.ValueBlock) {

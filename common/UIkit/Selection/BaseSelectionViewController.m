@@ -24,10 +24,10 @@
     return self;
 }
 
-- (id)initWithValueBlock:(ValueBlock)ValueBlock curValues:(NSMutableArray *)curValues {
+- (id)initWithValueBlock:(ValueBlock)ValueBlock curValues:(NSArray *)curValues {
     if (self = [super init]) {
         _ValueBlock = ValueBlock;
-        _curValues =  curValues ? curValues : [NSMutableArray array];
+        _curValues =  curValues ? curValues : [NSArray array];
         _selectionType = SelectionTypeMultiple;
     }
     

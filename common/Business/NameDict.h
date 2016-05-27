@@ -16,6 +16,7 @@
 + (NSDictionary *)getAllDecorationStyle;
 + (NSDictionary *)getAllDecorationType;
 + (NSArray *)getAllPopulationType;
++ (NSArray *)getAllServiceArea;
 + (NSArray *)getAllBankType;
 + (NSArray *)getAllGoodAt;
 + (NSDictionary *)getAllCommunicationType;

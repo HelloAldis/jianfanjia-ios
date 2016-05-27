@@ -20,6 +20,7 @@ static NSDictionary *work_type = nil;
 static NSDictionary *communication_type = nil;
 static NSDictionary *sex_type = nil;
 static NSArray *population_type = nil;
+static NSArray *service_area = nil;
 static NSArray *bank_type = nil;
 static NSArray *good_at = nil;
 static NSDictionary *planStatus = nil;
@@ -74,6 +75,8 @@ static NSArray *desginerTagArr = nil;
                   kWorkTypeDesign:@"纯设计"};
     
     population_type = @[@"单身", @"幸福小两口", @"三口之家", @"三代同堂", @"其他"];
+    
+    service_area = @[@"江岸区",@"江汉区",@"硚口区",@"汉阳区",@"武昌区",@"青山区",@"洪山区",@"东西湖区",@"汉南区",@"蔡甸区",@"江夏区",@"黄陂区",@"新洲区",@"其它区"];
     
     bank_type = @[@"中国工商银行", @"招商银行", @"中国农业银行", @"中国建设银行", @"中国银行", @"中国民生银行", @"中国光大银行", @"中信银行", @"交通银行", @"兴业银行", @"上海浦东发展银行", @"中国人民银行", @"华夏银行", @"国家开发银行", @"中国进出口银行", @"中国农业发展银行", @"北京银行", @"上海银行", @"中国邮政储蓄银行",];
     
@@ -228,6 +231,10 @@ static NSArray *desginerTagArr = nil;
 
 + (NSArray *)getAllPopulationType {
     return population_type;
+}
+
++ (NSArray *)getAllServiceArea {
+    return service_area;
 }
 
 + (NSArray *)getAllBankType {
