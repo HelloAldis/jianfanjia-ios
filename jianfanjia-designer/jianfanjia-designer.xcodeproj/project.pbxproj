@@ -34,6 +34,10 @@
 		680F65991CF6EF9D000E1EEF /* PhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F65981CF6EF9D000E1EEF /* PhotoGroupView.m */; };
 		680F65A21CF6FE40000E1EEF /* HorizontalImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F65A01CF6FE40000E1EEF /* HorizontalImageCell.m */; };
 		680F65A31CF6FE40000E1EEF /* HorizontalImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F65A11CF6FE40000E1EEF /* HorizontalImageCell.xib */; };
+		680F66381CF7FB11000E1EEF /* ServiceAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F66361CF7FB11000E1EEF /* ServiceAreaViewController.m */; };
+		680F66391CF7FB11000E1EEF /* ServiceAreaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F66371CF7FB11000E1EEF /* ServiceAreaViewController.xib */; };
+		680F66421CF81CC3000E1EEF /* SelectAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F66401CF81CC3000E1EEF /* SelectAllCell.m */; };
+		680F66431CF81CC3000E1EEF /* SelectAllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F66411CF81CC3000E1EEF /* SelectAllCell.xib */; };
 		681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */; };
 		681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
@@ -495,6 +499,12 @@
 		680F659F1CF6FE40000E1EEF /* HorizontalImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalImageCell.h; sourceTree = "<group>"; };
 		680F65A01CF6FE40000E1EEF /* HorizontalImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalImageCell.m; sourceTree = "<group>"; };
 		680F65A11CF6FE40000E1EEF /* HorizontalImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HorizontalImageCell.xib; sourceTree = "<group>"; };
+		680F66351CF7FB11000E1EEF /* ServiceAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceAreaViewController.h; sourceTree = "<group>"; };
+		680F66361CF7FB11000E1EEF /* ServiceAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceAreaViewController.m; sourceTree = "<group>"; };
+		680F66371CF7FB11000E1EEF /* ServiceAreaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ServiceAreaViewController.xib; sourceTree = "<group>"; };
+		680F663F1CF81CC3000E1EEF /* SelectAllCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectAllCell.h; sourceTree = "<group>"; };
+		680F66401CF81CC3000E1EEF /* SelectAllCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectAllCell.m; sourceTree = "<group>"; };
+		680F66411CF81CC3000E1EEF /* SelectAllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectAllCell.xib; sourceTree = "<group>"; };
 		681031C31CDCAF6D00FD26D6 /* DecPackageJiangXinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackageJiangXinView.h; sourceTree = "<group>"; };
 		681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackageJiangXinView.m; sourceTree = "<group>"; };
 		681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
@@ -1271,6 +1281,16 @@
 			path = PhotoGroup;
 			sourceTree = "<group>";
 		};
+		680F66341CF7FB11000E1EEF /* ServiceArea */ = {
+			isa = PBXGroup;
+			children = (
+				680F66351CF7FB11000E1EEF /* ServiceAreaViewController.h */,
+				680F66361CF7FB11000E1EEF /* ServiceAreaViewController.m */,
+				680F66371CF7FB11000E1EEF /* ServiceAreaViewController.xib */,
+			);
+			path = ServiceArea;
+			sourceTree = "<group>";
+		};
 		68123C671C4C9772008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
@@ -1714,6 +1734,9 @@
 				685B15A01CF2B32C0076996A /* SelectionValue.h */,
 				685B14581CEB11CF0076996A /* BaseSelectionViewController.h */,
 				685B14591CEB11CF0076996A /* BaseSelectionViewController.m */,
+				680F663F1CF81CC3000E1EEF /* SelectAllCell.h */,
+				680F66401CF81CC3000E1EEF /* SelectAllCell.m */,
+				680F66411CF81CC3000E1EEF /* SelectAllCell.xib */,
 				685B145A1CEB11CF0076996A /* DecorationStyleCell.h */,
 				685B145B1CEB11CF0076996A /* DecorationStyleCell.m */,
 				685B145C1CEB11CF0076996A /* DecorationStyleCell.xib */,
@@ -1768,6 +1791,7 @@
 				685B14EE1CEC526C0076996A /* InfoAuth */,
 				685B14EF1CEC526C0076996A /* ProductAuth */,
 				685B14F01CEC526C0076996A /* TeamAuth */,
+				680F66341CF7FB11000E1EEF /* ServiceArea */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -2611,12 +2635,14 @@
 				681241BF1C4F97D1008FC9AB /* RejectUserAlertViewController.xib in Resources */,
 				68123EBE1C4CBE79008FC9AB /* RefreshViewController.xib in Resources */,
 				681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */,
+				680F66391CF7FB11000E1EEF /* ServiceAreaViewController.xib in Resources */,
 				68123C8E1C4C9772008FC9AB /* MessageAlertViewController.xib in Resources */,
 				685B154E1CED70620076996A /* ProductInfoCell.xib in Resources */,
 				68123F211C4CBE79008FC9AB /* WelcomeViewController.xib in Resources */,
 				684B040C1C98F7060053FFDF /* CommentListViewController.xib in Resources */,
 				685B154C1CED70620076996A /* ProductImageCell.xib in Resources */,
 				681241AF1C4F3BCF008FC9AB /* SubmitedPlanActionCell.xib in Resources */,
+				680F66431CF81CC3000E1EEF /* SelectAllCell.xib in Resources */,
 				685B152A1CEC71010076996A /* ProductAuthCell.xib in Resources */,
 				685B15191CEC60950076996A /* SelectionEditCell.xib in Resources */,
 				684B04101C98F7060053FFDF /* PlanCommentInfoCell.xib in Resources */,
@@ -2916,6 +2942,7 @@
 				680C46261CC5CD15008C4BC0 /* DataManager.m in Sources */,
 				6812411F1C4CF2D5008FC9AB /* ItemExpandImageCell.m in Sources */,
 				68123CE81C4C99C9008FC9AB /* StringUtil.m in Sources */,
+				680F66421CF81CC3000E1EEF /* SelectAllCell.m in Sources */,
 				68123CE71C4C99C9008FC9AB /* PhotoUtil.m in Sources */,
 				681241271C4CF2D5008FC9AB /* ProcessDataManager.m in Sources */,
 				68F73D291CBB597E00E97710 /* PlanUnorder.m in Sources */,
@@ -2983,6 +3010,7 @@
 				685B14871CEB11CF0076996A /* SelectPopulationViewController.m in Sources */,
 				685F2D641CAA8DDE00DC4D43 /* SectionActionView.m in Sources */,
 				685B156F1CED93BB0076996A /* TeamAuthViewController.m in Sources */,
+				680F66381CF7FB11000E1EEF /* ServiceAreaViewController.m in Sources */,
 				6E378D461BDA2D2E00908B77 /* NSObject+Ex.m in Sources */,
 				68F73D251CBB597E00E97710 /* PlanDesignerRespondExpired.m in Sources */,
 				68123FEB1C4CCFFF008FC9AB /* NameDict.m in Sources */,

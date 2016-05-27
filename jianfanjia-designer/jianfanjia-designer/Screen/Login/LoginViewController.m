@@ -59,6 +59,7 @@
     [super viewWillAppear:animated];
     
 //    self.viewThirdParty.hidden = ![JYZSocialSnsConfigCenter isWXAppInstalled];
+    [self setKrs_NavigationBarHidden:YES animated:NO];
 }
 
 #pragma mark - UI
@@ -69,7 +70,6 @@
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    [self.navigationController.navigationBar addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapNavBarGesture:)]];
     
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
         return YES;
@@ -234,16 +234,6 @@
         } completion:^(BOOL finished) {
             
         }];
-    }
-}
-
-- (void)onTapNavBarGesture:(UITapGestureRecognizer *)g {
-    CGPoint point = [g locationInView:self.headerView];
-    id view = [self.headerView hitTest:point withEvent:nil];
-    if (view == self.btnTitleLogin) {
-        [self swipeRight:nil];
-    } else if (view == self.btnTitleSignup) {
-        [self swipeLeft:nil];
     }
 }
 

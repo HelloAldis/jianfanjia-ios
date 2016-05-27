@@ -37,6 +37,7 @@
 + (void)showDesignerAuth;
 + (void)showInfoAuth:(Designer *)designer;
 + (void)showIDAuth:(Designer *)designer;
++ (void)showServiceArea:(Designer *)designer;
 + (void)showProductAuth;
 + (void)showProductAuthUploadPart1:(Product *)product;
 + (void)showProductAuthUploadPart2:(Product *)product;

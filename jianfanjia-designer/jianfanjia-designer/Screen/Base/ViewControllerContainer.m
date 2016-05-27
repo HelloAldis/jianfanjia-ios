@@ -38,6 +38,7 @@
 #import "TeamAuthViewController.h"
 #import "IDAuthViewController.h"
 #import "TeamAuthUpdateViewController.h"
+#import "ServiceAreaViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -269,6 +270,11 @@ static ViewControllerContainer *container;
 
 + (void)showIDAuth:(Designer *)designer {
     IDAuthViewController *v = [[IDAuthViewController alloc] initWithDesigner:designer];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showServiceArea:(Designer *)designer {
+    ServiceAreaViewController *v = [[ServiceAreaViewController alloc] initWithDesigner:designer];
     [container.navigation pushViewController:v animated:YES];
 }
 

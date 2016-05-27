@@ -9,6 +9,8 @@
 #import "SelectDecorationStyleViewController.h"
 #import "DecorationStyleCell.h"
 
+#define kMaxSelectionCount 3
+
 static const NSInteger CELL_SPACE = 1;
 static const NSInteger COUNT_IN_ROW = 2;
 static const NSInteger CELL_WIDTH_ASPECT = 4;
@@ -19,7 +21,7 @@ static NSString* cellId = @"decStyleCell";
 @interface SelectDecorationStyleViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionFlowLayout;
-@property (strong, nonatomic) NSArray *data;
+@property (strong, nonatomic) NSArray *keys;
 
 @end
 
@@ -39,6 +41,13 @@ static NSString* cellId = @"decStyleCell";
     [self initLeftBackInNav];
     
     self.title = @"风格喜好";
+    
+    if (self.selectionType == SelectionTypeMultiple) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(onClickOk)];
+        self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+        [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+        self.title = @"最多可选择三种擅长风格";
+    }
 }
 
 #pragma mark - UI
@@ -56,29 +65,58 @@ static NSString* cellId = @"decStyleCell";
 
 #pragma mark - init data 
 - (void)initData {
-    self.data = [[NameDict getAllDecorationStyle] sortedKeyWithOrder:YES];
-    if (self.curValue) {
-        [self.collectionView selectItemAtIndexPath:[NSIndexPath indexPathForRow:[self.data indexOfObject:self.curValue] inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionNone];
-    }
+    self.keys = [[NameDict getAllDecorationStyle] sortedKeyWithOrder:YES];
 }
 
 #pragma mark - collection view delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.data.count;
+    return self.keys.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *key = self.keys[indexPath.row];
+    
     DecorationStyleCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
-    NSString* imageName = [NSString stringWithFormat:@"dec_style_%@", self.data[indexPath.row]];
+    NSString* imageName = [NSString stringWithFormat:@"dec_style_%@", key];
     [cell initWithImage:[UIImage imageNamed:imageName]];
+    
+    if ([self.curValues containsObject:key]) {
+        [cell setBorder:1 andColor:kThemeColor.CGColor];
+    } else if ([self.curValue isEqualToString:key]) {
+        [cell setBorder:1 andColor:kThemeColor.CGColor];
+    } else {
+        [cell setBorder:0 andColor:kThemeColor.CGColor];
+    }
     
     return cell;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.ValueBlock) {
-        self.ValueBlock(self.data[indexPath.row]);
+    if (self.selectionType == SelectionTypeMultiple) {
+        if (self.curValues && [self.curValues containsObject:self.keys[indexPath.row]]) {
+            [self.curValues removeObject:self.keys[indexPath.row]];
+        } else if (self.curValues.count < self.keys.count) {
+            [self.curValues addObject:self.keys[indexPath.row]];
+        }
+        
+        [self.collectionView reloadData];
+    } else {
+        self.curValue = self.keys[indexPath.row];
+        [self onClickOk];
     }
+}
+                                                                                                                                                       
+- (void)onClickOk {
+    if (self.selectionType == SelectionTypeMultiple) {
+        if (self.ValueBlock) {
+            self.ValueBlock(self.curValues);
+        }
+    } else {
+        if (self.ValueBlock) {
+            self.ValueBlock(self.curValue);
+        }
+    }
+    
     [self.navigationController popViewControllerAnimated:YES];
 }
 

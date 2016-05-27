@@ -34,7 +34,7 @@
 }
 
 - (void)krs_viewWillAppear:(BOOL)animated {
-    [self krs_addTransitionFakeNavigationBar];
+    [self krs_AddFakeNavigationBar];
     [self krs_viewWillAppear:animated];
 }
 
@@ -42,15 +42,15 @@
     id<UIViewControllerTransitionCoordinator> tc = self.transitionCoordinator;
     UIViewController *toViewController = [tc viewControllerForKey:UITransitionContextToViewControllerKey];
     
-    if (self.krs_transitionNavigationBar) {
+    if (self.krs_FakeNavigationBar) {
         if ([self isEqual:self.navigationController.viewControllers.lastObject] && [toViewController isEqual:self]) {
-            if (self.krs_transitionNavigationBar.translucent) {
+            if (self.krs_FakeNavigationBar.translucent) {
                 [tc containerView].backgroundColor = [UIColor whiteColor];
             }
         }
 
-        [self krs_resizeTransitionNavigationBarFrame];
-        [self.view bringSubviewToFront:self.krs_transitionNavigationBar];
+        [self krs_resizeFakeNavigationBarFrame];
+        [self.view bringSubviewToFront:self.krs_FakeNavigationBar];
     }
     [self krs_viewWillLayoutSubviews];
 }
@@ -72,32 +72,32 @@
     [self setKrs_title:title];
 }
 
-- (void)krs_resizeTransitionNavigationBarFrame {
+- (void)krs_resizeFakeNavigationBarFrame {
     if (!self.view.window) {
         return;
     }
     
     UIView *backgroundView = [self.navigationController.navigationBar valueForKey:@"_backgroundView"];
     if (backgroundView) {
-        self.krs_transitionNavigationBar.frame = CGRectMake(0, self.krs_FakeNavigationBarHidden ? -CGRectGetHeight(backgroundView.frame) : 0.0, CGRectGetWidth(backgroundView.frame), CGRectGetHeight(backgroundView.frame));
+        self.krs_FakeNavigationBar.frame = CGRectMake(0, self.krs_FakeNavigationBarHidden ? -CGRectGetHeight(backgroundView.frame) : 0.0, CGRectGetWidth(backgroundView.frame), CGRectGetHeight(backgroundView.frame));
     }
 }
 
-- (void)krs_addTransitionFakeNavigationBar {
-    if (!self.krs_transitionNavigationBar && [self krs_EnableFakeNavigationBar]) {
+- (void)krs_AddFakeNavigationBar {
+    if (!self.krs_FakeNavigationBar && [self krs_EnableFakeNavigationBar]) {
         [self.navigationController setNavigationBarHidden:YES animated:NO];
-        self.krs_transitionNavigationBar = [[UINavigationBar alloc] init];
-        self.krs_transitionNavigationBar.items = @[self.navigationItem];
-        [self krs_resizeTransitionNavigationBarFrame];
-        [self.view addSubview:self.krs_transitionNavigationBar];
+        self.krs_FakeNavigationBar = [[UINavigationBar alloc] init];
+        self.krs_FakeNavigationBar.items = @[self.navigationItem];
+        [self krs_resizeFakeNavigationBarFrame];
+        [self.view addSubview:self.krs_FakeNavigationBar];
         
-        [self krs_updateFakeNavBar];
+        [self krs_UpdateFakeNavBar];
     }
 }
 
-- (void)krs_updateFakeNavBar {
-    if (self.krs_transitionNavigationBar) {
-        UINavigationBar *bar = self.krs_transitionNavigationBar;
+- (void)krs_UpdateFakeNavBar {
+    if (self.krs_FakeNavigationBar) {
+        UINavigationBar *bar = self.krs_FakeNavigationBar;
         bar.titleTextAttributes = self.navigationController.navigationBar.titleTextAttributes;
         bar.barStyle = self.navigationController.navigationBar.barStyle;
         bar.translucent = self.navigationController.navigationBar.translucent;
@@ -108,12 +108,12 @@
     }
 }
 
-- (UINavigationBar *)krs_transitionNavigationBar {
+- (UINavigationBar *)krs_FakeNavigationBar {
     return objc_getAssociatedObject(self, _cmd);
 }
 
-- (void)setKrs_transitionNavigationBar:(UINavigationBar *)navigationBar {
-    objc_setAssociatedObject(self, @selector(krs_transitionNavigationBar), navigationBar, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setKrs_FakeNavigationBar:(UINavigationBar *)navigationBar {
+    objc_setAssociatedObject(self, @selector(krs_FakeNavigationBar), navigationBar, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (UINavigationItem *)krs_transitionNavigationItem {
@@ -141,16 +141,16 @@
 }
 
 - (void)setKrs_NavigationBarHidden:(BOOL)hidden animated:(BOOL)animated {
-    if ([self krs_transitionNavigationBar]) {
+    if ([self krs_FakeNavigationBar]) {
         self.krs_FakeNavigationBarHidden = hidden;
-        CGRect frame = self.krs_transitionNavigationBar.frame;
+        CGRect frame = self.krs_FakeNavigationBar.frame;
         frame.origin.y = hidden ? -frame.size.height : 0.0;
         
         [UIView animateWithDuration:animated ? 0.3 : 0.0
                               delay:0.0
                             options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionBeginFromCurrentState
                          animations:^{
-                             self.krs_transitionNavigationBar.frame = frame;
+                             self.krs_FakeNavigationBar.frame = frame;
                          }
                          completion:^(BOOL finished) {
                              

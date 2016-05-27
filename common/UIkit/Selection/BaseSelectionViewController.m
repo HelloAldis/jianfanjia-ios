@@ -18,6 +18,17 @@
     if (self = [super init]) {
         _ValueBlock = ValueBlock;
         _curValue = curValue;
+        _selectionType = SelectionTypeSingle;
+    }
+    
+    return self;
+}
+
+- (id)initWithValueBlock:(ValueBlock)ValueBlock curValues:(NSMutableArray *)curValues {
+    if (self = [super init]) {
+        _ValueBlock = ValueBlock;
+        _curValues =  curValues ? curValues : [NSMutableArray array];
+        _selectionType = SelectionTypeMultiple;
     }
     
     return self;

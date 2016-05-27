@@ -138,11 +138,6 @@ static NSArray *desginerTagArr = nil;
                  kProductAuthTypeBreakRule:@"违规屏蔽"
                  };
     
-    extern NSString * const kProductAuthTypeUnsubmitVerify;
-    extern NSString * const kProductAuthTypeVerifyPass;
-    extern NSString * const kProductAuthTypeVerifyNotPass;
-    extern NSString * const kProductAuthTypeBreakRule;
-    
     userType = @{
                  @"0":@"管理员",
                  @"1":@"业主",

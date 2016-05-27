@@ -9,13 +9,21 @@
 #import "BaseViewController.h"
 #import "MultipleLineTextTableViewCell.h"
 
+typedef NS_ENUM(NSInteger, SelectionType) {
+    SelectionTypeSingle,
+    SelectionTypeMultiple,
+};
+
 typedef void(^ValueBlock)(id value);
 
 @interface BaseSelectionViewController : BaseViewController
 
+@property (assign, nonatomic) SelectionType selectionType;
 @property (copy, nonatomic) ValueBlock ValueBlock;
 @property (strong, nonatomic) NSString *curValue;
+@property (strong, nonatomic) NSMutableArray *curValues;
 
 - (id)initWithValueBlock:(ValueBlock)ValueBlock curValue:(NSString *)curValue;
+- (id)initWithValueBlock:(ValueBlock)ValueBlock curValues:(NSMutableArray *)curValues;
 
 @end
