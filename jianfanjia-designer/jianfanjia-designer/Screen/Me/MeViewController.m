@@ -72,7 +72,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     [EditCellItem registerCells:self.tableView];
     
-    self.authCenterItem = [EditCellItem createAttrSelection:[[NSMutableAttributedString alloc] initWithString:@"设计师认证中心"] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
+    self.authCenterItem = [EditCellItem createAttrSelection:[@"设计师认证中心" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
         [ViewControllerContainer showDesignerAuth];
     }];
     [self updateAuthCenter];
@@ -80,27 +80,27 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     @weakify(self)
     self.sectionArr2 = @[
                          self.authCenterItem,
-                         [EditCellItem createAttrSelection:[@"接单资料 (完善资料，提高接单精准度)" attrSubStr:@"(完善资料，提高接单精准度)" font:[UIFont systemFontOfSize:12] color:kThemeColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_service_material"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"接单资料 (完善资料，提高接单精准度)" attrSubStr1:@"接单资料" font1:[UIFont systemFontOfSize:14] color1:kThemeTextColor subStr2:@"(完善资料，提高接单精准度)" font2:[UIFont systemFontOfSize:12] color2:kThemeColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_service_material"] tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              [ViewControllerContainer showServiceArea:self.designer];
                          }],
                          ];
     
     self.sectionArr3 = @[
-                         [EditCellItem createSelection:@"邀请好友" value:nil placeholder:nil image:[UIImage imageNamed:@"icon_invite_friend"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"邀请好友" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_invite_friend"] tapBlock:^(EditCellItem *curItem) {
                              
                          }],
-                         [EditCellItem createSelection:@"意见反馈" value:nil placeholder:nil image:[UIImage imageNamed:@"icon_feedback"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"意见反馈" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_feedback"] tapBlock:^(EditCellItem *curItem) {
                              FeedbackViewController *v = [[FeedbackViewController alloc] initWithNibName:nil bundle:nil];
                              [[ViewControllerContainer navigation] pushViewController:v animated:YES];
                          }],
-                         [EditCellItem createSelection:@"在线客服" value:nil placeholder:nil image:[UIImage imageNamed:@"icon_online_service"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"在线客服" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_online_service"] tapBlock:^(EditCellItem *curItem) {
                              [[ViewControllerContainer navigation] pushViewController:[CustomerServiceViewController instance] animated:YES];
                          }],
                          ];
     
     self.sectionArr4 = @[
-                         [EditCellItem createSelection:@"设置" value:nil placeholder:nil image:[UIImage imageNamed:@"icon_setting"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"设置" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_setting"] tapBlock:^(EditCellItem *curItem) {
                              SettingViewController *v = [[SettingViewController alloc] init];
                              [[ViewControllerContainer navigation] pushViewController:v animated:YES];
                          }],

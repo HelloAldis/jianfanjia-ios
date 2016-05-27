@@ -124,6 +124,32 @@
     return attributedStr;
 }
 
+- (NSMutableAttributedString *)attrSubStr1:(NSString *)subStr1 font1:(UIFont *)font1 color1:(UIColor *)color1 subStr2:(NSString *)subStr2 font2:(UIFont *)font2 color2:(UIColor *)color2 {
+    NSMutableDictionary *dic1 = [@{} mutableCopy];
+    NSMutableDictionary *dic2 = [@{} mutableCopy];
+    if (font1) {
+        dic1[NSFontAttributeName] = font1;
+    }
+    
+    if (color1) {
+        dic1[NSForegroundColorAttributeName] = color1;
+    }
+    
+    if (font2) {
+        dic2[NSFontAttributeName] = font2;
+    }
+    
+    if (color2) {
+        dic2[NSForegroundColorAttributeName] = color2;
+    }
+    
+    NSMutableAttributedString *attributedStr = [[NSMutableAttributedString alloc] initWithString:self];
+    [attributedStr addAttributes:dic1 range:[self rangeOfString:subStr1]];
+    [attributedStr addAttributes:dic2 range:[self rangeOfString:subStr2]];
+    
+    return attributedStr;
+}
+
 + (BOOL)compareStrWithIgnoreNil:(NSString *)aString other:(NSString *)bString {
     return [aString ? aString : @"" isEqualToString:bString ? bString : @""];
 }
