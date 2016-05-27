@@ -180,7 +180,7 @@
 }
 
 - (NSString *)decStyleStr {
-    if (self.designer.dec_districts.count <= 4) {
+    if (self.designer.dec_styles.count <= 4) {
         return [[self.designer.dec_styles map:^id(id obj) {
             return [NameDict nameForDecStyle:obj];
         }] join:@" "];
@@ -196,7 +196,7 @@
 }
 
 - (NSString *)houseTypeStr {
-    if (self.designer.dec_districts.count <= 6) {
+    if (self.designer.dec_house_types.count <= 6) {
         return [[self.designer.dec_house_types map:^id(id obj) {
             return [NameDict nameForHouseType:obj];
         }] join:@" "];
