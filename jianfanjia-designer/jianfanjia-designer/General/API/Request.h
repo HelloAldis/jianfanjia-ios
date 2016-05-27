@@ -52,5 +52,6 @@
 #import "DesignerUpdateInfo.h"
 #import "DesignerUpdateUIDBankInfo.h"
 #import "DesignerUpdateTeam.h"
+#import "DesignerUpdateServiceInfo.h"
 
 #endif

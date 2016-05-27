@@ -87,6 +87,10 @@
     [API POST:@"designer/uid_bank_info" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)designerUpdateServiceInfo:(DesignerUpdateServiceInfo *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/update_business_info" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 + (void)getDesignerProcess:(GetDesignerProcess *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API GET:@"process/list" handler:request success:success failure:failure networkError:error];
 }

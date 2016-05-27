@@ -26,7 +26,8 @@
 
 - (instancetype)initWithDesigner:(Designer *)designer {
     if (self = [super init]) {
-        _designer = designer;
+        _designer = [[Designer alloc] init];
+        [_designer merge:designer];
     }
     
     return self;
@@ -60,6 +61,7 @@
                                  self.designer.dec_types = value;
                                  curItem.value = [self decTypesStr];
                                  [self.tableView reloadData];
+                                 [self updateInfoRequest];
                              } curValues:self.designer.dec_types];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
@@ -69,6 +71,7 @@
                                  self.designer.work_types = value;
                                  curItem.value = [self workTypeStr];
                                  [self.tableView reloadData];
+                                 [self updateInfoRequest];
                              } curValues:self.designer.work_types];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
@@ -78,6 +81,7 @@
                                  self.designer.dec_styles = value;
                                  curItem.attrValue.mutableString.string = [self decStyleStr];
                                  [self.tableView reloadData];
+                                 [self updateInfoRequest];
                              } curValues:self.designer.dec_styles];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
@@ -90,6 +94,7 @@
                                  self.designer.dec_districts = value;
                                  curItem.value = [self serviceAreaStr];
                                  [self.tableView reloadData];
+                                 [self updateInfoRequest];
                              } curValues:self.designer.dec_districts];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
@@ -99,6 +104,7 @@
                                  self.designer.dec_house_types = value;
                                  curItem.value = [self houseTypeStr];
                                  [self.tableView reloadData];
+                                 [self updateInfoRequest];
                              } curValues:self.designer.dec_house_types];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
@@ -108,6 +114,7 @@
                                  self.designer.design_fee_range = value;
                                  curItem.attrValue.mutableString.string = [NameDict nameForDesignerFee:self.designer.design_fee_range];
                                  [self.tableView reloadData];
+                                 [self updateInfoRequest];
                              } curValue:self.designer.design_fee_range];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
@@ -118,6 +125,7 @@
                                  self.designer.dec_fee_all = @([value[1] integerValue]);
                                  curItem.attrValue.mutableString.string = [self workFeeStr];
                                  [self.tableView reloadData];
+                                 [self updateInfoRequest];
                              } curValues:@[[self.designer.dec_fee_half stringValue], [self.designer.dec_fee_all stringValue]]];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
@@ -127,6 +135,7 @@
                                  self.designer.communication_type = value;
                                  curItem.value = [NameDict nameForCommunicationType:self.designer.communication_type];
                                  [self.tableView reloadData];
+                                 [self updateInfoRequest];
                              } curValue:self.designer.communication_type];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
@@ -179,6 +188,18 @@
     }
     
     return 0.0;
+}
+
+#pragma mark - api request
+- (void)updateInfoRequest {
+    DesignerUpdateServiceInfo *request = [[DesignerUpdateServiceInfo alloc] initWithDesigner:self.designer];
+
+    [API designerUpdateServiceInfo:request success:^{
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
 }
 
 #pragma mark - other

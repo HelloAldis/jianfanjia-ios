@@ -27,7 +27,8 @@
 - (instancetype)initWithProduct:(Product *)product {
     if (self = [super init]) {
         if (product) {
-            _product = product;
+            _product = [[Product alloc] init];
+            [_product merge:product];
         } else {
             _product = [[Product alloc] init];
             _product._id = @"";

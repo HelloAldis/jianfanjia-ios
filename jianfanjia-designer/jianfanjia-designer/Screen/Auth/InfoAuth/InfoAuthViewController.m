@@ -42,7 +42,8 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 
 - (instancetype)initWithDesigner:(Designer *)designer {
     if (self = [super init]) {
-        _designer = designer;
+        _designer = [[Designer alloc] init];
+        [_designer merge:designer];
     }
     
     return self;

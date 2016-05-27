@@ -46,6 +46,7 @@
 		680F66521CF82EF2000E1EEF /* SelectWorkFeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F664C1CF82EF2000E1EEF /* SelectWorkFeeViewController.xib */; };
 		680F66561CF8317E000E1EEF /* InputTextTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F66541CF8317E000E1EEF /* InputTextTableViewCell.m */; };
 		680F66571CF8317E000E1EEF /* InputTextTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680F66551CF8317E000E1EEF /* InputTextTableViewCell.xib */; };
+		680F665A1CF85383000E1EEF /* DesignerUpdateServiceInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 680F66591CF85383000E1EEF /* DesignerUpdateServiceInfo.m */; };
 		681031C61CDCAF6D00FD26D6 /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */; };
 		681031C71CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */; };
 		68123C8B1C4C9772008FC9AB /* DateAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C6A1C4C9772008FC9AB /* DateAlertViewController.m */; };
@@ -525,6 +526,8 @@
 		680F66531CF8317E000E1EEF /* InputTextTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputTextTableViewCell.h; sourceTree = "<group>"; };
 		680F66541CF8317E000E1EEF /* InputTextTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputTextTableViewCell.m; sourceTree = "<group>"; };
 		680F66551CF8317E000E1EEF /* InputTextTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputTextTableViewCell.xib; sourceTree = "<group>"; };
+		680F66581CF85383000E1EEF /* DesignerUpdateServiceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerUpdateServiceInfo.h; sourceTree = "<group>"; };
+		680F66591CF85383000E1EEF /* DesignerUpdateServiceInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerUpdateServiceInfo.m; sourceTree = "<group>"; };
 		681031C31CDCAF6D00FD26D6 /* DecPackageJiangXinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackageJiangXinView.h; sourceTree = "<group>"; };
 		681031C41CDCAF6D00FD26D6 /* DecPackageJiangXinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackageJiangXinView.m; sourceTree = "<group>"; };
 		681031C51CDCAF6D00FD26D6 /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
@@ -2187,6 +2190,8 @@
 		6E378CD11BDA2D2E00908B77 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				680F66581CF85383000E1EEF /* DesignerUpdateServiceInfo.h */,
+				680F66591CF85383000E1EEF /* DesignerUpdateServiceInfo.m */,
 				680F658F1CF6E3EA000E1EEF /* DesignerUpdateTeam.h */,
 				680F65901CF6E3EA000E1EEF /* DesignerUpdateTeam.m */,
 				680F65821CF6D36F000E1EEF /* DesignerUpdateUIDBankInfo.h */,
@@ -2880,6 +2885,7 @@
 				685B15F91CF5AD4C0076996A /* InfoAuthAwardImageCell.m in Sources */,
 				680C46271CC5CD15008C4BC0 /* GVUserDefaults+Manager.m in Sources */,
 				68123FE21C4CCF4A008FC9AB /* ProductImage.m in Sources */,
+				680F665A1CF85383000E1EEF /* DesignerUpdateServiceInfo.m in Sources */,
 				685B15FF1CF5B29F0076996A /* AwardDetail.m in Sources */,
 				681241A71C4F3B1C008FC9AB /* RejectActionCell.m in Sources */,
 				685B154D1CED70620076996A /* ProductInfoCell.m in Sources */,
