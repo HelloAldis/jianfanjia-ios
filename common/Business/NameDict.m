@@ -306,6 +306,10 @@ static NSArray *desginerTagArr = nil;
 }
 
 + (NSString *)nameForDesignerFee:(NSString *)design_fee {
+    if (design_fee == nil) {
+        return @"";
+    }
+    
     return [desginFeeDict objectForKey:design_fee];
 }
 

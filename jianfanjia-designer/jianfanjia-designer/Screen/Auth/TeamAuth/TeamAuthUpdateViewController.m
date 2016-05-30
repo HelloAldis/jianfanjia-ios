@@ -82,7 +82,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                                  self.team.manager = curItem.value;
                              }
                          }],
-                         [EditCellItem createSelection:@"性别" value:[NameDict nameForSexType:self.team.sex] placeholder:nil tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"性别" value:[NameDict nameForSexType:self.team.sex] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectSexTypeViewController *controller = [[SelectSexTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForSexType:value];
@@ -93,7 +93,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                              controller.selectSexType = SelectSexTypeUserSex;
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createSelection:@"所在地区" value:[self isNewTeam] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.team.province, self.team.city, self.team.district] placeholder:nil tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"所在地区" value:[self isNewTeam] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.team.province, self.team.city, self.team.district] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:nil valueBlock:^(id value) {
                                  curItem.value = value;
