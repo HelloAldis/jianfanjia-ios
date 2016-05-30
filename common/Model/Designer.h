@@ -26,6 +26,7 @@
 @property(nonatomic, strong) NSString *address;
 @property(nonatomic, strong) NSString *imageid;
 @property(nonatomic, strong) NSString *email;
+@property(nonatomic, strong) NSString *agreee_license;
 @property(nonatomic, strong) NSNumber *view_count;
 @property(nonatomic, strong) NSNumber *authed_product_count;
 @property(nonatomic, strong) NSNumber *product_count;

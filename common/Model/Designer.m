@@ -21,6 +21,7 @@
 @dynamic address;
 @dynamic imageid;
 @dynamic email;
+@dynamic agreee_license;
 @dynamic view_count;
 @dynamic authed_product_count;
 @dynamic product_count;

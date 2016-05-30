@@ -42,6 +42,7 @@
 #import "EmailAuthRequestViewController.h"
 #import "EmailAuthReviewingViewController.h"
 #import "EmailAuthSuccessViewController.h"
+#import "WebViewWithActionController.h"
 
 @interface ViewControllerContainer ()
 
@@ -346,6 +347,12 @@ static ViewControllerContainer *container;
     
     EmailAuthSuccessViewController *v = [[EmailAuthSuccessViewController alloc] initWithDesigner:designer];
     [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showUserLicense {
+    [WebViewWithActionController show:[self getCurrentTapController] withUrl:@"" shareTopic:@"" actionTitle:@"同意" actionBlock:^{
+        
+    }];
 }
 
 + (void)showRefresh {
