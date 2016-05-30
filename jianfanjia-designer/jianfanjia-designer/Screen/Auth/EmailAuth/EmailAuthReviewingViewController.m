@@ -59,10 +59,10 @@
     [self.iconView setCornerRadius:self.iconView.frame.size.width / 2];
     [self.fldEmail setCornerRadius:5];
     [self setLeftPadding:self.fldEmail withImage:[UIImage imageNamed:@"icon_email"]];
+    [self setRightPadding:self.fldEmail];
     
     self.lblText1.text = @"我们已向您的邮箱发送了一份验证邮件\n请前往查收并完成验证";
-    self.lblText2.attributedText = [@"如果没有收到邮件，请点击    重新发送" attrSubStr:@"重新发送" font:[UIFont systemFontOfSize:15] color:kThemeColor];
-    self.lblText3.attributedText = [@"如果想要更新邮箱，请点击    修改邮箱" attrSubStr:@"修改邮箱" font:[UIFont systemFontOfSize:15] color:kThemeColor];
+    self.lblText3.attributedText = [@"是不是邮箱输错了？请点击 修改邮箱" attrSubStr:@"修改邮箱" font:[UIFont systemFontOfSize:15] color:kThemeColor];
     [self.lblText2 addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickResend)]];
     [self.lblText3 addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickModify)]];
 }
@@ -81,6 +81,16 @@
     leftview.contentMode = UIViewContentModeCenter;
     textField.leftViewMode = UITextFieldViewModeAlways;
     textField.leftView = leftview;
+}
+
+- (void)setRightPadding:(UITextField *)textField {
+    CGRect frame = textField.frame;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
+    frame.size.width = 70;
+    UIView *rightview = [[UIView alloc] initWithFrame:frame];
+    textField.rightViewMode = UITextFieldViewModeAlways;
+    textField.rightView = rightview;
 }
 
 #pragma mark - user action
