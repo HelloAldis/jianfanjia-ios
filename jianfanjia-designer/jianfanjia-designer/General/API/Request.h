@@ -55,5 +55,6 @@
 #import "DesignerUpdateServiceInfo.h"
 #import "DesignerUpdateEmail.h"
 #import "DesignerSendEmailVerify.h"
+#import "DesignerAgreeLicense.h"
 
 #endif

@@ -19,7 +19,6 @@
 
 - (void)success {
     [GVUserDefaults standardUserDefaults].phone = self.phone;
-//    [SSKeychain setPassword:self.pass forService:kKeychainService account:self.phone];
     [GVUserDefaults standardUserDefaults].loginDate = [[NSDate date] yyyy_MM_dd];
     
     NSMutableDictionary *dict = [DataManager shared].data;
@@ -27,18 +26,10 @@
     [dict removeObjectForKey:@"usertype"];
     [GVUserDefaults standardUserDefaults].usertype = usertype;
     
-    if ([kUserTypeUser isEqualToString:usertype]) {
-        User *user = [[User alloc] initWith:dict];
-        [GVUserDefaults standardUserDefaults].userid = [user _id];
-        [GVUserDefaults standardUserDefaults].imageid = [user imageid];
-        [GVUserDefaults standardUserDefaults].username = [user username];
-    } else if([kUserTypeDesigner isEqualToString:usertype]) {
-        Designer *designer = [[Designer alloc] initWith:dict];
-        [GVUserDefaults standardUserDefaults].userid = [designer _id];
-        [GVUserDefaults standardUserDefaults].imageid = [designer imageid];
-        [GVUserDefaults standardUserDefaults].username = [designer username];
-    }
-    [GVUserDefaults standardUserDefaults].isLogin = YES;
+    Designer *designer = [[Designer alloc] initWith:dict];
+    [GVUserDefaults standardUserDefaults].userid = [designer _id];
+    [GVUserDefaults standardUserDefaults].imageid = [designer imageid];
+    [GVUserDefaults standardUserDefaults].username = [designer username];
 }
 
 @end

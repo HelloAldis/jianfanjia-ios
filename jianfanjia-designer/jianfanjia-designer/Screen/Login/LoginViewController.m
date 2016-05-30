@@ -277,7 +277,13 @@
     [API designerLogin:login success:^{
         DesignerGetInfo *getUser = [[DesignerGetInfo alloc] init];
         [API designerGetInfo:getUser success:^{
-            [ViewControllerContainer showTab];
+            [HUDUtil showSuccessText:@"登录成功"];
+            Designer *designer = [[Designer alloc] initWith:[DataManager shared].data];
+            if ([DesignerBusiness isDesignerAgreeLicense:designer.agreee_license]) {
+                [ViewControllerContainer showTab];
+            } else {
+                [ViewControllerContainer showUserLicense];
+            }
         } failure:^{
         } networkError:^{
         }];

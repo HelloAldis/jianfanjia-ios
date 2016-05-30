@@ -24,6 +24,7 @@
 #import "Manager.h"
 #import "Model.h"
 #import "API.h"
+#import "JYZSocial.h"
 #endif
 
 //#define DEBUG

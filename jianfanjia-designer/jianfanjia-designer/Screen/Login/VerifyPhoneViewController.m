@@ -91,7 +91,13 @@
             
             [HUDUtil showWait];
             [API designerSignup:request success:^{
-                [ViewControllerContainer showTab];
+                [HUDUtil showSuccessText:@"注册成功"];
+                Designer *designer = [[Designer alloc] initWith:[DataManager shared].data];
+                if ([DesignerBusiness isDesignerAgreeLicense:designer.agreee_license]) {
+                    [ViewControllerContainer showTab];
+                } else {
+                    [ViewControllerContainer showUserLicense];
+                }
             } failure:^{
                 
             } networkError:^{

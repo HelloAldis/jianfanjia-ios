@@ -175,4 +175,8 @@
     return cur / total;
 }
 
++ (BOOL)isDesignerAgreeLicense:(NSString *)agreeLicense {
+    return [@"1" isEqualToString:agreeLicense];
+}
+
 @end

@@ -350,8 +350,18 @@ static ViewControllerContainer *container;
 }
 
 + (void)showUserLicense {
-    [WebViewWithActionController show:[self getCurrentTapController] withUrl:@"" shareTopic:@"" actionTitle:@"同意" actionBlock:^{
-        
+    [WebViewWithActionController show:[(id)container.window.rootViewController topViewController] withUrl:@"view/user/license.html" shareTopic:@"" actionTitle:@"同意" canBack:NO actionBlock:^{
+        DesignerAgreeLicense *request = [[DesignerAgreeLicense alloc] init];
+        [HUDUtil showWait];
+        [API designerAgreeLicense:request success:^{
+            [HUDUtil hideWait];
+            [GVUserDefaults standardUserDefaults].isLogin = YES;
+            [self showTab];
+        } failure:^{
+            [HUDUtil hideWait];
+        } networkError:^{
+            [HUDUtil hideWait];
+        }];
     }];
 }
 

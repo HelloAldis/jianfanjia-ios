@@ -26,4 +26,6 @@
 + (UIColor *)authTypeColor:(NSString *)authType;
 + (CGFloat)getDesignerAuthProgress;
 
++ (BOOL)isDesignerAgreeLicense:(NSString *)agreeLicense;
+
 @end

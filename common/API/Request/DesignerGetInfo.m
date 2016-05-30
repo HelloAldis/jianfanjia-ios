@@ -31,6 +31,10 @@
     [GVUserDefaults standardUserDefaults].email_auth_type = [designer email_auth_type];
     [GVUserDefaults standardUserDefaults].product_count = [designer product_count];
     [GVUserDefaults standardUserDefaults].authed_product_count = [designer authed_product_count];
+    
+    if ([DesignerBusiness isDesignerAgreeLicense:designer.agreee_license]) {
+        [GVUserDefaults standardUserDefaults].isLogin = YES;
+    }
 }
 
 @end

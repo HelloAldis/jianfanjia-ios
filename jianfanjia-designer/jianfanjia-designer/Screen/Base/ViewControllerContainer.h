@@ -46,6 +46,7 @@
 + (void)showEmailAuthRequest:(Designer *)designer;
 + (void)showEmailAuthReviewing:(Designer *)designer;
 + (void)showEmailAuthSuccess:(Designer *)designer;
++ (void)showUserLicense;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
 + (void)showRefresh;

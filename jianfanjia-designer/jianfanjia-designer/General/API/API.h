@@ -56,5 +56,6 @@
 + (void)designerUpdateProduct:(DesignerUploadProduct *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 + (void)designerUpdateEmail:(DesignerUpdateEmail *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 + (void)designerSendEmailVerify:(DesignerSendEmailVerify *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
++ (void)designerAgreeLicense:(DesignerAgreeLicense *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 
 @end
