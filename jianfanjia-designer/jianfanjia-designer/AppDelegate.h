@@ -43,11 +43,11 @@
 #define kWXAppId           @"wx391daabfce27e728"
 #define kWXAppSecret       @"f7c8e3e1b5910dd93be2744dacb3a1cc"
 
-#define kQQAppId           @"1104973048" //URL Schemal 需要配置成十六进制 0x41DC8CF8 ==> QQ41DC8CF8
-#define kQQAppKey          @"FuDs7s4vJGAEzCrz"
+#define kQQAppId           @"1104958443" //URL Schemal 需要配置成十六进制 0x41DC53EB ==> QQ41DC53EB
+#define kQQAppKey          @"AIz23Ku4k5IswYeF"
 
-#define kWeiboAppKey        @"10611350"
-#define kWeiboAppSecret     @"4a5b93b71687ec9af1ee91cfdfb361d3"
+#define kWeiboAppKey        @"3796235832"
+#define kWeiboAppSecret     @"165fb859e0f1b77200ca0d96958c515a"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GeTuiSdkDelegate>
 
