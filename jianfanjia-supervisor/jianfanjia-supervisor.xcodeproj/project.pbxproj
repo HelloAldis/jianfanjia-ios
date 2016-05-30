@@ -176,9 +176,6 @@
 		680C45651CC4D4BD008C4BC0 /* ThumbnailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C446C1CC4D4BD008C4BC0 /* ThumbnailCell.xib */; };
 		680C45661CC4D4BD008C4BC0 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C446F1CC4D4BD008C4BC0 /* ImageDetailViewController.m */; };
 		680C45671CC4D4BD008C4BC0 /* ImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C44701CC4D4BD008C4BC0 /* ImageDetailViewController.xib */; };
-		680C45681CC4D4BD008C4BC0 /* ImageEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44731CC4D4BD008C4BC0 /* ImageEditorViewController.m */; };
-		680C45691CC4D4BD008C4BC0 /* ImageEditorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C44741CC4D4BD008C4BC0 /* ImageEditorViewController.xib */; };
-		680C456A1CC4D4BD008C4BC0 /* OverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44761CC4D4BD008C4BC0 /* OverlayView.m */; };
 		680C456B1CC4D4BD008C4BC0 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C447A1CC4D4BD008C4BC0 /* BrushGifHeader.m */; };
 		680C456C1CC4D4BD008C4BC0 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C447C1CC4D4BD008C4BC0 /* DIYGifHeader.m */; };
 		680C456D1CC4D4BD008C4BC0 /* allprovince.js in Resources */ = {isa = PBXBuildFile; fileRef = 680C447E1CC4D4BD008C4BC0 /* allprovince.js */; };
@@ -248,6 +245,12 @@
 		68711B5D1CD85D54009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B5C1CD85D54009B585F /* PhotoCropper.m */; };
 		687EEB5B1CE2C6C100A277DC /* DIYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB5A1CE2C6C100A277DC /* DIYRefreshFooter.m */; };
 		689220041CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */; };
+		689ECE051CFC097C0046DDC8 /* SelectionMenuCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECDFF1CFC097C0046DDC8 /* SelectionMenuCollectionCell.m */; };
+		689ECE061CFC097C0046DDC8 /* SelectionMenuCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECE001CFC097C0046DDC8 /* SelectionMenuCollectionCell.xib */; };
+		689ECE071CFC097C0046DDC8 /* SelectionMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECE021CFC097C0046DDC8 /* SelectionMenuView.m */; };
+		689ECE081CFC097C0046DDC8 /* SelectionMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECE031CFC097C0046DDC8 /* SelectionMenuView.xib */; };
+		689ECE131CFC0B850046DDC8 /* AwardDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECE101CFC0B850046DDC8 /* AwardDetail.m */; };
+		689ECE141CFC0B850046DDC8 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECE121CFC0B850046DDC8 /* Team.m */; };
 		D248AF3A7C7F296D8418ADE8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D408E462BE9708192EBFFD7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -584,11 +587,6 @@
 		680C446E1CC4D4BD008C4BC0 /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
 		680C446F1CC4D4BD008C4BC0 /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
 		680C44701CC4D4BD008C4BC0 /* ImageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailViewController.xib; sourceTree = "<group>"; };
-		680C44721CC4D4BD008C4BC0 /* ImageEditorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageEditorViewController.h; sourceTree = "<group>"; };
-		680C44731CC4D4BD008C4BC0 /* ImageEditorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageEditorViewController.m; sourceTree = "<group>"; };
-		680C44741CC4D4BD008C4BC0 /* ImageEditorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageEditorViewController.xib; sourceTree = "<group>"; };
-		680C44751CC4D4BD008C4BC0 /* OverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
-		680C44761CC4D4BD008C4BC0 /* OverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayView.m; sourceTree = "<group>"; };
 		680C44771CC4D4BD008C4BC0 /* JYZUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZUIKit.h; sourceTree = "<group>"; };
 		680C44791CC4D4BD008C4BC0 /* BrushGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushGifHeader.h; sourceTree = "<group>"; };
 		680C447A1CC4D4BD008C4BC0 /* BrushGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushGifHeader.m; sourceTree = "<group>"; };
@@ -707,6 +705,17 @@
 		687EEB5A1CE2C6C100A277DC /* DIYRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYRefreshFooter.m; sourceTree = "<group>"; };
 		689220021CD2103800BC80C7 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
 		689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyboardAnimation.m"; sourceTree = "<group>"; };
+		689ECDFE1CFC097C0046DDC8 /* SelectionMenuCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionMenuCollectionCell.h; sourceTree = "<group>"; };
+		689ECDFF1CFC097C0046DDC8 /* SelectionMenuCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionMenuCollectionCell.m; sourceTree = "<group>"; };
+		689ECE001CFC097C0046DDC8 /* SelectionMenuCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionMenuCollectionCell.xib; sourceTree = "<group>"; };
+		689ECE011CFC097C0046DDC8 /* SelectionMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionMenuView.h; sourceTree = "<group>"; };
+		689ECE021CFC097C0046DDC8 /* SelectionMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionMenuView.m; sourceTree = "<group>"; };
+		689ECE031CFC097C0046DDC8 /* SelectionMenuView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectionMenuView.xib; sourceTree = "<group>"; };
+		689ECE041CFC097C0046DDC8 /* SelectionValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionValue.h; sourceTree = "<group>"; };
+		689ECE0F1CFC0B850046DDC8 /* AwardDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AwardDetail.h; sourceTree = "<group>"; };
+		689ECE101CFC0B850046DDC8 /* AwardDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardDetail.m; sourceTree = "<group>"; };
+		689ECE111CFC0B850046DDC8 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
+		689ECE121CFC0B850046DDC8 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
 		6DCF3E98975F7E90EE858303 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E62310690E1273E5E41514C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1241,6 +1250,10 @@
 		680C43F51CC4D4BD008C4BC0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				689ECE0F1CFC0B850046DDC8 /* AwardDetail.h */,
+				689ECE101CFC0B850046DDC8 /* AwardDetail.m */,
+				689ECE111CFC0B850046DDC8 /* Team.h */,
+				689ECE121CFC0B850046DDC8 /* Team.m */,
 				680C46171CC5CB9D008C4BC0 /* Supervisor.h */,
 				680C46181CC5CB9D008C4BC0 /* Supervisor.m */,
 				680C43F61CC4D4BD008C4BC0 /* BaseModel.h */,
@@ -1304,7 +1317,6 @@
 				680C44631CC4D4BD008C4BC0 /* CustomScroll */,
 				680C44661CC4D4BD008C4BC0 /* ImageBrower */,
 				680C446D1CC4D4BD008C4BC0 /* ImageDetail */,
-				680C44711CC4D4BD008C4BC0 /* ImageEditor */,
 				680C44781CC4D4BD008C4BC0 /* RefreshComponent */,
 				680C447D1CC4D4BD008C4BC0 /* SelectCity */,
 				680C445A1CC4D4BD008C4BC0 /* CollectionFallsFlowLayout.h */,
@@ -1359,18 +1371,6 @@
 				680C44701CC4D4BD008C4BC0 /* ImageDetailViewController.xib */,
 			);
 			path = ImageDetail;
-			sourceTree = "<group>";
-		};
-		680C44711CC4D4BD008C4BC0 /* ImageEditor */ = {
-			isa = PBXGroup;
-			children = (
-				680C44721CC4D4BD008C4BC0 /* ImageEditorViewController.h */,
-				680C44731CC4D4BD008C4BC0 /* ImageEditorViewController.m */,
-				680C44741CC4D4BD008C4BC0 /* ImageEditorViewController.xib */,
-				680C44751CC4D4BD008C4BC0 /* OverlayView.h */,
-				680C44761CC4D4BD008C4BC0 /* OverlayView.m */,
-			);
-			path = ImageEditor;
 			sourceTree = "<group>";
 		};
 		680C44781CC4D4BD008C4BC0 /* RefreshComponent */ = {
@@ -1480,6 +1480,8 @@
 		685B148D1CEB12110076996A /* Selection */ = {
 			isa = PBXGroup;
 			children = (
+				689ECDFD1CFC097C0046DDC8 /* SelectionMenu */,
+				689ECE041CFC097C0046DDC8 /* SelectionValue.h */,
 				685B148E1CEB12110076996A /* BaseSelectionViewController.h */,
 				685B148F1CEB12110076996A /* BaseSelectionViewController.m */,
 				685B14901CEB12110076996A /* DecorationStyleCell.h */,
@@ -1525,6 +1527,19 @@
 				685B14C71CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m */,
 			);
 			path = KRSFakeNavigationBar;
+			sourceTree = "<group>";
+		};
+		689ECDFD1CFC097C0046DDC8 /* SelectionMenu */ = {
+			isa = PBXGroup;
+			children = (
+				689ECDFE1CFC097C0046DDC8 /* SelectionMenuCollectionCell.h */,
+				689ECDFF1CFC097C0046DDC8 /* SelectionMenuCollectionCell.m */,
+				689ECE001CFC097C0046DDC8 /* SelectionMenuCollectionCell.xib */,
+				689ECE011CFC097C0046DDC8 /* SelectionMenuView.h */,
+				689ECE021CFC097C0046DDC8 /* SelectionMenuView.m */,
+				689ECE031CFC097C0046DDC8 /* SelectionMenuView.xib */,
+			);
+			path = SelectionMenu;
 			sourceTree = "<group>";
 		};
 		D6B825A02D971D6B5FD48F5F /* Pods */ = {
@@ -1658,7 +1673,6 @@
 				680C46161CC4F58F008C4BC0 /* LaunchScreen.xib in Resources */,
 				681031C21CDCAF6300FD26D6 /* DecPackageJiangXinView.xib in Resources */,
 				680C45671CC4D4BD008C4BC0 /* ImageDetailViewController.xib in Resources */,
-				680C45691CC4D4BD008C4BC0 /* ImageEditorViewController.xib in Resources */,
 				680C45631CC4D4BD008C4BC0 /* ImageBrowerViewController.xib in Resources */,
 				685B14B81CEB12110076996A /* SelectDecorationStyleViewController.xib in Resources */,
 				680C465A1CC5DB96008C4BC0 /* UpdateOneLineTextViewController.xib in Resources */,
@@ -1672,6 +1686,7 @@
 				680C456F1CC4D4BD008C4BC0 /* province2city.js in Resources */,
 				680C425C1CC4D4AE008C4BC0 /* ProcessViewController.xib in Resources */,
 				680C456D1CC4D4BD008C4BC0 /* allprovince.js in Resources */,
+				689ECE061CFC097C0046DDC8 /* SelectionMenuCollectionCell.xib in Resources */,
 				680C422E1CC4D4AE008C4BC0 /* VerifyPhoneViewController.xib in Resources */,
 				685B14B41CEB12110076996A /* SelectBusinessTypeViewController.xib in Resources */,
 				680C456E1CC4D4BD008C4BC0 /* city2area.js in Resources */,
@@ -1687,6 +1702,7 @@
 				680C45781CC4D4BD008C4BC0 /* WebViewWithoutShareController.xib in Resources */,
 				680C45651CC4D4BD008C4BC0 /* ThumbnailCell.xib in Resources */,
 				680C46581CC5DB96008C4BC0 /* UpdateMultipleLineTextViewController.xib in Resources */,
+				689ECE081CFC097C0046DDC8 /* SelectionMenuView.xib in Resources */,
 				680C42631CC4D4AE008C4BC0 /* UnexpandSectionActionView.xib in Resources */,
 				680C42591CC4D4AE008C4BC0 /* LeftViewController.xib in Resources */,
 				680C42C31CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.xib in Resources */,
@@ -1816,6 +1832,7 @@
 				680C44F11CC4D4BD008C4BC0 /* AccountBusiness.m in Sources */,
 				680C451C1CC4D4BD008C4BC0 /* UIImagePickerController+Ex.m in Sources */,
 				680C45291CC4D4BD008C4BC0 /* BeautifulImagePosition.m in Sources */,
+				689ECE141CFC0B850046DDC8 /* Team.m in Sources */,
 				680C452F1CC4D4BD008C4BC0 /* Evaluation.m in Sources */,
 				680C44A81CC4D4BD008C4BC0 /* BaseRequest.m in Sources */,
 				680C45351CC4D4BD008C4BC0 /* Process.m in Sources */,
@@ -1827,6 +1844,7 @@
 				680C42C01CC4D4AE008C4BC0 /* DecPackage365View.m in Sources */,
 				685B14C81CEB126E0076996A /* KRSSwizzle.m in Sources */,
 				680C424C1CC4D4AE008C4BC0 /* MyProcessViewController.m in Sources */,
+				689ECE051CFC097C0046DDC8 /* SelectionMenuCollectionCell.m in Sources */,
 				680C462D1CC5CD69008C4BC0 /* DataManager.m in Sources */,
 				680C46381CC5CFFF008C4BC0 /* SupervisorGetProcessList.m in Sources */,
 				680C44F41CC4D4BD008C4BC0 /* PlanDesignerDeclined.m in Sources */,
@@ -1860,6 +1878,7 @@
 				680C44D51CC4D4BD008C4BC0 /* RefreshSession.m in Sources */,
 				685B14BD1CEB12110076996A /* SelectPopulationViewController.m in Sources */,
 				685B14BF1CEB12110076996A /* SelectSexTypeViewController.m in Sources */,
+				689ECE131CFC0B850046DDC8 /* AwardDetail.m in Sources */,
 				680C456C1CC4D4BD008C4BC0 /* DIYGifHeader.m in Sources */,
 				680C45201CC4D4BD008C4BC0 /* UITabBarItem+Badge.m in Sources */,
 				680C45111CC4D4BD008C4BC0 /* NSDate+Ex.m in Sources */,
@@ -1879,7 +1898,6 @@
 				680C450B1CC4D4BD008C4BC0 /* ProcessBusiness.m in Sources */,
 				680C42311CC4D4AE008C4BC0 /* MeViewController.m in Sources */,
 				680C42AD1CC4D4AE008C4BC0 /* PlanPreviewViewController.m in Sources */,
-				680C456A1CC4D4BD008C4BC0 /* OverlayView.m in Sources */,
 				680C45621CC4D4BD008C4BC0 /* ImageBrowerViewController.m in Sources */,
 				680C45131CC4D4BD008C4BC0 /* NSNumber+Ex.m in Sources */,
 				680C455D1CC4D4BD008C4BC0 /* DateAlertViewController.m in Sources */,
@@ -1908,6 +1926,7 @@
 				680C45701CC4D4BD008C4BC0 /* SelectCityViewController.m in Sources */,
 				680C457B1CC4D4BD008C4BC0 /* HUDUtil.m in Sources */,
 				680C450F1CC4D4BD008C4BC0 /* CALayer+Ex.m in Sources */,
+				689ECE071CFC097C0046DDC8 /* SelectionMenuView.m in Sources */,
 				680C42D81CC4D4AE008C4BC0 /* RequirementDataManager.m in Sources */,
 				680C44A41CC4D4BD008C4BC0 /* BaseAPI.m in Sources */,
 				685B14B91CEB12110076996A /* SelectDecorationTypeViewController.m in Sources */,
@@ -1941,7 +1960,6 @@
 				680C44E91CC4D4BD008C4BC0 /* UploadImage.m in Sources */,
 				680C42641CC4D4AE008C4BC0 /* ProcessCell.m in Sources */,
 				680C44F31CC4D4BD008C4BC0 /* ElseStatus.m in Sources */,
-				680C45681CC4D4BD008C4BC0 /* ImageEditorViewController.m in Sources */,
 				6850A6141CCA2DDB0085940A /* CitySection.m in Sources */,
 				685B14B11CEB12110076996A /* MultipleLineTextTableViewCell.m in Sources */,
 				680C45211CC4D4BD008C4BC0 /* UIView+Badge.m in Sources */,
