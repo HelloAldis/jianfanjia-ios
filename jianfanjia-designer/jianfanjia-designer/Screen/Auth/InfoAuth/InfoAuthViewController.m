@@ -27,6 +27,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 @property (nonatomic, strong) ProductAuthImageFooterView *addAwardView;
 
 @property (nonatomic, strong) Designer *designer;
+@property (nonatomic, assign) BOOL canEdit;
 @property (nonatomic, strong) NSString *avatarImageid;
 
 @property (nonatomic, assign) BOOL isEdit;
@@ -42,10 +43,11 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 
 @implementation InfoAuthViewController
 
-- (instancetype)initWithDesigner:(Designer *)designer {
+- (instancetype)initWithDesigner:(Designer *)designer canEdit:(BOOL)canEdit {
     if (self = [super init]) {
         _designer = [[Designer alloc] init];
         [_designer merge:designer];
+        _canEdit = canEdit;
     }
     
     return self;
@@ -62,9 +64,12 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"基本资料认证";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
-    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+    
+    if (self.canEdit) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
+        self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+        [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+    }
 }
 
 - (void)initUI {

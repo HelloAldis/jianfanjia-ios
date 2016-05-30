@@ -91,7 +91,7 @@ static NSArray *authArr = nil;
     NSString *cellType = cellArr[indexPath.row];
     
     if ([cellType isEqualToString:AuthCellTypeBasicInfo]) {
-        [ViewControllerContainer showInfoAuth:self.designer];
+        [ViewControllerContainer showInfoAuth:self.designer canEdit:YES];
     } else if ([cellType isEqualToString:AuthCellTypeUid]) {
         [ViewControllerContainer showIDAuth:self.designer];
     } else if ([cellType isEqualToString:AuthCellTypeProduct]) {

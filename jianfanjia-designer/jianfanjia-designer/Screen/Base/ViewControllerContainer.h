@@ -35,7 +35,7 @@
 + (void)showNotificationDetail:(NSString *)notificationid readBlock:(NotificationReadBlock)readBlock;
 + (void)showMyComments;
 + (void)showDesignerAuth;
-+ (void)showInfoAuth:(Designer *)designer;
++ (void)showInfoAuth:(Designer *)designer canEdit:(BOOL)canEdit;
 + (void)showIDAuth:(Designer *)designer;
 + (void)showServiceArea:(Designer *)designer;
 + (void)showProductAuth;

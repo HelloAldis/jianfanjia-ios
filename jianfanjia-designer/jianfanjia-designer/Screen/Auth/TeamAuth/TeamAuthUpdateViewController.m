@@ -22,6 +22,8 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
 @property (nonatomic, strong) NSString *idCardFrontImageid;
 @property (nonatomic, strong) NSString *idCardBackImageid;
 
+@property (nonatomic, assign) BOOL isEdit;
+
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr1;
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr2;
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr3;
@@ -56,7 +58,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = [self isNewTeam] ? @"添加施工团队" : @"更新施工团队";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[self isNewTeam] ? @"提交" : @"编辑" style:UIBarButtonItemStylePlain target:self action:[self isNewTeam] ? @selector(onClickDone) : @selector(onClickEdit)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
@@ -152,6 +154,8 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
     [self.totalArr addObjectsFromArray:self.sectionArr2];
     [self.totalArr addObjectsFromArray:self.sectionArr3];
     [self refreshNextButtonStatus];
+    
+    self.isEdit = [self isNewTeam];
 }
 
 #pragma mark - table view delegate
@@ -202,13 +206,15 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        cell.userInteractionEnabled = self.isEdit;
         return cell;
     } else if (indexPath.section == 1) {
         UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        cell.userInteractionEnabled = self.isEdit;
         return cell;
     } else if (indexPath.section == 2) {
         IDAuthIDCardImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:IDAuthIDCardImageCellIdentifier forIndexPath:indexPath];
-        [cell initWithTeam:self.team actionBlock:^(CardImageAction action, CardImageType type) {
+        [cell initWithTeam:self.team isEdit:self.isEdit actionBlock:^(CardImageAction action, CardImageType type) {
             if (type == CardImageTypeFront) {
                 self.idCardFrontImageid = self.team.uid_image1;
             } else {
@@ -221,6 +227,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
         return cell;
     } else if (indexPath.section == 3) {
         UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        cell.userInteractionEnabled = self.isEdit;
         return cell;
     }
     
@@ -242,7 +249,16 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
 }
 
 #pragma mark - user action
-- (void)onClickNext {
+- (void)onClickEdit {
+    self.isEdit = YES;
+    [self.tableView reloadData];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+}
+
+
+- (void)onClickDone {
     [self.view endEditing:YES];
     
     if ([self isNewTeam]) {

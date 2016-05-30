@@ -21,6 +21,7 @@ CGFloat kIDAuthIDCardImageCellHeight;
 @property (strong, nonatomic) Designer *designer;
 @property (strong, nonatomic) Team *team;
 @property (copy, nonatomic) CardImageCellActionBlock actionBlock;
+@property (nonatomic, assign) BOOL isEdit;
 
 @end
 
@@ -43,16 +44,22 @@ CGFloat kIDAuthIDCardImageCellHeight;
     [self.rightDelImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapRightDelImgView)]];
 }
 
-- (void)initWithDesigner:(Designer *)designer actionBlock:(CardImageCellActionBlock)actionBlock {
+- (void)initWithDesigner:(Designer *)designer isEdit:(BOOL)isEdit actionBlock:(CardImageCellActionBlock)actionBlock {
     self.designer = designer;
     self.team = nil;
+    self.isEdit = isEdit;
+    self.leftDelImgView.userInteractionEnabled = isEdit;
+    self.rightDelImgView.userInteractionEnabled = isEdit;
     self.actionBlock = actionBlock;
     [self initUI];
 }
 
-- (void)initWithTeam:(Team *)team actionBlock:(CardImageCellActionBlock)actionBlock {
+- (void)initWithTeam:(Team *)team isEdit:(BOOL)isEdit actionBlock:(CardImageCellActionBlock)actionBlock {
     self.designer = nil;
     self.team = team;
+    self.isEdit = isEdit;
+    self.leftDelImgView.userInteractionEnabled = isEdit;
+    self.rightDelImgView.userInteractionEnabled = isEdit;
     self.actionBlock = actionBlock;
     [self initUI];
 }

@@ -13,7 +13,7 @@ extern CGFloat kIDAuthIDCardImageCellHeight;
 
 @interface IDAuthIDCardImageCell : UITableViewCell
 
-- (void)initWithDesigner:(Designer *)designer actionBlock:(CardImageCellActionBlock)actionBlock;
-- (void)initWithTeam:(Team *)team actionBlock:(CardImageCellActionBlock)actionBlock;
+- (void)initWithDesigner:(Designer *)designer isEdit:(BOOL)isEdit actionBlock:(CardImageCellActionBlock)actionBlock;
+- (void)initWithTeam:(Team *)team isEdit:(BOOL)isEdit actionBlock:(CardImageCellActionBlock)actionBlock;
 
 @end

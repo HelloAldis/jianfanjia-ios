@@ -40,7 +40,7 @@
 }
 
 - (void)onTap {
-    [ViewControllerContainer showInfoAuth:self.designer];
+    [ViewControllerContainer showInfoAuth:self.designer canEdit:NO];
 }
 
 @end

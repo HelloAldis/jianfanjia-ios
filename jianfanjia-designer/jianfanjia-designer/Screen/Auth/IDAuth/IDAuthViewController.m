@@ -25,6 +25,8 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 @property (nonatomic, strong) NSString *idCardBackImageid;
 @property (nonatomic, strong) NSString *bankCardFrontImageid;
 
+@property (nonatomic, assign) BOOL isEdit;
+
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr1;
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr3;
 
@@ -54,7 +56,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"身份认证";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
@@ -163,10 +165,11 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        cell.userInteractionEnabled = self.isEdit;
         return cell;
     } else if (indexPath.section == 1) {
         IDAuthIDCardImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:IDAuthIDCardImageCellIdentifier forIndexPath:indexPath];
-        [cell initWithDesigner:self.designer actionBlock:^(CardImageAction action, CardImageType type) {
+        [cell initWithDesigner:self.designer isEdit:self.isEdit actionBlock:^(CardImageAction action, CardImageType type) {
             if (type == CardImageTypeFront) {
                 self.idCardFrontImageid = self.designer.uid_image1;
             } else {
@@ -179,10 +182,11 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
         return cell;
     } else if (indexPath.section == 2) {
         UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        cell.userInteractionEnabled = self.isEdit;
         return cell;
     } else if (indexPath.section == 3) {
         IDAuthBankCardImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:IDAuthBankCardImageCellIdentifier forIndexPath:indexPath];
-        [cell initWithDesigner:self.designer actionBlock:^(CardImageAction action, CardImageType type) {
+        [cell initWithDesigner:self.designer isEdit:self.isEdit actionBlock:^(CardImageAction action, CardImageType type) {
             self.bankCardFrontImageid = self.designer.bank_card_image1;
             [self.tableView reloadData];
         }];
@@ -208,7 +212,15 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 }
 
 #pragma mark - user action
-- (void)onClickNext {
+- (void)onClickEdit {
+    self.isEdit = YES;
+    [self.tableView reloadData];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+}
+
+- (void)onClickDone {
     [self.view endEditing:YES];
     DesignerUpdateUIDBankInfo *request = [[DesignerUpdateUIDBankInfo alloc] initWithDesigner:self.designer];
     

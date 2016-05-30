@@ -266,8 +266,8 @@ static ViewControllerContainer *container;
     [container.navigation pushViewController:v animated:YES];
 }
 
-+ (void)showInfoAuth:(Designer *)designer {
-    InfoAuthViewController *v = [[InfoAuthViewController alloc] initWithDesigner:designer];
++ (void)showInfoAuth:(Designer *)designer canEdit:(BOOL)canEdit {
+    InfoAuthViewController *v = [[InfoAuthViewController alloc] initWithDesigner:designer canEdit:canEdit];
     [container.navigation pushViewController:v animated:YES];
 }
 
