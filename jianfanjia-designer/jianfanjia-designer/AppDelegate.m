@@ -21,6 +21,8 @@
     [self initNotification:launchOptions];
     // 初始化第三方统计
     [self initThirdPartyStatistics];
+    // 初始化第三方分享
+    [self initThirdPartyShare];
     // 初始化日志
     [self initLog];
     
@@ -84,6 +86,14 @@
 - (void)initThirdPartyStatistics {
     // 友盟日志统计
     [MobClick startWithAppkey:kUMengAppKey reportPolicy:BATCH channelId:@"default"];
+}
+
+#pragma mark - 第三方登录／分享
+- (void)initThirdPartyShare {
+    // 友盟第三方登录／分享
+    [[JYZSocialSnsConfigCenter shared] registerWX:kWXAppId appsecret:kWXAppSecret];
+    [[JYZSocialSnsConfigCenter shared] registerQQ:kQQAppId];
+    [[JYZSocialSnsConfigCenter shared] registerWeibo:kWeiboAppKey rediectURI:nil];
 }
 
 #pragma mark - 用户通知(推送) _自定义方法
