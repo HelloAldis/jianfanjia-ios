@@ -11,6 +11,7 @@
 
 @interface NSString (EX)
 
+- (BOOL)isValidateEmail;
 - (NSString *)lowercaseFirstLetterString;
 - (NSString *)substringWithoutLast:(NSUInteger)last;
 - (BOOL)isEmpty;

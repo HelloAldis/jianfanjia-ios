@@ -374,6 +374,14 @@
 		687EEB581CE2C69E00A277DC /* DIYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB571CE2C69E00A277DC /* DIYRefreshFooter.m */; };
 		68921FFE1CD0D7C300BC80C7 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */; };
 		689220071CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220061CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m */; };
+		689ECDE51CFBD3940046DDC8 /* EmailAuthRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECDDD1CFBD3940046DDC8 /* EmailAuthRequestViewController.m */; };
+		689ECDE61CFBD3940046DDC8 /* EmailAuthRequestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECDDE1CFBD3940046DDC8 /* EmailAuthRequestViewController.xib */; };
+		689ECDE71CFBD3940046DDC8 /* EmailAuthReviewingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECDE01CFBD3940046DDC8 /* EmailAuthReviewingViewController.m */; };
+		689ECDE81CFBD3940046DDC8 /* EmailAuthReviewingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECDE11CFBD3940046DDC8 /* EmailAuthReviewingViewController.xib */; };
+		689ECDE91CFBD3940046DDC8 /* EmailAuthSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECDE31CFBD3940046DDC8 /* EmailAuthSuccessViewController.m */; };
+		689ECDEA1CFBD3940046DDC8 /* EmailAuthSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECDE41CFBD3940046DDC8 /* EmailAuthSuccessViewController.xib */; };
+		689ECDEF1CFBDA7D0046DDC8 /* DesignerSendEmailVerify.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECDEC1CFBDA7D0046DDC8 /* DesignerSendEmailVerify.m */; };
+		689ECDF01CFBDA7D0046DDC8 /* DesignerUpdateEmail.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECDEE1CFBDA7D0046DDC8 /* DesignerUpdateEmail.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -1078,6 +1086,19 @@
 		68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastUtil.m; sourceTree = "<group>"; };
 		689220051CD2104900BC80C7 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
 		689220061CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyboardAnimation.m"; sourceTree = "<group>"; };
+		689ECDDC1CFBD3940046DDC8 /* EmailAuthRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailAuthRequestViewController.h; sourceTree = "<group>"; };
+		689ECDDD1CFBD3940046DDC8 /* EmailAuthRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailAuthRequestViewController.m; sourceTree = "<group>"; };
+		689ECDDE1CFBD3940046DDC8 /* EmailAuthRequestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmailAuthRequestViewController.xib; sourceTree = "<group>"; };
+		689ECDDF1CFBD3940046DDC8 /* EmailAuthReviewingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailAuthReviewingViewController.h; sourceTree = "<group>"; };
+		689ECDE01CFBD3940046DDC8 /* EmailAuthReviewingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailAuthReviewingViewController.m; sourceTree = "<group>"; };
+		689ECDE11CFBD3940046DDC8 /* EmailAuthReviewingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmailAuthReviewingViewController.xib; sourceTree = "<group>"; };
+		689ECDE21CFBD3940046DDC8 /* EmailAuthSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmailAuthSuccessViewController.h; sourceTree = "<group>"; };
+		689ECDE31CFBD3940046DDC8 /* EmailAuthSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmailAuthSuccessViewController.m; sourceTree = "<group>"; };
+		689ECDE41CFBD3940046DDC8 /* EmailAuthSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EmailAuthSuccessViewController.xib; sourceTree = "<group>"; };
+		689ECDEB1CFBDA7D0046DDC8 /* DesignerSendEmailVerify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerSendEmailVerify.h; sourceTree = "<group>"; };
+		689ECDEC1CFBDA7D0046DDC8 /* DesignerSendEmailVerify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerSendEmailVerify.m; sourceTree = "<group>"; };
+		689ECDED1CFBDA7D0046DDC8 /* DesignerUpdateEmail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerUpdateEmail.h; sourceTree = "<group>"; };
+		689ECDEE1CFBDA7D0046DDC8 /* DesignerUpdateEmail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerUpdateEmail.m; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -1834,6 +1855,15 @@
 		685B14EC1CEC526C0076996A /* EmailAuth */ = {
 			isa = PBXGroup;
 			children = (
+				689ECDDC1CFBD3940046DDC8 /* EmailAuthRequestViewController.h */,
+				689ECDDD1CFBD3940046DDC8 /* EmailAuthRequestViewController.m */,
+				689ECDDE1CFBD3940046DDC8 /* EmailAuthRequestViewController.xib */,
+				689ECDDF1CFBD3940046DDC8 /* EmailAuthReviewingViewController.h */,
+				689ECDE01CFBD3940046DDC8 /* EmailAuthReviewingViewController.m */,
+				689ECDE11CFBD3940046DDC8 /* EmailAuthReviewingViewController.xib */,
+				689ECDE21CFBD3940046DDC8 /* EmailAuthSuccessViewController.h */,
+				689ECDE31CFBD3940046DDC8 /* EmailAuthSuccessViewController.m */,
+				689ECDE41CFBD3940046DDC8 /* EmailAuthSuccessViewController.xib */,
 			);
 			path = EmailAuth;
 			sourceTree = "<group>";
@@ -2190,6 +2220,10 @@
 		6E378CD11BDA2D2E00908B77 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				689ECDEB1CFBDA7D0046DDC8 /* DesignerSendEmailVerify.h */,
+				689ECDEC1CFBDA7D0046DDC8 /* DesignerSendEmailVerify.m */,
+				689ECDED1CFBDA7D0046DDC8 /* DesignerUpdateEmail.h */,
+				689ECDEE1CFBDA7D0046DDC8 /* DesignerUpdateEmail.m */,
 				680F66581CF85383000E1EEF /* DesignerUpdateServiceInfo.h */,
 				680F66591CF85383000E1EEF /* DesignerUpdateServiceInfo.m */,
 				680F658F1CF6E3EA000E1EEF /* DesignerUpdateTeam.h */,
@@ -2608,6 +2642,7 @@
 				68123E791C4CBE79008FC9AB /* CustomerServiceViewController.xib in Resources */,
 				685B15C11CF2E4FA0076996A /* ProductAuthProductDescriptionCell.xib in Resources */,
 				68123E961C4CBE79008FC9AB /* SettingViewController.xib in Resources */,
+				689ECDEA1CFBD3940046DDC8 /* EmailAuthSuccessViewController.xib in Resources */,
 				68123EED1C4CBE79008FC9AB /* PlanCell.xib in Resources */,
 				68123EF11C4CBE79008FC9AB /* PlanPreviewViewController.xib in Resources */,
 				68123C9D1C4C9772008FC9AB /* SelectCityViewController.xib in Resources */,
@@ -2683,10 +2718,12 @@
 				681241AF1C4F3BCF008FC9AB /* SubmitedPlanActionCell.xib in Resources */,
 				680F66431CF81CC3000E1EEF /* SelectAllCell.xib in Resources */,
 				685B152A1CEC71010076996A /* ProductAuthCell.xib in Resources */,
+				689ECDE61CFBD3940046DDC8 /* EmailAuthRequestViewController.xib in Resources */,
 				685B15191CEC60950076996A /* SelectionEditCell.xib in Resources */,
 				684B04101C98F7060053FFDF /* PlanCommentInfoCell.xib in Resources */,
 				680F65811CF6CE21000E1EEF /* SelectBankTypeViewController.xib in Resources */,
 				68123C931C4C9772008FC9AB /* ThumbnailCell.xib in Resources */,
+				689ECDE81CFBD3940046DDC8 /* EmailAuthReviewingViewController.xib in Resources */,
 				685F2D6F1CABC0A900DC4D43 /* UnexpandSectionActionView.xib in Resources */,
 				681241341C4CF2D5008FC9AB /* SectionView.xib in Resources */,
 				68123C991C4C9772008FC9AB /* allprovince.js in Resources */,
@@ -2800,6 +2837,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				689ECDE91CFBD3940046DDC8 /* EmailAuthSuccessViewController.m in Sources */,
 				685B14781CEB11CF0076996A /* BaseSelectionViewController.m in Sources */,
 				681240191C4CDA06008FC9AB /* UIColor+Ex.m in Sources */,
 				68123F031C4CBE79008FC9AB /* RequirementCreateViewController.m in Sources */,
@@ -2850,6 +2888,7 @@
 				681240B81C4CE471008FC9AB /* GetComments.m in Sources */,
 				684B04351C990E910053FFDF /* MyNotificationDataManager.m in Sources */,
 				685B15711CED93BB0076996A /* TeamUploadCell.m in Sources */,
+				689ECDEF1CFBDA7D0046DDC8 /* DesignerSendEmailVerify.m in Sources */,
 				6E378D471BDA2D2E00908B77 /* NSString+Ex.m in Sources */,
 				685B15C01CF2E4FA0076996A /* ProductAuthProductDescriptionCell.m in Sources */,
 				681241A91C4F3B1C008FC9AB /* RespondedActionCell.m in Sources */,
@@ -2906,6 +2945,7 @@
 				68123C921C4C9772008FC9AB /* ThumbnailCell.m in Sources */,
 				6850A5FE1CC75C6B0085940A /* BaseNotification.m in Sources */,
 				684B043A1C990E910053FFDF /* RequirementNotificationCell.m in Sources */,
+				689ECDF01CFBDA7D0046DDC8 /* DesignerUpdateEmail.m in Sources */,
 				684B040A1C98F7060053FFDF /* CommentListDataManager.m in Sources */,
 				68F73D2E1CBB597E00E97710 /* ReqtDesignerMeasuredHouse.m in Sources */,
 				685B151A1CEC60950076996A /* TextEditCell.m in Sources */,
@@ -2979,6 +3019,7 @@
 				68123CF41C4C9A34008FC9AB /* Notification.m in Sources */,
 				681240DE1C4CED53008FC9AB /* GetDesignerProcess.m in Sources */,
 				680C40E51CC4C1AF008C4BC0 /* APIManager.m in Sources */,
+				689ECDE71CFBD3940046DDC8 /* EmailAuthReviewingViewController.m in Sources */,
 				682E04EE1C55FA9100F1ACAA /* NotifyUserToDBYS.m in Sources */,
 				684B04451C9A48520053FFDF /* DesignerNotifyUserToConfirmMeasureHouse.m in Sources */,
 				6E378D531BDA2D2E00908B77 /* User.m in Sources */,
@@ -2994,6 +3035,7 @@
 				681241821C4F235B008FC9AB /* MyUserDataManager.m in Sources */,
 				68F73D211CBB597E00E97710 /* ElseStatus.m in Sources */,
 				680F65A21CF6FE40000E1EEF /* HorizontalImageCell.m in Sources */,
+				689ECDE51CFBD3940046DDC8 /* EmailAuthRequestViewController.m in Sources */,
 				68123F181C4CBE79008FC9AB /* W1View.m in Sources */,
 				6E378D2F1BDA2D2E00908B77 /* BaseAPI.m in Sources */,
 				681240BB1C4CE471008FC9AB /* GetProcess.m in Sources */,

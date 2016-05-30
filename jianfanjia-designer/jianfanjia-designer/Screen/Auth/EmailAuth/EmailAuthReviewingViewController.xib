@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EmailAuthReviewingViewController">
+            <connections>
+                <outlet property="fldEmail" destination="74t-fe-GsK" id="GzO-ok-rZx"/>
+                <outlet property="iconView" destination="hhy-Db-oOf" id="2OO-C2-xlu"/>
+                <outlet property="lblText1" destination="32w-MJ-b5A" id="fYy-Ii-H78"/>
+                <outlet property="lblText2" destination="eZT-V4-gCr" id="uGh-ef-aFs"/>
+                <outlet property="lblText3" destination="Vcd-w6-bOS" id="e3v-o0-Iue"/>
+                <outlet property="scrollView" destination="ZzS-8d-gyz" id="vRc-KV-E6J"/>
+                <outlet property="view" destination="bmw-Vw-S8Z" id="Jlr-33-JGs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bmw-Vw-S8Z">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="841"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZzS-8d-gyz">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="841"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nX-4w-9KK" userLabel="ContainerView">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="841"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hhy-Db-oOf">
+                                    <rect key="frame" x="260" y="76" width="80" height="80"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_email" translatesAutoresizingMaskIntoConstraints="NO" id="8UC-Z0-rw1">
+                                            <rect key="frame" x="20" y="24" width="40" height="32"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="8UC-Z0-rw1" secondAttribute="height" multiplier="39:31" id="34M-r9-fK9"/>
+                                                <constraint firstAttribute="width" constant="40" id="5am-wa-V8H"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="0.2666666667" blue="0.27058823529999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="80" id="Kxt-X1-lLt"/>
+                                        <constraint firstAttribute="width" secondItem="hhy-Db-oOf" secondAttribute="height" multiplier="1:1" id="Ubi-tk-SvP"/>
+                                        <constraint firstItem="8UC-Z0-rw1" firstAttribute="centerX" secondItem="hhy-Db-oOf" secondAttribute="centerX" id="WwW-SL-zPU"/>
+                                        <constraint firstItem="8UC-Z0-rw1" firstAttribute="centerY" secondItem="hhy-Db-oOf" secondAttribute="centerY" id="rqQ-Ow-Gaf"/>
+                                    </constraints>
+                                </view>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="例如: user@jianfanjia.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="74t-fe-GsK">
+                                    <rect key="frame" x="60" y="253" width="480" height="50"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="5K4-9v-TZY"/>
+                                    </constraints>
+                                    <color key="textColor" red="0.71372549019999998" green="0.73725490199999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我们已向您的邮箱发送了一份验证邮件\n请前往查收并完成验证" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32w-MJ-b5A">
+                                    <rect key="frame" x="105" y="196" width="391" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如果没有收到邮件，请点击    重新发送" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZT-V4-gCr">
+                                    <rect key="frame" x="180" y="343" width="240" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="如果修改邮箱，请点击    修改邮箱" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vcd-w6-bOS">
+                                    <rect key="frame" x="194" y="374" width="212" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="74t-fe-GsK" firstAttribute="centerX" secondItem="2nX-4w-9KK" secondAttribute="centerX" id="3CA-Jz-t18"/>
+                                <constraint firstItem="Vcd-w6-bOS" firstAttribute="top" secondItem="eZT-V4-gCr" secondAttribute="bottom" constant="14" id="9tx-SX-Aed"/>
+                                <constraint firstItem="eZT-V4-gCr" firstAttribute="top" secondItem="74t-fe-GsK" secondAttribute="bottom" constant="40" id="HGm-io-Fl5"/>
+                                <constraint firstItem="eZT-V4-gCr" firstAttribute="centerX" secondItem="2nX-4w-9KK" secondAttribute="centerX" id="TPo-Zu-6he"/>
+                                <constraint firstItem="32w-MJ-b5A" firstAttribute="centerX" secondItem="2nX-4w-9KK" secondAttribute="centerX" id="bcZ-r2-mfX"/>
+                                <constraint firstItem="74t-fe-GsK" firstAttribute="top" secondItem="32w-MJ-b5A" secondAttribute="bottom" constant="40" id="bvW-xY-Si3"/>
+                                <constraint firstItem="32w-MJ-b5A" firstAttribute="top" secondItem="hhy-Db-oOf" secondAttribute="bottom" constant="40" id="e9m-OH-i38"/>
+                                <constraint firstItem="74t-fe-GsK" firstAttribute="leading" secondItem="2nX-4w-9KK" secondAttribute="leading" constant="60" id="eIR-9J-UNs"/>
+                                <constraint firstItem="hhy-Db-oOf" firstAttribute="top" secondItem="2nX-4w-9KK" secondAttribute="top" constant="76" id="fG5-ty-sJr"/>
+                                <constraint firstItem="hhy-Db-oOf" firstAttribute="centerX" secondItem="2nX-4w-9KK" secondAttribute="centerX" id="iQe-bS-Ybb"/>
+                                <constraint firstItem="Vcd-w6-bOS" firstAttribute="centerX" secondItem="2nX-4w-9KK" secondAttribute="centerX" id="jCd-RC-FJr"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="2nX-4w-9KK" secondAttribute="bottom" id="64o-WH-IFP"/>
+                        <constraint firstItem="2nX-4w-9KK" firstAttribute="height" secondItem="ZzS-8d-gyz" secondAttribute="height" id="FLk-8w-A2c"/>
+                        <constraint firstAttribute="trailing" secondItem="2nX-4w-9KK" secondAttribute="trailing" id="FSv-1C-Set"/>
+                        <constraint firstItem="2nX-4w-9KK" firstAttribute="leading" secondItem="ZzS-8d-gyz" secondAttribute="leading" id="YwT-tI-Xrn"/>
+                        <constraint firstItem="2nX-4w-9KK" firstAttribute="width" secondItem="ZzS-8d-gyz" secondAttribute="width" id="aEJ-a1-dJU"/>
+                        <constraint firstItem="2nX-4w-9KK" firstAttribute="top" secondItem="ZzS-8d-gyz" secondAttribute="top" id="fYB-Lq-gRL"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="ZzS-8d-gyz" firstAttribute="leading" secondItem="bmw-Vw-S8Z" secondAttribute="leading" id="Pyg-42-mo5"/>
+                <constraint firstItem="ZzS-8d-gyz" firstAttribute="top" secondItem="bmw-Vw-S8Z" secondAttribute="top" id="aFF-BA-Gn4"/>
+                <constraint firstAttribute="bottom" secondItem="ZzS-8d-gyz" secondAttribute="bottom" id="hrZ-qg-Iak"/>
+                <constraint firstAttribute="trailing" secondItem="ZzS-8d-gyz" secondAttribute="trailing" id="oQP-tG-QoK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="356" y="452.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_email" width="19" height="15"/>
+    </resources>
+</document>

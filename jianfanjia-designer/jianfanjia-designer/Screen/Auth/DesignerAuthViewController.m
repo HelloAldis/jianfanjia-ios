@@ -99,7 +99,13 @@ static NSArray *authArr = nil;
     } else if ([cellType isEqualToString:AuthCellTypeTeam]) {
         [ViewControllerContainer showTeamAuth];
     } else if ([cellType isEqualToString:AuthCellTypeEmail]) {
-        
+        if ([self.designer.email_auth_type isEqualToString:kAuthTypeUnsubmitVerify] || [self.designer.email_auth_type isEqualToString:kAuthTypeVerifyNotPass] || [self.designer.email_auth_type isEqualToString:kAuthTypeBreakRule]) {
+            [ViewControllerContainer showEmailAuthRequest:self.designer];
+        } else if ([self.designer.email_auth_type isEqualToString:kAuthTypeSubmitedVerifyButNotPass]) {
+            [ViewControllerContainer showEmailAuthReviewing:self.designer];
+        } else if ([self.designer.email_auth_type isEqualToString:kAuthTypeVerifyPass]) {
+            [ViewControllerContainer showEmailAuthSuccess:self.designer];
+        }
     }
 }
 

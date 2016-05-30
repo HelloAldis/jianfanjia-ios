@@ -53,5 +53,7 @@
 #import "DesignerUpdateUIDBankInfo.h"
 #import "DesignerUpdateTeam.h"
 #import "DesignerUpdateServiceInfo.h"
+#import "DesignerUpdateEmail.h"
+#import "DesignerSendEmailVerify.h"
 
 #endif

@@ -39,6 +39,9 @@
 #import "IDAuthViewController.h"
 #import "TeamAuthUpdateViewController.h"
 #import "ServiceAreaViewController.h"
+#import "EmailAuthRequestViewController.h"
+#import "EmailAuthReviewingViewController.h"
+#import "EmailAuthSuccessViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -246,7 +249,7 @@ static ViewControllerContainer *container;
 
 + (void)showMyComments {
     //if has designer order screen pop to
-    UINavigationController* nav =  container.tab.selectedViewController;
+    UINavigationController* nav =  container.navigation;
     for (UIViewController *v in nav.viewControllers) {
         if ([v isKindOfClass:[CommentListViewController class]]) {
             [nav popToViewController:v animated:YES];
@@ -300,6 +303,48 @@ static ViewControllerContainer *container;
 
 + (void)showTeamAuthUpdate:(Team *)team {
     TeamAuthUpdateViewController *v = [[TeamAuthUpdateViewController alloc] initWithTeam:team];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showEmailAuthRequest:(Designer *)designer {
+    UINavigationController* nav =  container.navigation;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[EmailAuthRequestViewController class]]) {
+            ((EmailAuthRequestViewController *)v).designer = designer;
+            [nav popToViewController:v animated:YES];
+            return;
+        }
+    }
+    
+    EmailAuthRequestViewController *v = [[EmailAuthRequestViewController alloc] initWithDesigner:designer];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showEmailAuthReviewing:(Designer *)designer {
+    UINavigationController* nav =  container.navigation;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[EmailAuthReviewingViewController class]]) {
+            ((EmailAuthReviewingViewController *)v).designer = designer;
+            [nav popToViewController:v animated:YES];
+            return;
+        }
+    }
+    
+    EmailAuthReviewingViewController *v = [[EmailAuthReviewingViewController alloc] initWithDesigner:designer];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showEmailAuthSuccess:(Designer *)designer {
+    UINavigationController* nav =  container.navigation;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[EmailAuthSuccessViewController class]]) {
+            ((EmailAuthSuccessViewController *)v).designer = designer;
+            [nav popToViewController:v animated:YES];
+            return;
+        }
+    }
+    
+    EmailAuthSuccessViewController *v = [[EmailAuthSuccessViewController alloc] initWithDesigner:designer];
     [container.navigation pushViewController:v animated:YES];
 }
 

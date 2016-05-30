@@ -183,6 +183,14 @@
     [API POST:@"designer/product/update" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)designerUpdateEmail:(DesignerUpdateEmail *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"designer/email_info" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)designerSendEmailVerify:(DesignerSendEmailVerify *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"send_verify_email" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
 
 

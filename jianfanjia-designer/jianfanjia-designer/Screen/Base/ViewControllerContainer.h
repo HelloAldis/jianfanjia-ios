@@ -43,6 +43,9 @@
 + (void)showProductAuthUploadPart2:(Product *)product;
 + (void)showTeamAuth;
 + (void)showTeamAuthUpdate:(Team *)team;
++ (void)showEmailAuthRequest:(Designer *)designer;
++ (void)showEmailAuthReviewing:(Designer *)designer;
++ (void)showEmailAuthSuccess:(Designer *)designer;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
 + (void)showRefresh;
