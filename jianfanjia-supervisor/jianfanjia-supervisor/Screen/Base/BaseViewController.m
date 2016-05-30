@@ -26,8 +26,8 @@
     [super viewDidAppear:animated];
     
     if (self.tabBarController) {
-        self.navigationController.interactivePopGestureRecognizer.delegate = nil;
-        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+        [ViewControllerContainer navigation].interactivePopGestureRecognizer.delegate = nil;
+        [ViewControllerContainer navigation].interactivePopGestureRecognizer.enabled = NO;
     } else if (self.navigationController && self.navigationController.viewControllers.firstObject != self) {
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
         self.navigationController.interactivePopGestureRecognizer.delegate = self;
