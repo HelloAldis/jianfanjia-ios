@@ -188,7 +188,7 @@
                         <constraint firstAttribute="trailing" secondItem="M0q-Ia-Gvi" secondAttribute="trailing" id="tvT-Ri-oFI"/>
                     </constraints>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kb9-Fm-T2r">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kb9-Fm-T2r">
                     <rect key="frame" x="20" y="425" width="280" height="40"/>
                     <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

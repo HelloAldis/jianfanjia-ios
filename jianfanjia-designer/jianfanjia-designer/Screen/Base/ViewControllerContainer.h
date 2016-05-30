@@ -43,6 +43,7 @@
 + (void)showProductAuthUploadPart2:(Product *)product;
 + (void)showTeamAuth;
 + (void)showTeamAuthUpdate:(Team *)team;
++ (void)showTeamConfigure:(Requirement *)requirement startTime:(NSNumber *)startTime completion:(void (^)(BOOL completion))completion;
 + (void)showEmailAuthRequest:(Designer *)designer;
 + (void)showEmailAuthReviewing:(Designer *)designer;
 + (void)showEmailAuthSuccess:(Designer *)designer;
@@ -52,6 +53,7 @@
 + (void)showRefresh;
 + (void)refreshSuccess;
 + (UIViewController *)getCurrentTapController;
++ (UIViewController *)getCurrentTopController;
 + (void)logout;
 
 @end

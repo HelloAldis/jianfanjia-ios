@@ -420,6 +420,8 @@
 		689ECEC41CFC19EF0046DDC8 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689ECEC31CFC19EF0046DDC8 /* Photos.framework */; };
 		689ECEC61CFC19FC0046DDC8 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 689ECEC51CFC19FC0046DDC8 /* libc++.tbd */; };
 		689ECEC91CFC1A320046DDC8 /* SnsAccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECEC81CFC1A320046DDC8 /* SnsAccountInfo.m */; };
+		689ECECD1CFC3A4A0046DDC8 /* TeamConfigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECECB1CFC3A4A0046DDC8 /* TeamConfigureViewController.m */; };
+		689ECECE1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECECC1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -1200,6 +1202,9 @@
 		689ECEC51CFC19FC0046DDC8 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		689ECEC71CFC1A320046DDC8 /* SnsAccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnsAccountInfo.h; sourceTree = "<group>"; };
 		689ECEC81CFC1A320046DDC8 /* SnsAccountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnsAccountInfo.m; sourceTree = "<group>"; };
+		689ECECA1CFC3A4A0046DDC8 /* TeamConfigureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamConfigureViewController.h; sourceTree = "<group>"; };
+		689ECECB1CFC3A4A0046DDC8 /* TeamConfigureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamConfigureViewController.m; sourceTree = "<group>"; };
+		689ECECC1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamConfigureViewController.xib; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -2073,6 +2078,9 @@
 				680F65851CF6D545000E1EEF /* TeamAuthUpdateViewController.h */,
 				680F65861CF6D545000E1EEF /* TeamAuthUpdateViewController.m */,
 				680F65871CF6D545000E1EEF /* TeamAuthUpdateViewController.xib */,
+				689ECECA1CFC3A4A0046DDC8 /* TeamConfigureViewController.h */,
+				689ECECB1CFC3A4A0046DDC8 /* TeamConfigureViewController.m */,
+				689ECECC1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib */,
 			);
 			path = TeamAuth;
 			sourceTree = "<group>";
@@ -2892,6 +2900,7 @@
 				6E0426791BC757C500F984B8 /* Assets.xcassets in Resources */,
 				68123F041C4CBE79008FC9AB /* RequirementCreateViewController.xib in Resources */,
 				6EA0C19A1C577F7500D04A4F /* PlanPriceDetailViewController.xib in Resources */,
+				689ECECE1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib in Resources */,
 				689ECE631CFC10DD0046DDC8 /* JYZShareMenuCollectionCell.xib in Resources */,
 				689ECE191CFC0F880046DDC8 /* WebViewWithActionController.xib in Resources */,
 				681241911C4F2F35008FC9AB /* UnrespondActionCell.xib in Resources */,
@@ -3172,6 +3181,7 @@
 				689ECE641CFC10DD0046DDC8 /* JYZShareMenuView.m in Sources */,
 				681241A71C4F3B1C008FC9AB /* RejectActionCell.m in Sources */,
 				685B154D1CED70620076996A /* ProductInfoCell.m in Sources */,
+				689ECECD1CFC3A4A0046DDC8 /* TeamConfigureViewController.m in Sources */,
 				68123E6E1C4CBE79008FC9AB /* TabViewController.m in Sources */,
 				68123E911C4CBE79008FC9AB /* AboutViewController.m in Sources */,
 				684B04471C9A76480053FFDF /* UIBarButtonItem+Badge.m in Sources */,

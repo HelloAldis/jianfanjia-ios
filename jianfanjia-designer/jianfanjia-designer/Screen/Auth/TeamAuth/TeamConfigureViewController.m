@@ -6,7 +6,7 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "TeamAuthViewController.h"
+#import "TeamConfigureViewController.h"
 #import "TeamUploadCell.h"
 #import "TeamAuthCell.h"
 #import "TeamAuthDataManager.h"
@@ -14,22 +14,39 @@
 static const NSInteger COUNT_IN_ONE_ROW = 2;
 static const NSInteger CELL_SPACE = 8;
 static const NSInteger SECTION_LEFT = 10;
+static const NSInteger MAX_SELECT_COUNT = 1;
 
 static NSString *TeamUploadCellIdentifier = @"TeamUploadCell";
 static NSString *TeamAuthCellIdentifier = @"TeamAuthCell";
 
-@interface TeamAuthViewController ()
+@interface TeamConfigureViewController ()
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionLayout;
 
 @property (strong, nonatomic) TeamAuthDataManager *dataManager;
-@property (assign, nonatomic) BOOL isEditing;
 @property (assign, nonatomic) CGFloat cellWidth;
+
+@property (strong, nonatomic) Requirement *requirement;
+@property (strong, nonatomic) NSNumber *startTime;
+@property (copy, nonatomic) TeamConfigureCompletionBlock completion;
+@property (assign, nonatomic) NSInteger selectingCount;
+
+@property (strong, nonatomic) NSArray<NSIndexPath *> *currentSelectedIndexs;
 
 @end
 
-@implementation TeamAuthViewController
+@implementation TeamConfigureViewController
+
+- (instancetype)initWithRequirement:(Requirement *)requirement startTime:(NSNumber *)startTime  completion:(TeamConfigureCompletionBlock)completion {
+    if (self = [super init]) {
+        _requirement = requirement;
+        _startTime = startTime;
+        _completion = completion;
+    }
+    
+    return self;
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -44,13 +61,18 @@ static NSString *TeamAuthCellIdentifier = @"TeamAuthCell";
     [self refresh];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    self.currentSelectedIndexs = self.collectionView.indexPathsForSelectedItems;
+}
+
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"我的施工团队";
+    self.title = @"配置施工团队";
     [self initLeftBackInNav];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
-    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
 
@@ -76,6 +98,11 @@ static NSString *TeamAuthCellIdentifier = @"TeamAuthCell";
         @strongify(self);
         [self loadMore];
     }];
+    
+    [RACObserve(self, selectingCount) subscribeNext:^(id x) {
+        @strongify(self);
+        self.navigationItem.rightBarButtonItem.enabled = [x integerValue] == MAX_SELECT_COUNT;
+    }];
 }
 
 #pragma mark - collection delegate
@@ -98,10 +125,24 @@ static NSString *TeamAuthCellIdentifier = @"TeamAuthCell";
     }
     
     TeamAuthCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:TeamAuthCellIdentifier forIndexPath:indexPath];
-    [cell initWithTeam:self.dataManager.teams[indexPath.row] canSelect:NO selectBlock:nil edit:self.isEditing deleteBlock:^{
-        [self.dataManager.teams removeObjectAtIndex:indexPath.row];
-        [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
-    }];
+    [cell initWithTeam:self.dataManager.teams[indexPath.row] canSelect:YES selectBlock:^(BOOL isSelected) {
+        if (!isSelected && self.selectingCount >= MAX_SELECT_COUNT) {
+            return;
+        }
+        
+        if (isSelected) {
+            self.selectingCount--;
+            [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
+        } else {
+            self.selectingCount++;
+            [self.collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+        }
+    }  edit:NO deleteBlock:nil];
+    
+    if ([self.currentSelectedIndexs containsObject:indexPath]) {
+        cell.selected = YES;
+        [self.collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
+    }
     
     return cell;
 }
@@ -166,16 +207,25 @@ static NSString *TeamAuthCellIdentifier = @"TeamAuthCell";
 }
 
 #pragma mark - user action
-- (void)onClickEdit {
-    self.isEditing = !self.isEditing;
+- (void)onClickDone {
+    [HUDUtil showWait];
+    DesignerConfigAgreement *request = [[DesignerConfigAgreement alloc] init];
+    request.requirementid = self.requirement._id;
+    request.start_at = self.startTime;
+    request.manager = [(id)self.dataManager.teams[self.collectionView.indexPathsForSelectedItems[0].row] manager];
     
-    if (self.isEditing) {
-        self.navigationItem.rightBarButtonItem.title = @"完成";
-    } else {
-        self.navigationItem.rightBarButtonItem.title = @"编辑";
-    }
-    
-    [self.collectionView reloadData];
+    [API designerConfigAgreement:request success:^{
+        [HUDUtil hideWait];
+        if (self.completion) {
+            self.completion(YES);
+        }
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    } failure:^{
+        [HUDUtil hideWait];
+        [HUDUtil showErrText:[DataManager shared].errMsg];
+    } networkError:^{
+        [HUDUtil hideWait];
+    }];
 }
 
 @end

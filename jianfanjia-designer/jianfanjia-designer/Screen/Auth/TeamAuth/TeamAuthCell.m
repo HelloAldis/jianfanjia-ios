@@ -13,6 +13,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UIImageView *avtarImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *checkImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblManager;
 @property (weak, nonatomic) IBOutlet UILabel *lblAddress;
 @property (weak, nonatomic) IBOutlet UIImageView *authImageView;
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnDelete;
 
 @property (strong, nonatomic) Team *team;
+@property (nonatomic, copy) TeamAuthCellSelectBlock selectBlock;
 @property (nonatomic, copy) TeamAuthCellDeleteBlock deleteBlock;
 
 @end
@@ -34,19 +36,38 @@
     [self.avtarImageView setBorder:1 andColor:kViewBgColor.CGColor];
     [self.btnDelete setCornerRadius:self.btnDelete.frame.size.height / 2];
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)]];
+    [self.checkImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapCheck)]];
     
     self.lblAuth.hidden = YES;
     self.authImageView.hidden = YES;
+    
+    @weakify(self);
+    [RACObserve(self, selected) subscribeNext:^(NSNumber *newValue) {
+        @strongify(self);
+        if (newValue.boolValue) {
+            self.checkImageView.image = [UIImage imageNamed:@"checked"];
+        } else {
+            self.checkImageView.image = [UIImage imageNamed:@"unchecked"];;
+        }
+    }];
 }
 
-- (void)initWithTeam:(Team *)team edit:(BOOL)edit deleteBlock:(TeamAuthCellDeleteBlock)deleteBlock {
+- (void)initWithTeam:(Team *)team canSelect:(BOOL)canSelect selectBlock:(TeamAuthCellSelectBlock)selectBlock edit:(BOOL)edit deleteBlock:(TeamAuthCellDeleteBlock)deleteBlock {
     self.team = team;
+    self.selectBlock = selectBlock;
     self.deleteBlock = deleteBlock;
     
     self.lblManager.text = team.manager;
     self.lblAddress.text = [NSString stringWithFormat:@"%@%@%@", team.province, team.city, team.district];
     self.coverView.hidden = !edit;
     self.lblAddress.hidden = edit;
+    self.checkImageView.hidden = !canSelect;
+}
+
+- (void)onTapCheck {
+    if (self.selectBlock) {
+        self.selectBlock(self.selected);
+    }
 }
 
 - (void)onTap {

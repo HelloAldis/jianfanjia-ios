@@ -161,15 +161,19 @@ static ViewControllerContainer *container;
 }
 
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index {
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOffline:offlineImages index:index];
     imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+    [nav presentViewController:imgDetail animated:YES completion:nil];
 }
 
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index {
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:onlineImages index:index];
     imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+    [nav presentViewController:imgDetail animated:YES completion:nil];
 }
 
 + (void)refreshSuccess {

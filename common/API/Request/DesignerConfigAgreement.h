@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSString *requirementid;
 @property (nonatomic, strong) NSNumber *start_at;
+@property (nonatomic, strong) NSString *manager;
 
 @end

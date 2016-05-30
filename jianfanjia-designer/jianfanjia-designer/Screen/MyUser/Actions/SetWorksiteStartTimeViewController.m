@@ -7,6 +7,7 @@
 //
 
 #import "SetWorksiteStartTimeViewController.h"
+#import "ViewControllerContainer.h"
 
 @interface SetWorksiteStartTimeViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
@@ -54,7 +55,7 @@
 - (void)initNav {
     [StatusBlock matchReqt:self.requirement.status actions:
      @[[ReqtPlanWasChoosed action:^{
-            self.title = @"设置开工时间";
+            self.title = @"配置合同";
         }],
        [ElseStatus action:^{
             self.title = @"合同概况";
@@ -88,15 +89,16 @@
     [self updateProjectTotalDay:startDate];
     
     if (worksiteStartTime) {
-        self.btnOk.hidden = YES;
+//        self.btnOk.hidden = YES;
         self.lblDateTime.hidden = YES;
         self.datePicker.hidden = YES;
         self.headerLine.hidden = YES;
     } else {
-        self.btnOk.hidden = NO;
+//        self.btnOk.hidden = NO;
         self.lblDateTime.hidden = NO;
         self.datePicker.hidden = NO;
         self.headerLine.hidden = NO;
+        [self initRightNavItem];
     }
 }
 
@@ -131,24 +133,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)onClickOk:(id)sender  {
-    [HUDUtil showWait];
-    DesignerConfigAgreement *request = [[DesignerConfigAgreement alloc] init];
-    request.requirementid = self.requirement._id;
-    request.start_at = @([self.datePicker.date getLongMilSecond]);
-    
-    [API designerConfigAgreement:request success:^{
-        [HUDUtil hideWait];
-        if (self.completion) {
-            self.completion(YES);
-        }
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } failure:^{
-        [HUDUtil hideWait];
-        [HUDUtil showErrText:[DataManager shared].errMsg];
-    } networkError:^{
-        [HUDUtil hideWait];
-    }];
+- (void)onClickNext{
+    [ViewControllerContainer showTeamConfigure:self.requirement startTime:@([self.datePicker.date getLongMilSecond]) completion:self.completion];
+}
+
+#pragma mark - other
+- (void)initRightNavItem {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"下一步" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
 
 @end

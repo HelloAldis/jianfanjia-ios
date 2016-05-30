@@ -115,14 +115,14 @@
                                     <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="设置开工时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SU-yw-ofg">
-                                <rect key="frame" x="50" y="17" width="84" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="配置合同" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6SU-yw-ofg">
+                                <rect key="frame" x="64" y="17" width="56" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_set_work_time" translatesAutoresizingMaskIntoConstraints="NO" id="ppU-aH-Gdn">
-                                <rect key="frame" x="31" y="18" width="15" height="15"/>
+                                <rect key="frame" x="45" y="18" width="15" height="15"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="15" id="lFn-4i-Bqm"/>
                                     <constraint firstAttribute="height" constant="15" id="yEa-jh-zNv"/>

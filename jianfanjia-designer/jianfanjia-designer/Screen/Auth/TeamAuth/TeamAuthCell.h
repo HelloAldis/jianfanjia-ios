@@ -10,11 +10,12 @@
 
 #define kTeamAuthCellHeight 244
 
+typedef void (^TeamAuthCellSelectBlock)(BOOL isSelected);
 typedef void (^TeamAuthCellDeleteBlock)(void);
 
 @interface TeamAuthCell : UICollectionViewCell
 
-- (void)initWithTeam:(Team *)team edit:(BOOL)edit deleteBlock:(TeamAuthCellDeleteBlock)deleteBlock;
+- (void)initWithTeam:(Team *)team canSelect:(BOOL)canSelect selectBlock:(TeamAuthCellSelectBlock)selectBlock edit:(BOOL)edit deleteBlock:(TeamAuthCellDeleteBlock)deleteBlock;
 
 @end
 

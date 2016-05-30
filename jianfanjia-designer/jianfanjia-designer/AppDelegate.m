@@ -91,7 +91,7 @@
 #pragma mark - 第三方登录／分享
 - (void)initThirdPartyShare {
     // 友盟第三方登录／分享
-    [[JYZSocialSnsConfigCenter shared] registerWX:kWXAppId appsecret:kWXAppSecret];
+//    [[JYZSocialSnsConfigCenter shared] registerWX:kWXAppId appsecret:kWXAppSecret];
     [[JYZSocialSnsConfigCenter shared] registerQQ:kQQAppId];
     [[JYZSocialSnsConfigCenter shared] registerWeibo:kWeiboAppKey rediectURI:nil];
 }

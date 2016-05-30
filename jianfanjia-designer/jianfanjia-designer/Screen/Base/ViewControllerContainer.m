@@ -43,6 +43,7 @@
 #import "EmailAuthReviewingViewController.h"
 #import "EmailAuthSuccessViewController.h"
 #import "WebViewWithActionController.h"
+#import "TeamConfigureViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -303,8 +304,17 @@ static ViewControllerContainer *container;
 }
 
 + (void)showTeamAuthUpdate:(Team *)team {
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     TeamAuthUpdateViewController *v = [[TeamAuthUpdateViewController alloc] initWithTeam:team];
-    [container.navigation pushViewController:v animated:YES];
+    [nav pushViewController:v animated:YES];
+}
+
++ (void)showTeamConfigure:(Requirement *)requirement startTime:(NSNumber *)startTime completion:(TeamConfigureCompletionBlock)completion {
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
+    TeamConfigureViewController *v = [[TeamConfigureViewController alloc] initWithRequirement:requirement startTime:startTime completion:completion];
+    [nav pushViewController:v animated:YES];
 }
 
 + (void)showEmailAuthRequest:(Designer *)designer {
@@ -378,15 +388,19 @@ static ViewControllerContainer *container;
 }
 
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index {
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOffline:offlineImages index:index];
     imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+    [nav presentViewController:imgDetail animated:YES completion:nil];
 }
 
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index {
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:onlineImages index:index];
     imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[ViewControllerContainer getCurrentTapController] presentViewController:imgDetail animated:YES completion:nil];
+    [nav presentViewController:imgDetail animated:YES completion:nil];
 }
 
 + (void)refreshSuccess {
@@ -403,6 +417,12 @@ static ViewControllerContainer *container;
 
 + (UIViewController *)getCurrentTapController {
     return container.navigation.topViewController;
+}
+
++ (UIViewController *)getCurrentTopController {
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
+    return nav.topViewController;
 }
 
 + (void)logout {

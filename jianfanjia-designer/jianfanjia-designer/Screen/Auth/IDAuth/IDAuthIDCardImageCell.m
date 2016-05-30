@@ -79,7 +79,7 @@ CGFloat kIDAuthIDCardImageCellHeight;
     if ([obj uid_image1].length > 0) {
         [ViewControllerContainer showOnlineImages:@[[obj uid_image1]] index:0];
     } else {
-        [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTapController] inView:self max:1 withBlock:^(NSArray *imageIds) {
+        [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTopController] inView:self max:1 withBlock:^(NSArray *imageIds) {
             [obj setUid_image1:imageIds[0]];
             [self initUI];
             if (self.actionBlock) {
@@ -103,7 +103,7 @@ CGFloat kIDAuthIDCardImageCellHeight;
     if ([obj uid_image2].length > 0) {
         [ViewControllerContainer showOnlineImages:@[[obj uid_image2]] index:0];
     } else {
-        [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTapController] inView:self max:1 withBlock:^(NSArray *imageIds) {
+        [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTopController] inView:self max:1 withBlock:^(NSArray *imageIds) {
             [obj setUid_image2:imageIds[0]];
             [self initUI];
             if (self.actionBlock) {

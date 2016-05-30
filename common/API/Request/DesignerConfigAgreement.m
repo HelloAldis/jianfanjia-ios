@@ -12,5 +12,6 @@
 
 @dynamic requirementid;
 @dynamic start_at;
+@dynamic manager;
 
 @end
