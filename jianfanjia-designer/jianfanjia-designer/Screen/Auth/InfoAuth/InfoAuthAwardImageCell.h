@@ -13,6 +13,6 @@
 
 @interface InfoAuthAwardImageCell : UITableViewCell
 
-- (void)initWithDesigner:(Designer *)designer award:(AwardDetail *)award actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock;
+- (void)initWithDesigner:(Designer *)designer award:(AwardDetail *)award isEdit:(BOOL)isEdit actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock;
 
 @end

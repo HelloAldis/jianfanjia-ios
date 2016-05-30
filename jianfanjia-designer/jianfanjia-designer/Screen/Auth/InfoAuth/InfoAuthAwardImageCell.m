@@ -23,6 +23,7 @@
 @property (strong, nonatomic) ProductAuthImageActionView *actionView;
 @property (strong, nonatomic) Designer *designer;
 @property (strong, nonatomic) AwardDetail *award;
+@property (nonatomic, assign) BOOL isEdit;
 
 @end
 
@@ -43,14 +44,16 @@
     }];
 }
 
-- (void)initWithDesigner:(Designer *)designer award:(AwardDetail *)award actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock {
+- (void)initWithDesigner:(Designer *)designer award:(AwardDetail *)award isEdit:(BOOL)isEdit actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock {
     self.designer = designer;
     self.award = award;
+    self.isEdit = isEdit;
     [self.imgView setImageWithId:award.award_imageid withWidth:kScreenWidth];
     self.tvDesc.text = award.award_description;
     
     [self initActionView:actionBlock];
     [self limitTextViewLength];
+    self.actionView.userInteractionEnabled = isEdit;
 }
 
 - (void)limitTextViewLength {

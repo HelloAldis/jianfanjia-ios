@@ -13,6 +13,6 @@
 
 @interface InfoAuthDiplomaImageCell : UITableViewCell
 
-- (void)initWithDesigner:(Designer *)designer diploma:(NSString *)diploma actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock;
+- (void)initWithDesigner:(Designer *)designer diploma:(NSString *)diploma isEdit:(BOOL)isEdit actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock;
 
 @end

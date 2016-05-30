@@ -18,6 +18,7 @@
 
 @property (strong, nonatomic) Designer *designer;
 @property (strong, nonatomic) NSString *diploma;
+@property (nonatomic, assign) BOOL isEdit;
 
 @property (copy, nonatomic) ProductAuthImageActionViewTapBlock actionBlock;
 
@@ -33,12 +34,14 @@
     [self.deleteImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDeleteImg)]];
 }
 
-- (void)initWithDesigner:(Designer *)designer diploma:(NSString *)diploma actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock {
+- (void)initWithDesigner:(Designer *)designer diploma:(NSString *)diploma isEdit:(BOOL)isEdit actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock {
     self.designer = designer;
     self.diploma = diploma;
+    self.isEdit = isEdit;
     self.actionBlock = actionBlock;
     [self.imgView setImageWithId:diploma withWidth:kScreenWidth];
     self.coverImgView.hidden = YES;
+    self.deleteImgView.userInteractionEnabled = isEdit;
 }
 
 - (void)onTapImgView {

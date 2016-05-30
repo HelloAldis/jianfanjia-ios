@@ -29,6 +29,8 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 @property (nonatomic, strong) Designer *designer;
 @property (nonatomic, strong) NSString *avatarImageid;
 
+@property (nonatomic, assign) BOOL isEdit;
+
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr2;
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr3;
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr5;
@@ -60,7 +62,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"基本资料认证";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
     [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
@@ -222,8 +224,10 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     if (section == 3) {
+        self.addDiplomaView.userInteractionEnabled = self.isEdit;
         return [self isDiplomaImgEmpty] ? self.addDiplomaView : nil;
     } else if (section == 6) {
+        self.addAwardView.userInteractionEnabled = self.isEdit;
         return self.addAwardView;
     }
     
@@ -255,36 +259,44 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
         if (indexPath.row == 0) {
             AvtarImageCell *cell = [tableView dequeueReusableCellWithIdentifier:AvtarImageCellIdentifier forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            cell.userInteractionEnabled = self.isEdit;
             [cell initWithDesigner:self.designer updateBlock:^(NSString *imageid) {
                 self.avatarImageid = imageid;
             }];
+            
             return cell;
         }
     } else if (indexPath.section == 1) {
         UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        cell.userInteractionEnabled = self.isEdit;
         return cell;
     } else if (indexPath.section == 2) {
         UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        cell.userInteractionEnabled = self.isEdit;
         return cell;
     } else if (indexPath.section == 3) {
         InfoAuthDiplomaImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:InfoAuthDiplomaImageCellIdentifier forIndexPath:indexPath];
-        [cell initWithDesigner:self.designer diploma:self.designer.diploma_imageid actionBlock:^(ProductAuthImageAction action) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell initWithDesigner:self.designer diploma:self.designer.diploma_imageid isEdit:self.isEdit actionBlock:^(ProductAuthImageAction action) {
             [self onTapAction:action indexPath:indexPath];
         }];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         return cell;
     } else if (indexPath.section == 4) {
         UITableViewCell *cell = [self.sectionArr5[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        cell.userInteractionEnabled = self.isEdit;
         return cell;
     } else if (indexPath.section == 5) {
         UITableViewCell *cell = [self.sectionArr6[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        cell.userInteractionEnabled = self.isEdit;
         return cell;
     } else if (indexPath.section == 6) {
         InfoAuthAwardImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:InfoAuthAwardImageCellIdentifier forIndexPath:indexPath];
-        [cell initWithDesigner:self.designer award:[self.designer awardAtIndex:indexPath.row] actionBlock:^(ProductAuthImageAction action) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell initWithDesigner:self.designer award:[self.designer awardAtIndex:indexPath.row] isEdit:self.isEdit actionBlock:^(ProductAuthImageAction action) {
             [self onTapAction:action indexPath:indexPath];
         }];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
         return cell;
     }
     
@@ -372,7 +384,15 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     return self.designer.diploma_imageid == nil || [self.designer.diploma_imageid isEqualToString:@""];
 }
 
-- (void)onClickNext {
+- (void)onClickEdit {
+    self.isEdit = YES;
+    [self.tableView reloadData];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+}
+
+- (void)onClickDone {
     [self.view endEditing:YES];
     DesignerUpdateInfo *request = [[DesignerUpdateInfo alloc] initWithDesigner:self.designer];
     
