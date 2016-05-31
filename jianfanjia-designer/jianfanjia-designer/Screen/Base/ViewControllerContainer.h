@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-
+#import "TabViewController.h"
 
 @interface ViewControllerContainer : NSObject
 
 + (UINavigationController *)navigation;
++ (TabViewController *)tab;
 + (void)showAfterLanching;
 + (void)showLogin;
 + (void)showSignup;

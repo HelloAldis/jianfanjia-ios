@@ -12,7 +12,6 @@
 #import "WelcomeViewController.h"
 #import "LoginViewController.h"
 #import "ProcessViewController.h"
-#import "TabViewController.h"
 #import "MeViewController.h"
 #import "RefreshViewController.h"
 #import "VerifyPhoneViewController.h"
@@ -86,6 +85,10 @@ static ViewControllerContainer *container;
 
 + (UINavigationController *)navigation {
     return container.navigation;
+}
+
++ (TabViewController *)tab {
+    return container.tab;
 }
 
 + (void)showAfterLanching {
@@ -380,6 +383,7 @@ static ViewControllerContainer *container;
                 [self showInfoAuth:designer canEdit:YES fromRegister:fromRegister];
             } else {
                 [self showTab];
+                [container.tab setSelectedViewController:container.tab.tapMy];
             }
         } failure:^{
             [HUDUtil hideWait];
