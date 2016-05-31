@@ -46,8 +46,6 @@ CGFloat kIDAuthBankCardImageCellHeight;
     self.designer = designer;
     self.team = nil;
     self.isEdit = isEdit;
-    self.leftDelImgView.userInteractionEnabled = isEdit;
-    self.rightDelImgView.userInteractionEnabled = isEdit;
     self.actionBlock = actionBlock;
     [self initUI];
 }
@@ -55,15 +53,15 @@ CGFloat kIDAuthBankCardImageCellHeight;
 - (void)initWithTeam:(Team *)team isEdit:(BOOL)isEdit actionBlock:(CardImageCellActionBlock)actionBlock {
     self.designer = nil;
     self.team = team;
-    self.isEdit = isEdit;
-    self.leftDelImgView.userInteractionEnabled = isEdit;
-    self.rightDelImgView.userInteractionEnabled = isEdit;
+    self.isEdit = isEdit;;
     self.actionBlock = actionBlock;
     [self initUI];
 }
 
 - (void)initUI {
     id obj = self.designer ? self.designer : self.team;
+    self.leftDelImgView.hidden = !self.isEdit;
+    
     [self.idCardLeftImgView setImageWithId:[obj bank_card_image1] withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_bank_card_front"]];
     self.leftDelImgView.hidden = [obj bank_card_image1].length > 0 ? NO : YES;
     [self.idCardLeftImgView setBorder:[obj bank_card_image1].length > 0 ? 0.5 : 0.0 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
@@ -74,13 +72,15 @@ CGFloat kIDAuthBankCardImageCellHeight;
     if ([obj bank_card_image1].length > 0) {
         [ViewControllerContainer showOnlineImages:@[[obj bank_card_image1]] index:0];
     } else {
-        [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTapController] inView:self max:1 withBlock:^(NSArray *imageIds) {
-            [obj setBank_card_image1:imageIds[0]];
-            [self initUI];
-            if (self.actionBlock) {
-                self.actionBlock(CardImageActionAdd, CardImageTypeFront);
-            }
-        }];
+        if (self.isEdit) {
+            [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTapController] inView:self max:1 withBlock:^(NSArray *imageIds) {
+                [obj setBank_card_image1:imageIds[0]];
+                [self initUI];
+                if (self.actionBlock) {
+                    self.actionBlock(CardImageActionAdd, CardImageTypeFront);
+                }
+            }];
+        }
     }
 }
 

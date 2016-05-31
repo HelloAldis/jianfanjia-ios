@@ -316,7 +316,15 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
             }
         }];
         
-        self.navigationItem.rightBarButtonItem.enabled = isAllInputed;
+        if (self.isEdit) {
+            self.navigationItem.rightBarButtonItem.enabled = isAllInputed;
+        }
+    }];
+    
+    [RACObserve(self, isEdit) subscribeNext:^(id x) {
+        if (![x boolValue]) {
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        }
     }];
 }
 

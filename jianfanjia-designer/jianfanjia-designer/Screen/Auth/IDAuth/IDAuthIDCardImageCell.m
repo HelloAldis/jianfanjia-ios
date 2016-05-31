@@ -48,8 +48,6 @@ CGFloat kIDAuthIDCardImageCellHeight;
     self.designer = designer;
     self.team = nil;
     self.isEdit = isEdit;
-    self.leftDelImgView.userInteractionEnabled = isEdit;
-    self.rightDelImgView.userInteractionEnabled = isEdit;
     self.actionBlock = actionBlock;
     [self initUI];
 }
@@ -58,14 +56,15 @@ CGFloat kIDAuthIDCardImageCellHeight;
     self.designer = nil;
     self.team = team;
     self.isEdit = isEdit;
-    self.leftDelImgView.userInteractionEnabled = isEdit;
-    self.rightDelImgView.userInteractionEnabled = isEdit;
     self.actionBlock = actionBlock;
     [self initUI];
 }
 
 - (void)initUI {
     id obj = self.designer ? self.designer : self.team;
+    self.leftDelImgView.hidden = !self.isEdit;
+    self.rightDelImgView.hidden = !self.isEdit;
+    
     [self.idCardLeftImgView setImageWithId:[obj uid_image1] withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_id_card_front"]];
     [self.idCardRightImgView setImageWithId:[obj uid_image2] withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_id_card_back"]];
     self.leftDelImgView.hidden = [obj uid_image1].length > 0 ? NO : YES;
@@ -79,13 +78,15 @@ CGFloat kIDAuthIDCardImageCellHeight;
     if ([obj uid_image1].length > 0) {
         [ViewControllerContainer showOnlineImages:@[[obj uid_image1]] index:0];
     } else {
-        [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTopController] inView:self max:1 withBlock:^(NSArray *imageIds) {
-            [obj setUid_image1:imageIds[0]];
-            [self initUI];
-            if (self.actionBlock) {
-                self.actionBlock(CardImageActionAdd, CardImageTypeFront);
-            }
-        }];
+        if (self.isEdit) {
+            [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTopController] inView:self max:1 withBlock:^(NSArray *imageIds) {
+                [obj setUid_image1:imageIds[0]];
+                [self initUI];
+                if (self.actionBlock) {
+                    self.actionBlock(CardImageActionAdd, CardImageTypeFront);
+                }
+            }];
+        }
     }
 }
 
@@ -103,13 +104,15 @@ CGFloat kIDAuthIDCardImageCellHeight;
     if ([obj uid_image2].length > 0) {
         [ViewControllerContainer showOnlineImages:@[[obj uid_image2]] index:0];
     } else {
-        [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTopController] inView:self max:1 withBlock:^(NSArray *imageIds) {
-            [obj setUid_image2:imageIds[0]];
-            [self initUI];
-            if (self.actionBlock) {
-                self.actionBlock(CardImageActionAdd, CardImageTypeBack);
-            }
-        }];
+        if (self.isEdit) {
+            [PhotoUtil showUploadProductImageSelector:[ViewControllerContainer getCurrentTopController] inView:self max:1 withBlock:^(NSArray *imageIds) {
+                [obj setUid_image2:imageIds[0]];
+                [self initUI];
+                if (self.actionBlock) {
+                    self.actionBlock(CardImageActionAdd, CardImageTypeBack);
+                }
+            }];
+        }
     }
 }
 

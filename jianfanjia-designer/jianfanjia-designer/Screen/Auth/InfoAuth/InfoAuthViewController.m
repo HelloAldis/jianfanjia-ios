@@ -434,7 +434,15 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
             }
         }];
 
-        self.navigationItem.rightBarButtonItem.enabled = isAllInputed;
+        if (self.canEdit && self.isEdit) {
+            self.navigationItem.rightBarButtonItem.enabled = isAllInputed;
+        }
+    }];
+    
+    [RACObserve(self, isEdit) subscribeNext:^(id x) {
+        if (self.canEdit && ![x boolValue]) {
+            self.navigationItem.rightBarButtonItem.enabled = YES;
+        }
     }];
 }
 

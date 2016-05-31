@@ -41,7 +41,7 @@
     self.actionBlock = actionBlock;
     [self.imgView setImageWithId:diploma withWidth:kScreenWidth];
     self.coverImgView.hidden = YES;
-    self.deleteImgView.userInteractionEnabled = isEdit;
+    self.deleteImgView.hidden = !isEdit;
 }
 
 - (void)onTapImgView {

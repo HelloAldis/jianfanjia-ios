@@ -53,7 +53,7 @@
     
     [self initActionView:actionBlock];
     [self limitTextViewLength];
-    self.actionView.userInteractionEnabled = isEdit;
+    self.actionView.hidden = !isEdit;
 }
 
 - (void)limitTextViewLength {
