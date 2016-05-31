@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *fldVerifyCode;
 @property (weak, nonatomic) IBOutlet UIButton *btnSignup;
 @property (weak, nonatomic) IBOutlet UILabel *lblPhone;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraint;
 
 @property (assign, nonatomic) VerfityPhoneEvent verfityPhoneEvent;
 
@@ -43,20 +42,12 @@
           [self.btnSignup enableBgColor:[x boolValue]];
       }];
     
+    self.title = @"验证手机";
+    [self initLeftBackInNav];
+    [self.fldVerifyCode setCornerRadius:5];
     [self.btnSignup setCornerRadius:5];
     self.btnSignup.enabled = NO;
-    [self initLeftBackInNav];
     self.lblPhone.text = [DataManager shared].signupPagePhone;
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    if (kIs35inchScreen) {
-        self.constraint.constant = 84;
-    } else {
-        self.constraint.constant = (kScreenHeight - 400)/2;
-    }
 }
 
 #pragma mark - user action
