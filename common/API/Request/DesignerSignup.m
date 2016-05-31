@@ -31,10 +31,6 @@
     [GVUserDefaults standardUserDefaults].userid = [designer _id];
     [GVUserDefaults standardUserDefaults].imageid = [designer imageid];
     [GVUserDefaults standardUserDefaults].username = [designer username];
-    
-    if ([DesignerBusiness isDesignerAgreeLicense:designer.agreee_license]) {
-        [GVUserDefaults standardUserDefaults].isLogin = YES;
-    }
 }
 
 @end

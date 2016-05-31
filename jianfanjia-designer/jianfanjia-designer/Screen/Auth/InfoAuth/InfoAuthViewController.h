@@ -11,5 +11,6 @@
 @interface InfoAuthViewController : BaseViewController
 
 - (instancetype)initWithDesigner:(Designer *)designer canEdit:(BOOL)canEdit;
+- (instancetype)initWithDesigner:(Designer *)designer canEdit:(BOOL)canEdit fromRegister:(BOOL)fromRegister;
 
 @end

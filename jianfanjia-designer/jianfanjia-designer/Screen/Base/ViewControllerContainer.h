@@ -47,7 +47,7 @@
 + (void)showEmailAuthRequest:(Designer *)designer;
 + (void)showEmailAuthReviewing:(Designer *)designer;
 + (void)showEmailAuthSuccess:(Designer *)designer;
-+ (void)showUserLicense;
++ (void)showUserLicense:(Designer *)designer fromRegister:(BOOL)fromRegister;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
 + (void)showRefresh;

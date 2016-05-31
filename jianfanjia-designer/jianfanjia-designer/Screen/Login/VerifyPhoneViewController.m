@@ -93,15 +93,12 @@
             [API designerSignup:request success:^{
                 [HUDUtil showSuccessText:@"注册成功"];
                 Designer *designer = [[Designer alloc] initWith:[DataManager shared].data];
-                if ([DesignerBusiness isDesignerAgreeLicense:designer.agreee_license]) {
-                    [ViewControllerContainer showTab];
-                } else {
-                    [ViewControllerContainer showUserLicense];
-                }
+                designer.auth_type = kAuthTypeUnsubmitVerify;
+                [ViewControllerContainer showUserLicense:designer fromRegister:YES];
             } failure:^{
-                
+                [HUDUtil hideWait];
             } networkError:^{
-                
+                [HUDUtil hideWait];
             }];
         }
             break;

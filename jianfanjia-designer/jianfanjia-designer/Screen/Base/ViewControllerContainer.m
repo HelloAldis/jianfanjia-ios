@@ -248,7 +248,6 @@ static ViewControllerContainer *container;
     [container.navigation pushViewController:v animated:YES];
 }
 
-
 + (void)showMyComments {
     //if has designer order screen pop to
     UINavigationController* nav =  container.navigation;
@@ -271,6 +270,16 @@ static ViewControllerContainer *container;
 + (void)showInfoAuth:(Designer *)designer canEdit:(BOOL)canEdit {
     InfoAuthViewController *v = [[InfoAuthViewController alloc] initWithDesigner:designer canEdit:canEdit];
     [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showInfoAuth:(Designer *)designer canEdit:(BOOL)canEdit fromRegister:(BOOL)fromRegister {
+    InfoAuthViewController *v = [[InfoAuthViewController alloc] initWithDesigner:designer canEdit:canEdit fromRegister:fromRegister];
+    
+    if (container.window.rootViewController == container.navigation) {
+        [container.navigation pushViewController:v animated:YES];
+    } else {
+        [(id)container.window.rootViewController pushViewController:v animated:YES];
+    }
 }
 
 + (void)showIDAuth:(Designer *)designer {
@@ -359,14 +368,19 @@ static ViewControllerContainer *container;
     [container.navigation pushViewController:v animated:YES];
 }
 
-+ (void)showUserLicense {
++ (void)showUserLicense:(Designer *)designer fromRegister:(BOOL)fromRegister {
     [WebViewWithActionController show:[(id)container.window.rootViewController topViewController] withUrl:@"view/user/license.html" shareTopic:@"" actionTitle:@"同意" canBack:NO actionBlock:^{
         DesignerAgreeLicense *request = [[DesignerAgreeLicense alloc] init];
         [HUDUtil showWait];
         [API designerAgreeLicense:request success:^{
             [HUDUtil hideWait];
             [GVUserDefaults standardUserDefaults].isLogin = YES;
-            [self showTab];
+            
+            if (fromRegister) {
+                [self showInfoAuth:designer canEdit:YES fromRegister:fromRegister];
+            } else {
+                [self showTab];
+            }
         } failure:^{
             [HUDUtil hideWait];
         } networkError:^{
@@ -420,8 +434,14 @@ static ViewControllerContainer *container;
 }
 
 + (UIViewController *)getCurrentTopController {
-    UIViewController *presented = container.navigation.presentedViewController;
-    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
+    UINavigationController *nav;
+    if (container.window.rootViewController == container.navigation) {
+        UIViewController *presented = container.navigation.presentedViewController;
+        nav = presented ? (UINavigationController *)presented : container.navigation;
+    } else {
+        nav = (UINavigationController *)container.window.rootViewController;
+    }
+
     return nav.topViewController;
 }
 

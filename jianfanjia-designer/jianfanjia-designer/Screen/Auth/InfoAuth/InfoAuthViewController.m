@@ -31,6 +31,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 @property (nonatomic, strong) NSString *avatarImageid;
 
 @property (nonatomic, assign) BOOL isEdit;
+@property (nonatomic, assign) BOOL isFromRegister;
 
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr2;
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr3;
@@ -44,10 +45,18 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 @implementation InfoAuthViewController
 
 - (instancetype)initWithDesigner:(Designer *)designer canEdit:(BOOL)canEdit {
+    return [self initWithDesigner:designer canEdit:canEdit fromRegister:NO];
+}
+
+- (instancetype)initWithDesigner:(Designer *)designer canEdit:(BOOL)canEdit fromRegister:(BOOL)fromRegister {
     if (self = [super init]) {
         _designer = [[Designer alloc] init];
         [_designer merge:designer];
         _canEdit = canEdit;
+        _isFromRegister = fromRegister;
+        if (!_designer.award_details) {
+            _designer.award_details = [[NSMutableArray alloc] init];
+        }
     }
     
     return self;
@@ -415,7 +424,11 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     [HUDUtil showWait];
     [API designerUpdateInfo:request success:^{
         [HUDUtil hideWait];
-        [self.navigationController popViewControllerAnimated:YES];
+        if (self.isFromRegister) {
+            [ViewControllerContainer showTab];
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
         [HUDUtil showSuccessText:@"提交成功"];
     } failure:^{
         [HUDUtil hideWait];
