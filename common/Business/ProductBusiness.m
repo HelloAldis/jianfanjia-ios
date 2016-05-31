@@ -44,7 +44,7 @@
     NSNumber *productCount = [GVUserDefaults standardUserDefaults].product_count;
     NSNumber *authedProductCount = [GVUserDefaults standardUserDefaults].authed_product_count;
     
-    UIColor *color = productCount == 0 ? [UIColor colorWithR:0xB3 g:0xB9 b:0xBC] : (authedProductCount.integerValue >= kMinAuthedProductCount ? kPassStatusColor : kExcutionStatusColor);
+    UIColor *color = productCount.integerValue == 0 ? [UIColor colorWithR:0xB3 g:0xB9 b:0xBC] : (authedProductCount.integerValue >= kMinAuthedProductCount ? kPassStatusColor : kExcutionStatusColor);
     return color;
 }
 
