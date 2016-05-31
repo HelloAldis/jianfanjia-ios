@@ -279,7 +279,6 @@
         DesignerGetInfo *getUser = [[DesignerGetInfo alloc] init];
         [API designerGetInfo:getUser success:^{
             [HUDUtil hideWait];
-            [HUDUtil showSuccessText:@"登录成功"];
             Designer *designer = [[Designer alloc] initWith:[DataManager shared].data];
             if ([DesignerBusiness isDesignerAgreeLicense:designer.agreee_license]) {
                 [ViewControllerContainer showTab];
