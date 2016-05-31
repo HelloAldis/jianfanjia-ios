@@ -293,6 +293,8 @@
 		689ECEB21CFC19240046DDC8 /* TencentOpenAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 689ECEA91CFC19240046DDC8 /* TencentOpenAPI.framework */; };
 		689ECEB31CFC19240046DDC8 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 689ECEAD1CFC19240046DDC8 /* libWeChatSDK.a */; };
 		689ECEB41CFC19240046DDC8 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 689ECEAE1CFC19240046DDC8 /* read_me.txt */; };
+		689ECED21CFD78BC0046DDC8 /* HorizontalImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECED01CFD78BC0046DDC8 /* HorizontalImageCell.m */; };
+		689ECED31CFD78BC0046DDC8 /* HorizontalImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECED11CFD78BC0046DDC8 /* HorizontalImageCell.xib */; };
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
 		68B10C8C1C76F345005866C1 /* GetTopProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C8B1C76F345005866C1 /* GetTopProducts.m */; };
@@ -989,6 +991,9 @@
 		689ECEAF1CFC19240046DDC8 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		689ECEB01CFC19240046DDC8 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		689ECEB11CFC19240046DDC8 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		689ECECF1CFD78BC0046DDC8 /* HorizontalImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalImageCell.h; sourceTree = "<group>"; };
+		689ECED01CFD78BC0046DDC8 /* HorizontalImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalImageCell.m; sourceTree = "<group>"; };
+		689ECED11CFD78BC0046DDC8 /* HorizontalImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HorizontalImageCell.xib; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
 		68B10C841C76D489005866C1 /* DesignerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerListViewController.xib; sourceTree = "<group>"; };
 		68B10C871C76F13F005866C1 /* HomePageDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDataManager.h; sourceTree = "<group>"; };
@@ -2625,6 +2630,9 @@
 				6E6D98DA1BE203B300D45F77 /* ProductViewController.h */,
 				6E6D98DB1BE203B300D45F77 /* ProductViewController.m */,
 				6E6D98DC1BE203B300D45F77 /* ProductViewController.xib */,
+				689ECECF1CFD78BC0046DDC8 /* HorizontalImageCell.h */,
+				689ECED01CFD78BC0046DDC8 /* HorizontalImageCell.m */,
+				689ECED11CFD78BC0046DDC8 /* HorizontalImageCell.xib */,
 				6E6D98E81BE345BC00D45F77 /* ProductInfoCell.h */,
 				6E6D98E91BE345BC00D45F77 /* ProductInfoCell.m */,
 				6E6D98EA1BE345BC00D45F77 /* ProductInfoCell.xib */,
@@ -2894,6 +2902,7 @@
 				682E05121C58BDA700F1ACAA /* PlanPriceItemCell.xib in Resources */,
 				68679A381C8E730F00B380D0 /* MyNotificationViewController.xib in Resources */,
 				6E838DAD1BEB44B1000BF5CD /* DesignerDetailCell.xib in Resources */,
+				689ECED31CFD78BC0046DDC8 /* HorizontalImageCell.xib in Resources */,
 				68D536A71BFF563800D8F1B2 /* PlanPreviewViewController.xib in Resources */,
 				684A37451BFD73DF00F7388C /* MatchDesignerCell.xib in Resources */,
 				6E7867081BA9164700DE8B1B /* ProcessViewController.xib in Resources */,
@@ -3326,6 +3335,7 @@
 				684B03C21C96C3DE0053FFDF /* DecLiveListDataManager.m in Sources */,
 				68F73CF01CBB3AB900E97710 /* PlanDesignerSubmittedPlan.m in Sources */,
 				683FFB4B1C296288002A1AFE /* BeautifulImageHomePageViewController.m in Sources */,
+				689ECED21CFD78BC0046DDC8 /* HorizontalImageCell.m in Sources */,
 				6E6D98C31BE0665700D45F77 /* Requirement.m in Sources */,
 				683FFB431C296288002A1AFE /* BeautifulImageDataManager.m in Sources */,
 				6885176C1C9183A8000B01DB /* UITabBarItem+Badge.m in Sources */,
@@ -3552,7 +3562,6 @@
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/third/qq",
 					"$(PROJECT_DIR)/ThirdParty/qq",
 				);
 				GCC_PREFIX_HEADER = jianfanjia/PrefixHeader.pch;
@@ -3561,7 +3570,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/third/wechat",
 					"$(PROJECT_DIR)/ThirdParty/wechat",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.user;
@@ -3582,7 +3590,6 @@
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/third/qq",
 					"$(PROJECT_DIR)/ThirdParty/qq",
 				);
 				GCC_PREFIX_HEADER = jianfanjia/PrefixHeader.pch;
@@ -3591,7 +3598,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited)";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/third/wechat",
 					"$(PROJECT_DIR)/ThirdParty/wechat",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jianfanjia.user;
