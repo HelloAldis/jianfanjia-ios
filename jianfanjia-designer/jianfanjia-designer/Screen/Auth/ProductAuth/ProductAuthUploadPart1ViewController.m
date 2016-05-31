@@ -54,10 +54,13 @@
     [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
         @strongify(self);
         if (isShowing) {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 100, 0);
-            self.tableView.contentOffset = CGPointMake(0, 100);
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30 + keyboardRect.size.height, 0);
+            UIView *view = [self.tableView getFirstResponder];
+            CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
+            rect.size.height += 40;
+            [self.tableView scrollRectToVisible:rect animated:YES];
         } else {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 10, 0);
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30, 0);
         }
     } completion:nil];
 }

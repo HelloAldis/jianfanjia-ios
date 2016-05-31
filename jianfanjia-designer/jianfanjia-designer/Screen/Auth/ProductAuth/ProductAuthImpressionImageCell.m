@@ -102,6 +102,7 @@
 }
 
 - (void)onTapSelection {
+    [[ViewControllerContainer getCurrentTapController].view endEditing:YES];
     [SelectionMenuView show:[ViewControllerContainer getCurrentTapController] datasource:[NameDict getAllHomeType] defaultValue:self.lblSelection.text block:^(id value) {
         self.lblSelection.text = value;
     }];
