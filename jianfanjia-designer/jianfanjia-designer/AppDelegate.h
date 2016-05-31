@@ -40,8 +40,8 @@
 
 #define kUMengAppKey       @"5670dd4e67e58eb7220069f6"
 
-#define kWXAppId           @"wx391daabfce27e728"
-#define kWXAppSecret       @"f7c8e3e1b5910dd93be2744dacb3a1cc"
+#define kWXAppId           @"wxd4c207f7678adb78"
+#define kWXAppSecret       @"a4a56f5a97ec8260547f34e00662f8aa"
 
 #define kQQAppId           @"1104958443" //URL Schemal 需要配置成十六进制 0x41DC53EB ==> QQ41DC53EB
 #define kQQAppKey          @"AIz23Ku4k5IswYeF"
