@@ -145,7 +145,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                                  self.designer.district = addressArr[2];
                                  
                                  [self.tableView reloadData];
-                             } limitCity:YES];
+                             } limitCity:NO];
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],

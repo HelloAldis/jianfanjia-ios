@@ -103,7 +103,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                                  self.team.district = addressArr[2];
                                  
                                  [self.tableView reloadData];
-                             } limitCity:YES];
+                             } limitCity:NO];
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
