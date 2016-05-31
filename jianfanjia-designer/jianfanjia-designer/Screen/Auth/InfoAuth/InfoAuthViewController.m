@@ -95,7 +95,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tableView registerNib:[UINib nibWithNibName:AvtarImageCellIdentifier bundle:nil] forCellReuseIdentifier:AvtarImageCellIdentifier];
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 10, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView registerNib:[UINib nibWithNibName:InfoAuthDiplomaImageCellIdentifier bundle:nil] forCellReuseIdentifier:InfoAuthDiplomaImageCellIdentifier];

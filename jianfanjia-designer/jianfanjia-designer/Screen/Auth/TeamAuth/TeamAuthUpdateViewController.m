@@ -65,7 +65,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 10, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView registerNib:[UINib nibWithNibName:IDAuthIDCardImageCellIdentifier bundle:nil] forCellReuseIdentifier:IDAuthIDCardImageCellIdentifier];
