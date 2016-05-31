@@ -381,11 +381,10 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 
 - (void)refreshNextButtonStatus {
     [[RACSignal combineLatest:@[RACObserve(self.product, product_description),
-                               RACObserve(self.product, plan_images),
                                RACObserve(self.product, images),
                                ]
-                      reduce:^id(NSString *desc, NSMutableArray *planImage, NSMutableArray *impressionImage) {
-                          if (desc.length > 0 && planImage.count >= 1 && impressionImage.count >= 1) {
+                      reduce:^id(NSString *desc, NSMutableArray *impressionImage) {
+                          if (desc.length > 0 && impressionImage.count >= 1) {
                               return @YES;
                           }
         
