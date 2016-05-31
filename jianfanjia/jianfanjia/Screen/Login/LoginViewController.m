@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *headerView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgX;
 @property (weak, nonatomic) IBOutlet UIImageView *loginAngleUp;
 @property (weak, nonatomic) IBOutlet UIImageView *signupAngleUp;
 @property (weak, nonatomic) IBOutlet UIButton *btnLogin;
@@ -65,8 +66,6 @@
 #pragma mark - UI
 - (void)initNav {
     [self initTransparentNavBar:UIBarStyleBlack];
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_delete"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
-    self.navigationItem.leftBarButtonItem = item;
 }
 
 - (void)onClickBack {
@@ -79,6 +78,7 @@
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    [self.imgX addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickBack)]];
     
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
         return YES;
