@@ -59,7 +59,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:bellButton];
     
     [[NotificationDataManager shared] subscribeMyNotificationUnreadCount:^(NSInteger count) {
-        self.navigationItem.rightBarButtonItem.badgeNumber = [@(count) stringValue];
+        self.navigationItem.rightBarButtonItem.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
     }];
 }
 
