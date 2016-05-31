@@ -54,6 +54,7 @@
     [self initActionView:actionBlock];
     [self limitTextViewLength];
     self.actionView.hidden = !isEdit;
+    self.tvDesc.userInteractionEnabled = isEdit;
 }
 
 - (void)limitTextViewLength {
