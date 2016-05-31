@@ -38,6 +38,12 @@ static NSArray *authArr = nil;
                     AuthCellTypeTeam,
                     AuthCellTypeEmail,
                     ];
+        authArr = @[@"0",
+                    @"0",
+                    @"",
+                    @"0",
+                    @"0",
+                    ];
     }
 }
 
@@ -50,11 +56,6 @@ static NSArray *authArr = nil;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self initData];
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     [self refreshInfo];
 }
 
