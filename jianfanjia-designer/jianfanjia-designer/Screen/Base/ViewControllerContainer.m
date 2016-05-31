@@ -389,18 +389,6 @@ static ViewControllerContainer *container;
     }];
 }
 
-+ (void)showRefresh {
-    RefreshViewController *refresh = [[RefreshViewController alloc] initWithNibName:nil bundle:nil];
-
-    [UIView transitionWithView:container.window
-                      duration:0.5
-                       options:UIViewAnimationOptionTransitionCrossDissolve
-                    animations:^{
-                        container.window.rootViewController = refresh;
-                    }
-                    completion:nil];
-}
-
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index {
     UIViewController *presented = container.navigation.presentedViewController;
     UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
@@ -417,13 +405,25 @@ static ViewControllerContainer *container;
     [nav presentViewController:imgDetail animated:YES completion:nil];
 }
 
++ (void)showRefresh {
+    RefreshViewController *refresh = [[RefreshViewController alloc] initWithNibName:nil bundle:nil];
+
+    [UIView transitionWithView:container.window
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:^{
+                        container.window.rootViewController = refresh;
+                    }
+                    completion:nil];
+}
+
 + (void)refreshSuccess {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [UIView transitionWithView:container.window
                           duration:0.5
                            options:UIViewAnimationOptionTransitionCrossDissolve
                         animations:^{
-                            container.window.rootViewController = container.tab;
+                            container.window.rootViewController = container.navigation;
                         }
                         completion:nil];
     });
