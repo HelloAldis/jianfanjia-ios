@@ -414,8 +414,6 @@
 		6E4496251BF9BA2600C90851 /* VerifyPhoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496231BF9BA2600C90851 /* VerifyPhoneViewController.m */; };
 		6E4496261BF9BA2600C90851 /* VerifyPhoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4496241BF9BA2600C90851 /* VerifyPhoneViewController.xib */; };
 		6E4496291BF9DF9700C90851 /* UserSignup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496281BF9DF9700C90851 /* UserSignup.m */; };
-		6E44962D1BF9E32200C90851 /* SignupSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E44962B1BF9E32200C90851 /* SignupSuccessViewController.m */; };
-		6E44962E1BF9E32200C90851 /* SignupSuccessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E44962C1BF9E32200C90851 /* SignupSuccessViewController.xib */; };
 		6E4496321BFAD68B00C90851 /* ResetPassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496301BFAD68B00C90851 /* ResetPassViewController.m */; };
 		6E4496331BFAD68B00C90851 /* ResetPassViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6E4496311BFAD68B00C90851 /* ResetPassViewController.xib */; };
 		6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E4496351BFB029E00C90851 /* UpdatePass.m */; };
@@ -1218,9 +1216,6 @@
 		6E4496241BF9BA2600C90851 /* VerifyPhoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerifyPhoneViewController.xib; sourceTree = "<group>"; };
 		6E4496271BF9DF9700C90851 /* UserSignup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSignup.h; sourceTree = "<group>"; };
 		6E4496281BF9DF9700C90851 /* UserSignup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSignup.m; sourceTree = "<group>"; };
-		6E44962A1BF9E32200C90851 /* SignupSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupSuccessViewController.h; sourceTree = "<group>"; };
-		6E44962B1BF9E32200C90851 /* SignupSuccessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupSuccessViewController.m; sourceTree = "<group>"; };
-		6E44962C1BF9E32200C90851 /* SignupSuccessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignupSuccessViewController.xib; sourceTree = "<group>"; };
 		6E44962F1BFAD68B00C90851 /* ResetPassViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPassViewController.h; sourceTree = "<group>"; };
 		6E4496301BFAD68B00C90851 /* ResetPassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPassViewController.m; sourceTree = "<group>"; };
 		6E4496311BFAD68B00C90851 /* ResetPassViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResetPassViewController.xib; sourceTree = "<group>"; };
@@ -2716,9 +2711,6 @@
 				6E4496221BF9BA2600C90851 /* VerifyPhoneViewController.h */,
 				6E4496231BF9BA2600C90851 /* VerifyPhoneViewController.m */,
 				6E4496241BF9BA2600C90851 /* VerifyPhoneViewController.xib */,
-				6E44962A1BF9E32200C90851 /* SignupSuccessViewController.h */,
-				6E44962B1BF9E32200C90851 /* SignupSuccessViewController.m */,
-				6E44962C1BF9E32200C90851 /* SignupSuccessViewController.xib */,
 				6E44962F1BFAD68B00C90851 /* ResetPassViewController.h */,
 				6E4496301BFAD68B00C90851 /* ResetPassViewController.m */,
 				6E4496311BFAD68B00C90851 /* ResetPassViewController.xib */,
@@ -3015,7 +3007,6 @@
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
 				684B03C41C96C3DE0053FFDF /* DecLiveListViewController.xib in Resources */,
 				684A37691BFDE25E00F7388C /* EvaluateDesignerViewController.xib in Resources */,
-				6E44962E1BF9E32200C90851 /* SignupSuccessViewController.xib in Resources */,
 				68123C5B1C4C8B99008FC9AB /* ThumbnailCell.xib in Resources */,
 				684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */,
 				685F2D551CA9209500DC4D43 /* iTunesArtwork in Resources */,
@@ -3241,7 +3232,6 @@
 				680C465F1CC61356008C4BC0 /* Supervisor.m in Sources */,
 				68679A411C8E730F00B380D0 /* SystemAnnouncementCell.m in Sources */,
 				684A370C1BFD733500F7388C /* HomeOwnerOrderedWithoutResponseCell.m in Sources */,
-				6E44962D1BF9E32200C90851 /* SignupSuccessViewController.m in Sources */,
 				6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */,
 				685CD5E31C0310CA00EC1991 /* LeaveMessageViewController.m in Sources */,
 				68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */,
