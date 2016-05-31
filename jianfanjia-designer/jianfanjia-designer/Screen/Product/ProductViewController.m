@@ -47,10 +47,6 @@
 - (void)initNav {
     [self initLeftBackInNav];
     self.title = @"作品详情";
-    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
-    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
 
 - (void)initUI {
@@ -139,12 +135,22 @@
     [API designerGetOneProduct:request success:^{
         @strongify(self);
         [self.productPageData refresh];
+        [self initRightNavItem];
         self.needRefreshProductViewController = NO;
         [self.tableView reloadData];
     } failure:^{
     } networkError:^{
         
     }];
+}
+
+#pragma mark - other 
+- (void)initRightNavItem {
+    if (![self.productPageData.product.auth_type isEqualToString:kProductAuthTypeUnsubmitVerify]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
+        self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+        [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+    }
 }
 
 @end
