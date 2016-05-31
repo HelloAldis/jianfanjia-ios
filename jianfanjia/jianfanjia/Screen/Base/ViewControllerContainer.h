@@ -56,6 +56,7 @@ static NSString * const kLogoutNotification = @"LogoutNotification";
 + (void)showRefresh;
 + (void)refreshSuccess;
 + (UIViewController *)getCurrentTapController;
++ (UIViewController *)getCurrentTopController;
 + (void)logout;
 
 @end
