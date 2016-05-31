@@ -66,9 +66,20 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     self.title = @"基本资料认证";
     
     if (self.canEdit) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
-        self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-        [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+        if ([self.designer.auth_type isEqualToString:kAuthTypeUnsubmitVerify]) {
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"提交" style:UIBarButtonItemStylePlain target:self action:@selector(onClickDone)];
+            self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+            [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+            self.isEdit = YES;
+        } else {
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];
+            self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
+            [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+            
+            if ([self.designer.auth_type isEqualToString:kAuthTypeSubmitedVerifyButNotPass]) {
+                self.navigationItem.rightBarButtonItem = nil;
+            }
+        }
     }
 }
 
