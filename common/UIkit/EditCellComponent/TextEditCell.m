@@ -23,6 +23,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.twValue.delegate = self;
+    
+    @weakify(self);
+    [self.twValue.rac_textSignal subscribeNext:^(NSString *value) {
+        @strongify(self);
+        [self updateValue:value];
+    }];
 }
 
 - (void)initWithItem:(EditCellItem *)item {
@@ -34,32 +40,7 @@
         self.lblTitle.text = item.title;
     }
     
-    if (item.attrValue) {
-        self.twValue.attributedText = item.attrValue;
-    } else {
-        self.twValue.attributedText = nil;
-        self.twValue.text = item.value;
-    }
-    
-    @weakify(self);
-    [[self.twValue.rac_textSignal
-      length:^NSInteger{
-          return kMaxTextDescLength;
-      }]
-     subscribeNext:^(NSString *value) {
-         @strongify(self);
-         self.twValue.text = value;
-         self.item.value = value;
-         if (item.attrValue) {
-             self.item.attrValue.mutableString.string = value;
-         }
-
-         self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxTextDescLength - value.length), @(kMaxTextDescLength)];
-         
-         if (self.item.itemEditBlock) {
-             self.item.itemEditBlock(self.item, EditCellItemEditTypeChange);
-         }
-     }];
+    [self initValue];
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
@@ -68,11 +49,51 @@
     }
 }
 
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    BOOL flag = YES;
+    NSString *curStr = textView.text;
+    NSInteger len = curStr.length +  (text.length - range.length);
+    NSInteger lenDelta = len - kMaxTextDescLength;
+    
+    if (lenDelta > 0) {
+        NSString *replaceStr = [text substringToIndex:text.length - lenDelta];
+        
+        NSString *updatedStr = [curStr stringByReplacingCharactersInRange:NSMakeRange(range.location, range.length) withString:replaceStr];
+        flag = NO;
+        [self updateValue:updatedStr];
+        [self initValue];
+    }
+
+    return flag;
+}
+
 - (void)textViewDidEndEditing:(UITextView *)textView {
     if (self.item.itemEditBlock) {
         self.item.itemEditBlock(self.item, EditCellItemEditTypeEnd);
     }
 }
 
+- (void)initValue {
+    if (self.item.attrValue) {
+        self.twValue.attributedText = self.item.attrValue;
+        self.item.value = self.item.attrValue.string;
+    } else {
+        self.twValue.attributedText = nil;
+        self.twValue.text = self.item.value;
+    }
+}
+
+- (void)updateValue:(NSString *)value {
+    self.item.value = value ? value : @"";
+    if (self.item.attrValue) {
+        self.item.attrValue.mutableString.string = value;
+    }
+    
+    if (self.item.itemEditBlock) {
+        self.item.itemEditBlock(self.item, EditCellItemEditTypeChange);
+    }
+    
+    self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxTextDescLength - value.length), @(kMaxTextDescLength)];
+}
 
 @end

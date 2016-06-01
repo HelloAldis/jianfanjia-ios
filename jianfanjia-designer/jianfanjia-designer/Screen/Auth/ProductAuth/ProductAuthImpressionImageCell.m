@@ -11,7 +11,7 @@
 
 #define kMaxProductImpressoinImageDescLength 140
 
-@interface ProductAuthImpressionImageCell ()
+@interface ProductAuthImpressionImageCell () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImgView;
@@ -31,6 +31,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.tvDesc.delegate = self;
     [self.imgView setCornerRadius:5];
     [self.imgView setBorder:0.5 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
     [self.bottomView setCornerRadius:5];
@@ -38,7 +39,13 @@
     [self.imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImgView)]];
     [self.selectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSelection)]];
     
-    [self updateValue];
+    [self updateSectionValue];
+    
+    @weakify(self);
+    [self.tvDesc.rac_textSignal subscribeNext:^(NSString *value) {
+        @strongify(self);
+        [self updateValue];
+    }];
 }
 
 - (void)initWithProduct:(Product *)product image:(ProductImage *)image actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock {
@@ -50,25 +57,6 @@
     self.coverImgView.hidden = ![product.cover_imageid isEqualToString:image.imageid];
     
     [self initActionView:actionBlock];
-    [self limitTextViewLength];
-}
-
-- (void)limitTextViewLength {
-    @weakify(self);
-    [[self.tvDesc.rac_textSignal
-      length:^NSInteger{
-          return kMaxProductImpressoinImageDescLength;
-      }]
-     subscribeNext:^(NSString *value) {
-         @strongify(self);
-         if ([value trim].length == 0) {
-             self.tvDesc.text = [value trim];
-         } else {
-             self.tvDesc.text = value;
-         }
-
-         self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxProductImpressoinImageDescLength - self.tvDesc.text.length), @(kMaxProductImpressoinImageDescLength)];
-     }];
 }
 
 - (void)initActionView:(ProductAuthImageActionViewTapBlock)actionBlock {
@@ -80,7 +68,7 @@
     self.actionView.tapBlock = actionBlock;
 }
 
-- (void)updateValue {
+- (void)updateSectionValue {
     @weakify(self);
     [self.tvDesc.rac_textSignal subscribeNext:^(id x) {
         @strongify(self);
@@ -106,6 +94,31 @@
     [SelectionMenuView show:[ViewControllerContainer getCurrentTapController] datasource:[NameDict getAllHomeType] defaultValue:self.lblSelection.text block:^(id value) {
         self.lblSelection.text = value;
     }];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    BOOL flag = YES;
+    NSString *curStr = textView.text;
+    NSInteger len = curStr.length +  (text.length - range.length);
+    NSInteger lenDelta = len - kMaxProductImpressoinImageDescLength;
+    
+    if (lenDelta > 0) {
+        NSString *replaceStr = [text substringToIndex:text.length - lenDelta];
+        
+        NSString *updatedStr = [curStr stringByReplacingCharactersInRange:NSMakeRange(range.location, range.length) withString:replaceStr];
+        textView.text = updatedStr;
+        flag = NO;
+        [self updateValue];
+    }
+    
+    return flag;
+}
+
+- (void)updateValue {
+    NSString *value = self.tvDesc.text;
+    
+    self.product.product_description = value;
+    self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxProductImpressoinImageDescLength - value.length), @(kMaxProductImpressoinImageDescLength)];
 }
 
 @end

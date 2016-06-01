@@ -10,7 +10,7 @@
 
 #define kMaxProductDescLength 140
 
-@interface ProductAuthProductDescriptionCell ()
+@interface ProductAuthProductDescriptionCell () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lblLeftLength;
 
@@ -22,7 +22,13 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self limitTextViewLength];
+    self.tvDesc.delegate = self;
+    
+    @weakify(self);
+    [self.tvDesc.rac_textSignal subscribeNext:^(NSString *value) {
+         @strongify(self);
+         [self updateValue];
+     }];
 }
 
 - (void)initWithProduct:(Product *)product {
@@ -30,23 +36,29 @@
     self.tvDesc.text = product.product_description;
 }
 
-- (void)limitTextViewLength {
-    @weakify(self);
-    [[self.tvDesc.rac_textSignal
-      length:^NSInteger{
-          return kMaxProductDescLength;
-      }]
-     subscribeNext:^(NSString *value) {
-         @strongify(self);
-         if ([value trim].length == 0) {
-             self.tvDesc.text = [value trim];
-         } else {
-             self.tvDesc.text = value;
-         }
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    BOOL flag = YES;
+    NSString *curStr = textView.text;
+    NSInteger len = curStr.length +  (text.length - range.length);
+    NSInteger lenDelta = len - kMaxProductDescLength;
+    
+    if (lenDelta > 0) {
+        NSString *replaceStr = [text substringToIndex:text.length - lenDelta];
+        
+        NSString *updatedStr = [curStr stringByReplacingCharactersInRange:NSMakeRange(range.location, range.length) withString:replaceStr];
+        textView.text = updatedStr;
+        flag = NO;
+        [self updateValue];
+    }
+    
+    return flag;
+}
 
-         self.product.product_description = self.tvDesc.text;
-         self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxProductDescLength - self.tvDesc.text.length), @(kMaxProductDescLength)];
-     }];
+- (void)updateValue {
+    NSString *value = self.tvDesc.text;
+    
+    self.product.product_description = value;
+    self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxProductDescLength - value.length), @(kMaxProductDescLength)];
 }
 
 @end
