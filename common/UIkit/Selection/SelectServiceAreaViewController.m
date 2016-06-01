@@ -35,7 +35,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 - (void)initNav {
     [self initLeftBackInNav];
 
-    self.title = @"接单范围";
+    self.title = @"接单区域";
     
     if (self.selectionType == SelectionTypeMultiple) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(onClickOk)];
