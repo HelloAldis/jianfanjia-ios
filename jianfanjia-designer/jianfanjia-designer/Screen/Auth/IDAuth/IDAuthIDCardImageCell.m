@@ -62,15 +62,20 @@ CGFloat kIDAuthIDCardImageCellHeight;
 
 - (void)initUI {
     id obj = self.designer ? self.designer : self.team;
-    self.leftDelImgView.hidden = !self.isEdit;
-    self.rightDelImgView.hidden = !self.isEdit;
-    
+
     [self.idCardLeftImgView setImageWithId:[obj uid_image1] withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_id_card_front"]];
     [self.idCardRightImgView setImageWithId:[obj uid_image2] withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_id_card_back"]];
-    self.leftDelImgView.hidden = [obj uid_image1].length > 0 ? NO : YES;
-    self.rightDelImgView.hidden = [obj uid_image2].length > 0 ? NO : YES;
+    
     [self.idCardLeftImgView setBorder:[obj uid_image1].length > 0 ? 0.5 : 0.0 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
     [self.idCardRightImgView setBorder:[obj uid_image2].length > 0 ? 0.5 : 0.0 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
+
+    if (self.isEdit) {
+        self.leftDelImgView.hidden = [obj uid_image1].length > 0 ? NO : YES;
+        self.rightDelImgView.hidden = [obj uid_image2].length > 0 ? NO : YES;
+    } else {
+        self.leftDelImgView.hidden = YES;
+        self.rightDelImgView.hidden = YES;
+    }
 }
 
 - (void)onTapLeftImgView {

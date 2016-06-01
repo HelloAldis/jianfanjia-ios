@@ -60,11 +60,16 @@ CGFloat kIDAuthBankCardImageCellHeight;
 
 - (void)initUI {
     id obj = self.designer ? self.designer : self.team;
-    self.leftDelImgView.hidden = !self.isEdit;
-    
+
     [self.idCardLeftImgView setImageWithId:[obj bank_card_image1] withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_bank_card_front"]];
     self.leftDelImgView.hidden = [obj bank_card_image1].length > 0 ? NO : YES;
     [self.idCardLeftImgView setBorder:[obj bank_card_image1].length > 0 ? 0.5 : 0.0 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
+    
+    if (self.isEdit) {
+        self.leftDelImgView.hidden = [obj bank_card_image1].length > 0 ? NO : YES;
+    } else {
+        self.leftDelImgView.hidden = YES;
+    }
 }
 
 - (void)onTapLeftImgView {
@@ -86,7 +91,6 @@ CGFloat kIDAuthBankCardImageCellHeight;
 
 - (void)onTapLeftDelImgView {
     id obj = self.designer ? self.designer : self.team;
-    [obj setUid_image1:@""];
     [obj setBank_card_image1:@""];
     [self initUI];
     if (self.actionBlock) {
