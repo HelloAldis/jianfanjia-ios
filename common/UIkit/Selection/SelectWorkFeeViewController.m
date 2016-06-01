@@ -83,7 +83,6 @@ static NSArray *titleArr = nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     InputTextTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:InputTextTableViewCellId forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell initWithTitle:titleArr[indexPath.row] value:self.data[indexPath.row] inputEndBlock:^(NSString *value) {

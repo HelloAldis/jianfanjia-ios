@@ -95,7 +95,7 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
         SelectAllCell *cell = [tableView dequeueReusableCellWithIdentifier:SelectAllCellId forIndexPath:indexPath];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         @weakify(self);
-        [cell initWithBlock:^(BOOL isAll) {
+        [cell initWithValue:self.selectedData.count == self.data.count selectBlock:^(BOOL isAll) {
             @strongify(self);
             if (isAll) {
                 self.selectedData = [self.data mutableCopy];

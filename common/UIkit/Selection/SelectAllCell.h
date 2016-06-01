@@ -12,6 +12,6 @@ typedef void (^SelectAllBlock)(BOOL isAll);
 
 @interface SelectAllCell : UITableViewCell
 
-- (void)initWithBlock:(SelectAllBlock)selectAllBlock;
+- (void)initWithValue:(BOOL)isAll selectBlock:(SelectAllBlock)selectAllBlock;
 
 @end

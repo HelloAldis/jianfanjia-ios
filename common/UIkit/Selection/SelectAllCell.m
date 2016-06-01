@@ -22,8 +22,9 @@
 
 }
 
-- (void)initWithBlock:(SelectAllBlock)selectAllBlock {
+- (void)initWithValue:(BOOL)isAll selectBlock:(SelectAllBlock)selectAllBlock {
     self.selectAllBlock = selectAllBlock;
+    [self.switcher setOn:isAll];
 }
 
 - (IBAction)onTapSwitcher:(UISwitch *)sender {
