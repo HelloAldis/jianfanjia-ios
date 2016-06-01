@@ -153,7 +153,7 @@
 }
 
 - (void)onClickDoneSingle:(PHAsset *)asset {
-    if (self.allowsEdit) {
+    if (self.allowsEdit && !self.allowsMultipleSelection) {
         [PhotoCropper showPhotoCropper:self asset:asset cancel:^{
             [self.navigationController popViewControllerAnimated:YES];
         } choose:^(UIImage *croppedImage) {

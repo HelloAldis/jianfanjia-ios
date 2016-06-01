@@ -22,6 +22,10 @@
     [self showImageBrowser:controller allowsEditing:NO isMultiSelection:YES withMaxSelection:count withBlock:block];
 }
 
++ (void)showAwardImageSelector:(nonnull UIViewController *)controller inView:(UIView *)sourceView max:(NSInteger)count withBlock:(FinishUploadBlock)block {
+    [self showPhotoSelector:controller inView:sourceView allowsEditing:YES isMultiSelection:YES withMaxSelection:count withBlock:block];
+}
+
 + (void)showPhotoSelector:(nonnull UIViewController *)controller inView:(UIView *)sourceView allowsEditing:(BOOL)allowsEditing isMultiSelection:(BOOL)allowsMultiSection withMaxSelection:(NSInteger)maxCount withBlock:(FinishUploadBlock)block {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"选择照片上传" message:@"" preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

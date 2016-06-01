@@ -408,14 +408,14 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 }
 
 - (void)onTapAddDiplomaImg {
-    [PhotoUtil showUploadProductImageSelector:self inView:self.addDiplomaView max:1 withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self.addDiplomaView withBlock:^(NSArray *imageIds) {
         self.designer.diploma_imageid = imageIds[0];
         [self.tableView reloadData];
     }];
 }
 
 - (void)onTapAddAwardImg {
-    [PhotoUtil showUploadProductImageSelector:self inView:self.addAwardView max:NSIntegerMax withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showAwardImageSelector:self inView:self.addAwardView max:NSIntegerMax withBlock:^(NSArray *imageIds) {
         NSArray *arr = [imageIds map:^id(id obj) {
             AwardDetail *img = [[AwardDetail alloc] init];
             img.award_imageid = obj;
