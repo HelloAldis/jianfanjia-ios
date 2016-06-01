@@ -40,7 +40,11 @@
 }
 
 - (void)onTap {
-    [ViewControllerContainer showInfoAuth:self.designer canEdit:NO];
+    if ([self.designer.auth_type isEqualToString:kAuthTypeUnsubmitVerify]) {
+        [HUDUtil showErrText:@"请前往认证中心完成基本资料验证"];
+    } else {
+        [ViewControllerContainer showInfoAuth:self.designer canEdit:NO];
+    }
 }
 
 @end
