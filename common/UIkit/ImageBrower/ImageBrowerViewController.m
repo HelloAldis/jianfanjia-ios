@@ -16,7 +16,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewLayout;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property(strong, nonatomic) PHFetchResult<PHAsset *> *result;
+@property(strong, nonatomic) NSMutableArray<PHAsset *> *result;
 @property (strong, nonatomic) NSMutableArray *imageIds;
 @property (strong, nonatomic) MBProgressHUD *progressBar;
 @property (strong, nonatomic) PHImageManager *imageManager;
@@ -66,13 +66,30 @@
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
         @strongify(self);
         if (PHAuthorizationStatusAuthorized == status) {
+            self.result = [NSMutableArray array];
+            
             PHFetchOptions *options = [[PHFetchOptions alloc] init];
+            options.predicate = [NSPredicate predicateWithFormat:@"mediaType = %i", PHAssetMediaTypeImage];
             options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
-            self.result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
+            PHFetchResult<PHAsset *> *cameraRollAssets = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
+            [cameraRollAssets enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                [self.result addObject:obj];
+            }];
+
+            PHFetchOptions *userAlbumsOptions = [PHFetchOptions new];
+            userAlbumsOptions.predicate = [NSPredicate predicateWithFormat:@"estimatedAssetCount > 0"];
+            PHFetchResult *userAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:userAlbumsOptions];
+            [userAlbums enumerateObjectsUsingBlock:^(PHAssetCollection *collection, NSUInteger idx, BOOL *stop) {
+//                NSLog(@"PHAssetCollection: %@", collection.localizedTitle);
+                PHFetchResult<PHAsset *> *userAssets = [PHAsset fetchAssetsInAssetCollection:collection options:options];
+                [userAssets enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    [self.result addObject:obj];
+                }];
+            }];
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.collectionView reloadData];
             });
-            
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.navigationController popViewControllerAnimated:YES];
