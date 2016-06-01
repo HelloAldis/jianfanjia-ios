@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "BaseSelectionViewController.h"
 
+typedef NS_ENUM(NSInteger, SelectCommunicationType) {
+    SelectCommunicationTypeByUser,
+    SelectCommunicationTypeByDesigner,
+};
+
 @interface SelectCommunicationTypeViewController : BaseSelectionViewController <UITableViewDataSource, UITableViewDelegate>
+
+@property (assign, nonatomic) SelectCommunicationType selectCommunicationType;
 
 @end

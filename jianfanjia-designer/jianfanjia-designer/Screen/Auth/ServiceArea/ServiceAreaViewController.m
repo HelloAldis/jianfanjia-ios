@@ -137,6 +137,7 @@
                                  [self.tableView reloadData];
                                  [self updateInfoRequest];
                              } curValue:self.designer.communication_type];
+                             controller.selectCommunicationType = SelectCommunicationTypeByDesigner;
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
                          

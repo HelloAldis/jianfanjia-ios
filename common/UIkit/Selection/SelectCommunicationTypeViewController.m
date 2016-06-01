@@ -35,7 +35,11 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 - (void)initNav {
     [self initLeftBackInNav];
 
-    self.title = @"偏好设计师";
+    if (self.selectCommunicationType == SelectCommunicationTypeByUser) {
+        self.title = @"偏好设计师";
+    } else if (self.selectCommunicationType == SelectCommunicationTypeByDesigner) {
+        self.title = @"习惯沟通方式";
+    }
     
     if (self.selectionType == SelectionTypeMultiple) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(onClickOk)];
