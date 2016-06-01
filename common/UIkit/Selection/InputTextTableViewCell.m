@@ -24,8 +24,14 @@
     self.inputEndBlock = inputEndBlock;
     
     @weakify(self);
-    [[self.fldVal rac_textSignal] subscribeNext:^(NSString *value) {
+    [[[self.fldVal rac_textSignal]
+      length:^NSInteger {
+          return 6;
+      }]
+     subscribeNext:^(NSString *value) {
          @strongify(self);
+         self.fldVal.text = value;
+ 
          if (self.inputEndBlock) {
              self.inputEndBlock(value);
          }
