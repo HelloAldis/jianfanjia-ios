@@ -35,14 +35,13 @@
     self.product = product;
     
     self.lblCell.text = product.cell;
-    self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@, %@风格\n%@ %@",
-                           product.house_area,
-                           [NameDict nameForDecType:product.dec_type],
-                           [NameDict nameForHouseType:product.house_type],
-                           [NameDict nameForDecStyle:product.dec_style],
-                           [NameDict nameForWorkType:product.work_type],
-                           product.total_price
-                           ];
+    self.lblDetail.text = product.house_area ? [NSString stringWithFormat:@"%@m², %@, %@, %@风格\n%@ %@",
+                                                product.house_area,
+                                                [NameDict nameForDecType:product.dec_type],
+                                                [NameDict nameForHouseType:product.house_type],
+                                                [NameDict nameForDecStyle:product.dec_style],
+                                                [NameDict nameForWorkType:product.work_type],
+                                                product.total_price] : @"";
     [self.lblDetail setRowSpace:7.0f];
     [self.designerImageView setUserImageWithId:self.product.designer.imageid];
     self.lblDescription.text = self.product.product_description;
