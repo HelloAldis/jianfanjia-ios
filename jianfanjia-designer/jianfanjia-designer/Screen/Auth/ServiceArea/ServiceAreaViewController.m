@@ -43,7 +43,7 @@
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"接单范围";
+    self.title = @"接单资料";
 }
 
 - (void)initUI {
