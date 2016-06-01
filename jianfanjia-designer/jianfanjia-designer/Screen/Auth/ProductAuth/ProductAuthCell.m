@@ -46,7 +46,12 @@
                            [NameDict nameForDecStyle:product.dec_style]];
     self.lblAuth.text = [NameDict nameForProductAuthType:product.auth_type];
     self.authImageView.image = [ProductBusiness productAuthTypeImage:product.auth_type];
-    self.coverView.hidden = !edit;
+    
+    if ([product.auth_type isEqualToString:kAuthTypeUnsubmitVerify]) {
+        self.coverView.hidden = YES;
+    } else {
+        self.coverView.hidden = !edit;
+    }
 }
 
 - (void)onTap {
