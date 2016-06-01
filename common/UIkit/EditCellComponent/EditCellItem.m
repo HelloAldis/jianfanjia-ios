@@ -114,18 +114,18 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     return item;
 }
 
-+ (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length isNumber:(BOOL)isNumber {
++ (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length keyboard:(UIKeyboardType)keyboard {
     EditCellItem *item = [EditCellItem createField:title value:value placeholder:placeholder itemEditBlock:itemEditBlock];
     item.length = length;
-    item.isNumber = isNumber;
+    item.keyboard = keyboard;
     
     return item;
 }
 
-+ (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length isNumber:(BOOL)isNumber {
++ (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length keyboard:(UIKeyboardType)keyboard {
     EditCellItem *item = [EditCellItem createAttrField:attrTitle attrValue:attrValue placeholder:placeholder itemEditBlock:itemEditBlock];
     item.length = length;
-    item.isNumber = isNumber;
+    item.keyboard = keyboard;
     
     return item;
 }

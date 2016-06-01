@@ -39,17 +39,14 @@
     }
     
     self.fldValue.placeholder = item.placeholder;
-    self.fldValue.keyboardType = item.isNumber ? UIKeyboardTypeNumberPad : UIKeyboardTypeDefault;
+    self.fldValue.keyboardType = item.keyboard;
     
     if (item.length == 0) {
         item.length = NSIntegerMax;
     }
     
     @weakify(self);
-    [[[[self.fldValue rac_textSignal]
-       filterNonDigit:^BOOL {
-           return item.isNumber;
-       }]
+    [[[self.fldValue rac_textSignal]
       length:^NSInteger {
           return item.length;
       }]

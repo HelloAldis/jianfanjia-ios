@@ -147,7 +147,7 @@
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.product.house_area = @([curItem.value integerValue]);
                              }
-                         } length:6 isNumber:YES],
+                         } length:6 keyboard:UIKeyboardTypeNumberPad],
                          [EditCellItem createSelection:@"装修风格" value:[NameDict nameForDecStyle:self.product.dec_style] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectDecorationStyleViewController *controller = [[SelectDecorationStyleViewController alloc] initWithValueBlock:^(id value) {
@@ -175,9 +175,9 @@
                          [EditCellItem createAttrField:[@"装修造价 (万元)" attrSubStr:@"(万元)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.total_price ? [[NSMutableAttributedString alloc] initWithString:[self.product.total_price stringValue]] : nil placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
-                                 self.product.total_price = @([curItem.value integerValue]);
+                                 self.product.total_price = @([curItem.value floatValue]);
                              }
-                         } length:3 isNumber:YES],
+                         } length:6 keyboard:UIKeyboardTypeDecimalPad],
                          ];
     
     self.totalArr = [NSMutableArray array];

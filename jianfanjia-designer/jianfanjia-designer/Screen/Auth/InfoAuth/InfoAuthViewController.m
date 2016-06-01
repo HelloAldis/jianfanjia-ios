@@ -207,7 +207,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.work_year = @([curItem.value integerValue]);
                              }
-                         }],
+                         } length:2 keyboard:UIKeyboardTypeNumberPad],
                          ];
     
     self.sectionArr6 = @[

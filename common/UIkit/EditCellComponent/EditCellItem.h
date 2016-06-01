@@ -37,7 +37,7 @@ typedef void (^EditCellItemEditBlock)(EditCellItem *curItem, EditCellItemEditTyp
 @property (nonatomic, strong) NSString *value;
 @property (nonatomic, strong) NSString *placeholder;
 @property (nonatomic, assign) NSInteger length;
-@property (nonatomic, assign) BOOL isNumber;
+@property (nonatomic, assign) UIKeyboardType keyboard;
 @property (nonatomic, copy) EditCellItemTapBlock itemTapBlock;
 @property (nonatomic, copy) EditCellItemEditBlock itemEditBlock;
 
@@ -56,8 +56,8 @@ typedef void (^EditCellItemEditBlock)(EditCellItem *curItem, EditCellItemEditTyp
 
 + (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock;
 + (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock;
-+ (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length isNumber:(BOOL)isNumber;
-+ (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length isNumber:(BOOL)isNumber;
++ (EditCellItem *)createField:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length keyboard:(UIKeyboardType)keyboard;
++ (EditCellItem *)createAttrField:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock length:(NSInteger)length keyboard:(UIKeyboardType)keyboard;
 
 + (EditCellItem *)createText:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder itemEditBlock:(EditCellItemEditBlock)itemEditBlock;
 + (EditCellItem *)createCompareImage:(NSString *)title compareImage:(UIImage *)compareImage uploadImage:(NSString *)uploadImage;

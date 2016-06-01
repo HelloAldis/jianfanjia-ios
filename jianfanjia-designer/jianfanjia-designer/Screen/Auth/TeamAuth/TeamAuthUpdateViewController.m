@@ -153,7 +153,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.team.work_year = @([curItem.value integerValue]);
                              }
-                         }],
+                         } length:2 keyboard:UIKeyboardTypeNumberPad],
                          [EditCellItem createSelection:@"擅长工种" value:self.team.good_at placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectGoodAtViewController *controller = [[SelectGoodAtViewController alloc] initWithValueBlock:^(id value) {
