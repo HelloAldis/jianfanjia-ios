@@ -22,12 +22,12 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self limitTextViewLength];
 }
 
 - (void)initWithProduct:(Product *)product {
     self.product = product;
     self.tvDesc.text = product.product_description;
-    [self limitTextViewLength];
 }
 
 - (void)limitTextViewLength {
@@ -40,12 +40,12 @@
          @strongify(self);
          if ([value trim].length == 0) {
              self.tvDesc.text = [value trim];
-             return;
+         } else {
+             self.tvDesc.text = value;
          }
-         
-         self.tvDesc.text = value;
-         self.product.product_description = value;
-         self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxProductDescLength - value.length), @(kMaxProductDescLength)];
+
+         self.product.product_description = self.tvDesc.text;
+         self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxProductDescLength - self.tvDesc.text.length), @(kMaxProductDescLength)];
      }];
 }
 

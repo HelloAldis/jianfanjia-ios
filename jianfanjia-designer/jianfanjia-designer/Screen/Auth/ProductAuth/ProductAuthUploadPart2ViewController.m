@@ -29,6 +29,8 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 @property (nonatomic, strong) ProductAuthImageFooterView *addImpressionView;
 @property (nonatomic, strong) ProductAuthProductDescriptionCell *productDescCell;
 
+@property (nonatomic, strong) NSNumber *impressionImageCount;
+
 @end
 
 @implementation ProductAuthUploadPart2ViewController
@@ -111,6 +113,9 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
         @strongify(self);
         [self onTapAddImpressionImg];
     };
+    
+    self.impressionImageCount = @(self.product.images.count);
+    [self refreshNextButtonStatus];
 }
 
 #pragma mark - table view delegate
@@ -176,7 +181,6 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
             self.productDescCell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthProductDescriptionCellIdentifier forIndexPath:indexPath];
             [self.productDescCell initWithProduct:self.product];
             self.productDescCell.selectionStyle = UITableViewCellSelectionStyleNone;
-            [self refreshNextButtonStatus];
         }
         
         return self.productDescCell;
@@ -237,6 +241,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 
 #pragma mark - api request
 - (void)refresh {
+    self.impressionImageCount = @(self.product.images.count);
     [self.tableView reloadData];
 }
 
@@ -403,11 +408,12 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 }
 
 - (void)refreshNextButtonStatus {
-    [[RACSignal combineLatest:@[RACObserve(self.product, product_description),
-                               RACObserve(self.product, images),
+    [[RACSignal combineLatest:@[
+                               RACObserve(self, impressionImageCount),
+                               RACObserve(self.product, product_description),
                                ]
-                      reduce:^id(NSString *desc, NSMutableArray *impressionImage) {
-                          if (desc.length > 0 && impressionImage.count >= 1) {
+                      reduce:^id(NSNumber *impressionImageCount, NSString *desc) {
+                          if ([impressionImageCount integerValue] >= 1 && desc.length > 0) {
                               return @YES;
                           }
         

@@ -67,11 +67,11 @@
          @strongify(self);
          if ([value trim].length == 0) {
              self.tvDesc.text = [value trim];
-             return;
+         } else {
+             self.tvDesc.text = value;
          }
-         
-         self.tvDesc.text = value;
-         self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxInfoAuthAwardImageCellDescLength - value.length), @(kMaxInfoAuthAwardImageCellDescLength)];
+
+         self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxInfoAuthAwardImageCellDescLength - self.tvDesc.text.length), @(kMaxInfoAuthAwardImageCellDescLength)];
      }];
 }
 
