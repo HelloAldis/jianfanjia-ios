@@ -150,6 +150,24 @@
     return attributedStr;
 }
 
++ (CGSize)sizeWithConstrainedSize:(CGSize)constrainedSize font:(UIFont *)font maxLength:(NSInteger)maxLength {
+    NSMutableString *str = [[NSMutableString alloc] init];
+    for (NSInteger i = 0; i < maxLength; i++) {
+        [str appendString:@"靠"];
+    }
+    
+    NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          font, NSFontAttributeName,
+                                          nil];
+    
+    NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:str attributes:attributesDictionary];
+    CGRect rect = [string boundingRectWithSize:constrainedSize options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    
+    // Values are fractional -- you should take the ceilf to get equivalent values
+    CGSize adjustedSize = CGSizeMake(ceilf(rect.size.width), ceilf(rect.size.height));
+    return adjustedSize;
+}
+
 + (BOOL)compareStrWithIgnoreNil:(NSString *)aString other:(NSString *)bString {
     return [aString ? aString : @"" isEqualToString:bString ? bString : @""];
 }

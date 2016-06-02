@@ -8,6 +8,8 @@
 
 #import "TextEditCell.h"
 
+CGFloat kTextEditCellHeight;
+
 #define kMaxTextDescLength 140
 
 @interface TextEditCell () <UITextViewDelegate>
@@ -19,6 +21,14 @@
 @end
 
 @implementation TextEditCell
+
++ (void)initialize {
+    if ([self class] == [TextEditCell class]) {
+        CGSize constrainedSize = CGSizeMake(kScreenWidth - 35  , 9999);
+        CGSize size = [NSString sizeWithConstrainedSize:constrainedSize font:[UIFont systemFontOfSize:14.0] maxLength:kMaxTextDescLength];
+        kTextEditCellHeight = size.height + 66;
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
