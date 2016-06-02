@@ -13,6 +13,8 @@
 #import "IDAuthBankCardImageCell.h"
 #import "InfoAuthImageHeaderView.h"
 
+#define kBottomInsert 80
+
 static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
 static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 
@@ -59,13 +61,14 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
     [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
         @strongify(self);
         if (isShowing) {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30 + keyboardRect.size.height, 0);
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
+            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
             UIView *view = [self.tableView getFirstResponder];
             CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
-            rect.size.height += 40;
             [self.tableView scrollRectToVisible:rect animated:YES];
         } else {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30, 0);
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
+            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
         }
     } completion:nil];
 }
@@ -98,7 +101,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView registerNib:[UINib nibWithNibName:IDAuthIDCardImageCellIdentifier bundle:nil] forCellReuseIdentifier:IDAuthIDCardImageCellIdentifier];

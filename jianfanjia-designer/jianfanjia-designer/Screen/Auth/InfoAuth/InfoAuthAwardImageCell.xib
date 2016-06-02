@@ -39,20 +39,20 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Qfp-ff-Jqq">
-                                <rect key="frame" x="17" y="10" width="633" height="66"/>
+                                <rect key="frame" x="10" y="10" width="650" height="66"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oed-kQ-S5q" firstAttribute="top" secondItem="Qfp-ff-Jqq" secondAttribute="bottom" constant="5" id="Otb-HK-GKc"/>
                             <constraint firstAttribute="trailing" secondItem="oed-kQ-S5q" secondAttribute="trailing" constant="15" id="Tsf-o7-HwJ"/>
-                            <constraint firstItem="Qfp-ff-Jqq" firstAttribute="trailing" secondItem="oed-kQ-S5q" secondAttribute="trailing" id="Xgf-Yd-H37"/>
+                            <constraint firstItem="Qfp-ff-Jqq" firstAttribute="trailing" secondItem="oed-kQ-S5q" secondAttribute="trailing" constant="10" id="Xgf-Yd-H37"/>
                             <constraint firstItem="Qfp-ff-Jqq" firstAttribute="top" secondItem="1YS-Za-ucZ" secondAttribute="top" constant="10" id="dpo-U1-hEv"/>
-                            <constraint firstItem="Qfp-ff-Jqq" firstAttribute="leading" secondItem="1YS-Za-ucZ" secondAttribute="leading" constant="17" id="pwA-hQ-RCp"/>
+                            <constraint firstItem="Qfp-ff-Jqq" firstAttribute="leading" secondItem="1YS-Za-ucZ" secondAttribute="leading" constant="10" id="pwA-hQ-RCp"/>
                             <constraint firstAttribute="bottom" secondItem="oed-kQ-S5q" secondAttribute="bottom" constant="12" id="tZj-Xm-Nrn"/>
                         </constraints>
                     </view>

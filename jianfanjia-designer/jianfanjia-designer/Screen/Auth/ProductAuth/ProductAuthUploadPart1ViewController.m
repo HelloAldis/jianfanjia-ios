@@ -10,6 +10,8 @@
 #import "ViewControllerContainer.h"
 #import "CellEditComponent.h"
 
+#define kBottomInsert 80
+
 @interface ProductAuthUploadPart1ViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -54,13 +56,14 @@
     [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
         @strongify(self);
         if (isShowing) {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30 + keyboardRect.size.height, 0);
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
+            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
             UIView *view = [self.tableView getFirstResponder];
             CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
-            rect.size.height += 40;
             [self.tableView scrollRectToVisible:rect animated:YES];
         } else {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30, 0);
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
+            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
         }
     } completion:nil];
 }
@@ -87,7 +90,7 @@
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 10, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;

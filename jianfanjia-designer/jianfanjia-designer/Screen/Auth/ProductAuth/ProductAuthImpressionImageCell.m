@@ -83,7 +83,7 @@ static CGFloat imageHeight;
 
 - (void)initActionView:(ProductAuthImageActionViewTapBlock)actionBlock {
     if (!self.actionView) {
-        self.actionView = [[ProductAuthImageActionView alloc] initWithFrame:CGRectMake(kScreenWidth - kProductAuthImageActionViewWidth - 30, kProductAuthImpressionImageCellHeight - kProductAuthImageActionViewHeight - 180, kProductAuthImageActionViewWidth, kProductAuthImageActionViewHeight)];
+        self.actionView = [[ProductAuthImageActionView alloc] initWithFrame:CGRectMake(kScreenWidth - kProductAuthImageActionViewWidth - 30, self.imgViewHeightConst.constant - kProductAuthImageActionViewHeight + 5, kProductAuthImageActionViewWidth, kProductAuthImageActionViewHeight)];
         [self.contentView addSubview:self.actionView];
     }
     

@@ -16,6 +16,8 @@
 #import "ReorderTableView.h"
 #import "ProductAuthViewController.h"
 
+#define kBottomInsert 80
+
 static NSString *ProductAuthProductDescriptionCellIdentifier = @"ProductAuthProductDescriptionCell";
 static NSString *ProductAuthPlanImageCellIdentifier = @"ProductAuthPlanImageCell";
 static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpressionImageCell";
@@ -57,13 +59,14 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
     [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
         @strongify(self);
         if (isShowing) {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30 + keyboardRect.size.height, 0);
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
+            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
             UIView *view = [self.tableView getFirstResponder];
             CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
-            rect.size.height += 60;
             [self.tableView scrollRectToVisible:rect animated:YES];
         } else {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 30, 0);
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
+            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
         }
     } completion:nil];
 }
@@ -90,11 +93,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, -200, kScreenWidth, 200)];
-    view.bgColor = [UIColor colorWithR:0xF1 g:0xF2 b:0xF4];
-    [self.tableView addSubview:view];
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 100, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView registerNib:[UINib nibWithNibName:ProductAuthProductDescriptionCellIdentifier bundle:nil] forCellReuseIdentifier:ProductAuthProductDescriptionCellIdentifier];
