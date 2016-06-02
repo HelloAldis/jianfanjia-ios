@@ -122,8 +122,10 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.uid = curItem.value;
+                             } else if (itemEditType ==  EditCellItemEditTypeChange) {
+                                 
                              }
-                         }],
+                         } length:18 keyboard:UIKeyboardTypeASCIICapable],
                          ];
     
     self.sectionArr3 = @[
@@ -132,7 +134,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.bank_card = curItem.value;
                              }
-                         }],
+                         } length:19 keyboard:UIKeyboardTypeNumberPad],
                          [EditCellItem createSelection:@"开户银行" value:self.designer.bank allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectBankTypeViewController *controller = [[SelectBankTypeViewController alloc] initWithValueBlock:^(id value) {

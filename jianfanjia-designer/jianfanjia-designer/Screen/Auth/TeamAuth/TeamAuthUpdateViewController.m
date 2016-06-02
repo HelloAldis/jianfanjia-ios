@@ -140,7 +140,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.team.uid = curItem.value;
                              }
-                         }],
+                         } length:18 keyboard:UIKeyboardTypeASCIICapable],
                          ];
     
     self.sectionArr3 = @[
