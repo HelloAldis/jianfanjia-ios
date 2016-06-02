@@ -44,6 +44,7 @@ CGFloat kProductAuthProductDescriptionCellHeight;
 - (void)initWithProduct:(Product *)product {
     self.product = product;
     self.tvDesc.text = product.product_description;
+    self.tvDesc.placeholder = @"请输入";
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {

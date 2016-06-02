@@ -423,6 +423,7 @@
 		689ECECD1CFC3A4A0046DDC8 /* TeamConfigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECECB1CFC3A4A0046DDC8 /* TeamConfigureViewController.m */; };
 		689ECECE1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECECC1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib */; };
 		689ECED61D000E370046DDC8 /* CardVerifyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECED51D000E370046DDC8 /* CardVerifyUtil.m */; };
+		689ECED91D001DD80046DDC8 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECED81D001DD80046DDC8 /* UITextView+Placeholder.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -1208,6 +1209,8 @@
 		689ECECC1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamConfigureViewController.xib; sourceTree = "<group>"; };
 		689ECED41D000E370046DDC8 /* CardVerifyUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardVerifyUtil.h; sourceTree = "<group>"; };
 		689ECED51D000E370046DDC8 /* CardVerifyUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardVerifyUtil.m; sourceTree = "<group>"; };
+		689ECED71D001DD80046DDC8 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		689ECED81D001DD80046DDC8 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -2582,6 +2585,8 @@
 		6E378CFE1BDA2D2E00908B77 /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				689ECED71D001DD80046DDC8 /* UITextView+Placeholder.h */,
+				689ECED81D001DD80046DDC8 /* UITextView+Placeholder.m */,
 				689220051CD2104900BC80C7 /* UIViewController+KeyboardAnimation.h */,
 				689220061CD2104900BC80C7 /* UIViewController+KeyboardAnimation.m */,
 				685B15551CED73D50076996A /* UILabel+Ex.h */,
@@ -3230,6 +3235,7 @@
 				685B15C51CF2E5180076996A /* ProductAuthPlanImageCell.m in Sources */,
 				685B15A41CF2CED80076996A /* ProductAuthUploadPart2ViewController.m in Sources */,
 				685B15FB1CF5AD4C0076996A /* InfoAuthDiplomaImageCell.m in Sources */,
+				689ECED91D001DD80046DDC8 /* UITextView+Placeholder.m in Sources */,
 				685B14191CEAFF600076996A /* KRSSwizzle.m in Sources */,
 				681240D01C4CE471008FC9AB /* SendVerifyCode.m in Sources */,
 				68F73D301CBB597E00E97710 /* ReqtDesignerSubmittedPlan.m in Sources */,

@@ -29,5 +29,6 @@
 #import "CALayer+Ex.h"
 #import "UILabel+Ex.h"
 #import "UIViewController+KeyboardAnimation.h"
+#import "UITextView+Placeholder.h"
 
 #endif

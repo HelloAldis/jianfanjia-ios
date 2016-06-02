@@ -61,9 +61,17 @@ static CGFloat imageHeight;
     [self.imgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImgView)]];
     [self.selectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapSelection)]];
     
-    [self updateSectionValue];
-    
     @weakify(self);
+    [self.tvDesc.rac_textSignal subscribeNext:^(id x) {
+        @strongify(self);
+        self.image.productImage_description = x;
+    }];
+    
+    [RACObserve(self.lblSelection, text) subscribeNext:^(id x) {
+        @strongify(self);
+        self.image.section = x;
+    }];
+    
     [self.tvDesc.rac_textSignal subscribeNext:^(NSString *value) {
         @strongify(self);
         [self updateValue];
@@ -75,6 +83,7 @@ static CGFloat imageHeight;
     self.image = image;
     [self.imgView setImageWithId:image.imageid withWidth:kScreenWidth];
     self.tvDesc.text = image.productImage_description;
+    self.tvDesc.placeholder = @"请输入";
     self.lblSelection.text = image.section;
     self.coverImgView.hidden = ![product.cover_imageid isEqualToString:image.imageid];
     
@@ -83,24 +92,11 @@ static CGFloat imageHeight;
 
 - (void)initActionView:(ProductAuthImageActionViewTapBlock)actionBlock {
     if (!self.actionView) {
-        self.actionView = [[ProductAuthImageActionView alloc] initWithFrame:CGRectMake(kScreenWidth - kProductAuthImageActionViewWidth - 30, self.imgViewHeightConst.constant - kProductAuthImageActionViewHeight + 5, kProductAuthImageActionViewWidth, kProductAuthImageActionViewHeight)];
+        self.actionView = [[ProductAuthImageActionView alloc] initWithFrame:CGRectMake(kScreenWidth - kProductAuthImageActionViewWidth - 30, imageHeight - kProductAuthImageActionViewHeight + 5, kProductAuthImageActionViewWidth, kProductAuthImageActionViewHeight)];
         [self.contentView addSubview:self.actionView];
     }
     
     self.actionView.tapBlock = actionBlock;
-}
-
-- (void)updateSectionValue {
-    @weakify(self);
-    [self.tvDesc.rac_textSignal subscribeNext:^(id x) {
-        @strongify(self);
-        self.image.productImage_description = x;
-    }];
-    
-    [RACObserve(self.lblSelection, text) subscribeNext:^(id x) {
-        @strongify(self);
-        self.image.section = x;
-    }];
 }
 
 - (void)onTapImgView {
@@ -139,7 +135,6 @@ static CGFloat imageHeight;
 - (void)updateValue {
     NSString *value = self.tvDesc.text;
     
-    self.product.product_description = value;
     self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxProductImpressoinImageDescLength - value.length), @(kMaxProductImpressoinImageDescLength)];
 }
 

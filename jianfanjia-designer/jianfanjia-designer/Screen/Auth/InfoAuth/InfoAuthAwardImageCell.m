@@ -14,7 +14,7 @@
 CGFloat kInfoAuthAwardImageCellHeight;
 static CGFloat imageHeight;
 
-@interface InfoAuthAwardImageCell ()
+@interface InfoAuthAwardImageCell () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgViewHeightConst;
@@ -52,6 +52,7 @@ static CGFloat imageHeight;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.tvDesc.delegate = self;
     [self.imgView setCornerRadius:5];
     [self.imgView setBorder:0.5 andColor:[UIColor colorWithR:0xB2 g:0xB6 b:0xB8].CGColor];
     [self.bottomView setCornerRadius:5];
@@ -63,6 +64,11 @@ static CGFloat imageHeight;
         @strongify(self);
         self.award.award_description = x;
     }];
+    
+    [self.tvDesc.rac_textSignal subscribeNext:^(NSString *value) {
+        @strongify(self);
+        [self updateValue];
+    }];
 }
 
 - (void)initWithDesigner:(Designer *)designer award:(AwardDetail *)award isEdit:(BOOL)isEdit actionBlock:(ProductAuthImageActionViewTapBlock)actionBlock {
@@ -71,34 +77,16 @@ static CGFloat imageHeight;
     self.isEdit = isEdit;
     [self.imgView setImageWithId:award.award_imageid withWidth:kScreenWidth];
     self.tvDesc.text = award.award_description;
+    self.tvDesc.placeholder = @"请输入";
     
     [self initActionView:actionBlock];
-    [self limitTextViewLength];
     self.actionView.hidden = !isEdit;
     self.tvDesc.userInteractionEnabled = isEdit;
 }
 
-- (void)limitTextViewLength {
-    @weakify(self);
-    [[self.tvDesc.rac_textSignal
-      length:^NSInteger{
-          return kMaxInfoAuthAwardImageCellDescLength;
-      }]
-     subscribeNext:^(NSString *value) {
-         @strongify(self);
-         if ([value trim].length == 0) {
-             self.tvDesc.text = [value trim];
-         } else {
-             self.tvDesc.text = value;
-         }
-
-         self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxInfoAuthAwardImageCellDescLength - self.tvDesc.text.length), @(kMaxInfoAuthAwardImageCellDescLength)];
-     }];
-}
-
 - (void)initActionView:(ProductAuthImageActionViewTapBlock)actionBlock {
     if (!self.actionView) {
-        self.actionView = [[ProductAuthImageActionView alloc] initWithFrame:CGRectMake(kScreenWidth - kProductAuthImageActionViewWidth - 30, self.imgViewHeightConst.constant - kProductAuthImageActionViewHeight + 5, kProductAuthImageActionViewWidth, kProductAuthImageActionViewHeight)];
+        self.actionView = [[ProductAuthImageActionView alloc] initWithFrame:CGRectMake(kScreenWidth - kProductAuthImageActionViewWidth - 30, imageHeight - kProductAuthImageActionViewHeight + 5, kProductAuthImageActionViewWidth, kProductAuthImageActionViewHeight)];
         self.actionView.setCoverImgView.hidden = YES;
         [self.contentView addSubview:self.actionView];
     }
@@ -112,6 +100,30 @@ static CGFloat imageHeight;
     }];
     
     [ViewControllerContainer showOnlineImages:imageArray index:[imageArray indexOfObject:self.award.award_imageid]];
+}
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    BOOL flag = YES;
+    NSString *curStr = textView.text;
+    NSInteger len = curStr.length +  (text.length - range.length);
+    NSInteger lenDelta = len - kMaxInfoAuthAwardImageCellDescLength;
+    
+    if (lenDelta > 0) {
+        NSString *replaceStr = [text substringToIndex:text.length - lenDelta];
+        
+        NSString *updatedStr = [curStr stringByReplacingCharactersInRange:NSMakeRange(range.location, range.length) withString:replaceStr];
+        textView.text = updatedStr;
+        flag = NO;
+        [self updateValue];
+    }
+    
+    return flag;
+}
+
+- (void)updateValue {
+    NSString *value = self.tvDesc.text;
+
+    self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxInfoAuthAwardImageCellDescLength - value.length), @(kMaxInfoAuthAwardImageCellDescLength)];
 }
 
 @end
