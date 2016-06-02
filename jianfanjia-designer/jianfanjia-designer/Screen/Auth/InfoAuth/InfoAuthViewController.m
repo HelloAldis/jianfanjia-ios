@@ -79,13 +79,11 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
         @strongify(self);
         if (isShowing) {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
             UIView *view = [self.tableView getFirstResponder];
             CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
             [self.tableView scrollRectToVisible:rect animated:YES];
         } else {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
         }
     } completion:nil];
 }
@@ -122,7 +120,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tableView registerNib:[UINib nibWithNibName:AvtarImageCellIdentifier bundle:nil] forCellReuseIdentifier:AvtarImageCellIdentifier];
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView registerNib:[UINib nibWithNibName:InfoAuthDiplomaImageCellIdentifier bundle:nil] forCellReuseIdentifier:InfoAuthDiplomaImageCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:InfoAuthAwardImageCellIdentifier bundle:nil] forCellReuseIdentifier:InfoAuthAwardImageCellIdentifier];
@@ -150,7 +148,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                                  self.designer.username = curItem.value;
                              }
                          }],
-                         [EditCellItem createSelection:@"性别" value:[NameDict nameForSexType:self.designer.sex] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"性别" value:[NameDict nameForSexType:self.designer.sex] allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectSexTypeViewController *controller = [[SelectSexTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForSexType:value];
@@ -161,7 +159,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                              controller.selectSexType = SelectSexTypeUserSex;
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createSelection:@"所在地区" value:self.designer.province && self.designer.city && self.designer.district ? [NSString stringWithFormat:@"%@ %@ %@", self.designer.province, self.designer.city, self.designer.district] : nil placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"所在地区" value:self.designer.province && self.designer.city && self.designer.district ? [NSString stringWithFormat:@"%@ %@ %@", self.designer.province, self.designer.city, self.designer.district] : nil allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:nil valueBlock:^(id value) {
                                  curItem.value = value;
@@ -256,7 +254,11 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
         return [self isDiplomaImgEmpty] ? kProductAuthImageFooterViewHeight : 0.1;
     }
     
-    return kProductAuthImageFooterViewHeight;
+    if (section == 6) {
+        return self.isEdit ? kProductAuthImageFooterViewHeight : 0.1;
+    }
+    
+    return 0.1;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -279,7 +281,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
         return [self isDiplomaImgEmpty] ? self.addDiplomaView : nil;
     } else if (section == 6) {
         self.addAwardView.userInteractionEnabled = self.isEdit;
-        return self.addAwardView;
+        return self.isEdit ? self.addAwardView : nil;
     }
     
     return nil;
@@ -310,20 +312,17 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
         if (indexPath.row == 0) {
             AvtarImageCell *cell = [tableView dequeueReusableCellWithIdentifier:AvtarImageCellIdentifier forIndexPath:indexPath];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.userInteractionEnabled = self.isEdit;
-            [cell initWithDesigner:self.designer updateBlock:^(NSString *imageid) {
+            [cell initWithDesigner:self.designer allowsEdit:self.isEdit updateBlock:^(NSString *imageid) {
                 self.avatarImageid = imageid;
             }];
             
             return cell;
         }
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-        cell.userInteractionEnabled = self.isEdit;
+        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
         return cell;
     } else if (indexPath.section == 2) {
-        UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-        cell.userInteractionEnabled = self.isEdit;
+        UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
         return cell;
     } else if (indexPath.section == 3) {
         InfoAuthDiplomaImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:InfoAuthDiplomaImageCellIdentifier forIndexPath:indexPath];
@@ -334,12 +333,10 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
         
         return cell;
     } else if (indexPath.section == 4) {
-        UITableViewCell *cell = [self.sectionArr5[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-        cell.userInteractionEnabled = self.isEdit;
+        UITableViewCell *cell = [self.sectionArr5[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
         return cell;
     } else if (indexPath.section == 5) {
-        UITableViewCell *cell = [self.sectionArr6[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-        cell.userInteractionEnabled = self.isEdit;
+        UITableViewCell *cell = [self.sectionArr6[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
         return cell;
     } else if (indexPath.section == 6) {
         InfoAuthAwardImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:InfoAuthAwardImageCellIdentifier forIndexPath:indexPath];

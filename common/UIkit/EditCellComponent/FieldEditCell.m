@@ -46,6 +46,8 @@
     if (item.length == 0) {
         item.length = NSIntegerMax;
     }
+    
+    self.userInteractionEnabled = item.allowsEdit;
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {

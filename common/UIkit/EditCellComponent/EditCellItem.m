@@ -16,7 +16,7 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
 
 @implementation EditCellItem
 
-- (BaseEditCell *)dequeueReusableCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+- (BaseEditCell *)dequeueReusableCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath allowsEdit:(BOOL)allowsEdit {
     NSString *cellIdentifier = nil;
     if (self.cellEditType == CellEditTypeSelection) {
         cellIdentifier = SelectionEditCellIdentifier;
@@ -27,6 +27,8 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     } else if (self.cellEditType == CellEditTypeCompareImage) {
         cellIdentifier = CompareImageEditCellIdentifier;
     }
+    
+    self.allowsEdit = allowsEdit;
     
     BaseEditCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -56,37 +58,39 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
     [tableView registerNib:[UINib nibWithNibName:CompareImageEditCellIdentifier bundle:nil] forCellReuseIdentifier:CompareImageEditCellIdentifier];
 }
 
-+ (EditCellItem *)createSelection:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder tapBlock:(EditCellItemTapBlock)tapBlock {
++ (EditCellItem *)createSelection:(NSString *)title value:(NSString *)value allowsEdit:(BOOL)allowsEdit placeholder:(NSString *)placeholder tapBlock:(EditCellItemTapBlock)tapBlock {
     EditCellItem *item = [[EditCellItem alloc] init];
     item.cellEditType = CellEditTypeSelection;
     item.title = title;
     item.value = value;
+    item.allowsEdit = allowsEdit;
     item.placeholder = placeholder;
     item.itemTapBlock = tapBlock;
     
     return item;
 }
 
-+ (EditCellItem *)createAttrSelection:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder tapBlock:(EditCellItemTapBlock)tapBlock {
++ (EditCellItem *)createAttrSelection:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue allowsEdit:(BOOL)allowsEdit placeholder:(NSString *)placeholder tapBlock:(EditCellItemTapBlock)tapBlock {
     EditCellItem *item = [[EditCellItem alloc] init];
     item.cellEditType = CellEditTypeSelection;
     item.attrTitle = attrTitle;
     item.attrValue = attrValue;
+    item.allowsEdit = allowsEdit;
     item.placeholder = placeholder;
     item.itemTapBlock = tapBlock;
     
     return item;
 }
 
-+ (EditCellItem *)createSelection:(NSString *)title value:(NSString *)value placeholder:(NSString *)placeholder image:(UIImage *)image tapBlock:(EditCellItemTapBlock)tapBlock {
-    EditCellItem *item = [EditCellItem createSelection:title value:value placeholder:placeholder tapBlock:tapBlock];
++ (EditCellItem *)createSelection:(NSString *)title value:(NSString *)value allowsEdit:(BOOL)allowsEdit placeholder:(NSString *)placeholder image:(UIImage *)image tapBlock:(EditCellItemTapBlock)tapBlock {
+    EditCellItem *item = [EditCellItem createSelection:title value:value allowsEdit:allowsEdit placeholder:placeholder tapBlock:tapBlock];
     item.image = image;
     
     return item;
 }
 
-+ (EditCellItem *)createAttrSelection:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue placeholder:(NSString *)placeholder image:(UIImage *)image tapBlock:(EditCellItemTapBlock)tapBlock {
-    EditCellItem *item = [EditCellItem createAttrSelection:attrTitle attrValue:attrValue placeholder:placeholder tapBlock:tapBlock];
++ (EditCellItem *)createAttrSelection:(NSMutableAttributedString *)attrTitle attrValue:(NSMutableAttributedString *)attrValue allowsEdit:(BOOL)allowsEdit placeholder:(NSString *)placeholder image:(UIImage *)image tapBlock:(EditCellItemTapBlock)tapBlock {
+    EditCellItem *item = [EditCellItem createAttrSelection:attrTitle attrValue:attrValue allowsEdit:allowsEdit placeholder:placeholder tapBlock:tapBlock];
     item.image = image;
     
     return item;

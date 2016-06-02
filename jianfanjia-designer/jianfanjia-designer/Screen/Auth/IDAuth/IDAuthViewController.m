@@ -62,13 +62,11 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
         @strongify(self);
         if (isShowing) {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
             UIView *view = [self.tableView getFirstResponder];
             CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
             [self.tableView scrollRectToVisible:rect animated:YES];
         } else {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
         }
     } completion:nil];
 }
@@ -102,7 +100,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView registerNib:[UINib nibWithNibName:IDAuthIDCardImageCellIdentifier bundle:nil] forCellReuseIdentifier:IDAuthIDCardImageCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:IDAuthBankCardImageCellIdentifier bundle:nil] forCellReuseIdentifier:IDAuthBankCardImageCellIdentifier];
@@ -135,7 +133,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
                                  self.designer.bank_card = curItem.value;
                              }
                          }],
-                         [EditCellItem createSelection:@"开户银行" value:self.designer.bank placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"开户银行" value:self.designer.bank allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectBankTypeViewController *controller = [[SelectBankTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = value;
@@ -203,8 +201,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-        cell.userInteractionEnabled = self.isEdit;
+        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
         return cell;
     } else if (indexPath.section == 1) {
         IDAuthIDCardImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:IDAuthIDCardImageCellIdentifier forIndexPath:indexPath];
@@ -220,8 +217,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else if (indexPath.section == 2) {
-        UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-        cell.userInteractionEnabled = self.isEdit;
+        UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
         return cell;
     } else if (indexPath.section == 3) {
         IDAuthBankCardImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:IDAuthBankCardImageCellIdentifier forIndexPath:indexPath];

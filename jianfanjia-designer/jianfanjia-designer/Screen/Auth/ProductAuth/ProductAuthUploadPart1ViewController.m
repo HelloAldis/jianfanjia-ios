@@ -57,13 +57,11 @@
         @strongify(self);
         if (isShowing) {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
             UIView *view = [self.tableView getFirstResponder];
             CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
             [self.tableView scrollRectToVisible:rect animated:YES];
         } else {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
         }
     } completion:nil];
 }
@@ -91,7 +89,7 @@
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 50;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
@@ -99,7 +97,7 @@
     
     @weakify(self);
     self.sectionArr1 = @[
-                         [EditCellItem createSelection:@"所在城市" value:[self isNewProd] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.product.province, self.product.city, self.product.district] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"所在城市" value:[self isNewProd] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.product.province, self.product.city, self.product.district] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:nil valueBlock:^(id value) {
                                  curItem.value = value;
@@ -122,7 +120,7 @@
                          ];
     
     self.sectionArr2 = @[
-                         [EditCellItem createSelection:@"装修类型" value:[NameDict nameForDecType:self.product.dec_type] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"装修类型" value:[NameDict nameForDecType:self.product.dec_type] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectDecorationTypeViewController *controller = [[SelectDecorationTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForDecType:value];
@@ -133,7 +131,7 @@
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createSelection:@"装修户型" value:[NameDict nameForDecStyle:self.product.house_type] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"装修户型" value:[NameDict nameForDecStyle:self.product.house_type] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectHouseTypeViewController *controller = [[SelectHouseTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForHouseType:value];
@@ -151,7 +149,7 @@
                                  self.product.house_area = @([curItem.value integerValue]);
                              }
                          } length:6 keyboard:UIKeyboardTypeNumberPad],
-                         [EditCellItem createSelection:@"装修风格" value:[NameDict nameForDecStyle:self.product.dec_style] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"装修风格" value:[NameDict nameForDecStyle:self.product.dec_style] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectDecorationStyleViewController *controller = [[SelectDecorationStyleViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForDecStyle:value];
@@ -163,7 +161,7 @@
                              [self.navigationController pushViewController:controller animated:YES];
                              
                          }],
-                         [EditCellItem createSelection:@"包工类型" value:[NameDict nameForWorkType:self.product.work_type] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"包工类型" value:[NameDict nameForWorkType:self.product.work_type] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectWorkTypeViewController *controller = [[SelectWorkTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForWorkType:value];
@@ -214,10 +212,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:YES];
         return cell;
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:YES];
         return cell;
     }
     

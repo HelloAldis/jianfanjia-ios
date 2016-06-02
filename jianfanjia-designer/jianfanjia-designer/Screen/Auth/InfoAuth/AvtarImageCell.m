@@ -12,6 +12,7 @@
 @interface AvtarImageCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgArrow;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserName;
 
 @property (strong, nonatomic) Designer *designer;
@@ -27,10 +28,12 @@
     [self.avatarImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAvatar)]];
 }
 
-- (void)initWithDesigner:(Designer *)designer updateBlock:(AvtarImageCellUpdateBlock)updateBlock {
+- (void)initWithDesigner:(Designer *)designer allowsEdit:(BOOL)allowsEdit updateBlock:(AvtarImageCellUpdateBlock)updateBlock {
     self.designer = designer;
     self.updateBlock = updateBlock;
     [self refreshAvatar];
+    self.userInteractionEnabled = allowsEdit;
+    self.imgArrow.hidden = !allowsEdit;
 }
 
 - (void)refreshAvatar {

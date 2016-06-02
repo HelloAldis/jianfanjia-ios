@@ -55,7 +55,7 @@
 
     @weakify(self)
     self.sectionArr1 = @[
-                         [EditCellItem createSelection:@"装修类型" value:[self decTypesStr] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"装修类型" value:[self decTypesStr] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectDecorationTypeViewController *controller = [[SelectDecorationTypeViewController alloc] initWithValueBlock:^(id value) {
                                  self.designer.dec_types = value;
@@ -65,7 +65,7 @@
                              } curValues:self.designer.dec_types];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createSelection:@"包工类型" value:[self workTypeStr] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"包工类型" value:[self workTypeStr] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectWorkTypeViewController *controller = [[SelectWorkTypeViewController alloc] initWithValueBlock:^(id value) {
                                  self.designer.work_types = value;
@@ -75,7 +75,7 @@
                              } curValues:self.designer.work_types];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createAttrSelection:[@"擅长风格 最多三项" attrSubStr:@"最多三项" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:[[NSMutableAttributedString alloc] initWithString:[self decStyleStr]] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"擅长风格 最多三项" attrSubStr:@"最多三项" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:[[NSMutableAttributedString alloc] initWithString:[self decStyleStr]] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectDecorationStyleViewController *controller = [[SelectDecorationStyleViewController alloc] initWithValueBlock:^(id value) {
                                  self.designer.dec_styles = value;
@@ -88,7 +88,7 @@
                          ];
     
     self.sectionArr2 = @[
-                         [EditCellItem createSelection:@"接单区域" value:[self serviceAreaStr] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"接单区域" value:[self serviceAreaStr] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectServiceAreaViewController *controller = [[SelectServiceAreaViewController alloc] initWithValueBlock:^(id value) {
                                  self.designer.dec_districts = value;
@@ -98,7 +98,7 @@
                              } curValues:self.designer.dec_districts];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createSelection:@"意向接单户型" value:[self houseTypeStr] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"意向接单户型" value:[self houseTypeStr] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectHouseTypeViewController *controller = [[SelectHouseTypeViewController alloc] initWithValueBlock:^(id value) {
                                  self.designer.dec_house_types = value;
@@ -108,7 +108,7 @@
                              } curValues:self.designer.dec_house_types];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createAttrSelection:[@"设计费报价 元/m²" attrSubStr:@"元/m²" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:[[NSMutableAttributedString alloc] initWithString:[NameDict nameForDesignerFee:self.designer.design_fee_range]] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"设计费报价 元/m²" attrSubStr:@"元/m²" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:[[NSMutableAttributedString alloc] initWithString:[NameDict nameForDesignerFee:self.designer.design_fee_range]] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectDesignFeeViewController *controller = [[SelectDesignFeeViewController alloc] initWithValueBlock:^(id value) {
                                  self.designer.design_fee_range = value;
@@ -118,7 +118,7 @@
                              } curValue:self.designer.design_fee_range];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createAttrSelection:[@"施工费报价 元/m²" attrSubStr:@"元/m²" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:[[NSMutableAttributedString alloc] initWithString:[self workFeeStr]] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"施工费报价 元/m²" attrSubStr:@"元/m²" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:[[NSMutableAttributedString alloc] initWithString:[self workFeeStr]] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectWorkFeeViewController *controller = [[SelectWorkFeeViewController alloc] initWithValueBlock:^(id value) {
                                  self.designer.dec_fee_half = @([value[0] integerValue]);
@@ -129,7 +129,7 @@
                              } curValues:@[[self.designer.dec_fee_half stringValue], [self.designer.dec_fee_all stringValue]]];
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createSelection:@"习惯沟通方式" value:[NameDict nameForCommunicationType:self.designer.communication_type] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"习惯沟通方式" value:[NameDict nameForCommunicationType:self.designer.communication_type] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectCommunicationTypeViewController *controller = [[SelectCommunicationTypeViewController alloc] initWithValueBlock:^(id value) {
                                  self.designer.communication_type = value;
@@ -171,10 +171,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:YES];
         return cell;
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:YES];
         return cell;
     }
     

@@ -60,6 +60,7 @@
             <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="avatarImgView" destination="fp9-yr-J9A" id="1l3-Wq-THi"/>
+                <outlet property="imgArrow" destination="hof-CG-tel" id="rxq-Bq-IYr"/>
                 <outlet property="lblUserName" destination="ojI-xe-hqO" id="Y4M-Ub-eUY"/>
             </connections>
             <point key="canvasLocation" x="494" y="474"/>

@@ -69,6 +69,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="fldValue" destination="NTj-GX-s29" id="nFh-ZW-gop"/>
+                <outlet property="imgArrow" destination="hof-CG-tel" id="LFH-5N-jDs"/>
                 <outlet property="imgView" destination="4mc-2g-qZ4" id="Mox-44-oQi"/>
                 <outlet property="imgViewLeft" destination="jtX-39-Gxm" id="yRu-rK-Mjo"/>
                 <outlet property="lblTitle" destination="ojI-xe-hqO" id="Dhz-Za-yJj"/>

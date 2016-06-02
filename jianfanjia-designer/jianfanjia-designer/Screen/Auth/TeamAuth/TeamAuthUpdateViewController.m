@@ -64,13 +64,11 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
         @strongify(self);
         if (isShowing) {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
             UIView *view = [self.tableView getFirstResponder];
             CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
             [self.tableView scrollRectToVisible:rect animated:YES];
         } else {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
         }
     } completion:nil];
 }
@@ -92,11 +90,12 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView registerNib:[UINib nibWithNibName:IDAuthIDCardImageCellIdentifier bundle:nil] forCellReuseIdentifier:IDAuthIDCardImageCellIdentifier];
     [EditCellItem registerCells:self.tableView];
     
+    self.isEdit = [self isNewTeam];
     self.idCardFrontImageid = self.team.uid_image1;
     self.idCardBackImageid = self.team.uid_image2;
     
@@ -108,7 +107,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                                  self.team.manager = curItem.value;
                              }
                          }],
-                         [EditCellItem createSelection:@"性别" value:[NameDict nameForSexType:self.team.sex] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"性别" value:[NameDict nameForSexType:self.team.sex] allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectSexTypeViewController *controller = [[SelectSexTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForSexType:value];
@@ -119,7 +118,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                              controller.selectSexType = SelectSexTypeUserSex;
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createSelection:@"所在地区" value:[self isNewTeam] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.team.province, self.team.city, self.team.district] placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"所在地区" value:[self isNewTeam] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.team.province, self.team.city, self.team.district] allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:nil valueBlock:^(id value) {
                                  curItem.value = value;
@@ -157,7 +156,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                                  self.team.work_year = @([curItem.value integerValue]);
                              }
                          } length:2 keyboard:UIKeyboardTypeNumberPad],
-                         [EditCellItem createSelection:@"擅长工种" value:self.team.good_at placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"擅长工种" value:self.team.good_at allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectGoodAtViewController *controller = [[SelectGoodAtViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = value;
@@ -180,8 +179,6 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
     [self.totalArr addObjectsFromArray:self.sectionArr2];
     [self.totalArr addObjectsFromArray:self.sectionArr3];
     [self refreshNextButtonStatus];
-    
-    self.isEdit = [self isNewTeam];
 }
 
 #pragma mark - table view delegate
@@ -231,12 +228,10 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-        cell.userInteractionEnabled = self.isEdit;
+        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
         return cell;
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-        cell.userInteractionEnabled = self.isEdit;
+        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
         return cell;
     } else if (indexPath.section == 2) {
         IDAuthIDCardImageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:IDAuthIDCardImageCellIdentifier forIndexPath:indexPath];
@@ -252,8 +247,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     } else if (indexPath.section == 3) {
-        UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
-        cell.userInteractionEnabled = self.isEdit;
+        UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
         return cell;
     }
     

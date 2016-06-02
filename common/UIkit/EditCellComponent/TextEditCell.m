@@ -51,6 +51,7 @@ CGFloat kTextEditCellHeight;
     }
     
     [self initValue];
+    self.userInteractionEnabled = item.allowsEdit;
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {

@@ -49,11 +49,11 @@ static NSString *LogoutCellIdentifier = @"LogoutCell";
     
     @weakify(self);
     self.sectionArr1 = @[
-                         [EditCellItem createSelection:@"清除缓存" value:[self getCacheValue] placeholder:nil image:[UIImage imageNamed:@"icon_invite_friend"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"清除缓存" value:[self getCacheValue] allowsEdit:YES placeholder:nil image:[UIImage imageNamed:@"icon_invite_friend"] tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              [self onClickClearCache:curItem];
                          }],
-                         [EditCellItem createSelection:@"关于我们" value:nil placeholder:nil image:[UIImage imageNamed:@"icon_online_service"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"关于我们" value:nil allowsEdit:YES placeholder:nil image:[UIImage imageNamed:@"icon_online_service"] tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              AboutViewController *v = [[AboutViewController alloc] initWithNibName:nil bundle:nil];
                              [self.navigationController pushViewController:v animated:YES];
@@ -86,7 +86,7 @@ static NSString *LogoutCellIdentifier = @"LogoutCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:YES];
         return cell;
     } else if (indexPath.section == 1) {
         LogoutCell *cell = [tableView dequeueReusableCellWithIdentifier:LogoutCellIdentifier forIndexPath:indexPath];

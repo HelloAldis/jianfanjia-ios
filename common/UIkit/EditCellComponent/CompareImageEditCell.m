@@ -39,6 +39,8 @@
     } else {
         self.uploadImgView.image = [UIImage imageNamed:@"btn_add_image"];
     }
+    
+    self.userInteractionEnabled = item.allowsEdit;
 }
 
 - (void)onTapCompare {

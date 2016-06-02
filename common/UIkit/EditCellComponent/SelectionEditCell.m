@@ -11,6 +11,7 @@
 @interface SelectionEditCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet UIImageView *imgArrow;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UITextField *fldValue;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgViewLeft;
@@ -43,6 +44,9 @@
     self.fldValue.placeholder = item.placeholder;
     self.imgView.image = item.image;
     self.imgViewLeft.constant = item.image ? 10.0 : -20;
+    
+    self.userInteractionEnabled = item.allowsEdit;
+    self.imgArrow.hidden = !item.allowsEdit;
 }
 
 - (void)onTap {

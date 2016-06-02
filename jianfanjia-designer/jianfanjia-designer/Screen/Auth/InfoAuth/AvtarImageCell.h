@@ -14,6 +14,6 @@ typedef void (^AvtarImageCellUpdateBlock)(NSString *imageid);
 
 @interface AvtarImageCell : UITableViewCell
 
-- (void)initWithDesigner:(Designer *)designer updateBlock:(AvtarImageCellUpdateBlock)updateBlock;
+- (void)initWithDesigner:(Designer *)designer allowsEdit:(BOOL)allowsEdit updateBlock:(AvtarImageCellUpdateBlock)updateBlock;
 
 @end

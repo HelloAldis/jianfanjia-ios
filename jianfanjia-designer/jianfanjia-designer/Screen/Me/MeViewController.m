@@ -72,7 +72,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     [EditCellItem registerCells:self.tableView];
     
-    self.authCenterItem = [EditCellItem createAttrSelection:[@"设计师认证中心" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
+    self.authCenterItem = [EditCellItem createAttrSelection:[@"设计师认证中心" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil allowsEdit:YES placeholder:nil image:[UIImage imageNamed:@"icon_designer_auth"] tapBlock:^(EditCellItem *curItem) {
         [ViewControllerContainer showDesignerAuth];
     }];
     [self updateAuthCenter];
@@ -80,28 +80,28 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     @weakify(self)
     self.sectionArr2 = @[
                          self.authCenterItem,
-                         [EditCellItem createAttrSelection:[@"接单资料 (完善资料，提高接单精准度)" attrSubStr1:@"接单资料" font1:[UIFont systemFontOfSize:14] color1:kThemeTextColor subStr2:@"(完善资料，提高接单精准度)" font2:[UIFont systemFontOfSize:12] color2:kThemeColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_service_material"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"接单资料 (完善资料，提高接单精准度)" attrSubStr1:@"接单资料" font1:[UIFont systemFontOfSize:14] color1:kThemeTextColor subStr2:@"(完善资料，提高接单精准度)" font2:[UIFont systemFontOfSize:12] color2:kThemeColor] attrValue:nil allowsEdit:YES placeholder:nil image:[UIImage imageNamed:@"icon_service_material"] tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              [ViewControllerContainer showServiceArea:self.designer];
                          }],
                          ];
     
     self.sectionArr3 = @[
-                         [EditCellItem createAttrSelection:[@"邀请好友" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_invite_friend"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"邀请好友" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil allowsEdit:YES placeholder:nil image:[UIImage imageNamed:@"icon_invite_friend"] tapBlock:^(EditCellItem *curItem) {
                              NSString *description = @"我在使用 #简繁家# 的App，业内一线设计师为您量身打造房间，比传统装修便宜20%，让你一手轻松掌控装修全过程。";
                              [[ShareManager shared] share:self topic:ShareTopicApp image:[UIImage imageNamed:@"about_logo"] title:@"简繁家，让装修变简单" description:description targetLink:@"http://www.jianfanjia.com/zt/mobile/index.html" delegate:self];
                          }],
-                         [EditCellItem createAttrSelection:[@"意见反馈" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_feedback"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"意见反馈" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil allowsEdit:YES placeholder:nil image:[UIImage imageNamed:@"icon_feedback"] tapBlock:^(EditCellItem *curItem) {
                              FeedbackViewController *v = [[FeedbackViewController alloc] initWithNibName:nil bundle:nil];
                              [[ViewControllerContainer navigation] pushViewController:v animated:YES];
                          }],
-                         [EditCellItem createAttrSelection:[@"在线客服" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_online_service"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"在线客服" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil allowsEdit:YES placeholder:nil image:[UIImage imageNamed:@"icon_online_service"] tapBlock:^(EditCellItem *curItem) {
                              [[ViewControllerContainer navigation] pushViewController:[CustomerServiceViewController instance] animated:YES];
                          }],
                          ];
     
     self.sectionArr4 = @[
-                         [EditCellItem createAttrSelection:[@"设置" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil placeholder:nil image:[UIImage imageNamed:@"icon_setting"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"设置" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:nil allowsEdit:YES placeholder:nil image:[UIImage imageNamed:@"icon_setting"] tapBlock:^(EditCellItem *curItem) {
                              SettingViewController *v = [[SettingViewController alloc] init];
                              [[ViewControllerContainer navigation] pushViewController:v animated:YES];
                          }],
@@ -150,13 +150,13 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
             return cell;
         }
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        UITableViewCell *cell = [self.sectionArr2[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:YES];
         return cell;
     } else if (indexPath.section == 2) {
-        UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:YES];
         return cell;
     } else if (indexPath.section == 3) {
-        UITableViewCell *cell = [self.sectionArr4[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
+        UITableViewCell *cell = [self.sectionArr4[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:YES];
         return cell;
     } else if (indexPath.section == 4) {
         ConsultPhoneCell *cell = [tableView dequeueReusableCellWithIdentifier:ConsultPhoneCellIdentifier forIndexPath:indexPath];

@@ -60,13 +60,11 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
         @strongify(self);
         if (isShowing) {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
             UIView *view = [self.tableView getFirstResponder];
             CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
             [self.tableView scrollRectToVisible:rect animated:YES];
         } else {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
         }
     } completion:nil];
 }
@@ -94,7 +92,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [self.tableView registerNib:[UINib nibWithNibName:ProductAuthProductDescriptionCellIdentifier bundle:nil] forCellReuseIdentifier:ProductAuthProductDescriptionCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:ProductAuthPlanImageCellIdentifier bundle:nil] forCellReuseIdentifier:ProductAuthPlanImageCellIdentifier];
