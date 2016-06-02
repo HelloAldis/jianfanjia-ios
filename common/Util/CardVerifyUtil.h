@@ -10,6 +10,10 @@
 
 @interface CardVerifyUtil : NSObject
 
-+ (BOOL)validateIDCardNumber:(NSString *)value;
+// 检查身份证合法性
++ (BOOL)isValidIDCardNumber:(NSString *)cardNumber;
+
+// 检查银行卡合法性
++ (BOOL)isValidBankCardNumber:(NSString *)cardNumber;
 
 @end

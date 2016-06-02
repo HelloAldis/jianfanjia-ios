@@ -10,8 +10,8 @@
 
 @implementation CardVerifyUtil
 
-+ (BOOL)validateIDCardNumber:(NSString *)value {
-    value = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
++ (BOOL)isValidIDCardNumber:(NSString *)cardNumber {
+    NSString *value = [cardNumber stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     NSInteger length = 0;
     if (!value) {
@@ -114,7 +114,31 @@
             return NO;
             
     }
+}
+
++ (BOOL)isValidBankCardNumber:(NSString *)cardNumber  {
+    NSString *digitsOnly = cardNumber;
+    NSInteger sum = 0;
+    NSInteger digit = 0;
+    NSInteger addend = 0;
+    BOOL timesTwo = false;
+    for (NSInteger i = digitsOnly.length - 1; i >= 0; i--) {
+        digit = [digitsOnly characterAtIndex:i] - '0';
+        if (timesTwo) {
+            addend = digit * 2;
+            if (addend > 9) {
+                addend -= 9;
+            }
+        } else {
+            addend = digit;
+        }
+        
+        sum += addend;
+        timesTwo = !timesTwo;
+    }
     
+    int modulus = sum % 10;
+    return modulus == 0;
 }
 
 @end
