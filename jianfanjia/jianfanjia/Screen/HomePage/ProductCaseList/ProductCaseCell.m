@@ -39,8 +39,7 @@
 - (void)initWithProduct:(Product *)product {
     self.product = product;
     
-    ProductImage *productImage = [product imageAtIndex:0];
-    [self.productImageView setImageWithId:productImage.imageid withWidth:kScreenWidth];
+    [self.productImageView setImageWithId:product.cover_imageid withWidth:kScreenWidth];
     [self.designerImageView setUserImageWithId:self.product.designer.imageid];
     [DesignerBusiness setV:self.vImageView withAuthType:product.designer.auth_type];
     

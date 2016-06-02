@@ -57,7 +57,7 @@
         self.trashImageView.hidden = YES;
         self.lblDeleteMessage.hidden = YES;
         self.lblCell.text = self.product.cell;
-        [self.productImageView setImageWithId:[self.product imageAtIndex:0].imageid withWidth:kScreenWidth];
+        [self.productImageView setImageWithId:product.cover_imageid withWidth:kScreenWidth];
         self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@风格",
                                self.product.house_area,
                                [NameDict nameForHouseType:self.product.house_type],

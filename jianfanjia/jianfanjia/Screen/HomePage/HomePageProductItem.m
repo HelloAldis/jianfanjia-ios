@@ -29,8 +29,7 @@
 
 - (void)initWithProduct:(Product *)product {
     self.product = product;
-    ProductImage *productImage = [product imageAtIndex:0];
-    [self.image setImageWithId:productImage.imageid withWidth:kScreenWidth height:kHomePageProductItemHeight];
+    [self.image setImageWithId:product.cover_imageid withWidth:kScreenWidth height:kHomePageProductItemHeight];
 }
 
 @end
