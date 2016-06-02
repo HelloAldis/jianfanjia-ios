@@ -173,13 +173,13 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createText:@"邮寄详细地址" value:self.designer.address placeholder:nil itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                         [EditCellItem createText:@"邮寄详细地址" value:self.designer.address placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.address = curItem.value;
                              }
                          }],
-                         [EditCellItem createText:@"设计理念" value:self.designer.philosophy placeholder:nil itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                         [EditCellItem createText:@"设计理念" value:self.designer.philosophy placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.philosophy = curItem.value;
@@ -212,7 +212,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                          ];
     
     self.sectionArr6 = @[
-                         [EditCellItem createText:@"设计成就" value:self.designer.achievement placeholder:nil itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                         [EditCellItem createText:@"设计成就" value:self.designer.achievement placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.designer.achievement = curItem.value;

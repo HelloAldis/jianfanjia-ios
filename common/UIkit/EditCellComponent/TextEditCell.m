@@ -51,7 +51,7 @@ CGFloat kTextEditCellHeight;
     }
     
     [self initValue];
-    self.twValue.placeholder = item.placeholder;
+    self.twValue.placeholder = item.allowsEdit ? item.placeholder : @"";
     
     self.userInteractionEnabled = item.allowsEdit;
 }
