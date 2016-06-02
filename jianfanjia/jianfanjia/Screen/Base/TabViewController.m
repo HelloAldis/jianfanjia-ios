@@ -40,7 +40,7 @@
         my.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
     }];
     
-    [[NotificationDataManager shared] refreshUnreadCount];
+//    [[NotificationDataManager shared] refreshUnreadCount];
 }
 
 @end
