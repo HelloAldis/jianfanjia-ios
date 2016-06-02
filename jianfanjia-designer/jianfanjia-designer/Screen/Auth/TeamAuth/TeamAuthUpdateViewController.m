@@ -135,7 +135,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                          ];
     
     self.sectionArr2 = @[
-                         [EditCellItem createField:@"身份证号" value:self.team.uid placeholder:@"请输入15位或18位或带x身份证号码" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                         [EditCellItem createField:@"身份证号" value:self.team.uid placeholder:@"请输入15位或18位身份证号码" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.team.uid = curItem.value;
