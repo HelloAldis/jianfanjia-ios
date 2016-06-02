@@ -22,7 +22,6 @@
 #import "RefreshViewController.h"
 #import "VerifyPhoneViewController.h"
 #import "OrderDesignerViewController.h"
-#import "SignupSuccessViewController.h"
 #import "ResetPassViewController.h"
 #import "OrderedDesignerViewController.h"
 #import "EvaluateDesignerViewController.h"
