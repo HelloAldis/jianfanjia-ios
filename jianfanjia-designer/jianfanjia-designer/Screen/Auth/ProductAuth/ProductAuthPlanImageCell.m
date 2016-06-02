@@ -9,10 +9,14 @@
 #import "ProductAuthPlanImageCell.h"
 #import "ViewControllerContainer.h"
 
+CGFloat kProductAuthPlanImageCellHeight;
+
+static CGFloat imageHeight;
+
 @interface ProductAuthPlanImageCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
-@property (weak, nonatomic) IBOutlet UIImageView *coverImgView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgViewHeightConst;
 @property (strong, nonatomic) ProductAuthImageActionView *actionView;
 
 @property (strong, nonatomic) Product *product;
@@ -21,6 +25,21 @@
 @end
 
 @implementation ProductAuthPlanImageCell
+
++ (void)initialize {
+    if ([self class] == [ProductAuthPlanImageCell class]) {
+        CGFloat aspect =  373.0 / (kScreenWidth  - 44);
+        imageHeight = ceil(280.0 / aspect);
+        kProductAuthPlanImageCellHeight = imageHeight + 30;
+    }
+}
+
+- (void)updateConstraints {
+    [super updateConstraints];
+    if (self.imgViewHeightConst.constant != imageHeight) {
+        self.imgViewHeightConst.constant = imageHeight;
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -33,7 +52,6 @@
     self.product = product;
     self.image = image;
     [self.imgView setImageWithId:image.imageid withWidth:kScreenWidth];
-    self.coverImgView.hidden = YES;
     [self initActionView:actionBlock];
 }
 

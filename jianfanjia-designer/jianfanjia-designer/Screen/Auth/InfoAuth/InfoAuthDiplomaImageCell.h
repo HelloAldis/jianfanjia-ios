@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ProductAuthImageActionView.h"
 
-#define kInfoAuthDiplomaImageCellHeight 316
+extern CGFloat kInfoAuthDiplomaImageCellHeight;
 
 @interface InfoAuthDiplomaImageCell : UITableViewCell
 

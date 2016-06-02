@@ -26,7 +26,7 @@ CGFloat kTextEditCellHeight;
     if ([self class] == [TextEditCell class]) {
         CGSize constrainedSize = CGSizeMake(kScreenWidth - 35  , 9999);
         CGSize size = [NSString sizeWithConstrainedSize:constrainedSize font:[UIFont systemFontOfSize:14.0] maxLength:kMaxTextDescLength];
-        kTextEditCellHeight = size.height + 66;
+        kTextEditCellHeight = size.height + 90;
     }
 }
 

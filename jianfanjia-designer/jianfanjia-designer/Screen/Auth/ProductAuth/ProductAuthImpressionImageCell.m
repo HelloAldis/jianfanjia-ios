@@ -11,9 +11,13 @@
 
 #define kMaxProductImpressoinImageDescLength 140
 
+CGFloat kProductAuthImpressionImageCellHeight;
+static CGFloat imageHeight;
+
 @interface ProductAuthImpressionImageCell () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgViewHeightConst;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImgView;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIView *selectionView;
@@ -28,6 +32,24 @@
 @end
 
 @implementation ProductAuthImpressionImageCell
+
++ (void)initialize {
+    if ([self class] == [ProductAuthImpressionImageCell class]) {
+        CGFloat aspect =  373.0 / (kScreenWidth  - 44);
+        imageHeight = round(280.0 / aspect);
+        
+        CGSize constrainedSize = CGSizeMake(kScreenWidth - 74  , 9999);
+        CGSize size = [NSString sizeWithConstrainedSize:constrainedSize font:[UIFont systemFontOfSize:14.0] maxLength:kMaxProductImpressoinImageDescLength];
+        kProductAuthImpressionImageCellHeight = imageHeight + size.height + 140;
+    }
+}
+
+- (void)updateConstraints {
+    [super updateConstraints];
+    if (self.imgViewHeightConst.constant != imageHeight) {
+        self.imgViewHeightConst.constant = imageHeight;
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

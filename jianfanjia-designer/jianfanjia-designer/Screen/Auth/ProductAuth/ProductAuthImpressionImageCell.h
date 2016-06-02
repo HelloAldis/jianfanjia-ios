@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ProductAuthImageActionView.h"
 
-#define kProductAuthImpressionImageCellHeight 466
+extern CGFloat kProductAuthImpressionImageCellHeight;
 
 @interface ProductAuthImpressionImageCell : UITableViewCell
 

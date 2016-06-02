@@ -10,6 +10,8 @@
 
 #define kMaxProductDescLength 140
 
+CGFloat kProductAuthProductDescriptionCellHeight;
+
 @interface ProductAuthProductDescriptionCell () <UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *lblLeftLength;
@@ -19,6 +21,14 @@
 @end
 
 @implementation ProductAuthProductDescriptionCell
+
++ (void)initialize {
+    if ([self class] == [ProductAuthProductDescriptionCell class]) {
+        CGSize constrainedSize = CGSizeMake(kScreenWidth - 50  , 9999);
+        CGSize size = [NSString sizeWithConstrainedSize:constrainedSize font:[UIFont systemFontOfSize:14.0] maxLength:kMaxProductDescLength];
+        kProductAuthProductDescriptionCellHeight = size.height + 90;
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

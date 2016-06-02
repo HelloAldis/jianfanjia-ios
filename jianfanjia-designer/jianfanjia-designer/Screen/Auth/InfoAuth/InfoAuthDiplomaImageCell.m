@@ -9,9 +9,14 @@
 #import "InfoAuthDiplomaImageCell.h"
 #import "ViewControllerContainer.h"
 
+CGFloat kInfoAuthDiplomaImageCellHeight;
+
+static CGFloat imageHeight;
+
 @interface InfoAuthDiplomaImageCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgViewHeightConst;
 @property (weak, nonatomic) IBOutlet UIImageView *coverImgView;
 @property (weak, nonatomic) IBOutlet UIImageView *deleteImgView;
 @property (strong, nonatomic) ProductAuthImageActionView *actionView;
@@ -25,6 +30,21 @@
 @end
 
 @implementation InfoAuthDiplomaImageCell
+
++ (void)initialize {
+    if ([self class] == [InfoAuthDiplomaImageCell class]) {
+        CGFloat aspect =  373.0 / (kScreenWidth  - 44);
+        imageHeight = ceil(280.0 / aspect);
+        kInfoAuthDiplomaImageCellHeight = imageHeight + 30;
+    }
+}
+
+- (void)updateConstraints {
+    [super updateConstraints];
+    if (self.imgViewHeightConst.constant != imageHeight) {
+        self.imgViewHeightConst.constant = imageHeight;
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

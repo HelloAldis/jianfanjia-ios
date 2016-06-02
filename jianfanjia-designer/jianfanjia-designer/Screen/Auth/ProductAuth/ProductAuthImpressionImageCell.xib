@@ -16,8 +16,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="705" height="465"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1iw-IK-HV3">
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_place_holder" translatesAutoresizingMaskIntoConstraints="NO" id="1iw-IK-HV3">
                         <rect key="frame" x="20" y="23" width="665" height="279"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="279" id="Mta-kA-U1n"/>
+                        </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_product_move" translatesAutoresizingMaskIntoConstraints="NO" id="iSF-BO-syd">
                         <rect key="frame" x="332" y="7" width="42" height="16"/>
@@ -98,7 +101,6 @@
                         <constraints>
                             <constraint firstItem="Qfp-ff-Jqq" firstAttribute="leading" secondItem="o8g-W7-joU" secondAttribute="leading" constant="-3" id="0bS-Zn-J1x"/>
                             <constraint firstItem="WKf-pi-2gA" firstAttribute="top" secondItem="1YS-Za-ucZ" secondAttribute="top" id="AM6-nT-tBq"/>
-                            <constraint firstAttribute="height" constant="150" id="OiX-sI-vxC"/>
                             <constraint firstItem="oed-kQ-S5q" firstAttribute="top" secondItem="Qfp-ff-Jqq" secondAttribute="bottom" constant="5" id="Otb-HK-GKc"/>
                             <constraint firstAttribute="trailing" secondItem="WKf-pi-2gA" secondAttribute="trailing" id="RGx-SE-eXb"/>
                             <constraint firstItem="Qfp-ff-Jqq" firstAttribute="top" secondItem="WKf-pi-2gA" secondAttribute="bottom" constant="8" id="Tmh-Oc-ghE"/>
@@ -118,22 +120,17 @@
                     <constraint firstItem="1YS-Za-ucZ" firstAttribute="trailing" secondItem="1iw-IK-HV3" secondAttribute="trailing" id="aZJ-ft-kBy"/>
                     <constraint firstItem="1iw-IK-HV3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="gyG-Qv-UHT"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1iw-IK-HV3" secondAttribute="trailing" constant="12" id="hg3-9W-wLC"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="1iw-IK-HV3" secondAttribute="bottom" constant="10" id="l2M-fG-Bp4"/>
                     <constraint firstItem="1iw-IK-HV3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="oOY-pZ-IYj"/>
                     <constraint firstItem="FFM-4g-ogQ" firstAttribute="width" secondItem="FFM-4g-ogQ" secondAttribute="height" id="uwf-Em-WRo"/>
                     <constraint firstItem="FFM-4g-ogQ" firstAttribute="top" secondItem="1iw-IK-HV3" secondAttribute="top" id="yOC-34-XE7"/>
                     <constraint firstItem="1YS-Za-ucZ" firstAttribute="top" secondItem="1iw-IK-HV3" secondAttribute="bottom" constant="5" id="zKz-Bk-s9h"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="l2M-fG-Bp4"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bottomView" destination="1YS-Za-ucZ" id="isi-Xn-B0W"/>
                 <outlet property="coverImgView" destination="FFM-4g-ogQ" id="bAv-4q-v2g"/>
                 <outlet property="imgView" destination="1iw-IK-HV3" id="Z9g-iu-sJr"/>
+                <outlet property="imgViewHeightConst" destination="Mta-kA-U1n" id="RFd-rJ-XHB"/>
                 <outlet property="lblLeftLength" destination="oed-kQ-S5q" id="Kk3-N6-asx"/>
                 <outlet property="lblSelection" destination="JTU-PK-kmA" id="FVJ-wu-1kc"/>
                 <outlet property="selectionView" destination="1YS-Za-ucZ" id="gcR-Ki-ZWD"/>
@@ -146,5 +143,6 @@
         <image name="bar_shape" width="7" height="13"/>
         <image name="icon_product_cover" width="39" height="39"/>
         <image name="icon_product_move" width="42" height="16"/>
+        <image name="image_place_holder" width="414" height="270"/>
     </resources>
 </document>

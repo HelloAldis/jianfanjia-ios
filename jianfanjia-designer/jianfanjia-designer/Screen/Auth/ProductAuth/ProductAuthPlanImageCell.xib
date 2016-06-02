@@ -18,6 +18,9 @@
                 <subviews>
                     <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1iw-IK-HV3">
                         <rect key="frame" x="20" y="23" width="665" height="284"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="284" id="Os2-mq-nro"/>
+                        </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_product_move" translatesAutoresizingMaskIntoConstraints="NO" id="iSF-BO-syd">
                         <rect key="frame" x="332" y="8" width="42" height="16"/>
@@ -26,19 +29,10 @@
                             <constraint firstAttribute="width" secondItem="iSF-BO-syd" secondAttribute="height" multiplier="84:32" id="jKO-Dk-9mx"/>
                         </constraints>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_product_cover" translatesAutoresizingMaskIntoConstraints="NO" id="vLw-LH-9e1">
-                        <rect key="frame" x="646" y="23" width="39" height="39"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="vLw-LH-9e1" secondAttribute="height" id="T9o-qS-EVi"/>
-                            <constraint firstAttribute="width" constant="39" id="h48-5w-qrZ"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="vLw-LH-9e1" firstAttribute="top" secondItem="1iw-IK-HV3" secondAttribute="top" id="2ay-wg-D1n"/>
                     <constraint firstItem="iSF-BO-syd" firstAttribute="centerX" secondItem="1iw-IK-HV3" secondAttribute="centerX" id="2ef-pO-HDw"/>
                     <constraint firstItem="1iw-IK-HV3" firstAttribute="top" secondItem="iSF-BO-syd" secondAttribute="bottom" constant="-1" id="ONL-vK-pBv"/>
-                    <constraint firstItem="vLw-LH-9e1" firstAttribute="trailing" secondItem="1iw-IK-HV3" secondAttribute="trailing" id="TeY-gA-DER"/>
                     <constraint firstItem="1iw-IK-HV3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="15" id="gyG-Qv-UHT"/>
                     <constraint firstAttribute="trailingMargin" secondItem="1iw-IK-HV3" secondAttribute="trailing" constant="12" id="hg3-9W-wLC"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1iw-IK-HV3" secondAttribute="bottom" id="l2M-fG-Bp4"/>
@@ -46,14 +40,13 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="coverImgView" destination="vLw-LH-9e1" id="WcA-Gx-h5p"/>
                 <outlet property="imgView" destination="1iw-IK-HV3" id="Z9g-iu-sJr"/>
+                <outlet property="imgViewHeightConst" destination="Os2-mq-nro" id="IGH-e0-0dZ"/>
             </connections>
             <point key="canvasLocation" x="283.5" y="500.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_product_cover" width="39" height="39"/>
         <image name="icon_product_move" width="42" height="16"/>
     </resources>
 </document>

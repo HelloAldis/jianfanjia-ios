@@ -11,10 +11,13 @@
 
 #define kMaxInfoAuthAwardImageCellDescLength 140
 
+CGFloat kInfoAuthAwardImageCellHeight;
+static CGFloat imageHeight;
+
 @interface InfoAuthAwardImageCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *imgView;
-@property (weak, nonatomic) IBOutlet UIImageView *coverImgView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgViewHeightConst;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet UIView *selectionView;
 @property (weak, nonatomic) IBOutlet UITextView *tvDesc;
@@ -28,6 +31,24 @@
 @end
 
 @implementation InfoAuthAwardImageCell
+
++ (void)initialize {
+    if ([self class] == [InfoAuthAwardImageCell class]) {
+        CGFloat aspect =  373.0 / (kScreenWidth  - 44);
+        imageHeight = round(280.0 / aspect);
+        
+        CGSize constrainedSize = CGSizeMake(kScreenWidth - 74  , 9999);
+        CGSize size = [NSString sizeWithConstrainedSize:constrainedSize font:[UIFont systemFontOfSize:14.0] maxLength:kMaxInfoAuthAwardImageCellDescLength];
+        kInfoAuthAwardImageCellHeight = imageHeight + size.height + 90;
+    }
+}
+
+- (void)updateConstraints {
+    [super updateConstraints];
+    if (self.imgViewHeightConst.constant != imageHeight) {
+        self.imgViewHeightConst.constant = imageHeight;
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];
