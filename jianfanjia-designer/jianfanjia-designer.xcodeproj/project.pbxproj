@@ -422,6 +422,7 @@
 		689ECEC91CFC1A320046DDC8 /* SnsAccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECEC81CFC1A320046DDC8 /* SnsAccountInfo.m */; };
 		689ECECD1CFC3A4A0046DDC8 /* TeamConfigureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECECB1CFC3A4A0046DDC8 /* TeamConfigureViewController.m */; };
 		689ECECE1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECECC1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib */; };
+		689ECED61D000E370046DDC8 /* CardVerifyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECED51D000E370046DDC8 /* CardVerifyUtil.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -1205,6 +1206,8 @@
 		689ECECA1CFC3A4A0046DDC8 /* TeamConfigureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeamConfigureViewController.h; sourceTree = "<group>"; };
 		689ECECB1CFC3A4A0046DDC8 /* TeamConfigureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeamConfigureViewController.m; sourceTree = "<group>"; };
 		689ECECC1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeamConfigureViewController.xib; sourceTree = "<group>"; };
+		689ECED41D000E370046DDC8 /* CardVerifyUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardVerifyUtil.h; sourceTree = "<group>"; };
+		689ECED51D000E370046DDC8 /* CardVerifyUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardVerifyUtil.m; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -2709,6 +2712,8 @@
 				68123CE11C4C99C9008FC9AB /* Util.h */,
 				68FB6ECB1C50C3DF001C0613 /* PhoneUtil.h */,
 				68FB6ECC1C50C3DF001C0613 /* PhoneUtil.m */,
+				689ECED41D000E370046DDC8 /* CardVerifyUtil.h */,
+				689ECED51D000E370046DDC8 /* CardVerifyUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -3287,6 +3292,7 @@
 				68123C901C4C9772008FC9AB /* ImageBrowerViewController.m in Sources */,
 				680C46261CC5CD15008C4BC0 /* DataManager.m in Sources */,
 				6812411F1C4CF2D5008FC9AB /* ItemExpandImageCell.m in Sources */,
+				689ECED61D000E370046DDC8 /* CardVerifyUtil.m in Sources */,
 				68123CE81C4C99C9008FC9AB /* StringUtil.m in Sources */,
 				680F66421CF81CC3000E1EEF /* SelectAllCell.m in Sources */,
 				68123CE71C4C99C9008FC9AB /* PhotoUtil.m in Sources */,

@@ -18,5 +18,6 @@
 #import "PhoneUtil.h"
 #import "ToastUtil.h"
 #import "PhotoCropper.h"
+#import "CardVerifyUtil.h"
 
 #endif
