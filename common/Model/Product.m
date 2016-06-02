@@ -17,6 +17,7 @@
 @dynamic district;
 @dynamic cell;
 @dynamic house_type;
+@dynamic business_house_type;
 @dynamic dec_type;
 @dynamic house_area;
 @dynamic dec_style;

@@ -48,4 +48,8 @@
     return color;
 }
 
++ (NSString *)houseTypeByDecType:(Product *)product {
+    return [product.dec_type isEqualToString:kDecTypeBusiness] ? [NameDict nameForBusinessType:product.business_house_type] : [NameDict nameForHouseType:product.house_type];
+}
+
 @end

@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class Product;
+
 @interface ProductBusiness : NSObject
 
 + (UIImage *)productAuthTypeImage:(NSString *)authType;
 + (UIColor *)productAuthTypeColor:(NSString *)authType;
 + (UIColor *)productAuthTypeColorByProductCount;
++ (NSString *)houseTypeByDecType:(Product *)product;
 
 @end

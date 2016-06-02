@@ -40,7 +40,7 @@
     [self.productImageView setImageWithId:[self.product imageAtIndex:0].imageid withWidth:kScreenWidth];
     self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@风格",
                            self.product.house_area,
-                           [NameDict nameForHouseType:self.product.house_type],
+                           [ProductBusiness houseTypeByDecType:product],
                            [NameDict nameForDecStyle:self.product.dec_style]];
 }
 

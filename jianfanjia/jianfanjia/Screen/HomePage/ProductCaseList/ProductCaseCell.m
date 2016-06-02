@@ -47,7 +47,7 @@
     self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@, %@风格",
                            product.house_area,
                            [NameDict nameForDecType:product.dec_type],
-                           [NameDict nameForHouseType:product.house_type],
+                           [ProductBusiness houseTypeByDecType:product],
                            [NameDict nameForDecStyle:product.dec_style]];
 }
 

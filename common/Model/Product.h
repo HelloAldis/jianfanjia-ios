@@ -20,6 +20,7 @@
 @property (strong, nonatomic) NSString *district;
 @property (strong, nonatomic) NSString *cell;
 @property (strong, nonatomic) NSString *house_type;
+@property (strong, nonatomic) NSString *business_house_type;
 @property (strong, nonatomic) NSString *dec_type;
 @property (strong, nonatomic) NSNumber *house_area;
 @property (strong, nonatomic) NSString *dec_style;

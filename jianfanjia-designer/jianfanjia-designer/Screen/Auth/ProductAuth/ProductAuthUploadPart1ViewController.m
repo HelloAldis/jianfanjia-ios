@@ -96,6 +96,38 @@
     [EditCellItem registerCells:self.tableView];
     
     @weakify(self);
+    EditCellItem *cellItem = [EditCellItem createField:nil value:self.product.cell placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+        @strongify(self);
+        if (itemEditType ==  EditCellItemEditTypeChange) {
+            self.product.cell = curItem.value;
+        }
+    }];
+    
+    EditCellItem *houseTypeItem = [EditCellItem createSelection:nil value:nil allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+        @strongify(self);
+        if ([self.product.dec_type isEqualToString:kDecTypeBusiness]) {
+            SelectBusinessTypeViewController *controller = [[SelectBusinessTypeViewController alloc] initWithValueBlock:^(id value) {
+                curItem.value = [NameDict nameForBusinessType:value];
+                self.product.business_house_type = value;
+                
+                [self.tableView reloadData];
+            } curValue:self.product.business_house_type];
+            
+            [self.navigationController pushViewController:controller animated:YES];
+        } else {
+            SelectHouseTypeViewController *controller = [[SelectHouseTypeViewController alloc] initWithValueBlock:^(id value) {
+                curItem.value = [NameDict nameForHouseType:value];
+                self.product.house_type = value;
+                
+                [self.tableView reloadData];
+            } curValue:self.product.house_type];
+            
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+    }];
+    
+    [self updateCellItem:cellItem houseItem:houseTypeItem];
+    
     self.sectionArr1 = @[
                          [EditCellItem createSelection:@"所在城市" value:[self isNewProd] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.product.province, self.product.city, self.product.district] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
@@ -111,12 +143,7 @@
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createField:@"小区名字" value:self.product.cell placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
-                             @strongify(self);
-                             if (itemEditType ==  EditCellItemEditTypeChange) {
-                                 self.product.cell = curItem.value;
-                             }
-                         }],
+                         cellItem,
                          ];
     
     self.sectionArr2 = @[
@@ -125,24 +152,14 @@
                              SelectDecorationTypeViewController *controller = [[SelectDecorationTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForDecType:value];
                                  self.product.dec_type = value;
+                                 [self updateCellItem:cellItem houseItem:houseTypeItem];
                                  
                                  [self.tableView reloadData];
                              } curValue:self.product.dec_type];
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         [EditCellItem createSelection:@"装修户型" value:[NameDict nameForDecStyle:self.product.house_type] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
-                             @strongify(self);
-                             SelectHouseTypeViewController *controller = [[SelectHouseTypeViewController alloc] initWithValueBlock:^(id value) {
-                                 curItem.value = [NameDict nameForHouseType:value];
-                                 self.product.house_type = value;
-                                 
-                                 [self.tableView reloadData];
-                             } curValue:self.product.house_type];
-                             
-                             [self.navigationController pushViewController:controller animated:YES];
-                             
-                         }],
+                         houseTypeItem,
                          [EditCellItem createAttrField:[@"建筑面积 (m²)" attrSubStr:@"(m²)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.house_area ? [[NSMutableAttributedString alloc] initWithString:[self.product.house_area stringValue]] : nil placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
@@ -185,6 +202,12 @@
     [self.totalArr addObjectsFromArray:self.sectionArr1];
     [self.totalArr addObjectsFromArray:self.sectionArr2];
     [self refreshNextButtonStatus];
+}
+
+- (void)updateCellItem:(EditCellItem *)cellItem houseItem:(EditCellItem *)houseTypeItem {
+    cellItem.title = [self.product.dec_type isEqualToString:kDecTypeBusiness] ? @"项目名称" : @"小区名字";
+    houseTypeItem.title = [self.product.dec_type isEqualToString:kDecTypeBusiness] ? @"商装类型" : @"装修户型";
+    houseTypeItem.value = [self.product.dec_type isEqualToString:kDecTypeBusiness] ? [NameDict nameForBusinessType:self.product.business_house_type] : [NameDict nameForHouseType:self.product.house_type];
 }
 
 #pragma mark - table view delegate

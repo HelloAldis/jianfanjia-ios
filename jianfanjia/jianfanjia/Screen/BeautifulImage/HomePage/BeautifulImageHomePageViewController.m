@@ -141,7 +141,7 @@
     
     [self initRightNaviBarItems];
     self.btnDownload.hidden = ![self.groupItems[toPage] loadedImage];
-    self.shareItem.enabled = [self.groupItems[toPage] loadedImage];
+    self.shareItem.enabled = [self.groupItems[toPage] loadedImage] != nil;
     self.index = toPage;
 }
 

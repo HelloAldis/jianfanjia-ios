@@ -295,6 +295,7 @@
 		689ECEB41CFC19240046DDC8 /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 689ECEAE1CFC19240046DDC8 /* read_me.txt */; };
 		689ECED21CFD78BC0046DDC8 /* HorizontalImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECED01CFD78BC0046DDC8 /* HorizontalImageCell.m */; };
 		689ECED31CFD78BC0046DDC8 /* HorizontalImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECED11CFD78BC0046DDC8 /* HorizontalImageCell.xib */; };
+		689ECEDC1D00384B0046DDC8 /* ProductBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECEDB1D00384B0046DDC8 /* ProductBusiness.m */; };
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
 		68B10C8C1C76F345005866C1 /* GetTopProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C8B1C76F345005866C1 /* GetTopProducts.m */; };
@@ -992,6 +993,8 @@
 		689ECECF1CFD78BC0046DDC8 /* HorizontalImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalImageCell.h; sourceTree = "<group>"; };
 		689ECED01CFD78BC0046DDC8 /* HorizontalImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalImageCell.m; sourceTree = "<group>"; };
 		689ECED11CFD78BC0046DDC8 /* HorizontalImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HorizontalImageCell.xib; sourceTree = "<group>"; };
+		689ECEDA1D00384B0046DDC8 /* ProductBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductBusiness.h; sourceTree = "<group>"; };
+		689ECEDB1D00384B0046DDC8 /* ProductBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductBusiness.m; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
 		68B10C841C76D489005866C1 /* DesignerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerListViewController.xib; sourceTree = "<group>"; };
 		68B10C871C76F13F005866C1 /* HomePageDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDataManager.h; sourceTree = "<group>"; };
@@ -2302,6 +2305,8 @@
 				6E4496171BF717B100C90851 /* DesignerBusiness.m */,
 				68342DF71BFC45EE0000EBBE /* RequirementBusiness.h */,
 				68342DF81BFC45EE0000EBBE /* RequirementBusiness.m */,
+				689ECEDA1D00384B0046DDC8 /* ProductBusiness.h */,
+				689ECEDB1D00384B0046DDC8 /* ProductBusiness.m */,
 				68134A491C3D1486003C1C10 /* EnumBusiness.h */,
 				688517641C915862000B01DB /* NotificationBusiness.h */,
 				688517651C915862000B01DB /* NotificationBusiness.m */,
@@ -3242,6 +3247,7 @@
 				68F73CF11CBB3AB900E97710 /* PlanHomeOwnerOrdered.m in Sources */,
 				687EEB551CE2C55B00A277DC /* DIYRefreshFooter.m in Sources */,
 				685DD4531C89761E00A76B9C /* CommentListDataManager.m in Sources */,
+				689ECEDC1D00384B0046DDC8 /* ProductBusiness.m in Sources */,
 				68F73CF21CBB3AB900E97710 /* PlanUnorder.m in Sources */,
 				689ECE7C1CFC16C00046DDC8 /* ShareManager.m in Sources */,
 				684B04421C9943AC0053FFDF /* GetDesignerUnreadCount.m in Sources */,

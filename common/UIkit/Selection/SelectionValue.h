@@ -10,6 +10,7 @@
 #define SelectionValue_h
 
 #import "SelectHouseTypeViewController.h"
+#import "SelectBusinessTypeViewController.h"
 #import "SelectPopulationViewController.h"
 #import "SelectCommunicationTypeViewController.h"
 #import "SelectWorkTypeViewController.h"
