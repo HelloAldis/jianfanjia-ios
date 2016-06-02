@@ -61,9 +61,10 @@
     NSString *curStr = textField.text;
     NSInteger len = curStr.length +  (string.length - range.length);
     NSInteger lenDelta = len - self.item.length;
+    NSInteger replaceToIndex = string.length - lenDelta;
     
-    if (lenDelta > 0) {
-        NSString *replaceStr = [string substringToIndex:string.length - lenDelta];
+    if (lenDelta > 0 && replaceToIndex < string.length) {
+        NSString *replaceStr = [string substringToIndex:replaceToIndex];
         
         NSString *updatedStr = [curStr stringByReplacingCharactersInRange:NSMakeRange(range.location, range.length) withString:replaceStr];
         flag = NO;

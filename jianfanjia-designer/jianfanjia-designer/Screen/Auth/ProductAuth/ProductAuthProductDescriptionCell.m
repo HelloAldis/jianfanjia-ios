@@ -53,9 +53,10 @@ CGFloat kProductAuthProductDescriptionCellHeight;
     NSString *curStr = textView.text;
     NSInteger len = curStr.length +  (text.length - range.length);
     NSInteger lenDelta = len - kMaxProductDescLength;
+    NSInteger replaceToIndex = text.length - lenDelta;
     
-    if (lenDelta > 0) {
-        NSString *replaceStr = [text substringToIndex:text.length - lenDelta];
+    if (lenDelta > 0 && replaceToIndex < text.length) {
+        NSString *replaceStr = [text substringToIndex:replaceToIndex];
         
         NSString *updatedStr = [curStr stringByReplacingCharactersInRange:NSMakeRange(range.location, range.length) withString:replaceStr];
         textView.text = updatedStr;
