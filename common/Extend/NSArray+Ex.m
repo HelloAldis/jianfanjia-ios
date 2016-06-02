@@ -13,7 +13,10 @@
 - (NSMutableArray *)map:(id (^)(id obj))fun {
     NSMutableArray *array = [[NSMutableArray alloc] initWithCapacity:self.count];
     for (id obj in self) {
-        [array addObject:fun(obj)];
+        id covertObj = fun(obj);
+        if (covertObj) {
+            [array addObject:covertObj];
+        }
     }
     
     return array;
