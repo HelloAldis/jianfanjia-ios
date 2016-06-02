@@ -77,8 +77,9 @@ static CGFloat imageHeight;
     self.isEdit = isEdit;
     [self.imgView setImageWithId:award.award_imageid withWidth:kScreenWidth];
     self.tvDesc.text = award.award_description;
-    self.tvDesc.placeholder = @"请输入";
-    
+    self.tvDesc.placeholder = isEdit ? @"请输入" : @"";
+    [self updateValue];
+
     [self initActionView:actionBlock];
     self.actionView.hidden = !isEdit;
     self.tvDesc.userInteractionEnabled = isEdit;

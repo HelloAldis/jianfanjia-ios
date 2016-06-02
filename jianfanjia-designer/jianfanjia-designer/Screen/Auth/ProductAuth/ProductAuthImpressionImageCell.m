@@ -84,6 +84,7 @@ static CGFloat imageHeight;
     [self.imgView setImageWithId:image.imageid withWidth:kScreenWidth];
     self.tvDesc.text = image.productImage_description;
     self.tvDesc.placeholder = @"请输入";
+    [self updateValue];
     self.lblSelection.text = image.section;
     self.coverImgView.hidden = ![product.cover_imageid isEqualToString:image.imageid];
     

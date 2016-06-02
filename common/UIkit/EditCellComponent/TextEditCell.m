@@ -94,6 +94,8 @@ CGFloat kTextEditCellHeight;
         self.twValue.attributedText = nil;
         self.twValue.text = self.item.value;
     }
+    
+    [self updateLeftLength:self.item.value];
 }
 
 - (void)updateValue:(NSString *)value {
@@ -106,6 +108,10 @@ CGFloat kTextEditCellHeight;
         self.item.itemEditBlock(self.item, EditCellItemEditTypeChange);
     }
     
+    [self updateLeftLength:value];
+}
+
+- (void)updateLeftLength:(NSString *)value {
     self.lblLeftLength.text = [NSString stringWithFormat:@"%@/%@", @(kMaxTextDescLength - value.length), @(kMaxTextDescLength)];
 }
 
