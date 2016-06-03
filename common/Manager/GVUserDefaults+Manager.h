@@ -39,4 +39,6 @@
 @property (nonatomic, assign) BOOL wasShowProductCaseUserHelper;
 @property (nonatomic, assign) BOOL wasShowProductCaseRightArrow;
 
+- (void)clearValue;
+
 @end

@@ -39,5 +39,28 @@
 @dynamic wasShowProductCaseUserHelper;
 @dynamic wasShowProductCaseRightArrow;
 
+- (void)clearValue {
+    [GVUserDefaults standardUserDefaults].isLogin = NO;
+    [GVUserDefaults standardUserDefaults].phone = nil;
+    [GVUserDefaults standardUserDefaults].usertype = nil;
+    [GVUserDefaults standardUserDefaults].userid = nil;
+    [GVUserDefaults standardUserDefaults].imageid = nil;
+    [GVUserDefaults standardUserDefaults].username = nil;
+    [GVUserDefaults standardUserDefaults].loginDate = nil;
+    [GVUserDefaults standardUserDefaults].sex = nil;
+    [GVUserDefaults standardUserDefaults].province = nil;
+    [GVUserDefaults standardUserDefaults].city = nil;
+    [GVUserDefaults standardUserDefaults].district = nil;
+    [GVUserDefaults standardUserDefaults].address = nil;
+    [GVUserDefaults standardUserDefaults].auth_type = nil;
+    [GVUserDefaults standardUserDefaults].work_auth_type = nil;
+    [GVUserDefaults standardUserDefaults].email_auth_type = nil;
+    [GVUserDefaults standardUserDefaults].uid_auth_type = nil;
+    [GVUserDefaults standardUserDefaults].product_count = nil;
+    [GVUserDefaults standardUserDefaults].authed_product_count = nil;
+    [GVUserDefaults standardUserDefaults].wechat_openid = nil;
+    [GVUserDefaults standardUserDefaults].wechat_unionid = nil;
+}
+
 @end
 

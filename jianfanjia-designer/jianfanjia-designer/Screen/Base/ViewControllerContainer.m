@@ -120,6 +120,10 @@ static ViewControllerContainer *container;
     container.tab.viewControllers = @[container.tab.tapMyUser, container.tab.tapMyProcess, container.tab.tapMy];
     container.navigation = [[UINavigationController alloc] initWithRootViewController:container.tab];
     container.window.rootViewController = container.navigation;
+    
+    if (![DesignerBusiness isDesignerFinishFundationAuth]) {
+        [container.tab setSelectedViewController:container.tab.tapMy];
+    }
 }
 
 + (void)showLogin {
@@ -383,7 +387,6 @@ static ViewControllerContainer *container;
                 [self showInfoAuth:designer canEdit:YES fromRegister:fromRegister];
             } else {
                 [self showTab];
-                [container.tab setSelectedViewController:container.tab.tapMy];
             }
         } failure:^{
             [HUDUtil hideWait];
@@ -452,21 +455,7 @@ static ViewControllerContainer *container;
 + (void)logout {
     [GeTuiSdk unbindAlias:[GVUserDefaults standardUserDefaults].userid];
     container.tab = nil;
-    [GVUserDefaults standardUserDefaults].isLogin = NO;
-    [GVUserDefaults standardUserDefaults].phone = nil;
-    [GVUserDefaults standardUserDefaults].usertype = nil;
-    [GVUserDefaults standardUserDefaults].userid = nil;
-    [GVUserDefaults standardUserDefaults].imageid = nil;
-    [GVUserDefaults standardUserDefaults].username = nil;
-    [GVUserDefaults standardUserDefaults].loginDate = nil;
-    [GVUserDefaults standardUserDefaults].sex = nil;
-    [GVUserDefaults standardUserDefaults].province = nil;
-    [GVUserDefaults standardUserDefaults].city = nil;
-    [GVUserDefaults standardUserDefaults].district = nil;
-    [GVUserDefaults standardUserDefaults].address = nil;
-    [GVUserDefaults standardUserDefaults].wechat_openid = nil;
-    [GVUserDefaults standardUserDefaults].wechat_unionid = nil;
-    
+    [[GVUserDefaults standardUserDefaults] clearValue];
     [[NotificationDataManager shared] clearUnreadCount];
     [API clearCookie];
     [ViewControllerContainer showLogin];

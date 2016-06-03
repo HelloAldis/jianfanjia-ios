@@ -449,7 +449,6 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
         [HUDUtil hideWait];
         if (self.isFromRegister) {
             [ViewControllerContainer showTab];
-            [[ViewControllerContainer tab] setSelectedViewController:[ViewControllerContainer tab].tapMy];
         } else {
             [self.navigationController popViewControllerAnimated:YES];
         }

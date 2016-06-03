@@ -27,5 +27,6 @@
 + (CGFloat)getDesignerAuthProgress;
 
 + (BOOL)isDesignerAgreeLicense:(NSString *)agreeLicense;
++ (BOOL)isDesignerFinishFundationAuth;
 
 @end

@@ -206,21 +206,7 @@ static ViewControllerContainer *container;
 
 + (void)logout {
     container.tab = nil;
-    [GVUserDefaults standardUserDefaults].isLogin = NO;
-    [GVUserDefaults standardUserDefaults].phone = nil;
-    [GVUserDefaults standardUserDefaults].usertype = nil;
-    [GVUserDefaults standardUserDefaults].userid = nil;
-    [GVUserDefaults standardUserDefaults].imageid = nil;
-    [GVUserDefaults standardUserDefaults].username = nil;
-    [GVUserDefaults standardUserDefaults].loginDate = nil;
-    [GVUserDefaults standardUserDefaults].sex = nil;
-    [GVUserDefaults standardUserDefaults].province = nil;
-    [GVUserDefaults standardUserDefaults].city = nil;
-    [GVUserDefaults standardUserDefaults].district = nil;
-    [GVUserDefaults standardUserDefaults].address = nil;
-    [GVUserDefaults standardUserDefaults].wechat_openid = nil;
-    [GVUserDefaults standardUserDefaults].wechat_unionid = nil;
-    
+    [[GVUserDefaults standardUserDefaults] clearValue];
     [API clearCookie];
     [ViewControllerContainer showLogin];
 }

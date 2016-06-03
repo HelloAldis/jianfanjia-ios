@@ -179,4 +179,21 @@
     return [@"1" isEqualToString:agreeLicense];
 }
 
++ (BOOL)isDesignerFinishFundationAuth {
+    BOOL flag = YES;
+    
+    NSString *basicAuthType = [GVUserDefaults standardUserDefaults].auth_type;
+    NSNumber *authedProductCount = [GVUserDefaults standardUserDefaults].authed_product_count;
+
+    if (![basicAuthType isEqualToString:kAuthTypeVerifyPass]) {
+        flag = NO;
+    }
+    
+    if (authedProductCount.integerValue < kMinAuthedProductCount) {
+        flag = NO;
+    }
+    
+    return flag;
+}
+
 @end
