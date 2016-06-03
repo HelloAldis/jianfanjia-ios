@@ -20,10 +20,11 @@
         
     RefreshSession *request = [[RefreshSession alloc] init];
     request._id = [GVUserDefaults standardUserDefaults].userid;
-    
+    DDLogDebug(@"==================== RefreshSession1 %@", [NSDate date]);
     [API userRefreshSession:request success:^{
+        DDLogDebug(@"==================== RefreshSession2 %@", [NSDate date]);
         [ViewControllerContainer refreshSuccess];
-        
+        DDLogDebug(@"==================== RefreshSession3 %@", [NSDate date]);
         UserGetInfo *request = [[UserGetInfo alloc] init];
         [API userGetInfo:request success:nil failure:nil networkError:nil];
     } failure:^{
