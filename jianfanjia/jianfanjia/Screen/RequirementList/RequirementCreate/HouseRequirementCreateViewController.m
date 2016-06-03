@@ -613,21 +613,21 @@ typedef NS_ENUM(NSInteger, PkgShowingType) {
 
 - (void)triggerDoneEvent {
     [self enableRightBarItem:NO];
+    
+    __block NSString *pkgType = nil;
+    [self executeBlockByPkgType:self.curPkgType pkgDef:^BOOL{
+        pkgType = kDecPackageDefault;
+        return YES;
+    } pkg365:^BOOL{
+        pkgType = kDecPackage365;
+        return YES;
+    } pkgJiangXin:^BOOL{
+        pkgType = kDecPackageJiangXinDingZhi;
+        return YES;
+    }];
+    
+    self.editingRequirement.package_type = pkgType;
     if ([@"" isEqualToString:self.editingRequirement._id]) {
-        
-        __block NSString *pkgType = nil;
-        [self executeBlockByPkgType:self.curPkgType pkgDef:^BOOL{
-            pkgType = kDecPackageDefault;
-            return YES;
-        } pkg365:^BOOL{
-            pkgType = kDecPackage365;
-            return YES;
-        } pkgJiangXin:^BOOL{
-            pkgType = kDecPackageJiangXinDingZhi;
-            return YES;
-        }];
-        
-        self.editingRequirement.package_type = pkgType;
         SendAddRequirement *sendAddRequirement = [[SendAddRequirement alloc] initWithRequirement:self.editingRequirement];
         
         [API sendAddRequirement:sendAddRequirement success:^{
