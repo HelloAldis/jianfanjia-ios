@@ -15,6 +15,7 @@
 #import "ProductAuthImpressionImageCell.h"
 #import "ReorderTableView.h"
 #import "ProductAuthViewController.h"
+#import "AuthInfoAlertViewController.h"
 
 #define kBottomInsert 80
 

@@ -14,6 +14,7 @@
 #import "ProductAuthImageFooterView.h"
 #import "InfoAuthDiplomaImageCell.h"
 #import "InfoAuthAwardImageCell.h"
+#import "AuthInfoAlertViewController.h"
 
 #define kBottomInsert 80
 

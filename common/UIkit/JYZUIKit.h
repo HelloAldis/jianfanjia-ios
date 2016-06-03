@@ -11,7 +11,6 @@
 
 #import "DateAlertViewController.h"
 #import "MessageAlertViewController.h"
-#import "AuthInfoAlertViewController.h"
 #import "InfiniteScrollView.h"
 #import "ImageBrowerViewController.h"
 #import "ImageDetailViewController.h"

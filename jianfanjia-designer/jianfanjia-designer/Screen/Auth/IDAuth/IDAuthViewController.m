@@ -12,6 +12,7 @@
 #import "IDAuthIDCardImageCell.h"
 #import "IDAuthBankCardImageCell.h"
 #import "InfoAuthImageHeaderView.h"
+#import "AuthInfoAlertViewController.h"
 
 #define kBottomInsert 80
 
