@@ -90,11 +90,11 @@ static NSString *ProductAuthCellIdentifier = @"ProductAuthCell";
     if (section == 1) {
         NSInteger totalCount = self.dataManager.products.count;
         NSInteger authedCount = [self.dataManager authedProductCount];
-        if (totalCount == 0) {
+        if (self.dataManager.products && totalCount == 0) {
             ProductCountTipSection *header = [ProductCountTipSection productCountTipSection];
             header.lblTitle.text = [NSString stringWithFormat:@"认证条件：您至少需要认证%@个以上的作品，才可以被预约", @(kMinAuthedProductCount)];
             return header;
-        } else if (authedCount < kMinAuthedProductCount) {
+        } else if (self.dataManager.products && authedCount < kMinAuthedProductCount) {
             ProductCountTipSection *header = [ProductCountTipSection productCountTipSection];
             header.lblTitle.text = [NSString stringWithFormat:@"您还需要认证%@个作品", @(kMinAuthedProductCount - authedCount)];
             return header;
