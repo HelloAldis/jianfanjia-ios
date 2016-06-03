@@ -59,19 +59,11 @@
                             </mask>
                         </variation>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="110m，家装，三室，地中海风格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxp-bE-vFe">
-                        <rect key="frame" x="13" y="316" width="221" height="17"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="8Qq-dL-WAu"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="110m，家装，三室，地中海风格" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxp-bE-vFe">
+                        <rect key="frame" x="13" y="316" width="221" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="8Qq-dL-WAu"/>
-                            </mask>
-                        </variation>
                     </label>
                 </subviews>
                 <constraints>
@@ -81,24 +73,15 @@
                     <constraint firstItem="B8Q-gs-ADd" firstAttribute="top" secondItem="4TU-tu-Q62" secondAttribute="bottom" constant="-30" id="CJ0-vS-SkV"/>
                     <constraint firstItem="zUI-5N-Hgs" firstAttribute="top" secondItem="4TU-tu-Q62" secondAttribute="bottom" constant="13" id="JYQ-2k-13I"/>
                     <constraint firstItem="CEx-81-PVU" firstAttribute="centerX" secondItem="B8Q-gs-ADd" secondAttribute="centerX" id="SvE-mp-QSc"/>
-                    <constraint firstItem="zUI-5N-Hgs" firstAttribute="top" secondItem="B8Q-gs-ADd" secondAttribute="bottom" constant="10" id="Y60-iA-t3G"/>
                     <constraint firstItem="B8Q-gs-ADd" firstAttribute="leading" secondItem="zUI-5N-Hgs" secondAttribute="trailing" constant="3" id="cUh-x5-hPA"/>
                     <constraint firstAttribute="trailingMargin" secondItem="B8Q-gs-ADd" secondAttribute="trailing" constant="15" id="cgk-AR-oTD"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4TU-tu-Q62" secondAttribute="trailing" constant="-8" id="diQ-63-ato"/>
                     <constraint firstItem="sxp-bE-vFe" firstAttribute="width" secondItem="zUI-5N-Hgs" secondAttribute="width" id="gda-XG-5Iq"/>
-                    <constraint firstItem="zUI-5N-Hgs" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="i1T-la-Vq6"/>
                     <constraint firstItem="ZiL-yD-G0q" firstAttribute="trailing" secondItem="B8Q-gs-ADd" secondAttribute="trailing" id="okR-0h-S89"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="sxp-bE-vFe" secondAttribute="bottom" constant="20" id="t0l-gU-uqS"/>
                     <constraint firstItem="CEx-81-PVU" firstAttribute="centerY" secondItem="B8Q-gs-ADd" secondAttribute="centerY" id="tYE-Fr-mlC"/>
                     <constraint firstItem="sxp-bE-vFe" firstAttribute="leading" secondItem="zUI-5N-Hgs" secondAttribute="leading" id="uah-hV-M5c"/>
                     <constraint firstItem="ZiL-yD-G0q" firstAttribute="bottom" secondItem="B8Q-gs-ADd" secondAttribute="bottom" id="zVB-mm-wsM"/>
                 </constraints>
-                <variation key="default">
-                    <mask key="constraints">
-                        <exclude reference="Y60-iA-t3G"/>
-                        <exclude reference="i1T-la-Vq6"/>
-                    </mask>
-                </variation>
             </tableViewCellContentView>
             <constraints>
                 <constraint firstItem="zUI-5N-Hgs" firstAttribute="leading" secondItem="KGk-i7-Jjw" secondAttribute="leading" constant="13" id="7OR-yb-vDK"/>

@@ -58,10 +58,14 @@
         self.lblDeleteMessage.hidden = YES;
         self.lblCell.text = self.product.cell;
         [self.productImageView setImageWithId:product.cover_imageid withWidth:kScreenWidth];
-        self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@风格",
-                               self.product.house_area,
-                               [ProductBusiness houseTypeByDecType:product],
-                               [NameDict nameForDecStyle:self.product.dec_style]];
+        self.lblDetail.text = product.house_area ? [NSString stringWithFormat:@"%@m², %@, %@, %@风格\n%@, %@万",
+                                                    product.house_area,
+                                                    [NameDict nameForDecType:product.dec_type],
+                                                    [ProductBusiness houseTypeByDecType:product],
+                                                    [NameDict nameForDecStyle:product.dec_style],
+                                                    [NameDict nameForWorkType:product.work_type],
+                                                    product.total_price] : @"";
+        [self.lblDetail setRowSpace:7.0f];
     }
 }
 

@@ -144,13 +144,13 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                          ];
     
     self.sectionArr3 = @[
-                         [EditCellItem createField:@"曾就职公司" value:self.team.company placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                         [EditCellItem createField:@"曾就职装饰公司" value:self.team.company placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.team.company = curItem.value;
                              }
                          }],
-                         [EditCellItem createField:@"工作年限" value:[self.team.work_year stringValue] placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                         [EditCellItem createField:@"从业年限" value:[self.team.work_year stringValue] placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.team.work_year = @([curItem.value integerValue]);

@@ -44,11 +44,14 @@
     [DesignerBusiness setV:self.vImageView withAuthType:product.designer.auth_type];
     
     self.lblCell.text = product.cell;
-    self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@, %@风格",
-                           product.house_area,
-                           [NameDict nameForDecType:product.dec_type],
-                           [ProductBusiness houseTypeByDecType:product],
-                           [NameDict nameForDecStyle:product.dec_style]];
+    self.lblDetail.text = product.house_area ? [NSString stringWithFormat:@"%@m², %@, %@, %@风格\n%@, %@万",
+                                                product.house_area,
+                                                [NameDict nameForDecType:product.dec_type],
+                                                [ProductBusiness houseTypeByDecType:product],
+                                                [NameDict nameForDecStyle:product.dec_style],
+                                                [NameDict nameForWorkType:product.work_type],
+                                                product.total_price] : @"";
+    [self.lblDetail setRowSpace:7.0f];
 }
 
 - (void)onTapProductImage:(UIGestureRecognizer *)sender {

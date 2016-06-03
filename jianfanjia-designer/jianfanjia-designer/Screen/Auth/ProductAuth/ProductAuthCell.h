@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kProductAuthCellHeight 280
+#define kProductAuthCellHeight 300
 
 typedef void (^ProductAuthCellDeleteBlock)(void);
 

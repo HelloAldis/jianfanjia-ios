@@ -237,7 +237,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     if (tableView == self.designerTableView) {
         return 80;
     } else if (tableView == self.productTableView) {
-        return 280;
+        return 300;
     } else {
         return 0;
     }

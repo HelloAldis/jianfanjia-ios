@@ -18,10 +18,8 @@
 
 @implementation InputTextTableViewCell
 
-- (void)initWithTitle:(NSString *)title value:(NSString *)value inputEndBlock:(InputTextEndBlock)inputEndBlock {
-    self.lblText.text = title;
-    self.fldVal.text = value;
-    self.inputEndBlock = inputEndBlock;
+- (void)awakeFromNib {
+    [super awakeFromNib];
     
     @weakify(self);
     [[[self.fldVal rac_textSignal]
@@ -31,11 +29,17 @@
      subscribeNext:^(NSString *value) {
          @strongify(self);
          self.fldVal.text = value;
- 
+         
          if (self.inputEndBlock) {
              self.inputEndBlock(value);
          }
      }];
+}
+
+- (void)initWithTitle:(NSString *)title value:(NSString *)value inputEndBlock:(InputTextEndBlock)inputEndBlock {
+    self.lblText.text = title;
+    self.fldVal.text = value;
+    self.inputEndBlock = inputEndBlock;
 }
 
 @end

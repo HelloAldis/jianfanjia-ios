@@ -39,11 +39,14 @@
     
     [self.productImageView setImageWithId:product.cover_imageid withWidth:kScreenWidth];
     self.lblCell.text = product.cell;
-    self.lblDetail.text = [NSString stringWithFormat:@"%@m², %@, %@, %@风格",
-                           product.house_area,
-                           [NameDict nameForDecType:product.dec_type],
-                           [ProductBusiness houseTypeByDecType:product],
-                           [NameDict nameForDecStyle:product.dec_style]];
+    self.lblDetail.text = product.house_area ? [NSString stringWithFormat:@"%@m², %@, %@, %@风格\n%@, %@万",
+                                                product.house_area,
+                                                [NameDict nameForDecType:product.dec_type],
+                                                [ProductBusiness houseTypeByDecType:product],
+                                                [NameDict nameForDecStyle:product.dec_style],
+                                                [NameDict nameForWorkType:product.work_type],
+                                                product.total_price] : @"";
+    [self.lblDetail setRowSpace:7.0f];;
     self.lblAuth.text = [NameDict nameForProductAuthType:product.auth_type];
     self.authImageView.image = [ProductBusiness productAuthTypeImage:product.auth_type];
     

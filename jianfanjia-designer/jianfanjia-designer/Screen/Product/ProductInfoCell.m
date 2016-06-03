@@ -35,7 +35,7 @@
     self.product = product;
     
     self.lblCell.text = product.cell;
-    self.lblDetail.text = product.house_area ? [NSString stringWithFormat:@"%@m², %@, %@, %@风格\n%@ %@",
+    self.lblDetail.text = product.house_area ? [NSString stringWithFormat:@"%@m², %@, %@, %@风格\n%@, %@万",
                            product.house_area,
                            [NameDict nameForDecType:product.dec_type],
                            [ProductBusiness houseTypeByDecType:product],
