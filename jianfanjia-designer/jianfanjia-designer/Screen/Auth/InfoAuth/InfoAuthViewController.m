@@ -447,12 +447,13 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
     [HUDUtil showWait];
     [API designerUpdateInfo:request success:^{
         [HUDUtil hideWait];
-        if (self.isFromRegister) {
-            [ViewControllerContainer showTab];
-        } else {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-        [HUDUtil showSuccessText:@"提交成功"];
+        [AuthInfoAlertViewController presentAlert:^{
+            if (self.isFromRegister) {
+                [ViewControllerContainer showTab];
+            } else {
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }];
     } failure:^{
         [HUDUtil hideWait];
     } networkError:^{

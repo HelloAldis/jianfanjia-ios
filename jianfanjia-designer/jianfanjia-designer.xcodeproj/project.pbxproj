@@ -424,6 +424,8 @@
 		689ECECE1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECECC1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib */; };
 		689ECED61D000E370046DDC8 /* CardVerifyUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECED51D000E370046DDC8 /* CardVerifyUtil.m */; };
 		689ECED91D001DD80046DDC8 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECED81D001DD80046DDC8 /* UITextView+Placeholder.m */; };
+		689ECEE01D012A9C0046DDC8 /* AuthInfoAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECEDE1D012A9C0046DDC8 /* AuthInfoAlertViewController.m */; };
+		689ECEE11D012A9C0046DDC8 /* AuthInfoAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECEDF1D012A9C0046DDC8 /* AuthInfoAlertViewController.xib */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -1211,6 +1213,9 @@
 		689ECED51D000E370046DDC8 /* CardVerifyUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardVerifyUtil.m; sourceTree = "<group>"; };
 		689ECED71D001DD80046DDC8 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		689ECED81D001DD80046DDC8 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		689ECEDD1D012A9C0046DDC8 /* AuthInfoAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthInfoAlertViewController.h; sourceTree = "<group>"; };
+		689ECEDE1D012A9C0046DDC8 /* AuthInfoAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthInfoAlertViewController.m; sourceTree = "<group>"; };
+		689ECEDF1D012A9C0046DDC8 /* AuthInfoAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthInfoAlertViewController.xib; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -1487,6 +1492,9 @@
 				68123C6C1C4C9772008FC9AB /* MessageAlertViewController.h */,
 				68123C6D1C4C9772008FC9AB /* MessageAlertViewController.m */,
 				68123C6E1C4C9772008FC9AB /* MessageAlertViewController.xib */,
+				689ECEDD1D012A9C0046DDC8 /* AuthInfoAlertViewController.h */,
+				689ECEDE1D012A9C0046DDC8 /* AuthInfoAlertViewController.m */,
+				689ECEDF1D012A9C0046DDC8 /* AuthInfoAlertViewController.xib */,
 			);
 			path = CustomAlert;
 			sourceTree = "<group>";
@@ -2912,6 +2920,7 @@
 				6EA0C19A1C577F7500D04A4F /* PlanPriceDetailViewController.xib in Resources */,
 				689ECECE1CFC3A4A0046DDC8 /* TeamConfigureViewController.xib in Resources */,
 				689ECE631CFC10DD0046DDC8 /* JYZShareMenuCollectionCell.xib in Resources */,
+				689ECEE11D012A9C0046DDC8 /* AuthInfoAlertViewController.xib in Resources */,
 				689ECE191CFC0F880046DDC8 /* WebViewWithActionController.xib in Resources */,
 				681241911C4F2F35008FC9AB /* UnrespondActionCell.xib in Resources */,
 				681241A61C4F3B1C008FC9AB /* SubmitPlanExpiredActionCell.xib in Resources */,
@@ -3123,6 +3132,7 @@
 				685B15131CEC60950076996A /* EditCellItem.m in Sources */,
 				6EA0C19D1C577F7500D04A4F /* PlanPriceItemSection.m in Sources */,
 				681240E81C4CF2CC008FC9AB /* ProcessCell.m in Sources */,
+				689ECEE01D012A9C0046DDC8 /* AuthInfoAlertViewController.m in Sources */,
 				684B04341C990E910053FFDF /* BaseNotificationCell.m in Sources */,
 				684B03D21C98141F0053FFDF /* UITabBarItem+Badge.m in Sources */,
 				6E378D4D1BDA2D2E00908B77 /* BaseModel.m in Sources */,

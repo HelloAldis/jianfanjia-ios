@@ -360,8 +360,9 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
         
         [API designerUploadProduct:request success:^{
             [HUDUtil hideWait];
-            [self navigateToOriginController];
-            [HUDUtil showSuccessText:@"提交成功"];
+            [AuthInfoAlertViewController presentAlert:^{
+                [self navigateToOriginController];
+            }];
         } failure:^{
             [HUDUtil hideWait];
         } networkError:^{
@@ -373,8 +374,9 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
         
         [API designerUpdateProduct:request success:^{
             [HUDUtil hideWait];
-            [self navigateToOriginController];
-            [HUDUtil showSuccessText:@"提交成功"];
+            [AuthInfoAlertViewController presentAlert:^{
+                [self navigateToOriginController];
+            }];
         } failure:^{
             [HUDUtil hideWait];
         } networkError:^{

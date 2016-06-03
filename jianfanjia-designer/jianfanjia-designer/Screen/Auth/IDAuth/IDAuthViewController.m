@@ -264,8 +264,9 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
     [HUDUtil showWait];
     [API designerUpdateUIDBankInfo:request success:^{
         [HUDUtil hideWait];
-        [self.navigationController popViewControllerAnimated:YES];
-        [HUDUtil showSuccessText:@"提交成功"];
+        [AuthInfoAlertViewController presentAlert:^{
+            [self.navigationController popViewControllerAnimated:YES];
+        }];
     } failure:^{
         [HUDUtil hideWait];
     } networkError:^{
