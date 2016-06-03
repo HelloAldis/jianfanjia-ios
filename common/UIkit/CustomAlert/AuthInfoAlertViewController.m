@@ -11,6 +11,7 @@
 @interface AuthInfoAlertViewController ()
 @property (weak, nonatomic) IBOutlet UIView *alertView;
 @property (weak, nonatomic) IBOutlet UILabel *lblMessage;
+@property (weak, nonatomic) IBOutlet UIButton *btnCancel;
 @property (weak, nonatomic) IBOutlet UIButton *btnOk;
 
 @property (strong, nonatomic) NSString *alertMessage;
@@ -55,17 +56,24 @@
 #pragma mark - init UI
 - (void)initUI {
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapParentView:)]];
-    static NSString *deafultMsg = @"已成功为您提交认证申请\n我们的工作人员会在12小时之内为您认证\n您也可以前往认证中心完善其他资料认证";
+    static NSString *deafultMsg = @"您是否提交本次认证申请\n我们的工作人员会在12小时之内为您认证\n您也可以前往认证中心完善其他资料认证";
     self.lblMessage.text = self.alertMessage ? self.alertMessage : deafultMsg;
     [self.lblMessage setRowSpace:12.0];
     
     [self.alertView setCornerRadius:5];
+    [self.btnCancel setBorder:1 andColor:kThemeColor.CGColor];
+    [self.btnCancel setCornerRadius:5];
     [self.btnOk setCornerRadius:5];
     
     @weakify(self);
     [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [self invokeBlock:self.okBlock];
+    }];
+    
+    [[self.btnCancel rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self invokeBlock:nil];
     }];
 }
 

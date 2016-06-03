@@ -443,22 +443,20 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 
 - (void)onClickDone {
     [self.view endEditing:YES];
-    DesignerUpdateInfo *request = [[DesignerUpdateInfo alloc] initWithDesigner:self.designer];
-    
-    [HUDUtil showWait];
-    [API designerUpdateInfo:request success:^{
-        [HUDUtil hideWait];
-        [AuthInfoAlertViewController presentAlert:^{
+    [AuthInfoAlertViewController presentAlert:^{
+        DesignerUpdateInfo *request = [[DesignerUpdateInfo alloc] initWithDesigner:self.designer];
+        
+        [HUDUtil showWait];
+        [API designerUpdateInfo:request success:^{
+            [HUDUtil showText:@"提交成功" delayShow:0.3];
             if (self.isFromRegister) {
                 [ViewControllerContainer showTab];
             } else {
                 [self.navigationController popViewControllerAnimated:YES];
             }
+        } failure:^{
+        } networkError:^{
         }];
-    } failure:^{
-        [HUDUtil hideWait];
-    } networkError:^{
-        [HUDUtil hideWait];
     }];
 }
 

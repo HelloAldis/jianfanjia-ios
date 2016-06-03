@@ -355,35 +355,29 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 }
 
 - (void)onClickNext {
-    if ([self isNewProd]) {
-        [HUDUtil showWait];
-        DesignerUploadProduct *request = [[DesignerUploadProduct alloc] initWithProduct:self.product];
-        
-        [API designerUploadProduct:request success:^{
-            [HUDUtil hideWait];
-            [AuthInfoAlertViewController presentAlert:^{
+    [AuthInfoAlertViewController presentAlert:^{
+        if ([self isNewProd]) {
+            [HUDUtil showWait];
+            DesignerUploadProduct *request = [[DesignerUploadProduct alloc] initWithProduct:self.product];
+            
+            [API designerUploadProduct:request success:^{
+                [HUDUtil showText:@"提交成功" delayShow:0.3];
                 [self navigateToOriginController];
+            } failure:^{
+            } networkError:^{
             }];
-        } failure:^{
-            [HUDUtil hideWait];
-        } networkError:^{
-            [HUDUtil hideWait];
-        }];
-    } else {
-        [HUDUtil showWait];
-        DesignerUploadProduct *request = [[DesignerUploadProduct alloc] initWithProduct:self.product];
-        
-        [API designerUpdateProduct:request success:^{
-            [HUDUtil hideWait];
-            [AuthInfoAlertViewController presentAlert:^{
+        } else {
+            [HUDUtil showWait];
+            DesignerUploadProduct *request = [[DesignerUploadProduct alloc] initWithProduct:self.product];
+            
+            [API designerUpdateProduct:request success:^{
+                [HUDUtil showText:@"提交成功" delayShow:0.3];
                 [self navigateToOriginController];
+            } failure:^{
+            } networkError:^{
             }];
-        } failure:^{
-            [HUDUtil hideWait];
-        } networkError:^{
-            [HUDUtil hideWait];
-        }];
-    }
+        }
+    }];
 }
 
 - (void)navigateToOriginController {

@@ -96,7 +96,7 @@
     
     [self.alertView setCornerRadius:5];
     [self.btnReject setCornerRadius:5];
-    [self.btnReject setBorder:1 andColor:kFinishedColor.CGColor];
+    [self.btnReject setBorder:1 andColor:kThemeColor.CGColor];
     [self.btnAgree setCornerRadius:5];
     [self.btnOk setCornerRadius:5];
     

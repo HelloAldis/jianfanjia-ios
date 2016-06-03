@@ -260,18 +260,16 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
 
 - (void)onClickDone {
     [self.view endEditing:YES];
-    DesignerUpdateUIDBankInfo *request = [[DesignerUpdateUIDBankInfo alloc] initWithDesigner:self.designer];
-    
-    [HUDUtil showWait];
-    [API designerUpdateUIDBankInfo:request success:^{
-        [HUDUtil hideWait];
-        [AuthInfoAlertViewController presentAlert:^{
+    [AuthInfoAlertViewController presentAlert:^{
+        DesignerUpdateUIDBankInfo *request = [[DesignerUpdateUIDBankInfo alloc] initWithDesigner:self.designer];
+        
+        [HUDUtil showWait];
+        [API designerUpdateUIDBankInfo:request success:^{
+            [HUDUtil showText:@"提交成功" delayShow:0.3];
             [self.navigationController popViewControllerAnimated:YES];
+        } failure:^{
+        } networkError:^{
         }];
-    } failure:^{
-        [HUDUtil hideWait];
-    } networkError:^{
-        [HUDUtil hideWait];
     }];
 }
 

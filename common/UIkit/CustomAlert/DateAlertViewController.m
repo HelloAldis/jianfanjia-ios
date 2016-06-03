@@ -67,7 +67,7 @@
     
     [self.alertView setCornerRadius:5];
     [self.btnCancel setCornerRadius:5];
-    [self.btnCancel setBorder:1 andColor:kFinishedColor.CGColor];
+    [self.btnCancel setBorder:1 andColor:kThemeColor.CGColor];
     [self.btnOk setCornerRadius:5];
     
     @weakify(self);
