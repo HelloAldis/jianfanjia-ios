@@ -100,7 +100,7 @@ static NSString *ReorderTableViewCellReuseIdentifier = @"ReorderTableViewCellReu
     if (_reorderCurrentIndexPath && [_reorderCurrentIndexPath compare:indexPath] == NSOrderedSame) {
         return [self calculateDragViewFrame:CGPointMake(0, 0)].size.height + 30;
     } else {
-        if ([_realDataSource respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+        if ([_realDelegate respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
             return [_realDelegate tableView:self heightForRowAtIndexPath:indexPath];
         }
         
@@ -109,7 +109,7 @@ static NSString *ReorderTableViewCellReuseIdentifier = @"ReorderTableViewCellReu
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    if ([_realDataSource respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
+    if ([_realDelegate respondsToSelector:@selector(tableView:heightForHeaderInSection:)]) {
         return [_realDelegate tableView:self heightForHeaderInSection:section];
     }
     
@@ -117,7 +117,7 @@ static NSString *ReorderTableViewCellReuseIdentifier = @"ReorderTableViewCellReu
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    if ([_realDataSource respondsToSelector:@selector(tableView:heightForFooterInSection:)]) {
+    if ([_realDelegate respondsToSelector:@selector(tableView:heightForFooterInSection:)]) {
         return [_realDelegate tableView:self heightForFooterInSection:section];
     }
     
@@ -125,7 +125,7 @@ static NSString *ReorderTableViewCellReuseIdentifier = @"ReorderTableViewCellReu
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if ([_realDataSource respondsToSelector:@selector(tableView:viewForHeaderInSection:)]) {
+    if ([_realDelegate respondsToSelector:@selector(tableView:viewForHeaderInSection:)]) {
         return [_realDelegate tableView:self viewForHeaderInSection:section];
     }
     
@@ -133,7 +133,7 @@ static NSString *ReorderTableViewCellReuseIdentifier = @"ReorderTableViewCellReu
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
-    if ([_realDataSource respondsToSelector:@selector(tableView:viewForFooterInSection:)]) {
+    if ([_realDelegate respondsToSelector:@selector(tableView:viewForFooterInSection:)]) {
         return [_realDelegate tableView:self viewForFooterInSection:section];
     }
     
@@ -352,7 +352,7 @@ static NSString *ReorderTableViewCellReuseIdentifier = @"ReorderTableViewCellReu
     } else if (newOffset.y > (self.contentSize.height + self.contentInset.bottom) - self.frame.size.height) {
         newOffset.y = (self.contentSize.height + self.contentInset.bottom) - self.frame.size.height;
     }
-    
+
     [self setContentOffset:newOffset];
     
     if (location.y >= 0 && location.y <= self.contentSize.height + 50) {
