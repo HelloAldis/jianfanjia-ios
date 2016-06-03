@@ -100,7 +100,7 @@ static NSString *TeamAuthCellIdentifier = @"TeamAuthCell";
     TeamAuthCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:TeamAuthCellIdentifier forIndexPath:indexPath];
     [cell initWithTeam:self.dataManager.teams[indexPath.row] canSelect:NO selectBlock:nil edit:self.isEditing deleteBlock:^{
         [self.dataManager.teams removeObjectAtIndex:indexPath.row];
-        [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+        [self.collectionView reloadData];
     }];
     
     return cell;

@@ -79,6 +79,7 @@ CGFloat kIDAuthIDCardImageCellHeight;
 }
 
 - (void)onTapLeftImgView {
+    [[ViewControllerContainer getCurrentTopController].view endEditing:YES];
     id obj = self.designer ? self.designer : self.team;
     if ([obj uid_image1].length > 0) {
         [ViewControllerContainer showOnlineImages:@[[obj uid_image1]] index:0];
@@ -96,6 +97,7 @@ CGFloat kIDAuthIDCardImageCellHeight;
 }
 
 - (void)onTapLeftDelImgView {
+    [[ViewControllerContainer getCurrentTopController].view endEditing:YES];
     id obj = self.designer ? self.designer : self.team;
     [obj setUid_image1:@""];
     [self initUI];
@@ -105,6 +107,7 @@ CGFloat kIDAuthIDCardImageCellHeight;
 }
 
 - (void)onTapRightImgView {
+    [[ViewControllerContainer getCurrentTopController].view endEditing:YES];
     id obj = self.designer ? self.designer : self.team;
     if ([obj uid_image2].length > 0) {
         [ViewControllerContainer showOnlineImages:@[[obj uid_image2]] index:0];
@@ -122,6 +125,7 @@ CGFloat kIDAuthIDCardImageCellHeight;
 }
 
 - (void)onTapRightDelImgView {
+    [[ViewControllerContainer getCurrentTopController].view endEditing:YES];
     id obj = self.designer ? self.designer : self.team;
     [obj setUid_image2:@""];
     [self initUI];

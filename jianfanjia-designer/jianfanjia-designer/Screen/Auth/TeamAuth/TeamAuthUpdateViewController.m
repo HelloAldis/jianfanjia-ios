@@ -110,6 +110,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                          }],
                          [EditCellItem createSelection:@"性别" value:[NameDict nameForSexType:self.team.sex] allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
+                             [self.view endEditing:YES];
                              SelectSexTypeViewController *controller = [[SelectSexTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForSexType:value];
                                  self.team.sex = value;
@@ -121,6 +122,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                          }],
                          [EditCellItem createSelection:@"所在地区" value:[self isNewTeam] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.team.province, self.team.city, self.team.district] allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
+                             [self.view endEditing:YES];
                              SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:nil valueBlock:^(id value) {
                                  curItem.value = value;
                                  NSArray *addressArr = [value componentsSeparatedByString:@" "];
@@ -162,6 +164,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
     self.sectionArr4 = @[
                          [EditCellItem createSelection:@"擅长工种" value:self.team.good_at allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
+                             [self.view endEditing:YES];
                              SelectGoodAtViewController *controller = [[SelectGoodAtViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = value;
                                  self.team.good_at = value;

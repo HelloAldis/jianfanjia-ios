@@ -73,6 +73,7 @@ CGFloat kIDAuthBankCardImageCellHeight;
 }
 
 - (void)onTapLeftImgView {
+    [[ViewControllerContainer getCurrentTopController].view endEditing:YES];
     id obj = self.designer ? self.designer : self.team;
     if ([obj bank_card_image1].length > 0) {
         [ViewControllerContainer showOnlineImages:@[[obj bank_card_image1]] index:0];
@@ -90,6 +91,7 @@ CGFloat kIDAuthBankCardImageCellHeight;
 }
 
 - (void)onTapLeftDelImgView {
+    [[ViewControllerContainer getCurrentTopController].view endEditing:YES];
     id obj = self.designer ? self.designer : self.team;
     [obj setBank_card_image1:@""];
     [self initUI];

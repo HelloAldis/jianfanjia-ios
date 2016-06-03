@@ -38,8 +38,8 @@
                                 <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="叶尖" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyt-yg-vA0">
-                                <rect key="frame" x="134" y="160" width="28" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="叶尖" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fyt-yg-vA0">
+                                <rect key="frame" x="20" y="160" width="256" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.20392156859999999" green="0.2901960784" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -56,6 +56,7 @@
                             <constraint firstItem="vFq-3j-FGX" firstAttribute="centerX" secondItem="3aX-3x-GAh" secondAttribute="centerX" id="1DU-j0-TiS"/>
                             <constraint firstItem="Ztk-gl-nn1" firstAttribute="centerX" secondItem="3aX-3x-GAh" secondAttribute="centerX" id="1f2-9b-hag"/>
                             <constraint firstItem="vnZ-8T-Sk4" firstAttribute="centerX" secondItem="3aX-3x-GAh" secondAttribute="centerX" id="1hM-U9-x2i"/>
+                            <constraint firstItem="fyt-yg-vA0" firstAttribute="leading" secondItem="3aX-3x-GAh" secondAttribute="leading" constant="20" id="Esn-gE-38M"/>
                             <constraint firstItem="OLh-sT-S4z" firstAttribute="top" secondItem="3aX-3x-GAh" secondAttribute="top" constant="5" id="G41-ik-0q9"/>
                             <constraint firstAttribute="trailing" secondItem="OLh-sT-S4z" secondAttribute="trailing" constant="5" id="LD8-Cz-Rsz"/>
                             <constraint firstItem="fyt-yg-vA0" firstAttribute="top" secondItem="Ztk-gl-nn1" secondAttribute="bottom" constant="13" id="NLB-lK-PGs"/>

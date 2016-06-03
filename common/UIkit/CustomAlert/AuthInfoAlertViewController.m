@@ -56,7 +56,7 @@
 #pragma mark - init UI
 - (void)initUI {
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapParentView:)]];
-    static NSString *deafultMsg = @"您是否提交本次认证申请\n我们的工作人员会在12小时之内为您认证\n您也可以前往认证中心完善其他资料认证";
+    static NSString *deafultMsg = @"您是否提交本次认证申请？\n我们的工作人员会在12小时之内为您认证\n您也可以前往认证中心完善其他资料认证";
     self.lblMessage.text = self.alertMessage ? self.alertMessage : deafultMsg;
     [self.lblMessage setRowSpace:12.0];
     

@@ -121,7 +121,7 @@ static NSString *ProductAuthCellIdentifier = @"ProductAuthCell";
     ProductAuthCell *cell = [self.tableView dequeueReusableCellWithIdentifier:ProductAuthCellIdentifier forIndexPath:indexPath];
     [cell initWithProduct:self.dataManager.products[indexPath.row] edit:self.isEditing deleteBlock:^{
         [self.dataManager.products removeObjectAtIndex:indexPath.row];
-        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self.tableView reloadData];
     }];
     return cell;
 }

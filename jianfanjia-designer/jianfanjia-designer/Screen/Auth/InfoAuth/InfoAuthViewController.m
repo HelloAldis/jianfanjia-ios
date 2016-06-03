@@ -151,6 +151,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                          }],
                          [EditCellItem createSelection:@"性别" value:[NameDict nameForSexType:self.designer.sex] allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
+                             [self.view endEditing:YES];
                              SelectSexTypeViewController *controller = [[SelectSexTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForSexType:value];
                                  self.designer.sex = value;
@@ -162,6 +163,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
                          }],
                          [EditCellItem createSelection:@"所在地区" value:self.designer.province && self.designer.city && self.designer.district ? [NSString stringWithFormat:@"%@ %@ %@", self.designer.province, self.designer.city, self.designer.district] : nil allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
+                             [self.view endEditing:YES];
                              SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:nil valueBlock:^(id value) {
                                  curItem.value = value;
                                  NSArray *addressArr = [value componentsSeparatedByString:@" "];

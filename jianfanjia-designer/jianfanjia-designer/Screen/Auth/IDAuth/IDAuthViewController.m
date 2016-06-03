@@ -138,6 +138,7 @@ static NSString *IDAuthBankCardImageCellIdentifier = @"IDAuthBankCardImageCell";
                          } length:19 keyboard:UIKeyboardTypeNumberPad],
                          [EditCellItem createSelection:@"开户银行" value:self.designer.bank allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
+                             [self.view endEditing:YES];
                              SelectBankTypeViewController *controller = [[SelectBankTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = value;
                                  self.designer.bank = value;

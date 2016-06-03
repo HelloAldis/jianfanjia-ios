@@ -105,6 +105,7 @@
     
     EditCellItem *houseTypeItem = [EditCellItem createSelection:nil value:nil allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
         @strongify(self);
+        [self.view endEditing:YES];
         if ([self.product.dec_type isEqualToString:kDecTypeBusiness]) {
             SelectBusinessTypeViewController *controller = [[SelectBusinessTypeViewController alloc] initWithValueBlock:^(id value) {
                 curItem.value = [NameDict nameForBusinessType:value];
@@ -131,6 +132,7 @@
     self.sectionArr1 = @[
                          [EditCellItem createSelection:@"所在城市" value:[self isNewProd] ? nil : [NSString stringWithFormat:@"%@ %@ %@", self.product.province, self.product.city, self.product.district] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
+                             [self.view endEditing:YES];
                              SelectCityViewController *controller = [[SelectCityViewController alloc] initWithAddress:nil valueBlock:^(id value) {
                                  curItem.value = value;
                                  NSArray *addressArr = [value componentsSeparatedByString:@" "];
@@ -145,6 +147,7 @@
                          }],
                          [EditCellItem createSelection:@"装修类型" value:[NameDict nameForDecType:self.product.dec_type] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
+                             [self.view endEditing:YES];
                              SelectDecorationTypeViewController *controller = [[SelectDecorationTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForDecType:value];
                                  self.product.dec_type = value;
@@ -168,6 +171,7 @@
                          } length:6 keyboard:UIKeyboardTypeNumberPad],
                          [EditCellItem createSelection:@"装修风格" value:[NameDict nameForDecStyle:self.product.dec_style] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
+                             [self.view endEditing:YES];
                              SelectDecorationStyleViewController *controller = [[SelectDecorationStyleViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForDecStyle:value];
                                  self.product.dec_style = value;
@@ -180,6 +184,7 @@
                          }],
                          [EditCellItem createSelection:@"包工类型" value:[NameDict nameForWorkType:self.product.work_type] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
+                             [self.view endEditing:YES];
                              SelectWorkTypeViewController *controller = [[SelectWorkTypeViewController alloc] initWithValueBlock:^(id value) {
                                  curItem.value = [NameDict nameForWorkType:value];
                                  self.product.work_type = value;
