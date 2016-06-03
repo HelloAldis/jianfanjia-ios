@@ -143,10 +143,6 @@
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
-                         cellItem,
-                         ];
-    
-    self.sectionArr2 = @[
                          [EditCellItem createSelection:@"装修类型" value:[NameDict nameForDecType:self.product.dec_type] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectDecorationTypeViewController *controller = [[SelectDecorationTypeViewController alloc] initWithValueBlock:^(id value) {
@@ -159,7 +155,11 @@
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],
+                         cellItem,
                          houseTypeItem,
+                         ];
+    
+    self.sectionArr2 = @[
                          [EditCellItem createAttrField:[@"建筑面积 (m²)" attrSubStr:@"(m²)" font:[UIFont systemFontOfSize:12] color:kTextColor] attrValue:self.product.house_area ? [[NSMutableAttributedString alloc] initWithString:[self.product.house_area stringValue]] : nil placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
