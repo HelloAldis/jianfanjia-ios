@@ -28,7 +28,7 @@
 }
 
 + (void)presentAlert:(NSString *)msg ok:(AuthInfoAlertButtonBlock)okBlock {
-    AuthInfoAlertViewController *alert = [[AuthInfoAlertViewController alloc] initWithMessage:msg allowIgnore:YES ok:okBlock];
+    AuthInfoAlertViewController *alert = [[AuthInfoAlertViewController alloc] initWithMessage:msg allowIgnore:NO ok:okBlock];
     alert.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.4];
     alert.modalPresentationStyle = UIModalPresentationOverFullScreen;
     alert.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
