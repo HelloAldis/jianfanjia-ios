@@ -380,18 +380,14 @@ static ViewControllerContainer *container;
         DesignerAgreeLicense *request = [[DesignerAgreeLicense alloc] init];
         [HUDUtil showWait];
         [API designerAgreeLicense:request success:^{
-            [HUDUtil hideWait];
             [GVUserDefaults standardUserDefaults].isLogin = YES;
-            
             if (fromRegister) {
                 [self showInfoAuth:designer canEdit:YES fromRegister:fromRegister];
             } else {
                 [self showTab];
             }
         } failure:^{
-            [HUDUtil hideWait];
         } networkError:^{
-            [HUDUtil hideWait];
         }];
     }];
 }

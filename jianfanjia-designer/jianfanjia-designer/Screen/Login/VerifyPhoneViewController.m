@@ -86,9 +86,7 @@
                 designer.auth_type = kAuthTypeUnsubmitVerify;
                 [ViewControllerContainer showUserLicense:designer fromRegister:YES];
             } failure:^{
-                [HUDUtil hideWait];
             } networkError:^{
-                [HUDUtil hideWait];
             }];
         }
             break;

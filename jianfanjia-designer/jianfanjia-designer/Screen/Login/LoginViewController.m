@@ -253,17 +253,12 @@
         SendVerifyCode *req = [[SendVerifyCode alloc] init];
         req.phone = [DataManager shared].signupPagePhone;
         [API sendVerifyCode:req success:^{
-            [HUDUtil hideWait];
             [ViewControllerContainer showVerifyPhone:VerfityPhoneEventSignup];
         } failure:^{
-            [HUDUtil hideWait];
         } networkError:^{
-            [HUDUtil hideWait];
         }];
     } failure:^{
-        [HUDUtil hideWait];
     } networkError:^{
-        [HUDUtil hideWait];
     }];
 }
 
@@ -278,7 +273,6 @@
     [API designerLogin:login success:^{
         DesignerGetInfo *getUser = [[DesignerGetInfo alloc] init];
         [API designerGetInfo:getUser success:^{
-            [HUDUtil hideWait];
             Designer *designer = [[Designer alloc] initWith:[DataManager shared].data];
             if ([DesignerBusiness isDesignerAgreeLicense:designer.agreee_license]) {
                 [ViewControllerContainer showTab];
@@ -286,14 +280,10 @@
                 [ViewControllerContainer showUserLicense:designer fromRegister:NO];
             }
         } failure:^{
-            [HUDUtil hideWait];
         } networkError:^{
-            [HUDUtil hideWait];
         }];
     } failure:^{
-        [HUDUtil hideWait];
     } networkError:^{
-        [HUDUtil hideWait];
     }];
 }
 
