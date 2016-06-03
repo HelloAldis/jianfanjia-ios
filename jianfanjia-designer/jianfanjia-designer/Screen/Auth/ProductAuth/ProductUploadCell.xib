@@ -18,6 +18,9 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6uW-K8-6ZF">
                         <rect key="frame" x="14" y="18" width="478" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="GbS-tt-cqO"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <state key="normal" title="上传作品" backgroundImage="icon_auth_upload">
                             <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,7 +48,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_auth_add" width="16" height="16"/>
+        <image name="icon_auth_add" width="26" height="26"/>
         <image name="icon_auth_upload" width="386" height="40"/>
     </resources>
 </document>

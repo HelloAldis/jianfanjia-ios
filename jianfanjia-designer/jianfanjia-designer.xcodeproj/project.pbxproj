@@ -426,6 +426,8 @@
 		689ECED91D001DD80046DDC8 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECED81D001DD80046DDC8 /* UITextView+Placeholder.m */; };
 		689ECEE01D012A9C0046DDC8 /* AuthInfoAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECEDE1D012A9C0046DDC8 /* AuthInfoAlertViewController.m */; };
 		689ECEE11D012A9C0046DDC8 /* AuthInfoAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECEDF1D012A9C0046DDC8 /* AuthInfoAlertViewController.xib */; };
+		689ECEE51D0135620046DDC8 /* ProductCountTipSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECEE31D0135620046DDC8 /* ProductCountTipSection.m */; };
+		689ECEE61D0135620046DDC8 /* ProductCountTipSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECEE41D0135620046DDC8 /* ProductCountTipSection.xib */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -1216,6 +1218,9 @@
 		689ECEDD1D012A9C0046DDC8 /* AuthInfoAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthInfoAlertViewController.h; sourceTree = "<group>"; };
 		689ECEDE1D012A9C0046DDC8 /* AuthInfoAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthInfoAlertViewController.m; sourceTree = "<group>"; };
 		689ECEDF1D012A9C0046DDC8 /* AuthInfoAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthInfoAlertViewController.xib; sourceTree = "<group>"; };
+		689ECEE21D0135620046DDC8 /* ProductCountTipSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCountTipSection.h; sourceTree = "<group>"; };
+		689ECEE31D0135620046DDC8 /* ProductCountTipSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCountTipSection.m; sourceTree = "<group>"; };
+		689ECEE41D0135620046DDC8 /* ProductCountTipSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCountTipSection.xib; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -2045,6 +2050,9 @@
 				685B152E1CEC73AD0076996A /* ProductUploadCell.h */,
 				685B152F1CEC73AD0076996A /* ProductUploadCell.m */,
 				685B15301CEC73AD0076996A /* ProductUploadCell.xib */,
+				689ECEE21D0135620046DDC8 /* ProductCountTipSection.h */,
+				689ECEE31D0135620046DDC8 /* ProductCountTipSection.m */,
+				689ECEE41D0135620046DDC8 /* ProductCountTipSection.xib */,
 				685B15241CEC71010076996A /* ProductAuthDataManager.h */,
 				685B15251CEC71010076996A /* ProductAuthDataManager.m */,
 				685B159B1CF29FD00076996A /* ProductAuthUploadPart1ViewController.h */,
@@ -2997,6 +3005,7 @@
 				680F65761CF6B064000E1EEF /* IDAuthIDCardImageCell.xib in Resources */,
 				6EA0C1A31C57827A00D04A4F /* PlanPriceTotalCell.xib in Resources */,
 				684B043F1C990E910053FFDF /* WorksiteNotificationCell.xib in Resources */,
+				689ECEE61D0135620046DDC8 /* ProductCountTipSection.xib in Resources */,
 				685B15151CEC60950076996A /* FieldEditCell.xib in Resources */,
 				68123E921C4CBE79008FC9AB /* AboutViewController.xib in Resources */,
 				689ECE5D1CFC10DD0046DDC8 /* JYZ_sina_icon@3x.png in Resources */,
@@ -3329,6 +3338,7 @@
 				680F65991CF6EF9D000E1EEF /* PhotoGroupView.m in Sources */,
 				68F73D281CBB597E00E97710 /* PlanHomeOwnerOrdered.m in Sources */,
 				68123EF01C4CBE79008FC9AB /* PlanPreviewViewController.m in Sources */,
+				689ECEE51D0135620046DDC8 /* ProductCountTipSection.m in Sources */,
 				68F73D241CBB597E00E97710 /* PlanDesignerResponded.m in Sources */,
 				68123FE41C4CCF4A008FC9AB /* Schedule.m in Sources */,
 				68123E951C4CBE79008FC9AB /* SettingViewController.m in Sources */,

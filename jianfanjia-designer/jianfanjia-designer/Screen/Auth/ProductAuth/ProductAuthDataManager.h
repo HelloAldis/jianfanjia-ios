@@ -14,5 +14,6 @@
 
 - (NSInteger)refresh;
 - (NSInteger)loadMore;
+- (NSInteger)authedProductCount;
 
 @end

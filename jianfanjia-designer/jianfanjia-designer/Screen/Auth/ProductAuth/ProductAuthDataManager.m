@@ -38,4 +38,15 @@
     return products.count;
 }
 
+- (NSInteger)authedProductCount {
+    __block NSInteger authedCount = 0;
+    [self.products enumerateObjectsUsingBlock:^(Product*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.auth_type isEqualToString:kProductAuthTypeVerifyPass]) {
+            authedCount++;
+        }
+    }];
+    
+    return authedCount;
+}
+
 @end

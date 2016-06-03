@@ -9,6 +9,7 @@
 #import "ProductAuthViewController.h"
 #import "ProductUploadCell.h"
 #import "ProductAuthCell.h"
+#import "ProductCountTipSection.h"
 #import "ProductAuthDataManager.h"
 
 static NSString *ProductUploadCellIdentifier = @"ProductUploadCell";
@@ -71,6 +72,36 @@ static NSString *ProductAuthCellIdentifier = @"ProductAuthCell";
 #pragma mark - table view delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 0.1;
+    }
+    
+    return [self.dataManager authedProductCount] < kMinAuthedProductCount ? kProductCountTipSectionHeight : 0.1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.1;
+}
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 1) {
+        NSInteger totalCount = self.dataManager.products.count;
+        NSInteger authedCount = [self.dataManager authedProductCount];
+        if (totalCount == 0) {
+            ProductCountTipSection *header = [ProductCountTipSection productCountTipSection];
+            header.lblTitle.text = [NSString stringWithFormat:@"认证条件:您至少需要认证%@个以上的作品，才可以被预约", @(kMinAuthedProductCount)];
+            return header;
+        } else if (authedCount < kMinAuthedProductCount) {
+            ProductCountTipSection *header = [ProductCountTipSection productCountTipSection];
+            header.lblTitle.text = [NSString stringWithFormat:@"您还需要认证%@个作品", @(kMinAuthedProductCount - authedCount)];
+            return header;
+        }
+    }
+    
+    return nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
