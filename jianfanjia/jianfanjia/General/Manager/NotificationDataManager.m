@@ -122,8 +122,7 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 }
 
 - (void)refreshUnreadCount {
-    DDLogDebug(@"==================== refreshUnreadCount %@", [NSDate date]);
-    if ([GVUserDefaults standardUserDefaults].isLogin) {
+    if ([GVUserDefaults standardUserDefaults].isLogin && ![APIManager isSessionExpired]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             GetUserUnreadCount *request = [GetUserUnreadCount requestWithTypes:@[[NotificationBusiness userAllNotificationsFilter], [NotificationBusiness userAllLeaveMsgFilter], [NotificationBusiness userWorksiteNotificationFilter]]];
             

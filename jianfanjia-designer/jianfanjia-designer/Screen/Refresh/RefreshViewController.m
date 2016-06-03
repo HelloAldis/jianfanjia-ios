@@ -23,7 +23,7 @@
     
     [API designerRefreshSession:request success:^{
         [ViewControllerContainer refreshSuccess];
-        
+        [[NotificationDataManager shared] refreshUnreadCount];
         DesignerGetInfo *request = [[DesignerGetInfo alloc] init];
         [API designerGetInfo:request success:nil failure:nil networkError:nil];
     } failure:^{

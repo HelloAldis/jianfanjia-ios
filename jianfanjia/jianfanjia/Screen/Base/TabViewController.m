@@ -40,7 +40,6 @@
         my.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
     }];
     
-    DDLogDebug(@"==================== TabViewController %@", [NSDate date]);
     [[NotificationDataManager shared] refreshUnreadCount];
 }
 

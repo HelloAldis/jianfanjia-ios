@@ -5,6 +5,7 @@
 
 #import "APIManager.h"
 
+static NSString *kSessionKey = @"connect.sid";
 static AFHTTPRequestOperationManager *_manager;
 
 @implementation APIManager
@@ -17,6 +18,19 @@ static AFHTTPRequestOperationManager *_manager;
     AFJSONResponseSerializer *serializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingMutableContainers];
     serializer.removesKeysWithNullValues = YES;
     _manager.responseSerializer = serializer;
+}
+
++ (BOOL)isSessionExpired {
+    BOOL isExpired = YES;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [storage cookies]) {
+        if ([cookie.name isEqualToString:kSessionKey]) {
+            isExpired = [cookie.expiresDate compare:[NSDate date]] == NSOrderedAscending;
+            break;
+        }
+    }
+    
+    return isExpired;
 }
 
 + (void)clearCookie {

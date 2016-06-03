@@ -36,6 +36,7 @@
 
 @interface APIManager : NSObject
 
++ (BOOL)isSessionExpired;
 + (void)clearCookie;
 + (void)GET:(NSString *)url handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))networkError;
 + (void)POST:(NSString *)url data:(NSDictionary *)data handler:(BaseRequest *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))networkError;

@@ -122,7 +122,7 @@ NSString *kShowNotificationDetail = @"ShowNotificationDetail";
 }
 
 - (void)refreshUnreadCount {
-    if ([GVUserDefaults standardUserDefaults].isLogin) {
+    if ([GVUserDefaults standardUserDefaults].isLogin && ![APIManager isSessionExpired]) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             GetDesignerUnreadCount *request = [GetDesignerUnreadCount requestWithTypes:@[[NotificationBusiness designerAllNotificationsFilter], [NotificationBusiness designerAllLeaveMsgFilter], [NotificationBusiness designerWorksiteNotificationFilter]]];
             
