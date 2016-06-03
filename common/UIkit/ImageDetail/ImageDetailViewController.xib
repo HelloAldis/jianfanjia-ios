@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ImageDetailViewController">
@@ -17,9 +17,8 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nR9-Us-fow">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <animations/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nR9-Us-fow">
+                    <rect key="frame" x="-10" y="0.0" width="620" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Gqh-gB-mbl"/>
@@ -27,7 +26,6 @@
                 </scrollView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQk-FU-q2j">
                     <rect key="frame" x="240" y="559" width="120" height="21"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="120" id="hSB-Uz-V3S"/>
                     </constraints>
@@ -36,14 +34,13 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="FQk-FU-q2j" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="B9L-Qa-kFA"/>
-                <constraint firstItem="nR9-Us-fow" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BSI-VW-xXO"/>
+                <constraint firstItem="nR9-Us-fow" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="-10" id="BSI-VW-xXO"/>
                 <constraint firstAttribute="bottom" secondItem="nR9-Us-fow" secondAttribute="bottom" id="Yab-T7-Zqu"/>
                 <constraint firstItem="nR9-Us-fow" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gUs-mq-K1Z"/>
-                <constraint firstAttribute="trailing" secondItem="nR9-Us-fow" secondAttribute="trailing" id="kHk-VD-0SA"/>
+                <constraint firstAttribute="trailing" secondItem="nR9-Us-fow" secondAttribute="trailing" constant="-10" id="kHk-VD-0SA"/>
                 <constraint firstAttribute="bottom" secondItem="FQk-FU-q2j" secondAttribute="bottom" constant="20" id="znB-cS-o9g"/>
             </constraints>
         </view>

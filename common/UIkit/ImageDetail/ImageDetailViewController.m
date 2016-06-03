@@ -8,6 +8,8 @@
 
 #import "ImageDetailViewController.h"
 
+#define kPadding 20
+
 typedef NS_ENUM(NSInteger, ImageDetailViewType) {
     ImageDetailViewTypeOffline,
     ImageDetailViewTypeOnline,
@@ -59,7 +61,6 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     if (self.type == ImageDetailViewTypeOffline) {
         self.imgCount = self.offlineImages.count;
     } else if (self.type == ImageDetailViewTypeOnline) {
@@ -73,14 +74,14 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
         UIImageView *w1 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight)];
         [w1 setContentMode:UIViewContentModeScaleAspectFit];
 
-        UIScrollView *s = [[UIScrollView alloc] initWithFrame:CGRectMake(i * kScreenWidth, 0, kScreenWidth, kScreenHeight)];
+        UIScrollView *s = [[UIScrollView alloc] initWithFrame:CGRectMake(i * (kScreenWidth + kPadding) + kPadding / 2.0, 0, kScreenWidth, kScreenHeight)];
         s.maximumZoomScale = 3;
         s.minimumZoomScale = 1;
         [s setContentSize:CGSizeMake(kScreenWidth, kScreenHeight)];
-        s.bounces = NO;
+        s.bounces = YES;
         s.bouncesZoom = NO;
         s.showsHorizontalScrollIndicator = NO;
-        s.showsVerticalScrollIndicator = NO;
+        s.showsVerticalScrollIndicator = YES;
         s.delegate = self;
         [s addSubview:w1];
         [self.scrollView addSubview:s];
@@ -103,10 +104,10 @@ typedef NS_ENUM(NSInteger, ImageDetailViewType) {
             
         }
     }
-    [self.scrollView setContentSize:CGSizeMake(kScreenWidth * self.imgCount, 200)];
+    [self.scrollView setContentSize:CGSizeMake((kScreenWidth + kPadding) * self.imgCount, 200)];
     self.lblIndex.text = [NSString stringWithFormat:@"%@/%@", @(self.index + 1), @(self.imgCount)];
     self.lblIndex.hidden = self.imgCount <= 1;
-    self.scrollView.contentOffset = CGPointMake(self.index * kScreenWidth, 0);
+    self.scrollView.contentOffset = CGPointMake(self.index * (kScreenWidth + kPadding), 0);
     
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onSingleTap)];
     [self.scrollView addGestureRecognizer:self.tap];
