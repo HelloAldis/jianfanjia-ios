@@ -29,6 +29,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr1;
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr2;
 @property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr3;
+@property (nonatomic, strong) NSArray<EditCellItem *> *sectionArr4;
 
 @property (nonatomic, strong) NSMutableArray<EditCellItem *> *totalArr;
 
@@ -156,6 +157,9 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
                                  self.team.work_year = @([curItem.value integerValue]);
                              }
                          } length:2 keyboard:UIKeyboardTypeNumberPad],
+                         ];
+    
+    self.sectionArr4 = @[
                          [EditCellItem createSelection:@"擅长工种" value:self.team.good_at allowsEdit:self.isEdit placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              SelectGoodAtViewController *controller = [[SelectGoodAtViewController alloc] initWithValueBlock:^(id value) {
@@ -178,12 +182,13 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
     [self.totalArr addObjectsFromArray:self.sectionArr1];
     [self.totalArr addObjectsFromArray:self.sectionArr2];
     [self.totalArr addObjectsFromArray:self.sectionArr3];
+    [self.totalArr addObjectsFromArray:self.sectionArr4];
     [self refreshNextButtonStatus];
 }
 
 #pragma mark - table view delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 5;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -191,7 +196,7 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
         return kInfoAuthImageHeaderViewHeight;
     }
     
-    if (section == 0 || section == 1 || section == 3) {
+    if (section == 0 || section == 1 || section == 3 || section == 4) {
         return 10;
     }
     
@@ -221,6 +226,8 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
         return 1;
     } else if (section == 3) {
         return self.sectionArr3.count;;
+    } else if (section == 4) {
+        return self.sectionArr3.count;;
     }
     
     return 0;
@@ -249,6 +256,9 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
     } else if (indexPath.section == 3) {
         UITableViewCell *cell = [self.sectionArr3[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
         return cell;
+    } else if (indexPath.section == 4) {
+        UITableViewCell *cell = [self.sectionArr4[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:self.isEdit];
+        return cell;
     }
     
     return nil;
@@ -263,6 +273,8 @@ static NSString *IDAuthIDCardImageCellIdentifier = @"IDAuthIDCardImageCell";
         return kIDAuthIDCardImageCellHeight;
     } else if (indexPath.section == 3) {
         return [self.sectionArr3[indexPath.row] cellheight];
+    } else if (indexPath.section == 4) {
+        return [self.sectionArr4[indexPath.row] cellheight];
     }
     
     return 0.0;
