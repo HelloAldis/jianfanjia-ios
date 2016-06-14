@@ -13,6 +13,7 @@
 #import "AFNetworking.h"
 #import "AFNetworkActivityLogger.h"
 #import "YYWebImage.h"
+#import "YYText.h"
 #import "CocoaLumberjack.h"
 #import "MJRefresh.h"
 #import "MBProgressHUD.h"

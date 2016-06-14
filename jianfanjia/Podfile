@@ -1,5 +1,7 @@
 xcodeproj './jianfanjia.xcodeproj'
 
+use_frameworks!
+
 platform :ios, '8.0'
 pod 'YYWebImage', '~> 0.9.12'
 pod 'AFNetworking', '~> 2.0'

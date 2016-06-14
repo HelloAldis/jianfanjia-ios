@@ -1,0 +1,65 @@
+//
+//  HomePageDesignerCell.m
+//  jianfanjia
+//
+//  Created by JYZ on 15/10/28.
+//  Copyright © 2015年 JYZ. All rights reserved.
+//
+
+#import "DecDiaryStatusCell.h"
+#import "ViewControllerContainer.h"
+
+@interface DecDiaryStatusCell ()
+
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *designerImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *vImageView;
+@property (weak, nonatomic) IBOutlet UILabel *lblCell;
+@property (weak, nonatomic) IBOutlet UILabel *lblDetail;
+@property (weak, nonatomic) IBOutlet UIView *boderView;
+
+@property (strong, nonatomic) Product *product;
+@property (strong, nonatomic) UITapGestureRecognizer *tapProductImage;
+@property (strong, nonatomic) UITapGestureRecognizer *tapDesignerImage;
+
+@end
+
+@implementation DecDiaryStatusCell
+
+- (void)awakeFromNib {
+    [self.designerImageView setCornerRadius:30];
+    [self.boderView setCornerRadius:31];
+
+    self.tapDesignerImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDesignerImage:)];
+    [self.designerImageView addGestureRecognizer:self.tapDesignerImage];
+    self.tapProductImage = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapProductImage:)];
+    [self.productImageView addGestureRecognizer:self.tapProductImage];
+}
+
+- (void)initWithProduct:(Product *)product {
+    self.product = product;
+    
+    [self.productImageView setImageWithId:product.cover_imageid withWidth:kScreenWidth];
+    [self.designerImageView setUserImageWithId:self.product.designer.imageid];
+    [DesignerBusiness setV:self.vImageView withAuthType:product.designer.auth_type];
+    
+    self.lblCell.text = product.cell;
+    self.lblDetail.text = product.house_area ? [NSString stringWithFormat:@"%@m², %@, %@, %@风格\n%@, %@万",
+                                                product.house_area,
+                                                [NameDict nameForDecType:product.dec_type],
+                                                [ProductBusiness houseTypeByDecType:product],
+                                                [NameDict nameForDecStyle:product.dec_style],
+                                                [NameDict nameForWorkType:product.work_type],
+                                                product.total_price] : @"";
+    [self.lblDetail setRowSpace:7.0f];
+}
+
+- (void)onTapProductImage:(UIGestureRecognizer *)sender {
+    [ViewControllerContainer showProduct:self.product._id];
+}
+
+- (void)onTapDesignerImage:(UIGestureRecognizer *)sender {
+    [ViewControllerContainer showDesigner:self.product.designerid];
+}
+
+@end
