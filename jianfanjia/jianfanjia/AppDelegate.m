@@ -97,7 +97,8 @@
 #pragma mark - 第三方统计
 - (void)initThirdPartyStatistics {
     // 友盟日志统计
-    [MobClick startWithAppkey:kUMengAppKey reportPolicy:BATCH channelId:@"default"];
+    UMConfigInstance.appKey = kUMengAppKey;
+    [MobClick startWithConfigure:UMConfigInstance];
 }
 
 #pragma mark - 第三方登录／分享
@@ -209,26 +210,16 @@
 }
 
 /** SDK收到透传消息回调 */
-- (void)GeTuiSdkDidReceivePayload:(NSString *)payloadId andTaskId:(NSString *)taskId andMessageId:(NSString *)aMsgId andOffLine:(BOOL)offLine fromApplication:(NSString *)appId {
-    // [4]: 收到个推消息
-    NSData *payload = [GeTuiSdk retrivePayloadById:payloadId];
+- (void)GeTuiSdkDidReceivePayloadData:(NSData *)payloadData andTaskId:(NSString *)taskId andMsgId:(NSString *)msgId andOffLine:(BOOL)offLine fromGtAppId:(NSString *)appId {
+    NSData *payload = payloadData;
     NSString *payloadMsg = nil;
     if (payload) {
         payloadMsg = [[NSString alloc] initWithBytes:payload.bytes length:payload.length encoding:NSUTF8StringEncoding];
     }
     
-    NSString *msg = [NSString stringWithFormat:@" payloadId=%@,taskId=%@,messageId:%@,payloadMsg:%@%@",payloadId,taskId,aMsgId,payloadMsg,offLine ? @"<离线消息>" : @""];
+    NSString *msg = [NSString stringWithFormat:@"taskId=%@,messageId:%@,payloadMsg:%@%@",taskId,msgId,payloadMsg,offLine ? @"<离线消息>" : @""];
     DDLogDebug(@"\n>>>[GexinSdk ReceivePayload]:%@\n\n", msg);
     [[NotificationDataManager shared] receiveNotification:payload andOffLine:offLine];
-    
-    /**
-     *汇报个推自定义事件
-     *actionId：用户自定义的actionid，int类型，取值90001-90999。
-     *taskId：下发任务的任务ID。
-     *msgId： 下发任务的消息ID。
-     *返回值：BOOL，YES表示该命令已经提交，NO表示该命令未提交成功。注：该结果不代表服务器收到该条命令
-     **/
-//    [GeTuiSdk sendFeedbackMessage:90001 taskId:taskId msgId:aMsgId];
 }
 
 /** SDK收到sendMessage消息回调 */
