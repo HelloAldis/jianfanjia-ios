@@ -47,6 +47,7 @@
 #import "NotificationDetailViewController.h"
 #import "DecLiveListViewController.h"
 #import "OrderTaggedDesignerViewController.h"
+#import "DecDiaryTimelineViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -107,15 +108,17 @@ static ViewControllerContainer *container;
     
     HomePageViewController *home = [[HomePageViewController alloc] initWithNibName:nil bundle:nil];
     BeautifulImageViewController *beautifulImg = [[BeautifulImageViewController alloc] initWithNibName:nil bundle:nil];
+    DecDiaryTimelineViewController *decDiary = [[DecDiaryTimelineViewController alloc] initWithNibName:nil bundle:nil];
     RequirementListViewController *requirement = [[RequirementListViewController alloc] initWithNibName:nil bundle:nil];
     MeViewController *me = [[MeViewController alloc] initWithNibName:nil bundle:nil];
 
     container.tab.tapHome = [[UINavigationController alloc] initWithRootViewController:home];
     container.tab.tapBeautifulImg = [[UINavigationController alloc] initWithRootViewController:beautifulImg];
+    container.tab.tapDecDiary = [[UINavigationController alloc] initWithRootViewController:decDiary];
     container.tab.tapRequirement = [[UINavigationController alloc] initWithRootViewController:requirement];
     container.tab.tapMy = [[UINavigationController alloc] initWithRootViewController:me];
 
-    container.tab.viewControllers = @[container.tab.tapHome, container.tab.tapBeautifulImg, container.tab.tapRequirement, container.tab.tapMy];
+    container.tab.viewControllers = @[container.tab.tapHome, container.tab.tapBeautifulImg, container.tab.tapDecDiary, container.tab.tapRequirement, container.tab.tapMy];
     container.navigation = [[UINavigationController alloc] initWithRootViewController:container.tab];
     container.window.rootViewController = container.navigation;
 }

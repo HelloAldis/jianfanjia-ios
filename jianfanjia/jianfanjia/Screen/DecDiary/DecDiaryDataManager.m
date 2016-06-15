@@ -11,31 +11,29 @@
 @implementation DecDiaryDataManager
 
 - (NSInteger)refresh {
-    NSArray* arr = [[DataManager shared].data objectForKey:@"products"];
-    NSMutableArray *products = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    NSArray* arr = [[DataManager shared].data objectForKey:@"diarys"];
+    NSMutableArray *diarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
-        Product *product = [[Product alloc] initWith:dict];
-        product.designer = [[Designer alloc] initWith:[product.data objectForKey:@"designer"]];
-        [products addObject:product];
+        Diary *diary = [[Diary alloc] initWith:dict];
+        [diarys addObject:diary];
     }
     
-    self.products = products;
-    return products.count;
+    self.diarys = diarys;
+    return diarys.count;
 }
 
 - (NSInteger)loadMore {
-    NSArray* arr = [[DataManager shared].data objectForKey:@"products"];
-    NSMutableArray *products = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    NSArray* arr = [[DataManager shared].data objectForKey:@"diarys"];
+    NSMutableArray *diarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
-        Product *product = [[Product alloc] initWith:dict];
-        product.designer = [[Designer alloc] initWith:[product.data objectForKey:@"designer"]];
-        [products addObject:product];
+        Diary *diary = [[Diary alloc] initWith:dict];
+        [diarys addObject:diary];
     }
     
-    [self.products addObjectsFromArray:products];
-    return products.count;
+    [self.diarys addObjectsFromArray:diarys];
+    return diarys.count;
 }
 
 @end

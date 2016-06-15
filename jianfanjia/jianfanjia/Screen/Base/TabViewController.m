@@ -28,11 +28,15 @@
     pretty_img = [pretty_img initWithTitle:@"装修美图" image:[UIImage imageNamed:@"tab_pretty_img_default"] selectedImage:[UIImage imageNamed:@"tab_pretty_img_selected"]];
     pretty_img.titlePositionAdjustment = UIOffsetMake(0, -2);
     
-    UITabBarItem *requirement = [self.tabBar.items objectAtIndex:2];
-     requirement = [requirement initWithTitle:@"我要装修" image:[UIImage imageNamed:@"tab_requirement_default"] selectedImage:[UIImage imageNamed:@"tab_requirement_selected"]];
+    UITabBarItem *decDiary = [self.tabBar.items objectAtIndex:2];
+    decDiary = [decDiary initWithTitle:@"装修日记" image:[UIImage imageNamed:@"tab_pretty_img_default"] selectedImage:[UIImage imageNamed:@"tab_pretty_img_selected"]];
+    decDiary.titlePositionAdjustment = UIOffsetMake(0, -2);
+    
+    UITabBarItem *requirement = [self.tabBar.items objectAtIndex:3];
+    requirement = [requirement initWithTitle:@"我要装修" image:[UIImage imageNamed:@"tab_requirement_default"] selectedImage:[UIImage imageNamed:@"tab_requirement_selected"]];
     requirement.titlePositionAdjustment = UIOffsetMake(0, -2);
     
-    UITabBarItem *my = [self.tabBar.items objectAtIndex:3];
+    UITabBarItem *my = [self.tabBar.items objectAtIndex:4];
     my = [my initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_my_default"] selectedImage:[UIImage imageNamed:@"tab_my_selected"]];
     my.titlePositionAdjustment = UIOffsetMake(0, -2);
     

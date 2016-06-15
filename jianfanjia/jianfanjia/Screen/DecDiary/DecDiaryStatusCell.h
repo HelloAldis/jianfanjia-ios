@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define kProductCaseCellHeight 373
-
 @interface DecDiaryStatusCell : UITableViewCell
 
-- (void)initWithProduct:(Product *)product;
+- (void)initWithDiary:(Diary *)diary truncate:(BOOL)needTruncate;
 
 @end

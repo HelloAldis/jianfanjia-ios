@@ -31,7 +31,7 @@
 #define kThemeTextColor [UIColor colorWithR:0x34 g:0x49 b:0x5e]
 
 #define kReminderColor [UIColor colorWithR:0xff g:0x44 b:0x45]
-#define kViewBgColor [UIColor colorWithR:0xED g:0xEF b:0xF1]
+#define kViewBgColor [UIColor colorWithR:0xEF g:0xEF b:0xF4]
 #define kPlaceHolderColor [UIColor colorWithR:0xD5 g:0xD5 b:0xD5]
 #define kNotificationReadColor [UIColor colorWithR:0xC1 g:0xC6 b:0xC8]
 
