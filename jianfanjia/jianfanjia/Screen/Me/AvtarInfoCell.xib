@@ -32,14 +32,14 @@
                                 </variation>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cE9-Pk-9qa">
-                                <rect key="frame" x="258" y="116" width="73" height="73"/>
+                                <rect key="frame" x="258" y="96" width="73" height="73"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="blY-qW-wte"/>
                                     <constraint firstAttribute="width" secondItem="cE9-Pk-9qa" secondAttribute="height" multiplier="1:1" id="m9m-Y6-zqo"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oV-fh-d5Q">
-                                <rect key="frame" x="295" y="199" width="0.0" height="21"/>
+                                <rect key="frame" x="295" y="179" width="0.0" height="21"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="0fj-tL-5aX"/>
@@ -49,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GXl-mZ-nPe">
-                                <rect key="frame" x="295" y="225" width="0.0" height="21"/>
+                                <rect key="frame" x="295" y="205" width="0.0" height="21"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="9K3-RT-v7T"/>
@@ -62,7 +62,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GXl-mZ-nPe" firstAttribute="centerX" secondItem="gM7-ta-tqS" secondAttribute="centerX" id="82u-qU-fnq"/>
-                            <constraint firstItem="cE9-Pk-9qa" firstAttribute="centerY" secondItem="jAM-cy-3Aj" secondAttribute="centerY" id="B19-Cv-Vie"/>
+                            <constraint firstItem="cE9-Pk-9qa" firstAttribute="centerY" secondItem="jAM-cy-3Aj" secondAttribute="centerY" constant="-20" id="B19-Cv-Vie"/>
                             <constraint firstAttribute="trailing" secondItem="jAM-cy-3Aj" secondAttribute="trailing" id="CJQ-CT-5u4"/>
                             <constraint firstItem="cE9-Pk-9qa" firstAttribute="centerX" secondItem="jAM-cy-3Aj" secondAttribute="centerX" id="CyQ-co-MJl"/>
                             <constraint firstAttribute="bottom" secondItem="jAM-cy-3Aj" secondAttribute="bottom" id="JeI-qD-AKR"/>

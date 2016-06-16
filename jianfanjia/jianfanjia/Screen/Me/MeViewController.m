@@ -22,6 +22,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
 
 @interface MeViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) AvtarInfoCell *avtarInfoCell;
 
 @property (nonatomic, strong) NSArray *sectionArr1;
 @property (nonatomic, strong) NSArray *sectionArr2;
@@ -43,10 +44,6 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.tableView reloadData];
-    
-//    if (CGRectGetHeight(self.originUserImageFrame) == 0) {
-//        self.originUserImageFrame = self.userImageView.frame;
-//    }
 }
 
 #pragma mark - UI
@@ -130,7 +127,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     if (indexPath.section == 0) {
         if (indexPath.section == 0) {
             if (indexPath.row == 0) {
-                AvtarInfoCell *cell = [tableView dequeueReusableCellWithIdentifier:AvtarInfoCellIdentifier forIndexPath:indexPath];
+                AvtarInfoCell *cell = [self avtarInfoCell];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 [cell initUI];
                 return cell;
@@ -172,6 +169,14 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     return 0.0;
 }
 
+- (AvtarInfoCell *)avtarInfoCell {
+    if (!_avtarInfoCell) {
+        self.avtarInfoCell = [self.tableView dequeueReusableCellWithIdentifier:AvtarInfoCellIdentifier];
+    }
+    
+    return _avtarInfoCell;
+}
+
 #pragma mark - user action
 - (void)onClickNotification {
     [[LoginEngine shared] showLogin:^(BOOL logined) {
@@ -181,18 +186,17 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     }];
 }
 
-//
 //#pragma mark - scroll view  delegate 
 //- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 //    CGFloat offsetY = scrollView.contentOffset.y;
+//    offsetY = offsetY + kNavWithStatusBarHeight;
 //    CGRect f = CGRectZero;
 //    f.origin.y = offsetY;
 //    f.size.width = MAX(kScreenWidth, kScreenWidth - offsetY);
-//    f.size.height =  CGRectGetHeight(self.originUserImageFrame) - offsetY;
-//    f.origin.x = MIN(0, offsetY / 2);
-//    self.userImageView.frame = f;
+//    f.size.height =  kAvtarInfoCellHeight - offsetY;
+//    f.origin.x = MIN(0, -(f.size.width - kScreenWidth) / 2.0);
+//    [self avtarInfoCell].avtarView.frame = f;
 //}
-//
 
 #pragma mark - other
 - (void)onClickClearCache:(EditCellItem *)curItem {
