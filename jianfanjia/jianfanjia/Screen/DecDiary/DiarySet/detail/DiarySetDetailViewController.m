@@ -7,14 +7,19 @@
 //
 
 #import "DiarySetDetailViewController.h"
+#import "DiarySetAvtarInfoCell.h"
 #import "DecDiary1StatusCell.h"
 #import "DiarySetDetailDataManager.h"
+#import "AddDiarySectionView.h"
 
+static NSString *DiarySetAvtarInfoCellIdentifier = @"DiarySetAvtarInfoCell";
 static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 @interface DiarySetDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) AddDiarySectionView *addDiarySectionView;
 
 @property (strong, nonatomic) DiarySetDetailDataManager *dataManager;
 @property (strong, nonatomic) DiarySet *diarySet;
@@ -42,6 +47,10 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftWhiteBackInNav];
+    [self initTransparentNavBar:UIBarStyleBlack];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }
 
 - (void)initUI {
@@ -49,16 +58,14 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 300;
+    [self.tableView registerNib:[UINib nibWithNibName:DiarySetAvtarInfoCellIdentifier bundle:nil] forCellReuseIdentifier:DiarySetAvtarInfoCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:DecDiaryStatusCellIdentifier bundle:nil] forCellReuseIdentifier:DecDiaryStatusCellIdentifier];
     
-    @weakify(self);
-    self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
-        @strongify(self);
-        [self refresh];
-    }];
+    self.addDiarySectionView = [AddDiarySectionView addDiarySectionView];
+    [self.addDiarySectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAddDiary)]];
     
+    @weakify(self);
     self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMore];
@@ -126,15 +133,65 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 #pragma mark - table view delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 0;
+    }
+    
+    return kAddDiarySectionViewHeight;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return nil;
+    }
+    
+    return self.addDiarySectionView;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 1;
+    }
+    
     return self.dataManager.diarys.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        DiarySetAvtarInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiarySetAvtarInfoCellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    }
+    
     DecDiary1StatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell initWithDiary:self.dataManager.diarys[indexPath.row] truncate:YES];
+    [cell initWithDiary:self.dataManager.diarys[indexPath.row] truncate:NO];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return kDiarySetAvtarInfoCellHeight;
+    }
+    
+    return UITableViewAutomaticDimension;
+}
+
+#pragma mark - scroll view
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    UIColor *color = [UIColor blueColor];
+    CGFloat offsetY = scrollView.contentOffset.y;
+    if (offsetY > 0) {
+        CGFloat alpha = 1 - ((kNavWithStatusBarHeight - offsetY) / kNavWithStatusBarHeight);
+        self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:alpha];
+    } else {
+        self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:0];
+    }
 }
 
 #pragma mark - api request
@@ -144,7 +201,16 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 - (void)loadMore {
+    
+}
 
+#pragma mark - user action
+- (void)onTapAddDiary {
+    
+}
+
+- (void)onClickShare {
+    
 }
 
 @end

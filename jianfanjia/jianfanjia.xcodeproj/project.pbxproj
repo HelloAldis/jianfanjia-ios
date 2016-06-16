@@ -397,6 +397,10 @@
 		68EE3E0B1D12944500F5EF83 /* SearchDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E011D12944500F5EF83 /* SearchDiary.m */; };
 		68EE3E0C1D12944500F5EF83 /* SearchDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E031D12944500F5EF83 /* SearchDiarySet.m */; };
 		68EE3E0D1D12944500F5EF83 /* ZanDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E051D12944500F5EF83 /* ZanDiary.m */; };
+		68EE3E111D12A23C00F5EF83 /* DiarySetAvtarInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E0F1D12A23C00F5EF83 /* DiarySetAvtarInfoCell.m */; };
+		68EE3E121D12A23C00F5EF83 /* DiarySetAvtarInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E101D12A23C00F5EF83 /* DiarySetAvtarInfoCell.xib */; };
+		68EE3E161D12A6ED00F5EF83 /* AddDiarySectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E141D12A6ED00F5EF83 /* AddDiarySectionView.m */; };
+		68EE3E171D12A6ED00F5EF83 /* AddDiarySectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E151D12A6ED00F5EF83 /* AddDiarySectionView.xib */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1213,6 +1217,12 @@
 		68EE3E031D12944500F5EF83 /* SearchDiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDiarySet.m; sourceTree = "<group>"; };
 		68EE3E041D12944500F5EF83 /* ZanDiary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZanDiary.h; sourceTree = "<group>"; };
 		68EE3E051D12944500F5EF83 /* ZanDiary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZanDiary.m; sourceTree = "<group>"; };
+		68EE3E0E1D12A23C00F5EF83 /* DiarySetAvtarInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetAvtarInfoCell.h; sourceTree = "<group>"; };
+		68EE3E0F1D12A23C00F5EF83 /* DiarySetAvtarInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetAvtarInfoCell.m; sourceTree = "<group>"; };
+		68EE3E101D12A23C00F5EF83 /* DiarySetAvtarInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiarySetAvtarInfoCell.xib; sourceTree = "<group>"; };
+		68EE3E131D12A6ED00F5EF83 /* AddDiarySectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDiarySectionView.h; sourceTree = "<group>"; };
+		68EE3E141D12A6ED00F5EF83 /* AddDiarySectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDiarySectionView.m; sourceTree = "<group>"; };
+		68EE3E151D12A6ED00F5EF83 /* AddDiarySectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDiarySectionView.xib; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2297,12 +2307,18 @@
 		68EE3DE51D1282AF00F5EF83 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				68EE3DE61D1282AF00F5EF83 /* DecDiary1StatusCell.h */,
-				68EE3DE71D1282AF00F5EF83 /* DecDiary1StatusCell.m */,
-				68EE3DE81D1282AF00F5EF83 /* DecDiary1StatusCell.xib */,
 				68EE3DE91D1282AF00F5EF83 /* DiarySetDetailViewController.h */,
 				68EE3DEA1D1282AF00F5EF83 /* DiarySetDetailViewController.m */,
 				68EE3DEB1D1282AF00F5EF83 /* DiarySetDetailViewController.xib */,
+				68EE3E0E1D12A23C00F5EF83 /* DiarySetAvtarInfoCell.h */,
+				68EE3E0F1D12A23C00F5EF83 /* DiarySetAvtarInfoCell.m */,
+				68EE3E101D12A23C00F5EF83 /* DiarySetAvtarInfoCell.xib */,
+				68EE3DE61D1282AF00F5EF83 /* DecDiary1StatusCell.h */,
+				68EE3DE71D1282AF00F5EF83 /* DecDiary1StatusCell.m */,
+				68EE3DE81D1282AF00F5EF83 /* DecDiary1StatusCell.xib */,
+				68EE3E131D12A6ED00F5EF83 /* AddDiarySectionView.h */,
+				68EE3E141D12A6ED00F5EF83 /* AddDiarySectionView.m */,
+				68EE3E151D12A6ED00F5EF83 /* AddDiarySectionView.xib */,
 				68EE3DF01D12846C00F5EF83 /* DiarySetDetailDataManager.h */,
 				68EE3DF11D12846C00F5EF83 /* DiarySetDetailDataManager.m */,
 			);
@@ -3189,6 +3205,7 @@
 				68B10CB11C781C10005866C1 /* SearchViewController.xib in Resources */,
 				68EE3DC41D1252FE00F5EF83 /* AvtarInfoCell.xib in Resources */,
 				685F2D6A1CAB77E000DC4D43 /* UnexpandSectionActionView.xib in Resources */,
+				68EE3E171D12A6ED00F5EF83 /* AddDiarySectionView.xib in Resources */,
 				68123C561C4C8B99008FC9AB /* MessageAlertViewController.xib in Resources */,
 				683FFB451C296288002A1AFE /* BeautifulImageViewController.xib in Resources */,
 				68BA50F41C9FE56B002E5572 /* WebViewWithoutShareController.xib in Resources */,
@@ -3236,6 +3253,7 @@
 				6E4496411BFC53CE00C90851 /* FeedbackViewController.xib in Resources */,
 				68EE3DBF1D124C7200F5EF83 /* QuickLinkCell.xib in Resources */,
 				68123C621C4C8B99008FC9AB /* city2area.js in Resources */,
+				68EE3E121D12A23C00F5EF83 /* DiarySetAvtarInfoCell.xib in Resources */,
 				688517741C926FDC000B01DB /* DecCommentInfoCell.xib in Resources */,
 				68C3C26C1C75C41200EEEBD8 /* HomePageProductItem.xib in Resources */,
 				68711B761CDC7D99009B585F /* DecPackageJiangXinView.xib in Resources */,
@@ -3547,6 +3565,7 @@
 				682E05131C58BDA700F1ACAA /* PlanPriceItemExpandCell.m in Sources */,
 				68123B9B1C47D15C008FC9AB /* JYZSocialSnsAuthResp.m in Sources */,
 				687EEBDF1CE71B5000A277DC /* KRSSwizzle.m in Sources */,
+				68EE3E161D12A6ED00F5EF83 /* AddDiarySectionView.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
 				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
@@ -3585,6 +3604,7 @@
 				685F2D731CABDC4C00DC4D43 /* BrushGifHeader.m in Sources */,
 				6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */,
 				68123C581C4C8B99008FC9AB /* ImageBrowerViewController.m in Sources */,
+				68EE3E111D12A23C00F5EF83 /* DiarySetAvtarInfoCell.m in Sources */,
 				684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */,
 				683626951C05545E005F2C30 /* StartDecorationProcess.m in Sources */,
 				6E6D98C01BE0637700D45F77 /* Product.m in Sources */,

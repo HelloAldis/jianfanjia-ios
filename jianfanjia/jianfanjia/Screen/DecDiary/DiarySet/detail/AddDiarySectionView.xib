@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AddDiarySectionView">
+            <rect key="frame" x="0.0" y="0.0" width="534" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_beautiful_img" translatesAutoresizingMaskIntoConstraints="NO" id="ykH-dS-xoD">
+                    <rect key="frame" x="205" y="13" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ykH-dS-xoD" secondAttribute="height" multiplier="1:1" id="DOf-AX-SUE"/>
+                        <constraint firstAttribute="width" constant="25" id="Jcg-1x-EfW"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="写日记" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4y-6v-Uls">
+                    <rect key="frame" x="245" y="16" width="45" height="18"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.43921568630000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="G4y-6v-Uls" firstAttribute="leading" secondItem="ykH-dS-xoD" secondAttribute="trailing" constant="15" id="0Jy-1I-IKZ"/>
+                <constraint firstItem="G4y-6v-Uls" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3CQ-pT-yvY"/>
+                <constraint firstItem="G4y-6v-Uls" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5zS-sR-BgG"/>
+                <constraint firstItem="ykH-dS-xoD" firstAttribute="centerY" secondItem="G4y-6v-Uls" secondAttribute="centerY" id="G09-45-YbT"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="9" y="224"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_dec_beautiful_img" width="60" height="60"/>
+    </resources>
+</document>

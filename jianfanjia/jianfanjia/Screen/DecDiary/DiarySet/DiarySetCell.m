@@ -54,7 +54,7 @@
 }
 
 - (void)onTap {
-
+    [ViewControllerContainer showDiarySetDetail:self.diarySet];
 }
 
 - (IBAction)onClickDelete:(id)sender {

@@ -24,5 +24,6 @@
 @property (nonatomic, strong) NSNumber *view_count;
 @property (nonatomic, strong) NSNumber *favorite_count;
 @property (nonatomic, strong) NSNumber *comment_count;
+@property (nonatomic, strong) NSArray *diaries;
 
 @end
