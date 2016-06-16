@@ -51,6 +51,7 @@
 #import "DiarySetListViewController.h"
 #import "DiarySetUploadViewController.h"
 #import "DiarySetDetailViewController.h"
+#import "AddDiaryViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -416,6 +417,11 @@ static ViewControllerContainer *container;
 
 + (void)showDiarySetDetail:(DiarySet *)diarySet {
     DiarySetDetailViewController *v = [[DiarySetDetailViewController alloc] initWithDiarySet:diarySet];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showDiaryAdd:(NSArray<DiarySet *> *)diarySets {
+    AddDiaryViewController *v = [[AddDiaryViewController alloc] initWithDiarySets:diarySets];
     [container.navigation pushViewController:v animated:YES];
 }
 

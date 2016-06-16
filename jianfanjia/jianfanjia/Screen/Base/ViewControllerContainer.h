@@ -53,6 +53,7 @@ static NSString * const kLogoutNotification = @"LogoutNotification";
 + (void)showMyDiarySet;
 + (void)showDiarySetUpload:(DiarySet *)diarySet;
 + (void)showDiarySetDetail:(DiarySet *)diarySet;
++ (void)showDiaryAdd:(NSArray<DiarySet *> *)diarySets;
 + (void)showMyComments;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;

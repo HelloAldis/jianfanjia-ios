@@ -11,6 +11,7 @@
 #import "DecDiary1StatusCell.h"
 #import "DiarySetDetailDataManager.h"
 #import "AddDiarySectionView.h"
+#import "ViewControllerContainer.h"
 
 static NSString *DiarySetAvtarInfoCellIdentifier = @"DiarySetAvtarInfoCell";
 static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
@@ -206,7 +207,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 #pragma mark - user action
 - (void)onTapAddDiary {
-    
+    [ViewControllerContainer showDiaryAdd:nil];
 }
 
 - (void)onClickShare {
