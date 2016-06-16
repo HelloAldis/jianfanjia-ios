@@ -50,6 +50,8 @@ static NSString * const kLogoutNotification = @"LogoutNotification";
 + (void)showDBYS:(Section *)section process:(NSString *)processid popTo:(UIViewController *)popTo refresh:(void(^)(void))refreshBlock;
 + (void)showMyNotification:(NotificationType)displayType;
 + (void)showNotificationDetail:(NSString *)notificationid readBlock:(NotificationReadBlock)readBlock;
++ (void)showMyDiarySet;
++ (void)showDiarySetUpload:(DiarySet *)diarySet;
 + (void)showMyComments;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
 + (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;

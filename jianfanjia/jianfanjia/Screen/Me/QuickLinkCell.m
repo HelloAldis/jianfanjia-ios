@@ -33,7 +33,7 @@
 }
 
 - (void)onTapMyDiarySet {
-//    [ViewControllerContainer showMyComments];
+    [ViewControllerContainer showMyDiarySet];
 }
 
 - (void)onClickFavoriate {

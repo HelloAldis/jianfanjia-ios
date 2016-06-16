@@ -38,5 +38,6 @@
 #import "AwardDetail.h"
 #import "Diary.h"
 #import "DiaryLayout.h"
+#import "DiarySet.h"
 
 #endif /* Model_h */

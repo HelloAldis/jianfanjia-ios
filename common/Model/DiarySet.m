@@ -6,30 +6,23 @@
 //  Copyright © 2016年 JYZ. All rights reserved.
 //
 
-#import "Diary.h"
+#import "DiarySet.h"
 
-@implementation Diary
+@implementation DiarySet
 
 @dynamic _id;
 @dynamic authorid;
 @dynamic usertype;
-@dynamic diarySetid;
-@dynamic content;
-@dynamic section_label;
-@dynamic images;
+@dynamic cover_imageid;
+@dynamic title;
+@dynamic work_type;
+@dynamic house_type;
+@dynamic dec_style;
+@dynamic house_area;
 @dynamic create_at;
 @dynamic lastupdate;
 @dynamic view_count;
 @dynamic favorite_count;
 @dynamic comment_count;
-
-- (DiaryLayout *)layout {
-    if (!_layout) {
-        self.layout = [[DiaryLayout alloc] init];
-        _layout.diary = self;
-    }
-    
-    return _layout;
-}
 
 @end

@@ -8,24 +8,21 @@
 
 #import "BaseModel.h"
 
-@class DiaryLayout;
-
-@interface Diary : BaseModel
+@interface DiarySet : BaseModel
 
 @property (nonatomic, strong) NSString *_id;
 @property (nonatomic, strong) NSString *authorid;
 @property (nonatomic, strong) NSString *usertype;
-@property (nonatomic, strong) NSString *diarySetid;
-@property (nonatomic, strong) NSString *content;
-@property (nonatomic, strong) NSString *section_label;
-@property (nonatomic, strong) NSArray *images;
+@property (nonatomic, strong) NSString *cover_imageid;
+@property (nonatomic, strong) NSString *title;
+@property(nonatomic, strong) NSString *work_type;
+@property (nonatomic, strong) NSString *house_type;
+@property (nonatomic, strong) NSString *dec_style;
+@property (nonatomic, strong) NSNumber *house_area;
 @property (nonatomic, strong) NSNumber *create_at;
 @property (nonatomic, strong) NSNumber *lastupdate;
 @property (nonatomic, strong) NSNumber *view_count;
 @property (nonatomic, strong) NSNumber *favorite_count;
 @property (nonatomic, strong) NSNumber *comment_count;
-
-//辅助属性
-@property (nonatomic, strong) DiaryLayout *layout;
 
 @end

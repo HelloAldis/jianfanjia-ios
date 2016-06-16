@@ -374,6 +374,16 @@
 		68EE3DBF1D124C7200F5EF83 /* QuickLinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3DBB1D124C7200F5EF83 /* QuickLinkCell.xib */; };
 		68EE3DC31D1252FE00F5EF83 /* AvtarInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DC11D1252FE00F5EF83 /* AvtarInfoCell.m */; };
 		68EE3DC41D1252FE00F5EF83 /* AvtarInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3DC21D1252FE00F5EF83 /* AvtarInfoCell.xib */; };
+		68EE3DD31D125D3700F5EF83 /* DiarySetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DC71D125D3700F5EF83 /* DiarySetCell.m */; };
+		68EE3DD41D125D3700F5EF83 /* DiarySetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3DC81D125D3700F5EF83 /* DiarySetCell.xib */; };
+		68EE3DD51D125D3700F5EF83 /* DiarySetDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DCA1D125D3700F5EF83 /* DiarySetDataManager.m */; };
+		68EE3DD61D125D3700F5EF83 /* DiarySetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DCC1D125D3700F5EF83 /* DiarySetListViewController.m */; };
+		68EE3DD91D125D3700F5EF83 /* DiarySetUploadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DD11D125D3700F5EF83 /* DiarySetUploadCell.m */; };
+		68EE3DDA1D125D3700F5EF83 /* DiarySetUploadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3DD21D125D3700F5EF83 /* DiarySetUploadCell.xib */; };
+		68EE3DDC1D125DA900F5EF83 /* DiarySetListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3DDB1D125DA900F5EF83 /* DiarySetListViewController.xib */; };
+		68EE3DDF1D126E8900F5EF83 /* DiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DDE1D126E8900F5EF83 /* DiarySet.m */; };
+		68EE3DE31D1271DA00F5EF83 /* DiarySetUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DE11D1271DA00F5EF83 /* DiarySetUploadViewController.m */; };
+		68EE3DE41D1271DA00F5EF83 /* DiarySetUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3DE21D1271DA00F5EF83 /* DiarySetUploadViewController.xib */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1150,6 +1160,22 @@
 		68EE3DC01D1252FE00F5EF83 /* AvtarInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AvtarInfoCell.h; sourceTree = "<group>"; };
 		68EE3DC11D1252FE00F5EF83 /* AvtarInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AvtarInfoCell.m; sourceTree = "<group>"; };
 		68EE3DC21D1252FE00F5EF83 /* AvtarInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AvtarInfoCell.xib; sourceTree = "<group>"; };
+		68EE3DC61D125D3700F5EF83 /* DiarySetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetCell.h; sourceTree = "<group>"; };
+		68EE3DC71D125D3700F5EF83 /* DiarySetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetCell.m; sourceTree = "<group>"; };
+		68EE3DC81D125D3700F5EF83 /* DiarySetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiarySetCell.xib; sourceTree = "<group>"; };
+		68EE3DC91D125D3700F5EF83 /* DiarySetDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetDataManager.h; sourceTree = "<group>"; };
+		68EE3DCA1D125D3700F5EF83 /* DiarySetDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetDataManager.m; sourceTree = "<group>"; };
+		68EE3DCB1D125D3700F5EF83 /* DiarySetListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetListViewController.h; sourceTree = "<group>"; };
+		68EE3DCC1D125D3700F5EF83 /* DiarySetListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetListViewController.m; sourceTree = "<group>"; };
+		68EE3DD01D125D3700F5EF83 /* DiarySetUploadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetUploadCell.h; sourceTree = "<group>"; };
+		68EE3DD11D125D3700F5EF83 /* DiarySetUploadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetUploadCell.m; sourceTree = "<group>"; };
+		68EE3DD21D125D3700F5EF83 /* DiarySetUploadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiarySetUploadCell.xib; sourceTree = "<group>"; };
+		68EE3DDB1D125DA900F5EF83 /* DiarySetListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiarySetListViewController.xib; sourceTree = "<group>"; };
+		68EE3DDD1D126E8900F5EF83 /* DiarySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySet.h; sourceTree = "<group>"; };
+		68EE3DDE1D126E8900F5EF83 /* DiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySet.m; sourceTree = "<group>"; };
+		68EE3DE01D1271DA00F5EF83 /* DiarySetUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetUploadViewController.h; sourceTree = "<group>"; };
+		68EE3DE11D1271DA00F5EF83 /* DiarySetUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetUploadViewController.m; sourceTree = "<group>"; };
+		68EE3DE21D1271DA00F5EF83 /* DiarySetUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiarySetUploadViewController.xib; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2172,6 +2198,7 @@
 		68EE3D861D0FFAAC00F5EF83 /* DecDiary */ = {
 			isa = PBXGroup;
 			children = (
+				68EE3DC51D125D3600F5EF83 /* DiarySet */,
 				68EE3D8C1D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.h */,
 				68EE3D8D1D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.m */,
 				68EE3D8E1D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.xib */,
@@ -2206,6 +2233,27 @@
 				68EE3DAB1D12447A00F5EF83 /* TextEditCell.xib */,
 			);
 			path = EditCellComponent;
+			sourceTree = "<group>";
+		};
+		68EE3DC51D125D3600F5EF83 /* DiarySet */ = {
+			isa = PBXGroup;
+			children = (
+				68EE3DCB1D125D3700F5EF83 /* DiarySetListViewController.h */,
+				68EE3DCC1D125D3700F5EF83 /* DiarySetListViewController.m */,
+				68EE3DDB1D125DA900F5EF83 /* DiarySetListViewController.xib */,
+				68EE3DC61D125D3700F5EF83 /* DiarySetCell.h */,
+				68EE3DC71D125D3700F5EF83 /* DiarySetCell.m */,
+				68EE3DC81D125D3700F5EF83 /* DiarySetCell.xib */,
+				68EE3DC91D125D3700F5EF83 /* DiarySetDataManager.h */,
+				68EE3DCA1D125D3700F5EF83 /* DiarySetDataManager.m */,
+				68EE3DD01D125D3700F5EF83 /* DiarySetUploadCell.h */,
+				68EE3DD11D125D3700F5EF83 /* DiarySetUploadCell.m */,
+				68EE3DD21D125D3700F5EF83 /* DiarySetUploadCell.xib */,
+				68EE3DE01D1271DA00F5EF83 /* DiarySetUploadViewController.h */,
+				68EE3DE11D1271DA00F5EF83 /* DiarySetUploadViewController.m */,
+				68EE3DE21D1271DA00F5EF83 /* DiarySetUploadViewController.xib */,
+			);
+			path = DiarySet;
 			sourceTree = "<group>";
 		};
 		6E06CC031C29231A00A08D15 /* MyFavoriate */ = {
@@ -2527,6 +2575,8 @@
 				684B03C91C979EAA0053FFDF /* DecLive.m */,
 				684B03CA1C979EAA0053FFDF /* DecLiveSection.h */,
 				684B03CB1C979EAA0053FFDF /* DecLiveSection.m */,
+				68EE3DDD1D126E8900F5EF83 /* DiarySet.h */,
+				68EE3DDE1D126E8900F5EF83 /* DiarySet.m */,
 				68EE3D941D1131E700F5EF83 /* Diary.h */,
 				68EE3D951D1131E700F5EF83 /* Diary.m */,
 				68EE3D971D123CFB00F5EF83 /* DiaryLayout.h */,
@@ -3088,6 +3138,7 @@
 				684B03C11C96C3DE0053FFDF /* DecLiveCell.xib in Resources */,
 				68123BAA1C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png in Resources */,
 				68123C611C4C8B99008FC9AB /* allprovince.js in Resources */,
+				68EE3DDA1D125D3700F5EF83 /* DiarySetUploadCell.xib in Resources */,
 				685DD4521C89761E00A76B9C /* PlanCommentInfoCell.xib in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
 				683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */,
@@ -3100,6 +3151,7 @@
 				68C3C2621C7598FE00EEEBD8 /* HomePageQuickEntryItem.xib in Resources */,
 				684A37111BFD733500F7388C /* PlanWasChoosedCell.xib in Resources */,
 				685B14431CEB0FB60076996A /* SelectBusinessTypeViewController.xib in Resources */,
+				68EE3DE41D1271DA00F5EF83 /* DiarySetUploadViewController.xib in Resources */,
 				68134A4F1C3F503E003C1C10 /* CustomerServiceViewController.xib in Resources */,
 				68123BA61C47D15C008FC9AB /* JYZ_qq_icon@2x.png in Resources */,
 				68EE3DB11D12447A00F5EF83 /* FieldEditCell.xib in Resources */,
@@ -3137,7 +3189,9 @@
 				684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */,
 				68EE3DB31D12447A00F5EF83 /* SelectionEditCell.xib in Resources */,
 				685F2D551CA9209500DC4D43 /* iTunesArtwork in Resources */,
+				68EE3DD41D125D3700F5EF83 /* DiarySetCell.xib in Resources */,
 				6E06CC2E1C2BF97800A08D15 /* FavoriteDesignerCell.xib in Resources */,
+				68EE3DDC1D125DA900F5EF83 /* DiarySetListViewController.xib in Resources */,
 				685F2D5D1CAA31BA00DC4D43 /* SectionActionView.xib in Resources */,
 				68EE3D931D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.xib in Resources */,
 				6E6D98B71BDF73DE00D45F77 /* MeViewController.xib in Resources */,
@@ -3230,6 +3284,7 @@
 				683FFB471C296288002A1AFE /* DropdownMenuCollectionCell.m in Sources */,
 				68EE3DB01D12447A00F5EF83 /* FieldEditCell.m in Sources */,
 				68123BAB1C47D15C008FC9AB /* JYZShareMenuCollectionCell.m in Sources */,
+				68EE3DDF1D126E8900F5EF83 /* DiarySet.m in Sources */,
 				68E6004C1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */,
 				6E7867161BA944AF00DE8B1B /* ItemCell.m in Sources */,
 				68E600861CB7C20300C4A8F7 /* ReqtDesignerResponded.m in Sources */,
@@ -3245,6 +3300,7 @@
 				68EE3D901D0FFAAC00F5EF83 /* DecDiaryStatusCell.m in Sources */,
 				683FFB591C2A4135002A1AFE /* CollectDecPhaseViewController.m in Sources */,
 				6E07DACA1BD88DBE001461DD /* BaseDynamicObject.m in Sources */,
+				68EE3DD91D125D3700F5EF83 /* DiarySetUploadCell.m in Sources */,
 				6885176F1C9258D1000B01DB /* UIView+Badge.m in Sources */,
 				6E838DB51BEB5603000BF5CD /* DesignerHomePage.m in Sources */,
 				682E05151C58BDA700F1ACAA /* PlanPriceItemSection.m in Sources */,
@@ -3351,6 +3407,7 @@
 				6E4496361BFB029E00C90851 /* UpdatePass.m in Sources */,
 				683FFB411C296288002A1AFE /* BeautifulImageCollectionCell.m in Sources */,
 				6857265D1C30E472006F6188 /* NSDictionary+Ex.m in Sources */,
+				68EE3DD61D125D3700F5EF83 /* DiarySetListViewController.m in Sources */,
 				685B14131CE9D4E20076996A /* PhotoGroupView.m in Sources */,
 				68B10CA81C7819E3005866C1 /* ProductCaseCell.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
@@ -3377,6 +3434,7 @@
 				68123B9A1C47D15C008FC9AB /* JYZSocialSnsAccountInfo.m in Sources */,
 				68F73CF11CBB3AB900E97710 /* PlanHomeOwnerOrdered.m in Sources */,
 				687EEB551CE2C55B00A277DC /* DIYRefreshFooter.m in Sources */,
+				68EE3DE31D1271DA00F5EF83 /* DiarySetUploadViewController.m in Sources */,
 				685DD4531C89761E00A76B9C /* CommentListDataManager.m in Sources */,
 				689ECEDC1D00384B0046DDC8 /* ProductBusiness.m in Sources */,
 				68F73CF21CBB3AB900E97710 /* PlanUnorder.m in Sources */,
@@ -3482,6 +3540,7 @@
 				683A5D6C1C0EFBAE0071DF88 /* YsImage.m in Sources */,
 				684A37041BFD733500F7388C /* DesignerRespondedWithoutMeasureHouseCell.m in Sources */,
 				68B10C981C772824005866C1 /* SearchProduct.m in Sources */,
+				68EE3DD31D125D3700F5EF83 /* DiarySetCell.m in Sources */,
 				680C461F1CC5CCC3008C4BC0 /* DataManager.m in Sources */,
 				685CD5EC1C031D1C00EC1991 /* GetComments.m in Sources */,
 				6E4496181BF717B100C90851 /* DesignerBusiness.m in Sources */,
@@ -3564,6 +3623,7 @@
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
 				6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */,
 				68123C551C4C8B99008FC9AB /* MessageAlertViewController.m in Sources */,
+				68EE3DD51D125D3700F5EF83 /* DiarySetDataManager.m in Sources */,
 				68E6008E1CB7C89E00C4A8F7 /* ElseStatus.m in Sources */,
 				68B10CA01C7804FA005866C1 /* DesignerListDataManager.m in Sources */,
 				683B2A781C10162400822715 /* Schedule.m in Sources */,

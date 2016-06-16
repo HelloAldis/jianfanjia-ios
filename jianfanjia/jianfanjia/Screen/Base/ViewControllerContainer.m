@@ -48,6 +48,8 @@
 #import "DecLiveListViewController.h"
 #import "OrderTaggedDesignerViewController.h"
 #import "DecDiaryTimelineViewController.h"
+#import "DiarySetListViewController.h"
+#import "DiarySetUploadViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -389,6 +391,25 @@ static ViewControllerContainer *container;
     NotificationDetailViewController *v = [[NotificationDetailViewController alloc] init];
     v.notificationId = notificationid;
     v.readBlock = readBlock;
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showMyDiarySet {
+    //if has designer order screen pop to
+    UINavigationController* nav =  container.navigation;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[DiarySetListViewController class]]) {
+            [nav popToViewController:v animated:YES];
+            return;
+        }
+    }
+    
+    DiarySetListViewController *v = [[DiarySetListViewController alloc] init];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showDiarySetUpload:(DiarySet *)diarySet {
+    DiarySetUploadViewController *v = [[DiarySetUploadViewController alloc] initWithDiarySet:diarySet];
     [container.navigation pushViewController:v animated:YES];
 }
 
