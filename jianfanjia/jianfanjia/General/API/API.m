@@ -234,4 +234,44 @@
     [API POST:@"search_share" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)addDiarySet:(AddDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"add_diary_set" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)updateDiarySet:(AddDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"update_diary_set" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)getMyDiarySet:(SearchDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"my_diary_set" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)searchDiarySet:(SearchDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"search_diary_set" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)searchDiary:(SearchDiary *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"search_diary" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)deleteDiary:(DeleteDiary *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"delete_diary" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)zanDiary:(ZanDiary *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"favorite/diary/add" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)getDiarySetDetail:(GetDiarySetDetail *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"diary_set_info" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)getDiaryDetail:(GetDiaryDetail *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"diary_info" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)getDiaryUpdation:(GetDiaryUpdation *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"get_diary_changes" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end

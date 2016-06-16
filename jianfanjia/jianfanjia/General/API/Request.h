@@ -67,5 +67,13 @@
 #import "GetDesignerUnreadCount.h"
 #import "SearchUserComment.h"
 #import "SearchDecLive.h"
+#import "AddDiarySet.h"
+#import "DeleteDiary.h"
+#import "GetDiaryDetail.h"
+#import "GetDiarySetDetail.h"
+#import "GetDiaryUpdation.h"
+#import "SearchDiary.h"
+#import "SearchDiarySet.h"
+#import "ZanDiary.h"
 
 #endif

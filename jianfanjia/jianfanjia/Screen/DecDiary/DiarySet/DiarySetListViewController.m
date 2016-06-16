@@ -33,8 +33,8 @@ static NSString *DiarySetCellIdentifier = @"DiarySetCell";
     [self initUI];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     [self refresh];
 }
 
@@ -115,43 +115,43 @@ static NSString *DiarySetCellIdentifier = @"DiarySetCell";
 - (void)refresh {
     [self.tableView.footer resetNoMoreData];
     
-//    DesignerGetProducts *request = [[DesignerGetProducts alloc] init];
-//    request.from = @0;
-//    request.limit = @20;
-//    
-//    [API designerGetProducts:request success:^{
-//        [self.tableView.header endRefreshing];
-//        NSInteger count = [self.dataManager refresh];
-//        if (request.limit.integerValue > count) {
-//            [self.tableView.footer endRefreshingWithNoMoreData];
-//        }
-//        
-//        [self.tableView reloadData];
-//    } failure:^{
-//        [self.tableView.header endRefreshing];
-//    } networkError:^{
-//        [self.tableView.header endRefreshing];
-//    }];
+    SearchDiarySet *request = [[SearchDiarySet alloc] init];
+    request.from = @0;
+    request.limit = @20;
+    
+    [API getMyDiarySet:request success:^{
+        [self.tableView.header endRefreshing];
+        NSInteger count = [self.dataManager refresh];
+        if (request.limit.integerValue > count) {
+            [self.tableView.footer endRefreshingWithNoMoreData];
+        }
+        
+        [self.tableView reloadData];
+    } failure:^{
+        [self.tableView.header endRefreshing];
+    } networkError:^{
+        [self.tableView.header endRefreshing];
+    }];
 }
 
 - (void)loadMore {
-//    DesignerGetProducts *request = [[DesignerGetProducts alloc] init];
-//    request.from = @(self.dataManager.products.count);
-//    request.limit = @20;
-//    
-//    [API designerGetProducts:request success:^{
-//        [self.tableView.footer endRefreshing];
-//        NSInteger count = [self.dataManager loadMore];
-//        if (request.limit.integerValue > count) {
-//            [self.tableView.footer endRefreshingWithNoMoreData];
-//        }
-//        
-//        [self.tableView reloadData];
-//    } failure:^{
-//        [self.tableView.footer endRefreshing];
-//    } networkError:^{
-//        [self.tableView.footer endRefreshing];
-//    }];
+    SearchDiarySet *request = [[SearchDiarySet alloc] init];
+    request.from = @(self.dataManager.diarySets.count);
+    request.limit = @20;
+    
+    [API getMyDiarySet:request success:^{
+        [self.tableView.footer endRefreshing];
+        NSInteger count = [self.dataManager loadMore];
+        if (request.limit.integerValue > count) {
+            [self.tableView.footer endRefreshingWithNoMoreData];
+        }
+        
+        [self.tableView reloadData];
+    } failure:^{
+        [self.tableView.footer endRefreshing];
+    } networkError:^{
+        [self.tableView.footer endRefreshing];
+    }];
 }
 
 #pragma mark - user action

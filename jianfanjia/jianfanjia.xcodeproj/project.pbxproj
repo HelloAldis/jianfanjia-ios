@@ -384,6 +384,19 @@
 		68EE3DDF1D126E8900F5EF83 /* DiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DDE1D126E8900F5EF83 /* DiarySet.m */; };
 		68EE3DE31D1271DA00F5EF83 /* DiarySetUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DE11D1271DA00F5EF83 /* DiarySetUploadViewController.m */; };
 		68EE3DE41D1271DA00F5EF83 /* DiarySetUploadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3DE21D1271DA00F5EF83 /* DiarySetUploadViewController.xib */; };
+		68EE3DEC1D1282AF00F5EF83 /* DecDiary1StatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DE71D1282AF00F5EF83 /* DecDiary1StatusCell.m */; };
+		68EE3DED1D1282AF00F5EF83 /* DecDiary1StatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3DE81D1282AF00F5EF83 /* DecDiary1StatusCell.xib */; };
+		68EE3DEE1D1282AF00F5EF83 /* DiarySetDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DEA1D1282AF00F5EF83 /* DiarySetDetailViewController.m */; };
+		68EE3DEF1D1282AF00F5EF83 /* DiarySetDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3DEB1D1282AF00F5EF83 /* DiarySetDetailViewController.xib */; };
+		68EE3DF21D12846C00F5EF83 /* DiarySetDetailDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DF11D12846C00F5EF83 /* DiarySetDetailDataManager.m */; };
+		68EE3DF51D128C9B00F5EF83 /* AddDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DF41D128C9B00F5EF83 /* AddDiarySet.m */; };
+		68EE3E061D12944500F5EF83 /* DeleteDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DF71D12944500F5EF83 /* DeleteDiary.m */; };
+		68EE3E081D12944500F5EF83 /* GetDiaryDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DFB1D12944500F5EF83 /* GetDiaryDetail.m */; };
+		68EE3E091D12944500F5EF83 /* GetDiarySetDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DFD1D12944500F5EF83 /* GetDiarySetDetail.m */; };
+		68EE3E0A1D12944500F5EF83 /* GetDiaryUpdation.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3DFF1D12944500F5EF83 /* GetDiaryUpdation.m */; };
+		68EE3E0B1D12944500F5EF83 /* SearchDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E011D12944500F5EF83 /* SearchDiary.m */; };
+		68EE3E0C1D12944500F5EF83 /* SearchDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E031D12944500F5EF83 /* SearchDiarySet.m */; };
+		68EE3E0D1D12944500F5EF83 /* ZanDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E051D12944500F5EF83 /* ZanDiary.m */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1176,6 +1189,30 @@
 		68EE3DE01D1271DA00F5EF83 /* DiarySetUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetUploadViewController.h; sourceTree = "<group>"; };
 		68EE3DE11D1271DA00F5EF83 /* DiarySetUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetUploadViewController.m; sourceTree = "<group>"; };
 		68EE3DE21D1271DA00F5EF83 /* DiarySetUploadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiarySetUploadViewController.xib; sourceTree = "<group>"; };
+		68EE3DE61D1282AF00F5EF83 /* DecDiary1StatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecDiary1StatusCell.h; sourceTree = "<group>"; };
+		68EE3DE71D1282AF00F5EF83 /* DecDiary1StatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecDiary1StatusCell.m; sourceTree = "<group>"; };
+		68EE3DE81D1282AF00F5EF83 /* DecDiary1StatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecDiary1StatusCell.xib; sourceTree = "<group>"; };
+		68EE3DE91D1282AF00F5EF83 /* DiarySetDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetDetailViewController.h; sourceTree = "<group>"; };
+		68EE3DEA1D1282AF00F5EF83 /* DiarySetDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetDetailViewController.m; sourceTree = "<group>"; };
+		68EE3DEB1D1282AF00F5EF83 /* DiarySetDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiarySetDetailViewController.xib; sourceTree = "<group>"; };
+		68EE3DF01D12846C00F5EF83 /* DiarySetDetailDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetDetailDataManager.h; sourceTree = "<group>"; };
+		68EE3DF11D12846C00F5EF83 /* DiarySetDetailDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetDetailDataManager.m; sourceTree = "<group>"; };
+		68EE3DF31D128C9B00F5EF83 /* AddDiarySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDiarySet.h; sourceTree = "<group>"; };
+		68EE3DF41D128C9B00F5EF83 /* AddDiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDiarySet.m; sourceTree = "<group>"; };
+		68EE3DF61D12944500F5EF83 /* DeleteDiary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeleteDiary.h; sourceTree = "<group>"; };
+		68EE3DF71D12944500F5EF83 /* DeleteDiary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeleteDiary.m; sourceTree = "<group>"; };
+		68EE3DFA1D12944500F5EF83 /* GetDiaryDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDiaryDetail.h; sourceTree = "<group>"; };
+		68EE3DFB1D12944500F5EF83 /* GetDiaryDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDiaryDetail.m; sourceTree = "<group>"; };
+		68EE3DFC1D12944500F5EF83 /* GetDiarySetDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDiarySetDetail.h; sourceTree = "<group>"; };
+		68EE3DFD1D12944500F5EF83 /* GetDiarySetDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDiarySetDetail.m; sourceTree = "<group>"; };
+		68EE3DFE1D12944500F5EF83 /* GetDiaryUpdation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetDiaryUpdation.h; sourceTree = "<group>"; };
+		68EE3DFF1D12944500F5EF83 /* GetDiaryUpdation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetDiaryUpdation.m; sourceTree = "<group>"; };
+		68EE3E001D12944500F5EF83 /* SearchDiary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDiary.h; sourceTree = "<group>"; };
+		68EE3E011D12944500F5EF83 /* SearchDiary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDiary.m; sourceTree = "<group>"; };
+		68EE3E021D12944500F5EF83 /* SearchDiarySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDiarySet.h; sourceTree = "<group>"; };
+		68EE3E031D12944500F5EF83 /* SearchDiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDiarySet.m; sourceTree = "<group>"; };
+		68EE3E041D12944500F5EF83 /* ZanDiary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZanDiary.h; sourceTree = "<group>"; };
+		68EE3E051D12944500F5EF83 /* ZanDiary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZanDiary.m; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2238,6 +2275,7 @@
 		68EE3DC51D125D3600F5EF83 /* DiarySet */ = {
 			isa = PBXGroup;
 			children = (
+				68EE3DE51D1282AF00F5EF83 /* Detail */,
 				68EE3DCB1D125D3700F5EF83 /* DiarySetListViewController.h */,
 				68EE3DCC1D125D3700F5EF83 /* DiarySetListViewController.m */,
 				68EE3DDB1D125DA900F5EF83 /* DiarySetListViewController.xib */,
@@ -2254,6 +2292,22 @@
 				68EE3DE21D1271DA00F5EF83 /* DiarySetUploadViewController.xib */,
 			);
 			path = DiarySet;
+			sourceTree = "<group>";
+		};
+		68EE3DE51D1282AF00F5EF83 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				68EE3DE61D1282AF00F5EF83 /* DecDiary1StatusCell.h */,
+				68EE3DE71D1282AF00F5EF83 /* DecDiary1StatusCell.m */,
+				68EE3DE81D1282AF00F5EF83 /* DecDiary1StatusCell.xib */,
+				68EE3DE91D1282AF00F5EF83 /* DiarySetDetailViewController.h */,
+				68EE3DEA1D1282AF00F5EF83 /* DiarySetDetailViewController.m */,
+				68EE3DEB1D1282AF00F5EF83 /* DiarySetDetailViewController.xib */,
+				68EE3DF01D12846C00F5EF83 /* DiarySetDetailDataManager.h */,
+				68EE3DF11D12846C00F5EF83 /* DiarySetDetailDataManager.m */,
+			);
+			name = Detail;
+			path = detail;
 			sourceTree = "<group>";
 		};
 		6E06CC031C29231A00A08D15 /* MyFavoriate */ = {
@@ -2431,6 +2485,22 @@
 				688517791C927A30000B01DB /* SearchUserComment.m */,
 				684B03C51C96CB2B0053FFDF /* SearchDecLive.h */,
 				684B03C61C96CB2B0053FFDF /* SearchDecLive.m */,
+				68EE3DF31D128C9B00F5EF83 /* AddDiarySet.h */,
+				68EE3DF41D128C9B00F5EF83 /* AddDiarySet.m */,
+				68EE3DF61D12944500F5EF83 /* DeleteDiary.h */,
+				68EE3DF71D12944500F5EF83 /* DeleteDiary.m */,
+				68EE3DFA1D12944500F5EF83 /* GetDiaryDetail.h */,
+				68EE3DFB1D12944500F5EF83 /* GetDiaryDetail.m */,
+				68EE3DFC1D12944500F5EF83 /* GetDiarySetDetail.h */,
+				68EE3DFD1D12944500F5EF83 /* GetDiarySetDetail.m */,
+				68EE3DFE1D12944500F5EF83 /* GetDiaryUpdation.h */,
+				68EE3DFF1D12944500F5EF83 /* GetDiaryUpdation.m */,
+				68EE3E001D12944500F5EF83 /* SearchDiary.h */,
+				68EE3E011D12944500F5EF83 /* SearchDiary.m */,
+				68EE3E021D12944500F5EF83 /* SearchDiarySet.h */,
+				68EE3E031D12944500F5EF83 /* SearchDiarySet.m */,
+				68EE3E041D12944500F5EF83 /* ZanDiary.h */,
+				68EE3E051D12944500F5EF83 /* ZanDiary.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -3141,6 +3211,7 @@
 				68EE3DDA1D125D3700F5EF83 /* DiarySetUploadCell.xib in Resources */,
 				685DD4521C89761E00A76B9C /* PlanCommentInfoCell.xib in Resources */,
 				6E6D98F11BE34E2700D45F77 /* ProductImageCell.xib in Resources */,
+				68EE3DEF1D1282AF00F5EF83 /* DiarySetDetailViewController.xib in Resources */,
 				683840081C157E21004F456E /* UpdateOneLineTextViewController.xib in Resources */,
 				684A37411BFD73DF00F7388C /* IntentDesignerCell.xib in Resources */,
 				683FFB481C296288002A1AFE /* DropdownMenuCollectionCell.xib in Resources */,
@@ -3179,6 +3250,7 @@
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				683FFB691C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib in Resources */,
 				68BA50841C9FD8BB002E5572 /* WebViewController.xib in Resources */,
+				68EE3DED1D1282AF00F5EF83 /* DecDiary1StatusCell.xib in Resources */,
 				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
 				68123BA81C47D15C008FC9AB /* JYZ_sina_icon@2x.png in Resources */,
 				689ECDFA1CFC09590046DDC8 /* SelectionMenuCollectionCell.xib in Resources */,
@@ -3290,6 +3362,7 @@
 				68E600861CB7C20300C4A8F7 /* ReqtDesignerResponded.m in Sources */,
 				6E6D98B01BDF736A00D45F77 /* RequirementListViewController.m in Sources */,
 				6850A6011CC75D280085940A /* BaseNotification.m in Sources */,
+				68EE3E0B1D12944500F5EF83 /* SearchDiary.m in Sources */,
 				6E07DAAC1BD88DBE001461DD /* AccountBusiness.m in Sources */,
 				685B144A1CEB0FB60076996A /* SelectHouseTypeViewController.m in Sources */,
 				683840071C157E21004F456E /* UpdateOneLineTextViewController.m in Sources */,
@@ -3350,6 +3423,7 @@
 				684B03C71C96CB2B0053FFDF /* SearchDecLive.m in Sources */,
 				684A37001BFD733500F7388C /* DesignerDeclineHomeOwnerCell.m in Sources */,
 				6EBBA15B1C15866200057688 /* Feedback.m in Sources */,
+				68EE3DF51D128C9B00F5EF83 /* AddDiarySet.m in Sources */,
 				68134A321C3CA840003C1C10 /* RefreshSession.m in Sources */,
 				685F2D761CACD21400DC4D43 /* DIYGifHeader.m in Sources */,
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
@@ -3362,6 +3436,7 @@
 				68134A3E1C3CFE44003C1C10 /* AccountBindViewController.m in Sources */,
 				680C466E1CC62885008C4BC0 /* PlanExpired.m in Sources */,
 				68B10CBA1C785659005866C1 /* SearchProductCaseDataManager.m in Sources */,
+				68EE3DEC1D1282AF00F5EF83 /* DecDiary1StatusCell.m in Sources */,
 				6E4496521BFD7DDE00C90851 /* NSNumber+Ex.m in Sources */,
 				6836690D1BFF183F006A5053 /* PriceItem.m in Sources */,
 				68123BAD1C47D15C008FC9AB /* JYZShareMenuView.m in Sources */,
@@ -3412,6 +3487,7 @@
 				68B10CA81C7819E3005866C1 /* ProductCaseCell.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
 				6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */,
+				68EE3E081D12944500F5EF83 /* GetDiaryDetail.m in Sources */,
 				683FFB5E1C2A4144002A1AFE /* CollectDecStyleViewController.m in Sources */,
 				68123BB51C47D1CC008FC9AB /* JYZSocialSnsManager.m in Sources */,
 				684A37081BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.m in Sources */,
@@ -3428,6 +3504,7 @@
 				6EE299C41BF57C7900A527F6 /* RefreshViewController.m in Sources */,
 				685CD5E31C0310CA00EC1991 /* LeaveMessageViewController.m in Sources */,
 				68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */,
+				68EE3E0A1D12944500F5EF83 /* GetDiaryUpdation.m in Sources */,
 				68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */,
 				6E4496211BF9B58800C90851 /* VerifyPhone.m in Sources */,
 				6E06CC1C1C294EE800A08D15 /* AddFavoriateProduct.m in Sources */,
@@ -3497,6 +3574,7 @@
 				684A37441BFD73DF00F7388C /* MatchDesignerCell.m in Sources */,
 				68C3C2691C75C41200EEEBD8 /* HomePageProductCell.m in Sources */,
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
+				68EE3DEE1D1282AF00F5EF83 /* DiarySetDetailViewController.m in Sources */,
 				68E600721CB7BDC900C4A8F7 /* ReqtUnorderDesigner.m in Sources */,
 				680F49241C2408130055C16C /* SearchBeautifulImage.m in Sources */,
 				6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */,
@@ -3570,6 +3648,7 @@
 				6838400C1C158490004F456E /* UpdateMultipleLineTextViewController.m in Sources */,
 				685B144C1CEB0FB60076996A /* SelectPopulationViewController.m in Sources */,
 				68123BA31C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.m in Sources */,
+				68EE3E0C1D12944500F5EF83 /* SearchDiarySet.m in Sources */,
 				68123F241C4CC70E008FC9AB /* CollectionFallsFlowLayout.m in Sources */,
 				682E050F1C58BDA700F1ACAA /* PlanPriceDetailViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
@@ -3586,6 +3665,7 @@
 				683669041BFF0B44006A5053 /* PlanListViewController.m in Sources */,
 				684B03C31C96C3DE0053FFDF /* DecLiveListViewController.m in Sources */,
 				6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */,
+				68EE3E061D12944500F5EF83 /* DeleteDiary.m in Sources */,
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
 				685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */,
@@ -3594,8 +3674,10 @@
 				6E06CC0B1C29447E00A08D15 /* ListFavoriateProduct.m in Sources */,
 				6E7867071BA9164700DE8B1B /* ProcessViewController.m in Sources */,
 				6855E62E1BFAB87A00E789D4 /* RequirementDataManager.m in Sources */,
+				68EE3DF21D12846C00F5EF83 /* DiarySetDetailDataManager.m in Sources */,
 				689ECDFB1CFC09590046DDC8 /* SelectionMenuView.m in Sources */,
 				6E6D98E11BE205DE00D45F77 /* NameDict.m in Sources */,
+				68EE3E091D12944500F5EF83 /* GetDiarySetDetail.m in Sources */,
 				AB4CAF8E1C0F361B003680BA /* Reschedule.m in Sources */,
 				685B14421CEB0FB60076996A /* SelectBusinessTypeViewController.m in Sources */,
 				6E6D98DD1BE203B300D45F77 /* ProductViewController.m in Sources */,
@@ -3604,6 +3686,7 @@
 				685F2D801CAE671A00DC4D43 /* LoginEngine.m in Sources */,
 				68134A4E1C3F503E003C1C10 /* CustomerServiceViewController.m in Sources */,
 				686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */,
+				68EE3E0D1D12944500F5EF83 /* ZanDiary.m in Sources */,
 				683669091BFF0C05006A5053 /* PlanCell.m in Sources */,
 				684A37121BFD733500F7388C /* PlanWasNotChoosedCell.m in Sources */,
 				682E05111C58BDA700F1ACAA /* PlanPriceItemCell.m in Sources */,

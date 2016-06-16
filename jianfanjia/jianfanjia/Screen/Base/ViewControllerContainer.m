@@ -50,6 +50,7 @@
 #import "DecDiaryTimelineViewController.h"
 #import "DiarySetListViewController.h"
 #import "DiarySetUploadViewController.h"
+#import "DiarySetDetailViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -410,6 +411,11 @@ static ViewControllerContainer *container;
 
 + (void)showDiarySetUpload:(DiarySet *)diarySet {
     DiarySetUploadViewController *v = [[DiarySetUploadViewController alloc] initWithDiarySet:diarySet];
+    [container.navigation pushViewController:v animated:YES];
+}
+
++ (void)showDiarySetDetail:(DiarySet *)diarySet {
+    DiarySetDetailViewController *v = [[DiarySetDetailViewController alloc] initWithDiarySet:diarySet];
     [container.navigation pushViewController:v animated:YES];
 }
 

@@ -187,7 +187,27 @@
 
 #pragma mark - user action
 - (void)onClickNext {
-    
+    AddDiarySet *request = [[AddDiarySet alloc] initWithDiarySet:self.diarySet];
+    [HUDUtil showWait];
+    if ([self isNewDiarySet]) {
+        [API addDiarySet:request success:^{
+            DiarySet *diarySet = [[DiarySet alloc] initWith:[DataManager shared].data];
+            [ViewControllerContainer showDiarySetDetail:diarySet];
+        } failure:^{
+            
+        } networkError:^{
+            
+        }];
+    } else {
+        [API updateDiarySet:request success:^{
+            DiarySet *diarySet = [[DiarySet alloc] initWith:[DataManager shared].data];
+            [ViewControllerContainer showDiarySetDetail:diarySet];
+        } failure:^{
+            
+        } networkError:^{
+            
+        }];
+    }
 }
 
 #pragma mark - other
