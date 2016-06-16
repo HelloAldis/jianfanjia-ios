@@ -8,6 +8,8 @@
 
 #import "BaseModel.h"
 
+@class DiaryLayout;
+
 @interface Diary : BaseModel
 
 @property (nonatomic, strong) NSString *authorid;
@@ -23,9 +25,6 @@
 @property (nonatomic, strong) NSNumber *comment_count;
 
 //辅助属性
-@property (nonatomic, assign) CGSize picSize;
-@property (nonatomic, assign) CGFloat picHeight;
-@property (nonatomic, assign) CGFloat contentHeight;
-@property (nonatomic, strong) YYTextLayout *contentLayout;
+@property (nonatomic, strong) DiaryLayout *layout;
 
 @end

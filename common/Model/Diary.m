@@ -22,4 +22,13 @@
 @dynamic favorite_count;
 @dynamic comment_count;
 
+- (DiaryLayout *)layout {
+    if (!_layout) {
+        self.layout = [[DiaryLayout alloc] init];
+        _layout.diary = self;
+    }
+    
+    return _layout;
+}
+
 @end
