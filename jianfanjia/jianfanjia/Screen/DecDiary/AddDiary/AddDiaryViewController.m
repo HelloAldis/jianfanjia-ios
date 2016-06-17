@@ -62,7 +62,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tableView registerNib:[UINib nibWithNibName:AddDiaryDescCellIdentifier bundle:nil] forCellReuseIdentifier:AddDiaryDescCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:AddDiaryImgsCellIdentifier bundle:nil] forCellReuseIdentifier:AddDiaryImgsCellIdentifier];
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.estimatedRowHeight = 300;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
