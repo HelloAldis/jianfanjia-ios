@@ -10,6 +10,6 @@
 
 @interface AddDiaryImgsCell : UITableViewCell
 
-- (void)initWithDiary:(Diary *)diary;
+- (void)initWithDiary:(Diary *)diary tableView:(UITableView *)tableView;
 
 @end

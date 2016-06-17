@@ -74,7 +74,8 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 - (void)initNav {
     self.title = @"新建日记";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
-    self.navigationItem.rightBarButtonItem.tintColor = kTextColor;
+    self.navigationItem.leftBarButtonItem.tintColor = kTextColor;
+    [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
@@ -137,12 +138,12 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
             if (indexPath.row == 0) {
                 AddDiaryDescCell *cell = [tableView dequeueReusableCellWithIdentifier:AddDiaryDescCellIdentifier forIndexPath:indexPath];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                [cell initWithDiary:self.diary];
+                [cell initWithDiary:self.diary tableView:self.tableView];
                 return cell;
             } else if (indexPath.row == 1) {
                 AddDiaryImgsCell *cell = [tableView dequeueReusableCellWithIdentifier:AddDiaryImgsCellIdentifier forIndexPath:indexPath];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                [cell initWithDiary:self.diary];
+                [cell initWithDiary:self.diary tableView:self.tableView];
                 return cell;
             }
         }
@@ -155,8 +156,8 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 }
 
 #pragma mark - user action
-- (void)onClicCancel {
-    
+- (void)onClickBack {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)onClickNext {

@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSString *diarySetid;
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *section_label;
-@property (nonatomic, strong) NSArray *images;
+@property (nonatomic, strong) NSMutableArray *images;
 @property (nonatomic, strong) NSNumber *create_at;
 @property (nonatomic, strong) NSNumber *lastupdate;
 @property (nonatomic, strong) NSNumber *view_count;

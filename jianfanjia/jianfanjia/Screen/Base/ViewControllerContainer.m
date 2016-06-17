@@ -421,8 +421,15 @@ static ViewControllerContainer *container;
 }
 
 + (void)showDiaryAdd:(NSArray<DiarySet *> *)diarySets {
+    UIViewController *presented = container.navigation.presentedViewController;
+    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
+    
     AddDiaryViewController *v = [[AddDiaryViewController alloc] initWithDiarySets:diarySets];
-    [container.navigation pushViewController:v animated:YES];
+    UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
+    navi.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    navi.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    
+    [nav presentViewController:navi animated:YES completion:nil];
 }
 
 + (void)showMyComments {

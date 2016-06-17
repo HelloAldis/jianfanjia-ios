@@ -407,6 +407,9 @@
 		68EE3E341D12B6D800F5EF83 /* AddDiaryImgsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E2D1D12B6D800F5EF83 /* AddDiaryImgsCell.xib */; };
 		68EE3E351D12B6D800F5EF83 /* AddDiaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E2F1D12B6D800F5EF83 /* AddDiaryViewController.m */; };
 		68EE3E361D12B6D800F5EF83 /* AddDiaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E301D12B6D800F5EF83 /* AddDiaryViewController.xib */; };
+		68EE3E391D13AC1C00F5EF83 /* CustomYYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E381D13AC1C00F5EF83 /* CustomYYTextView.m */; };
+		68EE3E3D1D13B40700F5EF83 /* StaticImageCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E3B1D13B40700F5EF83 /* StaticImageCollectionCell.m */; };
+		68EE3E3E1D13B40700F5EF83 /* StaticImageCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E3C1D13B40700F5EF83 /* StaticImageCollectionCell.xib */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1238,6 +1241,11 @@
 		68EE3E2E1D12B6D800F5EF83 /* AddDiaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDiaryViewController.h; sourceTree = "<group>"; };
 		68EE3E2F1D12B6D800F5EF83 /* AddDiaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDiaryViewController.m; sourceTree = "<group>"; };
 		68EE3E301D12B6D800F5EF83 /* AddDiaryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddDiaryViewController.xib; sourceTree = "<group>"; };
+		68EE3E371D13AC1C00F5EF83 /* CustomYYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomYYTextView.h; sourceTree = "<group>"; };
+		68EE3E381D13AC1C00F5EF83 /* CustomYYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomYYTextView.m; sourceTree = "<group>"; };
+		68EE3E3A1D13B40700F5EF83 /* StaticImageCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticImageCollectionCell.h; sourceTree = "<group>"; };
+		68EE3E3B1D13B40700F5EF83 /* StaticImageCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticImageCollectionCell.m; sourceTree = "<group>"; };
+		68EE3E3C1D13B40700F5EF83 /* StaticImageCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaticImageCollectionCell.xib; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2354,6 +2362,11 @@
 				68EE3E2B1D12B6D800F5EF83 /* AddDiaryImgsCell.h */,
 				68EE3E2C1D12B6D800F5EF83 /* AddDiaryImgsCell.m */,
 				68EE3E2D1D12B6D800F5EF83 /* AddDiaryImgsCell.xib */,
+				68EE3E371D13AC1C00F5EF83 /* CustomYYTextView.h */,
+				68EE3E381D13AC1C00F5EF83 /* CustomYYTextView.m */,
+				68EE3E3A1D13B40700F5EF83 /* StaticImageCollectionCell.h */,
+				68EE3E3B1D13B40700F5EF83 /* StaticImageCollectionCell.m */,
+				68EE3E3C1D13B40700F5EF83 /* StaticImageCollectionCell.xib */,
 			);
 			path = AddDiary;
 			sourceTree = "<group>";
@@ -3280,6 +3293,7 @@
 				68EE3DB11D12447A00F5EF83 /* FieldEditCell.xib in Resources */,
 				6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */,
 				685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */,
+				68EE3E3E1D13B40700F5EF83 /* StaticImageCollectionCell.xib in Resources */,
 				68679A3E1C8E730F00B380D0 /* RequirementNotificationCell.xib in Resources */,
 				68E600681CB74AC900C4A8F7 /* WebViewWithActionController.xib in Resources */,
 				68EE3DBD1D124C7200F5EF83 /* ConsultPhoneCell.xib in Resources */,
@@ -3691,6 +3705,7 @@
 				68E6008A1CB7C20300C4A8F7 /* ReqtPlanWasChoosed.m in Sources */,
 				680F492A1C240F910055C16C /* LeafImage.m in Sources */,
 				68123BA11C47D15C008FC9AB /* JYZSocialSnsPlatformQQ.m in Sources */,
+				68EE3E391D13AC1C00F5EF83 /* CustomYYTextView.m in Sources */,
 				68C3C26B1C75C41200EEEBD8 /* HomePageProductItem.m in Sources */,
 				683FFB681C2A8FBD002A1AFE /* CollectFamilyInfoViewController.m in Sources */,
 				6E06CC261C2BA51800A08D15 /* FavoriateBeautifulImageCell.m in Sources */,
@@ -3715,6 +3730,7 @@
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
 				684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */,
 				684A37021BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.m in Sources */,
+				68EE3E3D1D13B40700F5EF83 /* StaticImageCollectionCell.m in Sources */,
 				685CD5DF1C030F1400EC1991 /* LeaveComment.m in Sources */,
 				684B03C01C96C3DE0053FFDF /* DecLiveCell.m in Sources */,
 				68EE3D991D123CFB00F5EF83 /* DiaryLayout.m in Sources */,

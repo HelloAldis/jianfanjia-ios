@@ -7,27 +7,29 @@
 //
 
 #import "AddDiaryImgsCell.h"
-#import "ItemImageCollectionCell.h"
+#import "StaticImageCollectionCell.h"
 #import "UIItemImageCollectionView.h"
 #import "ViewControllerContainer.h"
 
 static const NSInteger MAX_IMG_COUNT = 9;
-static const NSInteger COUNT_IN_ONE_ROW = 3;
-static const NSInteger CELL_SPACE = 3;
+static const NSInteger COUNT_IN_ONE_ROW = 4;
+static const NSInteger CELL_SPACE = 4;
+static const NSInteger CELL_PADDING = 15;
 
-static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
+static NSString *StaticImageCollectionCellIdentifier = @"StaticImageCollectionCell";
 
-static CGFloat imgCollectionWidth;
 static CGFloat imgCellWidth;
 
-@interface AddDiaryImgsCell () <UITextViewDelegate>
+@interface AddDiaryImgsCell ()
 @property (weak, nonatomic) IBOutlet UIItemImageCollectionView *imgCollection;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *imgCollectionLayout;
 
-@property (assign, nonatomic) NSInteger numberOfItemsInsection;
-@property (assign, nonatomic) BOOL isShaking;
+@property (copy, nonatomic) StaticImageColCellTapImageBlock tapImageBlock;
+@property (copy, nonatomic) StaticImageColCellTapDeleteBlock tapDeleteBlock;
 
+@property (assign, nonatomic) NSInteger numberOfItemsInsection;
 @property (strong, nonatomic) Diary *diary;
+@property (weak, nonatomic) UITableView *tableView;
 
 @end
 
@@ -35,22 +37,36 @@ static CGFloat imgCellWidth;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.imgCollection registerNib:[UINib nibWithNibName:ImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:ImageCollectionCellIdentifier];
+    [self.imgCollection registerNib:[UINib nibWithNibName:StaticImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:StaticImageCollectionCellIdentifier];
     self.imgCollectionLayout.minimumLineSpacing = CELL_SPACE;
     self.imgCollectionLayout.minimumInteritemSpacing = CELL_SPACE;
-    self.imgCollection.scrollEnabled = NO;
-    [self.imgCollection addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapImageGesture:)]];
-    [self.imgCollection addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPressGesture:)]];
+    self.imgCollectionLayout.sectionInset = UIEdgeInsetsMake(CELL_PADDING, CELL_PADDING, CELL_PADDING, CELL_PADDING);
+    imgCellWidth = (kScreenWidth - 2 * CELL_PADDING - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
+    
+    @weakify(self);
+    self.tapImageBlock = ^(StaticImageCollectionCell *cell) {
+        @strongify(self);
+        NSIndexPath *indexPath = [self.imgCollection indexPathForCell:cell];
+        if (indexPath.row < self.diary.images.count) {
+            [self showImageDetail:indexPath];
+        } else {
+            [self showPhotoSelector:cell];
+        }
+    };
+    
+    self.tapDeleteBlock = ^(StaticImageCollectionCell *cell) {
+        @strongify(self);
+        NSIndexPath *indexPath = [self.imgCollection indexPathForCell:cell];
+        [self deleteImage:indexPath];
+    };
 }
 
-- (void)initWithDiary:(Diary *)diary {
+- (void)initWithDiary:(Diary *)diary tableView:(UITableView *)tableView {
     self.diary = diary;
+    self.tableView = tableView;
     
     [self refreshNumberOfItems];
-    if (imgCollectionWidth > 0) {
-        [self refreshViewContentSize];
-    }
-    [self.imgCollection reloadData];
+    [self refreshViewContentSize];
 }
 
 #pragma mark - collection delegate
@@ -59,89 +75,72 @@ static CGFloat imgCellWidth;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    ItemImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ImageCollectionCellIdentifier forIndexPath:indexPath];
+    StaticImageCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:StaticImageCollectionCellIdentifier forIndexPath:indexPath];
     
     if (indexPath.row < self.diary.images.count) {
-        NSString *imgURL = self.diary.images[indexPath.row];
-        [cell initWithImage:imgURL width:self.imgCollectionLayout.itemSize.width];
+        LeafImage *img = [[LeafImage alloc] initWith:self.diary.images[indexPath.row]];
+        [cell initWithImageId:img.imageid];
+        cell.lblDeleteText.hidden = NO;
     } else {
-        [cell initWithImage:nil width:0];
+        [cell initWithImage:[UIImage imageNamed:@"btn_add_image"]];
+        cell.lblDeleteText.hidden = YES;
     }
+    
+    cell.tapImageBlock = self.tapImageBlock;
+    cell.tapDeleteBlock = self.tapDeleteBlock;
     
     return cell;
 }
 
-- (void)startShaking {
-    if (self.isShaking) {
-        return;
-    }
-    
-    self.isShaking = YES;
-    [self.imgCollection.visibleCells enumerateObjectsUsingBlock:^(__kindof ItemImageCollectionCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj startShaking];
-    }];
-}
-
-- (void)endShaking {
-    if (!self.isShaking) {
-        return;
-    }
-    
-    self.isShaking = NO;
-    [self.imgCollection.visibleCells enumerateObjectsUsingBlock:^(__kindof ItemImageCollectionCell * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [obj endShaking];
-    }];
-}
-
-#pragma mark - gesture & user action
-- (void)handleLongPressGesture:(UILongPressGestureRecognizer *)gesture {
-    if (gesture.state == UIGestureRecognizerStateBegan) {
-        [self startShaking];
-    }
-}
-
-- (void)handleTapImageGesture:(UITapGestureRecognizer *)gesture {
-    CGPoint point = [gesture locationInView:self.imgCollection];
-    NSIndexPath *indexPath = [self.imgCollection indexPathForItemAtPoint:point];
-    
-    if (!indexPath) {
-        [self endShaking];
-        return;
-    }
-    
-    if (self.isShaking ) {
-        if (indexPath.row < self.diary.images.count) {
-//            [self deleteImage:indexPath];
-            return;
-        }
-    }
-    
-    if (indexPath.row < self.diary.images.count) {
-        [self showImageDetail:indexPath.row];
+#pragma mark - user action
+- (void)deleteImage:(NSIndexPath *)indexPath {
+    [self.diary.images removeObjectAtIndex:indexPath.row];
+    [self refreshNumberOfItems];
+    if (self.numberOfItemsInsection == MAX_IMG_COUNT) {
+        [self.imgCollection performBatchUpdates:^{
+            [self.imgCollection deleteItemsAtIndexPaths:@[indexPath]];
+            [self.imgCollection insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:MAX_IMG_COUNT - 1 inSection:0]]];
+        } completion:nil];
     } else {
-        [self showPhotoSelector:[self.imgCollection cellForItemAtIndexPath:indexPath]];
+        [self.imgCollection performBatchUpdates:^{
+            [self.imgCollection deleteItemsAtIndexPaths:@[indexPath]];
+        } completion:nil];
     }
+    [self refreshViewContentSize];
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
 }
 
 - (void)showPhotoSelector:(UIView *)view {
-    if (self.isShaking) {
-        [self endShaking];
-        return;
-    }
-    
-    
     @weakify(self);
     [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:MAX_IMG_COUNT - self.diary.images.count withBlock:^(NSArray *imageIds) {
         @strongify(self);
+        if (!self.diary.images) {
+            self.diary.images = [NSMutableArray array];
+        }
         
+        NSMutableArray *imgs = [imageIds map:^id(id obj) {
+            LeafImage *img = [[LeafImage alloc] init];
+            img.imageid = obj;
+            return img.data;
+        }];
         
+        [self.diary.images addObjectsFromArray:imgs];
+        [self refreshNumberOfItems];
+        [self refreshViewContentSize];
+        [self.imgCollection reloadData];
+        [self.tableView beginUpdates];
+        [self.tableView endUpdates];
     }];
 }
 
-- (void)showImageDetail:(NSInteger)index{
-    [ViewControllerContainer showOnlineImages:self.diary.images index:index];
+- (void)showImageDetail:(NSIndexPath *)indexPath {
+    NSArray *imgs = [self.diary.images map:^id(id obj) {
+        return obj[@"imageid"];
+    }];
+    
+    [ViewControllerContainer showOnlineImages:imgs index:indexPath.row];
 }
-
 
 #pragma mark - other
 - (void)refreshNumberOfItems {
@@ -150,7 +149,7 @@ static CGFloat imgCellWidth;
 
 - (void)refreshViewContentSize {
     self.imgCollectionLayout.itemSize = CGSizeMake(imgCellWidth, imgCellWidth);
-    self.imgCollection.viewContentSize = CGSizeMake(imgCollectionWidth,  (imgCellWidth + CELL_SPACE) * (self.numberOfItemsInsection % COUNT_IN_ONE_ROW == 0 ? self.numberOfItemsInsection / COUNT_IN_ONE_ROW : (NSInteger)(self.numberOfItemsInsection / COUNT_IN_ONE_ROW) + 1));
+    self.imgCollection.viewContentSize = CGSizeMake(kScreenWidth,  (imgCellWidth + CELL_SPACE) * (self.numberOfItemsInsection % COUNT_IN_ONE_ROW == 0 ? self.numberOfItemsInsection / COUNT_IN_ONE_ROW : (NSInteger)(self.numberOfItemsInsection / COUNT_IN_ONE_ROW) + 1) + CELL_PADDING * 2);
     [self.imgCollection invalidateIntrinsicContentSize];
 }
 
