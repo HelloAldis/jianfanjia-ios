@@ -66,71 +66,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     self.addDiarySectionView = [AddDiarySectionView addDiarySectionView];
     [self.addDiarySectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAddDiary)]];
     
-    @weakify(self);
-    self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
-        @strongify(self);
-        [self loadMore];
-    }];
-
-    [self refresh];
-}
-
-- (void)initData {
-    NSString *content = @"撒地方就拉屎；大家来看；烦；监控；就看电视剧看到就看到健康；劳动节快乐；大家快来加凯迪拉克家里的；就看到了；就看了；但快乐；简单就快乐的；就看到了；都看见了；都看见了；大家快乐；大家快乐大家快乐；简单快乐；宽带连接；都看见了；djkljdkljdkldkljkldjlkdjdkljkdj 撒地方就拉屎；大家来看；烦；监控；就看电视剧看到就看到健康；劳动节快乐；大家快来加凯迪拉克家里的；就看到了；就看了；但快乐；简单就快乐的；就看到了；都看见了；都看见了；大家快乐；大家快乐大家快乐；简单快乐；宽带连接；都看见了；djkljdkljdkldkljkldjlkdjdkljkdjl撒地方就拉屎；大家来看；烦；监控；就看电视剧看到就看到健康；劳动节快乐；大家快来加凯迪拉克家里的；就看到了；就看了；但快乐；简单就快乐的；就看到了；都看见了；都看见了；大家快乐；大家快乐大家快乐；简单快乐；宽带连接；都看见了；djkljdkljdkldkljkldjlkdjdkljkdjll";
-    
-    NSMutableArray *diarys = [@[
-                                @{
-                                    @"content":content,
-                                    @"images":@[
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@200,
-                                        }
-                                    ]
-                                },
-                                @{
-                                    @"content":content,
-                                    @"images":@[
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@500,
-                                          }
-                                        ]
-                                },
-                                @{
-                                    @"content":content,
-                                    @"images":@[
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@200,
-                                          },
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@200,
-                                          },
-                                        ]
-                                },
-                                @{
-                                    @"content":content,
-                                    @"images":@[
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@200,
-                                          },
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@200,
-                                          },
-                                        ]
-                                },
-                                
-                                ] mutableCopy];
-    
-    [DataManager shared].data = @{
-                                  @"diarys":diarys
-                                };
-    [self.dataManager refresh];
-    [self.tableView reloadData];
+    [self refresh:YES];
 }
 
 #pragma mark - table view delegate
@@ -196,20 +132,29 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 #pragma mark - api request
-- (void)refresh {
-    [self initData];
-    [self.tableView.header endRefreshing];
-}
-
-- (void)loadMore {
+- (void)refresh:(BOOL)showPlsWait {
+    if (showPlsWait) {
+        [HUDUtil showWait];
+    }
     
+    GetDiarySetDetail *request = [[GetDiarySetDetail alloc] init];
+    request.diarySetid = self.diarySet._id;
+    [API getDiarySetDetail:request success:^{
+        [self.dataManager refresh];
+        self.diarySet = self.dataManager.diarySet;
+        [self.tableView reloadData];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
 }
 
 #pragma mark - user action
 - (void)onTapAddDiary {
     [ViewControllerContainer showDiaryAdd:@[self.diarySet] completion:^(BOOL completion) {
         if (completion) {
-            [self refresh];
+            [self refresh:NO];
         }
     }];
 }

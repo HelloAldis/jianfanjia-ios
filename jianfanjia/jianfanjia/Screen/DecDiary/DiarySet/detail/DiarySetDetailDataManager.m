@@ -11,7 +11,10 @@
 @implementation DiarySetDetailDataManager
 
 - (NSInteger)refresh {
-    NSArray* arr = [[DataManager shared].data objectForKey:@"diarys"];
+    NSMutableDictionary *dic = [[DataManager shared].data objectForKey:@"diarySet"];
+    self.diarySet = [[DiarySet alloc] initWith:dic];
+    
+    NSArray* arr = [self.diarySet.data objectForKey:@"diaries"];
     NSMutableArray *diarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
@@ -20,19 +23,6 @@
     }
     
     self.diarys = diarys;
-    return diarys.count;
-}
-
-- (NSInteger)loadMore {
-    NSArray* arr = [[DataManager shared].data objectForKey:@"diarys"];
-    NSMutableArray *diarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
-    
-    for (NSMutableDictionary *dict in arr) {
-        Diary *diary = [[Diary alloc] initWith:dict];
-        [diarys addObject:diary];
-    }
-    
-    [self.diarys addObjectsFromArray:diarys];
     return diarys.count;
 }
 

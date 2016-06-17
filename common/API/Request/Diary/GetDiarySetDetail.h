@@ -10,6 +10,6 @@
 
 @interface GetDiarySetDetail : BaseRequest
 
-- (instancetype)initWithDiarySet:(DiarySet *)diarySet;
+@property (nonatomic, strong) NSString *diarySetid;
 
 @end

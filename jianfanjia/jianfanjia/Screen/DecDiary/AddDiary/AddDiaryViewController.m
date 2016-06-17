@@ -41,6 +41,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
         _completion = completion;
         _diary = [[Diary alloc] init];
         _diary._id = @"";
+        _diary.authorid = [GVUserDefaults standardUserDefaults].userid;
     }
     
     return self;
@@ -185,6 +186,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 
 - (void)onClickNext {
     [self.view endEditing:YES];
+    self.diary.diarySetid = self.curDiarySet._id;
     AddDiary *request = [[AddDiary alloc] initWithDiary:self.diary];
     [HUDUtil showWait];
     [API addDiary:request success:^{
