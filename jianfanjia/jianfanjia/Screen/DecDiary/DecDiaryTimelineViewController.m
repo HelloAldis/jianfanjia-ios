@@ -17,7 +17,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) DecDiaryDataManager *dataManager;
-@property (strong, nonatomic) DecDiaryStatusCell *prototypeCell;
 
 @end
 
@@ -117,13 +116,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     [self.tableView reloadData];
 }
 
-- (DecDiaryStatusCell *)prototypeCell {
-    if (!_prototypeCell) {
-        _prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
-    }
-    return _prototypeCell;
-}
-
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.dataManager.diarys.count;
@@ -135,11 +127,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     [cell initWithDiary:self.dataManager.diarys[indexPath.row] truncate:YES];
     return cell;
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    [self.prototypeCell initWithDiary:self.dataManager.diarys[indexPath.row] truncate:YES];
-//    return [self.prototypeCell cellHeight];
-//}
 
 #pragma mark - api request
 - (void)refresh {

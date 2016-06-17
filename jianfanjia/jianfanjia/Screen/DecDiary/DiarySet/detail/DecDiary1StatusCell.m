@@ -56,6 +56,12 @@
     self.picViews = picViews;
 }
 
+- (void)updateConstraints {
+    self.msgHeightConst.constant = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
+    self.imgsHeightConst.constant = self.diary.layout.picHeight;
+    [super updateConstraints];
+}
+
 - (void)initWithDiary:(Diary *)diary truncate:(BOOL)needTruncate {
     self.diary = diary;
     self.diary.layout.needTruncate = needTruncate;
@@ -70,12 +76,10 @@
 - (void)initMsg {
     self.msgView.text = self.diary.content;
     self.msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
-    self.msgHeightConst.constant = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
 }
 
 #pragma mark - layout
 - (void)initImageView {
-    self.imgsHeightConst.constant = self.diary.layout.picHeight;
     NSArray *pics = self.diary.images;
     
     CGFloat imageTop = kPicTopMarging;

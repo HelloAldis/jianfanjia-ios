@@ -73,7 +73,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 #pragma mark - UI
 - (void)initNav {
     self.title = @"新建日记";
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(onClicCancel)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
     self.navigationItem.rightBarButtonItem.tintColor = kTextColor;
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发布" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
