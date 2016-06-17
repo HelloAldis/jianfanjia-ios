@@ -12,8 +12,6 @@
 #import "AddDiaryDescCell.h"
 #import "AddDiaryImgsCell.h"
 
-#define kBottomInsert 80
-
 static NSString *AddDiaryDescCellIdentifier = @"AddDiaryDescCell";
 static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 
@@ -48,28 +46,6 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
     [self initUI];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    @weakify(self);
-    [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
-        @strongify(self);
-        if (isShowing) {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
-            UIView *view = [self.tableView getFirstResponder];
-            CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
-            [self.tableView scrollRectToVisible:rect animated:YES];
-        } else {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-        }
-    } completion:nil];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self jfj_unsubscribeKeyboard];
-}
-
 #pragma mark - UI
 - (void)initNav {
     self.title = @"新建日记";
@@ -88,7 +64,6 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
     [self.tableView registerNib:[UINib nibWithNibName:AddDiaryImgsCellIdentifier bundle:nil] forCellReuseIdentifier:AddDiaryImgsCellIdentifier];
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
     self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 300;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [EditCellItem registerCells:self.tableView];
@@ -153,6 +128,16 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
     }
     
     return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return UITableViewAutomaticDimension;
+    } else if (indexPath.section == 1) {
+        return [self.sectionArr1[indexPath.row] cellheight];
+    }
+    
+    return 0.0;
 }
 
 #pragma mark - user action

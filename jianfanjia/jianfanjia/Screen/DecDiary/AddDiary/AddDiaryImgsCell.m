@@ -113,7 +113,7 @@ static CGFloat imgCellWidth;
 
 - (void)showPhotoSelector:(UIView *)view {
     @weakify(self);
-    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:MAX_IMG_COUNT - self.diary.images.count withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTopController] inView:view max:MAX_IMG_COUNT - self.diary.images.count withBlock:^(NSArray *imageIds) {
         @strongify(self);
         if (!self.diary.images) {
             self.diary.images = [NSMutableArray array];
