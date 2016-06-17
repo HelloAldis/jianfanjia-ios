@@ -142,6 +142,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 
 #pragma mark - user action
 - (void)onClickBack {
+    [self.view endEditing:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
