@@ -23,15 +23,22 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 @property (nonatomic, strong) NSMutableArray<EditCellItem *> *totalArr;
 
 @property (nonatomic, strong) NSArray<DiarySet *> *diarySets;
+@property (nonatomic, strong) NSArray<NSString *> *diarySetsTitles;
+@property (nonatomic, strong) EditCellItem *decPhaseItem;
+@property (nonatomic, strong) EditCellItem *diarySetItem;
+
+@property (nonatomic, strong) DiarySet *curDiarySet;
 @property (nonatomic, strong) Diary *diary;
+@property (nonatomic, copy) AddDiaryCompletion completion;
 
 @end
 
 @implementation AddDiaryViewController
 
-- (instancetype)initWithDiarySets:(NSArray<DiarySet *> *)diarySets {
+- (instancetype)initWithDiarySets:(NSArray<DiarySet *> *)diarySets completion:(AddDiaryCompletion)completion {
     if (self = [super init]) {
         _diarySets = diarySets;
+        _completion = completion;
         _diary = [[Diary alloc] init];
         _diary._id = @"";
     }
@@ -68,15 +75,39 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     [EditCellItem registerCells:self.tableView];
     
+    [self initCurDiarySet];
+    self.diarySetsTitles = [self.diarySets map:^id(DiarySet *obj) {
+        return obj.title;
+    }];
+    
     @weakify(self);
-    self.sectionArr1 = @[
-                         [EditCellItem createSelection:@"装修阶段" value:nil allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
-                             @strongify(self);
-                             [self.view endEditing:YES];
-                         }],
-                         [EditCellItem createAttrSelection:[@"当前日记本" attrStrWithFont:[UIFont systemFontOfSize:14] color:kTextColor] attrValue:[@"心想压住" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeColor] allowsEdit:YES placeholder:nil tapBlock:^(EditCellItem *curItem) {
-                            
-                         }]
+    self.decPhaseItem = [EditCellItem createSelection:@"装修阶段" value:self.diary.section_label allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+        @strongify(self);
+        [self.view endEditing:YES];
+        SelectDecorationPhaseViewController *v = [[SelectDecorationPhaseViewController alloc] initWithValueBlock:^(id value) {
+            curItem.value = value;
+            self.diary.section_label = value;
+            [self.tableView reloadData];
+        } curValue:self.diary.section_label];
+        
+        [self.navigationController pushViewController:v animated:YES];
+    }];
+    
+    self.diarySetItem = [EditCellItem createAttrSelection:[@"当前日记本" attrStrWithFont:[UIFont systemFontOfSize:14] color:kTextColor] attrValue:[self.curDiarySet.title attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeColor] allowsEdit:self.diarySets.count > 1 placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+        @strongify(self);
+        [self.view endEditing:YES];
+        SelectStringViewController *v = [[SelectStringViewController alloc] initWithTitle:@"日记本选择" options:self.diarySetsTitles curValue:self.curDiarySet.title valueBlock:^(id value) {
+            curItem.attrValue.mutableString.string = value;
+            curItem.value = value;
+            [self changeCurDiarySet:value];
+            [self.tableView reloadData];
+        }];
+        
+        [self.navigationController pushViewController:v animated:YES];
+    }];
+    
+    self.sectionArr1 = @[self.decPhaseItem,
+                         self.diarySetItem
                          ];
     
     self.totalArr = [NSMutableArray array];
@@ -123,7 +154,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
             }
         }
     } else if (indexPath.section == 1) {
-        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath allowsEdit:YES];
+        UITableViewCell *cell = [self.sectionArr1[indexPath.row] dequeueReusableCell:tableView indexPath:indexPath];
         return cell;
     }
     
@@ -143,37 +174,85 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 #pragma mark - user action
 - (void)onClickBack {
     [self.view endEditing:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    @weakify(self);
+    [self dismissViewControllerAnimated:YES completion:^{
+        @strongify(self);
+        if (self.completion) {
+            self.completion(NO);
+        }
+    }];
 }
 
 - (void)onClickNext {
-//    AddDiarySet *request = [[AddDiarySet alloc] initWithDiarySet:self.diarySet];
-//    [HUDUtil showWait];
-//    if ([self isNewDiarySet]) {
-//        [API addDiarySet:request success:^{
-//            DiarySet *diarySet = [[DiarySet alloc] initWith:[DataManager shared].data];
-//            [ViewControllerContainer showDiarySetDetail:diarySet];
-//        } failure:^{
-//            
-//        } networkError:^{
-//            
-//        }];
-//    } else {
-//        [API updateDiarySet:request success:^{
-//            DiarySet *diarySet = [[DiarySet alloc] initWith:[DataManager shared].data];
-//            [ViewControllerContainer showDiarySetDetail:diarySet];
-//        } failure:^{
-//            
-//        } networkError:^{
-//            
-//        }];
-//    }
+    [self.view endEditing:YES];
+    AddDiary *request = [[AddDiary alloc] initWithDiary:self.diary];
+    [HUDUtil showWait];
+    [API addDiary:request success:^{
+        [self dismissViewControllerAnimated:YES completion:^{
+            if (self.completion) {
+                self.completion(YES);
+            }
+        }];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
 }
 
 #pragma mark - other
+- (void)changeCurPhase {
+    NSArray *allPhase = [NameDict getAllDecorationPhase];
+    if (!self.curDiarySet.latest_section_label) {
+        self.diary.section_label = allPhase[0];
+        self.decPhaseItem.value = self.diary.section_label;
+        return;
+    }
+    
+    NSInteger index = [allPhase indexOfObject:self.curDiarySet.latest_section_label];
+    index = MIN(index + 1, allPhase.count - 1);
+    self.diary.section_label = allPhase[index];
+    self.decPhaseItem.value = self.diary.section_label;
+}
+
+- (void)initCurDiarySet {
+    if (self.diarySets.count == 1) {
+        self.curDiarySet = self.diarySets[0];
+    } else if (self.diarySets.count > 1) {
+        NSArray *orderedKeys = [self.diarySets sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(DiarySet*  _Nonnull obj1, DiarySet*  _Nonnull obj2) {
+            if ([obj1.lastupdate compare:obj2.lastupdate] == NSOrderedAscending) {
+                return NSOrderedAscending;
+            } else if ([obj1.lastupdate compare:obj2.lastupdate] == NSOrderedDescending) {
+                return NSOrderedDescending;
+            } else {
+                return NSOrderedSame;
+            }
+        }];
+        
+        self.curDiarySet = orderedKeys.lastObject;
+    }
+    
+    [self changeCurPhase];
+}
+
+- (void)changeCurDiarySet:(NSString *)title {
+    NSInteger index = [self.diarySets indexOfObjectPassingTest:^BOOL(DiarySet * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([title isEqualToString:obj.title]) {
+            *stop = YES;
+            return YES;
+        }
+        
+        return NO;
+    }];
+    
+    self.curDiarySet = self.diarySets[index];
+    [self changeCurPhase];
+}
+
 - (void)refreshNextButtonStatus {
     [[RACObserve(self, totalArr) flattenMap:^RACStream *(NSArray *items) {
         NSMutableArray *signals = [NSMutableArray array];
+        [signals addObject:RACObserve(self.diary, content)];
         for (EditCellItem *item in items) {
             [signals addObject:RACObserve(item, value)];
         }

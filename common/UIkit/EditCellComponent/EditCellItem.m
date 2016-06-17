@@ -16,6 +16,24 @@ static NSString *CompareImageEditCellIdentifier = @"CompareImageEditCell";
 
 @implementation EditCellItem
 
+- (BaseEditCell *)dequeueReusableCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    NSString *cellIdentifier = nil;
+    if (self.cellEditType == CellEditTypeSelection) {
+        cellIdentifier = SelectionEditCellIdentifier;
+    } else if (self.cellEditType == CellEditTypeFld) {
+        cellIdentifier = FieldEditCellIdentifier;
+    } else if (self.cellEditType == CellEditTypeText) {
+        cellIdentifier = TextEditCellIdentifier;
+    } else if (self.cellEditType == CellEditTypeCompareImage) {
+        cellIdentifier = CompareImageEditCellIdentifier;
+    }
+    
+    BaseEditCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell initWithItem:self];
+    return cell;
+}
+
 - (BaseEditCell *)dequeueReusableCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath allowsEdit:(BOOL)allowsEdit {
     NSString *cellIdentifier = nil;
     if (self.cellEditType == CellEditTypeSelection) {

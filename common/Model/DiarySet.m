@@ -24,6 +24,7 @@
 @dynamic view_count;
 @dynamic favorite_count;
 @dynamic comment_count;
+@dynamic latest_section_label;
 @dynamic diaries;
 
 @end

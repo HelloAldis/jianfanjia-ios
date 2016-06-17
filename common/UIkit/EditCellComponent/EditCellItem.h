@@ -45,6 +45,7 @@ typedef void (^EditCellItemEditBlock)(EditCellItem *curItem, EditCellItemEditTyp
 @property (nonatomic, strong) UIImage *compareImage;
 @property (nonatomic, strong) NSString *uploadImage;
 
+- (BaseEditCell *)dequeueReusableCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
 - (BaseEditCell *)dequeueReusableCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath allowsEdit:(BOOL)allowsEdit;
 - (CGFloat)cellheight;
 + (void)registerCells:(UITableView *)tableView;

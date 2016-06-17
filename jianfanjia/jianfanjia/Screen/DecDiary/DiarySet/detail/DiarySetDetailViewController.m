@@ -207,7 +207,11 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 #pragma mark - user action
 - (void)onTapAddDiary {
-    [ViewControllerContainer showDiaryAdd:nil];
+    [ViewControllerContainer showDiaryAdd:@[self.diarySet] completion:^(BOOL completion) {
+        if (completion) {
+            [self refresh];
+        }
+    }];
 }
 
 - (void)onClickShare {

@@ -46,6 +46,7 @@ static CGFloat imgCellWidth;
     @weakify(self);
     self.tapImageBlock = ^(StaticImageCollectionCell *cell) {
         @strongify(self);
+        [[ViewControllerContainer getCurrentTopController].view endEditing:YES];
         NSIndexPath *indexPath = [self.imgCollection indexPathForCell:cell];
         if (indexPath.row < self.diary.images.count) {
             [self showImageDetail:indexPath];

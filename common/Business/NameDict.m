@@ -35,6 +35,7 @@ static NSArray *homeTypeArr = nil;
 static NSDictionary *decLiveSectionDict = nil;
 static NSDictionary *decProgressDict = nil;
 static NSArray *desginerTagArr = nil;
+static NSArray *decPhaseArr = nil;
 
 + (void)initialize {
     houseTypeDict = @{@"0":@"一室",
@@ -207,6 +208,18 @@ static NSArray *desginerTagArr = nil;
                        kDecProgressDoingPrepare:@"正在做准备",
                        kDecProgressStartedAlready:@"已经开始装修",
                        };
+    
+    decPhaseArr = @[@"准备",
+                    @"开工",
+                    @"拆改",
+                    @"水电",
+                    @"泥木",
+                    @"油漆",
+                    @"安装",
+                    @"竣工",
+                    @"软装",
+                    @"入住",
+                    ];
 }
 
 + (NSDictionary *)getAllHouseType {
@@ -227,6 +240,10 @@ static NSArray *desginerTagArr = nil;
 
 + (NSDictionary *)getAllDecorationType {
     return decTypeDict;
+}
+
++ (NSArray *)getAllDecorationPhase {
+    return decPhaseArr;
 }
 
 + (NSArray *)getAllPopulationType {

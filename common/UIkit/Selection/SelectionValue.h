@@ -17,10 +17,12 @@
 #import "SelectSexTypeViewController.h"
 #import "SelectDecorationStyleViewController.h"
 #import "SelectDecorationTypeViewController.h"
+#import "SelectDecorationPhaseViewController.h"
 #import "SelectBankTypeViewController.h"
 #import "SelectGoodAtViewController.h"
 #import "SelectDesignFeeViewController.h"
 #import "SelectServiceAreaViewController.h"
 #import "SelectWorkFeeViewController.h"
+#import "SelectStringViewController.h"
 
 #endif /* SelectionValue_h */

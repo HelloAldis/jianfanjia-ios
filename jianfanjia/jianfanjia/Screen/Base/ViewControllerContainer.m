@@ -51,7 +51,6 @@
 #import "DiarySetListViewController.h"
 #import "DiarySetUploadViewController.h"
 #import "DiarySetDetailViewController.h"
-#import "AddDiaryViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -420,11 +419,11 @@ static ViewControllerContainer *container;
     [container.navigation pushViewController:v animated:YES];
 }
 
-+ (void)showDiaryAdd:(NSArray<DiarySet *> *)diarySets {
++ (void)showDiaryAdd:(NSArray<DiarySet *> *)diarySets completion:(AddDiaryCompletion)completion {
     UIViewController *presented = container.navigation.presentedViewController;
     UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
     
-    AddDiaryViewController *v = [[AddDiaryViewController alloc] initWithDiarySets:diarySets];
+    AddDiaryViewController *v = [[AddDiaryViewController alloc] initWithDiarySets:diarySets completion:completion];
     UINavigationController *navi = [[UINavigationController alloc] initWithRootViewController:v];
     navi.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     navi.modalPresentationStyle = UIModalPresentationOverFullScreen;

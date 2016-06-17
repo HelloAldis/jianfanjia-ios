@@ -36,4 +36,17 @@
     return diarys.count;
 }
 
+- (NSInteger)refreshDiarySets {
+    NSArray* arr = [[DataManager shared].data objectForKey:@"diarySets"];
+    NSMutableArray *diarySets = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    
+    for (NSMutableDictionary *dict in arr) {
+        DiarySet *diarySet = [[DiarySet alloc] initWith:dict];
+        [diarySets addObject:diarySet];
+    }
+    
+    self.diarySets = diarySets;
+    return diarySets.count;
+}
+
 @end

@@ -36,6 +36,7 @@
     
     if (item.attrValue) {
         self.fldValue.attributedText = item.attrValue;
+        self.item.value = item.attrValue.string;
     } else {
         self.fldValue.attributedText = nil;
         self.fldValue.text = item.value;

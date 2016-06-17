@@ -54,6 +54,7 @@
     [self.textView invalidateIntrinsicContentSize];
     [self.tableView beginUpdates];
     [self.tableView endUpdates];
+    self.diary.content = textView.text;
 }
 
 - (YYTextLinePositionSimpleModifier *)linePositionModifier {

@@ -9,6 +9,7 @@
 #import "DecDiaryTimelineViewController.h"
 #import "DecDiaryStatusCell.h"
 #import "DecDiaryDataManager.h"
+#import "ViewControllerContainer.h"
 
 static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
@@ -33,6 +34,9 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 #pragma mark - UI
 - (void)initNav {
     self.title = @"装修日记";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickAdd)];
+    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
 }
 
 - (void)initUI {
@@ -136,6 +140,27 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
 - (void)loadMore {
 
+}
+
+#pragma mark - user action
+- (void)onClickAdd {
+    SearchDiarySet *request = [[SearchDiarySet alloc] init];
+    request.from = @0;
+    request.limit = @10000;
+    
+    [HUDUtil showWait];
+    [API getMyDiarySet:request success:^{
+        [self.dataManager refreshDiarySets];
+        [ViewControllerContainer showDiaryAdd:self.dataManager.diarySets completion:^(BOOL completion) {
+            if (completion) {
+                [self refresh];
+            }
+        }];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
 }
 
 @end

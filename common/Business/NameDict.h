@@ -15,6 +15,7 @@
 + (NSDictionary *)getAllValueHouseArea;
 + (NSDictionary *)getAllDecorationStyle;
 + (NSDictionary *)getAllDecorationType;
++ (NSArray *)getAllDecorationPhase;
 + (NSArray *)getAllPopulationType;
 + (NSArray *)getAllServiceArea;
 + (NSArray *)getAllBankType;

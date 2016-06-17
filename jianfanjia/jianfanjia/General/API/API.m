@@ -254,6 +254,10 @@
     [API POST:@"search_diary" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)addDiary:(AddDiary *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"add_diary" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 + (void)deleteDiary:(DeleteDiary *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
     [API POST:@"delete_diary" data:request.data handler:request success:success failure:failure networkError:error];
 }

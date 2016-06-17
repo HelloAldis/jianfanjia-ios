@@ -10,9 +10,11 @@
 
 @interface DecDiaryDataManager : NSObject
 
+@property (nonatomic, strong) NSMutableArray *diarySets;
 @property (nonatomic, strong) NSMutableArray *diarys;
 
 - (NSInteger)refresh;
 - (NSInteger)loadMore;
+- (NSInteger)refreshDiarySets;
 
 @end
