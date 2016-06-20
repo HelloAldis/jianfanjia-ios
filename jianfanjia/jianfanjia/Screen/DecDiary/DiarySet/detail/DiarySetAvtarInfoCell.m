@@ -74,6 +74,10 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 }
 
 - (void)onTapModifyCover {
+    if (![DiaryBusiness isOwnDiarySet:self.diarySet]) {
+        return;
+    }
+    
     [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         self.diarySet.cover_imageid = imageIds[0];
         [self setCover];
