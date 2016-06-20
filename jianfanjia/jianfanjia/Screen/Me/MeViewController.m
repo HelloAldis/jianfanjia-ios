@@ -71,7 +71,7 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     
     @weakify(self);
     self.sectionArr1 = @[
-                         [EditCellItem createAttrSelection:[@"清空缓存" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:[self getCacheValue] allowsEdit:YES placeholder:nil image:[UIImage imageNamed:@"icon_feedback"] tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createAttrSelection:[@"清空缓存" attrStrWithFont:[UIFont systemFontOfSize:14] color:kThemeTextColor] attrValue:[self getCacheValue] allowsEdit:YES placeholder:nil image:[UIImage imageNamed:@"icon_rubbish"] tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              [self onClickClearCache:curItem];
                          }],
