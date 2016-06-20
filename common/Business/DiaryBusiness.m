@@ -22,4 +22,15 @@
     return [diary.authorid isEqualToString:[GVUserDefaults standardUserDefaults].userid];
 }
 
++ (UIColor *)colorForPhase:(DiarySet *)diarySet {
+    NSArray *arr = [NameDict getAllDecorationPhase];
+    NSInteger index = [arr indexOfObject:diarySet.latest_section_label];
+    
+    if (index == arr.count - 1) {
+        return kPassStatusColor;
+    }
+    
+    return kExcutionStatusColor;
+}
+
 @end

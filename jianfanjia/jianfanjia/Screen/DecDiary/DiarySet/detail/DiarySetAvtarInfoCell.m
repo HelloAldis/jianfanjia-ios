@@ -64,7 +64,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 }
 
 - (void)setCover {
-    [self.diarySetBGImgView setImageWithId:self.diarySet.cover_imageid withWidth:kScreenWidth];
+    [self.diarySetBGImgView setImageWithId:self.diarySet.cover_imageid withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_diary_set_cover"]];
 }
 
 - (void)onTapEdit {

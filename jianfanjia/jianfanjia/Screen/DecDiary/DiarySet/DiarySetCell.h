@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#define kDiarySetCellHeight 300
+extern CGFloat kDiarySetCellHeight;
 
 typedef void (^DiarySetCellDeleteBlock)(void);
 

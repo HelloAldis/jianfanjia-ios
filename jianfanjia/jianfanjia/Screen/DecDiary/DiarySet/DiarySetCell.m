@@ -9,14 +9,17 @@
 #import "DiarySetCell.h"
 #import "ViewControllerContainer.h"
 
+CGFloat kDiarySetCellHeight;
+
 @interface DiarySetCell ()
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIView *barView;
+@property (weak, nonatomic) IBOutlet UIButton *btnPhase;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
+@property (weak, nonatomic) IBOutlet UILabel *lblViewCount;
 @property (weak, nonatomic) IBOutlet UILabel *lblCell;
 @property (weak, nonatomic) IBOutlet UILabel *lblDetail;
-@property (weak, nonatomic) IBOutlet UIView *coverView;
-@property (weak, nonatomic) IBOutlet UIButton *btnDelete;
 
 @property (strong, nonatomic) DiarySet *diarySet;
 @property (nonatomic, copy) DiarySetCellDeleteBlock deleteBlock;
@@ -25,9 +28,17 @@
 
 @implementation DiarySetCell
 
++ (void)initialize {
+    if ([self class] == [DiarySetCell class]) {
+        CGFloat aspect =  1176 / kScreenWidth;
+        kDiarySetCellHeight = round(612 / aspect);
+    }
+}
+
 - (void)awakeFromNib {
     [self.containerView setCornerRadius:3];
-    [self.btnDelete setCornerRadius:self.btnDelete.frame.size.height / 2];
+    [self.barView setCornerRadius:self.barView.frame.size.height / 2];
+    [self.btnPhase setCornerRadius:self.btnPhase.frame.size.height / 2];
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)]];
 }
 
@@ -35,30 +46,16 @@
     self.diarySet = diarySet;
     self.deleteBlock = deleteBlock;
     
-    [self.productImageView setImageWithId:diarySet.cover_imageid withWidth:kScreenWidth];
-//    self.lblCell.text = product.cell;
-//    self.lblDetail.text = product.house_area ? [NSString stringWithFormat:@"%@m², %@, %@, %@风格\n%@, %@万",
-//                                                product.house_area,
-//                                                [NameDict nameForDecType:product.dec_type],
-//                                                [ProductBusiness houseTypeByDecType:product],
-//                                                [NameDict nameForDecStyle:product.dec_style],
-//                                                [NameDict nameForWorkType:product.work_type],
-//                                                product.total_price] : @"";
-//    [self.lblDetail setRowSpace:7.0f];;
-//    
-//    if ([product.auth_type isEqualToString:kAuthTypeUnsubmitVerify]) {
-//        self.coverView.hidden = YES;
-//    } else {
-//        self.coverView.hidden = !edit;
-//    }
+    [self.productImageView setImageWithId:diarySet.cover_imageid withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_diary_set_cover"]];
+    self.lblCell.text = diarySet.title;
+    self.lblDetail.text = [DiaryBusiness diarySetInfo:diarySet];
+    self.lblViewCount.text = [diarySet.view_count humCountString];
+    [self.btnPhase setNormTitle:[NSString stringWithFormat:@"%@阶段", diarySet.latest_section_label ? diarySet.latest_section_label : @"准备"]];
+    [self.btnPhase setBgColor:[DiaryBusiness colorForPhase:diarySet]];
 }
 
 - (void)onTap {
     [ViewControllerContainer showDiarySetDetail:self.diarySet fromNewDiarySet:NO];
-}
-
-- (IBAction)onClickDelete:(id)sender {
-    
 }
 
 @end
