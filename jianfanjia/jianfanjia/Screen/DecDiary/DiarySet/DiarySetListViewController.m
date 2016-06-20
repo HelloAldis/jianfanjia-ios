@@ -40,7 +40,7 @@ static NSString *DiarySetCellIdentifier = @"DiarySetCell";
 
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"我的日记";
+    self.title = @"我的日记本";
     [self initLeftBackInNav];
     
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"编辑" style:UIBarButtonItemStylePlain target:self action:@selector(onClickEdit)];

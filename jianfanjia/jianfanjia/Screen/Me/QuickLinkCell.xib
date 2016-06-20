@@ -28,10 +28,10 @@
                                             <constraint firstAttribute="width" constant="46" id="b6B-xV-COT"/>
                                             <constraint firstAttribute="width" secondItem="wsi-A4-yva" secondAttribute="height" multiplier="1:1" id="nmv-9N-12r"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="icon_my_favorite"/>
+                                        <state key="normal" title="Button" image="icon_diary_set"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的日记" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUc-qF-t6C">
-                                        <rect key="frame" x="56" y="56" width="56" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日记本" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUc-qF-t6C">
+                                        <rect key="frame" x="63" y="56" width="42" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="F3G-0a-sLH"/>
                                         </constraints>
@@ -71,8 +71,8 @@
                                             </mask>
                                         </variation>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEV-sA-LbZ">
-                                        <rect key="frame" x="56" y="56" width="56" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEV-sA-LbZ">
+                                        <rect key="frame" x="70" y="56" width="28" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -107,8 +107,8 @@
                                             </mask>
                                         </variation>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的留言" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpC-Ds-1ZN">
-                                        <rect key="frame" x="57" y="56" width="56" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpC-Ds-1ZN">
+                                        <rect key="frame" x="71" y="56" width="28" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -169,6 +169,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon_diary_set" width="46" height="46"/>
         <image name="icon_my_comment" width="46" height="46"/>
         <image name="icon_my_favorite" width="46" height="46"/>
     </resources>
