@@ -190,6 +190,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
     AddDiary *request = [[AddDiary alloc] initWithDiary:self.diary];
     [HUDUtil showWait];
     [API addDiary:request success:^{
+        self.curDiarySet.latest_section_label = self.diary.section_label;
         [self dismissViewControllerAnimated:YES completion:^{
             if (self.completion) {
                 self.completion(YES);
