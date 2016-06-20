@@ -18,6 +18,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 @property (weak, nonatomic) IBOutlet UIImageView *editDiarySetInfoImgView;
 @property (weak, nonatomic) IBOutlet UILabel *lblDiarySetTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblBasicInfo;
+@property (weak, nonatomic) IBOutlet UIButton *btnModifyCover;
 
 @property (strong, nonatomic) DiarySet *diarySet;
 @property (weak, nonatomic) UITableView *tableView;
@@ -38,22 +39,44 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     [self.avatarImgView setCornerRadius:self.avatarImgView.frame.size.width / 2];
     [self.avatarImgView setBorder:1 andColor:[UIColor whiteColor].CGColor];
     [self.editDiarySetInfoImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapEdit)]];
+    [self.diarySetBGImgView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onTapModifyCover)]];
+    
+    @weakify(self);
+    [[self.btnModifyCover rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onTapModifyCover];
+    }];
 }
 
 - (void)initWithDiarySet:(DiarySet *)diarySet tableView:(UITableView *)tableView {
     self.diarySet = diarySet;
     self.tableView = tableView;
     [self.avatarImgView setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
-    [self.diarySetBGImgView setImageWithId:diarySet.cover_imageid withWidth:kScreenWidth];
+    [self setCover];
 
     self.lblDiarySetTitle.text = diarySet.title;
     self.lblBasicInfo.text = [DiaryBusiness diarySetInfo:diarySet];
     self.editDiarySetInfoImgView.hidden = ![DiaryBusiness isOwnDiarySet:diarySet];
+    self.btnModifyCover.hidden = diarySet.cover_imageid;
+}
+
+- (void)setCover {
+    [self.diarySetBGImgView setImageWithId:self.diarySet.cover_imageid withWidth:kScreenWidth];
 }
 
 - (void)onTapEdit {
     [ViewControllerContainer showDiarySetUpload:self.diarySet done:^{
         [self.tableView reloadData];
+    }];
+}
+
+- (void)onTapModifyCover {
+    [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
+        self.diarySet.cover_imageid = imageIds[0];
+        [self setCover];
+        
+        AddDiarySet *request = [[AddDiarySet alloc] initWithDiarySet:self.diarySet];
+        [API updateDiarySet:request success:nil failure:nil networkError:nil];
     }];
 }
 

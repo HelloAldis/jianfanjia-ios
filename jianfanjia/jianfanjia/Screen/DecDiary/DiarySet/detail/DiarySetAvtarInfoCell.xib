@@ -58,13 +58,25 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_beautiful_img" translatesAutoresizingMaskIntoConstraints="NO" id="8Pi-IW-uXU">
-                                <rect key="frame" x="540" y="239" width="30" height="30"/>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_write_diary" translatesAutoresizingMaskIntoConstraints="NO" id="8Pi-IW-uXU">
+                                <rect key="frame" x="549" y="244" width="21" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="8Pi-IW-uXU" secondAttribute="height" multiplier="1:1" id="nIF-aC-dFp"/>
-                                    <constraint firstAttribute="width" constant="30" id="r0Q-aK-4Rx"/>
+                                    <constraint firstAttribute="width" constant="21" id="r0Q-aK-4Rx"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLT-CR-o1d">
+                                <rect key="frame" x="250" y="107" width="90" height="27"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="TPa-Le-dN7"/>
+                                    <constraint firstAttribute="width" constant="90" id="yb6-JN-4Dw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <state key="normal" title="修改封面">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -74,6 +86,7 @@
                             <constraint firstAttribute="trailing" secondItem="jAM-cy-3Aj" secondAttribute="trailing" id="CJQ-CT-5u4"/>
                             <constraint firstItem="cE9-Pk-9qa" firstAttribute="centerX" secondItem="jAM-cy-3Aj" secondAttribute="centerX" id="CyQ-co-MJl"/>
                             <constraint firstItem="4oV-fh-d5Q" firstAttribute="leading" secondItem="GXl-mZ-nPe" secondAttribute="leading" id="Eqn-Tm-HGj"/>
+                            <constraint firstItem="jLT-CR-o1d" firstAttribute="centerY" secondItem="jAM-cy-3Aj" secondAttribute="centerY" id="JGA-cj-evL"/>
                             <constraint firstAttribute="bottom" secondItem="jAM-cy-3Aj" secondAttribute="bottom" id="JeI-qD-AKR"/>
                             <constraint firstItem="GXl-mZ-nPe" firstAttribute="height" secondItem="4oV-fh-d5Q" secondAttribute="height" id="Nbs-k2-USK"/>
                             <constraint firstItem="jAM-cy-3Aj" firstAttribute="leading" secondItem="gM7-ta-tqS" secondAttribute="leading" id="Nl0-4O-Pfs"/>
@@ -87,6 +100,7 @@
                             <constraint firstItem="GXl-mZ-nPe" firstAttribute="leading" secondItem="cE9-Pk-9qa" secondAttribute="trailing" constant="20" id="vA7-nV-xM9"/>
                             <constraint firstItem="jAM-cy-3Aj" firstAttribute="top" secondItem="gM7-ta-tqS" secondAttribute="top" constant="-64" id="vKK-TU-P2d"/>
                             <constraint firstItem="4oV-fh-d5Q" firstAttribute="centerX" secondItem="gM7-ta-tqS" secondAttribute="centerX" id="wqD-ld-SEC"/>
+                            <constraint firstItem="jLT-CR-o1d" firstAttribute="centerX" secondItem="jAM-cy-3Aj" secondAttribute="centerX" id="xd3-v5-uKB"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -113,6 +127,7 @@
             <connections>
                 <outlet property="avatarImgView" destination="cE9-Pk-9qa" id="W6X-tB-sgb"/>
                 <outlet property="avtarView" destination="gM7-ta-tqS" id="yuV-4i-bo1"/>
+                <outlet property="btnModifyCover" destination="jLT-CR-o1d" id="8VE-4e-QZU"/>
                 <outlet property="diarySetBGImgView" destination="jAM-cy-3Aj" id="VC2-jJ-fM0"/>
                 <outlet property="editDiarySetInfoImgView" destination="8Pi-IW-uXU" id="NZE-l6-j2B"/>
                 <outlet property="lblBasicInfo" destination="4oV-fh-d5Q" id="doN-4n-GKK"/>
@@ -123,7 +138,7 @@
     </objects>
     <resources>
         <image name="bg_my" width="1242" height="880"/>
-        <image name="icon_dec_beautiful_img" width="60" height="60"/>
+        <image name="icon_write_diary" width="20" height="21"/>
         <image name="image_place_holder_2" width="60" height="60"/>
     </resources>
 </document>
