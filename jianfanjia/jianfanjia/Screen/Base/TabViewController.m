@@ -29,7 +29,7 @@
     pretty_img.titlePositionAdjustment = UIOffsetMake(0, -2);
     
     UITabBarItem *decDiary = [self.tabBar.items objectAtIndex:2];
-    decDiary = [decDiary initWithTitle:@"装修日记" image:[UIImage imageNamed:@"tab_pretty_img_default"] selectedImage:[UIImage imageNamed:@"tab_pretty_img_selected"]];
+    decDiary = [decDiary initWithTitle:@"装修日记" image:[UIImage imageNamed:@"tab_diary_default"] selectedImage:[UIImage imageNamed:@"tab_diary_selected"]];
     decDiary.titlePositionAdjustment = UIOffsetMake(0, -2);
     
     UITabBarItem *requirement = [self.tabBar.items objectAtIndex:3];

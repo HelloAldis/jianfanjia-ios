@@ -35,7 +35,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 - (void)initNav {
     self.title = @"装修日记";
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickAdd)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_write_diary"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickAdd)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
 }
 
