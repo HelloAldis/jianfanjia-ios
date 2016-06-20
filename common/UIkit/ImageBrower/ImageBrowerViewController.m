@@ -18,6 +18,7 @@
 
 @property(strong, nonatomic) NSMutableArray<PHAsset *> *result;
 @property (strong, nonatomic) NSMutableArray *imageIds;
+@property (strong, nonatomic) NSMutableArray *imageSizes;
 @property (strong, nonatomic) MBProgressHUD *progressBar;
 @property (strong, nonatomic) PHImageManager *imageManager;
 @property (strong, nonatomic) PHImageRequestOptions *options;
@@ -45,6 +46,7 @@
     self.collectionView.allowsSelection = YES;
     self.collectionView.allowsMultipleSelection = self.allowsMultipleSelection;
     self.imageIds = [NSMutableArray array];
+    self.imageSizes = [NSMutableArray array];
     
     self.imageManager = [PHImageManager defaultManager];
     self.options = [PHImageRequestOptions new];
@@ -164,7 +166,7 @@
             [self.navigationController popToViewController:vcs[vcs.count - 3] animated:NO];
             [API uploadImage:request success:^{
                 if (self.finishUploadBlock) {
-                    self.finishUploadBlock(@[[DataManager shared].lastUploadImageid]);
+                    self.finishUploadBlock(@[[DataManager shared].lastUploadImageid], @[[NSValue valueWithCGSize:request.image.size]]);
                 }
             } failure:^{
             } networkError:^{
@@ -211,6 +213,7 @@
                              request.image = result;
                              [API uploadImage:request success:^{
                                  [self.imageIds addObject:[DataManager shared].lastUploadImageid];
+                                 [self.imageSizes addObject:[NSValue valueWithCGSize:request.image.size]];
                                  
 //                                 dispatch_async(dispatch_get_main_queue(), ^{
                                      self.progressBar.progress = (CGFloat)(index + 1) / (CGFloat)total ;
@@ -222,7 +225,7 @@
                                          dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                              [self.progressBar hide:YES];
                                              if (self.finishUploadBlock) {
-                                                 self.finishUploadBlock(self.imageIds);
+                                                 self.finishUploadBlock(self.imageIds, self.imageSizes);
                                              }
                                              [self.navigationController popViewControllerAnimated:YES];
                                          });
@@ -239,7 +242,7 @@
                                      dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                          [self.progressBar hide:YES];
                                          if (self.finishUploadBlock) {
-                                             self.finishUploadBlock(self.imageIds);
+                                             self.finishUploadBlock(self.imageIds, self.imageSizes);
                                          }
                                          [self.navigationController popViewControllerAnimated:YES];
                                      });

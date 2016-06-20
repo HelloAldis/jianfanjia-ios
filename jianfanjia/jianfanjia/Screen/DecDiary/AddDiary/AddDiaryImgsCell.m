@@ -114,19 +114,22 @@ static CGFloat imgCellWidth;
 
 - (void)showPhotoSelector:(UIView *)view {
     @weakify(self);
-    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTopController] inView:view max:MAX_IMG_COUNT - self.diary.images.count withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTopController] inView:view max:MAX_IMG_COUNT - self.diary.images.count withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         @strongify(self);
         if (!self.diary.images) {
             self.diary.images = [NSMutableArray array];
         }
         
-        NSMutableArray *imgs = [imageIds map:^id(id obj) {
+        [imageIds enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            CGSize size = [imageSizes[idx] CGSizeValue];
+            
             LeafImage *img = [[LeafImage alloc] init];
             img.imageid = obj;
-            return img.data;
+            img.width = @(size.width);
+            img.height = @(size.height);
+            [self.diary.images addObject:img.data];
         }];
-        
-        [self.diary.images addObjectsFromArray:imgs];
+
         [self refreshNumberOfItems];
         [self refreshViewContentSize];
         [self.imgCollection reloadData];

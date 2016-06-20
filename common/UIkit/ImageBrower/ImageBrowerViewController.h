@@ -7,7 +7,7 @@
 //
 #import <Photos/Photos.h>
 
-typedef void (^FinishUploadBlock)(NSArray *imageIds);
+typedef void (^FinishUploadBlock)(NSArray *imageIds, NSArray *imageSizes);
 
 @interface ImageBrowerViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 

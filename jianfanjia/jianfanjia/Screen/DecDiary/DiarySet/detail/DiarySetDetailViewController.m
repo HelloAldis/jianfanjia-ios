@@ -107,7 +107,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     
     DecDiary1StatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell initWithDiary:self.dataManager.diarys[indexPath.row] truncate:NO];
+    [cell initWithDiary:self.dataManager.diarys[indexPath.row] diarys:self.dataManager.diarys tableView:self.tableView truncate:NO];
     return cell;
 }
 
@@ -141,7 +141,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     request.diarySetid = self.diarySet._id;
     [API getDiarySetDetail:request success:^{
         [self.dataManager refresh];
-        self.diarySet = self.dataManager.diarySet;
+        self.diarySet.view_count = self.dataManager.diarySet.view_count;
         [self.tableView reloadData];
     } failure:^{
         

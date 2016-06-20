@@ -59,17 +59,17 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJT-1F-yIv" userLabel="msgView" customClass="YYLabel">
-                        <rect key="frame" x="20" y="48" width="348" height="0.0"/>
+                        <rect key="frame" x="0.0" y="48" width="381" height="0.0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="rDw-Hh-Et4"/>
+                            <constraint firstAttribute="height" priority="750" id="rDw-Hh-Et4"/>
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpK-Hc-Tmk" userLabel="imgsView">
                         <rect key="frame" x="0.0" y="48" width="381" height="0.0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" id="vGm-cB-WXQ"/>
+                            <constraint firstAttribute="height" priority="750" id="vGm-cB-WXQ"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5K-xh-6Xq" userLabel="ToolBar">
@@ -191,7 +191,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="X7m-5F-HdZ" secondAttribute="trailing" constant="-8" id="4pY-9R-5Vg"/>
                     <constraint firstItem="PpK-Hc-Tmk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="5NK-6g-Uxq"/>
                     <constraint firstItem="X7m-5F-HdZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="9Vi-YU-HFL"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="NJT-1F-yIv" secondAttribute="trailing" constant="5" id="Aai-a2-X1P"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="NJT-1F-yIv" secondAttribute="trailing" constant="-8" id="Aai-a2-X1P"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PpK-Hc-Tmk" secondAttribute="trailing" constant="-8" id="BRz-s0-fVI"/>
                     <constraint firstItem="PpK-Hc-Tmk" firstAttribute="top" secondItem="NJT-1F-yIv" secondAttribute="bottom" id="I87-ZZ-fIa"/>
                     <constraint firstItem="X7m-5F-HdZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="b06-om-96I"/>
@@ -199,14 +199,17 @@
                     <constraint firstAttribute="trailingMargin" secondItem="xmF-HI-0oK" secondAttribute="trailing" constant="-8" id="fyp-Ya-nA5"/>
                     <constraint firstItem="b5K-xh-6Xq" firstAttribute="top" secondItem="PpK-Hc-Tmk" secondAttribute="bottom" id="hZo-3m-1we"/>
                     <constraint firstAttribute="trailingMargin" secondItem="b5K-xh-6Xq" secondAttribute="trailing" constant="-8" id="hdE-I3-cuf"/>
-                    <constraint firstItem="NJT-1F-yIv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="12" id="jAr-lS-FKO"/>
+                    <constraint firstItem="NJT-1F-yIv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="jAr-lS-FKO"/>
                     <constraint firstAttribute="bottomMargin" secondItem="b5K-xh-6Xq" secondAttribute="bottom" constant="-10" id="lO0-Kq-gXN"/>
                     <constraint firstItem="xmF-HI-0oK" firstAttribute="top" secondItem="X7m-5F-HdZ" secondAttribute="bottom" id="xBc-9G-b2p"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="btnDel" destination="nRu-Hg-CyV" id="v9g-T3-c7K"/>
                 <outlet property="imgsHeightConst" destination="vGm-cB-WXQ" id="5RC-LZ-jF5"/>
                 <outlet property="imgsView" destination="PpK-Hc-Tmk" id="bwG-8J-Ihg"/>
+                <outlet property="lblPhase" destination="sdC-6O-Gkh" id="4GG-OT-qQ1"/>
+                <outlet property="lblPublishTime" destination="ftc-w3-XgP" id="nWc-eg-49g"/>
                 <outlet property="msgHeightConst" destination="rDw-Hh-Et4" id="Cd4-2R-0nO"/>
                 <outlet property="msgView" destination="NJT-1F-yIv" id="RGf-Vt-FQa"/>
                 <outlet property="toolbarView" destination="b5K-xh-6Xq" id="jP8-uh-wgI"/>

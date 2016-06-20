@@ -49,7 +49,7 @@
                         [controller.navigationController popViewControllerAnimated:YES];
                         [API uploadImage:request success:^{
                             if (block) {
-                                block(@[[DataManager shared].lastUploadImageid]);
+                                block(@[[DataManager shared].lastUploadImageid], @[[NSValue valueWithCGSize:request.image.size]]);
                             }
                         } failure:^{
                         } networkError:^{
@@ -61,7 +61,7 @@
                     request.image = [originalImage aspectToScale:kScreenWidth];
                     [API uploadImage:request success:^{
                         if (block) {
-                            block(@[[DataManager shared].lastUploadImageid]);
+                            block(@[[DataManager shared].lastUploadImageid], @[[NSValue valueWithCGSize:request.image.size]]);
                         }
                     } failure:^{
                         

@@ -42,7 +42,8 @@
     modifier.fixedLineHeight = 24;
     
     YYTextContainer *container = [YYTextContainer new];
-    container.size = CGSizeMake(kScreenWidth - 30, CGFLOAT_MAX);
+    container.insets = UIEdgeInsetsMake(5, 20, 15, 10);
+    container.size = CGSizeMake(kScreenWidth, CGFLOAT_MAX);
     container.linePositionModifier = modifier;
     container.truncationType = YYTextTruncationTypeEnd;
     container.truncationToken = [self truncationToken];

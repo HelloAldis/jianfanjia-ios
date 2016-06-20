@@ -11,8 +11,9 @@
 
 @interface DecDiary1StatusCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *designerImageView;
-
+@property (weak, nonatomic) IBOutlet UILabel *lblPhase;
+@property (weak, nonatomic) IBOutlet UILabel *lblPublishTime;
+@property (weak, nonatomic) IBOutlet UIButton *btnDel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *msgHeightConst;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgsHeightConst;
 @property (weak, nonatomic) IBOutlet YYLabel *msgView;
@@ -23,13 +24,14 @@
 @property (nonatomic, copy) YYTextAction tapMoreAction;
 
 @property (strong, nonatomic) Diary *diary;
+@property (strong, nonatomic) NSMutableArray *diarys;
+@property (weak, nonatomic) UITableView *tableView;
 
 @end
 
 @implementation DecDiary1StatusCell
 
 - (void)awakeFromNib {
-    [self.designerImageView setCornerRadius:30];
     self.msgView.textVerticalAlignment = YYTextVerticalAlignmentTop;
     self.msgView.displaysAsynchronously = YES;
     self.msgView.ignoreCommonProperties = YES;
@@ -37,8 +39,14 @@
     self.msgView.fadeOnHighlight = NO;
     
     @weakify(self);
+    [[self.btnDel rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onTapDel];
+    }];
+    
     self.tapMoreAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
         @strongify(self);
+        [self onTapMore];
     };
     
     NSMutableArray *picViews = [NSMutableArray new];
@@ -56,30 +64,54 @@
     self.picViews = picViews;
 }
 
-- (void)updateConstraints {
-    self.msgHeightConst.constant = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
-    self.imgsHeightConst.constant = self.diary.layout.picHeight;
-    [super updateConstraints];
-}
-
-- (void)initWithDiary:(Diary *)diary truncate:(BOOL)needTruncate {
+- (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView truncate:(BOOL)needTruncate {
+    self.tableView = tableView;
+    self.diarys = diarys;
     self.diary = diary;
     self.diary.layout.needTruncate = needTruncate;
     self.diary.layout.tapMoreAction = self.tapMoreAction;
     [self.diary.layout layout];
     
+    [self initHeader];
     [self initImageView];
     [self initMsg];
 }
 
 #pragma mark - ui
+- (void)initHeader {
+    self.lblPhase.text = [NSString stringWithFormat:@"%@%@", self.diary.section_label, @"阶段"];
+    self.lblPublishTime.text = [NSDate yyyy_Nian_MM_Yue_dd_Ri_HH_mm:self.diary.create_at];
+    self.btnDel.hidden = ![self.diary.authorid isEqualToString:[GVUserDefaults standardUserDefaults].userid];
+}
+
 - (void)initMsg {
-    self.msgView.text = self.diary.content;
+    self.msgHeightConst.constant = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
     self.msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
+}
+
+#pragma mark - user action
+- (void)onTapDel {
+    DeleteDiary *request = [[DeleteDiary alloc] init];
+    request.diaryid = self.diary._id;
+    
+    [API deleteDiary:request success:^{
+        NSInteger index = [self.diarys indexOfObject:self.diary];
+        [self.diarys removeObjectAtIndex:index];
+        [self.tableView deleteRowsAtIndexPaths:@[[self.tableView indexPathForCell:self]] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
+}
+
+- (void)onTapMore {
+    
 }
 
 #pragma mark - layout
 - (void)initImageView {
+    self.imgsHeightConst.constant = self.diary.layout.picHeight;
     NSArray *pics = self.diary.images;
     
     CGFloat imageTop = kPicTopMarging;

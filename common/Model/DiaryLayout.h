@@ -8,7 +8,7 @@
 
 #import "BaseModel.h"
 
-#define kPicTopMarging 20       // pic top 外边距
+#define kPicTopMarging 15       // pic top 外边距
 #define kPicBottomMarging 20    // pic bottom 外边距
 #define kPicPadding 20       // pic 内边距
 #define kPicPaddingPic 4     // pic 多张图片中间留白
