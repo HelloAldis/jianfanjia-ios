@@ -14,4 +14,7 @@
 @property (nonatomic, strong) NSNumber *from;
 @property (nonatomic, strong) NSNumber *limit;
 
+- (NSDictionary *)queryConGTTime:(NSNumber *)time;
+- (NSDictionary *)queryConLTTime:(NSNumber *)time;
+
 @end

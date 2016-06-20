@@ -27,5 +27,6 @@
 
 //辅助属性
 @property (nonatomic, strong) DiaryLayout *layout;
+@property (nonatomic, strong) NSNumber *last_refresh_time;
 
 @end

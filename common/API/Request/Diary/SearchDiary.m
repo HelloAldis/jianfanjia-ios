@@ -14,4 +14,20 @@
 @dynamic from;
 @dynamic limit;
 
+- (NSDictionary *)queryConGTTime:(NSNumber *)time {
+    return @{
+                 @"create_at":@{
+                         @"$gt":time
+                 }
+            };
+}
+
+- (NSDictionary *)queryConLTTime:(NSNumber *)time {
+    return @{
+             @"create_at":@{
+                     @"$lt":time
+                     }
+             };
+}
+
 @end

@@ -10,6 +10,6 @@
 
 @interface GetDiaryUpdation : BaseRequest
 
-- (instancetype)initWithDiarySet:(DiarySet *)diarySet;
+@property (nonatomic, strong) NSArray *diaryids;
 
 @end

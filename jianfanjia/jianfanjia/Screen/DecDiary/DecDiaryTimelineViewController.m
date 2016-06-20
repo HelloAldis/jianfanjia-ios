@@ -29,6 +29,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     
     [self initNav];
     [self initUI];
+    [self.tableView.header beginRefreshing];
 }
 
 #pragma mark - UI
@@ -51,73 +52,18 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     @weakify(self);
     self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
-        [self refresh];
+        if (self.dataManager.diarys.count == 0) {
+            [self loadMore];
+        } else {
+            [self refresh];
+            [self updateDiarysChange];
+        }
     }];
     
     self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMore];
     }];
-
-    [self refresh];
-}
-
-- (void)initData {
-    NSString *content = @"撒地方就拉屎；大家来看；烦；监控；就看电视剧看到就看到健康；劳动节快乐；大家快来加凯迪拉克家里的；就看到了；就看了；但快乐；简单就快乐的；就看到了；都看见了；都看见了；大家快乐；大家快乐大家快乐；简单快乐；宽带连接；都看见了；djkljdkljdkldkljkldjlkdjdkljkdj 撒地方就拉屎；大家来看；烦；监控；就看电视剧看到就看到健康；劳动节快乐；大家快来加凯迪拉克家里的；就看到了；就看了；但快乐；简单就快乐的；就看到了；都看见了；都看见了；大家快乐；大家快乐大家快乐；简单快乐；宽带连接；都看见了；djkljdkljdkldkljkldjlkdjdkljkdjl撒地方就拉屎；大家来看；烦；监控；就看电视剧看到就看到健康；劳动节快乐；大家快来加凯迪拉克家里的；就看到了；就看了；但快乐；简单就快乐的；就看到了；都看见了；都看见了；大家快乐；大家快乐大家快乐；简单快乐；宽带连接；都看见了；djkljdkljdkldkljkldjlkdjdkljkdjll";
-    
-    NSMutableArray *diarys = [@[
-                                @{
-                                    @"content":content,
-                                    @"images":@[
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@200,
-                                        }
-                                    ]
-                                },
-                                @{
-                                    @"content":content,
-                                    @"images":@[
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@500,
-                                          }
-                                        ]
-                                },
-                                @{
-                                    @"content":content,
-                                    @"images":@[
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@200,
-                                          },
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@200,
-                                          },
-                                        ]
-                                },
-                                @{
-                                    @"content":content,
-                                    @"images":@[
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@200,
-                                          },
-                                        @{@"imageid":@"55ed283ddfdb3ad44813bbdf",
-                                          @"width":@300,
-                                          @"height":@200,
-                                          },
-                                        ]
-                                },
-                                
-                                ] mutableCopy];
-    
-    [DataManager shared].data = @{
-                                  @"diarys":diarys
-                                };
-    [self.dataManager refresh];
-    [self.tableView reloadData];
 }
 
 #pragma mark - table view delegate
@@ -134,12 +80,65 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
 #pragma mark - api request
 - (void)refresh {
-    [self initData];
-    [self.tableView.header endRefreshing];
+    [self.tableView.footer resetNoMoreData];
+    
+    SearchDiary *request = [[SearchDiary alloc] init];
+    request.query = [request queryConGTTime:[self.dataManager findLatestRefreshTimeDiary]];
+    
+    [API searchDiary:request success:^{
+        [self.tableView.header endRefreshing];
+        NSInteger count = [self.dataManager refresh];
+        if (request.limit.integerValue > count) {
+            [self.tableView.footer endRefreshingWithNoMoreData];
+        }
+        
+        [self.tableView reloadData];
+    } failure:^{
+        [self.tableView.header endRefreshing];
+    } networkError:^{
+        [self.tableView.header endRefreshing];
+    }];
+}
+
+- (void)updateDiarysChange {
+    NSMutableDictionary *dict = [self.dataManager findNeedUpdatedDiarys];
+    NSArray *allKeys = dict.allKeys;
+    if (allKeys.count == 0) {
+        return;
+    }
+    
+    GetDiaryUpdation *request = [[GetDiaryUpdation alloc] init];
+    request.diaryids = allKeys;
+    
+    [API getDiaryUpdation:request success:^{
+        [self.dataManager updateChangedDiarys:dict];
+        [self.tableView reloadData];
+    } failure:^{
+    } networkError:^{
+    }];
 }
 
 - (void)loadMore {
-
+    SearchDiary *request = [[SearchDiary alloc] init];
+    request.query = [request queryConLTTime:[self.dataManager findOldestRefreshTimeDiary]];
+    request.limit = @50;
+    
+    [API searchDiary:request success:^{
+        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
+        NSInteger count = [self.dataManager loadMore];
+        if (request.limit.integerValue > count) {
+            [self.tableView.footer endRefreshingWithNoMoreData];
+        }
+        
+        [self.tableView reloadData];
+    } failure:^{
+        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
+    } networkError:^{
+        [self.tableView.header endRefreshing];
+        [self.tableView.footer endRefreshing];
+    }];
 }
 
 #pragma mark - user action

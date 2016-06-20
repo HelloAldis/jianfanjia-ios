@@ -15,6 +15,10 @@
 
 - (NSInteger)refresh;
 - (NSInteger)loadMore;
+- (NSNumber *)findLatestRefreshTimeDiary;
+- (NSNumber *)findOldestRefreshTimeDiary;
+- (NSMutableDictionary<NSString *, Diary *> *)findNeedUpdatedDiarys;
+- (void)updateChangedDiarys:(NSMutableDictionary<NSString *, Diary *> *)toBeUpdateDict;
 - (NSInteger)refreshDiarySets;
 
 @end

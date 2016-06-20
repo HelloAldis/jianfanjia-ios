@@ -68,9 +68,8 @@
 
 #pragma mark - ui
 - (void)initMsg {
-    self.msgView.text = self.diary.content;
-    self.msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
     self.msgHeightConst.constant = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
+    self.msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
 }
 
 #pragma mark - layout

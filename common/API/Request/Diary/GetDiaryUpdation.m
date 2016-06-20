@@ -10,12 +10,10 @@
 
 @implementation GetDiaryUpdation
 
-- (instancetype)initWithDiarySet:(DiarySet *)diarySet {
-    if (self = [super init]) {
-        self.data[@"diary_set"] = diarySet.data;
-    }
-    
-    return self;
+@dynamic diaryids;
+
+- (void)handleHttpError:(NSError *)err networkError:(void (^)(void))error {
+    [HUDUtil hideWait];
 }
 
 @end
