@@ -25,13 +25,23 @@
                     <color key="textColor" red="1" green="0.43921568630000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIG-ba-PwM" userLabel="topLine">
+                    <rect key="frame" x="0.0" y="49" width="534" height="1"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="mtU-pN-1Ts"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="G4y-6v-Uls" firstAttribute="leading" secondItem="ykH-dS-xoD" secondAttribute="trailing" constant="15" id="0Jy-1I-IKZ"/>
+                <constraint firstItem="mIG-ba-PwM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2Od-yE-064"/>
                 <constraint firstItem="G4y-6v-Uls" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="3CQ-pT-yvY"/>
                 <constraint firstItem="G4y-6v-Uls" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5zS-sR-BgG"/>
                 <constraint firstItem="ykH-dS-xoD" firstAttribute="centerY" secondItem="G4y-6v-Uls" secondAttribute="centerY" id="G09-45-YbT"/>
+                <constraint firstAttribute="trailing" secondItem="mIG-ba-PwM" secondAttribute="trailing" id="NSg-Yf-psa"/>
+                <constraint firstAttribute="bottom" secondItem="mIG-ba-PwM" secondAttribute="bottom" id="ete-UC-rEj"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
