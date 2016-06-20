@@ -9,6 +9,7 @@
 #import "BaseModel.h"
 
 @class DiaryLayout;
+@class Author;
 
 @interface Diary : BaseModel
 
@@ -26,6 +27,8 @@
 @property (nonatomic, strong) NSNumber *comment_count;
 
 //辅助属性
+@property (nonatomic, strong) Author *author;
+@property (nonatomic, strong) DiarySet *diarySet;
 @property (nonatomic, strong) DiaryLayout *layout;
 @property (nonatomic, strong) NSNumber *last_refresh_time;
 

@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="119m/三室/宜家/半包" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QjG-hl-Gj7">
-                                <rect key="frame" x="88" y="51" width="123" height="16"/>
+                                <rect key="frame" x="88" y="51" width="237" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -81,6 +81,7 @@
                             <constraint firstItem="QjG-hl-Gj7" firstAttribute="leading" secondItem="ftc-w3-XgP" secondAttribute="leading" id="a6m-Vm-rjC"/>
                             <constraint firstAttribute="trailing" secondItem="cTr-7h-DgP" secondAttribute="trailing" constant="8" id="dCL-Ee-wOL"/>
                             <constraint firstItem="QjG-hl-Gj7" firstAttribute="bottom" secondItem="B8Q-gs-ADd" secondAttribute="bottom" constant="-8" id="gCt-nP-9N9"/>
+                            <constraint firstItem="nRu-Hg-CyV" firstAttribute="leading" secondItem="QjG-hl-Gj7" secondAttribute="trailing" constant="8" id="nhI-yk-9Fj"/>
                             <constraint firstItem="Jwm-fy-tGU" firstAttribute="leading" secondItem="ftc-w3-XgP" secondAttribute="trailing" constant="8" id="pIa-qc-67C"/>
                             <constraint firstItem="B8Q-gs-ADd" firstAttribute="top" secondItem="xmF-HI-0oK" secondAttribute="top" constant="15" id="r4v-nE-UiB"/>
                             <constraint firstItem="Jwm-fy-tGU" firstAttribute="centerY" secondItem="ftc-w3-XgP" secondAttribute="centerY" id="wX0-Pk-iYz"/>
@@ -233,9 +234,14 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="designerImageView" destination="B8Q-gs-ADd" id="W37-QY-H3x"/>
+                <outlet property="avatarImageView" destination="B8Q-gs-ADd" id="xNf-GN-VcP"/>
+                <outlet property="btnDel" destination="nRu-Hg-CyV" id="hoi-Uk-ICT"/>
                 <outlet property="imgsHeightConst" destination="vGm-cB-WXQ" id="5RC-LZ-jF5"/>
                 <outlet property="imgsView" destination="PpK-Hc-Tmk" id="bwG-8J-Ihg"/>
+                <outlet property="lblInfo" destination="QjG-hl-Gj7" id="kdr-8c-fq9"/>
+                <outlet property="lblPhase" destination="Jwm-fy-tGU" id="HfL-aT-Naa"/>
+                <outlet property="lblPublishTime" destination="cTr-7h-DgP" id="CpK-aD-QLR"/>
+                <outlet property="lblTitle" destination="ftc-w3-XgP" id="psa-rh-yIZ"/>
                 <outlet property="msgHeightConst" destination="rDw-Hh-Et4" id="Cd4-2R-0nO"/>
                 <outlet property="msgView" destination="NJT-1F-yIv" id="RGf-Vt-FQa"/>
                 <outlet property="toolbarView" destination="b5K-xh-6Xq" id="jP8-uh-wgI"/>

@@ -39,5 +39,6 @@
 #import "Diary.h"
 #import "DiaryLayout.h"
 #import "DiarySet.h"
+#import "Author.h"
 
 #endif /* Model_h */

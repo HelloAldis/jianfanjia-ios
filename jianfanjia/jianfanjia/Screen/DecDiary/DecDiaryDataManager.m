@@ -27,6 +27,11 @@
     
     for (NSMutableDictionary *dict in arr) {
         Diary *diary = [[Diary alloc] initWith:dict];
+        DiarySet *diarySet = [[DiarySet alloc] initWith:[diary.data objectForKey:@"diarySet"]];
+        Author *author = [[Author alloc] initWith:[diary.data objectForKey:@"author"]];
+        diary.diarySet = diarySet;
+        diary.author = author;
+        
         diary.last_refresh_time = @([[NSDate date] getLongMilSecond]);
         [diarys addObject:diary];
     }
@@ -41,6 +46,11 @@
     
     for (NSMutableDictionary *dict in arr) {
         Diary *diary = [[Diary alloc] initWith:dict];
+        DiarySet *diarySet = [[DiarySet alloc] initWith:[diary.data objectForKey:@"diarySet"]];
+        Author *author = [[Author alloc] initWith:[diary.data objectForKey:@"author"]];
+        diary.diarySet = diarySet;
+        diary.author = author;
+        
         diary.last_refresh_time = @([[NSDate date] getLongMilSecond]);
         [diarys addObject:diary];
     }
