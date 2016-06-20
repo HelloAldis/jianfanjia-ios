@@ -40,6 +40,14 @@ CGFloat kDiarySetCellHeight;
     [self.barView setCornerRadius:self.barView.frame.size.height / 2];
     [self.btnPhase setCornerRadius:self.btnPhase.frame.size.height / 2];
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)]];
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = CGRectMake(0, 0, kScreenWidth, kDiarySetCellHeight);
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithR:0x00 g:0x00 b:0x00 a:0.3] CGColor], (id)[[UIColor clearColor] CGColor], nil];
+    gradient.startPoint = CGPointMake(0.5, 1.0);
+    gradient.endPoint = CGPointMake(0.5, 0.0);
+    gradient.locations = @[@0.15, @1.0];
+    [self.productImageView.layer addSublayer:gradient];
 }
 
 - (void)initWithDiarySet:(DiarySet *)diarySet edit:(BOOL)edit deleteBlock:(DiarySetCellDeleteBlock)deleteBlock {
