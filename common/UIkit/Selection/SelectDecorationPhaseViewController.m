@@ -11,7 +11,6 @@
 
 #define kMaxSelectionCount 3
 
-static const NSInteger CELL_SPACE = 4;
 static const NSInteger CELL_WIDTH_ASPECT = 4;
 static const NSInteger CELL_HEIGHT_ASPECT = 6;
 
@@ -28,6 +27,7 @@ static NSString* cellId = @"DecorationPhaseCell";
 @property (strong, nonatomic) NSMutableArray *selectedData;
 
 @property (assign, nonatomic) CGFloat cellWidth;
+@property (assign, nonatomic) CGFloat cellSpace;
 
 @end
 
@@ -47,13 +47,6 @@ static NSString* cellId = @"DecorationPhaseCell";
     [self initLeftBackInNav];
     
     self.title = @"装修阶段选择";
-    
-    if (self.selectionType == SelectionTypeMultiple) {
-//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(onClickOk)];
-//        self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-//        [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
-//        self.title = @"最多可选择三种擅长风格";
-    }
 }
 
 #pragma mark - UI
@@ -62,10 +55,11 @@ static NSString* cellId = @"DecorationPhaseCell";
     self.collectionView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     [self.collectionView registerNib:[UINib nibWithNibName:cellId bundle:nil] forCellWithReuseIdentifier:cellId];
     self.cellWidth = 70;
+    self.cellSpace = (kScreenWidth - 4 * self.cellWidth) / (4 + 1);
     CGFloat cellHeight = self.cellWidth / CELL_WIDTH_ASPECT * CELL_HEIGHT_ASPECT;
     self.collectionFlowLayout.itemSize = CGSizeMake(self.cellWidth, cellHeight);
-    self.collectionFlowLayout.minimumInteritemSpacing = CELL_SPACE;
-    self.collectionFlowLayout.minimumLineSpacing = CELL_SPACE;
+    self.collectionFlowLayout.minimumInteritemSpacing = self.cellSpace;
+    self.collectionFlowLayout.minimumLineSpacing = self.cellSpace;
 }
 
 #pragma mark - init data 
@@ -123,20 +117,17 @@ static NSString* cellId = @"DecorationPhaseCell";
         key = self.keys3[indexPath.row];
     } else if (indexPath.section == 3) {
         key = self.keys4[indexPath.row];
-        CGPoint center = cell.center;
-        CGPointMake(kScreenWidth / 2.0, center.y);
-        cell.center = center;
     }
     
-    NSString* imageName = [NSString stringWithFormat:@"dec_style_%@", key];
-    [cell initWithImage:[UIImage imageNamed:imageName] title:key];
-    
     if ([self.selectedData containsObject:key]) {
-        [cell setBorder:3 andColor:kThemeColor.CGColor];
+        NSString* imageName = [NSString stringWithFormat:@"%@_2", key];
+        [cell initWithImage:[UIImage imageNamed:imageName] title:key];
     } else if ([self.curValue isEqualToString:key]) {
-        [cell setBorder:3 andColor:kThemeColor.CGColor];
+        NSString* imageName = [NSString stringWithFormat:@"%@_2", key];
+        [cell initWithImage:[UIImage imageNamed:imageName] title:key];
     } else {
-        [cell setBorder:0 andColor:kThemeColor.CGColor];
+        NSString* imageName = [NSString stringWithFormat:@"%@_0", key];
+        [cell initWithImage:[UIImage imageNamed:imageName] title:key];
     }
     
     return cell;
@@ -185,9 +176,9 @@ static NSString* cellId = @"DecorationPhaseCell";
 
 #pragma mark - section inset
 - (UIEdgeInsets)sectionInsert:(NSArray *)array {
-    CGFloat padding = kScreenWidth - array.count * (self.cellWidth + CELL_SPACE) + CELL_SPACE;
+    CGFloat padding = kScreenWidth - array.count * (self.cellWidth + self.cellSpace) + self.cellSpace;
     
-    return UIEdgeInsetsMake(20, padding / 2.0, 20, padding / 2.0);
+    return UIEdgeInsetsMake(20, padding / 2.0, 0, padding / 2.0);
 }
 
 @end
