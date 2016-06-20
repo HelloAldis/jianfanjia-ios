@@ -9,6 +9,7 @@
 #import "StaticImageCollectionCell.h"
 
 @interface StaticImageCollectionCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *deleteImgView;
 
 @end
 
@@ -17,7 +18,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self.image addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImage)]];
-    [self.lblDeleteText addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDelete)]];
+    self.deleteView.tintColor = [UIColor whiteColor];
+    [self.deleteView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDelete)]];
 }
 
 - (void)initWithImageId:(NSString *)imageid {

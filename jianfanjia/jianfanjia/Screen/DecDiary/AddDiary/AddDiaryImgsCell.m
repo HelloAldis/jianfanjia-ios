@@ -81,10 +81,10 @@ static CGFloat imgCellWidth;
     if (indexPath.row < self.diary.images.count) {
         LeafImage *img = [[LeafImage alloc] initWith:self.diary.images[indexPath.row]];
         [cell initWithImageId:img.imageid];
-        cell.lblDeleteText.hidden = NO;
+        cell.deleteView.hidden = NO;
     } else {
-        [cell initWithImage:[UIImage imageNamed:@"btn_add_image"]];
-        cell.lblDeleteText.hidden = YES;
+        [cell initWithImage:[UIImage imageNamed:@"icon_add_photo"]];
+        cell.deleteView.hidden = YES;
     }
     
     cell.tapImageBlock = self.tapImageBlock;

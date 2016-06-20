@@ -16,7 +16,7 @@ typedef void (^StaticImageColCellTapDeleteBlock)(StaticImageCollectionCell *cell
 @interface StaticImageCollectionCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *image;
-@property (weak, nonatomic) IBOutlet UILabel *lblDeleteText;
+@property (weak, nonatomic) IBOutlet UIView *deleteView;
 
 @property (copy, nonatomic) StaticImageColCellTapImageBlock tapImageBlock;
 @property (copy, nonatomic) StaticImageColCellTapDeleteBlock tapDeleteBlock;
