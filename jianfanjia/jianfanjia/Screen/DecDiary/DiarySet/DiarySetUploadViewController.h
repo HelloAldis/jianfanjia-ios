@@ -8,8 +8,10 @@
 
 #import "BaseViewController.h"
 
+typedef void (^DiarySetUploadDoneBlock)(void) ;
+
 @interface DiarySetUploadViewController : BaseViewController
 
-- (instancetype)initWithDiarySet:(DiarySet *)diarySet;
+- (instancetype)initWithDiarySet:(DiarySet *)diarySet done:(DiarySetUploadDoneBlock)done;
 
 @end

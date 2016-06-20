@@ -21,13 +21,17 @@
 @property (nonatomic, strong) NSMutableArray<EditCellItem *> *totalArr;
 
 @property (nonatomic, strong) DiarySet *diarySet;
+@property (nonatomic, strong) DiarySet *srcDiarySet;
+@property (nonatomic, strong) DiarySetUploadDoneBlock done;
 
 @end
 
 @implementation DiarySetUploadViewController
 
-- (instancetype)initWithDiarySet:(DiarySet *)diarySet {
+- (instancetype)initWithDiarySet:(DiarySet *)diarySet done:(DiarySetUploadDoneBlock)done {
     if (self = [super init]) {
+        _done = done;
+        _srcDiarySet = diarySet;
         if (diarySet) {
             _diarySet = [[DiarySet alloc] init];
             [_diarySet merge:diarySet];
@@ -105,7 +109,7 @@
                                  self.diarySet.house_area = @([curItem.value integerValue]);
                              }
                          } length:6 keyboard:UIKeyboardTypeNumberPad],
-                         [EditCellItem createSelection:@"户型" value:nil allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
+                         [EditCellItem createSelection:@"户型" value:[NameDict nameForHouseType:self.diarySet.house_type] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              [self.view endEditing:YES];
                              SelectHouseTypeViewController *controller = [[SelectHouseTypeViewController alloc] initWithValueBlock:^(id value) {
@@ -192,7 +196,10 @@
     if ([self isNewDiarySet]) {
         [API addDiarySet:request success:^{
             DiarySet *diarySet = [[DiarySet alloc] initWith:[DataManager shared].data];
-            [ViewControllerContainer showDiarySetDetail:diarySet];
+            [ViewControllerContainer showDiarySetDetail:diarySet fromNewDiarySet:YES];
+            if (self.done) {
+                self.done();
+            }
         } failure:^{
             
         } networkError:^{
@@ -200,8 +207,11 @@
         }];
     } else {
         [API updateDiarySet:request success:^{
-            DiarySet *diarySet = [[DiarySet alloc] initWith:[DataManager shared].data];
-            [ViewControllerContainer showDiarySetDetail:diarySet];
+            [self.srcDiarySet merge:self.diarySet];
+            [ViewControllerContainer showDiarySetDetail:self.diarySet fromNewDiarySet:NO];
+            if (self.done) {
+                self.done();
+            }
         } failure:^{
             
         } networkError:^{

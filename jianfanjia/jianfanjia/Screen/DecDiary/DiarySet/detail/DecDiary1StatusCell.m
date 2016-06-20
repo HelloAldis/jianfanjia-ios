@@ -81,7 +81,7 @@
 - (void)initHeader {
     self.lblPhase.text = [NSString stringWithFormat:@"%@%@", self.diary.section_label, @"阶段"];
     self.lblPublishTime.text = [NSDate yyyy_Nian_MM_Yue_dd_Ri_HH_mm:self.diary.create_at];
-    self.btnDel.hidden = ![self.diary.authorid isEqualToString:[GVUserDefaults standardUserDefaults].userid];
+    self.btnDel.hidden = ![DiaryBusiness isOwnDiary:self.diary];
 }
 
 - (void)initMsg {

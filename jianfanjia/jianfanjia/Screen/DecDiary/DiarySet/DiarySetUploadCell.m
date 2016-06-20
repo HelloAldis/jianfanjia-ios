@@ -21,7 +21,7 @@
 }
 
 - (void)onTap {
-    [ViewControllerContainer showDiarySetUpload:nil];
+    [ViewControllerContainer showDiarySetUpload:nil done:nil];
 }
 
 @end

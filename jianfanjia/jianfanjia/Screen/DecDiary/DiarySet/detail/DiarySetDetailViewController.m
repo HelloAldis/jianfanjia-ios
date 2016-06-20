@@ -24,14 +24,16 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 @property (strong, nonatomic) DiarySetDetailDataManager *dataManager;
 @property (strong, nonatomic) DiarySet *diarySet;
+@property (assign, nonatomic) BOOL fromNewDiarySet;
 
 @end
 
 @implementation DiarySetDetailViewController
 
-- (instancetype)initWithDiarySet:(DiarySet *)diarySet {
+- (instancetype)initWithDiarySet:(DiarySet *)diarySet fromNewDiarySet:(BOOL)fromNewDiarySet {
     if (self = [super init]) {
         _diarySet = diarySet;
+        _fromNewDiarySet = fromNewDiarySet;
     }
     
     return self;
@@ -79,7 +81,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         return 0;
     }
     
-    return kAddDiarySectionViewHeight;
+    return [DiaryBusiness isOwnDiarySet:self.diarySet] ? kAddDiarySectionViewHeight : 0;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -87,7 +89,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         return nil;
     }
     
-    return self.addDiarySectionView;
+    return [DiaryBusiness isOwnDiarySet:self.diarySet] ? self.addDiarySectionView : nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -102,6 +104,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     if (indexPath.section == 0) {
         DiarySetAvtarInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiarySetAvtarInfoCellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell initWithDiarySet:self.diarySet tableView:self.tableView];
         return cell;
     }
     
@@ -151,6 +154,16 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 #pragma mark - user action
+- (void)onClickBack {
+    if (self.fromNewDiarySet) {
+        NSArray *vcArr = self.navigationController.viewControllers;
+        UIViewController *purposeVC = vcArr[vcArr.count - 3];
+        [self.navigationController popToViewController:purposeVC animated:YES];
+    } else {
+        [super onClickBack];
+    }
+}
+
 - (void)onTapAddDiary {
     [ViewControllerContainer showDiaryAdd:@[self.diarySet] completion:^(BOOL completion) {
         if (completion) {

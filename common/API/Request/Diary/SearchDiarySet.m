@@ -11,6 +11,7 @@
 @implementation SearchDiarySet
 
 @dynamic query;
+@dynamic sort;
 @dynamic from;
 @dynamic limit;
 

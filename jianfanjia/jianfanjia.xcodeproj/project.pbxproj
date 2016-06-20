@@ -417,6 +417,7 @@
 		68EE3E6F1D13F05300F5EF83 /* SearchDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E641D13F05300F5EF83 /* SearchDiary.m */; };
 		68EE3E701D13F05300F5EF83 /* SearchDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E661D13F05300F5EF83 /* SearchDiarySet.m */; };
 		68EE3E711D13F05300F5EF83 /* ZanDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E681D13F05300F5EF83 /* ZanDiary.m */; };
+		68EE3E741D1784BC00F5EF83 /* DiaryBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E731D1784BC00F5EF83 /* DiaryBusiness.m */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1264,6 +1265,8 @@
 		68EE3E661D13F05300F5EF83 /* SearchDiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchDiarySet.m; sourceTree = "<group>"; };
 		68EE3E671D13F05300F5EF83 /* ZanDiary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZanDiary.h; sourceTree = "<group>"; };
 		68EE3E681D13F05300F5EF83 /* ZanDiary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZanDiary.m; sourceTree = "<group>"; };
+		68EE3E721D1784BC00F5EF83 /* DiaryBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryBusiness.h; sourceTree = "<group>"; };
+		68EE3E731D1784BC00F5EF83 /* DiaryBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryBusiness.m; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2624,6 +2627,8 @@
 				68342DF81BFC45EE0000EBBE /* RequirementBusiness.m */,
 				689ECEDA1D00384B0046DDC8 /* ProductBusiness.h */,
 				689ECEDB1D00384B0046DDC8 /* ProductBusiness.m */,
+				68EE3E721D1784BC00F5EF83 /* DiaryBusiness.h */,
+				68EE3E731D1784BC00F5EF83 /* DiaryBusiness.m */,
 				68134A491C3D1486003C1C10 /* EnumBusiness.h */,
 				688517641C915862000B01DB /* NotificationBusiness.h */,
 				688517651C915862000B01DB /* NotificationBusiness.m */,
@@ -3587,6 +3592,7 @@
 				AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */,
 				68679A451C8EB48100B380D0 /* NotificationDetailViewController.m in Sources */,
 				68123BB41C47D1CC008FC9AB /* JYZSocialSnsHelper.m in Sources */,
+				68EE3E741D1784BC00F5EF83 /* DiaryBusiness.m in Sources */,
 				68B10CBD1C78686E005866C1 /* ProductCaseListDataManager.m in Sources */,
 				684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */,
 				68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */,

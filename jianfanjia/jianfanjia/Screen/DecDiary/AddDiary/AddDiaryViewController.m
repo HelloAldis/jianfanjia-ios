@@ -219,20 +219,8 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 }
 
 - (void)initCurDiarySet {
-    if (self.diarySets.count == 1) {
+    if (self.diarySets.count > 0) {
         self.curDiarySet = self.diarySets[0];
-    } else if (self.diarySets.count > 1) {
-        NSArray *orderedKeys = [self.diarySets sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(DiarySet*  _Nonnull obj1, DiarySet*  _Nonnull obj2) {
-            if ([obj1.lastupdate compare:obj2.lastupdate] == NSOrderedAscending) {
-                return NSOrderedAscending;
-            } else if ([obj1.lastupdate compare:obj2.lastupdate] == NSOrderedDescending) {
-                return NSOrderedDescending;
-            } else {
-                return NSOrderedSame;
-            }
-        }];
-        
-        self.curDiarySet = orderedKeys.lastObject;
     }
     
     [self changeCurPhase];

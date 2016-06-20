@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "AddDiaryViewController.h"
+#import "DiarySetUploadViewController.h"
 
 static NSString * const kLogoutNotification = @"LogoutNotification";
 
@@ -52,8 +53,8 @@ static NSString * const kLogoutNotification = @"LogoutNotification";
 + (void)showMyNotification:(NotificationType)displayType;
 + (void)showNotificationDetail:(NSString *)notificationid readBlock:(NotificationReadBlock)readBlock;
 + (void)showMyDiarySet;
-+ (void)showDiarySetUpload:(DiarySet *)diarySet;
-+ (void)showDiarySetDetail:(DiarySet *)diarySet;
++ (void)showDiarySetUpload:(DiarySet *)diarySet done:(DiarySetUploadDoneBlock)done;
++ (void)showDiarySetDetail:(DiarySet *)diarySet fromNewDiarySet:(BOOL)fromNewDiarySet;
 + (void)showDiaryAdd:(NSArray<DiarySet *> *)diarySets completion:(AddDiaryCompletion)completion;
 + (void)showMyComments;
 + (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;

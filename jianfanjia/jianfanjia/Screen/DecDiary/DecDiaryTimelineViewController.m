@@ -147,6 +147,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     SearchDiarySet *request = [[SearchDiarySet alloc] init];
     request.from = @0;
     request.limit = @10000;
+    request.sort = @{@"lastupdate":@-1};
     
     [HUDUtil showWait];
     [API getMyDiarySet:request success:^{

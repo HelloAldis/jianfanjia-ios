@@ -49,7 +49,6 @@
 #import "OrderTaggedDesignerViewController.h"
 #import "DecDiaryTimelineViewController.h"
 #import "DiarySetListViewController.h"
-#import "DiarySetUploadViewController.h"
 #import "DiarySetDetailViewController.h"
 
 @interface ViewControllerContainer ()
@@ -409,13 +408,21 @@ static ViewControllerContainer *container;
     [container.navigation pushViewController:v animated:YES];
 }
 
-+ (void)showDiarySetUpload:(DiarySet *)diarySet {
-    DiarySetUploadViewController *v = [[DiarySetUploadViewController alloc] initWithDiarySet:diarySet];
++ (void)showDiarySetUpload:(DiarySet *)diarySet done:(DiarySetUploadDoneBlock)done {
+    DiarySetUploadViewController *v = [[DiarySetUploadViewController alloc] initWithDiarySet:diarySet done:done];
     [container.navigation pushViewController:v animated:YES];
 }
 
-+ (void)showDiarySetDetail:(DiarySet *)diarySet {
-    DiarySetDetailViewController *v = [[DiarySetDetailViewController alloc] initWithDiarySet:diarySet];
++ (void)showDiarySetDetail:(DiarySet *)diarySet fromNewDiarySet:(BOOL)fromNewDiarySet {
+    UINavigationController* nav =  container.navigation;
+    for (UIViewController *v in nav.viewControllers) {
+        if ([v isKindOfClass:[DiarySetDetailViewController class]]) {
+            [nav popToViewController:v animated:YES];
+            return;
+        }
+    }
+    
+    DiarySetDetailViewController *v = [[DiarySetDetailViewController alloc] initWithDiarySet:diarySet fromNewDiarySet:fromNewDiarySet];
     [container.navigation pushViewController:v animated:YES];
 }
 
