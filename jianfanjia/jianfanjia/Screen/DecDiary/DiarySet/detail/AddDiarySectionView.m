@@ -8,10 +8,17 @@
 
 #import "AddDiarySectionView.h"
 
+@interface AddDiarySectionView ()
+@property (weak, nonatomic) IBOutlet UIImageView *iconPlus;
+
+@end
+
 @implementation AddDiarySectionView
 
 + (AddDiarySectionView *)addDiarySectionView {
-    return [[NSBundle mainBundle] loadNibNamed:@"AddDiarySectionView" owner:nil options:nil].lastObject;
+    AddDiarySectionView *view = [[NSBundle mainBundle] loadNibNamed:@"AddDiarySectionView" owner:nil options:nil].lastObject;
+    view.iconPlus.tintColor = kThemeColor;
+    return view;
 }
 
 @end

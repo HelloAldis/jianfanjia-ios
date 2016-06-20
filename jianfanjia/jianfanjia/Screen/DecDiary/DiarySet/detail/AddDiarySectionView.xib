@@ -12,11 +12,11 @@
             <rect key="frame" x="0.0" y="0.0" width="534" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_dec_beautiful_img" translatesAutoresizingMaskIntoConstraints="NO" id="ykH-dS-xoD">
-                    <rect key="frame" x="205" y="13" width="25" height="25"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_plus_add" translatesAutoresizingMaskIntoConstraints="NO" id="ykH-dS-xoD">
+                    <rect key="frame" x="215" y="18" width="15" height="15"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ykH-dS-xoD" secondAttribute="height" multiplier="1:1" id="DOf-AX-SUE"/>
-                        <constraint firstAttribute="width" constant="25" id="Jcg-1x-EfW"/>
+                        <constraint firstAttribute="width" constant="15" id="Jcg-1x-EfW"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="写日记" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G4y-6v-Uls">
@@ -45,10 +45,13 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="iconPlus" destination="ykH-dS-xoD" id="0zh-rO-A8W"/>
+            </connections>
             <point key="canvasLocation" x="9" y="224"/>
         </view>
     </objects>
     <resources>
-        <image name="icon_dec_beautiful_img" width="60" height="60"/>
+        <image name="icon_plus_add" width="26" height="26"/>
     </resources>
 </document>

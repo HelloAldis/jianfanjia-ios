@@ -22,11 +22,11 @@
                             <constraint firstAttribute="height" constant="40" id="GbS-tt-cqO"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="新建日记本" backgroundImage="icon_auth_upload">
+                        <state key="normal" title="新建日记本" backgroundImage="icon_diary_set_upload">
                             <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_auth_add" translatesAutoresizingMaskIntoConstraints="NO" id="CSd-JK-top">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_plus_add" translatesAutoresizingMaskIntoConstraints="NO" id="CSd-JK-top">
                         <rect key="frame" x="39" y="30" width="16" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="16" id="Jkd-MF-MB2"/>
@@ -48,7 +48,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="icon_auth_add" width="26" height="26"/>
-        <image name="icon_auth_upload" width="386" height="40"/>
+        <image name="icon_diary_set_upload" width="386" height="40"/>
+        <image name="icon_plus_add" width="26" height="26"/>
     </resources>
 </document>
