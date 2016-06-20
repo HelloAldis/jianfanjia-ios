@@ -20,6 +20,7 @@ static NSString *DiarySetCellIdentifier = @"DiarySetCell";
 
 @property (strong, nonatomic) DiarySetDataManager *dataManager;
 @property (assign, nonatomic) BOOL isEditing;
+@property (assign, nonatomic) BOOL wasFirstRefresh;
 
 @end
 
@@ -35,7 +36,12 @@ static NSString *DiarySetCellIdentifier = @"DiarySetCell";
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self refresh];
+    if (!self.wasFirstRefresh) {
+        self.wasFirstRefresh = YES;
+        [self.tableView.header beginRefreshing];
+    } else {
+        [self refresh];
+    }
 }
 
 #pragma mark - UI
