@@ -11,7 +11,7 @@
 @implementation DiarySetDetailDataManager
 
 - (NSInteger)refresh {
-    NSMutableDictionary *dic = [[DataManager shared].data objectForKey:@"diarySet"];
+    NSMutableDictionary *dic = [DataManager shared].data;
     self.diarySet = [[DiarySet alloc] initWith:dic];
     
     NSArray* arr = [self.diarySet.data objectForKey:@"diaries"];

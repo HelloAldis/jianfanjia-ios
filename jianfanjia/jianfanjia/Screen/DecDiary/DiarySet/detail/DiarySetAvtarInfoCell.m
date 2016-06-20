@@ -36,10 +36,12 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self.btnModifyCover setBorder:1.0 andColor:[UIColor whiteColor].CGColor];
+    [self.btnModifyCover setCornerRadius:self.btnModifyCover.frame.size.height / 2.0];
     [self.avatarImgView setCornerRadius:self.avatarImgView.frame.size.width / 2];
     [self.avatarImgView setBorder:1 andColor:[UIColor whiteColor].CGColor];
     [self.editDiarySetInfoImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapEdit)]];
-    [self.diarySetBGImgView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(onTapModifyCover)]];
+    [self.diarySetBGImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapModifyCover)]];
     
     @weakify(self);
     [[self.btnModifyCover rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {

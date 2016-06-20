@@ -500,7 +500,11 @@ static ViewControllerContainer *container;
     UINavigationController *nav;
     if (container.window.rootViewController == container.navigation) {
         UIViewController *presented = container.navigation.presentedViewController;
-        nav = presented ? (UINavigationController *)presented : container.navigation;
+        if (presented && ![presented isKindOfClass:[UIAlertController class]]) {
+            nav = (UINavigationController *)presented;
+        } else {
+            nav = container.navigation;
+        }
     } else {
         nav = (UINavigationController *)container.window.rootViewController;
     }
