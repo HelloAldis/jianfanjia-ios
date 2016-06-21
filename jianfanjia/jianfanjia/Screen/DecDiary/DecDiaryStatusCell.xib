@@ -34,19 +34,19 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="119m/三室/宜家/半包" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QjG-hl-Gj7">
-                                <rect key="frame" x="88" y="51" width="237" height="16"/>
+                                <rect key="frame" x="88" y="51" width="241" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="开工阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwm-fy-tGU">
-                                <rect key="frame" x="166" y="24" width="151" height="16"/>
+                                <rect key="frame" x="166" y="24" width="149" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRu-Hg-CyV">
-                                <rect key="frame" x="333" y="45" width="40" height="28"/>
+                                <rect key="frame" x="337" y="45" width="40" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Cd0-6m-3Go"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                                 </state>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" text="3分钟前" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTr-7h-DgP">
-                                <rect key="frame" x="325" y="24" width="48" height="16"/>
+                                <rect key="frame" x="323" y="24" width="48" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -75,11 +75,11 @@
                             <constraint firstItem="nRu-Hg-CyV" firstAttribute="centerY" secondItem="QjG-hl-Gj7" secondAttribute="centerY" id="HYm-2c-KnW"/>
                             <constraint firstAttribute="bottom" secondItem="B8Q-gs-ADd" secondAttribute="bottom" constant="10" id="LSN-cT-iWm"/>
                             <constraint firstItem="ftc-w3-XgP" firstAttribute="top" secondItem="B8Q-gs-ADd" secondAttribute="top" constant="8" id="LWV-XD-tZJ"/>
-                            <constraint firstItem="nRu-Hg-CyV" firstAttribute="trailing" secondItem="cTr-7h-DgP" secondAttribute="trailing" id="P9P-a8-MUl"/>
+                            <constraint firstItem="nRu-Hg-CyV" firstAttribute="trailing" secondItem="cTr-7h-DgP" secondAttribute="trailing" constant="6" id="P9P-a8-MUl"/>
                             <constraint firstItem="cTr-7h-DgP" firstAttribute="centerY" secondItem="ftc-w3-XgP" secondAttribute="centerY" id="PEx-gy-5ro"/>
                             <constraint firstItem="ftc-w3-XgP" firstAttribute="leading" secondItem="B8Q-gs-ADd" secondAttribute="trailing" constant="8" id="WwL-F1-sBP"/>
                             <constraint firstItem="QjG-hl-Gj7" firstAttribute="leading" secondItem="ftc-w3-XgP" secondAttribute="leading" id="a6m-Vm-rjC"/>
-                            <constraint firstAttribute="trailing" secondItem="cTr-7h-DgP" secondAttribute="trailing" constant="8" id="dCL-Ee-wOL"/>
+                            <constraint firstAttribute="trailing" secondItem="cTr-7h-DgP" secondAttribute="trailing" constant="10" id="dCL-Ee-wOL"/>
                             <constraint firstItem="QjG-hl-Gj7" firstAttribute="bottom" secondItem="B8Q-gs-ADd" secondAttribute="bottom" constant="-8" id="gCt-nP-9N9"/>
                             <constraint firstItem="nRu-Hg-CyV" firstAttribute="leading" secondItem="QjG-hl-Gj7" secondAttribute="trailing" constant="8" id="nhI-yk-9Fj"/>
                             <constraint firstItem="Jwm-fy-tGU" firstAttribute="leading" secondItem="ftc-w3-XgP" secondAttribute="trailing" constant="8" id="pIa-qc-67C"/>
