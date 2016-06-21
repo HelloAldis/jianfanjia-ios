@@ -144,9 +144,11 @@ NSString * const kProductAuthTypeBreakRule  = @"3";
  评论类别 topictype
  * 0. 方案的评论
  * 1. 装修流程的小点的评论
+ * 2. 日记正文的评论
 **/
 NSString * const kTopicTypePlan = @"0";
 NSString * const kTopicTypeProcess = @"1";
+NSString * const kTopicTypeDiary = @"2";
 
 
 /**

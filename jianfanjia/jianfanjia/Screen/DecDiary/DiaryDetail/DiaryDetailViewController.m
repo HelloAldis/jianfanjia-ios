@@ -16,13 +16,23 @@
 static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
 
+static const CGFloat kMinMessageHeight = 40;
+static const CGFloat kMaxMessageHeight = 80;
+
 @interface DiaryDetailViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *footerView;
+@property (weak, nonatomic) IBOutlet UITextView *tvMessage;
+@property (weak, nonatomic) IBOutlet UIButton *btnSend;
+@property (weak, nonatomic) IBOutlet UILabel *lblLeftCharCount;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *messageHeight;
+@property (assign, nonatomic) NSUInteger maxCount;
 
 @property (strong, nonatomic) DiaryDetailDataManager *dataManager;
 @property (strong, nonatomic) Diary *diary;
 @property (assign, nonatomic) BOOL showComment;
+@property (assign, nonatomic) BOOL wasFirstLoad;
 
 @end
 
@@ -45,6 +55,22 @@ static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
     [self initUI];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    @weakify(self);
+    [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
+        @strongify(self);
+        CGFloat keyboardHeight = keyboardRect.size.height;
+        self.view.frame = CGRectMake(0, 0, kScreenWidth, kScreenHeight - (isShowing ? keyboardHeight : 0));
+    } completion:nil];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self jfj_unsubscribeKeyboard];
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
@@ -55,14 +81,45 @@ static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
     self.dataManager = [[DiaryDetailDataManager alloc] init];
     [self.dataManager initDiary:self.diary];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 300;
     [self.tableView registerNib:[UINib nibWithNibName:DecDiaryStatusCellIdentifier bundle:nil] forCellReuseIdentifier:DecDiaryStatusCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:DiaryMessageCellIdentifier bundle:nil] forCellReuseIdentifier:DiaryMessageCellIdentifier];
     
+    self.tvMessage.bgColor = kViewBgColor;
+    [self.tvMessage setCornerRadius:5];
+    [self.footerView setBorder:0.5 andColor:[UIColor colorWithR:0xE8 g:0xE9 b:0xEA].CGColor];
+    [self.btnSend setCornerRadius:5];
+    self.tvMessage.textContainerInset = UIEdgeInsetsMake(5, 5, 5, 5);
+    self.tvMessage.alwaysBounceVertical = YES;
+    
     @weakify(self);
+    [[self.btnSend rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onSendMessage];
+    }];
+    
+    [[self.tvMessage.rac_textSignal
+      length:^NSInteger{
+          return NSIntegerMax;
+      }]
+     subscribeNext:^(NSString *value) {
+         @strongify(self);
+         if ([value trim].length == 0) {
+             self.tvMessage.text = [value trim];
+             [self refreshUI:[value trim]];
+             return;
+         }
+         
+         self.tvMessage.text = value;
+         [self refreshUI:value];
+         CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
+         self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height));
+     }];
+    
     self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreMessages];
@@ -82,7 +139,7 @@ static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
         return 0.0;
     }
     
-    return self.dataManager.comments.count == 0 ? kCommentCountTipSectionHeight : 0.1;
+    return self.dataManager.comments.count == 0 ? kCommentCountTipSectionHeight : 6.0;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -115,6 +172,15 @@ static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell initWithComment:self.dataManager.comments[indexPath.row]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.showComment && !self.wasFirstLoad && indexPath.section == 0) {
+        self.wasFirstLoad = YES;
+        CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
+        self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight - kNavWithStatusBarHeight - kCommentCountTipSectionHeight, 0);
+        self.tableView.contentOffset = CGPointMake(0, kScreenHeight - kNavWithStatusBarHeight - kCommentCountTipSectionHeight);
+    }
 }
 
 #pragma mark - api request
@@ -187,6 +253,35 @@ static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
 }
 
 #pragma mark - user action
+- (void)refreshUI:(NSString *)msg {
+    self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(self.maxCount - msg.length)];
+    [self enableSendBtn:msg.length > 0];
+}
 
+- (void)enableSendBtn:(BOOL)enable {
+    [self.btnSend enableBgColor:enable];
+}
+
+- (void)onSendMessage {
+    [self.view endEditing:YES];
+    LeaveComment *request = [[LeaveComment alloc] init];
+    request.topicid = self.diary._id;
+    request.topictype = kTopicTypeDiary;
+    request.content = self.tvMessage.text;
+    request.to_userid = self.diary.authorid;
+    
+    @weakify(self);
+    [self enableSendBtn:NO];
+    [API leaveComment:request success:^{
+        @strongify(self);
+        self.tvMessage.text = @"";
+        [self refreshUI:@""];
+        CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
+        self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height));
+        [self refreshMessageList:NO];
+    } failure:^{
+    } networkError:^{
+    }];
+}
 
 @end

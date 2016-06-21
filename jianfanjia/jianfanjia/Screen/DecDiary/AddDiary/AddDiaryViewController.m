@@ -252,7 +252,10 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
     }] subscribeNext:^(RACTuple *tuple) {
         __block BOOL isAllInputed = YES;
         [tuple.allObjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            if ([obj isKindOfClass:[NSNull class]]|| [obj length] == 0) {
+            if (idx == 0 && ![obj isKindOfClass:[NSNull class]] && [obj length] < 15) {
+                isAllInputed = NO;
+                *stop = YES;
+            } else if ([obj isKindOfClass:[NSNull class]] || [obj length] == 0) {
                 isAllInputed = NO;
                 *stop = YES;
             }

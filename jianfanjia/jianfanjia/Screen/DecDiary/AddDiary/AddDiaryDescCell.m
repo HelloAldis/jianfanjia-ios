@@ -30,7 +30,7 @@
     [super awakeFromNib];
 //    self.textView.scrollEnabled = NO;
     self.textView.delegate = self;
-    self.textView.placeholderText = @"记录和分享您的装修之路";
+    self.textView.placeholderText = @"记录和分享您的装修之路，不少于15字哦";
     self.textView.placeholderFont = [UIFont systemFontOfSize:14.0];
     self.textView.linePositionModifier = [self linePositionModifier];
     self.textView.textContainerInset = UIEdgeInsetsMake(kTopPadding, kLeftPadding, kBottomPadding, kRightPadding);

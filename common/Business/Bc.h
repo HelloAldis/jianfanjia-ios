@@ -63,6 +63,7 @@ extern NSString * const kProductAuthTypeBreakRule;
 
 extern NSString * const kTopicTypePlan;
 extern NSString * const kTopicTypeProcess;
+extern NSString * const kTopicTypeDiary;
 
 extern NSString * const kSectionStatusUnStart;
 extern NSString * const kSectionStatusOnGoing;

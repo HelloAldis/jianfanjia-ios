@@ -25,16 +25,12 @@
 }
 
 - (void)initWithComment:(Comment *)comment {
-    [self.imgAvatar setImageWithId:[CommentBusiness imageId:comment] withWidth:self.imgAvatar.bounds.size.width];
+    [self.imgAvatar setUserImageWithId:[CommentBusiness imageId:comment]];
     self.lblUserNameVal.text = [CommentBusiness userName:comment];
     self.lblRoleTypeVal.text = [NameDict nameForUserType:comment.usertype];
     self.lblRoleTypeVal.textColor = [CommentBusiness roleColor:comment];
     self.lblTimeVal.text = [comment.date humDateString];
     self.lblMessageVal.text = comment.content;
-    
-    if ([[GVUserDefaults standardUserDefaults].userid isEqualToString:comment.by]) {
-        self.lblRoleTypeVal.text = @"我";
-    }
 }
 
 @end
