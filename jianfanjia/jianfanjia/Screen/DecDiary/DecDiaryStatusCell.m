@@ -61,6 +61,8 @@
         imageView.hidden = YES;
         imageView.clipsToBounds = YES;
         imageView.exclusiveTouch = YES;
+        imageView.userInteractionEnabled = YES;
+        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImage:)]];
         
         [picViews addObject:imageView];
         [self.imgsView addSubview:imageView];
@@ -114,6 +116,15 @@
 
 - (void)onTapMore {
     
+}
+
+- (void)onTapImage:(UITapGestureRecognizer *)g {
+    NSInteger index = [self.picViews indexOfObject:g.view];
+    NSArray *imgs = [self.diary.images map:^id(id obj) {
+        return obj[@"imageid"];
+    }];
+    
+    [ViewControllerContainer showOnlineImages:imgs index:index];
 }
 
 #pragma mark - layout
