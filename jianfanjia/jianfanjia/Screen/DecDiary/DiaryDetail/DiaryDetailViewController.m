@@ -9,6 +9,7 @@
 #import "DiaryDetailViewController.h"
 #import "DecDiaryStatusCell.h"
 #import "DiaryMessageCell.h"
+#import "CommentCountTipSection.h"
 #import "DiaryDetailDataManager.h"
 #import "ViewControllerContainer.h"
 
@@ -67,8 +68,8 @@ static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
         [self loadMoreMessages];
     }];
     
-    [self refreshDiary:YES];
-    [self refreshMessageList:NO];
+    [self refreshDiary:!self.showComment];
+    [self refreshMessageList:self.showComment];
 }
 
 #pragma mark - table view delegate
@@ -77,11 +78,21 @@ static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.0;
+    if (section == 0) {
+        return 0.0;
+    }
+    
+    return self.dataManager.comments.count == 0 ? kCommentCountTipSectionHeight : 0.1;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return nil;
+    if (section == 0) {
+        return nil;
+    }
+    
+    CommentCountTipSection *view = [CommentCountTipSection commentCountTipSection];
+    view.lblTitle.text = self.dataManager.comments.count == 0 ? @"当前还没有任何评论" : @"";
+    return view;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
