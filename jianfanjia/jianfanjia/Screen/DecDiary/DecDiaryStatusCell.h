@@ -10,6 +10,6 @@
 
 @interface DecDiaryStatusCell : UITableViewCell
 
-- (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView truncate:(BOOL)needTruncate;
+- (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView;
 
 @end

@@ -50,7 +50,6 @@
 #import "DecDiaryTimelineViewController.h"
 #import "DiarySetListViewController.h"
 #import "DiarySetDetailViewController.h"
-#import "DiaryDetailViewController.h"
 
 @interface ViewControllerContainer ()
 
@@ -427,8 +426,8 @@ static ViewControllerContainer *container;
     [container.navigation pushViewController:v animated:YES];
 }
 
-+ (void)showDiaryDetail:(Diary *)diary showComment:(BOOL)showComment {
-    DiaryDetailViewController *v = [[DiaryDetailViewController alloc] initWithDiary:diary showComment:showComment];
++ (void)showDiaryDetail:(Diary *)diary showComment:(BOOL)showComment deletedBlock:(DiaryDetailDeletedBlock)deletedBlock {
+    DiaryDetailViewController *v = [[DiaryDetailViewController alloc] initWithDiary:diary showComment:showComment deletedBlock:deletedBlock];
     [container.navigation pushViewController:v animated:YES];
 }
 

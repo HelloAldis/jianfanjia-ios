@@ -72,9 +72,10 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Diary *diary = self.dataManager.diarys[indexPath.row];
     DecDiaryStatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell initWithDiary:self.dataManager.diarys[indexPath.row] diarys:self.dataManager.diarys tableView:self.tableView truncate:YES];
+    [cell initWithDiary:diary diarys:self.dataManager.diarys tableView:self.tableView];
     return cell;
 }
 
@@ -151,11 +152,15 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     [HUDUtil showWait];
     [API getMyDiarySet:request success:^{
         [self.dataManager refreshDiarySets];
-        [ViewControllerContainer showDiaryAdd:self.dataManager.diarySets completion:^(BOOL completion) {
-            if (completion) {
-                [self refresh];
-            }
-        }];
+        if (self.dataManager.diarySets.count == 0) {
+            [ViewControllerContainer showDiarySetUpload:nil done:nil];
+        } else {
+            [ViewControllerContainer showDiaryAdd:self.dataManager.diarySets completion:^(BOOL completion) {
+                if (completion) {
+                    [self refresh];
+                }
+            }];
+        }
     } failure:^{
         
     } networkError:^{

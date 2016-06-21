@@ -427,6 +427,8 @@
 		68EE3E961D18EB1800F5EF83 /* CommentCountTipSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E941D18EB1800F5EF83 /* CommentCountTipSection.m */; };
 		68EE3E971D18EB1800F5EF83 /* CommentCountTipSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E951D18EB1800F5EF83 /* CommentCountTipSection.xib */; };
 		68EE3E9A1D1921C800F5EF83 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E991D1921C800F5EF83 /* UITextView+Placeholder.m */; };
+		68EE3E9E1D192ED000F5EF83 /* DecDiaryStatusAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E9C1D192ED000F5EF83 /* DecDiaryStatusAllCell.m */; };
+		68EE3E9F1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E9D1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1291,6 +1293,9 @@
 		68EE3E951D18EB1800F5EF83 /* CommentCountTipSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCountTipSection.xib; sourceTree = "<group>"; };
 		68EE3E981D1921C800F5EF83 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
 		68EE3E991D1921C800F5EF83 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
+		68EE3E9B1D192ED000F5EF83 /* DecDiaryStatusAllCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecDiaryStatusAllCell.h; sourceTree = "<group>"; };
+		68EE3E9C1D192ED000F5EF83 /* DecDiaryStatusAllCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecDiaryStatusAllCell.m; sourceTree = "<group>"; };
+		68EE3E9D1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecDiaryStatusAllCell.xib; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2331,6 +2336,9 @@
 				68EE3D891D0FFAAC00F5EF83 /* DecDiaryStatusCell.h */,
 				68EE3D8A1D0FFAAC00F5EF83 /* DecDiaryStatusCell.m */,
 				68EE3D8B1D0FFAAC00F5EF83 /* DecDiaryStatusCell.xib */,
+				68EE3E9B1D192ED000F5EF83 /* DecDiaryStatusAllCell.h */,
+				68EE3E9C1D192ED000F5EF83 /* DecDiaryStatusAllCell.m */,
+				68EE3E9D1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib */,
 				68EE3D871D0FFAAC00F5EF83 /* DecDiaryDataManager.h */,
 				68EE3D881D0FFAAC00F5EF83 /* DecDiaryDataManager.m */,
 			);
@@ -3344,6 +3352,7 @@
 				685F2D6A1CAB77E000DC4D43 /* UnexpandSectionActionView.xib in Resources */,
 				68EE3E171D12A6ED00F5EF83 /* AddDiarySectionView.xib in Resources */,
 				68123C561C4C8B99008FC9AB /* MessageAlertViewController.xib in Resources */,
+				68EE3E9F1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib in Resources */,
 				683FFB451C296288002A1AFE /* BeautifulImageViewController.xib in Resources */,
 				68BA50F41C9FE56B002E5572 /* WebViewWithoutShareController.xib in Resources */,
 				6E06CC131C29466700A08D15 /* FavoriateProductCell.xib in Resources */,
@@ -3584,6 +3593,7 @@
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				685B143E1CEB0FB60076996A /* MultipleLineTextTableViewCell.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,
+				68EE3E9E1D192ED000F5EF83 /* DecDiaryStatusAllCell.m in Sources */,
 				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
 				6E4496451BFC562900C90851 /* AboutViewController.m in Sources */,
 				685B14551CEB0FEB0076996A /* DecorationStyleCell.m in Sources */,

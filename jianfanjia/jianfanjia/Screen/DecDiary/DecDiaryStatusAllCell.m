@@ -6,10 +6,10 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "DecDiaryStatusCell.h"
+#import "DecDiaryStatusAllCell.h"
 #import "ViewControllerContainer.h"
 
-@interface DecDiaryStatusCell ()
+@interface DecDiaryStatusAllCell ()
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblPhase;
@@ -27,7 +27,6 @@
 @property (weak, nonatomic) IBOutlet UIView *commentView;
 
 @property (strong, nonatomic) NSMutableArray *picViews;
-@property (nonatomic, copy) YYTextAction tapMoreAction;
 
 @property (strong, nonatomic) Diary *diary;
 @property (strong, nonatomic) NSMutableArray *diarys;
@@ -35,7 +34,7 @@
 
 @end
 
-@implementation DecDiaryStatusCell
+@implementation DecDiaryStatusAllCell
 
 - (void)awakeFromNib {
     [self.avatarImageView setCornerRadius:30];
@@ -50,11 +49,6 @@
         @strongify(self);
         [self onTapDel];
     }];
-    
-    self.tapMoreAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
-        @strongify(self);
-        [self onTapMore];
-    };
     
     [self.zanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickZan)]];
     [self.commentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickComment)]];
@@ -80,8 +74,7 @@
     self.tableView = tableView;
     self.diarys = diarys;
     self.diary = diary;
-    self.diary.layout.needTruncate = YES;
-    self.diary.layout.tapMoreAction = self.tapMoreAction;
+    self.diary.layout.needTruncate = NO;
     [self.diary.layout layout];
     
     [self initHeader];
@@ -118,6 +111,9 @@
             NSInteger index = [self.diarys indexOfObject:self.diary];
             [self.diarys removeObjectAtIndex:index];
             [self.tableView deleteRowsAtIndexPaths:@[[self.tableView indexPathForCell:self]] withRowAnimation:UITableViewRowAnimationAutomatic];
+            if (self.deleteDoneBlock) {
+                self.deleteDoneBlock();
+            }
         } failure:^{
             
         } networkError:^{
@@ -129,13 +125,6 @@
     [alert addAction:done];
     
     [[ViewControllerContainer getCurrentTopController] presentViewController:alert animated:YES completion:nil];
-}
-
-- (void)onTapMore {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO deletedBlock:^{
-        [self.diarys removeObject:self.diary];
-        [self.tableView reloadData];
-    }];
 }
 
 - (void)onTapImage:(UITapGestureRecognizer *)g {
@@ -152,10 +141,9 @@
 }
 
 - (void)onClickComment {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES deletedBlock:^{
-        [self.diarys removeObject:self.diary];
-        [self.tableView reloadData];
-    }];
+    if (self.clickCommentBlock) {
+        self.clickCommentBlock();
+    }
 }
 
 #pragma mark - layout

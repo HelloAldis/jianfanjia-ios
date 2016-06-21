@@ -7,13 +7,13 @@
 //
 
 #import "DiaryDetailViewController.h"
-#import "DecDiaryStatusCell.h"
+#import "DecDiaryStatusAllCell.h"
 #import "DiaryMessageCell.h"
 #import "CommentCountTipSection.h"
 #import "DiaryDetailDataManager.h"
 #import "ViewControllerContainer.h"
 
-static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
+static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusAllCell";
 static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
 
 static const CGFloat kMinMessageHeight = 40;
@@ -32,6 +32,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
 @property (strong, nonatomic) DiaryDetailDataManager *dataManager;
 @property (strong, nonatomic) Diary *diary;
+@property (copy, nonatomic) DiaryDetailDeletedBlock deletedBlock;
 @property (strong, nonatomic) User *curToUser;
 @property (assign, nonatomic) BOOL showComment;
 @property (assign, nonatomic) BOOL wasFirstLoad;
@@ -40,12 +41,13 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
 @implementation DiaryDetailViewController
 
-- (instancetype)initWithDiary:(Diary *)diary showComment:(BOOL)showComment {
+- (instancetype)initWithDiary:(Diary *)diary showComment:(BOOL)showComment deletedBlock:(DiaryDetailDeletedBlock)deletedBlock {
     if (self = [super init]) {
         _diary = diary;
+        _deletedBlock = deletedBlock;
+        _showComment = showComment;
         _curToUser = [[User alloc] init];
         _curToUser._id = _diary._id;
-        _showComment = showComment;
     }
     
     return self;
@@ -176,9 +178,21 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        DecDiaryStatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
+        DecDiaryStatusAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell initWithDiary:self.diary diarys:self.dataManager.diarys tableView:self.tableView truncate:NO];
+        [cell initWithDiary:self.diary diarys:self.dataManager.diarys tableView:self.tableView];
+        
+        cell.deleteDoneBlock = ^{
+            if (self.deletedBlock) {
+                self.deletedBlock();
+            }
+            [self onClickBack];
+        };
+        
+        cell.clickCommentBlock = ^{
+            [self.tvMessage becomeFirstResponder];
+        };
+        
         return cell;
     }
     
@@ -200,7 +214,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.showComment && !self.wasFirstLoad && indexPath.section == 0) {
+    if (!self.wasFirstLoad && indexPath.section == 0) {
         self.wasFirstLoad = YES;
         CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
         self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight - kNavWithStatusBarHeight - kCommentCountTipSectionHeight, 0);
@@ -217,8 +231,19 @@ static NSString *kDeafultTVHolder = @"添加评论";
     GetDiaryDetail *request = [[GetDiaryDetail alloc] init];
     request.diaryid = self.diary._id;
     [API getDiaryDetail:request success:^{
+        [HUDUtil hideWait];
         [self.dataManager refreshDiary];
-        [self.tableView reloadData];
+        if ([self.diary.is_deleted boolValue]) {
+            [HUDUtil showText:@"日记已被删除" delayShow:0.3];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (self.deletedBlock) {
+                    self.deletedBlock();
+                }
+                [self onClickBack];
+            });
+        } else {
+            [self.tableView reloadData];
+        }
     } failure:^{
         
     } networkError:^{
