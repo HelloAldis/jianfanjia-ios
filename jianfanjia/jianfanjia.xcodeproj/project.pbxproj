@@ -426,6 +426,7 @@
 		68EE3E921D18DB0600F5EF83 /* DiaryMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E8D1D18DB0600F5EF83 /* DiaryMessageCell.xib */; };
 		68EE3E961D18EB1800F5EF83 /* CommentCountTipSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E941D18EB1800F5EF83 /* CommentCountTipSection.m */; };
 		68EE3E971D18EB1800F5EF83 /* CommentCountTipSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E951D18EB1800F5EF83 /* CommentCountTipSection.xib */; };
+		68EE3E9A1D1921C800F5EF83 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E991D1921C800F5EF83 /* UITextView+Placeholder.m */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1288,6 +1289,8 @@
 		68EE3E931D18EB1800F5EF83 /* CommentCountTipSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCountTipSection.h; sourceTree = "<group>"; };
 		68EE3E941D18EB1800F5EF83 /* CommentCountTipSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCountTipSection.m; sourceTree = "<group>"; };
 		68EE3E951D18EB1800F5EF83 /* CommentCountTipSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCountTipSection.xib; sourceTree = "<group>"; };
+		68EE3E981D1921C800F5EF83 /* UITextView+Placeholder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Placeholder.h"; sourceTree = "<group>"; };
+		68EE3E991D1921C800F5EF83 /* UITextView+Placeholder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Placeholder.m"; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2679,6 +2682,8 @@
 		6E07DA751BD88DBE001461DD /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				68EE3E981D1921C800F5EF83 /* UITextView+Placeholder.h */,
+				68EE3E991D1921C800F5EF83 /* UITextView+Placeholder.m */,
 				6885176D1C9258D1000B01DB /* UIView+Badge.h */,
 				6885176E1C9258D1000B01DB /* UIView+Badge.m */,
 				6885176A1C9183A8000B01DB /* UITabBarItem+Badge.h */,
@@ -3824,6 +3829,7 @@
 				682E050F1C58BDA700F1ACAA /* PlanPriceDetailViewController.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
 				68B10CB81C785659005866C1 /* SearchBeautifulImageDataManager.m in Sources */,
+				68EE3E9A1D1921C800F5EF83 /* UITextView+Placeholder.m in Sources */,
 				68E600871CB7C20300C4A8F7 /* ReqtDesignerSubmittedPlan.m in Sources */,
 				6E7E4A891B9EC2D700503B35 /* WelcomeViewController.m in Sources */,
 				684A37101BFD733500F7388C /* PlanWasChoosedCell.m in Sources */,

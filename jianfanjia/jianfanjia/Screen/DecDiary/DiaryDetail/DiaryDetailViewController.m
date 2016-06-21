@@ -18,6 +18,7 @@ static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
 
 static const CGFloat kMinMessageHeight = 40;
 static const CGFloat kMaxMessageHeight = 80;
+static NSString *kDeafultTVHolder = @"添加评论";
 
 @interface DiaryDetailViewController ()
 
@@ -31,6 +32,7 @@ static const CGFloat kMaxMessageHeight = 80;
 
 @property (strong, nonatomic) DiaryDetailDataManager *dataManager;
 @property (strong, nonatomic) Diary *diary;
+@property (strong, nonatomic) User *curToUser;
 @property (assign, nonatomic) BOOL showComment;
 @property (assign, nonatomic) BOOL wasFirstLoad;
 
@@ -41,6 +43,8 @@ static const CGFloat kMaxMessageHeight = 80;
 - (instancetype)initWithDiary:(Diary *)diary showComment:(BOOL)showComment {
     if (self = [super init]) {
         _diary = diary;
+        _curToUser = [[User alloc] init];
+        _curToUser._id = _diary._id;
         _showComment = showComment;
     }
     
@@ -93,7 +97,7 @@ static const CGFloat kMaxMessageHeight = 80;
     [self.tvMessage setCornerRadius:5];
     [self.footerView setBorder:0.5 andColor:[UIColor colorWithR:0xE8 g:0xE9 b:0xEA].CGColor];
     [self.btnSend setCornerRadius:5];
-    self.tvMessage.textContainerInset = UIEdgeInsetsMake(5, 5, 5, 5);
+    self.tvMessage.textContainerInset = UIEdgeInsetsMake(10, 5, 8, 5);
     self.tvMessage.alwaysBounceVertical = YES;
     
     @weakify(self);
@@ -117,8 +121,18 @@ static const CGFloat kMaxMessageHeight = 80;
          self.tvMessage.text = value;
          [self refreshUI:value];
          CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
-         self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height));
+         self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, size.height));
      }];
+    
+    [RACObserve(self.curToUser, username) subscribeNext:^(NSString *username) {
+        @strongify(self);
+        if (username.length == 0) {
+            self.tvMessage.placeholder = kDeafultTVHolder;
+        } else {
+            self.tvMessage.placeholder = [NSString stringWithFormat:@"%@ %@：", @"回复", username];
+        }
+        
+    }];
     
     self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
@@ -172,6 +186,17 @@ static const CGFloat kMaxMessageHeight = 80;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell initWithComment:self.dataManager.comments[indexPath.row]];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.tvMessage.text.length == 0) {
+        if (indexPath.section == 0) {
+            [self updateAuthorIdToUserId];
+        } else {
+            Comment *comment = self.dataManager.comments[indexPath.row];
+            [self updateToUserId:comment.user._id name:comment.user.username];
+        }
+    }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -268,7 +293,7 @@ static const CGFloat kMaxMessageHeight = 80;
     request.topicid = self.diary._id;
     request.topictype = kTopicTypeDiary;
     request.content = self.tvMessage.text;
-    request.to_userid = self.diary.authorid;
+    request.to_userid = self.curToUser._id;
     
     @weakify(self);
     [self enableSendBtn:NO];
@@ -277,11 +302,22 @@ static const CGFloat kMaxMessageHeight = 80;
         self.tvMessage.text = @"";
         [self refreshUI:@""];
         CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
-        self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height));
+        self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, size.height));
+        [self updateAuthorIdToUserId];
         [self refreshMessageList:NO];
     } failure:^{
     } networkError:^{
     }];
+}
+
+#pragma mark - other
+- (void)updateAuthorIdToUserId {
+    [self updateToUserId:self.diary.authorid name:nil];
+}
+
+- (void)updateToUserId:(NSString *)toId name:(NSString *)username {
+    self.curToUser._id = self.diary.authorid;
+    self.curToUser.username = nil;
 }
 
 @end
