@@ -89,7 +89,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 300;
     [self.tableView registerNib:[UINib nibWithNibName:DecDiaryStatusCellIdentifier bundle:nil] forCellReuseIdentifier:DecDiaryStatusCellIdentifier];
@@ -131,7 +130,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         if (username.length == 0) {
             self.tvMessage.placeholder = kDeafultTVHolder;
         } else {
-            self.tvMessage.placeholder = [NSString stringWithFormat:@"%@ %@：", @"回复", username];
+            self.tvMessage.placeholder = [NSString stringWithFormat:@"%@ %@ %@", kDiaryMessagePrefix, username, kDiaryMessageSubfix];
         }
         
     }];
@@ -208,13 +207,17 @@ static NSString *kDeafultTVHolder = @"添加评论";
             [self updateAuthorIdToUserId];
         } else {
             Comment *comment = self.dataManager.comments[indexPath.row];
-            [self updateToUserId:comment.user._id name:comment.user.username];
+            if ([DiaryBusiness isOwnComment:comment]) {
+                [self updateAuthorIdToUserId];
+            } else {
+                [self updateToUserId:comment.user._id name:comment.user.username];
+            }
         }
     }
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (!self.wasFirstLoad && indexPath.section == 0) {
+    if (self.showComment && !self.wasFirstLoad && indexPath.section == 0) {
         self.wasFirstLoad = YES;
         CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
         self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight - kNavWithStatusBarHeight - kCommentCountTipSectionHeight, 0);
@@ -317,9 +320,14 @@ static NSString *kDeafultTVHolder = @"添加评论";
     LeaveComment *request = [[LeaveComment alloc] init];
     request.topicid = self.diary._id;
     request.topictype = kTopicTypeDiary;
-    request.content = self.tvMessage.text;
     request.to_userid = self.curToUser._id;
     
+    if (![self.tvMessage.placeholder isEqualToString:kDeafultTVHolder]) {
+        request.content = [NSString stringWithFormat:@"%@%@", self.tvMessage.placeholder, self.tvMessage.text];
+    } else {
+        request.content = self.tvMessage.text;
+    }
+
     @weakify(self);
     [self enableSendBtn:NO];
     [API leaveComment:request success:^{
@@ -337,12 +345,12 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
 #pragma mark - other
 - (void)updateAuthorIdToUserId {
-    [self updateToUserId:self.diary.authorid name:nil];
+    [self updateToUserId:self.diary.authorid name:@""];
 }
 
 - (void)updateToUserId:(NSString *)toId name:(NSString *)username {
-    self.curToUser._id = self.diary.authorid;
-    self.curToUser.username = nil;
+    self.curToUser._id = toId;
+    self.curToUser.username = username;
 }
 
 @end

@@ -16,6 +16,7 @@
 + (NSString *)diarySetInfo:(DiarySet *)diarySet;
 + (BOOL)isOwnDiarySet:(DiarySet *)diarySet;
 + (BOOL)isOwnDiary:(Diary *)diary;
++ (BOOL)isOwnComment:(Comment *)comment;
 + (UIColor *)colorForPhase:(DiarySet *)diarySet;
 
 @end

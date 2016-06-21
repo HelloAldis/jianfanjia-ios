@@ -30,7 +30,18 @@
     self.lblRoleTypeVal.text = [NameDict nameForUserType:comment.usertype];
     self.lblRoleTypeVal.textColor = [CommentBusiness roleColor:comment];
     self.lblTimeVal.text = [comment.date humDateString];
-    self.lblMessageVal.text = comment.content;
+
+    NSRange prefixRange = [comment.content rangeOfString:kDiaryMessagePrefix];
+    NSRange subfixRange = [comment.content rangeOfString:kDiaryMessageSubfix];
+    
+    if (prefixRange.location != NSNotFound && subfixRange.location != NSNotFound) {
+        NSRange hilightRange = NSMakeRange(prefixRange.location + prefixRange.length, subfixRange.location - prefixRange.location - prefixRange.length);
+        NSString *hilightString = [comment.content substringWithRange:hilightRange];
+
+        self.lblMessageVal.attributedText = [comment.content attrSubStr:hilightString font:self.lblMessageVal.font color:kThemeColor];
+    } else {
+        self.lblMessageVal.text = comment.content;
+    }
 }
 
 @end

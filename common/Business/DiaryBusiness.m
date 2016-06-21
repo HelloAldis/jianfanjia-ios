@@ -22,6 +22,10 @@
     return [diary.authorid isEqualToString:[GVUserDefaults standardUserDefaults].userid];
 }
 
++ (BOOL)isOwnComment:(Comment *)comment {
+    return [comment.user._id isEqualToString:[GVUserDefaults standardUserDefaults].userid];
+}
+
 + (UIColor *)colorForPhase:(DiarySet *)diarySet {
     NSArray *arr = [NameDict getAllDecorationPhase];
     NSInteger index = [arr indexOfObject:diarySet.latest_section_label];
