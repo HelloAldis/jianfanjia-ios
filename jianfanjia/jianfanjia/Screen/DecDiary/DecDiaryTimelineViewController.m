@@ -18,6 +18,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) DecDiaryDataManager *dataManager;
+@property (assign, nonatomic) BOOL wasFirstRefresh;
 
 @end
 
@@ -29,7 +30,16 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     
     [self initNav];
     [self initUI];
-    [self.tableView.header beginRefreshing];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (!self.wasFirstRefresh) {
+        self.wasFirstRefresh = YES;
+        [self.tableView.header beginRefreshing];
+    } else {
+        [self refresh];
+    }
 }
 
 #pragma mark - UI
@@ -155,11 +165,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
         if (self.dataManager.diarySets.count == 0) {
             [ViewControllerContainer showDiarySetUpload:nil done:nil];
         } else {
-            [ViewControllerContainer showDiaryAdd:self.dataManager.diarySets completion:^(BOOL completion) {
-                if (completion) {
-                    [self refresh];
-                }
-            }];
+            [ViewControllerContainer showDiaryAdd:self.dataManager.diarySets];
         }
     } failure:^{
         

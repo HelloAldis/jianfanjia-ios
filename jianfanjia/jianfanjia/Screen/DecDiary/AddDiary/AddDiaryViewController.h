@@ -12,6 +12,6 @@ typedef void (^AddDiaryCompletion)(BOOL completion);
 
 @interface AddDiaryViewController : BaseViewController
 
-- (instancetype)initWithDiarySets:(NSArray<DiarySet *> *)diarySets completion:(AddDiaryCompletion)completion;
+- (instancetype)initWithDiarySets:(NSArray<DiarySet *> *)diarySets;
 
 @end

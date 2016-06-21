@@ -29,16 +29,14 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 
 @property (nonatomic, strong) DiarySet *curDiarySet;
 @property (nonatomic, strong) Diary *diary;
-@property (nonatomic, copy) AddDiaryCompletion completion;
 
 @end
 
 @implementation AddDiaryViewController
 
-- (instancetype)initWithDiarySets:(NSArray<DiarySet *> *)diarySets completion:(AddDiaryCompletion)completion {
+- (instancetype)initWithDiarySets:(NSArray<DiarySet *> *)diarySets {
     if (self = [super init]) {
         _diarySets = diarySets;
-        _completion = completion;
         _diary = [[Diary alloc] init];
         _diary._id = @"";
         _diary.authorid = [GVUserDefaults standardUserDefaults].userid;
@@ -175,13 +173,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 #pragma mark - user action
 - (void)onClickBack {
     [self.view endEditing:YES];
-    @weakify(self);
-    [self dismissViewControllerAnimated:YES completion:^{
-        @strongify(self);
-        if (self.completion) {
-            self.completion(NO);
-        }
-    }];
+    [super onClickBack];
 }
 
 - (void)onClickNext {
@@ -191,11 +183,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
     [HUDUtil showWait];
     [API addDiary:request success:^{
         self.curDiarySet.latest_section_label = self.diary.section_label;
-        [self dismissViewControllerAnimated:YES completion:^{
-            if (self.completion) {
-                self.completion(YES);
-            }
-        }];
+        [ViewControllerContainer showDiarySetDetail:self.curDiarySet fromNewDiarySet:YES];
     } failure:^{
         
     } networkError:^{

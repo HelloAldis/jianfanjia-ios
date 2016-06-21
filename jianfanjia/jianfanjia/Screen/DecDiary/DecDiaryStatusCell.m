@@ -134,8 +134,8 @@
 
 - (void)onTapMore {
     [ViewControllerContainer showDiaryDetail:self.diary showComment:NO deletedBlock:^{
-        [self.diarys removeObject:self.diary];
-        [self.tableView reloadData];
+//        [self.diarys removeObject:self.diary];
+//        [self.tableView reloadData];
     }];
 }
 
@@ -158,8 +158,8 @@
 
 - (void)onClickComment {
     [ViewControllerContainer showDiaryDetail:self.diary showComment:YES deletedBlock:^{
-        [self.diarys removeObject:self.diary];
-        [self.tableView reloadData];
+//        [self.diarys removeObject:self.diary];
+//        [self.tableView reloadData];
     }];
 }
 

@@ -47,6 +47,11 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     [self initUI];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self refresh:NO];
+}
+
 #pragma mark - UI
 - (void)initNav {
     [self initLeftWhiteBackInNav];
@@ -170,11 +175,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 - (void)onTapAddDiary {
-    [ViewControllerContainer showDiaryAdd:@[self.diarySet] completion:^(BOOL completion) {
-        if (completion) {
-            [self refresh:NO];
-        }
-    }];
+    [ViewControllerContainer showDiaryAdd:@[self.diarySet]];
 }
 
 - (void)onClickShare {
