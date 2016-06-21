@@ -419,6 +419,11 @@
 		68EE3E711D13F05300F5EF83 /* ZanDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E681D13F05300F5EF83 /* ZanDiary.m */; };
 		68EE3E741D1784BC00F5EF83 /* DiaryBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E731D1784BC00F5EF83 /* DiaryBusiness.m */; };
 		68EE3E771D17F3FD00F5EF83 /* Author.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E761D17F3FD00F5EF83 /* Author.m */; };
+		68EE3E8E1D18DB0600F5EF83 /* DiaryDetailDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E871D18DB0600F5EF83 /* DiaryDetailDataManager.m */; };
+		68EE3E8F1D18DB0600F5EF83 /* DiaryDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E891D18DB0600F5EF83 /* DiaryDetailViewController.m */; };
+		68EE3E901D18DB0600F5EF83 /* DiaryDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E8A1D18DB0600F5EF83 /* DiaryDetailViewController.xib */; };
+		68EE3E911D18DB0600F5EF83 /* DiaryMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E8C1D18DB0600F5EF83 /* DiaryMessageCell.m */; };
+		68EE3E921D18DB0600F5EF83 /* DiaryMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E8D1D18DB0600F5EF83 /* DiaryMessageCell.xib */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1270,6 +1275,14 @@
 		68EE3E731D1784BC00F5EF83 /* DiaryBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryBusiness.m; sourceTree = "<group>"; };
 		68EE3E751D17F3FD00F5EF83 /* Author.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Author.h; sourceTree = "<group>"; };
 		68EE3E761D17F3FD00F5EF83 /* Author.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Author.m; sourceTree = "<group>"; };
+		68EE3E861D18DB0600F5EF83 /* DiaryDetailDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryDetailDataManager.h; sourceTree = "<group>"; };
+		68EE3E871D18DB0600F5EF83 /* DiaryDetailDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryDetailDataManager.m; sourceTree = "<group>"; };
+		68EE3E881D18DB0600F5EF83 /* DiaryDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryDetailViewController.h; sourceTree = "<group>"; };
+		68EE3E891D18DB0600F5EF83 /* DiaryDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryDetailViewController.m; sourceTree = "<group>"; };
+		68EE3E8A1D18DB0600F5EF83 /* DiaryDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiaryDetailViewController.xib; sourceTree = "<group>"; };
+		68EE3E8B1D18DB0600F5EF83 /* DiaryMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryMessageCell.h; sourceTree = "<group>"; };
+		68EE3E8C1D18DB0600F5EF83 /* DiaryMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryMessageCell.m; sourceTree = "<group>"; };
+		68EE3E8D1D18DB0600F5EF83 /* DiaryMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiaryMessageCell.xib; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2301,6 +2314,7 @@
 		68EE3D861D0FFAAC00F5EF83 /* DecDiary */ = {
 			isa = PBXGroup;
 			children = (
+				68EE3E851D18DB0600F5EF83 /* DiaryDetail */,
 				68EE3E271D12B6D800F5EF83 /* AddDiary */,
 				68EE3DC51D125D3600F5EF83 /* DiarySet */,
 				68EE3D8C1D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.h */,
@@ -2427,6 +2441,21 @@
 				68EE3E681D13F05300F5EF83 /* ZanDiary.m */,
 			);
 			path = Diary;
+			sourceTree = "<group>";
+		};
+		68EE3E851D18DB0600F5EF83 /* DiaryDetail */ = {
+			isa = PBXGroup;
+			children = (
+				68EE3E881D18DB0600F5EF83 /* DiaryDetailViewController.h */,
+				68EE3E891D18DB0600F5EF83 /* DiaryDetailViewController.m */,
+				68EE3E8A1D18DB0600F5EF83 /* DiaryDetailViewController.xib */,
+				68EE3E8B1D18DB0600F5EF83 /* DiaryMessageCell.h */,
+				68EE3E8C1D18DB0600F5EF83 /* DiaryMessageCell.m */,
+				68EE3E8D1D18DB0600F5EF83 /* DiaryMessageCell.xib */,
+				68EE3E861D18DB0600F5EF83 /* DiaryDetailDataManager.h */,
+				68EE3E871D18DB0600F5EF83 /* DiaryDetailDataManager.m */,
+			);
+			path = DiaryDetail;
 			sourceTree = "<group>";
 		};
 		6E06CC031C29231A00A08D15 /* MyFavoriate */ = {
@@ -3270,6 +3299,7 @@
 				682E05101C58BDA700F1ACAA /* PlanPriceDetailViewController.xib in Resources */,
 				68B10CA91C7819E3005866C1 /* ProductCaseCell.xib in Resources */,
 				685B14511CEB0FB60076996A /* SelectWorkTypeViewController.xib in Resources */,
+				68EE3E901D18DB0600F5EF83 /* DiaryDetailViewController.xib in Resources */,
 				68134A3F1C3CFE44003C1C10 /* AccountBindViewController.xib in Resources */,
 				684A374D1BFD73DF00F7388C /* RequirementCreateViewController.xib in Resources */,
 				68711B6A1CD89D3B009B585F /* OrderTaggedDesignerViewController.xib in Resources */,
@@ -3372,6 +3402,7 @@
 				68EE3E521D13E19E00F5EF83 /* SelectStringViewController.xib in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
 				684B03C41C96C3DE0053FFDF /* DecLiveListViewController.xib in Resources */,
+				68EE3E921D18DB0600F5EF83 /* DiaryMessageCell.xib in Resources */,
 				684A37691BFDE25E00F7388C /* EvaluateDesignerViewController.xib in Resources */,
 				68123C5B1C4C8B99008FC9AB /* ThumbnailCell.xib in Resources */,
 				684A37491BFD73DF00F7388C /* OrderDesignerViewController.xib in Resources */,
@@ -3710,6 +3741,7 @@
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
 				68EE3DAF1D12447A00F5EF83 /* EditCellItem.m in Sources */,
 				685F2D731CABDC4C00DC4D43 /* BrushGifHeader.m in Sources */,
+				68EE3E8F1D18DB0600F5EF83 /* DiaryDetailViewController.m in Sources */,
 				6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */,
 				68123C581C4C8B99008FC9AB /* ImageBrowerViewController.m in Sources */,
 				68EE3E111D12A23C00F5EF83 /* DiarySetAvtarInfoCell.m in Sources */,
@@ -3794,6 +3826,7 @@
 				6E07DAA71BD88DBE001461DD /* GetProcess.m in Sources */,
 				683669041BFF0B44006A5053 /* PlanListViewController.m in Sources */,
 				684B03C31C96C3DE0053FFDF /* DecLiveListViewController.m in Sources */,
+				68EE3E8E1D18DB0600F5EF83 /* DiaryDetailDataManager.m in Sources */,
 				6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */,
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
@@ -3822,6 +3855,7 @@
 				68BA51021CA0ED75002E5572 /* TouchDelegateView.m in Sources */,
 				68679A3F1C8E730F00B380D0 /* WorksiteNotificationCell.m in Sources */,
 				688517731C926FDC000B01DB /* DecCommentInfoCell.m in Sources */,
+				68EE3E911D18DB0600F5EF83 /* DiaryMessageCell.m in Sources */,
 				68123C531C4C8B99008FC9AB /* DateAlertViewController.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
 				680C40E21CC4BE84008C4BC0 /* APIManager.m in Sources */,

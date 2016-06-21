@@ -32,4 +32,6 @@
 @property (nonatomic, strong) DiaryLayout *layout;
 @property (nonatomic, strong) NSNumber *last_refresh_time;
 
+- (void)updateRefreshTime;
+
 @end

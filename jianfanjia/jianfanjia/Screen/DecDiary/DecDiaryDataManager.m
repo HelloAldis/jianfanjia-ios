@@ -32,7 +32,7 @@
         diary.diarySet = diarySet;
         diary.author = author;
         
-        diary.last_refresh_time = @([[NSDate date] getLongMilSecond]);
+        [diary updateRefreshTime];
         [diarys addObject:diary];
     }
     
@@ -51,7 +51,7 @@
         diary.diarySet = diarySet;
         diary.author = author;
         
-        diary.last_refresh_time = @([[NSDate date] getLongMilSecond]);
+        [diary updateRefreshTime];
         [diarys addObject:diary];
     }
     
@@ -117,7 +117,7 @@
         toBeUpdateDiary.favorite_count = diary.favorite_count;
         toBeUpdateDiary.comment_count = diary.comment_count;
         toBeUpdateDiary.view_count = diary.view_count;
-        toBeUpdateDiary.last_refresh_time = @([[NSDate date] getLongMilSecond]);
+        [toBeUpdateDiary updateRefreshTime];
     }
 }
 

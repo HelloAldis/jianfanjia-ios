@@ -115,7 +115,7 @@
 }
 
 - (void)onTapMore {
-    
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO];
 }
 
 - (void)onTapImage:(UITapGestureRecognizer *)g {

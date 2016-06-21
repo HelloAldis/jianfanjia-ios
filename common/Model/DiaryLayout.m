@@ -8,6 +8,12 @@
 
 #import "DiaryLayout.h"
 
+@interface DiaryLayout ()
+
+@property (nonatomic, strong) YYTextHighlight *moreTextHighlight;
+
+@end
+
 @implementation DiaryLayout
 
 - (void)layout {
@@ -18,6 +24,7 @@
 - (void)calcContengLayout {
     if (self.needTruncate) {
         if (self.truncateContentHeight > 0) {
+            self.moreTextHighlight.tapAction = self.tapMoreAction;;
             return;
         }
         
@@ -25,6 +32,7 @@
         self.truncateContentLayout = nil;
     } else {
         if (self.contentHeight > 0) {
+            self.moreTextHighlight.tapAction = self.tapMoreAction;
             return;
         }
         
@@ -66,6 +74,7 @@
     [hi setColor:[UIColor colorWithRed:0.578 green:0.790 blue:1.000 alpha:1.000]];
     [hi setFont:[UIFont systemFontOfSize:13]];
     hi.tapAction = self.tapMoreAction;
+    self.moreTextHighlight = hi;
     
     [text yy_setColor:[UIColor colorWithR:0x7C g:0x84 b:0x89] range:[text.string rangeOfString:@"..."]];
     [text yy_setColor:[UIColor colorWithRed:0.000 green:0.449 blue:1.000 alpha:1.000] range:[text.string rangeOfString:@"全文"]];

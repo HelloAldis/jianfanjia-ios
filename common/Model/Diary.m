@@ -32,4 +32,8 @@
     return _layout;
 }
 
+- (void)updateRefreshTime {
+    self.last_refresh_time = @([[NSDate date] getLongMilSecond]);
+}
+
 @end
