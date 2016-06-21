@@ -56,6 +56,7 @@
         [self onTapMore];
     };
     
+    [self.avatarImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickAvatar)]];
     [self.zanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickZan)]];
     [self.commentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickComment)]];
     
@@ -145,6 +146,10 @@
     }];
     
     [ViewControllerContainer showOnlineImages:imgs index:index];
+}
+
+- (void)onClickAvatar {
+    [ViewControllerContainer showDiarySetDetail:self.diary.diarySet fromNewDiarySet:NO];
 }
 
 - (void)onClickZan {

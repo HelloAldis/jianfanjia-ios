@@ -62,13 +62,17 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 - (void)initWithDiarySet:(DiarySet *)diarySet tableView:(UITableView *)tableView {
     self.diarySet = diarySet;
     self.tableView = tableView;
-    [self.avatarImgView setUserImageWithId:[GVUserDefaults standardUserDefaults].imageid];
+    [self.avatarImgView setUserImageWithId:diarySet.author.imageid];
     [self setCover];
 
     self.lblDiarySetTitle.text = diarySet.title;
     self.lblBasicInfo.text = [DiaryBusiness diarySetInfo:diarySet];
     self.editDiarySetInfoImgView.hidden = ![DiaryBusiness isOwnDiarySet:diarySet];
-    self.btnModifyCover.hidden = diarySet.cover_imageid;
+    if ([DiaryBusiness isOwnDiarySet:diarySet]) {
+        self.btnModifyCover.hidden = diarySet.cover_imageid;
+    } else {
+        self.btnModifyCover.hidden = YES;
+    }
 }
 
 - (void)setCover {

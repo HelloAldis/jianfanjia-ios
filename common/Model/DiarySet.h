@@ -27,4 +27,6 @@
 @property (nonatomic, strong) NSString *latest_section_label;
 @property (nonatomic, strong) NSArray *diaries;
 
+@property (nonatomic, strong) Author *author;
+
 @end

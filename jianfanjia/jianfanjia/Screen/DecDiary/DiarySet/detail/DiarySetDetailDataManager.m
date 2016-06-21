@@ -13,6 +13,8 @@
 - (NSInteger)refresh {
     NSMutableDictionary *dic = [DataManager shared].data;
     self.diarySet = [[DiarySet alloc] initWith:dic];
+    Author *author = [[Author alloc] initWith:[self.diarySet.data objectForKey:@"author"]];
+    self.diarySet.author = author;
     
     NSArray* arr = [self.diarySet.data objectForKey:@"diaries"];
     NSMutableArray *diarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
