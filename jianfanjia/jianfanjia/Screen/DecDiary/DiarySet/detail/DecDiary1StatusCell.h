@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseDecDiaryStatusCell.h"
 
-@interface DecDiary1StatusCell : UITableViewCell
+@interface DecDiary1StatusCell : BaseDecDiaryStatusCell
 
 - (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView truncate:(BOOL)needTruncate;
 

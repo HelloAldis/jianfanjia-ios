@@ -14,16 +14,22 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblPhase;
 @property (weak, nonatomic) IBOutlet UILabel *lblPublishTime;
 @property (weak, nonatomic) IBOutlet UIButton *btnDel;
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *msgHeightConst;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgsHeightConst;
 @property (weak, nonatomic) IBOutlet YYLabel *msgView;
 @property (weak, nonatomic) IBOutlet UIView *imgsView;
 @property (weak, nonatomic) IBOutlet UIView *toolbarView;
+@property (weak, nonatomic) IBOutlet UIView *zanView;
+@property (weak, nonatomic) IBOutlet UIImageView *zanImgView;
+@property (weak, nonatomic) IBOutlet UILabel *lblZan;
+@property (weak, nonatomic) IBOutlet UIView *commentView;
+@property (weak, nonatomic) IBOutlet UIImageView *commentImgView;
+@property (weak, nonatomic) IBOutlet UILabel *lblComment;
 
 @property (strong, nonatomic) NSMutableArray *picViews;
 @property (nonatomic, copy) YYTextAction tapMoreAction;
 
-@property (strong, nonatomic) Diary *diary;
 @property (strong, nonatomic) NSMutableArray *diarys;
 @property (weak, nonatomic) UITableView *tableView;
 
@@ -32,6 +38,7 @@
 @implementation DecDiary1StatusCell
 
 - (void)awakeFromNib {
+    [self initSuperView];
     self.msgView.textVerticalAlignment = YYTextVerticalAlignmentTop;
     self.msgView.displaysAsynchronously = YES;
     self.msgView.ignoreCommonProperties = YES;
@@ -44,26 +51,25 @@
         [self onTapDel];
     }];
     
-    self.tapMoreAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
-        @strongify(self);
-        [self onTapMore];
-    };
+    [self.zanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickZan)]];
+    [self.commentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickComment)]];
     
-    NSMutableArray *picViews = [NSMutableArray new];
-    for (int i = 0; i < 9; i++) {
-        UIImageView *imageView = [UIImageView new];
-        imageView.frame = CGRectMake(0, 0, 100, 100);
-        imageView.hidden = YES;
-        imageView.clipsToBounds = YES;
-        imageView.exclusiveTouch = YES;
-        imageView.userInteractionEnabled = YES;
-        [imageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImage:)]];
-        
-        [picViews addObject:imageView];
-        [self.imgsView addSubview:imageView];
-    }
-    
-    self.picViews = picViews;
+    [self initImageView];
+}
+
+- (void)initSuperView {
+    self.base_msgHeightConst = self.msgHeightConst;
+    self.base_imgsHeightConst = self.imgsHeightConst;
+    self.base_msgView = self.msgView;
+    self.base_imgsView = self.imgsView;
+    self.base_toolbarView = self.toolbarView;
+    self.base_zanView = self.zanView;
+    self.base_zanImgView = self.zanImgView;
+    self.base_lblZan = self.lblZan;
+    self.base_commentView = self.commentView;
+    self.base_commentImgView = self.commentImgView;
+    self.base_lblComment = self.lblComment;
+    self.base_picViews = self.picViews;
 }
 
 - (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView truncate:(BOOL)needTruncate {
@@ -75,8 +81,9 @@
     [self.diary.layout layout];
     
     [self initHeader];
-    [self initImageView];
-    [self initMsg];
+    [self layoutImageView];
+    [self layoutMsg];
+    [self initToolbar];
 }
 
 #pragma mark - ui
@@ -84,11 +91,6 @@
     self.lblPhase.text = [NSString stringWithFormat:@"%@%@", self.diary.section_label, @"阶段"];
     self.lblPublishTime.text = [NSDate yyyy_Nian_MM_Yue_dd_Ri_HH_mm:self.diary.create_at];
     self.btnDel.hidden = ![DiaryBusiness isOwnDiary:self.diary];
-}
-
-- (void)initMsg {
-    self.msgHeightConst.constant = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
-    self.msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
 }
 
 #pragma mark - user action
@@ -119,81 +121,11 @@
     [[ViewControllerContainer getCurrentTopController] presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)onTapMore {
-    
-}
-
-- (void)onTapImage:(UITapGestureRecognizer *)g {
-    NSInteger index = [self.picViews indexOfObject:g.view];
-    NSArray *imgs = [self.diary.images map:^id(id obj) {
-        return obj[@"imageid"];
+- (void)onClickComment {
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES deletedBlock:^{
+        //        [self.diarys removeObject:self.diary];
+        //        [self.tableView reloadData];
     }];
-    
-    [ViewControllerContainer showOnlineImages:imgs index:index];
-}
-
-#pragma mark - layout
-- (void)initImageView {
-    self.imgsHeightConst.constant = self.diary.layout.picHeight;
-    NSArray *pics = self.diary.images;
-    
-    CGFloat imageTop = kPicTopMarging;
-    CGSize picSize = self.diary.layout.picSize;
-    int picsCount = (int)pics.count;
-    
-    for (int i = 0; i < 9; i++) {
-        UIImageView *imageView = self.picViews[i];
-        if (i >= picsCount) {
-            imageView.hidden = YES;
-        } else {
-            CGPoint origin = {0};
-            switch (picsCount) {
-                case 1: {
-                    origin.x = kPicPadding;
-                    origin.y = imageTop;
-                } break;
-                case 4: {
-                    origin.x = kPicPadding + (i % 2) * (picSize.width + kPicPaddingPic);
-                    origin.y = imageTop + (int)(i / 2) * (picSize.height + kPicPaddingPic);
-                } break;
-                default: {
-                    origin.x = kPicPadding + (i % 3) * (picSize.width + kPicPaddingPic);
-                    origin.y = imageTop + (int)(i / 3) * (picSize.height + kPicPaddingPic);
-                } break;
-            }
-            imageView.frame = (CGRect){.origin = origin, .size = picSize};
-            imageView.hidden = NO;
-            [imageView.layer removeAnimationForKey:@"contents"];
-            LeafImage *pic = [[LeafImage alloc] initWith:pics[i]];
-            
-            @weakify(imageView);
-            [imageView setImageWithId:pic.imageid withWidth:kScreenWidth completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
-                @strongify(imageView);
-                if (!imageView) return;
-                if (image && stage == YYWebImageStageFinished) {
-                    int width = [pic.width intValue];
-                    int height = [pic.height intValue];
-                    CGFloat scale = (height / width) / (imageView.frame.size.height / imageView.frame.size.width);
-                    if (scale < 0.99 || isnan(scale)) { // 宽图把左右两边裁掉
-                        imageView.contentMode = UIViewContentModeScaleAspectFill;
-                        imageView.layer.contentsRect = CGRectMake(0, 0, 1, 1);
-                    } else { // 高图只保留顶部
-                        imageView.contentMode = UIViewContentModeScaleToFill;
-                        imageView.layer.contentsRect = CGRectMake(0, 0, 1, (float)width / height);
-                    }
-                    
-                    if (from != YYWebImageFromMemoryCacheFast) {
-                        CATransition *transition = [CATransition animation];
-                        transition.duration = 0.15;
-                        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-                        transition.type = kCATransitionFade;
-                        [imageView.layer addAnimation:transition forKey:@"contents"];
-                    }
-                }
-                
-            }];
-        }
-    }
 }
 
 @end

@@ -91,6 +91,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
 #pragma mark - api request
 - (void)refresh {
+    [self.tableView reloadData];
     [self.tableView.footer resetNoMoreData];
     
     SearchDiary *request = [[SearchDiary alloc] init];
@@ -103,7 +104,9 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
             [self.tableView.footer endRefreshingWithNoMoreData];
         }
         
-        [self.tableView reloadData];
+        if (count > 0) {
+            [self.tableView reloadData];
+        }
     } failure:^{
         [self.tableView.header endRefreshing];
     } networkError:^{

@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseDecDiaryStatusCell.h"
 
 typedef void (^DiaryStatusDeleteDoneBlock)(void);
 typedef void (^DiaryStatusClickCommentBlock)(void);
 
-@interface DecDiaryStatusAllCell : UITableViewCell
+@interface DecDiaryStatusAllCell : BaseDecDiaryStatusCell
 
 @property (nonatomic, copy) DiaryStatusDeleteDoneBlock deleteDoneBlock;
 @property (nonatomic, copy) DiaryStatusClickCommentBlock clickCommentBlock;

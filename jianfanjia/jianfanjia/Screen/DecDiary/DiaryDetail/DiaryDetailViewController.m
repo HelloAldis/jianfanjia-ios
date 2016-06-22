@@ -358,6 +358,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
         self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, size.height));
         [self updateAuthorIdToUserId];
+        [self refreshDiary:NO];
         [self refreshMessageList:NO];
     } failure:^{
     } networkError:^{

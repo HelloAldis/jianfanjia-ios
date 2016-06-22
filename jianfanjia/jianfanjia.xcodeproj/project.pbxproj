@@ -429,6 +429,7 @@
 		68EE3E9A1D1921C800F5EF83 /* UITextView+Placeholder.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E991D1921C800F5EF83 /* UITextView+Placeholder.m */; };
 		68EE3E9E1D192ED000F5EF83 /* DecDiaryStatusAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E9C1D192ED000F5EF83 /* DecDiaryStatusAllCell.m */; };
 		68EE3E9F1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E9D1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib */; };
+		68EE3EA51D1A368B00F5EF83 /* BaseDecDiaryStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EA41D1A368B00F5EF83 /* BaseDecDiaryStatusCell.m */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1296,6 +1297,8 @@
 		68EE3E9B1D192ED000F5EF83 /* DecDiaryStatusAllCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecDiaryStatusAllCell.h; sourceTree = "<group>"; };
 		68EE3E9C1D192ED000F5EF83 /* DecDiaryStatusAllCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecDiaryStatusAllCell.m; sourceTree = "<group>"; };
 		68EE3E9D1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecDiaryStatusAllCell.xib; sourceTree = "<group>"; };
+		68EE3EA31D1A368B00F5EF83 /* BaseDecDiaryStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDecDiaryStatusCell.h; sourceTree = "<group>"; };
+		68EE3EA41D1A368B00F5EF83 /* BaseDecDiaryStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDecDiaryStatusCell.m; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2339,6 +2342,8 @@
 				68EE3E9B1D192ED000F5EF83 /* DecDiaryStatusAllCell.h */,
 				68EE3E9C1D192ED000F5EF83 /* DecDiaryStatusAllCell.m */,
 				68EE3E9D1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib */,
+				68EE3EA31D1A368B00F5EF83 /* BaseDecDiaryStatusCell.h */,
+				68EE3EA41D1A368B00F5EF83 /* BaseDecDiaryStatusCell.m */,
 				68EE3D871D0FFAAC00F5EF83 /* DecDiaryDataManager.h */,
 				68EE3D881D0FFAAC00F5EF83 /* DecDiaryDataManager.m */,
 			);
@@ -3837,6 +3842,7 @@
 				68123BA31C47D15C008FC9AB /* JYZSocialSnsPlatformWeibo.m in Sources */,
 				68123F241C4CC70E008FC9AB /* CollectionFallsFlowLayout.m in Sources */,
 				682E050F1C58BDA700F1ACAA /* PlanPriceDetailViewController.m in Sources */,
+				68EE3EA51D1A368B00F5EF83 /* BaseDecDiaryStatusCell.m in Sources */,
 				6E838DA21BEB37BD000BF5CD /* DesignerInfoCell.m in Sources */,
 				68B10CB81C785659005866C1 /* SearchBeautifulImageDataManager.m in Sources */,
 				68EE3E9A1D1921C800F5EF83 /* UITextView+Placeholder.m in Sources */,
