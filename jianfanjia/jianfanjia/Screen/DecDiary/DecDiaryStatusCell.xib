@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -110,15 +111,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9w-fL-N6l" userLabel="centerView">
                                         <rect key="frame" x="79" y="15" width="33" height="15"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notification-bell" translatesAutoresizingMaskIntoConstraints="NO" id="v6P-t5-F3n" userLabel="zan">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_zan" translatesAutoresizingMaskIntoConstraints="NO" id="v6P-t5-F3n" userLabel="zan">
                                                 <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="15" id="0qq-Tl-FYz"/>
-                                                    <constraint firstAttribute="height" constant="15" id="rZU-tk-vy4"/>
+                                                    <constraint firstAttribute="width" secondItem="v6P-t5-F3n" secondAttribute="height" multiplier="1:1" id="ruP-Jo-Xim"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lC-sS-0ZA">
-                                                <rect key="frame" x="20" y="-1" width="13" height="16"/>
+                                                <rect key="frame" x="20" y="0.0" width="13" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -147,7 +148,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfB-HS-TG7" userLabel="centerView">
                                         <rect key="frame" x="72" y="15" width="46" height="15"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notification-bell" translatesAutoresizingMaskIntoConstraints="NO" id="VQ9-I1-GwA" userLabel="zan">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_add_comment" translatesAutoresizingMaskIntoConstraints="NO" id="VQ9-I1-GwA" userLabel="zan">
                                                 <rect key="frame" x="0.0" y="0.0" width="15" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="15" id="De0-EN-k3U"/>
@@ -252,7 +253,8 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon_add_comment" width="15" height="16"/>
+        <image name="icon_zan" width="16" height="17"/>
         <image name="image_place_holder_2" width="60" height="60"/>
-        <image name="notification-bell" width="18" height="20"/>
     </resources>
 </document>

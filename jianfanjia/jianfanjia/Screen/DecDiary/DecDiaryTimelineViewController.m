@@ -32,8 +32,8 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     [self initUI];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     if (!self.wasFirstRefresh) {
         self.wasFirstRefresh = YES;
         [self.tableView.header beginRefreshing];
