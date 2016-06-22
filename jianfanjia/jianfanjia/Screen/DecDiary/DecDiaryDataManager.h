@@ -15,8 +15,8 @@
 
 - (NSInteger)refresh;
 - (NSInteger)loadMore;
-- (NSNumber *)findLatestRefreshTimeDiary;
-- (NSNumber *)findOldestRefreshTimeDiary;
+- (NSNumber *)findLatestCreateTimeDiary;
+- (NSNumber *)findOldestCreateTimeDiary;
 - (NSMutableDictionary<NSString *, Diary *> *)findNeedUpdatedDiarys;
 - (void)updateChangedDiarys:(NSMutableDictionary<NSString *, Diary *> *)toBeUpdateDict;
 - (NSInteger)refreshDiarySets;

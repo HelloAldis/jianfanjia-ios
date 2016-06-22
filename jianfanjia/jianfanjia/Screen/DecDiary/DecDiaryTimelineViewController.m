@@ -97,7 +97,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     [self.tableView.footer resetNoMoreData];
     
     SearchDiary *request = [[SearchDiary alloc] init];
-    request.query = [request queryConGTTime:[self.dataManager findLatestRefreshTimeDiary]];
+    request.query = [request queryConGTTime:[self.dataManager findLatestCreateTimeDiary]];
     
     [API searchDiary:request success:^{
         [self.tableView.header endRefreshing];
@@ -136,7 +136,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
 - (void)loadMore {
     SearchDiary *request = [[SearchDiary alloc] init];
-    request.query = [request queryConLTTime:[self.dataManager findOldestRefreshTimeDiary]];
+    request.query = [request queryConLTTime:[self.dataManager findOldestCreateTimeDiary]];
     request.limit = @50;
     
     [API searchDiary:request success:^{

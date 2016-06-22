@@ -31,7 +31,6 @@
         Author *author = [[Author alloc] initWith:[diary.data objectForKey:@"author"]];
         diary.diarySet = diarySet;
         diary.author = author;
-        
         [diary updateRefreshTime];
         [diarys addObject:diary];
     }
@@ -50,7 +49,6 @@
         Author *author = [[Author alloc] initWith:[diary.data objectForKey:@"author"]];
         diary.diarySet = diarySet;
         diary.author = author;
-        
         [diary updateRefreshTime];
         [diarys addObject:diary];
     }
@@ -59,40 +57,20 @@
     return diarys.count;
 }
 
-- (NSNumber *)findLatestRefreshTimeDiary {
+- (NSNumber *)findLatestCreateTimeDiary {
     if (self.diarys.count == 0) {
         return @([[NSDate date] getLongMilSecond]);
     }
     
-    NSArray *arr = [self.diarys sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(Diary *obj1, Diary *obj2) {
-        if ([obj1.last_refresh_time compare:obj2.last_refresh_time] == NSOrderedAscending) {
-            return NSOrderedAscending;
-        } else if ([obj1.last_refresh_time compare:obj2.last_refresh_time] == NSOrderedDescending) {
-            return NSOrderedDescending;
-        } else {
-            return NSOrderedSame;
-        }
-    }];
-    
-    return [arr.lastObject last_refresh_time];
+    return [self.diarys.firstObject create_at];
 }
 
-- (NSNumber *)findOldestRefreshTimeDiary {
+- (NSNumber *)findOldestCreateTimeDiary {
     if (self.diarys.count == 0) {
         return @([[NSDate date] getLongMilSecond]);
     }
     
-    NSArray *arr = [self.diarys sortedArrayWithOptions:NSSortConcurrent usingComparator:^NSComparisonResult(Diary *obj1, Diary *obj2) {
-        if ([obj1.last_refresh_time compare:obj2.last_refresh_time] == NSOrderedAscending) {
-            return NSOrderedAscending;
-        } else if ([obj1.last_refresh_time compare:obj2.last_refresh_time] == NSOrderedDescending) {
-            return NSOrderedDescending;
-        } else {
-            return NSOrderedSame;
-        }
-    }];
-    
-    return [arr.firstObject last_refresh_time];
+    return [self.diarys.lastObject create_at];
 }
 
 - (NSMutableDictionary<NSString *, Diary *> *)findNeedUpdatedDiarys {
