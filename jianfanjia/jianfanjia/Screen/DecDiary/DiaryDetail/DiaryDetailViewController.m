@@ -59,6 +59,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
     
     [self initNav];
     [self initUI];
+//    [self initContentInset];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -144,6 +145,24 @@ static NSString *kDeafultTVHolder = @"添加评论";
     [self refreshMessageList:self.showComment];
 }
 
+- (void)initContentInset {
+    DecDiaryStatusAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
+    [cell initWithDiary:self.diary diarys:nil tableView:nil];
+    [cell sizeToFit];
+    CGSize size = [cell systemLayoutSizeFittingSize:CGSizeMake(kScreenWidth, CGFLOAT_MAX)];
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight, 0);
+    self.tableView.contentOffset = CGPointMake(0, size.height - kNavWithStatusBarHeight + 2.0);
+    
+    
+
+//    CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
+//    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, CGRectGetMaxY(cellRect), 0);
+//        self.tableView.contentOffset = CGPointMake(0, CGRectGetMaxY(cellRect) - kNavWithStatusBarHeight + 2.0);
+//    });
+}
+
 #pragma mark - table view delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
@@ -220,8 +239,10 @@ static NSString *kDeafultTVHolder = @"添加评论";
     if (self.showComment && !self.wasFirstLoad && indexPath.section == 0) {
         self.wasFirstLoad = YES;
         CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-        self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight - kNavWithStatusBarHeight - kCommentCountTipSectionHeight, 0);
-        self.tableView.contentOffset = CGPointMake(0, kScreenHeight - kNavWithStatusBarHeight - kCommentCountTipSectionHeight);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight, 0);
+            self.tableView.contentOffset = CGPointMake(0, CGRectGetMaxY(cellRect) - kNavWithStatusBarHeight + 2.0);
+        });
     }
 }
 
