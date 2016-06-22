@@ -106,6 +106,11 @@ static ViewControllerContainer *container;
 }
 
 + (void)showTab {
+//    if (container.tab) {
+//        container.window.rootViewController = container.navigation;
+//        return;
+//    }
+//    
     container.tab = [[TabViewController alloc] initWithNibName:nil bundle:nil];
     container.tab.automaticallyAdjustsScrollViewInsets = NO;
     
