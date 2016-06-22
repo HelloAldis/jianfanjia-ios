@@ -11,6 +11,7 @@
 
 @interface DecDiaryStatusCell ()
 
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblPhase;
 @property (weak, nonatomic) IBOutlet UILabel *lblPublishTime;
@@ -31,7 +32,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblComment;
 
 @property (strong, nonatomic) NSMutableArray *picViews;
-@property (nonatomic, copy) YYTextAction tapMoreAction;
 
 @property (strong, nonatomic) NSMutableArray *diarys;
 @property (weak, nonatomic) UITableView *tableView;
@@ -54,12 +54,9 @@
         @strongify(self);
         [self onTapDel];
     }];
-    
-    self.tapMoreAction = ^(UIView *containerView, NSAttributedString *text, NSRange range, CGRect rect) {
-        @strongify(self);
-        [self onTapMore];
-    };
-    
+
+    [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapHeader)]];
+    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapCell)]];
     [self.avatarImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickAvatar)]];
     [self.zanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickZan)]];
     [self.commentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickComment)]];
@@ -87,7 +84,6 @@
     self.diarys = diarys;
     self.diary = diary;
     self.diary.layout.needTruncate = YES;
-    self.diary.layout.tapMoreAction = self.tapMoreAction;
     [self.diary.layout layout];
     
     [self initHeader];
@@ -133,11 +129,12 @@
     [[ViewControllerContainer getCurrentTopController] presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)onTapMore {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO deletedBlock:^{
-//        [self.diarys removeObject:self.diary];
-//        [self.tableView reloadData];
-    }];
+- (void)onTapHeader {
+    
+}
+
+- (void)onTapCell {
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO deletedBlock:nil];
 }
 
 - (void)onClickAvatar {
@@ -145,10 +142,7 @@
 }
 
 - (void)onClickComment {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES deletedBlock:^{
-//        [self.diarys removeObject:self.diary];
-//        [self.tableView reloadData];
-    }];
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES deletedBlock:nil];
 }
 
 @end

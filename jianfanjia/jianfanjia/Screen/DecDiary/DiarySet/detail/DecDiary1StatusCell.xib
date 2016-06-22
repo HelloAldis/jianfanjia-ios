@@ -83,7 +83,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9w-fL-N6l" userLabel="centerView">
                                         <rect key="frame" x="69" y="5" width="53" height="35"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_zan" translatesAutoresizingMaskIntoConstraints="NO" id="v6P-t5-F3n" userLabel="zan">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_zan" translatesAutoresizingMaskIntoConstraints="NO" id="v6P-t5-F3n" userLabel="zan">
                                                 <rect key="frame" x="10" y="10" width="15" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="15" id="0qq-Tl-FYz"/>
@@ -120,7 +120,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NfB-HS-TG7" userLabel="centerView">
                                         <rect key="frame" x="62" y="5" width="66" height="35"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_add_comment" translatesAutoresizingMaskIntoConstraints="NO" id="VQ9-I1-GwA" userLabel="zan">
+                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_add_comment" translatesAutoresizingMaskIntoConstraints="NO" id="VQ9-I1-GwA" userLabel="zan">
                                                 <rect key="frame" x="10" y="10" width="15" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="15" id="De0-EN-k3U"/>
@@ -210,6 +210,7 @@
                 <outlet property="btnDel" destination="nRu-Hg-CyV" id="v9g-T3-c7K"/>
                 <outlet property="commentImgView" destination="VQ9-I1-GwA" id="wWt-3g-91A"/>
                 <outlet property="commentView" destination="NfB-HS-TG7" id="Ncc-0v-DYg"/>
+                <outlet property="headerView" destination="xmF-HI-0oK" id="hLC-cU-YD3"/>
                 <outlet property="imgsHeightConst" destination="vGm-cB-WXQ" id="5RC-LZ-jF5"/>
                 <outlet property="imgsView" destination="PpK-Hc-Tmk" id="bwG-8J-Ihg"/>
                 <outlet property="lblComment" destination="QUl-yM-Qqt" id="ip0-Vh-x00"/>

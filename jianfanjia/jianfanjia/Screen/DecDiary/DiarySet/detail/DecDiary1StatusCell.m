@@ -11,6 +11,7 @@
 
 @interface DecDiary1StatusCell ()
 
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *lblPhase;
 @property (weak, nonatomic) IBOutlet UILabel *lblPublishTime;
 @property (weak, nonatomic) IBOutlet UIButton *btnDel;
@@ -51,6 +52,8 @@
         [self onTapDel];
     }];
     
+    [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapHeader)]];
+    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapCell)]];
     [self.zanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickZan)]];
     [self.commentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickComment)]];
     
@@ -121,11 +124,16 @@
     [[ViewControllerContainer getCurrentTopController] presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)onTapHeader {
+    
+}
+
+- (void)onTapCell {
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO deletedBlock:nil];
+}
+
 - (void)onClickComment {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES deletedBlock:^{
-        //        [self.diarys removeObject:self.diary];
-        //        [self.tableView reloadData];
-    }];
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES deletedBlock:nil];
 }
 
 @end

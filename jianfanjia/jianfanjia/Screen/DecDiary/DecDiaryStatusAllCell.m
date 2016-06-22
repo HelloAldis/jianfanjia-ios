@@ -11,6 +11,7 @@
 
 @interface DecDiaryStatusAllCell ()
 
+@property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblPhase;
 @property (weak, nonatomic) IBOutlet UILabel *lblPublishTime;
