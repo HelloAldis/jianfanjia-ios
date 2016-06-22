@@ -59,11 +59,11 @@ static NSString *kDeafultTVHolder = @"添加评论";
     
     [self initNav];
     [self initUI];
-//    [self initContentInset];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self initContentInset];
     
     @weakify(self);
     [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
@@ -146,21 +146,16 @@ static NSString *kDeafultTVHolder = @"添加评论";
 }
 
 - (void)initContentInset {
-    DecDiaryStatusAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
-    [cell initWithDiary:self.diary diarys:nil tableView:nil];
-    [cell sizeToFit];
-    CGSize size = [cell systemLayoutSizeFittingSize:CGSizeMake(kScreenWidth, CGFLOAT_MAX)];
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight, 0);
-    self.tableView.contentOffset = CGPointMake(0, size.height - kNavWithStatusBarHeight + 2.0);
-    
-    
-
-//    CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-//    
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, CGRectGetMaxY(cellRect), 0);
-//        self.tableView.contentOffset = CGPointMake(0, CGRectGetMaxY(cellRect) - kNavWithStatusBarHeight + 2.0);
-//    });
+    if (self.showComment && !self.wasFirstLoad) {
+        self.wasFirstLoad = YES;
+        DecDiaryStatusAllCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
+        [cell initWithDiary:self.diary diarys:nil tableView:nil];
+        CGSize size = [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+        self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight, 0);
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.tableView.contentOffset = CGPointMake(0, size.height - kNavWithStatusBarHeight + 1.0);
+        });
+    }
 }
 
 #pragma mark - table view delegate
@@ -235,16 +230,16 @@ static NSString *kDeafultTVHolder = @"添加评论";
     }
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.showComment && !self.wasFirstLoad && indexPath.section == 0) {
-        self.wasFirstLoad = YES;
-        CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight, 0);
-            self.tableView.contentOffset = CGPointMake(0, CGRectGetMaxY(cellRect) - kNavWithStatusBarHeight + 2.0);
-        });
-    }
-}
+//- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (self.showComment && !self.wasFirstLoad && indexPath.section == 0) {
+//        self.wasFirstLoad = YES;
+//        CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight, 0);
+//            self.tableView.contentOffset = CGPointMake(0, CGRectGetMaxY(cellRect) - kNavWithStatusBarHeight + 2.0);
+//        });
+//    }
+//}
 
 #pragma mark - api request
 - (void)refreshDiary:(BOOL)showPlsWait {
