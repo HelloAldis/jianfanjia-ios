@@ -289,6 +289,7 @@
         UserGetInfo *getUser = [[UserGetInfo alloc] init];
         [API userGetInfo:getUser success:^{
             [self dismissViewControllerAnimated:YES completion:^{
+                [[LoginEngine shared] postLoginEvent];
                 [[LoginEngine shared] executeLoginBlock:YES];
             }];
         } failure:^{

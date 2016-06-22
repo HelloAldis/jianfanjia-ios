@@ -66,23 +66,27 @@
 }
 
 - (void)onClickZan {
-    if (![self.diary.is_my_favorite boolValue]) {
-        [self setLiked:YES withAnimation:YES];
-        
-        ZanDiary *request = [[ZanDiary alloc] init];
-        request.diaryid = self.diary._id;
-        
-        [API zanDiary:request success:^{
-        } failure:^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self setLiked:NO withAnimation:YES];
-            });
-        } networkError:^{
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self setLiked:NO withAnimation:YES];
-            });
-        }];
-    }
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            if (![self.diary.is_my_favorite boolValue]) {
+                [self setLiked:YES withAnimation:YES];
+                
+                ZanDiary *request = [[ZanDiary alloc] init];
+                request.diaryid = self.diary._id;
+                
+                [API zanDiary:request success:^{
+                } failure:^{
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self setLiked:NO withAnimation:YES];
+                    });
+                } networkError:^{
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self setLiked:NO withAnimation:YES];
+                    });
+                }];
+            }
+        }
+    }];
 }
 
 - (UIImage *)likeImage {

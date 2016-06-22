@@ -82,6 +82,7 @@
                 
                 [HUDUtil showWait];
                 [API userSignup:request success:^{
+                    [[LoginEngine shared] postLoginEvent];
                     [ViewControllerContainer showCollectDecPhase];
                 } failure:^{
                     

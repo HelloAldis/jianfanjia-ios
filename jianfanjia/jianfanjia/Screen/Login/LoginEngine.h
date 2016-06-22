@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * const kLoginNotification = @"LoginNotification";
+
 typedef void (^LoginEngineLoginBlock)(BOOL logined);
 
 @interface LoginEngine : NSObject
@@ -17,6 +19,8 @@ typedef void (^LoginEngineLoginBlock)(BOOL logined);
 - (void)showWechatLogin:(UIViewController *)controller completion:(LoginEngineLoginBlock)wechatLoginBlock;
 - (void)executeLoginBlock:(BOOL)logined;
 - (void)executeWechatLoginBlock:(BOOL)logined;
+
+- (void)postLoginEvent;
 
 kSynthesizeSingletonForHeader(LoginEngine)
 

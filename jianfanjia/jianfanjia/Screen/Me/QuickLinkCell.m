@@ -33,7 +33,11 @@
 }
 
 - (void)onTapMyDiarySet {
-    [ViewControllerContainer showMyDiarySet];
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            [ViewControllerContainer showMyDiarySet];
+        }
+    }];
 }
 
 - (void)onClickFavoriate {

@@ -47,6 +47,7 @@
             
             [API wechatLogin:request success:^{
                 [HUDUtil hideWait];
+                [self postLoginEvent];
                 [self executeWechatLoginBlock:YES];
             } failure:^{
                 [HUDUtil hideWait];
@@ -72,6 +73,10 @@
         self.wechatLoginBlock(logined);
         self.wechatLoginBlock = nil;
     }
+}
+
+- (void)postLoginEvent {
+    [[NSNotificationCenter defaultCenter] postNotificationName:kLoginNotification object:nil];
 }
 
 kSynthesizeSingletonForClass(LoginEngine)

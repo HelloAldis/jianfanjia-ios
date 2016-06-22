@@ -74,6 +74,8 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
         @strongify(self);
         [self loadMore];
     }];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRestartRefresh) name:kLogoutNotification object:nil];
 }
 
 #pragma mark - table view delegate
@@ -175,6 +177,12 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     } networkError:^{
         
     }];
+}
+
+- (void)handleRestartRefresh {
+    [self.dataManager.diarys removeAllObjects];
+    [self.tableView reloadData];
+    [self.tableView.header beginRefreshing];
 }
 
 @end

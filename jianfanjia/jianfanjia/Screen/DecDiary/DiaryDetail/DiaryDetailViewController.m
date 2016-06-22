@@ -110,6 +110,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         [self onSendMessage];
     }];
     
+    self.tvMessage.delegate = (id)self;
     [[self.tvMessage.rac_textSignal
       length:^NSInteger{
           return NSIntegerMax;
@@ -137,7 +138,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         }
         
     }];
-    
+
     self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreMessages];
@@ -158,6 +159,21 @@ static NSString *kDeafultTVHolder = @"添加评论";
             self.tableView.contentOffset = CGPointMake(0, size.height - kNavWithStatusBarHeight + 1.0);
         });
     }
+}
+
+#pragma mark - text view delegate
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    if (![LoginEngine shared].isLogin) {
+        [[LoginEngine shared] showLogin:^(BOOL logined) {
+            if (logined) {
+                [textView becomeFirstResponder];
+            }
+        }];
+        
+        return NO;
+    }
+    
+    return YES;
 }
 
 #pragma mark - table view delegate

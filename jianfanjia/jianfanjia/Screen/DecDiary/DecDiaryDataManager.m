@@ -68,7 +68,7 @@
         if ([obj1.last_refresh_time compare:obj2.last_refresh_time] == NSOrderedAscending) {
             return NSOrderedAscending;
         } else if ([obj1.last_refresh_time compare:obj2.last_refresh_time] == NSOrderedDescending) {
-            return NSOrderedAscending;
+            return NSOrderedDescending;
         } else {
             return NSOrderedSame;
         }
@@ -86,7 +86,7 @@
         if ([obj1.last_refresh_time compare:obj2.last_refresh_time] == NSOrderedAscending) {
             return NSOrderedAscending;
         } else if ([obj1.last_refresh_time compare:obj2.last_refresh_time] == NSOrderedDescending) {
-            return NSOrderedAscending;
+            return NSOrderedDescending;
         } else {
             return NSOrderedSame;
         }

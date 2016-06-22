@@ -25,7 +25,7 @@
         diary.favorite_count = fromServer.favorite_count;
         diary.view_count = fromServer.view_count;
         diary.comment_count = fromServer.comment_count;
-        diary.is_my_favorite = fromServer.is_my_favorite;
+        diary.is_my_favorite = fromServer.is_my_favorite ? fromServer.is_my_favorite : @0;
     }
 }
 
