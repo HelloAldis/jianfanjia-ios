@@ -129,11 +129,11 @@
 }
 
 - (void)onTapCell {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO deletedBlock:nil];
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO toUser:nil];
 }
 
 - (void)onClickComment {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES deletedBlock:nil];
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES toUser:nil];
 }
 
 @end

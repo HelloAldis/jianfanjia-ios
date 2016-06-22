@@ -32,7 +32,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
 @property (strong, nonatomic) DiaryDetailDataManager *dataManager;
 @property (strong, nonatomic) Diary *diary;
-@property (copy, nonatomic) DiaryDetailDeletedBlock deletedBlock;
 @property (strong, nonatomic) User *curToUser;
 @property (assign, nonatomic) BOOL showComment;
 @property (assign, nonatomic) BOOL wasFirstLoad;
@@ -41,13 +40,16 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
 @implementation DiaryDetailViewController
 
-- (instancetype)initWithDiary:(Diary *)diary showComment:(BOOL)showComment deletedBlock:(DiaryDetailDeletedBlock)deletedBlock {
+- (instancetype)initWithDiary:(Diary *)diary showComment:(BOOL)showComment toUser:(User *)toUser {
     if (self = [super init]) {
         _diary = diary;
-        _deletedBlock = deletedBlock;
         _showComment = showComment;
         _curToUser = [[User alloc] init];
-        _curToUser._id = _diary.authorid;
+        if (toUser) {
+            [_curToUser merge:toUser];
+        } else {
+            _curToUser._id = _diary.authorid;
+        }
     }
     
     return self;
@@ -196,9 +198,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
         [cell initWithDiary:self.diary diarys:self.dataManager.diarys tableView:self.tableView];
         
         cell.deleteDoneBlock = ^{
-            if (self.deletedBlock) {
-                self.deletedBlock();
-            }
             [self onClickBack];
         };
         
@@ -255,9 +254,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
         if ([self.diary.is_deleted boolValue]) {
             [HUDUtil showText:@"日记已被删除" delayShow:0.3];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if (self.deletedBlock) {
-                    self.deletedBlock();
-                }
                 [self onClickBack];
             });
         } else {

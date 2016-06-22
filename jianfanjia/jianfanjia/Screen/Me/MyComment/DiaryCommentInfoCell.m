@@ -73,12 +73,12 @@
 
 #pragma mark - user action
 - (IBAction)onClickReply:(id)sender {
-    [ViewControllerContainer showDiaryDetail:self.notification.diary showComment:YES deletedBlock:nil];
+    [ViewControllerContainer showDiaryDetail:self.notification.diary showComment:YES toUser:self.notification.user];
 }
 
 #pragma mark - gesture
 - (void)onTapDiary {
-    [ViewControllerContainer showDiaryDetail:self.notification.diary showComment:NO deletedBlock:nil];
+    [ViewControllerContainer showDiaryDetail:self.notification.diary showComment:NO toUser:nil];
 }
 
 @end
