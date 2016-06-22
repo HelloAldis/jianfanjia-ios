@@ -115,6 +115,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     
     Diary *diary = self.dataManager.diarys[indexPath.row];
     diary.diarySet = self.diarySet;
+    diary.author = self.diarySet.author;
     DecDiary1StatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell initWithDiary:diary diarys:self.dataManager.diarys tableView:self.tableView truncate:NO];

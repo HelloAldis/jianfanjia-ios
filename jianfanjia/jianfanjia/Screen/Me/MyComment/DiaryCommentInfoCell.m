@@ -33,7 +33,7 @@
     [self.imgAvatar setCornerRadius:self.imgAvatar.bounds.size.width / 2];
     [self.btnReply setBorder:1 andColor:kThemeTextColor.CGColor];
     [self.btnReply setCornerRadius:5];
-    [self.linkView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDec)]];
+    [self.linkView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDiary)]];
 }
 
 - (void)initWithNotification:(UserNotification *)notification {
@@ -73,12 +73,12 @@
 
 #pragma mark - user action
 - (IBAction)onClickReply:(id)sender {
-    [ViewControllerContainer leaveMessage:self.notification.process section:self.notification.section item:self.notification.item block:nil];
+    [ViewControllerContainer showDiaryDetail:self.notification.diary showComment:YES deletedBlock:nil];
 }
 
 #pragma mark - gesture
-- (void)onTapDec {
-    [ViewControllerContainer showProcess:self.notification.topicid];
+- (void)onTapDiary {
+    [ViewControllerContainer showDiaryDetail:self.notification.diary showComment:NO deletedBlock:nil];
 }
 
 @end
