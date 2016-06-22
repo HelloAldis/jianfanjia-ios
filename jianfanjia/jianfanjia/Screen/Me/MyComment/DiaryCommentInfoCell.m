@@ -61,7 +61,7 @@
     if (self.notification.diary.images.count > 0) {
         LeafImage *img = [[LeafImage alloc] initWith:self.notification.diary.images[0]];
         [self.diaryImgView setImageWithId:img.imageid withWidth:self.diaryImgView.frame.size.width];
-        self.imgLeftCons.constant = 0.0;
+        self.imgLeftCons.constant = 14.0;
     } else {
         self.imgLeftCons.constant = - CGRectGetWidth(self.diaryImgView.frame);
     }

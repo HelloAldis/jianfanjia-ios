@@ -78,6 +78,7 @@
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.scrollView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
+    self.imgX.tintColor = kTextColor;
     [self.imgX addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickBack)]];
     
     [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
