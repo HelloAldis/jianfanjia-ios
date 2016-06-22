@@ -113,9 +113,11 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         return cell;
     }
     
+    Diary *diary = self.dataManager.diarys[indexPath.row];
+    diary.diarySet = self.diarySet;
     DecDiary1StatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell initWithDiary:self.dataManager.diarys[indexPath.row] diarys:self.dataManager.diarys tableView:self.tableView truncate:NO];
+    [cell initWithDiary:diary diarys:self.dataManager.diarys tableView:self.tableView truncate:NO];
     return cell;
 }
 

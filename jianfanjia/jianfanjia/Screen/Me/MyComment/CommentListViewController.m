@@ -10,9 +10,11 @@
 #import "CommentListDataManager.h"
 #import "PlanCommentInfoCell.h"
 #import "DecCommentInfoCell.h"
+#import "DiaryCommentInfoCell.h"
 
 static NSString *PlanCommentInfoCellIdentifier = @"PlanCommentInfoCell";
 static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
+static NSString *DiaryCommentInfoCellIdentifier = @"DiaryCommentInfoCell";
 
 @interface CommentListViewController ()
 
@@ -53,7 +55,7 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"我的留言";
+    self.title = @"我的评论";
 }
 
 - (void)initUI {
@@ -65,6 +67,7 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
     self.tableView.estimatedRowHeight = 200;
     [self.tableView registerNib:[UINib nibWithNibName:PlanCommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:PlanCommentInfoCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:DecCommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:DecCommentInfoCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:DiaryCommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:DiaryCommentInfoCellIdentifier];
     
     @weakify(self);
     self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
@@ -94,6 +97,12 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
     } else if ([notification.message_type isEqualToString:kUserPNFromDecItemComment
                 ]) {
         DecCommentInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecCommentInfoCellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell initWithNotification:notification];
+        return cell;
+    } else if ([notification.message_type isEqualToString:kUserPNFromDiaryComment
+                ]) {
+        DiaryCommentInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiaryCommentInfoCellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell initWithNotification:notification];
         return cell;

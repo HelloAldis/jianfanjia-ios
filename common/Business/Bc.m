@@ -214,6 +214,7 @@ NSString * const kWorkTypeDesign = @"2";
  * 11. 设计师拒绝改期
  * 12. 设计师同意改期
  * 13. 提醒业主确认量房
+ * 14. 日志评论
  **/
 //PN - Push Notification
 NSString * const kUserPNFromRescheduleRequest = @"0";
@@ -230,6 +231,7 @@ NSString * const kUserPNFromAgreementConfigure = @"10";
 NSString * const kUserPNFromRescheduleReject = @"11";
 NSString * const kUserPNFromRescheduleAgree = @"12";
 NSString * const kUserPNFromMeasureHouseConfirm = @"13";
+NSString * const kUserPNFromDiaryComment = @"14";
 
 /*
  设计师的消息类型 designer_message_type

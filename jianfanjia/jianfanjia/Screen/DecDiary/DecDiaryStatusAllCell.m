@@ -91,7 +91,12 @@
 
 #pragma mark - ui
 - (void)initHeader {
-    [self.avatarImageView setUserImageWithId:self.diary.author.imageid];
+    if (self.diary.author.imageid.length > 0) {
+        [self.avatarImageView setUserImageWithId:self.diary.author.imageid];
+    } else {
+        [self.avatarImageView setUserImageWithId:self.diary.diarySet.author.imageid];
+    }
+
     self.lblTitle.text = self.diary.diarySet.title;
     self.lblPhase.text = [NSString stringWithFormat:@"%@%@", self.diary.section_label, @"阶段"];
     self.lblPublishTime.text = [self.diary.create_at humDateString];

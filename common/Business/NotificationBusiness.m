@@ -35,7 +35,7 @@ static NSArray *_DesignerAllLeaveMsgFilter;
     _UserSystemAnnouncementFilter = @[kUserPNFromSystemMsg];
     _UserRequirmentNotificationFilter = @[kUserPNFromOrderRespond, kUserPNFromOrderReject, kUserPNFromPlanSubmit, kUserPNFromAgreementConfigure, kUserPNFromMeasureHouseConfirm];
     _UserWorksiteNotificationFilter = @[kUserPNFromPurchaseTip, kUserPNFromPayTip, kUserPNFromDBYSRequest, kUserPNFromRescheduleRequest, kUserPNFromRescheduleReject, kUserPNFromRescheduleAgree];
-    _UserAllLeaveMsgFilter = @[kUserPNFromPlanComment, kUserPNFromDecItemComment];
+    _UserAllLeaveMsgFilter = @[kUserPNFromPlanComment, kUserPNFromDecItemComment, kUserPNFromDiaryComment];
     
     _DesignerAllNotificationsFilter = @[kDesignerPNFromSystemMsg, kDesignerPNFromBasicInfoAuthPass, kDesignerPNFromBasicInfoAuthNotPass, kDesignerPNFromIDAuthPass, kDesignerPNFromIDAuthNotPass,kDesignerPNFromWorksiteAuthPass, kDesignerPNFromWorksiteAuthNotPass, kDesignerPNFromProductAuthPass, kDesignerPNFromProductAuthNotPass, kDesignerPNFromProductBreakRule, kDesignerPNFromOrderTip, kDesignerPNFromMeasureHouseConfirm, kDesignerPNFromPlanChoose, kDesignerPNFromPlanNotChoose, kDesignerPNFromAgreementConfirm, kDesignerPNFromPurchaseTip, kDesignerPNFromRescheduleRequest, kDesignerPNFromRescheduleReject, kDesignerPNFromRescheduleAgree, kDesignerPNFromDBYSConfirm];
     _DesignerSystemAnnouncementFilter = @[kDesignerPNFromSystemMsg, kDesignerPNFromBasicInfoAuthPass, kDesignerPNFromBasicInfoAuthNotPass, kDesignerPNFromIDAuthPass, kDesignerPNFromIDAuthNotPass,kDesignerPNFromWorksiteAuthPass, kDesignerPNFromWorksiteAuthNotPass, kDesignerPNFromProductAuthPass, kDesignerPNFromProductAuthNotPass, kDesignerPNFromProductBreakRule];

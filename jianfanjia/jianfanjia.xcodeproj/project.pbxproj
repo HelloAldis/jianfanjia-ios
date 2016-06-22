@@ -430,6 +430,8 @@
 		68EE3E9E1D192ED000F5EF83 /* DecDiaryStatusAllCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3E9C1D192ED000F5EF83 /* DecDiaryStatusAllCell.m */; };
 		68EE3E9F1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3E9D1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib */; };
 		68EE3EA51D1A368B00F5EF83 /* BaseDecDiaryStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EA41D1A368B00F5EF83 /* BaseDecDiaryStatusCell.m */; };
+		68EE3EA91D1A50C200F5EF83 /* DiaryCommentInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EA71D1A50C200F5EF83 /* DiaryCommentInfoCell.m */; };
+		68EE3EAA1D1A50C200F5EF83 /* DiaryCommentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3EA81D1A50C200F5EF83 /* DiaryCommentInfoCell.xib */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1299,6 +1301,9 @@
 		68EE3E9D1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecDiaryStatusAllCell.xib; sourceTree = "<group>"; };
 		68EE3EA31D1A368B00F5EF83 /* BaseDecDiaryStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDecDiaryStatusCell.h; sourceTree = "<group>"; };
 		68EE3EA41D1A368B00F5EF83 /* BaseDecDiaryStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDecDiaryStatusCell.m; sourceTree = "<group>"; };
+		68EE3EA61D1A50C200F5EF83 /* DiaryCommentInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryCommentInfoCell.h; sourceTree = "<group>"; };
+		68EE3EA71D1A50C200F5EF83 /* DiaryCommentInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryCommentInfoCell.m; sourceTree = "<group>"; };
+		68EE3EA81D1A50C200F5EF83 /* DiaryCommentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiaryCommentInfoCell.xib; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2068,6 +2073,9 @@
 				685DD4491C89761E00A76B9C /* PlanCommentInfoCell.h */,
 				685DD44A1C89761E00A76B9C /* PlanCommentInfoCell.m */,
 				685DD44B1C89761E00A76B9C /* PlanCommentInfoCell.xib */,
+				68EE3EA61D1A50C200F5EF83 /* DiaryCommentInfoCell.h */,
+				68EE3EA71D1A50C200F5EF83 /* DiaryCommentInfoCell.m */,
+				68EE3EA81D1A50C200F5EF83 /* DiaryCommentInfoCell.xib */,
 				688517701C926FDC000B01DB /* DecCommentInfoCell.h */,
 				688517711C926FDC000B01DB /* DecCommentInfoCell.m */,
 				688517721C926FDC000B01DB /* DecCommentInfoCell.xib */,
@@ -3421,6 +3429,7 @@
 				6EE299C71BF5BC6E00A527F6 /* DesignerSection.xib in Resources */,
 				6EE299C51BF57C7900A527F6 /* RefreshViewController.xib in Resources */,
 				683FFB691C2A8FBD002A1AFE /* CollectFamilyInfoViewController.xib in Resources */,
+				68EE3EAA1D1A50C200F5EF83 /* DiaryCommentInfoCell.xib in Resources */,
 				68BA50841C9FD8BB002E5572 /* WebViewController.xib in Resources */,
 				68EE3DED1D1282AF00F5EF83 /* DecDiary1StatusCell.xib in Resources */,
 				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
@@ -3609,6 +3618,7 @@
 				68134A321C3CA840003C1C10 /* RefreshSession.m in Sources */,
 				685F2D761CACD21400DC4D43 /* DIYGifHeader.m in Sources */,
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
+				68EE3EA91D1A50C200F5EF83 /* DiaryCommentInfoCell.m in Sources */,
 				683FFB1F1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m in Sources */,
 				68EE3DAD1D12447A00F5EF83 /* CompareImageEditCell.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
