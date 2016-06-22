@@ -18,5 +18,6 @@
 @property (nonatomic, strong) Designer *designer;
 @property (nonatomic, strong) Supervisor *supervisor;
 @property (nonatomic, strong) Plan *plan;
+@property (nonatomic, strong) Diary *diary;
 
 @end

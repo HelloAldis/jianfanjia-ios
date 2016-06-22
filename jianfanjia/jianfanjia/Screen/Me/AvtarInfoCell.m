@@ -61,6 +61,12 @@ CGFloat kAvtarInfoCellHeight;
     if ([[LoginEngine shared] isLogin]) {
         UserInfoViewController *v = [[UserInfoViewController alloc] initWithNibName:nil bundle:nil];
         [[ViewControllerContainer navigation] pushViewController:v animated:YES];
+    } else {
+        [[LoginEngine shared] showLogin:^(BOOL logined) {
+            if (logined) {
+                [self initUI];
+            }
+        }];
     }
 }
 

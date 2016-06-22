@@ -47,7 +47,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         _deletedBlock = deletedBlock;
         _showComment = showComment;
         _curToUser = [[User alloc] init];
-        _curToUser._id = _diary._id;
+        _curToUser._id = _diary.authorid;
     }
     
     return self;

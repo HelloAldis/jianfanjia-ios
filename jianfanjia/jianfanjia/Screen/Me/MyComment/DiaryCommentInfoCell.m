@@ -7,6 +7,7 @@
 //
 
 #import "DiaryCommentInfoCell.h"
+#import "DiaryMessageCell.h"
 #import "ViewControllerContainer.h"
 
 @interface DiaryCommentInfoCell ()
@@ -20,7 +21,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgLeftCons;
 @property (weak, nonatomic) IBOutlet UIImageView *diaryImgView;
 @property (weak, nonatomic) IBOutlet UILabel *lblDiarySetTitle;
-@property (weak, nonatomic) IBOutlet UILabel *lblDiarySetInfo;
 @property (weak, nonatomic) IBOutlet UILabel *lblDiaryContent;
 
 @property (strong, nonatomic) UserNotification *notification;
@@ -41,34 +41,34 @@
     [self.imgAvatar setImageWithId:[CommentBusiness imageIdByNoti:notification] withWidth:CGRectGetWidth(self.imgAvatar.bounds) / 2];
     self.lblName.text = [CommentBusiness userNameByNoti:notification];
     self.lblCommentTime.text = [notification.create_at humDateString];
-    self.lblComment.text = notification.content;
+    
+    NSRange prefixRange = [notification.content rangeOfString:kDiaryMessagePrefix];
+    NSRange subfixRange = [notification.content rangeOfString:kDiaryMessageSubfix];
+    
+    if (prefixRange.location != NSNotFound && subfixRange.location != NSNotFound) {
+        NSRange hilightRange = NSMakeRange(prefixRange.location + prefixRange.length, subfixRange.location - prefixRange.location - prefixRange.length);
+        NSString *hilightString = [notification.content substringWithRange:hilightRange];
+        
+        self.lblComment.attributedText = [notification.content attrSubStr:hilightString font:self.lblComment.font color:kThemeColor];
+    } else {
+        self.lblComment.text = notification.content;
+    }
     
     [self updateLinkView];
 }
 
 - (void)updateLinkView {
-    Section *section = [self.notification.process sectionForName:self.notification.section];
-    Item *item = [section itemForName:self.notification.item];
-//
-//    if (section && item) {
-//        self.lblLinkStatus.text = [NameDict nameForSectionStatus:item.status];
-//        if ([item.status isEqualToString:kSectionStatusOnGoing]) {
-//            self.linkStatusImage.image = [UIImage imageNamed:@"item_status_1"];
-//            self.linkStatusLine2.bgColor = kFinishedColor;
-//            self.lblLinkStatus.textColor = kExcutionStatusColor;
-//        } else if([item.status isEqualToString:kSectionStatusAlreadyFinished]) {
-//            self.linkStatusImage.image = [UIImage imageNamed:@"item_status_2"];
-//            self.linkStatusLine2.bgColor = kFinishedColor;
-//            self.lblLinkStatus.textColor = kFinishedColor;
-//        } else {
-//            self.linkStatusImage.image = [UIImage imageNamed:@"item_status_0"];
-//            self.linkStatusLine2.bgColor = kUntriggeredColor;
-//            self.lblLinkStatus.textColor = kUntriggeredColor;
-//        }
-//    }
-//    
-//    self.lblLinkCell.text = self.notification.process.basic_address;
-//    self.lblLinkItem.text = item.label;
+    if (self.notification.diary.images.count > 0) {
+        LeafImage *img = [[LeafImage alloc] initWith:self.notification.diary.images[0]];
+        [self.diaryImgView setImageWithId:img.imageid withWidth:self.diaryImgView.frame.size.width];
+        self.imgLeftCons.constant = 0.0;
+    } else {
+        self.imgLeftCons.constant = - CGRectGetWidth(self.diaryImgView.frame);
+    }
+    
+    self.lblDiarySetTitle.text = self.notification.diary.diarySet.title;
+    self.lblDiaryContent.text = [NSString stringWithFormat:@"%@\n%@", [DiaryBusiness diarySetInfo:self.notification.diary.diarySet], self.notification.diary.content];;
+    [self.lblDiaryContent setRowSpace:5];
 }
 
 #pragma mark - user action

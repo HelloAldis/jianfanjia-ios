@@ -22,6 +22,8 @@
         notification.designer = [[Designer alloc] initWith:notification.data[@"designer"]];
         notification.supervisor = [[Supervisor alloc] initWith:notification.data[@"supervisor"]];
         notification.plan = [[Plan alloc] initWith:notification.data[@"plan"]];
+        notification.diary = [[Diary alloc] initWith:notification.data[@"diary"]];
+        notification.diary.diarySet = [[DiarySet alloc] initWith:[notification.diary.data objectForKey:@"diarySet"]];
         [notifications addObject:notification];
     }
     
@@ -41,6 +43,8 @@
         notification.designer = [[Designer alloc] initWith:notification.data[@"designer"]];
         notification.supervisor = [[Supervisor alloc] initWith:notification.data[@"supervisor"]];
         notification.plan = [[Plan alloc] initWith:notification.data[@"plan"]];
+        notification.diary = [[Diary alloc] initWith:notification.data[@"diary"]];
+        notification.diary.diarySet = [[DiarySet alloc] initWith:[notification.diary.data objectForKey:@"diarySet"]];
         [notifications addObject:notification];
     }
     
