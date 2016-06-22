@@ -29,8 +29,8 @@
 @property (nonatomic, strong) NSString *usertype;
 @property (nonatomic, strong) NSNumber *favorite_count;
 @property (nonatomic, strong) NSNumber *view_count;
-@property (nonatomic, assign) NSNumber *is_my_favorite;
-@property (nonatomic, assign) NSNumber *is_deleted;
+@property (nonatomic, strong) NSNumber *is_my_favorite;
+@property (nonatomic, strong) NSNumber *is_deleted;
 
 // 不动态属性
 @property (nonatomic, strong) BeautifulImagePosition *previous;

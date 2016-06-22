@@ -24,7 +24,11 @@
 @property (weak, nonatomic) IBOutlet UIView *imgsView;
 @property (weak, nonatomic) IBOutlet UIView *toolbarView;
 @property (weak, nonatomic) IBOutlet UIView *zanView;
+@property (weak, nonatomic) IBOutlet UIImageView *zanImgView;
+@property (weak, nonatomic) IBOutlet UILabel *lblZan;
 @property (weak, nonatomic) IBOutlet UIView *commentView;
+@property (weak, nonatomic) IBOutlet UIImageView *commentImgView;
+@property (weak, nonatomic) IBOutlet UILabel *lblComment;
 
 @property (strong, nonatomic) NSMutableArray *picViews;
 @property (nonatomic, copy) YYTextAction tapMoreAction;
@@ -88,6 +92,7 @@
     [self initHeader];
     [self initImageView];
     [self initMsg];
+    [self initToolbar];
 }
 
 #pragma mark - ui
@@ -103,6 +108,104 @@
 - (void)initMsg {
     self.msgHeightConst.constant = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
     self.msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
+}
+
+- (void)initToolbar {
+    self.zanImgView.image = [self.diary.is_my_favorite boolValue] ? [self likeImage] : [self unlikeImage];
+    if ([self.diary.favorite_count integerValue] > 0) {
+        self.lblZan.text = [self.diary.favorite_count humCountString];
+    } else {
+        self.lblZan.text = @"赞";
+    }
+    
+    if ([self.diary.comment_count integerValue] > 0) {
+        self.lblComment.text = [self.diary.comment_count humCountString];
+    } else {
+        self.lblComment.text = @"评论";
+    }
+}
+
+- (void)onClickZan {
+    if (![self.diary.is_my_favorite boolValue]) {
+        [self setLiked:YES withAnimation:YES];
+        
+        ZanDiary *request = [[ZanDiary alloc] init];
+        request.diaryid = self.diary._id;
+        
+        [API zanDiary:request success:^{
+        } failure:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self setLiked:NO withAnimation:YES];
+            });
+        } networkError:^{
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self setLiked:NO withAnimation:YES];
+            });
+        }];
+    }
+}
+
+- (UIImage *)likeImage {
+    static UIImage *img;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        img = [UIImage imageNamed:@"icon_zan_guo"];
+    });
+    return img;
+}
+
+- (UIImage *)unlikeImage {
+    static UIImage *img;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        img = [UIImage imageNamed:@"icon_zan"];
+    });
+    return img;
+}
+
+- (void)setLiked:(BOOL)liked withAnimation:(BOOL)animation {
+    Diary *diary = self.diary;
+    UIImageView *imgView = self.zanImgView;
+    UILabel *lblCount = self.lblZan;
+    if ([diary.is_my_favorite boolValue] == liked) return;
+    
+    UIImage *image = liked ? [self likeImage] : [self unlikeImage];
+    int newCount = diary.favorite_count.intValue;
+    newCount = liked ? newCount + 1 : newCount - 1;
+    if (newCount < 0) newCount = 0;
+    if (liked && newCount < 1) newCount = 1;
+    
+    NSString *newCountDesc;
+    if (newCount > 0) {
+        newCountDesc = [@(newCount) humCountString];
+    } else {
+        newCountDesc = @"赞";
+    }
+    
+    diary.is_my_favorite = [NSNumber numberWithBool:liked];
+    diary.favorite_count = @(newCount);
+    
+    if (!animation) {
+        imgView.image = image;
+        lblCount.text = newCountDesc;
+        return;
+    }
+    
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
+        [imgView.layer setValue:@(1.7) forKeyPath:@"transform.scale"];
+    } completion:^(BOOL finished) {
+        imgView.image = image;
+        lblCount.text = newCountDesc;
+        
+        [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
+            [imgView.layer setValue:@(0.9) forKeyPath:@"transform.scale"];
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
+                [imgView.layer setValue:@(1.0) forKeyPath:@"transform.scale"];
+            } completion:^(BOOL finished) {
+            }];
+        }];
+    }];
 }
 
 - (void)onTapDel {
@@ -150,10 +253,6 @@
 
 - (void)onClickAvatar {
     [ViewControllerContainer showDiarySetDetail:self.diary.diarySet fromNewDiarySet:NO];
-}
-
-- (void)onClickZan {
-    
 }
 
 - (void)onClickComment {

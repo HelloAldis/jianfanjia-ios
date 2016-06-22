@@ -237,16 +237,20 @@
             <connections>
                 <outlet property="avatarImageView" destination="B8Q-gs-ADd" id="xNf-GN-VcP"/>
                 <outlet property="btnDel" destination="nRu-Hg-CyV" id="hoi-Uk-ICT"/>
+                <outlet property="commentImgView" destination="VQ9-I1-GwA" id="bPL-kU-VH6"/>
                 <outlet property="commentView" destination="NfB-HS-TG7" id="Khe-Lx-6Oz"/>
                 <outlet property="imgsHeightConst" destination="vGm-cB-WXQ" id="5RC-LZ-jF5"/>
                 <outlet property="imgsView" destination="PpK-Hc-Tmk" id="bwG-8J-Ihg"/>
+                <outlet property="lblComment" destination="QUl-yM-Qqt" id="TQw-aB-jL5"/>
                 <outlet property="lblInfo" destination="QjG-hl-Gj7" id="kdr-8c-fq9"/>
                 <outlet property="lblPhase" destination="Jwm-fy-tGU" id="HfL-aT-Naa"/>
                 <outlet property="lblPublishTime" destination="cTr-7h-DgP" id="CpK-aD-QLR"/>
                 <outlet property="lblTitle" destination="ftc-w3-XgP" id="psa-rh-yIZ"/>
+                <outlet property="lblZan" destination="9lC-sS-0ZA" id="qCz-5v-HeJ"/>
                 <outlet property="msgHeightConst" destination="rDw-Hh-Et4" id="Cd4-2R-0nO"/>
                 <outlet property="msgView" destination="NJT-1F-yIv" id="RGf-Vt-FQa"/>
                 <outlet property="toolbarView" destination="b5K-xh-6Xq" id="jP8-uh-wgI"/>
+                <outlet property="zanImgView" destination="v6P-t5-F3n" id="5Wb-BA-XDR"/>
                 <outlet property="zanView" destination="J9w-fL-N6l" id="YO4-Vg-YB9"/>
             </connections>
             <point key="canvasLocation" x="255.5" y="104.5"/>

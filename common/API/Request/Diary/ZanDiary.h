@@ -10,6 +10,6 @@
 
 @interface ZanDiary : BaseRequest
 
-- (instancetype)initWithDiarySet:(DiarySet *)diarySet;
+@property (nonatomic, strong) NSString *diaryid;
 
 @end

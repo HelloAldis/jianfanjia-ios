@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSNumber *favorite_count;
 @property (nonatomic, strong) NSNumber *comment_count;
 @property (nonatomic, strong) NSNumber *is_deleted;
+@property (nonatomic, strong) NSNumber *is_my_favorite;
 
 //辅助属性
 @property (nonatomic, strong) Author *author;

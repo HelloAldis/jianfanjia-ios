@@ -23,6 +23,7 @@
 @dynamic favorite_count;
 @dynamic comment_count;
 @dynamic is_deleted;
+@dynamic is_my_favorite;
 
 - (DiaryLayout *)layout {
     if (!_layout) {
