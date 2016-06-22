@@ -79,7 +79,7 @@
     [text yy_setColor:[UIColor colorWithR:0x7C g:0x84 b:0x89] range:[text.string rangeOfString:@"...      "]];
     [text yy_setColor:[UIColor colorWithRed:0.000 green:0.449 blue:1.000 alpha:1.000] range:[text.string rangeOfString:@"全文"]];
     [text yy_setTextHighlight:hi range:[text.string rangeOfString:@"全文"]];
-    [text yy_setFont:[UIFont systemFontOfSize:15.0] range:NSMakeRange(0, text.length)];
+    [text yy_setFont:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, text.length)];
     
     YYLabel *seeMore = [YYLabel new];
     seeMore.attributedText = text;
