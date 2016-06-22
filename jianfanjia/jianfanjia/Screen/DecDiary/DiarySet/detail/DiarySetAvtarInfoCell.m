@@ -42,7 +42,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     [self.avatarImgView setCornerRadius:self.avatarImgView.frame.size.width / 2];
     [self.avatarImgView setBorder:1 andColor:[UIColor whiteColor].CGColor];
     CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = CGRectMake(0, -kNavWithStatusBarHeight, kScreenWidth, kDiarySetAvtarInfoCellHeight + kNavWithStatusBarHeight);
+    gradient.frame = CGRectMake(0, -kNavWithStatusBarHeight, kScreenWidth, kDiarySetAvtarInfoCellHeight + kNavWithStatusBarHeight * 2);
     gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithR:0x00 g:0x00 b:0x00 a:0.3] CGColor], (id)[[UIColor clearColor] CGColor], nil];
     gradient.startPoint = CGPointMake(0.5, 1.0);
     gradient.endPoint = CGPointMake(0.5, 0.0);
