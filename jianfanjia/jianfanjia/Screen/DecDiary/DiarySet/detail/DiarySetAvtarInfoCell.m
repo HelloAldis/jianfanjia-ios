@@ -80,9 +80,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 }
 
 - (void)onTapEdit {
-    [ViewControllerContainer showDiarySetUpload:self.diarySet done:^{
-        [self.tableView reloadData];
-    }];
+    [ViewControllerContainer showDiarySetUpload:self.diarySet done:nil];
 }
 
 - (void)onTapModifyCover {
@@ -92,7 +90,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     
     [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         self.diarySet.cover_imageid = imageIds[0];
-        [self setCover];
+        [self.tableView reloadData];
         
         AddDiarySet *request = [[AddDiarySet alloc] initWithDiarySet:self.diarySet];
         [API updateDiarySet:request success:nil failure:nil networkError:nil];
