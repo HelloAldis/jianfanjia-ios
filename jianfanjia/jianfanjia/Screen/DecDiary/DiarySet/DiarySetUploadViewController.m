@@ -76,7 +76,7 @@
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"日记信息";
+    self.title = @"日记本信息";
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(onClickNext)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
@@ -94,7 +94,7 @@
     
     @weakify(self);
     self.sectionArr1 = @[
-                         [EditCellItem createField:@"日记标题" value:self.diarySet.title placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
+                         [EditCellItem createField:@"日记本标题" value:self.diarySet.title placeholder:@"请输入" itemEditBlock:^(EditCellItem *curItem, EditCellItemEditType itemEditType) {
                              @strongify(self);
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.diarySet.title = curItem.value;
