@@ -42,7 +42,7 @@ static NSString* cellId = @"decStyleCell";
 - (void)initNav {
     [self initLeftBackInNav];
     
-    self.title = @"风格喜好";
+    self.title = self.titleStr ? self.titleStr : @"风格喜好";
     
     if (self.selectionType == SelectionTypeMultiple) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(onClickOk)];

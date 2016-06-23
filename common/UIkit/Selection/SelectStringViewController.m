@@ -15,8 +15,6 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 
 @interface SelectStringViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-@property (strong, nonatomic) NSString *titleStr;
 @property (strong, nonatomic) NSArray *data;
 @property (strong, nonatomic) NSMutableArray *selectedData;
 
@@ -26,16 +24,8 @@ static NSString* cellId = @"MultipleLineTextTableViewCell";
 
 - (id)initWithTitle:(NSString *)title options:(NSArray *)data curValue:(NSString *)curValue valueBlock:(ValueBlock)ValueBlock {
     if (self = [super initWithValueBlock:ValueBlock curValue:curValue]) {
-        _titleStr = title;
+        self.titleStr = title;
         _data = data;
-    }
-    
-    return self;
-}
-
-- (id)initWithValueBlock:(ValueBlock)ValueBlock curValues:(NSArray *)curValues {
-    if (self = [super initWithValueBlock:ValueBlock curValues:curValues]) {
-        
     }
     
     return self;

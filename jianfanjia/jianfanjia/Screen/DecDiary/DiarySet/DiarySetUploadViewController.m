@@ -132,6 +132,7 @@
                                  
                                  [self.tableView reloadData];
                              } curValue:self.diarySet.dec_style];
+                             controller.titleStr = @"装修风格";
                              
                              [self.navigationController pushViewController:controller animated:YES];
                          }],

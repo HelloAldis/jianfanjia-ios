@@ -18,6 +18,7 @@ typedef void(^ValueBlock)(id value);
 
 @interface BaseSelectionViewController : BaseViewController
 
+@property (strong, nonatomic) NSString *titleStr;
 @property (assign, nonatomic) SelectionType selectionType;
 @property (copy, nonatomic) ValueBlock ValueBlock;
 @property (strong, nonatomic) NSString *curValue;
