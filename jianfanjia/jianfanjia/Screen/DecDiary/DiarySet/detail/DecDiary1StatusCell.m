@@ -30,8 +30,6 @@
 
 @property (strong, nonatomic) NSMutableArray *picViews;
 @property (nonatomic, copy) YYTextAction tapMoreAction;
-
-@property (strong, nonatomic) NSMutableArray *diarys;
 @property (weak, nonatomic) UITableView *tableView;
 
 @end
@@ -124,11 +122,15 @@
 }
 
 - (void)onTapCell {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO toUser:nil];
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO toUser:nil deleteDone:^{
+        [self.diarys removeObject:self.diary];
+    }];
 }
 
 - (void)onClickComment {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES toUser:nil];
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES toUser:nil deleteDone:^{
+        [self.diarys removeObject:self.diary];
+    }];
 }
 
 @end

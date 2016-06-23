@@ -214,6 +214,9 @@ static NSString *kDeafultTVHolder = @"添加评论";
         [cell initWithDiary:self.diary diarys:self.dataManager.diarys tableView:self.tableView];
         
         cell.deleteDoneBlock = ^{
+            if (self.deleteDoneBlock) {
+                self.deleteDoneBlock();
+            }
             [self onClickBack];
         };
         
@@ -270,6 +273,9 @@ static NSString *kDeafultTVHolder = @"添加评论";
         if ([self.diary.is_deleted boolValue]) {
             [HUDUtil showText:@"日记已被删除" delayShow:0.3];
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                if (self.deleteDoneBlock) {
+                    self.deleteDoneBlock();
+                }
                 [self onClickBack];
             });
         } else {

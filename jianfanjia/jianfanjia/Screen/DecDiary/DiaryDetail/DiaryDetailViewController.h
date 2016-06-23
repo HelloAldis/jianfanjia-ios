@@ -8,7 +8,11 @@
 
 #import "BaseViewController.h"
 
+typedef void (^DiaryDetailDeleteDoneBlock)(void);
+
 @interface DiaryDetailViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+
+@property (copy, nonatomic) DiaryDetailDeleteDoneBlock deleteDoneBlock;
 
 - (instancetype)initWithDiary:(Diary *)diary showComment:(BOOL)showComment toUser:(User *)toUser;
 

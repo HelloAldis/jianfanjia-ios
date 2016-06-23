@@ -15,17 +15,19 @@
 }
 
 - (void)refreshDiary {
-    Diary *fromServer = [[Diary alloc] initWith:[DataManager shared].data];
-    Diary *diary = self.diarys[0];
-    [diary updateRefreshTime];
-    if ([fromServer.is_deleted boolValue]) {
-        diary.is_deleted = @1;
-    } else {
-        diary.is_deleted = @0;
-        diary.favorite_count = fromServer.favorite_count;
-        diary.view_count = fromServer.view_count;
-        diary.comment_count = fromServer.comment_count;
-        diary.is_my_favorite = fromServer.is_my_favorite ? fromServer.is_my_favorite : @0;
+    if (self.diarys.count > 0) {
+        Diary *fromServer = [[Diary alloc] initWith:[DataManager shared].data];
+        Diary *diary = self.diarys[0];
+        [diary updateRefreshTime];
+        if ([fromServer.is_deleted boolValue]) {
+            diary.is_deleted = @1;
+        } else {
+            diary.is_deleted = @0;
+            diary.favorite_count = fromServer.favorite_count;
+            diary.view_count = fromServer.view_count;
+            diary.comment_count = fromServer.comment_count;
+            diary.is_my_favorite = fromServer.is_my_favorite ? fromServer.is_my_favorite : @0;
+        }
     }
 }
 

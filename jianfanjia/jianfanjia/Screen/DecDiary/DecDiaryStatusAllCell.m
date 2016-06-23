@@ -32,8 +32,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblComment;
 
 @property (strong, nonatomic) NSMutableArray *picViews;
-
-@property (strong, nonatomic) NSMutableArray *diarys;
 @property (weak, nonatomic) UITableView *tableView;
 
 @end
@@ -141,6 +139,7 @@
 }
 
 - (void)onClickAvatar {
+    [[ViewControllerContainer getCurrentTopController].view endEditing:YES];
     [ViewControllerContainer showDiarySetDetail:self.diary.diarySet fromNewDiarySet:NO];
 }
 

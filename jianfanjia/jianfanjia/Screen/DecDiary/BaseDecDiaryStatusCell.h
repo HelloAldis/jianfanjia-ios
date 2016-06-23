@@ -24,6 +24,7 @@
 
 @property (strong, nonatomic) NSMutableArray *base_picViews;
 
+@property (strong, nonatomic) NSMutableArray *diarys;
 @property (strong, nonatomic) Diary *diary;
 
 - (void)initImageView;

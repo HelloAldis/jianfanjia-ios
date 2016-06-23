@@ -32,8 +32,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblComment;
 
 @property (strong, nonatomic) NSMutableArray *picViews;
-
-@property (strong, nonatomic) NSMutableArray *diarys;
 @property (weak, nonatomic) UITableView *tableView;
 
 @end
@@ -101,6 +99,7 @@
     self.btnDel.hidden = ![DiaryBusiness isOwnDiary:self.diary];
 }
 
+#pragma mark - user action
 - (void)onTapDel {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定要删除日记？" message:nil preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -129,7 +128,9 @@
 }
 
 - (void)onTapCell {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO toUser:nil];
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:NO toUser:nil deleteDone:^{
+        [self.diarys removeObject:self.diary];
+    }];
 }
 
 - (void)onClickAvatar {
@@ -137,7 +138,9 @@
 }
 
 - (void)onClickComment {
-    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES toUser:nil];
+    [ViewControllerContainer showDiaryDetail:self.diary showComment:YES toUser:nil deleteDone:^{
+        [self.diarys removeObject:self.diary];
+    }];
 }
 
 @end
