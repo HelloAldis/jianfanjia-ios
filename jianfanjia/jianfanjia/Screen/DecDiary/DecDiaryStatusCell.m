@@ -55,7 +55,6 @@
         [self onTapDel];
     }];
 
-    [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapHeader)]];
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapCell)]];
     [self.avatarImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickAvatar)]];
     [self.zanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickZan)]];
@@ -127,10 +126,6 @@
     [alert addAction:done];
     
     [[ViewControllerContainer getCurrentTopController] presentViewController:alert animated:YES completion:nil];
-}
-
-- (void)onTapHeader {
-    
 }
 
 - (void)onTapCell {
