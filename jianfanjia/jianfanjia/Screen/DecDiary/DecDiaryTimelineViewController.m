@@ -163,23 +163,27 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
 #pragma mark - user action
 - (void)onClickAdd {
-    SearchDiarySet *request = [[SearchDiarySet alloc] init];
-    request.from = @0;
-    request.limit = @10000;
-    request.sort = @{@"lastupdate":@-1};
-    
-    [HUDUtil showWait];
-    [API getMyDiarySet:request success:^{
-        [self.dataManager refreshDiarySets];
-        if (self.dataManager.diarySets.count == 0) {
-            [ViewControllerContainer showDiarySetUpload:nil done:nil];
-        } else {
-            [ViewControllerContainer showDiaryAdd:self.dataManager.diarySets];
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            SearchDiarySet *request = [[SearchDiarySet alloc] init];
+            request.from = @0;
+            request.limit = @10000;
+            request.sort = @{@"lastupdate":@-1};
+            
+            [HUDUtil showWait];
+            [API getMyDiarySet:request success:^{
+                [self.dataManager refreshDiarySets];
+                if (self.dataManager.diarySets.count == 0) {
+                    [ViewControllerContainer showDiarySetUpload:nil done:nil];
+                } else {
+                    [ViewControllerContainer showDiaryAdd:self.dataManager.diarySets];
+                }
+            } failure:^{
+                
+            } networkError:^{
+                
+            }];
         }
-    } failure:^{
-        
-    } networkError:^{
-        
     }];
 }
 
