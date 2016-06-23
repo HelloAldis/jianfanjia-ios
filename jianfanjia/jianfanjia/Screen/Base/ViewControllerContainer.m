@@ -431,7 +431,7 @@ static ViewControllerContainer *container;
             }
         }
 
-        [nav setViewControllers:arr animated:YES];
+        [nav setViewControllers:arr animated:NO];
     }
     
     for (UIViewController *v in nav.viewControllers) {
