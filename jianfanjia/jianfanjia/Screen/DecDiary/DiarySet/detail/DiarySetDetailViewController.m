@@ -21,6 +21,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) AddDiarySectionView *addDiarySectionView;
+@property (assign, nonatomic) BOOL wasFirstLoad;
 
 @property (strong, nonatomic) DiarySetDetailDataManager *dataManager;
 @property (strong, nonatomic) DiarySet *diarySet;
@@ -49,7 +50,12 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self refresh:NO];
+    if (!self.wasFirstLoad) {
+        self.wasFirstLoad = YES;
+        [self refresh:YES];
+    } else {
+        [self refresh:NO];
+    }
 }
 
 #pragma mark - UI
@@ -72,8 +78,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     
     self.addDiarySectionView = [AddDiarySectionView addDiarySectionView];
     [self.addDiarySectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAddDiary)]];
-    
-    [self refresh:YES];
 }
 
 #pragma mark - table view delegate
