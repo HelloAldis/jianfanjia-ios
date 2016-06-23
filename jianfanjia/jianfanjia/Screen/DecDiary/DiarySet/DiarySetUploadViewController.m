@@ -53,27 +53,27 @@
     [self initUI];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    @weakify(self);
-    [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
-        @strongify(self);
-        if (isShowing) {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
-            UIView *view = [self.tableView getFirstResponder];
-            CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
-            [self.tableView scrollRectToVisible:rect animated:YES];
-        } else {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
-        }
-    } completion:nil];
-}
-
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [self jfj_unsubscribeKeyboard];
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    [super viewWillAppear:animated];
+//    
+//    @weakify(self);
+//    [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
+//        @strongify(self);
+//        if (isShowing) {
+//            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert + keyboardRect.size.height, 0);
+//            UIView *view = [self.tableView getFirstResponder];
+//            CGRect rect = [self.tableView convertRect:view.bounds fromView:view.superview];
+//            [self.tableView scrollRectToVisible:rect animated:YES];
+//        } else {
+//            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kBottomInsert, 0);
+//        }
+//    } completion:nil];
+//}
+//
+//- (void)viewDidDisappear:(BOOL)animated {
+//    [super viewDidDisappear:animated];
+//    [self jfj_unsubscribeKeyboard];
+//}
 
 #pragma mark - UI
 - (void)initNav {
