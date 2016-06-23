@@ -18,7 +18,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) DecDiaryDataManager *dataManager;
-@property (assign, nonatomic) BOOL wasFirstRefresh;
 
 @end
 
@@ -34,12 +33,8 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (!self.wasFirstRefresh) {
-        self.wasFirstRefresh = YES;
-        [self.tableView.header beginRefreshing];
-    } else {
-        [self refresh];
-    }
+    [self.tableView reloadData];
+    [self refresh];
 }
 
 #pragma mark - UI
@@ -63,16 +58,16 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
         @strongify(self);
         if (self.dataManager.diarys.count == 0) {
-            [self loadMore];
+            [self loadOldData];
         } else {
-            [self refresh];
+            [self loadLatestData];
             [self updateDiarysChange];
         }
     }];
     
     self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
-        [self loadMore];
+        [self loadOldData];
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRestartRefresh) name:kLogoutNotification object:nil];
@@ -93,7 +88,16 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
 #pragma mark - api request
 - (void)refresh {
-    [self.tableView reloadData];
+    if (self.dataManager.diarys.count == 0) {
+        [self.tableView.footer resetNoMoreData];
+        [self.tableView.header beginRefreshing];
+    } else {
+        [self loadLatestData];
+        [self updateDiarysChange];
+    }
+}
+
+- (void)loadLatestData {
     [self.tableView.footer resetNoMoreData];
     
     SearchDiary *request = [[SearchDiary alloc] init];
@@ -101,7 +105,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     
     [API searchDiary:request success:^{
         [self.tableView.header endRefreshing];
-        NSInteger count = [self.dataManager refresh];
+        NSInteger count = [self.dataManager loadLatest];
         if (request.limit.integerValue > count) {
             [self.tableView.footer endRefreshingWithNoMoreData];
         }
@@ -134,7 +138,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     }];
 }
 
-- (void)loadMore {
+- (void)loadOldData {
     SearchDiary *request = [[SearchDiary alloc] init];
     request.query = [request queryConLTTime:[self.dataManager findOldestCreateTimeDiary]];
     request.limit = @50;
@@ -142,7 +146,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     [API searchDiary:request success:^{
         [self.tableView.header endRefreshing];
         [self.tableView.footer endRefreshing];
-        NSInteger count = [self.dataManager loadMore];
+        NSInteger count = [self.dataManager loadOld];
         if (request.limit.integerValue > count) {
             [self.tableView.footer endRefreshingWithNoMoreData];
         }

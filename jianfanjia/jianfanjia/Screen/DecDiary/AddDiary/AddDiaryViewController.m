@@ -29,6 +29,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 
 @property (nonatomic, strong) DiarySet *curDiarySet;
 @property (nonatomic, strong) Diary *diary;
+@property (strong, nonatomic) Diary *originDiary;
 
 @end
 
@@ -40,6 +41,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
         _diary = [[Diary alloc] init];
         _diary._id = @"";
         _diary.authorid = [GVUserDefaults standardUserDefaults].userid;
+        _originDiary = [[Diary alloc] init];
     }
     
     return self;
@@ -112,6 +114,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
     self.totalArr = [NSMutableArray array];
     [self.totalArr addObjectsFromArray:self.sectionArr1];
     [self refreshNextButtonStatus];
+    [self.originDiary merge:self.diary];
 }
 
 #pragma mark - table view delegate
@@ -173,7 +176,20 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 #pragma mark - user action
 - (void)onClickBack {
     [self.view endEditing:YES];
-    [super onClickBack];
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定要退出日记编辑？" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        //Do nothing
+    }];
+    
+    UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [super onClickBack];
+    }];
+    
+    [alert addAction:cancel];
+    [alert addAction:done];
+    
+    [[ViewControllerContainer getCurrentTopController] presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)onClickNext {
@@ -251,6 +267,16 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
         
         self.navigationItem.rightBarButtonItem.enabled = isAllInputed;
     }];
+}
+
+- (BOOL)hasDataChanged {
+    if (![NSString compareStrWithIgnoreNil:self.originDiary.content other:self.diary.content]
+        || ![NSString compareStrWithIgnoreNil:self.originDiary.section_label other:self.diary.section_label]
+        || ![NSString compareStrWithIgnoreNil:self.originDiary.diarySet._id other:self.diary.diarySet._id]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end

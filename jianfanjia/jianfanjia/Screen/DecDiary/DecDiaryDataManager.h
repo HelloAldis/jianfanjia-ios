@@ -13,8 +13,8 @@
 @property (nonatomic, strong) NSMutableArray *diarySets;
 @property (nonatomic, strong) NSMutableArray *diarys;
 
-- (NSInteger)refresh;
-- (NSInteger)loadMore;
+- (NSInteger)loadLatest;
+- (NSInteger)loadOld;
 - (NSNumber *)findLatestCreateTimeDiary;
 - (NSNumber *)findOldestCreateTimeDiary;
 - (NSMutableDictionary<NSString *, Diary *> *)findNeedUpdatedDiarys;

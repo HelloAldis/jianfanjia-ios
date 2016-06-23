@@ -21,7 +21,7 @@
     return self;
 }
 
-- (NSInteger)refresh {
+- (NSInteger)loadLatest {
     NSArray* arr = [[DataManager shared].data objectForKey:@"diaries"];
     NSMutableArray *diarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
@@ -39,7 +39,7 @@
     return diarys.count;
 }
 
-- (NSInteger)loadMore {
+- (NSInteger)loadOld {
     NSArray* arr = [[DataManager shared].data objectForKey:@"diaries"];
     NSMutableArray *diarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
