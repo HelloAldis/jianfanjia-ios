@@ -98,10 +98,12 @@ static NSString *DiarySetCellIdentifier = @"DiarySetCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         DiarySetUploadCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiarySetUploadCellIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     
     DiarySetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiarySetCellIdentifier forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell initWithDiarySet:self.dataManager.diarySets[indexPath.row] edit:self.isEditing deleteBlock:^{
         [self.dataManager.diarySets removeObjectAtIndex:indexPath.row];
         [self.tableView reloadData];

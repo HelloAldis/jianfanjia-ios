@@ -44,6 +44,9 @@
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="plus_icon" destination="CSd-JK-top" id="fZd-KA-azN"/>
+            </connections>
             <point key="canvasLocation" x="494" y="466"/>
         </tableViewCell>
     </objects>

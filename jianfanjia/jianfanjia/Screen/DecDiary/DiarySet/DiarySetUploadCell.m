@@ -10,6 +10,7 @@
 #import "ViewControllerContainer.h"
 
 @interface DiarySetUploadCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *plus_icon;
 
 @end
 
@@ -17,6 +18,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.plus_icon.tintColor = kThemeTextColor;
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)]];
 }
 
