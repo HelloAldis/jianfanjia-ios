@@ -163,7 +163,7 @@ static NSString *DiaryCommentInfoCellIdentifier = @"DiaryCommentInfoCell";
 }
 
 - (void)handleNoDesigner {
-    self.lblNoData.text = @"您还没有收到留言";
+    self.lblNoData.text = @"您还没有收到评论";
     self.noDataImageView.image = [UIImage imageNamed:@"img_no_leave_msg"];
     self.lblNoData.hidden = NO;
     self.noDataImageView.hidden = NO;

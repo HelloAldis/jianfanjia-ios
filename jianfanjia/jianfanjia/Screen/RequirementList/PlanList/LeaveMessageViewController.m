@@ -102,7 +102,7 @@ static const CGFloat kMaxMessageHeight = 75;
 #pragma mark - UI
 - (void)initNav {
     [self initLeftBackInNav];
-    self.title = @"留言";
+    self.title = @"评论";
 }
 
 - (void)initUI {
