@@ -10,6 +10,6 @@
 
 @interface DiarySetDetailViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
-- (instancetype)initWithDiarySet:(DiarySet *)diarySet fromNewDiarySet:(BOOL)fromNewDiarySet;
+- (instancetype)initWithDiarySet:(DiarySet *)diarySet;
 
 @end

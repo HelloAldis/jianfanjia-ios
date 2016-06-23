@@ -421,6 +421,19 @@ static ViewControllerContainer *container;
 
 + (void)showDiarySetDetail:(DiarySet *)diarySet fromNewDiarySet:(BOOL)fromNewDiarySet {
     UINavigationController* nav =  container.navigation;
+    NSMutableArray *arr = [nav.viewControllers mutableCopy];
+    
+    if (fromNewDiarySet) {
+        for (UIViewController *v in arr) {
+            if ([v isKindOfClass:[AddDiaryViewController class]] || [v isKindOfClass:[DiarySetUploadViewController class]]) {
+                [arr removeObject:v];
+                continue;
+            }
+        }
+
+        [nav setViewControllers:arr animated:YES];
+    }
+    
     for (UIViewController *v in nav.viewControllers) {
         if ([v isKindOfClass:[DiarySetDetailViewController class]]) {
             [nav popToViewController:v animated:YES];
@@ -428,7 +441,7 @@ static ViewControllerContainer *container;
         }
     }
     
-    DiarySetDetailViewController *v = [[DiarySetDetailViewController alloc] initWithDiarySet:diarySet fromNewDiarySet:fromNewDiarySet];
+    DiarySetDetailViewController *v = [[DiarySetDetailViewController alloc] initWithDiarySet:diarySet];
     [container.navigation pushViewController:v animated:YES];
 }
 

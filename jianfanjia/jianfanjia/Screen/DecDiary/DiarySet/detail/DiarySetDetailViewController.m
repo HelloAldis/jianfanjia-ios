@@ -25,16 +25,14 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 @property (strong, nonatomic) DiarySetDetailDataManager *dataManager;
 @property (strong, nonatomic) DiarySet *diarySet;
-@property (assign, nonatomic) BOOL fromNewDiarySet;
 
 @end
 
 @implementation DiarySetDetailViewController
 
-- (instancetype)initWithDiarySet:(DiarySet *)diarySet fromNewDiarySet:(BOOL)fromNewDiarySet {
+- (instancetype)initWithDiarySet:(DiarySet *)diarySet {
     if (self = [super init]) {
         _diarySet = diarySet;
-        _fromNewDiarySet = fromNewDiarySet;
     }
     
     return self;
@@ -172,16 +170,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 #pragma mark - user action
-- (void)onClickBack {
-    if (self.fromNewDiarySet) {
-        NSArray *vcArr = self.navigationController.viewControllers;
-        UIViewController *purposeVC = vcArr[vcArr.count - 3];
-        [self.navigationController popToViewController:purposeVC animated:YES];
-    } else {
-        [super onClickBack];
-    }
-}
-
 - (void)onTapAddDiary {
     [ViewControllerContainer showDiaryAdd:@[self.diarySet]];
 }
