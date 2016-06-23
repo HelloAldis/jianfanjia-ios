@@ -65,6 +65,8 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.tableView reloadData];
+    
 //    [self initContentInset];
     
     @weakify(self);

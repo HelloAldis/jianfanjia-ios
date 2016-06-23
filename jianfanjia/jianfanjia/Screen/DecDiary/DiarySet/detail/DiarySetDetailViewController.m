@@ -159,6 +159,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     request.diarySetid = self.diarySet._id;
     [API getDiarySetDetail:request success:^{
         [self.dataManager refresh];
+        [self.diarySet merge:self.dataManager.diarySet];
         self.diarySet.author = self.dataManager.diarySet.author;
         self.diarySet.view_count = self.dataManager.diarySet.view_count;
         [self.tableView reloadData];
