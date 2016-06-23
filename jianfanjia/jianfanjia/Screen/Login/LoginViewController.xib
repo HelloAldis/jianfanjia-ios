@@ -83,11 +83,11 @@
                                         <constraint firstAttribute="height" constant="10" id="coV-7A-6e2"/>
                                     </constraints>
                                 </imageView>
-                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_delete" translatesAutoresizingMaskIntoConstraints="NO" id="Oup-0v-vUM">
-                                    <rect key="frame" x="16" y="34" width="17" height="15"/>
+                                <imageView contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_delete" translatesAutoresizingMaskIntoConstraints="NO" id="Oup-0v-vUM">
+                                    <rect key="frame" x="5" y="25" width="50" height="45"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="Oup-0v-vUM" secondAttribute="height" multiplier="35:32" id="kVk-WP-gp2"/>
-                                        <constraint firstAttribute="width" constant="17" id="ngl-2f-XqA"/>
+                                        <constraint firstAttribute="width" constant="50" id="ngl-2f-XqA"/>
                                     </constraints>
                                 </imageView>
                             </subviews>
@@ -99,8 +99,8 @@
                                 <constraint firstItem="bRy-b7-0Gn" firstAttribute="centerY" secondItem="htK-kK-3ht" secondAttribute="centerY" id="GlZ-hh-nO4"/>
                                 <constraint firstItem="RfE-vs-sen" firstAttribute="bottom" secondItem="htK-kK-3ht" secondAttribute="bottom" id="NOW-4z-SYT"/>
                                 <constraint firstAttribute="trailing" secondItem="bRy-b7-0Gn" secondAttribute="trailing" constant="80" id="Nkf-3O-I0J"/>
-                                <constraint firstItem="Oup-0v-vUM" firstAttribute="leading" secondItem="YQs-EM-GnM" secondAttribute="leading" constant="16" id="WwJ-9b-aXJ"/>
-                                <constraint firstItem="Oup-0v-vUM" firstAttribute="top" secondItem="YQs-EM-GnM" secondAttribute="top" constant="34" id="ZL2-Vl-0KL"/>
+                                <constraint firstItem="Oup-0v-vUM" firstAttribute="leading" secondItem="YQs-EM-GnM" secondAttribute="leading" constant="5" id="WwJ-9b-aXJ"/>
+                                <constraint firstItem="Oup-0v-vUM" firstAttribute="top" secondItem="YQs-EM-GnM" secondAttribute="top" constant="25" id="ZL2-Vl-0KL"/>
                                 <constraint firstItem="RfE-vs-sen" firstAttribute="centerX" secondItem="htK-kK-3ht" secondAttribute="centerX" id="iVk-f0-BMB"/>
                                 <constraint firstItem="bRy-b7-0Gn" firstAttribute="leading" secondItem="htK-kK-3ht" secondAttribute="trailing" id="jEm-8D-5Up"/>
                                 <constraint firstItem="bRy-b7-0Gn" firstAttribute="height" secondItem="htK-kK-3ht" secondAttribute="height" id="jNa-BX-I1B"/>
