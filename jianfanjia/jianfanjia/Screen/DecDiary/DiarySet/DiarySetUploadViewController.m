@@ -38,6 +38,8 @@
         } else {
             _diarySet = [[DiarySet alloc] init];
             _diarySet._id = @"";
+            _srcDiarySet = [[DiarySet alloc] init];
+            [_srcDiarySet merge:_diarySet];
         }
     }
     
@@ -190,6 +192,28 @@
 }
 
 #pragma mark - user action
+- (void)onClickBack {
+    [self.view endEditing:YES];
+    
+    if ([self hasDataChanged]) {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定要退出日记本编辑？" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            //Do nothing
+        }];
+        
+        UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [super onClickBack];
+        }];
+        
+        [alert addAction:cancel];
+        [alert addAction:done];
+        
+        [[ViewControllerContainer getCurrentTopController] presentViewController:alert animated:YES completion:nil];
+    } else {
+        [super onClickBack];
+    }
+}
+
 - (void)onClickNext {
     AddDiarySet *request = [[AddDiarySet alloc] initWithDiarySet:self.diarySet];
     [HUDUtil showWait];
@@ -244,6 +268,18 @@
         
         self.navigationItem.rightBarButtonItem.enabled = isAllInputed;
     }];
+}
+
+- (BOOL)hasDataChanged {
+    if (![NSString compareStrWithIgnoreNil:self.srcDiarySet.title other:self.diarySet.title]
+        || ![NSNumber compareNumWithIgnoreNil:self.srcDiarySet.house_area other:self.diarySet.house_area]
+        || ![NSString compareStrWithIgnoreNil:self.srcDiarySet.house_type other:self.diarySet.house_type]
+        || ![NSString compareStrWithIgnoreNil:self.srcDiarySet.dec_style other:self.diarySet.dec_style]
+        || ![NSString compareStrWithIgnoreNil:self.srcDiarySet.work_type other:self.diarySet.work_type]) {
+        return YES;
+    }
+    
+    return NO;
 }
 
 @end
