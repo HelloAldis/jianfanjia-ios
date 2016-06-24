@@ -52,12 +52,16 @@ static NSString *DiaryMessageCellIdentifier = @"DiaryMessageCell";
 #pragma mark - scroll view delegate 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat y = self.tableView.contentOffset.y;
+    if (y < 0) {
+        y = y * 2;
+    }
+    
     CGFloat supery = self.superTableView.contentOffset.y;
     CGFloat newy = supery + y;
     if (newy >= (self.diarySize.height - kNavWithStatusBarHeight)) {
         [self.superTableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight)];
     } else {
-        [self.superTableView setContentOffset:CGPointMake(0, newy)];
+        [self.superTableView setContentOffset:CGPointMake(0, MAX(-kNavWithStatusBarHeight, newy))];
         [self.tableView setContentOffset:CGPointMake(0, 0)];
     }
 }
