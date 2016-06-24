@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#define kDiaryMessagePrefix @"回复"
+#define kDiaryMessageSubfix @"："
+
 @class DiarySet;
 @class Diary;
 

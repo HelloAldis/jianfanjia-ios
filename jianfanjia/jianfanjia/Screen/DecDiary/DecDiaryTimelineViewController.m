@@ -122,7 +122,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
 - (void)updateDiarysChange {
     NSMutableDictionary *dict = [self.dataManager findNeedUpdatedDiarys];
-    NSArray *allKeys = dict.allKeys;
+    NSArray *allKeys = dict.count > 0 ? dict.allKeys : nil;
     if (allKeys.count == 0) {
         return;
     }

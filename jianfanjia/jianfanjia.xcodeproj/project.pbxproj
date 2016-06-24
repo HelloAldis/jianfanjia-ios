@@ -432,6 +432,10 @@
 		68EE3EA51D1A368B00F5EF83 /* BaseDecDiaryStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EA41D1A368B00F5EF83 /* BaseDecDiaryStatusCell.m */; };
 		68EE3EA91D1A50C200F5EF83 /* DiaryCommentInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EA71D1A50C200F5EF83 /* DiaryCommentInfoCell.m */; };
 		68EE3EAA1D1A50C200F5EF83 /* DiaryCommentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3EA81D1A50C200F5EF83 /* DiaryCommentInfoCell.xib */; };
+		68EE3EAE1D1CCC4100F5EF83 /* DiaryMessageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EAC1D1CCC4100F5EF83 /* DiaryMessageTableCell.m */; };
+		68EE3EAF1D1CCC4100F5EF83 /* DiaryMessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3EAD1D1CCC4100F5EF83 /* DiaryMessageTableCell.xib */; };
+		68EE3EB21D1CE03D00F5EF83 /* MethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EB11D1CE03D00F5EF83 /* MethodSwizzle.m */; };
+		68EE3EB51D1CE86100F5EF83 /* EventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EB41D1CE86100F5EF83 /* EventTableView.m */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1304,6 +1308,13 @@
 		68EE3EA61D1A50C200F5EF83 /* DiaryCommentInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryCommentInfoCell.h; sourceTree = "<group>"; };
 		68EE3EA71D1A50C200F5EF83 /* DiaryCommentInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryCommentInfoCell.m; sourceTree = "<group>"; };
 		68EE3EA81D1A50C200F5EF83 /* DiaryCommentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiaryCommentInfoCell.xib; sourceTree = "<group>"; };
+		68EE3EAB1D1CCC4100F5EF83 /* DiaryMessageTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiaryMessageTableCell.h; sourceTree = "<group>"; };
+		68EE3EAC1D1CCC4100F5EF83 /* DiaryMessageTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiaryMessageTableCell.m; sourceTree = "<group>"; };
+		68EE3EAD1D1CCC4100F5EF83 /* DiaryMessageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiaryMessageTableCell.xib; sourceTree = "<group>"; };
+		68EE3EB01D1CE03D00F5EF83 /* MethodSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodSwizzle.h; sourceTree = "<group>"; };
+		68EE3EB11D1CE03D00F5EF83 /* MethodSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodSwizzle.m; sourceTree = "<group>"; };
+		68EE3EB31D1CE86100F5EF83 /* EventTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableView.h; sourceTree = "<group>"; };
+		68EE3EB41D1CE86100F5EF83 /* EventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableView.m; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2478,6 +2489,9 @@
 				68EE3E881D18DB0600F5EF83 /* DiaryDetailViewController.h */,
 				68EE3E891D18DB0600F5EF83 /* DiaryDetailViewController.m */,
 				68EE3E8A1D18DB0600F5EF83 /* DiaryDetailViewController.xib */,
+				68EE3EAB1D1CCC4100F5EF83 /* DiaryMessageTableCell.h */,
+				68EE3EAC1D1CCC4100F5EF83 /* DiaryMessageTableCell.m */,
+				68EE3EAD1D1CCC4100F5EF83 /* DiaryMessageTableCell.xib */,
 				68EE3E8B1D18DB0600F5EF83 /* DiaryMessageCell.h */,
 				68EE3E8C1D18DB0600F5EF83 /* DiaryMessageCell.m */,
 				68EE3E8D1D18DB0600F5EF83 /* DiaryMessageCell.xib */,
@@ -2750,6 +2764,8 @@
 				6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */,
 				68921FFF1CD1F66F00BC80C7 /* UIViewController+KeyboardAnimation.h */,
 				689220001CD1F66F00BC80C7 /* UIViewController+KeyboardAnimation.m */,
+				68EE3EB31D1CE86100F5EF83 /* EventTableView.h */,
+				68EE3EB41D1CE86100F5EF83 /* EventTableView.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -2829,6 +2845,8 @@
 		6E07DA9D1BD88DBE001461DD /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				68EE3EB01D1CE03D00F5EF83 /* MethodSwizzle.h */,
+				68EE3EB11D1CE03D00F5EF83 /* MethodSwizzle.m */,
 				6E07DA9E1BD88DBE001461DD /* BaseDynamicObject.h */,
 				6E07DA9F1BD88DBE001461DD /* BaseDynamicObject.m */,
 				6E07DAA01BD88DBE001461DD /* HUDUtil.h */,
@@ -3446,6 +3464,7 @@
 				68EE3DB31D12447A00F5EF83 /* SelectionEditCell.xib in Resources */,
 				685F2D551CA9209500DC4D43 /* iTunesArtwork in Resources */,
 				68EE3DD41D125D3700F5EF83 /* DiarySetCell.xib in Resources */,
+				68EE3EAF1D1CCC4100F5EF83 /* DiaryMessageTableCell.xib in Resources */,
 				6E06CC2E1C2BF97800A08D15 /* FavoriteDesignerCell.xib in Resources */,
 				68EE3DDC1D125DA900F5EF83 /* DiarySetListViewController.xib in Resources */,
 				685F2D5D1CAA31BA00DC4D43 /* SectionActionView.xib in Resources */,
@@ -3644,6 +3663,7 @@
 				685F2D691CAB77E000DC4D43 /* UnexpandSectionActionView.m in Sources */,
 				6E838DAC1BEB44B1000BF5CD /* DesignerDetailCell.m in Sources */,
 				68E600851CB7C20300C4A8F7 /* ReqtDesignerMeasuredHouse.m in Sources */,
+				68EE3EB21D1CE03D00F5EF83 /* MethodSwizzle.m in Sources */,
 				684A37061BFD733500F7388C /* DesignerSubmittedPlanCell.m in Sources */,
 				68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */,
 				68123C641C4C8B99008FC9AB /* SelectCityViewController.m in Sources */,
@@ -3745,6 +3765,7 @@
 				68123B9B1C47D15C008FC9AB /* JYZSocialSnsAuthResp.m in Sources */,
 				687EEBDF1CE71B5000A277DC /* KRSSwizzle.m in Sources */,
 				68EE3E161D12A6ED00F5EF83 /* AddDiarySectionView.m in Sources */,
+				68EE3EB51D1CE86100F5EF83 /* EventTableView.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
 				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
@@ -3909,6 +3930,7 @@
 				683FFB1C1C280E9D002A1AFE /* FavoriteBeautifulImage.m in Sources */,
 				685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */,
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
+				68EE3EAE1D1CCC4100F5EF83 /* DiaryMessageTableCell.m in Sources */,
 				6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */,
 				68123C551C4C8B99008FC9AB /* MessageAlertViewController.m in Sources */,
 				68EE3DD51D125D3700F5EF83 /* DiarySetDataManager.m in Sources */,

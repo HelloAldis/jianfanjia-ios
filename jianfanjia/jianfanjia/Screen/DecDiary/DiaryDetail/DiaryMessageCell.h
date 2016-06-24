@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#define kDiaryMessagePrefix @"回复"
-#define kDiaryMessageSubfix @"："
-
 @interface DiaryMessageCell : UITableViewCell
 
 - (void)initWithComment:(Comment *)comment;

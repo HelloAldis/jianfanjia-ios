@@ -90,12 +90,18 @@
     NSArray* arr = [DataManager shared].data;
     for (NSMutableDictionary *dict in arr) {
         Diary *diary = [[Diary alloc] initWith:dict];
-        Diary *toBeUpdateDiary = toBeUpdateDict[diary._id];
-        
-        toBeUpdateDiary.favorite_count = diary.favorite_count;
-        toBeUpdateDiary.comment_count = diary.comment_count;
-        toBeUpdateDiary.view_count = diary.view_count;
-        [toBeUpdateDiary updateRefreshTime];
+        if (dict && diary._id.length > 0) {
+            Diary *toBeUpdateDiary = toBeUpdateDict[diary._id];
+            
+            if (!toBeUpdateDiary) {
+                continue;
+            }
+            
+            toBeUpdateDiary.favorite_count = diary.favorite_count;
+            toBeUpdateDiary.comment_count = diary.comment_count;
+            toBeUpdateDiary.view_count = diary.view_count;
+            [toBeUpdateDiary updateRefreshTime];
+        }
     }
 }
 

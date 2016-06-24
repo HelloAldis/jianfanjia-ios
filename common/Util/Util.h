@@ -19,5 +19,6 @@
 #import "ToastUtil.h"
 #import "PhotoCropper.h"
 #import "CardVerifyUtil.h"
+#import "MethodSwizzle.h"
 
 #endif

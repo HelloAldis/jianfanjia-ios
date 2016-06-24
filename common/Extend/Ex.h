@@ -18,6 +18,7 @@
 #import "NSArray+Ex.h"
 #import "NSDate+Ex.h"
 #import "RACStream+Ex.h"
+#import "EventTableView.h"
 #import "NSNumber+Ex.h"
 #import "UIImage+Ex.h"
 #import "UIImagePickerController+Ex.h"
