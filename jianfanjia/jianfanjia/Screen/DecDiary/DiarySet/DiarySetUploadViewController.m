@@ -110,7 +110,7 @@
                              if (itemEditType ==  EditCellItemEditTypeChange) {
                                  self.diarySet.house_area = @([curItem.value integerValue]);
                              }
-                         } length:6 keyboard:UIKeyboardTypeNumberPad],
+                         } length:4 keyboard:UIKeyboardTypeNumberPad],
                          [EditCellItem createSelection:@"户型" value:[NameDict nameForHouseType:self.diarySet.house_type] allowsEdit:YES placeholder:@"请选择" tapBlock:^(EditCellItem *curItem) {
                              @strongify(self);
                              [self.view endEditing:YES];
