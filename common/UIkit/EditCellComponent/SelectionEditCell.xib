@@ -26,7 +26,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NTj-GX-s29">
-                        <rect key="frame" x="466" y="17" width="8" height="17"/>
+                        <rect key="frame" x="122" y="17" width="352" height="17"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
@@ -61,6 +61,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="1yS-uG-PHJ" secondAttribute="trailing" constant="-8" id="VDu-5w-97C"/>
                     <constraint firstItem="ojI-xe-hqO" firstAttribute="leading" secondItem="4mc-2g-qZ4" secondAttribute="trailing" constant="10" id="VP0-0z-lLy"/>
                     <constraint firstItem="1yS-uG-PHJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="aRE-HU-xa8"/>
+                    <constraint firstItem="NTj-GX-s29" firstAttribute="leading" secondItem="ojI-xe-hqO" secondAttribute="trailing" constant="20" id="gjA-7E-Kh4"/>
                     <constraint firstAttribute="bottomMargin" secondItem="1yS-uG-PHJ" secondAttribute="bottom" constant="-8" id="jUo-vR-aEZ"/>
                     <constraint firstItem="4mc-2g-qZ4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="jtX-39-Gxm"/>
                     <constraint firstItem="4mc-2g-qZ4" firstAttribute="centerY" secondItem="ojI-xe-hqO" secondAttribute="centerY" id="nEF-ej-ffC"/>
