@@ -139,10 +139,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
         
     }];
     
-    if (self.showComment) {
-        [self.tvMessage becomeFirstResponder];
-    }
-    
     self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreMessages];
@@ -304,6 +300,9 @@ static NSString *kDeafultTVHolder = @"添加评论";
         if (self.showComment && !self.wasFirstLoad) {
             self.wasFirstLoad = YES;
             [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:YES];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [self.tvMessage becomeFirstResponder];
+            });
         }
     } failure:^{
         [self.tableView.header endRefreshing];
