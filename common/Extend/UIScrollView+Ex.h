@@ -10,6 +10,6 @@
 
 @interface UIScrollView (Ex)
 
-@property (nonatomic, assign) BOOL isSendEventToNextRespnder;
+//@property (nonatomic, assign) BOOL isSendEventToNextRespnder;
 
 @end

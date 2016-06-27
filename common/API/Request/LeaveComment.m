@@ -18,4 +18,8 @@
 @dynamic to_designerid;
 @dynamic to_userid;
 
+- (void)failure {
+    [HUDUtil showErrText:[DataManager shared].errMsg];
+}
+
 @end
