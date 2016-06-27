@@ -139,6 +139,10 @@ static NSString *kDeafultTVHolder = @"添加评论";
         
     }];
     
+    if (self.showComment) {
+        [self.tvMessage becomeFirstResponder];
+    }
+    
     self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
         @strongify(self);
         [self loadMoreMessages];
