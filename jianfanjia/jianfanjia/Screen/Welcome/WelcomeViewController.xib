@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController">
@@ -42,7 +42,7 @@
                             <variation key="widthClass=compact" constant="40"/>
                         </constraint>
                     </constraints>
-                    <state key="normal" title="微信登录">
+                    <state key="normal">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -51,7 +51,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weixin" translatesAutoresizingMaskIntoConstraints="NO" id="iVZ-1p-ex8">
-                    <rect key="frame" x="239" y="453" width="23" height="19"/>
+                    <rect key="frame" x="251" y="453" width="23" height="19"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="19" id="jIf-0V-nkZ"/>
@@ -78,17 +78,25 @@
                         <action selector="onClickExpierence:" destination="-1" eventType="touchUpInside" id="0mi-rp-gYw"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="微信登录" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ztr-g6-T0T">
+                    <rect key="frame" x="276" y="451" width="72" height="22"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="ztr-g6-T0T" firstAttribute="centerX" secondItem="UbQ-Sl-hqt" secondAttribute="centerX" constant="12" id="446-fG-Pq8"/>
                 <constraint firstItem="UbQ-Sl-hqt" firstAttribute="top" secondItem="AwI-s0-k0c" secondAttribute="bottom" constant="5" id="4FW-ml-Oa6"/>
                 <constraint firstAttribute="centerX" secondItem="AwI-s0-k0c" secondAttribute="centerX" id="7Nd-xf-NOu"/>
+                <constraint firstItem="ztr-g6-T0T" firstAttribute="leading" secondItem="iVZ-1p-ex8" secondAttribute="trailing" constant="2" id="AMm-xW-Di9"/>
                 <constraint firstItem="ekF-gt-wmC" firstAttribute="trailing" secondItem="UbQ-Sl-hqt" secondAttribute="trailing" id="ATw-7Y-Aoa"/>
-                <constraint firstItem="iVZ-1p-ex8" firstAttribute="centerX" secondItem="UbQ-Sl-hqt" secondAttribute="centerX" constant="-50" id="B28-c6-jrp"/>
                 <constraint firstItem="UbQ-Sl-hqt" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Bwq-V0-uA0"/>
                 <constraint firstItem="ekF-gt-wmC" firstAttribute="top" secondItem="dAK-ZR-wwK" secondAttribute="top" id="Fjb-fd-7TK"/>
                 <constraint firstAttribute="trailing" secondItem="o4s-r1-wq6" secondAttribute="trailing" id="GeB-W5-zm7"/>
-                <constraint firstItem="iVZ-1p-ex8" firstAttribute="centerY" secondItem="UbQ-Sl-hqt" secondAttribute="centerY" id="RHV-au-aWD"/>
+                <constraint firstItem="iVZ-1p-ex8" firstAttribute="centerY" secondItem="ztr-g6-T0T" secondAttribute="centerY" id="Lpd-pk-3JS"/>
+                <constraint firstItem="ztr-g6-T0T" firstAttribute="centerY" secondItem="UbQ-Sl-hqt" secondAttribute="centerY" id="R4b-jI-6dd"/>
                 <constraint firstItem="o4s-r1-wq6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Xup-fT-3Ak"/>
                 <constraint firstItem="dAK-ZR-wwK" firstAttribute="top" secondItem="UbQ-Sl-hqt" secondAttribute="bottom" constant="15" id="dFQ-Ew-1bK"/>
                 <constraint firstAttribute="bottom" secondItem="o4s-r1-wq6" secondAttribute="bottom" constant="150" id="lLz-bN-HcD"/>
