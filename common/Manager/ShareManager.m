@@ -16,6 +16,7 @@ NSString * const ShareTopicDecStrategy = @"DecStrategy";
 NSString * const ShareTopicActivity = @"Activity";
 NSString * const ShareTopicDecLive = @"DecLive";
 NSString * const ShareTopicFocusWeibo = @"FocusWeibo";
+NSString * const ShareTopicDiary = @"Diary";
 
 @implementation ShareManager
 

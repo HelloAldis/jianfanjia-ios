@@ -12,6 +12,7 @@
 #import "DiarySetDetailDataManager.h"
 #import "AddDiarySectionView.h"
 #import "ViewControllerContainer.h"
+#import "WebViewController.h"
 
 static NSString *DiarySetAvtarInfoCellIdentifier = @"DiarySetAvtarInfoCell";
 static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
@@ -21,6 +22,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) AddDiarySectionView *addDiarySectionView;
+@property (strong, nonatomic) DiarySetAvtarInfoCell *avtarInfoCell;
 @property (assign, nonatomic) BOOL wasFirstLoad;
 
 @property (strong, nonatomic) DiarySetDetailDataManager *dataManager;
@@ -109,10 +111,14 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        DiarySetAvtarInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiarySetAvtarInfoCellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell initWithDiarySet:self.diarySet tableView:self.tableView];
-        return cell;
+        if (!self.avtarInfoCell) {
+            DiarySetAvtarInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiarySetAvtarInfoCellIdentifier];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            self.avtarInfoCell = cell;
+        }
+        
+        [self.avtarInfoCell initWithDiarySet:self.diarySet tableView:self.tableView];
+        return self.avtarInfoCell;
     }
     
     Diary *diary = self.dataManager.diarys[indexPath.row];
@@ -176,7 +182,9 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 - (void)onClickShare {
-    
+    NSString *title = [NSString stringWithFormat:@"%@（%@）", self.diarySet.title, [DiaryBusiness diarySetInfo:self.diarySet]];
+    NSString *description = [NSString stringWithFormat:@"我在简繁家发现了一个不错的装修日记，分享给大家！"];
+    [[ShareManager shared] share:[ViewControllerContainer getCurrentTopController] topic:ShareTopicDiary image:self.avtarInfoCell.diarySetBGImgView.image title:title description:description targetLink:[StringUtil mobileUrl:[NSString stringWithFormat:@"tpl/diary/book/%@", self.diarySet._id]] delegate:nil];
 }
 
 @end

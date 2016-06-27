@@ -13,6 +13,7 @@ extern CGFloat kDiarySetAvtarInfoCellHeight;
 @interface DiarySetAvtarInfoCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIView *avtarView;
+@property (weak, nonatomic) IBOutlet UIImageView *diarySetBGImgView;
 
 - (void)initWithDiarySet:(DiarySet *)diarySet tableView:(UITableView *)tableView;
 

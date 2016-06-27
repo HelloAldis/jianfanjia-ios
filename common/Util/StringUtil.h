@@ -15,5 +15,7 @@
 + (NSString *)thumbnailImageUrl:(NSString *)imageid width:(NSInteger)width;
 + (NSString *)thumbnailImageUrl:(NSString *)imageid width:(NSInteger)width height:(NSInteger)height;
 + (NSString *)beautifulImageUrl:(NSString *)imageid title:(NSString *)title;
++ (NSString *)pcUrl:(NSString *)url;
++ (NSString *)mobileUrl:(NSString *)url;
 
 @end

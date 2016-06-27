@@ -62,4 +62,18 @@
     return decodedString;
 }
 
++ (NSString *)mobileUrl:(NSString *)url {
+    NSURLComponents *components = [[NSURLComponents alloc] initWithString:kMApiUrl];
+    NSString *urlString = [url containsString:@"http"] ? url : [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", url];
+    
+    return urlString;
+}
+
++ (NSString *)pcUrl:(NSString *)url {
+    NSURLComponents *components = [[NSURLComponents alloc] initWithString:kApiUrl];
+    NSString *urlString = [url containsString:@"http"] ? url : [NSString stringWithFormat:@"http://%@%@%@/%@", components.host, components.port ? @":" : @"", components.port ? components.port : @"", url];
+    
+    return urlString;
+}
+
 @end

@@ -14,7 +14,6 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 @interface DiarySetAvtarInfoCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
-@property (weak, nonatomic) IBOutlet UIImageView *diarySetBGImgView;
 @property (weak, nonatomic) IBOutlet UIImageView *editDiarySetInfoImgView;
 @property (weak, nonatomic) IBOutlet UILabel *lblDiarySetTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblBasicInfo;
