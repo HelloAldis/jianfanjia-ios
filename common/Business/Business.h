@@ -36,6 +36,8 @@
 #define kPlaceHolderColor [UIColor colorWithR:0xD5 g:0xD5 b:0xD5]
 #define kNotificationReadColor [UIColor colorWithR:0xC1 g:0xC6 b:0xC8]
 
+#define kCellHighlightColor [UIColor grayColor]
+
 #define kConsultPhone @"4008515167"
 #define kRightNavItemFontSize 15
 

@@ -81,7 +81,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Diary *diary = self.dataManager.diarys[indexPath.row];
     DecDiaryStatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell initWithDiary:diary diarys:self.dataManager.diarys tableView:self.tableView];
     return cell;
 }

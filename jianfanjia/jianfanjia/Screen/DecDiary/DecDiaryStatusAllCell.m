@@ -24,10 +24,10 @@
 @property (weak, nonatomic) IBOutlet YYLabel *msgView;
 @property (weak, nonatomic) IBOutlet UIView *imgsView;
 @property (weak, nonatomic) IBOutlet UIView *toolbarView;
-@property (weak, nonatomic) IBOutlet UIView *zanView;
+@property (weak, nonatomic) IBOutlet UIButton *btnZan;
 @property (weak, nonatomic) IBOutlet UIImageView *zanImgView;
 @property (weak, nonatomic) IBOutlet UILabel *lblZan;
-@property (weak, nonatomic) IBOutlet UIView *commentView;
+@property (weak, nonatomic) IBOutlet UIButton *btnComment;
 @property (weak, nonatomic) IBOutlet UIImageView *commentImgView;
 @property (weak, nonatomic) IBOutlet UILabel *lblComment;
 
@@ -53,9 +53,19 @@
         [self onTapDel];
     }];
     
+    [self.btnZan setBackgroundImage:[UIImage yy_imageWithColor:kCellHighlightColor] forState:UIControlStateHighlighted];
+    [[self.btnZan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickZan];
+    }];
+    
+    [self.btnComment setBackgroundImage:[UIImage yy_imageWithColor:kCellHighlightColor] forState:UIControlStateHighlighted];
+    [[self.btnComment rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickComment];
+    }];
+    
     [self.avatarImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickAvatar)]];
-    [self.zanView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickZan)]];
-    [self.commentView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickComment)]];
     
     [self initImageView];
 }
@@ -66,10 +76,8 @@
     self.base_msgView = self.msgView;
     self.base_imgsView = self.imgsView;
     self.base_toolbarView = self.toolbarView;
-    self.base_zanView = self.zanView;
     self.base_zanImgView = self.zanImgView;
     self.base_lblZan = self.lblZan;
-    self.base_commentView = self.commentView;
     self.base_commentImgView = self.commentImgView;
     self.base_lblComment = self.lblComment;
     self.base_picViews = self.picViews;
