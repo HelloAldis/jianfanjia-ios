@@ -49,7 +49,7 @@
                             <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="iGg-RL-q2Z" userLabel="TagView">
                                 <rect key="frame" x="190" y="22" width="66" height="20"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exE-9e-IOA">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exE-9e-IOA">
                                         <rect key="frame" x="7" y="2" width="52" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,10 +59,9 @@
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="exE-9e-IOA" firstAttribute="leading" secondItem="iGg-RL-q2Z" secondAttribute="leading" constant="7" id="54I-Ud-ZJ8"/>
-                                    <constraint firstItem="exE-9e-IOA" firstAttribute="centerX" secondItem="iGg-RL-q2Z" secondAttribute="centerX" id="EXv-Hd-hHq"/>
+                                    <constraint firstAttribute="trailing" secondItem="exE-9e-IOA" secondAttribute="trailing" constant="7" id="HQ7-Cm-OLH"/>
                                     <constraint firstAttribute="height" constant="20" id="J3X-R3-iBK"/>
                                     <constraint firstItem="exE-9e-IOA" firstAttribute="centerY" secondItem="iGg-RL-q2Z" secondAttribute="centerY" id="TI0-4h-eJ3"/>
-                                    <constraint firstAttribute="width" constant="66" id="Xds-vd-M8t"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="已过期" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5s-Rf-18L">

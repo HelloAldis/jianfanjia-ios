@@ -49,7 +49,7 @@
                             <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="lXo-4y-frw" userLabel="TagView">
                                 <rect key="frame" x="190" y="22" width="66" height="20"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh8-21-Y5e">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zh8-21-Y5e">
                                         <rect key="frame" x="7" y="2" width="52" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,11 +58,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="Zh8-21-Y5e" firstAttribute="centerX" secondItem="lXo-4y-frw" secondAttribute="centerX" id="EGF-qL-olv"/>
-                                    <constraint firstAttribute="width" constant="66" id="hPn-iC-g4n"/>
                                     <constraint firstItem="Zh8-21-Y5e" firstAttribute="leading" secondItem="lXo-4y-frw" secondAttribute="leading" constant="7" id="ofK-ya-jVO"/>
                                     <constraint firstItem="Zh8-21-Y5e" firstAttribute="centerY" secondItem="lXo-4y-frw" secondAttribute="centerY" id="qOh-Gc-d5o"/>
                                     <constraint firstAttribute="height" constant="20" id="u0h-5k-Sd8"/>
+                                    <constraint firstAttribute="trailing" secondItem="Zh8-21-Y5e" secondAttribute="trailing" constant="7" id="ywY-Ql-xGB"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="已完成" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lj8-ke-Jdg">

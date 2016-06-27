@@ -49,7 +49,7 @@
                             <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="6Bu-Yl-E4t" userLabel="TagView">
                                 <rect key="frame" x="177" y="22" width="66" height="20"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynv-kS-MZu">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynv-kS-MZu">
                                         <rect key="frame" x="7" y="2" width="52" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,9 +60,8 @@
                                 <constraints>
                                     <constraint firstItem="ynv-kS-MZu" firstAttribute="leading" secondItem="6Bu-Yl-E4t" secondAttribute="leading" constant="7" id="9Xt-uI-vYG"/>
                                     <constraint firstItem="ynv-kS-MZu" firstAttribute="centerY" secondItem="6Bu-Yl-E4t" secondAttribute="centerY" id="E3x-XH-VUx"/>
-                                    <constraint firstItem="ynv-kS-MZu" firstAttribute="centerX" secondItem="6Bu-Yl-E4t" secondAttribute="centerX" id="Wbk-mW-ubE"/>
                                     <constraint firstAttribute="height" constant="20" id="mHg-Vz-GOb"/>
-                                    <constraint firstAttribute="width" constant="66" id="o3L-yL-MEi"/>
+                                    <constraint firstAttribute="trailing" secondItem="ynv-kS-MZu" secondAttribute="trailing" constant="7" id="nh6-J2-Pg1"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="等待响应" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w7T-VB-NGg">

@@ -49,7 +49,7 @@
                             <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="pbb-yh-HtZ" userLabel="TagView">
                                 <rect key="frame" x="190" y="22" width="66" height="20"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkX-yP-rTn">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkX-yP-rTn">
                                         <rect key="frame" x="7" y="2" width="52" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,10 +58,9 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="gkX-yP-rTn" firstAttribute="centerX" secondItem="pbb-yh-HtZ" secondAttribute="centerX" id="6Zu-IX-OGl"/>
                                     <constraint firstAttribute="height" constant="20" id="8lA-en-msi"/>
                                     <constraint firstItem="gkX-yP-rTn" firstAttribute="centerY" secondItem="pbb-yh-HtZ" secondAttribute="centerY" id="Cyn-z4-M4l"/>
-                                    <constraint firstAttribute="width" constant="66" id="Ler-Vy-1fl"/>
+                                    <constraint firstAttribute="trailing" secondItem="gkX-yP-rTn" secondAttribute="trailing" constant="7" id="l2B-Z3-MYf"/>
                                     <constraint firstItem="gkX-yP-rTn" firstAttribute="leading" secondItem="pbb-yh-HtZ" secondAttribute="leading" constant="7" id="pW8-tr-ZMd"/>
                                 </constraints>
                             </view>

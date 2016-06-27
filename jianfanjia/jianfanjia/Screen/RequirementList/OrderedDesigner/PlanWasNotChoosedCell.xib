@@ -49,7 +49,7 @@
                             <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="VAE-yN-dge" userLabel="TagView">
                                 <rect key="frame" x="190" y="22" width="66" height="20"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgC-AD-QOp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgC-AD-QOp">
                                         <rect key="frame" x="7" y="2" width="52" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -58,11 +58,10 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="KgC-AD-QOp" secondAttribute="trailing" constant="7" id="3bY-uX-Qx3"/>
                                     <constraint firstAttribute="height" constant="20" id="6Qk-E5-hM0"/>
                                     <constraint firstItem="KgC-AD-QOp" firstAttribute="leading" secondItem="VAE-yN-dge" secondAttribute="leading" constant="7" id="Jsi-bP-wDR"/>
                                     <constraint firstItem="KgC-AD-QOp" firstAttribute="centerY" secondItem="VAE-yN-dge" secondAttribute="centerY" id="p3y-d2-xjR"/>
-                                    <constraint firstAttribute="width" constant="66" id="pHZ-Kd-GJw"/>
-                                    <constraint firstItem="KgC-AD-QOp" firstAttribute="centerX" secondItem="VAE-yN-dge" secondAttribute="centerX" id="pi3-CO-Hhx"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="未中标" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcR-QK-rZS">

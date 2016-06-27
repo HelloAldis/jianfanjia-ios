@@ -49,7 +49,7 @@
                             <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="B9p-c3-zQ9" userLabel="TagView">
                                 <rect key="frame" x="190" y="22" width="66" height="20"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kU-vd-a1i">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6kU-vd-a1i">
                                         <rect key="frame" x="7" y="2" width="52" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,9 +59,8 @@
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="6kU-vd-a1i" firstAttribute="centerY" secondItem="B9p-c3-zQ9" secondAttribute="centerY" id="00G-Tc-DxF"/>
-                                    <constraint firstItem="6kU-vd-a1i" firstAttribute="centerX" secondItem="B9p-c3-zQ9" secondAttribute="centerX" id="AXw-QY-gNY"/>
                                     <constraint firstItem="6kU-vd-a1i" firstAttribute="leading" secondItem="B9p-c3-zQ9" secondAttribute="leading" constant="7" id="TTu-4Y-vYq"/>
-                                    <constraint firstAttribute="width" constant="66" id="YTb-KN-PP3"/>
+                                    <constraint firstAttribute="trailing" secondItem="6kU-vd-a1i" secondAttribute="trailing" constant="7" id="e8v-O8-0i8"/>
                                     <constraint firstAttribute="height" constant="20" id="r4P-yU-LMD"/>
                                 </constraints>
                             </view>

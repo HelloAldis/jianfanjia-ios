@@ -49,7 +49,7 @@
                             <view contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="z0q-AF-iC4" userLabel="TagView">
                                 <rect key="frame" x="151" y="22" width="66" height="20"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ism-vT-QnW">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ism-vT-QnW">
                                         <rect key="frame" x="7" y="2" width="52" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -59,8 +59,7 @@
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="ism-vT-QnW" firstAttribute="leading" secondItem="z0q-AF-iC4" secondAttribute="leading" constant="7" id="5fB-6V-jZh"/>
-                                    <constraint firstItem="ism-vT-QnW" firstAttribute="centerX" secondItem="z0q-AF-iC4" secondAttribute="centerX" id="STa-rA-zjp"/>
-                                    <constraint firstAttribute="width" constant="66" id="e0p-uw-B4f"/>
+                                    <constraint firstAttribute="trailing" secondItem="ism-vT-QnW" secondAttribute="trailing" constant="7" id="X9A-dO-PWZ"/>
                                     <constraint firstAttribute="height" constant="20" id="jG1-nM-TSQ"/>
                                     <constraint firstItem="ism-vT-QnW" firstAttribute="centerY" secondItem="z0q-AF-iC4" secondAttribute="centerY" id="yDg-7Z-iwe"/>
                                 </constraints>

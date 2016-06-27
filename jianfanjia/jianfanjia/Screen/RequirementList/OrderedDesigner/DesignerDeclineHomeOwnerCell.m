@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnReplace;
 @property (weak, nonatomic) IBOutlet UIView *tagView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tagViewConst;
 @property (weak, nonatomic) IBOutlet UILabel *lblTag;
 @property (weak, nonatomic) IBOutlet UIImageView *vImage;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *evaluatedStars;
