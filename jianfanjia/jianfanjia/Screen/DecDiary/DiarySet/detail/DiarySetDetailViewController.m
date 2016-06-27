@@ -126,7 +126,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     diary.author = self.diarySet.author;
     DecDiary1StatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell initWithDiary:diary diarys:self.dataManager.diarys tableView:self.tableView hideTopLine:indexPath.row == 0];
+    [cell initWithDiary:diary diarys:self.dataManager.diarys tableView:self.tableView hideTopLine:![DiaryBusiness isOwnDiarySet:self.diarySet] && indexPath.row == 0];
     return cell;
 }
 
