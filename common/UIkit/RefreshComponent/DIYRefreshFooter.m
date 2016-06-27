@@ -18,4 +18,8 @@
     self.stateLabel.textColor = kUntriggeredColor;
 }
 
+- (void)setStateText:(NSString *)text {
+    self.stateLabel.text = text;
+}
+
 @end

@@ -10,4 +10,6 @@
 
 @interface DIYRefreshFooter : MJRefreshAutoNormalFooter
 
+- (void)setStateText:(NSString *)text;
+
 @end

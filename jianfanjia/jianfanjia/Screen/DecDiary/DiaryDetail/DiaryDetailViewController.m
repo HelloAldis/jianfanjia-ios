@@ -76,14 +76,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
     } completion:nil];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (self.showComment && !self.wasFirstLoad) {
-        self.wasFirstLoad = YES;
-        [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:YES];
-    }
-}
-
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self jfj_unsubscribeKeyboard];
@@ -127,12 +119,11 @@ static NSString *kDeafultTVHolder = @"添加评论";
      subscribeNext:^(NSString *value) {
          @strongify(self);
          if ([value trim].length == 0) {
-             self.tvMessage.text = [value trim];
-             [self refreshUI:[value trim]];
+             self.tvMessage.text = nil;
+             [self refreshUI:nil];
              return;
          }
          
-         self.tvMessage.text = value;
          [self refreshUI:value];
          CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
          self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, size.height));
@@ -154,8 +145,8 @@ static NSString *kDeafultTVHolder = @"添加评论";
     }];
     
     [self initDiarySize];
-    [self refreshDiary:!self.showComment];
-    [self refreshMessageList:self.showComment];
+    [self refreshDiary:NO];
+    [self refreshMessageList:YES];
 }
 
 - (void)initDiarySize {
@@ -163,35 +154,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
     [cell initWithDiary:self.diary diarys:nil tableView:nil];
     CGSize size = [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
     self.diarySize = size;
-    
-//    if (self.showComment && !self.wasFirstLoad) {
-//        self.wasFirstLoad = YES;
-////        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-////            
-////        });
-////        self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight, 0);
-////        if (self.showComment && !self.wasFirstLoad) {
-////            self.wasFirstLoad = YES;
-////            //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-////            //
-////            //        });
-////            //            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kScreenHeight, 0);
-////            [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:YES];
-////            //        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-////            //
-////            //        } completion:^(BOOL finished) {
-////            //
-////            //        }];
-////        }
-//        
-//        [self.tableView setContentSize:CGSizeMake(kScreenWidth, self.diarySize.height + kScreenHeight)];
-//        [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:NO];
-////        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
-////            
-////        } completion:^(BOOL finished) {
-////            
-////        }];
-//    }
 }
 
 #pragma mark - text view delegate
@@ -219,7 +181,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         return 0.0;
     }
     
-    return self.dataManager.comments.count == 0 ? kCommentCountTipSectionHeight : 6.0;
+    return 6.0;
 }
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -228,7 +190,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
     }
     
     CommentCountTipSection *view = [CommentCountTipSection commentCountTipSection];
-    view.lblTitle.text = self.dataManager.comments.count == 0 ? @"当前还没有任何评论" : @"";
+    view.lblTitle.text =  @"";
     return view;
 }
 
@@ -281,24 +243,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
     }
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0 && self.dataManager.comments.count == 0) {
-        CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height - kCommentCountTipSectionHeight + 1;
-        self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, minCommentsHeight, 0);
-    } else if (indexPath.section == 1 && indexPath.row == self.dataManager.comments.count - 1) {
-        CGRect cellRect = [self.tableView rectForRowAtIndexPath:indexPath];
-        CGFloat commentsHeight = CGRectGetMaxY(cellRect) - self.diarySize.height;
-        CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
-        CGFloat extra = minCommentsHeight - commentsHeight + 1;
-        
-        if (extra > 0) {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, extra, 0);
-        } else {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, self.footerView.frame.size.height, 0);
-        }
-    }
-}
-
 #pragma mark - api request
 - (void)refreshDiary:(BOOL)showPlsWait {
     if (showPlsWait) {
@@ -336,7 +280,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
     GetComments *request = [[GetComments alloc] init];
     request.topicid = self.diary._id;
     request.from = @0;
-    request.limit = @50;
+    request.limit = @20;
     
     [self.tableView.footer resetNoMoreData];
     @weakify(self);
@@ -346,9 +290,17 @@ static NSString *kDeafultTVHolder = @"添加评论";
         NSInteger count = [self.dataManager refreshComment];
         if (request.limit.integerValue > count) {
             [self.tableView.footer endRefreshingWithNoMoreData];
+            if (count == 0) {
+                [(id)self.tableView.footer setStateText:@"当前还没有任何评论"];
+            }
         }
         
         [self.tableView reloadData];
+        [self calculateInset];
+        if (self.showComment && !self.wasFirstLoad) {
+            self.wasFirstLoad = YES;
+            [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:YES];
+        }
     } failure:^{
         [self.tableView.header endRefreshing];
     } networkError:^{
@@ -360,7 +312,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
     GetComments *request = [[GetComments alloc] init];
     request.topicid = self.diary._id;
     request.from = @(self.dataManager.comments.count);
-    request.limit = @50;
+    request.limit = @20;
     
     @weakify(self);
     [API getComments:request success:^{
@@ -406,14 +358,13 @@ static NSString *kDeafultTVHolder = @"添加评论";
     [self enableSendBtn:NO];
     [API leaveComment:request success:^{
         @strongify(self);
-        self.tvMessage.text = @"";
-        [self refreshUI:@""];
+        self.tvMessage.text = nil;
+        [self refreshUI:nil];
         CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
         self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, size.height));
         [self updateAuthorIdToUserId];
         [self refreshDiary:NO];
         [self refreshMessageList:NO];
-        [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:YES];
     } failure:^{
     } networkError:^{
     }];
@@ -427,6 +378,31 @@ static NSString *kDeafultTVHolder = @"添加评论";
 - (void)updateToUserId:(NSString *)toId name:(NSString *)username {
     self.curToUser._id = toId;
     self.curToUser.username = username;
+}
+
+#pragma mark - cal
+- (void)calculateInset {
+    if (self.dataManager.comments.count == 0) {
+        CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
+        self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, minCommentsHeight, 0);
+    } else {
+        CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
+        __block CGFloat actualCommentsHeight = 0;
+        
+        [self.dataManager.comments enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            DiaryMessageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiaryMessageCellIdentifier];
+            [cell initWithComment:obj];
+            CGSize size = [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+            actualCommentsHeight += size.height;
+        }];
+
+        CGFloat extra = minCommentsHeight - actualCommentsHeight;
+        if (extra > 0) {
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, extra, 0);
+        } else {
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, self.footerView.frame.size.height, 0);
+        }
+    }
 }
 
 @end
