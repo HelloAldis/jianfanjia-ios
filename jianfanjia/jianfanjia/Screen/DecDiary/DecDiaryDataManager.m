@@ -77,7 +77,7 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     NSNumber *now = @([[NSDate date] getLongMilSecond]);
     
-    [self.diarys enumerateObjectsWithOptions:NSEnumerationConcurrent usingBlock:^(Diary*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.diarys enumerateObjectsUsingBlock:^(Diary*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if (now.longLongValue - obj.last_refresh_time.longLongValue > kMinRefreshTimeInteval) {
             [dict setObject:obj forKey:obj._id];
         }
