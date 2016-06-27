@@ -11,6 +11,6 @@
 
 @interface DecDiary1StatusCell : BaseDecDiaryStatusCell
 
-- (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView truncate:(BOOL)needTruncate;
+- (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView hideTopLine:(BOOL)hideTopLine;
 
 @end

@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblPhase;
 @property (weak, nonatomic) IBOutlet UILabel *lblPublishTime;
 @property (weak, nonatomic) IBOutlet UIButton *btnDel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topLineConst;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *msgHeightConst;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgsHeightConst;
@@ -80,11 +81,11 @@
     self.base_picViews = self.picViews;
 }
 
-- (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView truncate:(BOOL)needTruncate {
+- (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView hideTopLine:(BOOL)hideTopLine {
     self.tableView = tableView;
     self.diarys = diarys;
     self.diary = diary;
-    self.diary.layout.needTruncate = needTruncate;
+    self.diary.layout.needTruncate = NO;
     self.diary.layout.tapMoreAction = self.tapMoreAction;
     [self.diary.layout layout];
     
@@ -92,6 +93,7 @@
     [self layoutImageView];
     [self layoutMsg];
     [self initToolbar];
+    self.topLineConst.constant = hideTopLine ? 0 : 6;
 }
 
 #pragma mark - ui

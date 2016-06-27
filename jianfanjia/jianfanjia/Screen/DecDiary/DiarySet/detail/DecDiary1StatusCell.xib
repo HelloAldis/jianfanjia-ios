@@ -250,6 +250,7 @@
                 <outlet property="msgHeightConst" destination="rDw-Hh-Et4" id="Cd4-2R-0nO"/>
                 <outlet property="msgView" destination="NJT-1F-yIv" id="RGf-Vt-FQa"/>
                 <outlet property="toolbarView" destination="nEh-x0-U2B" id="IoF-ui-gDk"/>
+                <outlet property="topLineConst" destination="Irq-Lw-IpD" id="UJh-PZ-eaB"/>
                 <outlet property="zanImgView" destination="8Nk-g1-Shy" id="fWL-EH-nuk"/>
             </connections>
             <point key="canvasLocation" x="255.5" y="83"/>
