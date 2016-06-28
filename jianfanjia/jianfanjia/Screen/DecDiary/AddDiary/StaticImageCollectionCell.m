@@ -18,7 +18,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self.image addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapImage)]];
-    self.deleteView.tintColor = [UIColor whiteColor];
+    self.deleteImgView.tintColor = [UIColor whiteColor];
     [self.deleteView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDelete)]];
 }
 
