@@ -33,6 +33,7 @@ PODS:
     - CocoaLumberjack/Default
   - CRToast (0.0.9)
   - FLEX (2.3.0)
+  - GrowingIO (0.9.24)
   - GTSDK (1.4.2)
   - GVUserDefaults (1.0.2)
   - MBProgressHUD (0.9.2)
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - CocoaLumberjack
   - CRToast (~> 0.0.7)
   - FLEX (~> 2.1)
+  - GrowingIO
   - GTSDK
   - GVUserDefaults
   - MBProgressHUD (~> 0.9.1)
@@ -79,6 +81,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
+  GrowingIO: 11688891404a257c9ac0dbf58235a6606fdafd60
   GTSDK: 51a12836895312a872f75a2fe0f2e788dee75b19
   GVUserDefaults: 52d48cf8ba578b40a1a76312b196dfc9134ba36a
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
