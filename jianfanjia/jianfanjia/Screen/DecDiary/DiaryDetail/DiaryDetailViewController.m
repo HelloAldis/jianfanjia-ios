@@ -76,6 +76,15 @@ static NSString *kDeafultTVHolder = @"添加评论";
     } completion:nil];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.showComment && !self.wasFirstLoad) {
+        self.wasFirstLoad = YES;
+        [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:YES];
+        [self.tvMessage becomeFirstResponder];
+    }
+}
+
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [self jfj_unsubscribeKeyboard];
@@ -297,13 +306,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
         
         [self.tableView reloadData];
         [self calculateInset];
-        if (self.showComment && !self.wasFirstLoad) {
-            self.wasFirstLoad = YES;
-            [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:YES];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [self.tvMessage becomeFirstResponder];
-            });
-        }
     } failure:^{
         [self.tableView.header endRefreshing];
     } networkError:^{

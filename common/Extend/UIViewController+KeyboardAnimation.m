@@ -71,10 +71,9 @@ static void *JFJAnimationsCompletionBlockAssociationKey = &JFJAnimationsCompleti
     
     [UIView animateWithDuration:duration
                           delay:0
-                        options:animationCurve | UIViewAnimationOptionBeginFromCurrentState
+                        options:animationCurve << 16 | UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
                          if (animationsBlock) animationsBlock(keyboardRect, isShowing);
-                         [self.view layoutIfNeeded];
                      }
                      completion:completionBlock];
 }
