@@ -200,6 +200,11 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
 
 - (void)onClickNext {
     [self.view endEditing:YES];
+    if (self.diary.content.length < 15) {
+        [HUDUtil showErrText:@"日记内容不少于15字哦"];
+        return;
+    }
+    
     self.diary.diarySetid = self.diary.diarySet._id;
     AddDiary *request = [[AddDiary alloc] initWithDiary:self.diary];
     [HUDUtil showWait];
