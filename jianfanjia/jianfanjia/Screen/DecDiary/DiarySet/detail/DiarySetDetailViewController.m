@@ -181,6 +181,11 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 - (void)onClickShare {
+    if (self.dataManager.diarys.count == 0) {
+        [HUDUtil showErrText:@"您还没有发布装修日记哦"];
+        return;
+    }
+    
     NSString *title = [NSString stringWithFormat:@"%@（%@）", self.diarySet.title, [DiaryBusiness diarySetInfo:self.diarySet]];
     NSString *description = [NSString stringWithFormat:@"我在简繁家发现了一个不错的装修日记，分享给大家！"];
     [[ShareManager shared] share:[ViewControllerContainer getCurrentTopController] topic:ShareTopicDiary image:self.avtarInfoCell.diarySetBGImgView.image title:title description:description targetLink:[StringUtil mobileUrl:[NSString stringWithFormat:@"tpl/diary/book/%@", self.diarySet._id]] delegate:nil];

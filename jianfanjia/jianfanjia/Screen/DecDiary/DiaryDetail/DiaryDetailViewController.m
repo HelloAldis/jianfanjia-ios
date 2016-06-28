@@ -102,6 +102,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 300;
     [self.tableView registerNib:[UINib nibWithNibName:DecDiaryStatusCellIdentifier bundle:nil] forCellReuseIdentifier:DecDiaryStatusCellIdentifier];
@@ -225,6 +226,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         };
         
         cell.clickCommentBlock = ^{
+            [self updateAuthorIdToUserId];
             [self.tvMessage becomeFirstResponder];
         };
         
@@ -241,6 +243,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
     if (self.tvMessage.text.length == 0) {
         if (indexPath.section == 0) {
             [self updateAuthorIdToUserId];
+            [self.tvMessage becomeFirstResponder];
         } else {
             Comment *comment = self.dataManager.comments[indexPath.row];
             if ([DiaryBusiness isOwnComment:comment]) {
@@ -248,6 +251,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
             } else {
                 [self updateToUserId:comment.user._id name:comment.user.username];
             }
+            [self.tvMessage becomeFirstResponder];
         }
     }
 }
