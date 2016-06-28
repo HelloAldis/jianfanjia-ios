@@ -64,8 +64,10 @@ static const NSInteger imgSpace = 2;
         }],
        ]];
 
-    if (plan.comment_count.intValue > 0) {
+    if (plan.comment_count.integerValue > 0) {
         [self.btnComment setNormTitle:[NSString stringWithFormat:@"评论(%@)", plan.comment_count]];
+    } else {
+        [self.btnComment setNormTitle:@"评论"];
     }
     
     [self.imgScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];

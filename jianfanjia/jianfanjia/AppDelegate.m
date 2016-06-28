@@ -83,10 +83,18 @@
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    if ([Growing handleUrl:url]) {
+        return YES;
+    }
+    
     return  [JYZSocialSnsManager handleOpenURL:url];
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([Growing handleUrl:url]) {
+        return YES;
+    }
+
     return  [JYZSocialSnsManager handleOpenURL:url];
 }
 
@@ -99,6 +107,9 @@
     // 友盟日志统计
     UMConfigInstance.appKey = kUMengAppKey;
     [MobClick startWithConfigure:UMConfigInstance];
+    
+    // Growing IO
+    [Growing startWithAccountId:kGrowingIOAppID];
 }
 
 #pragma mark - 第三方登录／分享

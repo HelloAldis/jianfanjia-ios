@@ -22,5 +22,6 @@
 #import <UMMobClick/MobClick.h>
 #import "GeTuiSDK.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "Growing.h"
 
 #endif

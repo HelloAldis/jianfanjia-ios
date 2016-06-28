@@ -38,6 +38,7 @@
 #endif
 
 #define kUMengAppKey       @"55ffb334e0f55a84d500247f"
+#define kGrowingIOAppID    @"a166f25bf139f2c0"
 
 #define kWXAppId           @"wx391daabfce27e728"
 #define kWXAppSecret       @"f7c8e3e1b5910dd93be2744dacb3a1cc"
