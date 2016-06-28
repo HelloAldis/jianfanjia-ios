@@ -53,7 +53,6 @@
         [self onTapDel];
     }];
     
-    
     [self.btnZan setBackgroundImage:[UIImage yy_imageWithColor:kCellHighlightColor] forState:UIControlStateHighlighted];
     [[self.btnZan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
