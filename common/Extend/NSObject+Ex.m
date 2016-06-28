@@ -11,6 +11,14 @@
 
 @implementation NSObject(Ex)
 
+- (id)reverseDelegate {
+    return objc_getAssociatedObject(self, _cmd);
+}
+
+- (void)setReverseDelegate:(id)delegate {
+    objc_setAssociatedObject(self, @selector(reverseDelegate), delegate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 + (NSDictionary *)propertyNamesDictionary {
     NSMutableDictionary *propDict = [NSMutableDictionary dictionary];
     unsigned int outCount, i;

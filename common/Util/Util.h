@@ -20,5 +20,7 @@
 #import "PhotoCropper.h"
 #import "CardVerifyUtil.h"
 #import "MethodSwizzle.h"
+#import "TextViewDelegate.h"
+#import "TextFieldDelegate.h"
 
 #endif

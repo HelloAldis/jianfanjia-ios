@@ -436,6 +436,8 @@
 		68EE3EAF1D1CCC4100F5EF83 /* DiaryMessageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3EAD1D1CCC4100F5EF83 /* DiaryMessageTableCell.xib */; };
 		68EE3EB21D1CE03D00F5EF83 /* MethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EB11D1CE03D00F5EF83 /* MethodSwizzle.m */; };
 		68EE3EB51D1CE86100F5EF83 /* EventTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EB41D1CE86100F5EF83 /* EventTableView.m */; };
+		68EE3EB81D221BAB00F5EF83 /* TextViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EB71D221BAB00F5EF83 /* TextViewDelegate.m */; };
+		68EE3EBB1D221DAB00F5EF83 /* TextFieldDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3EBA1D221DAB00F5EF83 /* TextFieldDelegate.m */; };
 		68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */; };
 		68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDA1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m */; };
 		68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F73CDC1CBB3AB900E97710 /* PlanDesignerResponded.m */; };
@@ -1315,6 +1317,10 @@
 		68EE3EB11D1CE03D00F5EF83 /* MethodSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodSwizzle.m; sourceTree = "<group>"; };
 		68EE3EB31D1CE86100F5EF83 /* EventTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTableView.h; sourceTree = "<group>"; };
 		68EE3EB41D1CE86100F5EF83 /* EventTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventTableView.m; sourceTree = "<group>"; };
+		68EE3EB61D221BAB00F5EF83 /* TextViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewDelegate.h; sourceTree = "<group>"; };
+		68EE3EB71D221BAB00F5EF83 /* TextViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewDelegate.m; sourceTree = "<group>"; };
+		68EE3EB91D221DAB00F5EF83 /* TextFieldDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextFieldDelegate.h; sourceTree = "<group>"; };
+		68EE3EBA1D221DAB00F5EF83 /* TextFieldDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextFieldDelegate.m; sourceTree = "<group>"; };
 		68F73CD71CBB3AB900E97710 /* PlanDesignerDeclined.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerDeclined.h; sourceTree = "<group>"; };
 		68F73CD81CBB3AB900E97710 /* PlanDesignerDeclined.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanDesignerDeclined.m; sourceTree = "<group>"; };
 		68F73CD91CBB3AB900E97710 /* PlanDesignerMeasuredHouse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanDesignerMeasuredHouse.h; sourceTree = "<group>"; };
@@ -2865,6 +2871,10 @@
 				68921FFA1CCF55AE00BC80C7 /* ToastUtil.m */,
 				68711B551CD84933009B585F /* PhotoCropper.h */,
 				68711B561CD84933009B585F /* PhotoCropper.m */,
+				68EE3EB61D221BAB00F5EF83 /* TextViewDelegate.h */,
+				68EE3EB71D221BAB00F5EF83 /* TextViewDelegate.m */,
+				68EE3EB91D221DAB00F5EF83 /* TextFieldDelegate.h */,
+				68EE3EBA1D221DAB00F5EF83 /* TextFieldDelegate.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -3801,6 +3811,7 @@
 				68EE3DB21D12447A00F5EF83 /* SelectionEditCell.m in Sources */,
 				6E07DAC81BD88DBE001461DD /* User.m in Sources */,
 				68EE3DAF1D12447A00F5EF83 /* EditCellItem.m in Sources */,
+				68EE3EBB1D221DAB00F5EF83 /* TextFieldDelegate.m in Sources */,
 				685F2D731CABDC4C00DC4D43 /* BrushGifHeader.m in Sources */,
 				68EE3E8F1D18DB0600F5EF83 /* DiaryDetailViewController.m in Sources */,
 				6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */,
@@ -3852,6 +3863,7 @@
 				68F73CF31CBB3AB900E97710 /* PlanWasChoosed.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
 				68123C5C1C4C8B99008FC9AB /* ImageDetailViewController.m in Sources */,
+				68EE3EB81D221BAB00F5EF83 /* TextViewDelegate.m in Sources */,
 				68E6008A1CB7C20300C4A8F7 /* ReqtPlanWasChoosed.m in Sources */,
 				680F492A1C240F910055C16C /* LeafImage.m in Sources */,
 				68123BA11C47D15C008FC9AB /* JYZSocialSnsPlatformQQ.m in Sources */,

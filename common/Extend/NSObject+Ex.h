@@ -10,6 +10,8 @@
 
 @interface NSObject (EX)
 
+@property (strong, nonatomic) id reverseDelegate;
+
 + (NSDictionary *)propertyNamesDictionary;
 
 @end

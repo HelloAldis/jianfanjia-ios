@@ -123,24 +123,25 @@ static const CGFloat kMaxMessageHeight = 75;
         @strongify(self);
         [self onSendMessage];
     }];
-
-    [[self.tvMessage.rac_textSignal
-        length:^NSInteger{
-            return self.maxCount;
-        }]
-        subscribeNext:^(NSString *value) {
-            @strongify(self);
-            if ([value trim].length == 0) {
-                self.tvMessage.text = [value trim];
-                [self refreshUI:[value trim]];
-                return;
-            }
-            
-            self.tvMessage.text = value;
-            [self refreshUI:value];
-            CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
-            self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height));
-        }];
+    
+    TextViewDelegate *delegate = [[TextViewDelegate alloc] init];
+    delegate.maxInputLen = self.maxCount;
+    delegate.didChangeBlock = ^(NSString *value){
+        @strongify(self);
+        if ([value trim].length == 0) {
+            self.tvMessage.text = [value trim];
+            [self refreshUI:[value trim]];
+            return;
+        }
+        
+        self.tvMessage.text = value;
+        [self refreshUI:value];
+        CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
+        self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, self.lblLeftCharCount.bounds.size.height + size.height));
+    };
+    
+    self.tvMessage.reverseDelegate = delegate;
+    self.tvMessage.delegate = delegate;
     
     self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
        @strongify(self);

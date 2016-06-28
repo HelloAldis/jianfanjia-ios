@@ -55,29 +55,28 @@ static const CGFloat kMaxMessageHeight = 300;
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.tvMultipleLine setCornerRadius:5];
     [self.btnSave setCornerRadius:5];
-
+    
     self.tvMultipleLine.textContainerInset = UIEdgeInsetsMake(5, 5, 5, 20);
     self.tvMultipleLine.text = self.value;
     
     @weakify(self);
-    [[self.tvMultipleLine.rac_textSignal
-        length:^NSInteger{
-            return self.maxCount;
-        }]
-        subscribeNext:^(NSString *value) {
-            @strongify(self);
-            if ([value trim].length == 0) {
-                self.tvMultipleLine.text = [value trim];
-                [self refreshUI:[value trim]];
-                return;
-            }
-            
-            self.tvMultipleLine.text = value;
+    TextViewDelegate *delegate = [[TextViewDelegate alloc] init];
+    delegate.maxInputLen = self.maxCount;
+    delegate.didChangeBlock = ^(NSString *value){
+        @strongify(self);
+        if ([value trim].length == 0) {
+            self.tvMultipleLine.text = [value trim];
+            [self refreshUI:[value trim]];
+        } else {
             [self refreshUI:value];
             CGSize size = [self.tvMultipleLine sizeThatFits:CGSizeMake(self.tvMultipleLine.bounds.size.width, CGFLOAT_MAX)];
             CGFloat contentHeight = self.lblLeftCharCount.bounds.size.height + size.height;
             self.tvHeightConstraint.constant = MAX(80, MIN(contentHeight, kMaxMessageHeight));
-        }];
+        }
+    };
+
+    self.tvMultipleLine.reverseDelegate = delegate;
+    self.tvMultipleLine.delegate = delegate;
 }
 
 #pragma mark - user action
@@ -89,7 +88,7 @@ static const CGFloat kMaxMessageHeight = 300;
 }
 
 - (void)refreshUI:(NSString *)msg {
-    self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(self.maxCount - msg.length)];
+    self.lblLeftCharCount.text = [NSString stringWithFormat:@"%@", @(MAX(self.maxCount - msg.length, 0))];
     [self.btnSave enableBgColor:msg.length > 0];
 }
 
