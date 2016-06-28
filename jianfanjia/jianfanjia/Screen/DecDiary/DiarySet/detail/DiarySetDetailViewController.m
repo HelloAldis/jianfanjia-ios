@@ -182,7 +182,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 - (void)onClickShare {
     if (self.dataManager.diarys.count == 0) {
-        [HUDUtil showErrText:@"您还没有发布装修日记哦"];
+        [HUDUtil showErrText:@"您还没有发布装修日记哦～"];
         return;
     }
     
