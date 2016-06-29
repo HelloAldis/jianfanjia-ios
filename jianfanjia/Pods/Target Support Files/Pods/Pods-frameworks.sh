@@ -82,35 +82,3 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods/AFNetworkActivityLogger.framework"
-  install_framework "Pods/AFNetworking.framework"
-  install_framework "Pods/CRToast.framework"
-  install_framework "Pods/CocoaLumberjack.framework"
-  install_framework "Pods/FLEX.framework"
-  install_framework "Pods/GVUserDefaults.framework"
-  install_framework "Pods/MBProgressHUD.framework"
-  install_framework "Pods/MJRefresh.framework"
-  install_framework "Pods/RSKImageCropper.framework"
-  install_framework "Pods/ReactiveCocoa.framework"
-  install_framework "Pods/YYCache.framework"
-  install_framework "Pods/YYImage.framework"
-  install_framework "Pods/YYText.framework"
-  install_framework "Pods/YYWebImage.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods/AFNetworkActivityLogger.framework"
-  install_framework "Pods/AFNetworking.framework"
-  install_framework "Pods/CRToast.framework"
-  install_framework "Pods/CocoaLumberjack.framework"
-  install_framework "Pods/GVUserDefaults.framework"
-  install_framework "Pods/MBProgressHUD.framework"
-  install_framework "Pods/MJRefresh.framework"
-  install_framework "Pods/RSKImageCropper.framework"
-  install_framework "Pods/ReactiveCocoa.framework"
-  install_framework "Pods/YYCache.framework"
-  install_framework "Pods/YYImage.framework"
-  install_framework "Pods/YYText.framework"
-  install_framework "Pods/YYWebImage.framework"
-fi

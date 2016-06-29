@@ -58,9 +58,13 @@ install_resource()
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
   install_resource "WeiboSDK/libWeiboSDK/WeiboSDK.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "MJRefresh/MJRefresh/MJRefresh.bundle"
+  install_resource "RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle"
   install_resource "WeiboSDK/libWeiboSDK/WeiboSDK.bundle"
 fi
 

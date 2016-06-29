@@ -15,7 +15,7 @@
 #import "YYWebImage.h"
 #import "YYText.h"
 #import "CocoaLumberjack.h"
-#import <MJRefresh/MJRefresh.h>
+#import "MJRefresh.h"
 #import "MBProgressHUD.h"
 #import "GVUserDefaults.h"
 #import "ReactiveCocoa.h"
