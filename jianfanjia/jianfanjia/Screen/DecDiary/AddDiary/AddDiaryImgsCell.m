@@ -10,6 +10,7 @@
 #import "StaticImageCollectionCell.h"
 #import "UIItemImageCollectionView.h"
 #import "ViewControllerContainer.h"
+#import "CollectionViewReordeLayout.h"
 
 static const NSInteger MAX_IMG_COUNT = 9;
 static const NSInteger COUNT_IN_ONE_ROW = 4;
@@ -20,9 +21,9 @@ static NSString *StaticImageCollectionCellIdentifier = @"StaticImageCollectionCe
 
 static CGFloat imgCellWidth;
 
-@interface AddDiaryImgsCell ()
+@interface AddDiaryImgsCell () <CollectionViewReordeLayoutDelegate, CollectionViewReordeLayoutDataSource>
 @property (weak, nonatomic) IBOutlet UIItemImageCollectionView *imgCollection;
-@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *imgCollectionLayout;
+@property (weak, nonatomic) IBOutlet CollectionViewReordeLayout *imgCollectionLayout;
 
 @property (copy, nonatomic) StaticImageColCellTapImageBlock tapImageBlock;
 @property (copy, nonatomic) StaticImageColCellTapDeleteBlock tapDeleteBlock;
@@ -37,6 +38,8 @@ static CGFloat imgCellWidth;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.imgCollectionLayout.delegate = self;
+    self.imgCollectionLayout.dataSource = self;
     [self.imgCollection registerNib:[UINib nibWithNibName:StaticImageCollectionCellIdentifier bundle:nil] forCellWithReuseIdentifier:StaticImageCollectionCellIdentifier];
     self.imgCollectionLayout.minimumLineSpacing = CELL_SPACE;
     self.imgCollectionLayout.minimumInteritemSpacing = CELL_SPACE;
@@ -91,6 +94,19 @@ static CGFloat imgCellWidth;
     cell.tapDeleteBlock = self.tapDeleteBlock;
     
     return cell;
+}
+
+#pragma mark - collection reorder
+- (BOOL)collectionView:(UICollectionView *)collectionView canMoveItemAtIndexPath:(NSIndexPath *)indexPath {
+    return indexPath.row < self.diary.images.count;
+}
+
+- (BOOL)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)fromIndexPath canMoveToIndexPath:(NSIndexPath *)toIndexPath {
+    return toIndexPath.row < self.diary.images.count;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)fromIndexPath didMoveToIndexPath:(NSIndexPath *)toIndexPath {
+    [self.diary.images exchangeObjectAtIndex:fromIndexPath.row withObjectAtIndex:toIndexPath.row];
 }
 
 #pragma mark - user action
