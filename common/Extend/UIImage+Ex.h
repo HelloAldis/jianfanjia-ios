@@ -15,4 +15,12 @@
 - (UIImage *)getSubImage:(CGRect)rect;
 - (UIImage *)aspectToScale:(float)scaleWidth;
 
++ (UIImage *)imageWithColor:(UIColor *)color;
++ (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+
+- (UIImage *)imageByGrayscale;
+- (UIImage *)imageByBlurSoft;
+- (UIImage *)imageByBlurLight;
+- (UIImage *)imageByBlurExtraLight;
+- (UIImage *)imageByBlurDark;
 @end

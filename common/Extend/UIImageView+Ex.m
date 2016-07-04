@@ -11,6 +11,10 @@
 
 @implementation UIImageView (Ex)
 
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder progress:(JYZWebImageProgressBlock)progress completed:(JYZWebImageCompletionBlock)completeBlock {
+    [self yy_setImageWithURL:[self imageurl:imageid withWidth:width] placeholder:placeholder options:(YYWebImageOptions)JYZWebImageOptionProgressive progress:(YYWebImageProgressBlock)progress transform:nil completion:(YYWebImageCompletionBlock)completeBlock];
+}
+
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width completed:(JYZWebImageCompletionBlock)completeBlock {
     [self yy_setImageWithURL:[self imageurl:imageid withWidth:width] placeholder:[UIImage imageNamed:@"image_place_holder"] options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:(YYWebImageCompletionBlock)completeBlock];
 }

@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, PhotoGroupItemType) {
+    PhotoGroupItemTypeOnline,
+    PhotoGroupItemTypeOffline,
+};
+
 @class ReuseScrollView;
 @class PhotoGroupView;
 
@@ -15,8 +20,10 @@ typedef void (^PhotoGroupItemLoadedBlock)(UIImage *image);
 
 @interface PhotoGroupItem : NSObject
 
+@property (nonatomic, assign) PhotoGroupItemType itemType;
+@property (nonatomic, retain) UIImageView *thumbView;
 @property (nonatomic, readonly) UIImage *loadedImage;
-@property (nonatomic, strong) NSString *imageid;
+@property (nonatomic, retain) NSString *imageid;
 @property (nonatomic, copy) PhotoGroupItemLoadedBlock loadedBlock;
 
 @end
@@ -33,9 +40,20 @@ typedef void (^PhotoGroupItemLoadedBlock)(UIImage *image);
 @interface PhotoGroupView : UIView
 
 @property (nonatomic, readonly) ReuseScrollView *scrollView;
-@property (nonatomic, strong) NSArray<PhotoGroupItem *> *groupItems;
+@property (nonatomic, retain) NSArray<PhotoGroupItem *> *groupItems;
 @property (nonatomic, assign) NSInteger index;
 @property (nonatomic, weak) id<PhotoGroupViewProtocol> delegate;
-@property (nonatomic, assign) BOOL needZoom;
+
+@end
+
+@interface PhotoGroupAnimationView : PhotoGroupView
+
+@property (nonatomic, assign) BOOL blurEffectBackground; ///< Default is YES
+
+- (void)presentFromImageView:(UIView *)fromView
+                 toContainer:(UIView *)toContainer
+                    animated:(BOOL)animated
+                  completion:(void (^)(void))completion;
+- (void)dismissAnimated:(BOOL)animated completion:(void (^)(void))completion;
 
 @end

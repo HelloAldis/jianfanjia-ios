@@ -66,7 +66,7 @@
     [super layoutSubviews];
     if (!self.wasFirstDisplay) {
         self.wasFirstDisplay = YES;
-        [self setContentOffset:CGPointMake((_cellSize.width + _padding) * self.index, 0)];
+        [self scrollRectToVisible:CGRectMake((_cellSize.width + _padding) * self.index, 0, _cellSize.width + _padding, self.frame.size.height) animated:NO];
         [self scrollViewDidScroll:self];
     }
 }
@@ -121,6 +121,12 @@
     }
 }
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    if ([_reuseDelegate respondsToSelector:@selector(reuseScrollViewDidEndDecelerating:)]) {
+        [_reuseDelegate reuseScrollViewDidEndDecelerating:self];
+    }
+}
+
 /// enqueue invisible cells for reuse
 - (void)updateCellsForReuse {
     for (ReuseCell *cell in _cells) {
@@ -144,7 +150,6 @@
     }
     
     if (![_reuseDelegate respondsToSelector:@selector(reuseCellFactory)]) return nil;
-    
     cell = [_reuseDelegate reuseCellFactory];
     cell.frame = CGRectMake(0, 0, _cellSize.width, _cellSize.height);
     cell.page = -1;

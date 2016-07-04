@@ -57,8 +57,17 @@ typedef NS_ENUM(NSInteger, JYZWebImageStage) {
  */
 typedef void (^JYZWebImageCompletionBlock)(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error);
 
+/**
+ The block invoked in remote image fetch progress.
+ 
+ @param receivedSize Current received size in bytes.
+ @param expectedSize Expected total size in bytes (-1 means unknown).
+ */
+typedef void(^JYZWebImageProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
+
 @interface UIImageView (Ex)
 
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder progress:(JYZWebImageProgressBlock)progress completed:(JYZWebImageCompletionBlock)completeBlock;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width completed:(JYZWebImageCompletionBlock)completeBlock;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder;

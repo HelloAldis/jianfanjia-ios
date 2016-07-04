@@ -8,6 +8,7 @@
 
 #import "BaseDecDiaryStatusCell.h"
 #import "ViewControllerContainer.h"
+#import "PhotoGroupView.h"
 
 @interface BaseDecDiaryStatusCell ()
 
@@ -58,11 +59,24 @@
 #pragma mark - user action
 - (void)onTapImage:(UITapGestureRecognizer *)g {
     NSInteger index = [self.base_picViews indexOfObject:g.view];
-    NSArray *imgs = [self.diary.images map:^id(id obj) {
-        return obj[@"imageid"];
-    }];
+    UIView *fromView = nil;
+    NSMutableArray *items = [NSMutableArray new];
+
+    for (NSUInteger i = 0, max = self.diary.images.count; i < max; i++) {
+        UIImageView *imgView = self.base_picViews[i];
+
+        PhotoGroupItem *item = [PhotoGroupItem new];
+        item.thumbView = imgView;
+        item.imageid = self.diary.images[i][@"imageid"];
+        [items addObject:item];
+        if (i == index) {
+            fromView = imgView;
+        }
+    }
     
-    [ViewControllerContainer showOnlineImages:imgs index:index];
+    PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
+    v.groupItems = items;
+    [v presentFromImageView:fromView toContainer:[ViewControllerContainer getCurrentTopController].view animated:YES completion:nil];
 }
 
 - (void)onClickZan {
@@ -188,7 +202,7 @@
             LeafImage *pic = [[LeafImage alloc] initWith:pics[i]];
             
             @weakify(imageView);
-            [imageView setImageWithId:pic.imageid withWidth:kScreenWidth completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
+            [imageView setImageWithId:pic.imageid withWidth:imageView.frame.size.width completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
                 @strongify(imageView);
                 if (!imageView) return;
                 if (image && stage == YYWebImageStageFinished) {

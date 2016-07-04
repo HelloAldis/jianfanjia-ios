@@ -19,6 +19,7 @@
 @optional
 - (void)reuseScrollViewDidScroll:(ReuseScrollView *)scrollView;
 - (void)reuseScrollViewDidEndDragging:(ReuseScrollView *)scrollView willDecelerate:(BOOL)decelerate;
+- (void)reuseScrollViewDidEndDecelerating:(ReuseScrollView *)scrollView;
 - (void)reuseScrollViewDidChangePage:(ReuseScrollView *)scrollView toPage:(NSInteger)toPage;
 
 @end
@@ -32,6 +33,7 @@
 @property (nonatomic, readonly) NSInteger currentPage;
 @property (nonatomic, readonly) CGSize cellSize;
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 - (ReuseCell *)cellForPage:(NSInteger)page;
 - (CGRect)getOriginCellFrame:(NSInteger)page;
 

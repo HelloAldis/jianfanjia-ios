@@ -15,4 +15,7 @@
 + (CALayer *)createLayer:(CGRect)frame image:(UIImage *)img;
 + (CALayer *)createRoundBottomLayer:(CGRect)frame cornerRadii:(CGSize)cornerRadii;
 
+- (void)addFadeAnimationWithDuration:(NSTimeInterval)duration curve:(UIViewAnimationCurve)curve;
+- (void)removePreviousFadeAnimation;
+
 @end

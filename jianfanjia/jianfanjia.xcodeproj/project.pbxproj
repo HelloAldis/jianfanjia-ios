@@ -249,6 +249,7 @@
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
 		6865A3351D261D3800B3CB26 /* ReorderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3341D261D3800B3CB26 /* ReorderTableView.m */; };
 		6865A3381D26420A00B3CB26 /* CollectionViewReordeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3371D26420A00B3CB26 /* CollectionViewReordeLayout.m */; };
+		6865A33A1D2A036700B3CB26 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6865A3391D2A036700B3CB26 /* Accelerate.framework */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -994,6 +995,7 @@
 		6865A3341D261D3800B3CB26 /* ReorderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReorderTableView.m; sourceTree = "<group>"; };
 		6865A3361D26420A00B3CB26 /* CollectionViewReordeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewReordeLayout.h; sourceTree = "<group>"; };
 		6865A3371D26420A00B3CB26 /* CollectionViewReordeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewReordeLayout.m; sourceTree = "<group>"; };
+		6865A3391D2A036700B3CB26 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -1588,6 +1590,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6865A33A1D2A036700B3CB26 /* Accelerate.framework in Frameworks */,
 				6E44965A1BFEC69C00C90851 /* Photos.framework in Frameworks */,
 				689ECEB21CFC19240046DDC8 /* TencentOpenAPI.framework in Frameworks */,
 				68123B2A1C4629EE008FC9AB /* libc++.tbd in Frameworks */,
@@ -3219,6 +3222,7 @@
 		94C7F59597BA43E8F719C985 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6865A3391D2A036700B3CB26 /* Accelerate.framework */,
 				68123B291C4629EE008FC9AB /* libc++.tbd */,
 				68123B271C4629AF008FC9AB /* libc++.1.tbd */,
 				6E44965B1BFEC6D600C90851 /* PhotosUI.framework */,
