@@ -226,12 +226,12 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 - (void)showScenceImageDetail:(NSInteger)index indexPath:(NSIndexPath *)indexPath {
     YsImage *image = self.imgArray[index];
-    if (image.imageid) {
+    if (image.imageid.length > 0) {
         ItemImageCollectionCell *cell = (ItemImageCollectionCell *)[self.imgCollection cellForItemAtIndexPath:indexPath];
         NSMutableArray *images = [NSMutableArray array];
         for (NSInteger i = 0; i < self.imgArray.count; i++) {
             YsImage *img = self.imgArray[i];
-            if (img.imageid) {
+            if (img.imageid.length > 0) {
                 [images addObject:img.imageid];
             }
         }
