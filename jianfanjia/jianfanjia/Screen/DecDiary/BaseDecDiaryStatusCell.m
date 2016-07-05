@@ -76,7 +76,7 @@
     
     PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
     v.groupItems = items;
-    [v presentFromImageView:fromView toContainer:[ViewControllerContainer getCurrentTopController].view animated:YES completion:nil];
+    [v presentFromImageView:fromView fromItemIndex:index toContainer:[ViewControllerContainer navigation].view animated:YES completion:nil];
 }
 
 - (void)onClickZan {

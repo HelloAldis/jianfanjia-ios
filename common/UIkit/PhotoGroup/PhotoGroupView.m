@@ -415,24 +415,17 @@
 
 #pragma mark - show / hide
 - (void)presentFromImageView:(UIView *)fromView
+               fromItemIndex:(NSInteger)fromItemIndex
                  toContainer:(UIView *)toContainer
                     animated:(BOOL)animated
                   completion:(void (^)(void))completion {
     if (!toContainer) return;
     
     _fromView = fromView;
+    _fromItemIndex = fromItemIndex;
     _toContainerView = toContainer;
     
-    NSInteger page = -1;
-    for (NSUInteger i = 0; i < self.groupItems.count; i++) {
-        if (fromView == ((PhotoGroupItem *)self.groupItems[i]).thumbView) {
-            page = (int)i;
-            break;
-        }
-    }
-    if (page == -1) page = 0;
-    _fromItemIndex = page;
-    [self.scrollView setIndex:_fromItemIndex];
+    [self.scrollView setIndex:fromItemIndex];
     
     _snapshotImage = [_toContainerView snapshotImageAfterScreenUpdates:NO];
     BOOL fromViewHidden = fromView.hidden;
@@ -454,7 +447,7 @@
     self.blurBackground.alpha = 0;
     self.pager.alpha = 0;
     self.pager.numberOfPages = self.groupItems.count;
-    self.pager.currentPage = page;
+    self.pager.currentPage = fromItemIndex;
     [_toContainerView addSubview:self];
     [self layoutIfNeeded];
     

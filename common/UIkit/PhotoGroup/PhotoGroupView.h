@@ -52,6 +52,7 @@ typedef void (^PhotoGroupItemLoadedBlock)(UIImage *image);
 @property (nonatomic, assign) BOOL blurEffectBackground; ///< Default is YES
 
 - (void)presentFromImageView:(UIView *)fromView
+               fromItemIndex:(NSInteger)fromItemIndex
                  toContainer:(UIView *)toContainer
                     animated:(BOOL)animated
                   completion:(void (^)(void))completion;
