@@ -472,6 +472,7 @@ static ViewControllerContainer *container;
 + (void)showOfflineImages:(NSArray *)offlineImages fromImageView:(UIView *)imageView index:(NSInteger)index {
     NSArray *items = [offlineImages map:^(UIImage *img) {
         PhotoGroupItem *item = [PhotoGroupItem new];
+        item.itemType = PhotoGroupItemTypeOffline;
         item.thumbImage = img;
         
         return item;
