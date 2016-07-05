@@ -65,16 +65,39 @@ typedef void (^JYZWebImageCompletionBlock)(UIImage *image, NSURL *url, JYZWebIma
  */
 typedef void(^JYZWebImageProgressBlock)(NSInteger receivedSize, NSInteger expectedSize);
 
+/**
+ The block invoked before remote image fetch finished to do additional image process.
+ 
+ @discussion This block will be invoked before `YYWebImageCompletionBlock` to give
+ you a chance to do additional image process (such as resize or crop). If there's
+ no need to transform the image, just return the `image` parameter.
+ 
+ @example You can clip the image, blur it and add rounded corners with these code:
+ ^(UIImage *image, NSURL *url) {
+ // Maybe you need to create an @autoreleasepool to limit memory cost.
+ image = [image yy_imageByResizeToSize:CGSizeMake(100, 100) contentMode:UIViewContentModeScaleAspectFill];
+ image = [image yy_imageByBlurRadius:20 tintColor:nil tintMode:kCGBlendModeNormal saturation:1.2 maskImage:nil];
+ image = [image yy_imageByRoundCornerRadius:5];
+ return image;
+ }
+ 
+ @param image The image fetched from url.
+ @param url   The image url (remote or local file path).
+ @return The transformed image.
+ */
+typedef UIImage * (^JYZWebImageTransformBlock)(UIImage *image, NSURL *url);
+
+
 @interface UIImageView (Ex)
 
-- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder progress:(JYZWebImageProgressBlock)progress completed:(JYZWebImageCompletionBlock)completeBlock;
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder options:(JYZWebImageOptions)options progress:(JYZWebImageProgressBlock)progress completed:(JYZWebImageCompletionBlock)completeBlock;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width completed:(JYZWebImageCompletionBlock)completeBlock;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width height:(NSInteger)height;
 - (void)setUserImageWithId:(NSString *)imageid;
 - (void)setUserImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder;
-- (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image;
+- (void)setImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder;
 
 - (void)cancelCurrentImageRequest;
 

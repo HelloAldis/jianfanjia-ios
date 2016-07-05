@@ -11,36 +11,57 @@
 
 @implementation UIImageView (Ex)
 
+- (void)setImageWithImgURL:(NSURL *)imageidUrl placeholder:(UIImage *)placeholder options:(JYZWebImageOptions)options progress:(JYZWebImageProgressBlock)progress transform:(JYZWebImageTransformBlock)transform completed:(JYZWebImageCompletionBlock)completeBlock {
+    [self yy_setImageWithURL:imageidUrl placeholder:placeholder options:(YYWebImageOptions)options progress:(YYWebImageProgressBlock)progress transform:transform completion:(YYWebImageCompletionBlock)completeBlock];
+}
+
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width height:(NSInteger)height placeholder:(UIImage *)placeholder options:(JYZWebImageOptions)options progress:(JYZWebImageProgressBlock)progress transform:(JYZWebImageTransformBlock)transform completed:(JYZWebImageCompletionBlock)completeBlock {
+    NSURL *url = nil;
+    if (width > 0 && height > 0) {
+        url = [self imageurl:imageid withWidth:width height:height];
+    } else if (width > 0) {
+        url = [self imageurl:imageid withWidth:width];
+    } else {
+        url = [self imageurl:imageid];
+    }
+
+    [self setImageWithImgURL:url placeholder:placeholder options:options progress:progress transform:transform completed:completeBlock];
+}
+
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder options:(JYZWebImageOptions)options progress:(JYZWebImageProgressBlock)progress completed:(JYZWebImageCompletionBlock)completeBlock {
+    [self setImageWithId:imageid withWidth:width height:0 placeholder:placeholder options:(JYZWebImageOptions)options progress:(JYZWebImageProgressBlock)progress transform:nil completed:(JYZWebImageCompletionBlock)completeBlock];
+}
+
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder progress:(JYZWebImageProgressBlock)progress completed:(JYZWebImageCompletionBlock)completeBlock {
-    [self yy_setImageWithURL:[self imageurl:imageid withWidth:width] placeholder:placeholder options:(YYWebImageOptions)JYZWebImageOptionProgressive progress:(YYWebImageProgressBlock)progress transform:nil completion:(YYWebImageCompletionBlock)completeBlock];
+    [self setImageWithId:imageid withWidth:width height:0 placeholder:placeholder options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:(JYZWebImageProgressBlock)progress transform:nil completed:(JYZWebImageCompletionBlock)completeBlock];
 }
 
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width completed:(JYZWebImageCompletionBlock)completeBlock {
-    [self yy_setImageWithURL:[self imageurl:imageid withWidth:width] placeholder:[UIImage imageNamed:@"image_place_holder"] options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:(YYWebImageCompletionBlock)completeBlock];
+    [self setImageWithId:imageid withWidth:width height:0 placeholder:[UIImage imageNamed:@"image_place_holder"] options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:(JYZWebImageCompletionBlock)completeBlock];
 }
 
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width {
-    [self yy_setImageWithURL:[self imageurl:imageid withWidth:width] placeholder:[UIImage imageNamed:@"image_place_holder"] options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
+    [self setImageWithId:imageid withWidth:width height:0 placeholder:[UIImage imageNamed:@"image_place_holder"] options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:nil];
 }
 
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder {
-    [self yy_setImageWithURL:[self imageurl:imageid withWidth:width] placeholder:placeholder options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
+    [self setImageWithId:imageid withWidth:width height:0 placeholder:placeholder options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:nil];
 }
 
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width height:(NSInteger)height {
-    [self yy_setImageWithURL:[self imageurl:imageid withWidth:width height:height] placeholder:[UIImage imageNamed:@"image_place_holder"] options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
+    [self setImageWithId:imageid withWidth:width height:height placeholder:[UIImage imageNamed:@"image_place_holder"] options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:nil];
 }
 
 - (void)setUserImageWithId:(NSString *)imageid {
-    [self yy_setImageWithURL:[self imageurl:imageid withWidth:60] placeholder:[UIImage imageNamed:@"image_place_holder_2"] options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
+    [self setImageWithId:imageid withWidth:60 height:0 placeholder:[UIImage imageNamed:@"image_place_holder_2"] options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:nil];
 }
 
 - (void)setUserImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder {
-    [self yy_setImageWithURL:[self imageurl:imageid withWidth:60] placeholder:placeholder options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
+    [self setImageWithId:imageid withWidth:60 height:0 placeholder:placeholder options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:nil];
 }
 
-- (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image {
-    [self yy_setImageWithURL:[self imageurl:imageid] placeholder:image options:(YYWebImageOptions)JYZWebImageOptionProgressive completion:nil];
+- (void)setImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder {
+    [self setImageWithId:imageid withWidth:0 height:0 placeholder:placeholder options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:nil];
 }
 
 - (NSURL *)imageurl:(NSString *)imageid {

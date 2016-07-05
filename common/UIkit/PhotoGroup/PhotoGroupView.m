@@ -150,7 +150,7 @@
         }
     } else {
         @weakify(self);
-        [_imageView setImageWithId:_item.imageid withWidth:self.bounds.size.width placeholder:_item.thumbImage progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+        [_imageView setImageWithId:_item.imageid withWidth:self.bounds.size.width placeholder:_item.thumbImage options:kNilOptions progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             @strongify(self);
             if (!self) return;
             CGFloat progress = receivedSize / (float)expectedSize;
