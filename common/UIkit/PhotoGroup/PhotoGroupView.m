@@ -150,7 +150,7 @@
             CGFloat progress = receivedSize / (float)expectedSize;
             progress = progress < 0.01 ? 0.01 : progress > 1 ? 1 : progress;
             if (isnan(progress)) progress = 0;
-            self.progressLayer.hidden = NO;
+//            self.progressLayer.hidden = NO;
             self.progressLayer.strokeEnd = progress;
         } completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
             @strongify(self);
