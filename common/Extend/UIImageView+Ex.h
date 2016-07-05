@@ -76,4 +76,6 @@ typedef void(^JYZWebImageProgressBlock)(NSInteger receivedSize, NSInteger expect
 - (void)setUserImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder;
 - (void)setImageWithId:(NSString *)imageid placeholderImage:(UIImage *)image;
 
+- (void)cancelCurrentImageRequest;
+
 @end

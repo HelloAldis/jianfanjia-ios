@@ -30,6 +30,7 @@
 @property (nonatomic, strong) NSArray *items;
 @property (nonatomic, assign) NSInteger padding;
 @property (nonatomic, assign) NSInteger index;
+@property (nonatomic, readonly) NSMutableArray *cells;
 @property (nonatomic, readonly) NSInteger currentPage;
 @property (nonatomic, readonly) CGSize cellSize;
 

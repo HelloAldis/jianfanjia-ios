@@ -58,4 +58,8 @@
     return [NSURL URLWithString:url];
 }
 
+- (void)cancelCurrentImageRequest {
+    [self yy_cancelCurrentImageRequest];
+}
+
 @end

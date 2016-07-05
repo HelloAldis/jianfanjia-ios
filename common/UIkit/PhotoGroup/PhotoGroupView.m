@@ -173,7 +173,6 @@
 }
 
 - (void)resizeSubviewSize {
-    
     CGRect frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     _imageContainerView.frame = frame;
     
@@ -191,6 +190,7 @@
     }
     if (_imageContainerView.frame.size.height > self.frame.size.height && _imageContainerView.frame.size.height - self.frame.size.height <= 1) {
         frame.size.height = self.frame.size.height;
+        _imageContainerView.frame = frame;
     }
     self.scrollView.contentSize = CGSizeMake(self.frame.size.width, MAX(_imageContainerView.frame.size.height, self.frame.size.height));
     [self.scrollView scrollRectToVisible:self.bounds animated:NO];
@@ -383,14 +383,6 @@
     [self insertSubview:_blurBackground belowSubview:self.contentView];
 }
 
-#pragma mark - reuse delegate
-- (ReuseCell *)reuseCellFactory {
-    PhotoGroupCell *cell = [[PhotoGroupCell alloc] init];
-    cell.imageContainerView.frame = self.bounds;
-    cell.imageView.frame = cell.bounds;
-    return cell;
-}
-
 #pragma mark - delegate
 - (void)reuseScrollViewDidEndDragging:(ReuseScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     if (!decelerate) {
@@ -467,7 +459,7 @@
     PhotoGroupItem *item = self.groupItems[_fromItemIndex];
     
     if (item.thumbClippedToTop) {
-        CGRect fromFrame = [_fromView convertRect:_fromView.bounds toView:cell];
+        CGRect fromFrame = [_fromView convertRect:_fromView.bounds toView:cell.scrollView];
         CGRect originFrame = cell.imageContainerView.frame;
         CGFloat scale = fromFrame.size.width / cell.imageContainerView.frame.size.width;
         
@@ -544,7 +536,7 @@
         fromView = item.thumbView;
     }
     
-//    [self cancelAllImageLoad];
+    [self cancelAllImageLoad];
     _isPresented = NO;
     BOOL isFromImageClipped = fromView.layer.contentsRect.size.height < 1;
     
@@ -570,7 +562,7 @@
         }completion:^(BOOL finished) {
             [self.scrollView.layer setValue:@(1.0) forKeyPath:@"transform.scale"];
             [self removeFromSuperview];
-//            [self cancelAllImageLoad];
+            [self cancelAllImageLoad];
             if (completion) completion();
         }];
         return;
@@ -593,8 +585,7 @@
         _pager.alpha = 0.0;
         _blurBackground.alpha = 0.0;
         if (isFromImageClipped) {
-            
-            CGRect fromFrame = [fromView convertRect:fromView.bounds toView:cell];
+            CGRect fromFrame = [fromView convertRect:fromView.bounds toView:cell.scrollView];
             CGFloat scale = fromFrame.size.width / cell.imageContainerView.frame.size.width * cell.scrollView.zoomScale;
             CGFloat height = fromFrame.size.height / fromFrame.size.width * cell.imageContainerView.frame.size.width;
             if (isnan(height)) height = cell.imageContainerView.frame.size.height;
@@ -626,6 +617,12 @@
     [UIView animateWithDuration:0.3 delay:0.8 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseOut animations:^{
         _pager.alpha = 0;
     }completion:^(BOOL finish) {
+    }];
+}
+
+- (void)cancelAllImageLoad {
+    [self.scrollView.cells enumerateObjectsUsingBlock:^(PhotoGroupCell *cell, NSUInteger idx, BOOL *stop) {
+        [cell.imageView cancelCurrentImageRequest];
     }];
 }
 
