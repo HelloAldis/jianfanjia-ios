@@ -10,7 +10,6 @@
 
 @interface ThumbnailCell ()
 
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *checkImageView;
 
 @property (copy, nonatomic) void (^CheckBlock)(BOOL currentSelect);

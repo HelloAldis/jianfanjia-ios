@@ -100,7 +100,7 @@ static CGFloat imageHeight;
         return [dict objectForKey:@"award_imageid"];
     }];
     
-    [ViewControllerContainer showOnlineImages:imageArray index:[imageArray indexOfObject:self.award.award_imageid]];
+    [ViewControllerContainer showOnlineImages:imageArray fromImageView:self.imgView index:[imageArray indexOfObject:self.award.award_imageid]];
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {

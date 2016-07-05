@@ -13,7 +13,6 @@
 #import "MessageAlertViewController.h"
 #import "InfiniteScrollView.h"
 #import "ImageBrowerViewController.h"
-#import "ImageDetailViewController.h"
 #import "SelectCityViewController.h"
 #import "CollectionFallsFlowLayout.h"
 #import "BrushGifHeader.h"

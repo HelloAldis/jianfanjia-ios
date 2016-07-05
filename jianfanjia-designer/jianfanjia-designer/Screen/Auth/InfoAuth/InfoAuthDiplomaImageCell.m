@@ -65,7 +65,7 @@ static CGFloat imageHeight;
 }
 
 - (void)onTapImgView {
-    [ViewControllerContainer showOnlineImages:@[self.diploma] index:0];
+    [ViewControllerContainer showOnlineImages:@[self.diploma] fromImageView:self.imgView index:0];
 }
 
 - (void)onTapDeleteImg {

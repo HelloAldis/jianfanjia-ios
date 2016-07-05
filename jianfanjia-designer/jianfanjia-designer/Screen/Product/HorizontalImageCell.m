@@ -46,7 +46,7 @@
 
 - (void)onTapImage:(UIGestureRecognizer *)g {
     NSInteger index = [self.imgScrollView.subviews indexOfObject:g.view];
-    [ViewControllerContainer showOnlineImages:self.images index:index];
+    [ViewControllerContainer showOnlineImages:self.images fromImageView:self.imgScrollView.subviews[index] index:index];
 }
 
 - (CGFloat)getGoodWidth {

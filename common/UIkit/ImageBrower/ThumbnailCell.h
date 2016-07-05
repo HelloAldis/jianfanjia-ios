@@ -11,6 +11,8 @@
 
 @interface ThumbnailCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 - (void)initWithPHAsset:(PHAsset *)asset hidden:(BOOL)hideCheckmark checked:(void(^)(BOOL currentSelect))CheckBlock detail:(void(^)(void))DetailBlock;
 
 @end

@@ -144,7 +144,7 @@
             [self.collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
         }
     } detail:^{
-        [self onClickDoneSingle:[self.result objectAtIndex:indexPath.row]];
+        [self onClickDoneSingle:[self.result objectAtIndex:indexPath.row] imageView:cell.imageView];
     }];
     return cell;
 }
@@ -154,7 +154,7 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)onClickDoneSingle:(PHAsset *)asset {
+- (void)onClickDoneSingle:(PHAsset *)asset imageView:(UIImageView *)imageView {
     if (self.allowsEdit && !self.allowsMultipleSelection) {
         [PhotoCropper showPhotoCropper:self asset:asset cancel:^{
             [self.navigationController popViewControllerAnimated:YES];
@@ -178,9 +178,14 @@
                                         options:self.options
                                   resultHandler:^(UIImage *result, NSDictionary *info) {
                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                          ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOffline:@[result] index:0];
-                                          imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-                                          [self.navigationController presentViewController:imgDetail animated:YES completion:nil];
+
+                                          PhotoGroupItem *item = [PhotoGroupItem new];
+                                          item.thumbImage = result;
+
+                                          
+                                          PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
+                                          v.groupItems = @[item];
+                                          [v presentFromImageView:imageView fromItemIndex:0 toContainer:self.navigationController.view animated:YES completion:nil];
                                       });
                                   }];
 

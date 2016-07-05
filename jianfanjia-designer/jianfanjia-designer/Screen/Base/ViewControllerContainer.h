@@ -49,8 +49,9 @@
 + (void)showEmailAuthReviewing:(Designer *)designer;
 + (void)showEmailAuthSuccess:(Designer *)designer;
 + (void)showUserLicense:(Designer *)designer fromRegister:(BOOL)fromRegister;
-+ (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
-+ (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
++ (void)showOfflineImages:(NSArray *)offlineImages fromImageView:(UIView *)imageView index:(NSInteger)index;
++ (void)showOnlineImages:(NSArray *)onlineImages fromImageView:(UIView *)imageView index:(NSInteger)index;
++ (void)showPhotoView:(NSArray<PhotoGroupItem *> *)items fromImageView:(UIView *)imageView index:(NSInteger)index;
 + (void)showRefresh;
 + (void)refreshSuccess;
 + (UIViewController *)getCurrentTapController;

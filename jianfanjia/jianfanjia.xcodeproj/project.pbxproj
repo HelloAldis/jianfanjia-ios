@@ -58,8 +58,6 @@
 		68123C591C4C8B99008FC9AB /* ImageBrowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C3E1C4C8B99008FC9AB /* ImageBrowerViewController.xib */; };
 		68123C5A1C4C8B99008FC9AB /* ThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C401C4C8B99008FC9AB /* ThumbnailCell.m */; };
 		68123C5B1C4C8B99008FC9AB /* ThumbnailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C411C4C8B99008FC9AB /* ThumbnailCell.xib */; };
-		68123C5C1C4C8B99008FC9AB /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C441C4C8B99008FC9AB /* ImageDetailViewController.m */; };
-		68123C5D1C4C8B99008FC9AB /* ImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C451C4C8B99008FC9AB /* ImageDetailViewController.xib */; };
 		68123C611C4C8B99008FC9AB /* allprovince.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C4D1C4C8B99008FC9AB /* allprovince.js */; };
 		68123C621C4C8B99008FC9AB /* city2area.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C4E1C4C8B99008FC9AB /* city2area.js */; };
 		68123C631C4C8B99008FC9AB /* province2city.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C4F1C4C8B99008FC9AB /* province2city.js */; };
@@ -680,9 +678,6 @@
 		68123C3F1C4C8B99008FC9AB /* ThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailCell.h; sourceTree = "<group>"; };
 		68123C401C4C8B99008FC9AB /* ThumbnailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailCell.m; sourceTree = "<group>"; };
 		68123C411C4C8B99008FC9AB /* ThumbnailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThumbnailCell.xib; sourceTree = "<group>"; };
-		68123C431C4C8B99008FC9AB /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
-		68123C441C4C8B99008FC9AB /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
-		68123C451C4C8B99008FC9AB /* ImageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailViewController.xib; sourceTree = "<group>"; };
 		68123C4D1C4C8B99008FC9AB /* allprovince.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = allprovince.js; sourceTree = "<group>"; };
 		68123C4E1C4C8B99008FC9AB /* city2area.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = city2area.js; sourceTree = "<group>"; };
 		68123C4F1C4C8B99008FC9AB /* province2city.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = province2city.js; sourceTree = "<group>"; };
@@ -1728,7 +1723,6 @@
 				68123C311C4C8B99008FC9AB /* CustomAlert */,
 				68123C381C4C8B99008FC9AB /* CustomScroll */,
 				68123C3B1C4C8B99008FC9AB /* ImageBrower */,
-				68123C421C4C8B99008FC9AB /* ImageDetail */,
 				68123C4C1C4C8B99008FC9AB /* SelectCity */,
 				68123F221C4CC70E008FC9AB /* CollectionFallsFlowLayout.h */,
 				68123F231C4CC70E008FC9AB /* CollectionFallsFlowLayout.m */,
@@ -1772,16 +1766,6 @@
 				68123C411C4C8B99008FC9AB /* ThumbnailCell.xib */,
 			);
 			path = ImageBrower;
-			sourceTree = "<group>";
-		};
-		68123C421C4C8B99008FC9AB /* ImageDetail */ = {
-			isa = PBXGroup;
-			children = (
-				68123C431C4C8B99008FC9AB /* ImageDetailViewController.h */,
-				68123C441C4C8B99008FC9AB /* ImageDetailViewController.m */,
-				68123C451C4C8B99008FC9AB /* ImageDetailViewController.xib */,
-			);
-			path = ImageDetail;
 			sourceTree = "<group>";
 		};
 		68123C4C1C4C8B99008FC9AB /* SelectCity */ = {
@@ -3375,7 +3359,6 @@
 				684A374D1BFD73DF00F7388C /* RequirementCreateViewController.xib in Resources */,
 				68711B6A1CD89D3B009B585F /* OrderTaggedDesignerViewController.xib in Resources */,
 				685B144D1CEB0FB60076996A /* SelectPopulationViewController.xib in Resources */,
-				68123C5D1C4C8B99008FC9AB /* ImageDetailViewController.xib in Resources */,
 				68EE3E321D12B6D800F5EF83 /* AddDiaryDescCell.xib in Resources */,
 				6E4496261BF9BA2600C90851 /* VerifyPhoneViewController.xib in Resources */,
 				685CD5E41C0310CA00EC1991 /* LeaveMessageViewController.xib in Resources */,
@@ -3870,7 +3853,6 @@
 				688517601C91246D000B01DB /* UILabel+Ex.m in Sources */,
 				68F73CF31CBB3AB900E97710 /* PlanWasChoosed.m in Sources */,
 				6E838DA71BEB4273000BF5CD /* DesignerSectionCell.m in Sources */,
-				68123C5C1C4C8B99008FC9AB /* ImageDetailViewController.m in Sources */,
 				68EE3EB81D221BAB00F5EF83 /* TextViewDelegate.m in Sources */,
 				68E6008A1CB7C20300C4A8F7 /* ReqtPlanWasChoosed.m in Sources */,
 				680F492A1C240F910055C16C /* LeafImage.m in Sources */,

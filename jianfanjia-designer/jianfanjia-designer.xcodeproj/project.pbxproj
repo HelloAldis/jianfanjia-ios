@@ -58,8 +58,6 @@
 		68123C911C4C9772008FC9AB /* ImageBrowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C751C4C9772008FC9AB /* ImageBrowerViewController.xib */; };
 		68123C921C4C9772008FC9AB /* ThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C771C4C9772008FC9AB /* ThumbnailCell.m */; };
 		68123C931C4C9772008FC9AB /* ThumbnailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C781C4C9772008FC9AB /* ThumbnailCell.xib */; };
-		68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68123C7B1C4C9772008FC9AB /* ImageDetailViewController.m */; };
-		68123C951C4C9772008FC9AB /* ImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68123C7C1C4C9772008FC9AB /* ImageDetailViewController.xib */; };
 		68123C991C4C9772008FC9AB /* allprovince.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C851C4C9772008FC9AB /* allprovince.js */; };
 		68123C9A1C4C9772008FC9AB /* city2area.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C861C4C9772008FC9AB /* city2area.js */; };
 		68123C9B1C4C9772008FC9AB /* province2city.js in Resources */ = {isa = PBXBuildFile; fileRef = 68123C871C4C9772008FC9AB /* province2city.js */; };
@@ -599,9 +597,6 @@
 		68123C761C4C9772008FC9AB /* ThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailCell.h; sourceTree = "<group>"; };
 		68123C771C4C9772008FC9AB /* ThumbnailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailCell.m; sourceTree = "<group>"; };
 		68123C781C4C9772008FC9AB /* ThumbnailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThumbnailCell.xib; sourceTree = "<group>"; };
-		68123C7A1C4C9772008FC9AB /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
-		68123C7B1C4C9772008FC9AB /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
-		68123C7C1C4C9772008FC9AB /* ImageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailViewController.xib; sourceTree = "<group>"; };
 		68123C831C4C9772008FC9AB /* JYZUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZUIKit.h; sourceTree = "<group>"; };
 		68123C851C4C9772008FC9AB /* allprovince.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = allprovince.js; sourceTree = "<group>"; };
 		68123C861C4C9772008FC9AB /* city2area.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = city2area.js; sourceTree = "<group>"; };
@@ -1477,7 +1472,6 @@
 				68123C681C4C9772008FC9AB /* CustomAlert */,
 				68123C6F1C4C9772008FC9AB /* CustomScroll */,
 				68123C721C4C9772008FC9AB /* ImageBrower */,
-				68123C791C4C9772008FC9AB /* ImageDetail */,
 				68123C841C4C9772008FC9AB /* SelectCity */,
 				6812401D1C4CDA78008FC9AB /* CollectionFallsFlowLayout.h */,
 				6812401E1C4CDA78008FC9AB /* CollectionFallsFlowLayout.m */,
@@ -1524,16 +1518,6 @@
 				68123C781C4C9772008FC9AB /* ThumbnailCell.xib */,
 			);
 			path = ImageBrower;
-			sourceTree = "<group>";
-		};
-		68123C791C4C9772008FC9AB /* ImageDetail */ = {
-			isa = PBXGroup;
-			children = (
-				68123C7A1C4C9772008FC9AB /* ImageDetailViewController.h */,
-				68123C7B1C4C9772008FC9AB /* ImageDetailViewController.m */,
-				68123C7C1C4C9772008FC9AB /* ImageDetailViewController.xib */,
-			);
-			path = ImageDetail;
 			sourceTree = "<group>";
 		};
 		68123C841C4C9772008FC9AB /* SelectCity */ = {
@@ -2908,7 +2892,6 @@
 				681241291C4CF2D5008FC9AB /* ProcessViewController.xib in Resources */,
 				685B159A1CEEF7E30076996A /* VerifyPhoneViewController.xib in Resources */,
 				685B15CD1CF2EA230076996A /* ProductAuthImageFooterView.xib in Resources */,
-				68123C951C4C9772008FC9AB /* ImageDetailViewController.xib in Resources */,
 				68123EEB1C4CBE79008FC9AB /* MessageCell.xib in Resources */,
 				680F65A31CF6FE40000E1EEF /* HorizontalImageCell.xib in Resources */,
 				681241A81C4F3B1C008FC9AB /* RejectActionCell.xib in Resources */,
@@ -3424,7 +3407,6 @@
 				685B158A1CEEEC010076996A /* IDAuthViewController.m in Sources */,
 				685B147B1CEB11CF0076996A /* MultipleLineTextTableViewCell.m in Sources */,
 				689ECE4B1CFC10DD0046DDC8 /* JYZSocialSnsAuthResp.m in Sources */,
-				68123C941C4C9772008FC9AB /* ImageDetailViewController.m in Sources */,
 				680F657A1CF6C375000E1EEF /* IDAuthBankCardImageCell.m in Sources */,
 				68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */,
 				685B151F1CEC67450076996A /* DesignerAuthViewController.m in Sources */,

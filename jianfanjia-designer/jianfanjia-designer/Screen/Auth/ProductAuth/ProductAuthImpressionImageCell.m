@@ -105,7 +105,7 @@ static CGFloat imageHeight;
         return [dict objectForKey:@"imageid"];
     }];
     
-    [ViewControllerContainer showOnlineImages:imageArray index:[imageArray indexOfObject:self.image.imageid]];
+    [ViewControllerContainer showOnlineImages:imageArray fromImageView:self.imageView index:[imageArray indexOfObject:self.image.imageid]];
 }
 
 - (void)onTapSelection {

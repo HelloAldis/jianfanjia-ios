@@ -82,7 +82,7 @@ CGFloat kIDAuthIDCardImageCellHeight;
     [[ViewControllerContainer getCurrentTopController].view endEditing:YES];
     id obj = self.designer ? self.designer : self.team;
     if ([obj uid_image1].length > 0) {
-        [ViewControllerContainer showOnlineImages:@[[obj uid_image1]] index:0];
+        [ViewControllerContainer showOnlineImages:@[[obj uid_image1]] fromImageView:self.idCardLeftImgView index:0];
     } else {
         if (self.isEdit) {
             [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
@@ -110,7 +110,7 @@ CGFloat kIDAuthIDCardImageCellHeight;
     [[ViewControllerContainer getCurrentTopController].view endEditing:YES];
     id obj = self.designer ? self.designer : self.team;
     if ([obj uid_image2].length > 0) {
-        [ViewControllerContainer showOnlineImages:@[[obj uid_image2]] index:0];
+        [ViewControllerContainer showOnlineImages:@[[obj uid_image2]] fromImageView:self.idCardRightImgView index:0];
     } else {
         if (self.isEdit) {
             [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self withBlock:^(NSArray *imageIds, NSArray *imageSizes) {

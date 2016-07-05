@@ -118,7 +118,7 @@
 #pragma mark - user action
 - (void)onTapImage:(UIGestureRecognizer *)gesture {
     if (self.plan.images.count > 0) {
-        [ViewControllerContainer showOnlineImages:self.plan.images index:self.pageControl.currentPage];
+        [ViewControllerContainer showOnlineImages:self.plan.images fromImageView:self.imgScrollView.subviews[self.pageControl.currentPage] index:self.pageControl.currentPage];
     }
 }
 
