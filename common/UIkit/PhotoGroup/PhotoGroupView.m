@@ -440,7 +440,6 @@
     } else {
         _blurBackground.image = [UIImage imageWithColor:[UIColor blackColor]];
     }
-    
 
     CGRect frame = self.frame;
     frame.size = _toContainerView.frame.size;
