@@ -240,6 +240,8 @@
 		685B14C21CEB12110076996A /* SelectWorkTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14AD1CEB12110076996A /* SelectWorkTypeViewController.xib */; };
 		685B14C81CEB126E0076996A /* KRSSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14C51CEB126E0076996A /* KRSSwizzle.m */; };
 		685B14C91CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14C71CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m */; };
+		6865A33E1D2BA13200B3CB26 /* PhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A33D1D2BA13200B3CB26 /* PhotoGroupView.m */; };
+		6865A3461D2BA17900B3CB26 /* ReuseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3451D2BA17900B3CB26 /* ReuseScrollView.m */; };
 		68711B5D1CD85D54009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B5C1CD85D54009B585F /* PhotoCropper.m */; };
 		687EEB5B1CE2C6C100A277DC /* DIYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB5A1CE2C6C100A277DC /* DIYRefreshFooter.m */; };
 		689220041CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */; };
@@ -694,6 +696,10 @@
 		685B14C51CEB126E0076996A /* KRSSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSSwizzle.m; sourceTree = "<group>"; };
 		685B14C61CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KRSFakeNavigationBar.h"; sourceTree = "<group>"; };
 		685B14C71CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KRSFakeNavigationBar.m"; sourceTree = "<group>"; };
+		6865A33C1D2BA13200B3CB26 /* PhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGroupView.h; sourceTree = "<group>"; };
+		6865A33D1D2BA13200B3CB26 /* PhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGroupView.m; sourceTree = "<group>"; };
+		6865A3441D2BA17900B3CB26 /* ReuseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReuseScrollView.h; sourceTree = "<group>"; };
+		6865A3451D2BA17900B3CB26 /* ReuseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReuseScrollView.m; sourceTree = "<group>"; };
 		68711B5B1CD85D54009B585F /* PhotoCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropper.h; sourceTree = "<group>"; };
 		68711B5C1CD85D54009B585F /* PhotoCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropper.m; sourceTree = "<group>"; };
 		687EEB591CE2C6C100A277DC /* DIYRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYRefreshFooter.h; sourceTree = "<group>"; };
@@ -1305,6 +1311,8 @@
 		680C44591CC4D4BD008C4BC0 /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				6865A3431D2BA17900B3CB26 /* ReuseView */,
+				6865A33B1D2BA13200B3CB26 /* PhotoGroup */,
 				685B14C31CEB126E0076996A /* KRSFakeNavigationBar */,
 				685B148D1CEB12110076996A /* Selection */,
 				680C44861CC4D4BD008C4BC0 /* WebView */,
@@ -1511,6 +1519,24 @@
 				685B14C71CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m */,
 			);
 			path = KRSFakeNavigationBar;
+			sourceTree = "<group>";
+		};
+		6865A33B1D2BA13200B3CB26 /* PhotoGroup */ = {
+			isa = PBXGroup;
+			children = (
+				6865A33C1D2BA13200B3CB26 /* PhotoGroupView.h */,
+				6865A33D1D2BA13200B3CB26 /* PhotoGroupView.m */,
+			);
+			path = PhotoGroup;
+			sourceTree = "<group>";
+		};
+		6865A3431D2BA17900B3CB26 /* ReuseView */ = {
+			isa = PBXGroup;
+			children = (
+				6865A3441D2BA17900B3CB26 /* ReuseScrollView.h */,
+				6865A3451D2BA17900B3CB26 /* ReuseScrollView.m */,
+			);
+			path = ReuseView;
 			sourceTree = "<group>";
 		};
 		689ECDFD1CFC097C0046DDC8 /* SelectionMenu */ = {
@@ -1811,6 +1837,7 @@
 				680C44FB1CC4D4BD008C4BC0 /* PlanUnorder.m in Sources */,
 				680C44AF1CC4D4BD008C4BC0 /* DeleteImageFromProcess.m in Sources */,
 				680C42A51CC4D4AE008C4BC0 /* LeaveMessageViewController.m in Sources */,
+				6865A3461D2BA17900B3CB26 /* ReuseScrollView.m in Sources */,
 				680C45301CC4D4BD008C4BC0 /* Item.m in Sources */,
 				680C44F11CC4D4BD008C4BC0 /* AccountBusiness.m in Sources */,
 				680C451C1CC4D4BD008C4BC0 /* UIImagePickerController+Ex.m in Sources */,
@@ -1844,6 +1871,7 @@
 				680C45071CC4D4BD008C4BC0 /* StatusBlock.m in Sources */,
 				680C425F1CC4D4AE008C4BC0 /* SectionView.m in Sources */,
 				680C44E41CC4D4BD008C4BC0 /* SendVerifyCode.m in Sources */,
+				6865A33E1D2BA13200B3CB26 /* PhotoGroupView.m in Sources */,
 				680C45221CC4D4BD008C4BC0 /* UIView+Ex.m in Sources */,
 				680C45051CC4D4BD008C4BC0 /* ReqtPlanWasChoosed.m in Sources */,
 				680C44F51CC4D4BD008C4BC0 /* PlanDesignerMeasuredHouse.m in Sources */,

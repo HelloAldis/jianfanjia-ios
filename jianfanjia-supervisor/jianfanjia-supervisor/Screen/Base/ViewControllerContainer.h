@@ -27,8 +27,9 @@
 + (void)showPlanPriceDetail:(Plan *)plan requirement:(Requirement *)requirement;
 + (void)showTab;
 + (void)showDBYS:(Section *)section process:(NSString *)processid refresh:(void(^)(void))refreshBlock;
-+ (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index;
-+ (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index;
++ (void)showOfflineImages:(NSArray *)offlineImages fromImageView:(UIView *)imageView index:(NSInteger)index;
++ (void)showOnlineImages:(NSArray *)onlineImages fromImageView:(UIView *)imageView index:(NSInteger)index;
++ (void)showPhotoView:(NSArray<PhotoGroupItem *> *)items fromImageView:(UIView *)imageView index:(NSInteger)index;
 + (void)showRefresh;
 + (void)refreshSuccess;
 + (UIViewController *)getCurrentTapController;

@@ -204,7 +204,7 @@ static CGFloat imgCellWidth;
     }
     
     if (indexPath.row < self.item.images.count) {
-        [self showImageDetail:indexPath.row];
+        [self showImageDetail:indexPath];
     } else {
         [self showPhotoSelector:[self.imgCollection cellForItemAtIndexPath:indexPath]];
     }
@@ -221,7 +221,7 @@ static CGFloat imgCellWidth;
     NSString *item = self.item.name;
     
     @weakify(self);
-    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:MAX_IMG_COUNT - self.item.images.count withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:MAX_IMG_COUNT - self.item.images.count withBlock:^(NSArray *imageIds, NSArray *imageSize) {
         @strongify(self);
         UploadImageToProcess *request = [[UploadImageToProcess alloc] init];
         request._id = processid;
@@ -241,8 +241,24 @@ static CGFloat imgCellWidth;
     }];
 }
 
-- (void)showImageDetail:(NSInteger)index{
-    [ViewControllerContainer showOnlineImages:self.item.images index:index];
+- (void)showImageDetail:(NSIndexPath *)indexPath {
+    UIView *fromView = nil;
+    NSMutableArray *items = [NSMutableArray new];
+    
+    for (NSUInteger i = 0, max = self.item.images.count; i < max; i++) {
+        ItemImageCollectionCell *cell = (ItemImageCollectionCell *)[self.imgCollection cellForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+        UIImageView *imgView = cell.image;
+        
+        PhotoGroupItem *item = [PhotoGroupItem new];
+        item.thumbView = imgView;
+        item.imageid = self.item.images[i];
+        [items addObject:item];
+        if (i == indexPath.row) {
+            fromView = imgView;
+        }
+    }
+    
+    [ViewControllerContainer showPhotoView:items fromImageView:fromView index:indexPath.row];
 }
 
 - (void)handleTapLeaveIconGesture:(UITapGestureRecognizer *)gesture {
@@ -254,22 +270,6 @@ static CGFloat imgCellWidth;
             self.refreshBlock(YES);
         }
     }];
-}
-
-#pragma mark - layout
-- (void)layoutSubviews {
-    
-//    static dispatch_once_t token;
-//    dispatch_once(&token, ^{
-//        [self.imgCollection setNeedsLayout];
-//        [self.imgCollection layoutIfNeeded];
-//        imgCollectionWidth = self.imgCollection.frame.size.width;
-//        imgCellWidth = (imgCollectionWidth - (COUNT_IN_ONE_ROW - 1) * CELL_SPACE) / COUNT_IN_ONE_ROW;
-//        DDLogDebug(@"bounds %f %f", imgCollectionWidth, imgCellWidth);
-//        [self refreshViewContentSize];
-//    });
-    
-    [super layoutSubviews];
 }
 
 #pragma mark - touches

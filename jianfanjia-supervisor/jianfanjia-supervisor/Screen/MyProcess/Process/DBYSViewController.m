@@ -184,36 +184,38 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
     }
     
     if ((indexPath.row + 1) % 2 == 0) {
-        [self showScenceImageDetail:(indexPath.row + 1) / 2 - 1];
+        [self showScenceImageDetail:(indexPath.row + 1) / 2 - 1 indexPath:indexPath];
     } else {
-        [self showStandardImageDetail:indexPath.row / 2];
+        [self showStandardImageDetail:indexPath.row / 2 indexPath:indexPath];
     }
 }
 
-- (void)showStandardImageDetail:(NSInteger)index {
+- (void)showStandardImageDetail:(NSInteger)index indexPath:(NSIndexPath *)indexPath {
+    ItemImageCollectionCell *cell = (ItemImageCollectionCell *)[self.imgCollection cellForItemAtIndexPath:indexPath];
     NSInteger imageCount = [self getDBYSImageCount:self.section];
     
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:imageCount];
     for (NSInteger i = 0; i < imageCount; i++) {
         [images addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%@_%@", self.section.name, @(i)]]];
     }
-
-    [ViewControllerContainer showOfflineImages:images index:index];
+    
+    [ViewControllerContainer showOfflineImages:images fromImageView:cell.image index:index];
 }
 
-- (void)showScenceImageDetail:(NSInteger)index {
+- (void)showScenceImageDetail:(NSInteger)index indexPath:(NSIndexPath *)indexPath {
     YsImage *image = self.imgArray[index];
-    if (image.imageid) {
+    if (image.imageid.length > 0) {
+        ItemImageCollectionCell *cell = (ItemImageCollectionCell *)[self.imgCollection cellForItemAtIndexPath:indexPath];
         NSMutableArray *images = [NSMutableArray array];
         for (NSInteger i = 0; i < self.imgArray.count; i++) {
             YsImage *img = self.imgArray[i];
-            if (img.imageid) {
+            if (img.imageid.length > 0) {
                 [images addObject:img.imageid];
             }
         }
         
         NSInteger idx = [images indexOfObject:image.imageid];
-        [ViewControllerContainer showOnlineImages:images index:idx];
+        [ViewControllerContainer showOnlineImages:images fromImageView:cell.image index:idx];
     }
 }
 
