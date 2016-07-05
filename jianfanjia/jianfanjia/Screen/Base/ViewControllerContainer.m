@@ -494,7 +494,7 @@ static ViewControllerContainer *container;
 + (void)showPhotoView:(NSArray<PhotoGroupItem *> *)items fromImageView:(UIView *)imageView index:(NSInteger)index {
     PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
     v.groupItems = items;
-    [v presentFromImageView:imageView fromItemIndex:index toContainer:[self getCurrentTopController].view animated:YES completion:nil];
+    [v presentFromImageView:imageView fromItemIndex:index toContainer:[self getCurrentTopController].navigationController.view animated:YES completion:nil];
 }
 
 + (void)showRefresh {

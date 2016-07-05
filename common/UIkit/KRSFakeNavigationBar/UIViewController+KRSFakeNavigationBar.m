@@ -50,6 +50,7 @@
         }
 
         [self krs_resizeFakeNavigationBarFrame];
+        [self.view bringSubviewToFront:self.krs_FakeNavigationBar];
     }
     [self krs_viewWillLayoutSubviews];
 }
