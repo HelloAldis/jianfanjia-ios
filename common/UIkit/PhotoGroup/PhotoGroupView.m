@@ -144,6 +144,10 @@
         _progressLayer.hidden = YES;
         _imageView.image = _item.thumbImage;
         _scrollView.maximumZoomScale = 3;
+        
+        if (self.item.loadedBlock) {
+            self.item.loadedBlock(_item.thumbImage);
+        }
     } else {
         @weakify(self);
         [_imageView setImageWithId:_item.imageid withWidth:self.bounds.size.width placeholder:_item.thumbImage progress:^(NSInteger receivedSize, NSInteger expectedSize) {
