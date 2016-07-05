@@ -379,7 +379,7 @@
     _blurBackground.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     
     _pagerLabel = [[UILabel alloc] init];
-    _pagerLabel.textColor = [UIColor lightGrayColor];
+    _pagerLabel.textColor = [UIColor whiteColor];
     _pagerLabel.textAlignment = NSTextAlignmentCenter;
     _pagerLabel.userInteractionEnabled = NO;
     _pagerLabel.frame = CGRectMake(0, 0, self.frame.size.width - 36, 20);
