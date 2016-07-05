@@ -11,7 +11,6 @@
 
 @interface PhotoGroupItem()
 
-@property (nonatomic, readonly) UIImage *thumbImage;
 @property (nonatomic, retain) UIImage *loadedImage;
 @property (nonatomic, readonly) BOOL thumbClippedToTop;
 - (BOOL)shouldClipToTop:(CGSize)imageSize forView:(UIView *)view;
@@ -24,7 +23,7 @@
     if ([_thumbView respondsToSelector:@selector(image)]) {
         return ((UIImageView *)_thumbView).image;
     }
-    return nil;
+    return _thumbImage ? _thumbImage : [UIImage imageNamed:@"image_place_holder"];
 }
 
 - (BOOL)thumbClippedToTop {

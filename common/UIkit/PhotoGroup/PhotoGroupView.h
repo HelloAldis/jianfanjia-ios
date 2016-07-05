@@ -22,8 +22,9 @@ typedef void (^PhotoGroupItemLoadedBlock)(UIImage *image);
 
 @property (nonatomic, assign) PhotoGroupItemType itemType;
 @property (nonatomic, retain) UIImageView *thumbView;
-@property (nonatomic, readonly) UIImage *loadedImage;
+@property (nonatomic, retain) UIImage *thumbImage;
 @property (nonatomic, retain) NSString *imageid;
+@property (nonatomic, readonly) UIImage *loadedImage;
 @property (nonatomic, copy) PhotoGroupItemLoadedBlock loadedBlock;
 
 @end
