@@ -29,8 +29,9 @@
 }
 
 - (void)handle:(id)response success:(void (^)(void))success failure:(void (^)(void))failure {
-    [DataManager shared].errMsg = [response objectForKey:@"err_msg"];
-    [DataManager shared].data = [response objectForKey:@"data"];
+    id escapedResponse = [self escapeResponse:response];
+    [DataManager shared].errMsg = [escapedResponse objectForKey:@"err_msg"];
+    [DataManager shared].data = [escapedResponse objectForKey:@"data"];
 
     [self all];
     if ([DataManager shared].errMsg) {
@@ -61,6 +62,25 @@
         [ViewControllerContainer logout];
         [HUDUtil showErrText:@"登录过期, 请重新登录"];
     }
+}
+
+- (id)escapeResponse:(id)response {
+    NSError *serializationError = nil;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:response options:kNilOptions error:&serializationError];
+    if (serializationError) {
+        return nil;
+    }
+    
+    NSString *json = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    json = [StringUtil escapeHtml:json];
+    data = [json dataUsingEncoding:NSUTF8StringEncoding];
+
+    id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];
+    if (serializationError) {
+        return nil;
+    }
+    
+    return responseObject;
 }
 
 @end

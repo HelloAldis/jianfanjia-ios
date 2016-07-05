@@ -76,4 +76,30 @@
     return urlString;
 }
 
++ (NSString *)escapeHtml:(NSString *)json {
+    NSArray *keys = @[
+                      @"&nbsp;",
+                      @"&lt;",
+                      @"&gt;",
+                      @"&amp;",
+                      @"&quot;",
+                      @"&apos;",
+                      ];
+    NSArray *vals = @[
+                      @" ",
+                      @"<",
+                      @">",
+                      @"&",
+                      @"\"",
+                      @"'",
+                      ];
+    
+    __block NSString *escapeJson = json;
+    [keys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL * _Nonnull stop) {
+         escapeJson = [escapeJson stringByReplacingOccurrencesOfString:key withString:vals[idx]];
+    }];
+    
+    return escapeJson;
+}
+
 @end

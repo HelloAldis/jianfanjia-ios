@@ -17,5 +17,6 @@
 + (NSString *)beautifulImageUrl:(NSString *)imageid title:(NSString *)title;
 + (NSString *)pcUrl:(NSString *)url;
 + (NSString *)mobileUrl:(NSString *)url;
++ (NSString *)escapeHtml:(NSString *)json;
 
 @end
