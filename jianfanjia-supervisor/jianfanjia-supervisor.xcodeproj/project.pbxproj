@@ -174,8 +174,6 @@
 		680C45631CC4D4BD008C4BC0 /* ImageBrowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C44691CC4D4BD008C4BC0 /* ImageBrowerViewController.xib */; };
 		680C45641CC4D4BD008C4BC0 /* ThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C446B1CC4D4BD008C4BC0 /* ThumbnailCell.m */; };
 		680C45651CC4D4BD008C4BC0 /* ThumbnailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C446C1CC4D4BD008C4BC0 /* ThumbnailCell.xib */; };
-		680C45661CC4D4BD008C4BC0 /* ImageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C446F1CC4D4BD008C4BC0 /* ImageDetailViewController.m */; };
-		680C45671CC4D4BD008C4BC0 /* ImageDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C44701CC4D4BD008C4BC0 /* ImageDetailViewController.xib */; };
 		680C456B1CC4D4BD008C4BC0 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C447A1CC4D4BD008C4BC0 /* BrushGifHeader.m */; };
 		680C456C1CC4D4BD008C4BC0 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C447C1CC4D4BD008C4BC0 /* DIYGifHeader.m */; };
 		680C456D1CC4D4BD008C4BC0 /* allprovince.js in Resources */ = {isa = PBXBuildFile; fileRef = 680C447E1CC4D4BD008C4BC0 /* allprovince.js */; };
@@ -584,9 +582,6 @@
 		680C446A1CC4D4BD008C4BC0 /* ThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThumbnailCell.h; sourceTree = "<group>"; };
 		680C446B1CC4D4BD008C4BC0 /* ThumbnailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThumbnailCell.m; sourceTree = "<group>"; };
 		680C446C1CC4D4BD008C4BC0 /* ThumbnailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ThumbnailCell.xib; sourceTree = "<group>"; };
-		680C446E1CC4D4BD008C4BC0 /* ImageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDetailViewController.h; sourceTree = "<group>"; };
-		680C446F1CC4D4BD008C4BC0 /* ImageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDetailViewController.m; sourceTree = "<group>"; };
-		680C44701CC4D4BD008C4BC0 /* ImageDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageDetailViewController.xib; sourceTree = "<group>"; };
 		680C44771CC4D4BD008C4BC0 /* JYZUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JYZUIKit.h; sourceTree = "<group>"; };
 		680C44791CC4D4BD008C4BC0 /* BrushGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrushGifHeader.h; sourceTree = "<group>"; };
 		680C447A1CC4D4BD008C4BC0 /* BrushGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushGifHeader.m; sourceTree = "<group>"; };
@@ -1316,7 +1311,6 @@
 				680C445C1CC4D4BD008C4BC0 /* CustomAlert */,
 				680C44631CC4D4BD008C4BC0 /* CustomScroll */,
 				680C44661CC4D4BD008C4BC0 /* ImageBrower */,
-				680C446D1CC4D4BD008C4BC0 /* ImageDetail */,
 				680C44781CC4D4BD008C4BC0 /* RefreshComponent */,
 				680C447D1CC4D4BD008C4BC0 /* SelectCity */,
 				680C445A1CC4D4BD008C4BC0 /* CollectionFallsFlowLayout.h */,
@@ -1361,16 +1355,6 @@
 				680C446C1CC4D4BD008C4BC0 /* ThumbnailCell.xib */,
 			);
 			path = ImageBrower;
-			sourceTree = "<group>";
-		};
-		680C446D1CC4D4BD008C4BC0 /* ImageDetail */ = {
-			isa = PBXGroup;
-			children = (
-				680C446E1CC4D4BD008C4BC0 /* ImageDetailViewController.h */,
-				680C446F1CC4D4BD008C4BC0 /* ImageDetailViewController.m */,
-				680C44701CC4D4BD008C4BC0 /* ImageDetailViewController.xib */,
-			);
-			path = ImageDetail;
 			sourceTree = "<group>";
 		};
 		680C44781CC4D4BD008C4BC0 /* RefreshComponent */ = {
@@ -1672,7 +1656,6 @@
 				680C42BD1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.xib in Resources */,
 				680C46161CC4F58F008C4BC0 /* LaunchScreen.xib in Resources */,
 				681031C21CDCAF6300FD26D6 /* DecPackageJiangXinView.xib in Resources */,
-				680C45671CC4D4BD008C4BC0 /* ImageDetailViewController.xib in Resources */,
 				680C45631CC4D4BD008C4BC0 /* ImageBrowerViewController.xib in Resources */,
 				685B14B81CEB12110076996A /* SelectDecorationStyleViewController.xib in Resources */,
 				680C465A1CC5DB96008C4BC0 /* UpdateOneLineTextViewController.xib in Resources */,
@@ -1882,7 +1865,6 @@
 				680C456C1CC4D4BD008C4BC0 /* DIYGifHeader.m in Sources */,
 				680C45201CC4D4BD008C4BC0 /* UITabBarItem+Badge.m in Sources */,
 				680C45111CC4D4BD008C4BC0 /* NSDate+Ex.m in Sources */,
-				680C45661CC4D4BD008C4BC0 /* ImageDetailViewController.m in Sources */,
 				680C42C21CC4D4AE008C4BC0 /* HouseRequirementCreateViewController.m in Sources */,
 				680C42B51CC4D4AE008C4BC0 /* PlanPriceItemSection.m in Sources */,
 				680C42AF1CC4D4AE008C4BC0 /* PlanPriceDetailViewController.m in Sources */,

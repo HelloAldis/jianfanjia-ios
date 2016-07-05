@@ -18,5 +18,6 @@
 #import "ReactiveCocoa.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "YYWebImage.h"
+#import "YYText.h"
 
 #endif
