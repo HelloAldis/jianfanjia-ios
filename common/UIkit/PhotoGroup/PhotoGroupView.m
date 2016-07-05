@@ -339,7 +339,7 @@
 @property (nonatomic, retain) UIImageView *background;
 @property (nonatomic, retain) UIImageView *blurBackground;
 
-@property (nonatomic, retain) UIPageControl *pager;
+@property (nonatomic, retain) UILabel *pagerLabel;
 @property (nonatomic, assign) CGFloat pagerCurrentPage;
 
 @property (nonatomic, assign) NSInteger fromItemIndex;
@@ -377,14 +377,15 @@
     _blurBackground = UIImageView.new;
     _blurBackground.frame = self.bounds;
     _blurBackground.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-
-    _pager = [[UIPageControl alloc] init];
-    _pager.hidesForSinglePage = YES;
-    _pager.userInteractionEnabled = NO;
-    _pager.frame = CGRectMake(0, 0, self.frame.size.width - 36, 10);
-    _pager.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height - 18);
-    _pager.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    [self.contentView addSubview:_pager];
+    
+    _pagerLabel = [[UILabel alloc] init];
+    _pagerLabel.textColor = [UIColor lightGrayColor];
+    _pagerLabel.textAlignment = NSTextAlignmentCenter;
+    _pagerLabel.userInteractionEnabled = NO;
+    _pagerLabel.frame = CGRectMake(0, 0, self.frame.size.width - 36, 20);
+    _pagerLabel.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height - 24);
+    _pagerLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    [self.contentView addSubview:_pagerLabel];
     
     [self insertSubview:_background belowSubview:self.contentView];
     [self insertSubview:_blurBackground belowSubview:self.contentView];
@@ -402,11 +403,8 @@
 }
 
 - (void)reuseScrollViewDidChangePage:(ReuseScrollView *)scrollView toPage:(NSInteger)toPage {
-    _pager.currentPage = toPage;
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
-        _pager.alpha = 1;
-    }completion:^(BOOL finish) {
-    }];
+    [self updatePagerText:toPage];
+    [self showPager:YES];
 }
 
 - (void)onSingleTap {
@@ -444,13 +442,12 @@
     CGRect frame = self.frame;
     frame.size = _toContainerView.frame.size;
     self.frame = frame;
-    self.blurBackground.alpha = 0;
-    self.pager.alpha = 0;
-    self.pager.numberOfPages = self.groupItems.count;
-    self.pager.currentPage = fromItemIndex;
+    _blurBackground.alpha = 0;
+    _pagerLabel.alpha = 0;
     [_toContainerView addSubview:self];
     [self layoutIfNeeded];
-    
+    [self updatePagerText:fromItemIndex];
+
     [UIView setAnimationsEnabled:YES];
     _fromNavigationBarHidden = [UIApplication sharedApplication].statusBarHidden;
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:animated ? UIStatusBarAnimationFade : UIStatusBarAnimationNone];
@@ -478,7 +475,7 @@
         [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [cell.imageContainerView.layer setValue:@(1) forKeyPath:@"transform.scale"];
             cell.imageContainerView.frame = originFrame;
-            _pager.alpha = 1;
+            [self showPager:NO];
         }completion:^(BOOL finished) {
             _isPresented = YES;
             [self.scrollView scrollViewDidScroll:self.scrollView];
@@ -506,7 +503,7 @@
         }completion:^(BOOL finished) {
             [UIView animateWithDuration:oneTime delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseInOut animations:^{
                 [cell.imageView.layer setValue:@(1.0) forKeyPath:@"transform.scale"];
-                _pager.alpha = 1;
+                [self showPager:NO];
             } completion:^(BOOL finished) {
                 cell.imageContainerView.clipsToBounds = YES;
                 _isPresented = YES;
@@ -557,8 +554,8 @@
             self.alpha = 0.0;
             [self.scrollView.layer setValue:@(0.95) forKeyPath:@"transform.scale"];
             self.scrollView.alpha = 0;
-            self.pager.alpha = 0;
-            self.blurBackground.alpha = 0;
+            _pagerLabel.alpha = 0;
+            _blurBackground.alpha = 0;
         }completion:^(BOOL finished) {
             [self.scrollView.layer setValue:@(1.0) forKeyPath:@"transform.scale"];
             [self removeFromSuperview];
@@ -582,7 +579,7 @@
     }
     
     [UIView animateWithDuration:animated ? 0.2 : 0 delay:0 options:UIViewAnimationOptionBeginFromCurrentState|UIViewAnimationOptionCurveEaseOut animations:^{
-        _pager.alpha = 0.0;
+        _pagerLabel.alpha = 0.0;
         _blurBackground.alpha = 0.0;
         if (isFromImageClipped) {
             CGRect fromFrame = [fromView convertRect:fromView.bounds toView:cell.scrollView];
@@ -613,9 +610,20 @@
     }];
 }
 
+- (void)updatePagerText:(NSInteger)toPage {
+    _pagerLabel.text = [NSString stringWithFormat:@"%@ / %@", @(toPage + 1), @(self.groupItems.count)];
+}
+
 - (void)hidePager {
     [UIView animateWithDuration:0.3 delay:0.8 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseOut animations:^{
-        _pager.alpha = 0;
+        _pagerLabel.alpha = 0;
+    }completion:^(BOOL finish) {
+    }];
+}
+
+- (void)showPager:(BOOL)animated {
+    [UIView animateWithDuration:animated ? 0.3 : 0.0 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
+        _pagerLabel.alpha = self.groupItems.count > 1 ? 1 : 0;
     }completion:^(BOOL finish) {
     }];
 }
@@ -649,7 +657,7 @@
             alpha = MIN(1, MAX(alpha, 0));
             [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveLinear animations:^{
                 _blurBackground.alpha = alpha;
-                _pager.alpha = alpha;
+                _pagerLabel.alpha = self.groupItems.count > 1 ? alpha : 0;
             } completion:nil];
             
         } break;
@@ -675,7 +683,7 @@
                 
                 [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionBeginFromCurrentState animations:^{
                     _blurBackground.alpha = 0;
-                    _pager.alpha = 0;
+                    _pagerLabel.alpha = 0;
                     
                     CGRect frame = self.scrollView.frame;
                     if (moveToTop) {
@@ -698,7 +706,7 @@
                     frame.origin.y = 0;
                     self.scrollView.frame = frame;
                     _blurBackground.alpha = 1;
-                    _pager.alpha = 1;
+                    [self showPager:NO];
                 } completion:^(BOOL finished) {
                     
                 }];
