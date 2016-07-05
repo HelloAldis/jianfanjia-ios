@@ -155,11 +155,12 @@ static CGFloat imgCellWidth;
 }
 
 - (void)showImageDetail:(NSIndexPath *)indexPath {
+    StaticImageCollectionCell *cell = (StaticImageCollectionCell *)[self.imgCollection cellForItemAtIndexPath:indexPath];
     NSArray *imgs = [self.diary.images map:^id(id obj) {
         return obj[@"imageid"];
     }];
     
-    [ViewControllerContainer showOnlineImages:imgs index:indexPath.row];
+    [ViewControllerContainer showOnlineImages:imgs fromImageView:cell.image index:indexPath.row];
 }
 
 #pragma mark - other

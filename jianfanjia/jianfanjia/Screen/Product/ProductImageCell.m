@@ -51,7 +51,7 @@
         return [dict objectForKey:@"imageid"];
     }];
     
-    [ViewControllerContainer showOnlineImages:imageArray index:self.index];
+    [ViewControllerContainer showOnlineImages:imageArray fromImageView:self.productImageView index:self.index];
 }
 
 @end

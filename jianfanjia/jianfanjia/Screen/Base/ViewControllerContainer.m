@@ -9,6 +9,7 @@
 #import "ViewControllerContainer.h"
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
+#import "PhotoGroupView.h"
 #import "WelcomeViewController.h"
 #import "LoginViewController.h"
 #import "ProcessViewController.h"
@@ -469,20 +470,30 @@ static ViewControllerContainer *container;
     [container.navigation pushViewController:v animated:YES];
 }
 
-+ (void)showOfflineImages:(NSArray *)offlineImages index:(NSInteger)index {
-    UIViewController *presented = container.navigation.presentedViewController;
-    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
-    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOffline:offlineImages index:index];
-    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [nav presentViewController:imgDetail animated:YES completion:nil];
++ (void)showOfflineImages:(NSArray *)offlineImages fromImageView:(UIImageView *)imageView index:(NSInteger)index {
+    NSArray *items = [offlineImages map:^(UIImage *img) {
+        PhotoGroupItem *item = [PhotoGroupItem new];
+        item.thumbImage = img;
+        
+        return item;
+    }];
+    
+    PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
+    v.groupItems = items;
+    [v presentFromImageView:imageView fromItemIndex:index toContainer:[self getCurrentTopController].view animated:YES completion:nil];
 }
 
-+ (void)showOnlineImages:(NSArray *)onlineImages index:(NSInteger)index {
-    UIViewController *presented = container.navigation.presentedViewController;
-    UINavigationController *nav = presented ? (UINavigationController *)presented : container.navigation;
-    ImageDetailViewController *imgDetail = [[ImageDetailViewController alloc] initWithOnline:onlineImages index:index];
-    imgDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [nav presentViewController:imgDetail animated:YES completion:nil];
++ (void)showOnlineImages:(NSArray *)onlineImages fromImageView:(UIImageView *)imageView index:(NSInteger)index {
+    NSArray *items = [onlineImages map:^(NSString *img) {
+        PhotoGroupItem *item = [PhotoGroupItem new];
+        item.imageid = img;
+        
+        return item;
+    }];
+    
+    PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
+    v.groupItems = items;
+    [v presentFromImageView:imageView fromItemIndex:index toContainer:[self getCurrentTopController].view animated:YES completion:nil];
 }
 
 + (void)showRefresh {

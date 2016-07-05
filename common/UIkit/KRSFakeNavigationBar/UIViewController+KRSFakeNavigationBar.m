@@ -50,7 +50,6 @@
         }
 
         [self krs_resizeFakeNavigationBarFrame];
-        [self.view bringSubviewToFront:self.krs_FakeNavigationBar];
     }
     [self krs_viewWillLayoutSubviews];
 }
@@ -90,6 +89,7 @@
         self.krs_FakeNavigationBar.items = @[self.navigationItem];
         [self krs_resizeFakeNavigationBarFrame];
         [self.view addSubview:self.krs_FakeNavigationBar];
+        [self.view bringSubviewToFront:self.krs_FakeNavigationBar];
         
         [self krs_UpdateFakeNavBar];
     }

@@ -68,7 +68,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     self.lblBasicInfo.text = [DiaryBusiness diarySetInfo:diarySet];
     self.editDiarySetInfoImgView.hidden = ![DiaryBusiness isOwnDiarySet:diarySet];
     if ([DiaryBusiness isOwnDiarySet:diarySet]) {
-        self.btnModifyCover.hidden = diarySet.cover_imageid;
+        self.btnModifyCover.hidden = diarySet.cover_imageid.length > 0;
     } else {
         self.btnModifyCover.hidden = YES;
     }

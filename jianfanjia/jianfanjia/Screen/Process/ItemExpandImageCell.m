@@ -204,7 +204,7 @@ static CGFloat imgCellWidth;
     }
     
     if (indexPath.row < self.item.images.count) {
-        [self showImageDetail:indexPath.row];
+        [self showImageDetail:indexPath];
     } else {
         [self showPhotoSelector:[self.imgCollection cellForItemAtIndexPath:indexPath]];
     }
@@ -241,8 +241,9 @@ static CGFloat imgCellWidth;
     }];
 }
 
-- (void)showImageDetail:(NSInteger)index{
-    [ViewControllerContainer showOnlineImages:self.item.images index:index];
+- (void)showImageDetail:(NSIndexPath *)indexPath {
+    ItemImageCollectionCell *cell = (ItemImageCollectionCell *)[self.imgCollection cellForItemAtIndexPath:indexPath];
+    [ViewControllerContainer showOnlineImages:self.item.images fromImageView:cell.image index:indexPath.row];
 }
 
 - (void)handleTapLeaveIconGesture:(UITapGestureRecognizer *)gesture {
