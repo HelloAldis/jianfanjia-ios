@@ -298,7 +298,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 }
 
 - (void)onTapReplacePlanImg:(NSIndexPath *)indexPath {
-    [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:1 withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:1 withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         ProductImage *img = [self.product planImageAtIndex:indexPath.row];
         if ([self isCoverImg:img]) {
             self.product.cover_imageid = imageIds[0];
@@ -310,7 +310,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 }
 
 - (void)onTapReplaceImpressionImg:(NSIndexPath *)indexPath {
-    [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:1 withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:1 withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         ProductImage *img = [self.product imageAtIndex:indexPath.row];
         if ([self isCoverImg:img]) {
             self.product.cover_imageid = imageIds[0];
@@ -322,7 +322,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 }
 
 - (void)onTapAddPlanImg {
-    [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:NSIntegerMax withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showUploadProductImageSelector:self inView:self.addPlanView max:NSIntegerMax withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         NSArray *arr = [imageIds map:^id(id obj) {
             ProductImage *img = [[ProductImage alloc] init];
             img.imageid = obj;
@@ -336,7 +336,7 @@ static NSString *ProductAuthImpressionImageCellIdentifier = @"ProductAuthImpress
 }
 
 - (void)onTapAddImpressionImg {
-    [PhotoUtil showUploadProductImageSelector:self inView:self.addImpressionView max:NSIntegerMax withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showUploadProductImageSelector:self inView:self.addImpressionView max:NSIntegerMax withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         NSArray *arr = [imageIds map:^id(id obj) {
             ProductImage *img = [[ProductImage alloc] init];
             img.section = @"客厅";

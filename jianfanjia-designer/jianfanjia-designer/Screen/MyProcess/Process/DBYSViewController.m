@@ -326,7 +326,7 @@ static NSString *ImageCollectionCellIdentifier = @"ItemImageCollectionCell";
 
 - (void)showPhotoSelector:(UIView *)view index:(NSInteger)index {
     @weakify(self);
-    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:[self getDBYSImageCount:self.section] - self.imgArray.count withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:[self getDBYSImageCount:self.section] - self.imgArray.count withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         @strongify(self);
         UploadYsImageToProcess *request = [[UploadYsImageToProcess alloc] init];
         request._id = self.processid;

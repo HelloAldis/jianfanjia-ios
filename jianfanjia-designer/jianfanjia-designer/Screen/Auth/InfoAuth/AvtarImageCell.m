@@ -42,7 +42,7 @@
 
 - (void)onTapAvatar {
     @weakify(self);
-    [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         @strongify(self);
         self.designer.imageid = imageIds[0];
         [self refreshAvatar];

@@ -254,7 +254,7 @@ static CGFloat imgCellWidth;
     NSString *item = self.item.name;
     
     @weakify(self);
-    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:MAX_IMG_COUNT - self.item.images.count withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showDecorationNodeImageSelector:[ViewControllerContainer getCurrentTapController] inView:view max:MAX_IMG_COUNT - self.item.images.count withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         @strongify(self);
         UploadImageToProcess *request = [[UploadImageToProcess alloc] init];
         request._id = processid;

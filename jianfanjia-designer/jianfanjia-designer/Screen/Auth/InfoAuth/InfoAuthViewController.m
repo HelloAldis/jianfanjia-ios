@@ -402,7 +402,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 }
 
 - (void)onTapReplaceAwardImg:(NSIndexPath *)indexPath {
-    [PhotoUtil showUploadProductImageSelector:self inView:self.addAwardView max:1 withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showUploadProductImageSelector:self inView:self.addAwardView max:1 withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         AwardDetail *img = [self.designer awardAtIndex:indexPath.row];
         img.award_imageid = imageIds[0];
         
@@ -411,14 +411,14 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 }
 
 - (void)onTapAddDiplomaImg {
-    [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self.addDiplomaView withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self.addDiplomaView withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         self.designer.diploma_imageid = imageIds[0];
         [self.tableView reloadData];
     }];
 }
 
 - (void)onTapAddAwardImg {
-    [PhotoUtil showAwardImageSelector:self inView:self.addAwardView max:NSIntegerMax withBlock:^(NSArray *imageIds) {
+    [PhotoUtil showAwardImageSelector:self inView:self.addAwardView max:NSIntegerMax withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         NSArray *arr = [imageIds map:^id(id obj) {
             AwardDetail *img = [[AwardDetail alloc] init];
             img.award_imageid = obj;
