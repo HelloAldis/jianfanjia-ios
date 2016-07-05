@@ -8,7 +8,6 @@
 
 #import "BaseDecDiaryStatusCell.h"
 #import "ViewControllerContainer.h"
-#import "PhotoGroupView.h"
 
 @interface BaseDecDiaryStatusCell ()
 
@@ -73,10 +72,8 @@
             fromView = imgView;
         }
     }
-    
-    PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
-    v.groupItems = items;
-    [v presentFromImageView:fromView fromItemIndex:index toContainer:[ViewControllerContainer navigation].view animated:YES completion:nil];
+
+    [ViewControllerContainer showPhotoView:items fromImageView:fromView index:index];
 }
 
 - (void)onClickZan {

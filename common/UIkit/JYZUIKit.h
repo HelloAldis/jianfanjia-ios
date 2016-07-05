@@ -21,5 +21,6 @@
 #import "UIViewController+KRSFakeNavigationBar.h"
 #import "SelectionValue.h"
 #import "SelectionMenuView.h"
+#import "PhotoGroupView.h"
 
 #endif /* JYZUIKit_h */

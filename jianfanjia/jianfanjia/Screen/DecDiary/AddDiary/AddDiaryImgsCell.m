@@ -155,12 +155,23 @@ static CGFloat imgCellWidth;
 }
 
 - (void)showImageDetail:(NSIndexPath *)indexPath {
-    StaticImageCollectionCell *cell = (StaticImageCollectionCell *)[self.imgCollection cellForItemAtIndexPath:indexPath];
-    NSArray *imgs = [self.diary.images map:^id(id obj) {
-        return obj[@"imageid"];
-    }];
+    UIView *fromView = nil;
+    NSMutableArray *items = [NSMutableArray new];
     
-    [ViewControllerContainer showOnlineImages:imgs fromImageView:cell.image index:indexPath.row];
+    for (NSUInteger i = 0, max = self.diary.images.count; i < max; i++) {
+        StaticImageCollectionCell *cell = (StaticImageCollectionCell *)[self.imgCollection cellForItemAtIndexPath:[NSIndexPath indexPathForItem:i inSection:0]];
+        UIImageView *imgView = cell.image;
+        
+        PhotoGroupItem *item = [PhotoGroupItem new];
+        item.thumbView = imgView;
+        item.imageid = self.diary.images[i][@"imageid"];
+        [items addObject:item];
+        if (i == indexPath.row) {
+            fromView = imgView;
+        }
+    }
+    
+    [ViewControllerContainer showPhotoView:items fromImageView:fromView index:indexPath.row];
 }
 
 #pragma mark - other

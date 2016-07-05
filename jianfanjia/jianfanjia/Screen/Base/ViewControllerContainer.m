@@ -9,7 +9,6 @@
 #import "ViewControllerContainer.h"
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
-#import "PhotoGroupView.h"
 #import "WelcomeViewController.h"
 #import "LoginViewController.h"
 #import "ProcessViewController.h"
@@ -470,7 +469,7 @@ static ViewControllerContainer *container;
     [container.navigation pushViewController:v animated:YES];
 }
 
-+ (void)showOfflineImages:(NSArray *)offlineImages fromImageView:(UIImageView *)imageView index:(NSInteger)index {
++ (void)showOfflineImages:(NSArray *)offlineImages fromImageView:(UIView *)imageView index:(NSInteger)index {
     NSArray *items = [offlineImages map:^(UIImage *img) {
         PhotoGroupItem *item = [PhotoGroupItem new];
         item.thumbImage = img;
@@ -478,12 +477,10 @@ static ViewControllerContainer *container;
         return item;
     }];
     
-    PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
-    v.groupItems = items;
-    [v presentFromImageView:imageView fromItemIndex:index toContainer:[self getCurrentTopController].view animated:YES completion:nil];
+    [self showPhotoView:items fromImageView:imageView index:index];
 }
 
-+ (void)showOnlineImages:(NSArray *)onlineImages fromImageView:(UIImageView *)imageView index:(NSInteger)index {
++ (void)showOnlineImages:(NSArray *)onlineImages fromImageView:(UIView *)imageView index:(NSInteger)index {
     NSArray *items = [onlineImages map:^(NSString *img) {
         PhotoGroupItem *item = [PhotoGroupItem new];
         item.imageid = img;
@@ -491,6 +488,10 @@ static ViewControllerContainer *container;
         return item;
     }];
     
+    [self showPhotoView:items fromImageView:imageView index:index];
+}
+
++ (void)showPhotoView:(NSArray<PhotoGroupItem *> *)items fromImageView:(UIView *)imageView index:(NSInteger)index {
     PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
     v.groupItems = items;
     [v presentFromImageView:imageView fromItemIndex:index toContainer:[self getCurrentTopController].view animated:YES completion:nil];
