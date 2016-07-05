@@ -124,6 +124,9 @@
     [_scrollView setZoomScale:1.0 animated:NO];
     _scrollView.maximumZoomScale = 1;
     
+    [_imageView cancelCurrentImageRequest];
+    [_imageView.layer removePreviousFadeAnimation];
+    
     _progressLayer.hidden = NO;
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
