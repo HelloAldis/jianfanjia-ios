@@ -16,7 +16,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewLayout;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property(strong, nonatomic) NSMutableArray<PHAsset *> *result;
+@property (strong, nonatomic) NSMutableArray<NSIndexPath *> *selectedPaths;
+@property (strong, nonatomic) NSMutableArray<PHAsset *> *result;
 @property (strong, nonatomic) NSMutableArray *imageIds;
 @property (strong, nonatomic) NSMutableArray *imageSizes;
 @property (strong, nonatomic) MBProgressHUD *progressBar;
@@ -47,6 +48,7 @@
     self.collectionView.allowsMultipleSelection = self.allowsMultipleSelection;
     self.imageIds = [NSMutableArray array];
     self.imageSizes = [NSMutableArray array];
+    self.selectedPaths = [NSMutableArray array];
     
     self.imageManager = [PHImageManager defaultManager];
     self.options = [PHImageRequestOptions new];
@@ -138,9 +140,11 @@
         
         if (currentSelect) {
             self.selectingCount--;
+            [self.selectedPaths removeObject:indexPath];
             [self.collectionView deselectItemAtIndexPath:indexPath animated:NO];
         } else {
             self.selectingCount++;
+            [self.selectedPaths addObject:indexPath];
             [self.collectionView selectItemAtIndexPath:indexPath animated:YES scrollPosition:UICollectionViewScrollPositionNone];
         }
     } detail:^{
@@ -195,11 +199,11 @@
 - (void)onClickDoneMutil {
     DDLogDebug(@"onClickDoneMutil");
     self.navigationItem.rightBarButtonItem.enabled = NO;
-    [self uploadImageForIndex:self.collectionView.indexPathsForSelectedItems[0]];
+    [self uploadImageForIndex:self.selectedPaths[0]];
 }
 
 - (void)uploadImageForIndex:(NSIndexPath *)indexPath {
-    if ([self.collectionView.indexPathsForSelectedItems indexOfObject:indexPath] == 0) {
+    if ([self.selectedPaths indexOfObject:indexPath] == 0) {
         self.progressBar = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         self.progressBar.mode = MBProgressHUDModeAnnularDeterminate;
         self.progressBar.labelText = @"上传中";
@@ -211,8 +215,8 @@
                                options:self.options
                          resultHandler:^(UIImage *result, NSDictionary *info) {
                              @strongify(self);
-                             NSInteger index = [self.collectionView.indexPathsForSelectedItems indexOfObject:indexPath];
-                             NSInteger total = self.collectionView.indexPathsForSelectedItems.count;
+                             NSInteger index = [self.selectedPaths indexOfObject:indexPath];
+                             NSInteger total = self.selectedPaths.count;
                              
                              UploadImage *request = [[UploadImage alloc] init];
                              request.image = result;
@@ -223,7 +227,7 @@
 //                                 dispatch_async(dispatch_get_main_queue(), ^{
                                      self.progressBar.progress = (CGFloat)(index + 1) / (CGFloat)total ;
                                      if (index < total - 1) {
-                                         NSIndexPath *nextIndexPath = self.collectionView.indexPathsForSelectedItems[index + 1];
+                                         NSIndexPath *nextIndexPath = self.selectedPaths[index + 1];
                                          [self uploadImageForIndex:nextIndexPath];
                                      } else {
                                          self.progressBar.labelText = @"上传完成";
