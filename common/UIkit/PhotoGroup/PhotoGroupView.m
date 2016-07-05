@@ -161,6 +161,7 @@
                 if (image) {
                     self.item.loadedImage = image;
                     [self resizeSubviewSize];
+                    [self.imageView.layer addFadeAnimationWithDuration:0.1 curve:UIViewAnimationCurveLinear];
                     if (self.item.loadedBlock) {
                         self.item.loadedBlock(image);
                     }
@@ -346,6 +347,9 @@
 @property (nonatomic, assign) BOOL isPresented;
 @property (nonatomic, assign) BOOL fromNavigationBarHidden;
 
+@property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
+@property (nonatomic, assign) CGPoint panGestureBeginPoint;
+
 @end
 
 @implementation PhotoGroupAnimationView
@@ -362,6 +366,10 @@
     [super initUI];
     self.delegate = self;
     _blurEffectBackground = YES;
+    
+    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+    [self addGestureRecognizer:pan];
+    _panGesture = pan;
     
     _background = UIImageView.new;
     _background.frame = self.bounds;
@@ -624,6 +632,95 @@
     [self.scrollView.cells enumerateObjectsUsingBlock:^(PhotoGroupCell *cell, NSUInteger idx, BOOL *stop) {
         [cell.imageView cancelCurrentImageRequest];
     }];
+}
+
+- (void)pan:(UIPanGestureRecognizer *)g {
+    switch (g.state) {
+        case UIGestureRecognizerStateBegan: {
+            if (_isPresented) {
+                _panGestureBeginPoint = [g locationInView:self];
+            } else {
+                _panGestureBeginPoint = CGPointZero;
+            }
+        } break;
+        case UIGestureRecognizerStateChanged: {
+            if (_panGestureBeginPoint.x == 0 && _panGestureBeginPoint.y == 0) return;
+            CGPoint p = [g locationInView:self];
+            CGFloat deltaY = p.y - _panGestureBeginPoint.y;
+            
+            CGRect frame = self.scrollView.frame;
+            frame.origin.y = deltaY;
+            self.scrollView.frame = frame;
+            
+            CGFloat alphaDelta = 160;
+            CGFloat alpha = (alphaDelta - fabs(deltaY) + 50) / alphaDelta;
+            alpha = MIN(1, MAX(alpha, 0));
+            [UIView animateWithDuration:0.1 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveLinear animations:^{
+                _blurBackground.alpha = alpha;
+                _pager.alpha = alpha;
+            } completion:nil];
+            
+        } break;
+        case UIGestureRecognizerStateEnded: {
+            if (_panGestureBeginPoint.x == 0 && _panGestureBeginPoint.y == 0) return;
+            CGPoint v = [g velocityInView:self];
+            CGPoint p = [g locationInView:self];
+            CGFloat deltaY = p.y - _panGestureBeginPoint.y;
+            
+            if (fabs(v.y) > 1000 || fabs(deltaY) > 120) {
+                [self cancelAllImageLoad];
+                _isPresented = NO;
+                [[UIApplication sharedApplication] setStatusBarHidden:_fromNavigationBarHidden withAnimation:UIStatusBarAnimationFade];
+                
+                BOOL moveToTop = (v.y < - 50 || (v.y < 50 && deltaY < 0));
+                CGFloat vy = fabs(v.y);
+                if (vy < 1) vy = 1;
+                
+                CGRect frame = self.scrollView.frame;
+                CGFloat duration = (moveToTop ? CGRectGetMaxY(frame) : self.frame.size.height - frame.origin.y) / vy;
+                duration *= 0.8;
+                duration = MIN(0.3, MAX(duration, 0.05));
+                
+                [UIView animateWithDuration:duration delay:0 options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionBeginFromCurrentState animations:^{
+                    _blurBackground.alpha = 0;
+                    _pager.alpha = 0;
+                    
+                    CGRect frame = self.scrollView.frame;
+                    if (moveToTop) {
+                        frame.origin.y = 0 - frame.size.height;
+                        self.scrollView.frame = frame;
+                    } else {
+                        frame.origin.y = self.frame.size.height;
+                        self.scrollView.frame = frame;
+                    }
+                } completion:^(BOOL finished) {
+                    [self removeFromSuperview];
+                }];
+                
+                _background.image = _snapshotImage;
+                [_background.layer addFadeAnimationWithDuration:0.3 curve:UIViewAnimationCurveEaseInOut];
+                
+            } else {
+                [UIView animateWithDuration:0.4 delay:0 usingSpringWithDamping:0.9 initialSpringVelocity:v.y / 1000 options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState animations:^{
+                    CGRect frame = self.scrollView.frame;
+                    frame.origin.y = 0;
+                    self.scrollView.frame = frame;
+                    _blurBackground.alpha = 1;
+                    _pager.alpha = 1;
+                } completion:^(BOOL finished) {
+                    
+                }];
+            }
+            
+        } break;
+        case UIGestureRecognizerStateCancelled : {
+            CGRect frame = self.scrollView.frame;
+            frame.origin.y = 0;
+            self.scrollView.frame = frame;
+            _blurBackground.alpha = 1;
+        }
+        default:break;
+    }
 }
 
 @end
