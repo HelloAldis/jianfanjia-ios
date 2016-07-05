@@ -248,6 +248,8 @@
 		6865A3351D261D3800B3CB26 /* ReorderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3341D261D3800B3CB26 /* ReorderTableView.m */; };
 		6865A3381D26420A00B3CB26 /* CollectionViewReordeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3371D26420A00B3CB26 /* CollectionViewReordeLayout.m */; };
 		6865A33A1D2A036700B3CB26 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6865A3391D2A036700B3CB26 /* Accelerate.framework */; };
+		6865A34A1D2BBA6600B3CB26 /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3491D2BBA6600B3CB26 /* FPSLabel.m */; };
+		6865A34D1D2BBB2400B3CB26 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A34C1D2BBB2400B3CB26 /* WeakProxy.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -991,6 +993,10 @@
 		6865A3361D26420A00B3CB26 /* CollectionViewReordeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewReordeLayout.h; sourceTree = "<group>"; };
 		6865A3371D26420A00B3CB26 /* CollectionViewReordeLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionViewReordeLayout.m; sourceTree = "<group>"; };
 		6865A3391D2A036700B3CB26 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		6865A3481D2BBA6600B3CB26 /* FPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSLabel.h; sourceTree = "<group>"; };
+		6865A3491D2BBA6600B3CB26 /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
+		6865A34B1D2BBB2400B3CB26 /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
+		6865A34C1D2BBB2400B3CB26 /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -1712,6 +1718,7 @@
 		68123C301C4C8B99008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				6865A3471D2BBA6600B3CB26 /* FPS */,
 				6865A3321D261D3800B3CB26 /* ReorderView */,
 				68EE3D9A1D12447A00F5EF83 /* EditCellComponent */,
 				685B141B1CEB0FB60076996A /* Selection */,
@@ -2110,6 +2117,15 @@
 				6865A3341D261D3800B3CB26 /* ReorderTableView.m */,
 			);
 			path = ReorderView;
+			sourceTree = "<group>";
+		};
+		6865A3471D2BBA6600B3CB26 /* FPS */ = {
+			isa = PBXGroup;
+			children = (
+				6865A3481D2BBA6600B3CB26 /* FPSLabel.h */,
+				6865A3491D2BBA6600B3CB26 /* FPSLabel.m */,
+			);
+			path = FPS;
 			sourceTree = "<group>";
 		};
 		68679A211C8E730F00B380D0 /* MyNotification */ = {
@@ -2843,6 +2859,8 @@
 		6E07DA9D1BD88DBE001461DD /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6865A34B1D2BBB2400B3CB26 /* WeakProxy.h */,
+				6865A34C1D2BBB2400B3CB26 /* WeakProxy.m */,
 				68EE3EB01D1CE03D00F5EF83 /* MethodSwizzle.h */,
 				68EE3EB11D1CE03D00F5EF83 /* MethodSwizzle.m */,
 				6E07DA9E1BD88DBE001461DD /* BaseDynamicObject.h */,
@@ -3572,6 +3590,7 @@
 				685B144A1CEB0FB60076996A /* SelectHouseTypeViewController.m in Sources */,
 				683840071C157E21004F456E /* UpdateOneLineTextViewController.m in Sources */,
 				684A374C1BFD73DF00F7388C /* RequirementCreateViewController.m in Sources */,
+				6865A34A1D2BBA6600B3CB26 /* FPSLabel.m in Sources */,
 				685B14501CEB0FB60076996A /* SelectWorkTypeViewController.m in Sources */,
 				683840031C157216004F456E /* UpdateUserInfo.m in Sources */,
 				68EE3DBC1D124C7200F5EF83 /* ConsultPhoneCell.m in Sources */,
@@ -3660,6 +3679,7 @@
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
 				684B04491C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m in Sources */,
 				687EEBE01CE71B5000A277DC /* UIViewController+KRSFakeNavigationBar.m in Sources */,
+				6865A34D1D2BBB2400B3CB26 /* WeakProxy.m in Sources */,
 				68EE3E4C1D13D08E00F5EF83 /* DecorationPhaseCell.m in Sources */,
 				684B03CD1C979EAA0053FFDF /* DecLiveSection.m in Sources */,
 				685F2D691CAB77E000DC4D43 /* UnexpandSectionActionView.m in Sources */,

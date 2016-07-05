@@ -22,5 +22,6 @@
 #import "MethodSwizzle.h"
 #import "TextViewDelegate.h"
 #import "TextFieldDelegate.h"
+#import "WeakProxy.h"
 
 #endif
