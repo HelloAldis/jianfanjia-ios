@@ -250,6 +250,8 @@
 		6865A33A1D2A036700B3CB26 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6865A3391D2A036700B3CB26 /* Accelerate.framework */; };
 		6865A34A1D2BBA6600B3CB26 /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3491D2BBA6600B3CB26 /* FPSLabel.m */; };
 		6865A34D1D2BBB2400B3CB26 /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A34C1D2BBB2400B3CB26 /* WeakProxy.m */; };
+		6865A3511D2E08FE00B3CB26 /* AlbumBrowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A34F1D2E08FE00B3CB26 /* AlbumBrowerViewController.m */; };
+		6865A3521D2E08FE00B3CB26 /* AlbumBrowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A3501D2E08FE00B3CB26 /* AlbumBrowerViewController.xib */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -997,6 +999,9 @@
 		6865A3491D2BBA6600B3CB26 /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
 		6865A34B1D2BBB2400B3CB26 /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
 		6865A34C1D2BBB2400B3CB26 /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
+		6865A34E1D2E08FE00B3CB26 /* AlbumBrowerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumBrowerViewController.h; sourceTree = "<group>"; };
+		6865A34F1D2E08FE00B3CB26 /* AlbumBrowerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumBrowerViewController.m; sourceTree = "<group>"; };
+		6865A3501D2E08FE00B3CB26 /* AlbumBrowerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumBrowerViewController.xib; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -1765,6 +1770,9 @@
 		68123C3B1C4C8B99008FC9AB /* ImageBrower */ = {
 			isa = PBXGroup;
 			children = (
+				6865A34E1D2E08FE00B3CB26 /* AlbumBrowerViewController.h */,
+				6865A34F1D2E08FE00B3CB26 /* AlbumBrowerViewController.m */,
+				6865A3501D2E08FE00B3CB26 /* AlbumBrowerViewController.xib */,
 				68123C3C1C4C8B99008FC9AB /* ImageBrowerViewController.h */,
 				68123C3D1C4C8B99008FC9AB /* ImageBrowerViewController.m */,
 				68123C3E1C4C8B99008FC9AB /* ImageBrowerViewController.xib */,
@@ -3420,6 +3428,7 @@
 				68123BA91C47D15C008FC9AB /* JYZ_wechat_session_icon@2x.png in Resources */,
 				6838400D1C158490004F456E /* UpdateMultipleLineTextViewController.xib in Resources */,
 				684B03C11C96C3DE0053FFDF /* DecLiveCell.xib in Resources */,
+				6865A3521D2E08FE00B3CB26 /* AlbumBrowerViewController.xib in Resources */,
 				68123BAA1C47D15C008FC9AB /* JYZ_wechat_timeline_icon@2x.png in Resources */,
 				68123C611C4C8B99008FC9AB /* allprovince.js in Resources */,
 				68EE3DDA1D125D3700F5EF83 /* DiarySetUploadCell.xib in Resources */,
@@ -3578,6 +3587,7 @@
 				68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */,
 				683FFB471C296288002A1AFE /* DropdownMenuCollectionCell.m in Sources */,
 				68EE3DB01D12447A00F5EF83 /* FieldEditCell.m in Sources */,
+				6865A3511D2E08FE00B3CB26 /* AlbumBrowerViewController.m in Sources */,
 				68123BAB1C47D15C008FC9AB /* JYZShareMenuCollectionCell.m in Sources */,
 				68EE3DDF1D126E8900F5EF83 /* DiarySet.m in Sources */,
 				68E6004C1CB5169400C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */,

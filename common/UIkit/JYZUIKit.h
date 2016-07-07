@@ -12,6 +12,7 @@
 #import "DateAlertViewController.h"
 #import "MessageAlertViewController.h"
 #import "InfiniteScrollView.h"
+#import "AlbumBrowerViewController.h"
 #import "ImageBrowerViewController.h"
 #import "SelectCityViewController.h"
 #import "CollectionFallsFlowLayout.h"

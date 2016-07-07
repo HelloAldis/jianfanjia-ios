@@ -11,6 +11,8 @@ typedef void (^FinishUploadBlock)(NSArray *imageIds, NSArray *imageSizes);
 
 @interface ImageBrowerViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (strong, nonatomic) PHFetchResult<PHAsset *> *result;
+
 //UI
 @property (assign, nonatomic) CGFloat cellCountInOneRow;
 @property (assign, nonatomic) CGFloat cellSpace;

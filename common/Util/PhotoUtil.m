@@ -99,21 +99,36 @@
 
 + (void)showImageBrowser:(UIViewController *)controller allowsEditing:(BOOL)allowsEditing isMultiSelection:(BOOL)allowsMultiSection withMaxSelection:(NSInteger)maxCount withBlock:(FinishUploadBlock)block  {
     if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary] == YES)) {
-        ImageBrowerViewController *v = [[ImageBrowerViewController alloc] initWithNibName:nil bundle:nil];
-        v.cellCountInOneRow = 3;
-        v.cellSpace = 1;
-        v.maxCount = maxCount;
-        v.finishUploadBlock = block;
-        v.allowsMultipleSelection = allowsMultiSection;
-        v.allowsEdit = allowsEditing;
+        ImageBrowerViewController * (^imgBrowerVC)(void) = ^ImageBrowerViewController *(void) {
+            ImageBrowerViewController *v = [[ImageBrowerViewController alloc] initWithNibName:nil bundle:nil];
+            v.cellCountInOneRow = 3;
+            v.cellSpace = 1;
+            v.maxCount = maxCount;
+            v.finishUploadBlock = block;
+            v.allowsMultipleSelection = allowsMultiSection;
+            v.allowsEdit = allowsEditing;
+            
+            if (allowsMultiSection) {
+                v.allowsMultipleSelection = YES;
+            } else {
+                v.allowsMultipleSelection = NO;
+            }
+            
+            return v;
+        };
         
-        if (allowsMultiSection) {
-            v.allowsMultipleSelection = YES;
-        } else {
-            v.allowsMultipleSelection = NO;
-        }
+        AlbumBrowerViewController *album = [[AlbumBrowerViewController alloc] init];
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:album];
+        [nav setViewControllers:@[album, imgBrowerVC()]];
         
-        [controller.navigationController pushViewController:v animated:YES];
+        album.didChooseAlbumBlock = ^(PHFetchResult<PHAsset *> *result) {
+            ImageBrowerViewController * v = imgBrowerVC();
+            v.result = result;
+            [nav pushViewController:v animated:YES];
+        };
+        
+        UIViewController *contrl = controller.presentedViewController ? controller.presentedViewController : controller;
+        [contrl presentViewController:nav animated:YES completion:nil];
     }
 }
 

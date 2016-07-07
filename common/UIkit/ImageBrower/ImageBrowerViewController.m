@@ -17,7 +17,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong, nonatomic) NSMutableArray<NSIndexPath *> *selectedPaths;
-@property (strong, nonatomic) NSMutableArray<PHAsset *> *result;
 @property (strong, nonatomic) NSMutableArray *imageIds;
 @property (strong, nonatomic) NSMutableArray *imageSizes;
 @property (strong, nonatomic) MBProgressHUD *progressBar;
@@ -44,6 +43,7 @@
     self.collectionViewLayout.itemSize = CGSizeMake(width, width);
     self.collectionViewLayout.minimumLineSpacing = self.cellSpace;
     self.collectionViewLayout.minimumInteritemSpacing = self.cellSpace;
+    self.collectionView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     self.collectionView.allowsSelection = YES;
     self.collectionView.allowsMultipleSelection = self.allowsMultipleSelection;
     self.imageIds = [NSMutableArray array];
@@ -57,7 +57,6 @@
     self.options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
     self.options.synchronous = false;
     
-    
     if (self.allowsMultipleSelection) {
         @weakify(self);
         [RACObserve(self, selectingCount) subscribeNext:^(id x) {
@@ -66,40 +65,26 @@
         }];
     }
     
-    @weakify(self);
-    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
-        @strongify(self);
-        if (PHAuthorizationStatusAuthorized == status) {
-            self.result = [NSMutableArray array];
-            
-            PHFetchOptions *options = [[PHFetchOptions alloc] init];
-            options.predicate = [NSPredicate predicateWithFormat:@"mediaType = %i", PHAssetMediaTypeImage];
-            options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
-            PHFetchResult<PHAsset *> *cameraRollAssets = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
-            [cameraRollAssets enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                [self.result addObject:obj];
-            }];
-
-            PHFetchOptions *userAlbumsOptions = [PHFetchOptions new];
-            userAlbumsOptions.predicate = [NSPredicate predicateWithFormat:@"estimatedAssetCount > 0"];
-            PHFetchResult *userAlbums = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeAlbum subtype:PHAssetCollectionSubtypeAny options:userAlbumsOptions];
-            [userAlbums enumerateObjectsUsingBlock:^(PHAssetCollection *collection, NSUInteger idx, BOOL *stop) {
-//                NSLog(@"PHAssetCollection: %@", collection.localizedTitle);
-                PHFetchResult<PHAsset *> *userAssets = [PHAsset fetchAssetsInAssetCollection:collection options:options];
-                [userAssets enumerateObjectsUsingBlock:^(PHAsset * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    [self.result addObject:obj];
-                }];
-            }];
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.collectionView reloadData];
-            });
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.navigationController popViewControllerAnimated:YES];
-            });
-        }
-    }];
+    if (!self.result) {
+        @weakify(self);
+        [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+            @strongify(self);
+            if (PHAuthorizationStatusAuthorized == status) {
+                PHFetchOptions *options = [[PHFetchOptions alloc] init];
+                options.predicate = [NSPredicate predicateWithFormat:@"mediaType = %i", PHAssetMediaTypeImage];
+                options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:NO]];
+                self.result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
+                
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.collectionView reloadData];
+                });
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self dismiss];
+                });
+            }
+        }];
+    }
 }
 
 #pragma mark - UI
@@ -161,13 +146,14 @@
 - (void)onClickDoneSingle:(PHAsset *)asset imageView:(UIImageView *)imageView {
     if (self.allowsEdit && !self.allowsMultipleSelection) {
         [PhotoCropper showPhotoCropper:self asset:asset cancel:^{
-            [self.navigationController popViewControllerAnimated:YES];
+            [self dismiss];
         } choose:^(UIImage *croppedImage) {
             UploadImage *request = [[UploadImage alloc] init];
             request.image = [croppedImage aspectToScale:kScreenWidth];
             
-            NSArray *vcs = self.navigationController.viewControllers;
-            [self.navigationController popToViewController:vcs[vcs.count - 3] animated:NO];
+//            NSArray *vcs = self.navigationController.viewControllers;
+//            [self.navigationController popToViewController:vcs[vcs.count - 3] animated:NO];
+            [self dismiss];
             [API uploadImage:request success:^{
                 if (self.finishUploadBlock) {
                     self.finishUploadBlock(@[[DataManager shared].lastUploadImageid], @[[NSValue valueWithCGSize:request.image.size]]);
@@ -236,7 +222,7 @@
                                              if (self.finishUploadBlock) {
                                                  self.finishUploadBlock(self.imageIds, self.imageSizes);
                                              }
-                                             [self.navigationController popViewControllerAnimated:YES];
+                                             [self dismiss];
                                          });
                                      }
 //                                 });
@@ -253,7 +239,7 @@
                                          if (self.finishUploadBlock) {
                                              self.finishUploadBlock(self.imageIds, self.imageSizes);
                                          }
-                                         [self.navigationController popViewControllerAnimated:YES];
+                                         [self dismiss];
                                      });
 //                                 });
                              } networkError:^{
@@ -262,6 +248,10 @@
                          }];
 
     
+}
+
+- (void)dismiss {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

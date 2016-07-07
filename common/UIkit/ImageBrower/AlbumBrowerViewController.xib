@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AlbumBrowerViewController">
+            <connections>
+                <outlet property="tableView" destination="cEI-9V-3PY" id="3nv-7d-zLu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cEI-9V-3PY">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="69w-dC-YNJ"/>
+                        <outlet property="delegate" destination="-1" id="2Ai-ew-f10"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="cEI-9V-3PY" secondAttribute="bottom" id="BCI-Zi-bW8"/>
+                <constraint firstItem="cEI-9V-3PY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MxG-gt-DY3"/>
+                <constraint firstItem="cEI-9V-3PY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="PoY-lc-z5u"/>
+                <constraint firstAttribute="trailing" secondItem="cEI-9V-3PY" secondAttribute="trailing" id="aar-1B-nJB"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

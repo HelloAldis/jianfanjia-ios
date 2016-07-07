@@ -10,6 +10,7 @@
 #import "DecDiaryStatusCell.h"
 #import "DecDiaryDataManager.h"
 #import "ViewControllerContainer.h"
+#import "AlbumBrowerViewController.h"
 
 static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
