@@ -75,6 +75,8 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     self.lblFavoriateCount = [[UILabel alloc] initWithFrame:CGRectZero];
     [self.favoriateView addSubview:self.favoriateImgView];
     [self.favoriateView addSubview:self.lblFavoriateCount];
+    self.favoriateImgView.tintColor = [UIColor whiteColor];
+    self.lblFavoriateCount.tintColor = [UIColor whiteColor];
     
     self.lblFavoriateCount.text = [self.diarySet.favorite_count humCountString];
     if ([self.diarySet.is_my_favorite boolValue]) {
@@ -82,7 +84,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     } else {
         [self.favoriteItem.customView setImage:[self unfavoriateImage]];
     }
-    
+
     [self layoutFavoriateView];
     
     @weakify(self);
@@ -90,9 +92,8 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         @strongify(self);
         [self onClickFavoriteButton];
     }];
+    
     self.favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:self.favoriateView];
-    self.favoriteItem.customView.tintColor = [UIColor whiteColor];
-  
     self.shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
     self.shareItem.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItems = @[self.shareItem, self.favoriteItem];
@@ -177,12 +178,14 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:alpha];
         self.navigationItem.leftBarButtonItem.tintColor = kThemeTextColor;
         self.shareItem.tintColor = kThemeTextColor;
-        self.favoriteItem.customView.tintColor = kThemeTextColor;
+        self.favoriateImgView.tintColor = kThemeTextColor;
+        self.lblFavoriateCount.tintColor = kThemeTextColor;
     } else {
         self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:0];
         self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
         self.shareItem.tintColor = [UIColor whiteColor];
-        self.favoriteItem.customView.tintColor = [UIColor whiteColor];
+        self.favoriateImgView.tintColor = [UIColor whiteColor];
+        self.lblFavoriateCount.tintColor = [UIColor whiteColor];
     }
 }
 
