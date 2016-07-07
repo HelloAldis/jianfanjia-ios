@@ -100,6 +100,7 @@
                 self.result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
+                    self.title = [NSString stringWithFormat:@"相机胶卷 (%@)", @(self.result.count)];
                     [self.collectionView reloadData];
                 });
             } else {
@@ -108,9 +109,9 @@
                 });
             }
         }];
+    } else {
+        self.title = self.vcTitle;
     }
-    
-    self.title = self.vcTitle ? self.vcTitle : @"相机胶卷";
 }
 
 - (void)initTextAndButton {
