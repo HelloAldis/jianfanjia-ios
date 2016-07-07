@@ -11,6 +11,7 @@ typedef void (^FinishUploadBlock)(NSArray *imageIds, NSArray *imageSizes);
 
 @interface ImageBrowerViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
 
+@property (strong, nonatomic) NSString *vcTitle;
 @property (strong, nonatomic) PHFetchResult<PHAsset *> *result;
 
 //UI

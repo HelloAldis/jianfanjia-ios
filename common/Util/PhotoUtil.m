@@ -121,8 +121,9 @@
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:album];
         [nav setViewControllers:@[album, imgBrowerVC()]];
         
-        album.didChooseAlbumBlock = ^(PHFetchResult<PHAsset *> *result) {
+        album.didChooseAlbumBlock = ^(NSString *title, PHFetchResult<PHAsset *> *result) {
             ImageBrowerViewController * v = imgBrowerVC();
+            v.vcTitle = title;
             v.result = result;
             [nav pushViewController:v animated:YES];
         };

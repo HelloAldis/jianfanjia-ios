@@ -8,7 +8,7 @@
 #import <Photos/Photos.h>
 #import "ImageBrowerViewController.h"
 
-typedef void (^DidChooseAlbumBlock)(PHFetchResult<PHAsset *> *result);
+typedef void (^DidChooseAlbumBlock)(NSString *title, PHFetchResult<PHAsset *> *result);
 
 @interface AlbumBrowerViewController : UIViewController
 

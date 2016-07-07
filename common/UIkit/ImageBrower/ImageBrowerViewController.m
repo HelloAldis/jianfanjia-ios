@@ -15,6 +15,10 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionViewLayout;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UILabel *lblText;
+@property (weak, nonatomic) IBOutlet UIButton *btnDone;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConst;
 
 @property (strong, nonatomic) NSMutableArray<NSIndexPath *> *selectedPaths;
 @property (strong, nonatomic) NSMutableArray *imageIds;
@@ -33,9 +37,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.krs_EnableFakeNavigationBar = YES;
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    [self initNav];
     
+    [self initNav];
+    [self initUI];
+    [self initData];
+}
+
+#pragma mark - UI
+- (void)initNav {
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(dismiss)];
+    item.tintColor = kThemeColor;
+    self.navigationItem.rightBarButtonItem = item;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
+}
+
+- (void)initUI {
+    self.automaticallyAdjustsScrollViewInsets = NO;
     //Init collection
     self.maxCount = self.maxCount <= 0 ? 1 : self.maxCount;
     CGFloat width = (kScreenWidth - ((self.cellCountInOneRow - 1) * self.cellSpace)) / self.cellCountInOneRow;
@@ -57,14 +76,19 @@
     self.options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
     self.options.synchronous = false;
     
+    @weakify(self);
     if (self.allowsMultipleSelection) {
-        @weakify(self);
         [RACObserve(self, selectingCount) subscribeNext:^(id x) {
             @strongify(self);
-            [self initTitleAndRight];
+            [self initTextAndButton];
         }];
+    } else {
+        self.bottomViewConst.constant = 0;
+        self.bottomView.hidden = YES;
     }
-    
+}
+
+- (void)initData {
     if (!self.result) {
         @weakify(self);
         [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
@@ -85,29 +109,18 @@
             }
         }];
     }
-}
-
-#pragma mark - UI
-- (void)initNav {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
-    self.navigationItem.leftBarButtonItem = item;
     
-    if (self.allowsMultipleSelection) {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"确定" style:UIBarButtonItemStyleDone target:self action:@selector(onClickDoneMutil)];
-        item.tintColor = kThemeColor;
-        self.navigationItem.rightBarButtonItem = item;
-        [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
-    }
+    self.title = self.vcTitle ? self.vcTitle : @"相机胶卷";
 }
 
-- (void)initTitleAndRight {
+- (void)initTextAndButton {
     if (self.maxCount == NSIntegerMax) {
-        self.title = @"请选择";
+        self.lblText.text = @"请选择";
     } else {
-        self.title = [NSString stringWithFormat:@"还可以选%@张", [@(self.maxCount - self.selectingCount) stringValue]];
+        self.lblText.text = [NSString stringWithFormat:@"还可以选%@张", [@(self.maxCount - self.selectingCount) stringValue]];
     }
     
-    self.navigationItem.rightBarButtonItem.enabled = self.selectingCount > 0;
+    self.btnDone.enabled = self.selectingCount > 0;
 }
 
 #pragma mark - collection view delegate
@@ -115,7 +128,6 @@
     return self.result.count;
 }
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ThumbnailCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"ThumbnailCell" forIndexPath:indexPath];
     [cell initWithPHAsset:[self.result objectAtIndex:indexPath.row] hidden:!self.allowsMultipleSelection checked:^void(BOOL currentSelect){
@@ -146,13 +158,10 @@
 - (void)onClickDoneSingle:(PHAsset *)asset imageView:(UIImageView *)imageView {
     if (self.allowsEdit && !self.allowsMultipleSelection) {
         [PhotoCropper showPhotoCropper:self asset:asset cancel:^{
-            [self dismiss];
+            [self.navigationController popViewControllerAnimated:YES];
         } choose:^(UIImage *croppedImage) {
             UploadImage *request = [[UploadImage alloc] init];
             request.image = [croppedImage aspectToScale:kScreenWidth];
-            
-//            NSArray *vcs = self.navigationController.viewControllers;
-//            [self.navigationController popToViewController:vcs[vcs.count - 3] animated:NO];
             [self dismiss];
             [API uploadImage:request success:^{
                 if (self.finishUploadBlock) {
@@ -169,6 +178,9 @@
                                   resultHandler:^(UIImage *result, NSDictionary *info) {
                                       dispatch_async(dispatch_get_main_queue(), ^{
                                           PhotoGroupItem *item = [PhotoGroupItem new];
+                                          item.itemType = PhotoGroupItemTypeOffline;
+                                          item.thumbImage = result;
+                                          
                                           PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
                                           v.groupItems = @[item];
                                           [v presentFromImageView:imageView fromItemIndex:0 toContainer:self.navigationController.view animated:YES completion:nil];
@@ -176,6 +188,10 @@
                                   }];
 
     }
+}
+
+- (IBAction)onClickDone:(id)sender {
+    [self onClickDoneMutil];
 }
 
 - (void)onClickDoneMutil {

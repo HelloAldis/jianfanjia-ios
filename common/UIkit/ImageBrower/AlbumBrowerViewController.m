@@ -125,7 +125,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.didChooseAlbumBlock) {
-        self.didChooseAlbumBlock(self.collections[indexPath.row]);
+        self.didChooseAlbumBlock(self.titles[indexPath.row], self.collections[indexPath.row]);
     }
 }
 
