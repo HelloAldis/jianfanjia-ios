@@ -168,11 +168,7 @@
                                         options:self.options
                                   resultHandler:^(UIImage *result, NSDictionary *info) {
                                       dispatch_async(dispatch_get_main_queue(), ^{
-
                                           PhotoGroupItem *item = [PhotoGroupItem new];
-                                          item.thumbImage = result;
-
-                                          
                                           PhotoGroupAnimationView *v = [[PhotoGroupAnimationView alloc] init];
                                           v.groupItems = @[item];
                                           [v presentFromImageView:imageView fromItemIndex:0 toContainer:self.navigationController.view animated:YES completion:nil];
