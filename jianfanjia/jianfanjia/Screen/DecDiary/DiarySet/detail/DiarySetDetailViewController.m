@@ -24,6 +24,10 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 @property (strong, nonatomic) UIBarButtonItem *favoriteItem;
 @property (strong, nonatomic) UIBarButtonItem *shareItem;
 
+@property (strong, nonatomic) UIView *favoriateView;
+@property (strong, nonatomic) UIImageView *favoriateImgView;
+@property (strong, nonatomic) UILabel *lblFavoriateCount;
+
 @property (strong, nonatomic) AddDiarySectionView *addDiarySectionView;
 @property (strong, nonatomic) DiarySetAvtarInfoCell *avtarInfoCell;
 @property (assign, nonatomic) BOOL wasFirstLoad;
@@ -66,27 +70,32 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     [self initLeftWhiteBackInNav];
     [self initTransparentNavBar:UIBarStyleBlack];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[self unfavoriateImage]];
+    self.favoriateView = [[UIView alloc] initWithFrame:CGRectZero];
+    self.favoriateImgView = [[UIImageView alloc] initWithImage:[self unfavoriateImage]];
+    self.lblFavoriateCount = [[UILabel alloc] initWithFrame:CGRectZero];
+    [self.favoriateView addSubview:self.favoriateImgView];
+    [self.favoriateView addSubview:self.lblFavoriateCount];
     
-    @weakify(self);
-    [imageView addTapBounceAnimation:^{
-        @strongify(self);
-        [self onClickFavoriteButton];
-    }];
-    self.favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:imageView];
-    self.favoriteItem.customView.tintColor = [UIColor whiteColor];
-  
-    self.shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
-    self.shareItem.tintColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItems = @[self.shareItem, self.favoriteItem];
-}
-
-- (void)initRightNaviBarItems {
+    self.lblFavoriateCount.text = [self.diarySet.favorite_count humCountString];
     if ([self.diarySet.is_my_favorite boolValue]) {
         [self.favoriteItem.customView setImage:[self favoriateImage]];
     } else {
         [self.favoriteItem.customView setImage:[self unfavoriateImage]];
     }
+    
+    [self layoutFavoriateView];
+    
+    @weakify(self);
+    [self.favoriateView addTapBounceAnimation:^{
+        @strongify(self);
+        [self onClickFavoriteButton];
+    }];
+    self.favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:self.favoriateView];
+    self.favoriteItem.customView.tintColor = [UIColor whiteColor];
+  
+    self.shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
+    self.shareItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItems = @[self.shareItem, self.favoriteItem];
 }
 
 - (void)initUI {
@@ -219,6 +228,8 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     [[LoginEngine shared] showLogin:^(BOOL logined) {
         if (logined) {
             if (![self.diarySet.is_my_favorite boolValue]) {
+                [self setFavoriate:YES withAnimation:YES];
+                
                 FavoriteDiarySet *request = [[FavoriteDiarySet alloc] init];
                 request._id = self.diarySet._id;
                 
@@ -228,9 +239,17 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
                     [HUDUtil showSuccessText:@"收藏成功"];
                 } failure:^{
                     [HUDUtil showErrText:@"收藏失败"];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self setFavoriate:NO withAnimation:YES];
+                    });
                 } networkError:^{
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self setFavoriate:NO withAnimation:YES];
+                    });
                 }];
             } else {
+                [self setFavoriate:NO withAnimation:YES];
+                
                 UnfavoriteDiarySet *request = [[UnfavoriteDiarySet alloc] init];
                 request._id = self.diarySet._id;
                 
@@ -240,11 +259,25 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
                     [HUDUtil showSuccessText:@"取消收藏成功"];
                 } failure:^{
                     [HUDUtil showErrText:@"取消收藏失败"];
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self setFavoriate:YES withAnimation:YES];
+                    });
                 } networkError:^{
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        [self setFavoriate:YES withAnimation:YES];
+                    });
                 }];
             }
         }
     }];
+}
+
+- (void)layoutFavoriateView {
+    CGRect rect = [self.lblFavoriateCount textRectForBounds:CGRectMake(0, 0, NSIntegerMax, 30) limitedToNumberOfLines:1];
+    
+    self.favoriateImgView.frame = CGRectMake(0, 0, [self favoriateImage].size.width, [self favoriateImage].size.height);
+    self.lblFavoriateCount.frame = CGRectMake(12 + CGRectGetMaxX(self.favoriateImgView.frame), (CGRectGetHeight(self.favoriateImgView.frame) - rect.size.height) / 2, rect.size.width, rect.size.height);
+    self.favoriateView.frame = CGRectMake(0, 0, CGRectGetMaxX(self.lblFavoriateCount.frame), CGRectGetHeight(self.favoriateImgView.frame));
 }
 
 - (UIImage *)favoriateImage {
@@ -263,6 +296,52 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         img = [UIImage imageNamed:@"diary_favoriate_no"];
     });
     return img;
+}
+
+- (void)setFavoriate:(BOOL)favoriated withAnimation:(BOOL)animation {
+    DiarySet *diary = self.diarySet;
+    UIImageView *imgView = self.favoriateImgView;
+    UILabel *lblCount = self.lblFavoriateCount;
+    if ([diary.is_my_favorite boolValue] == favoriated) return;
+    
+    UIImage *image = favoriated ? [self favoriateImage] : [self unfavoriateImage];
+    int newCount = diary.favorite_count.intValue;
+    newCount = favoriated ? newCount + 1 : newCount - 1;
+    if (newCount < 0) newCount = 0;
+    if (favoriated && newCount < 1) newCount = 1;
+    
+    NSString *newCountDesc;
+    if (newCount > 0) {
+        newCountDesc = [@(newCount) humCountString];
+    } else {
+        newCountDesc = @"";
+    }
+    
+    diary.is_my_favorite = [NSNumber numberWithBool:favoriated];
+    diary.favorite_count = @(newCount);
+    
+    if (!animation) {
+        imgView.image = image;
+        lblCount.text = newCountDesc;
+        return;
+    }
+    
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
+        [imgView.layer setValue:@(1.7) forKeyPath:@"transform.scale"];
+    } completion:^(BOOL finished) {
+        imgView.image = image;
+        lblCount.text = newCountDesc;
+        
+        [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
+            [imgView.layer setValue:@(0.9) forKeyPath:@"transform.scale"];
+            [self layoutFavoriateView];
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseInOut animations:^{
+                [imgView.layer setValue:@(1.0) forKeyPath:@"transform.scale"];
+            } completion:^(BOOL finished) {
+            }];
+        }];
+    }];
 }
 
 @end
