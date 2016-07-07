@@ -368,6 +368,8 @@
 		685F2D6F1CABC0A900DC4D43 /* UnexpandSectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D6D1CABC0A900DC4D43 /* UnexpandSectionActionView.xib */; };
 		685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */; };
 		685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */; };
+		6865A3561D2E4DFA00B3CB26 /* AlbumBrowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3541D2E4DFA00B3CB26 /* AlbumBrowerViewController.m */; };
+		6865A3571D2E4DFA00B3CB26 /* AlbumBrowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A3551D2E4DFA00B3CB26 /* AlbumBrowerViewController.xib */; };
 		68711B5A1CD85D3E009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B591CD85D3E009B585F /* PhotoCropper.m */; };
 		687EEB581CE2C69E00A277DC /* DIYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB571CE2C69E00A277DC /* DIYRefreshFooter.m */; };
 		68921FFE1CD0D7C300BC80C7 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68921FFD1CD0D7C300BC80C7 /* ToastUtil.m */; };
@@ -1119,6 +1121,9 @@
 		685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushGifHeader.m; sourceTree = "<group>"; };
 		685F2D7A1CAD0DD400DC4D43 /* DIYGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYGifHeader.h; sourceTree = "<group>"; };
 		685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYGifHeader.m; sourceTree = "<group>"; };
+		6865A3531D2E4DFA00B3CB26 /* AlbumBrowerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumBrowerViewController.h; sourceTree = "<group>"; };
+		6865A3541D2E4DFA00B3CB26 /* AlbumBrowerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumBrowerViewController.m; sourceTree = "<group>"; };
+		6865A3551D2E4DFA00B3CB26 /* AlbumBrowerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumBrowerViewController.xib; sourceTree = "<group>"; };
 		68711B581CD85D3E009B585F /* PhotoCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropper.h; sourceTree = "<group>"; };
 		68711B591CD85D3E009B585F /* PhotoCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropper.m; sourceTree = "<group>"; };
 		687EEB561CE2C69E00A277DC /* DIYRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYRefreshFooter.h; sourceTree = "<group>"; };
@@ -1510,6 +1515,9 @@
 		68123C721C4C9772008FC9AB /* ImageBrower */ = {
 			isa = PBXGroup;
 			children = (
+				6865A3531D2E4DFA00B3CB26 /* AlbumBrowerViewController.h */,
+				6865A3541D2E4DFA00B3CB26 /* AlbumBrowerViewController.m */,
+				6865A3551D2E4DFA00B3CB26 /* AlbumBrowerViewController.xib */,
 				68123C731C4C9772008FC9AB /* ImageBrowerViewController.h */,
 				68123C741C4C9772008FC9AB /* ImageBrowerViewController.m */,
 				68123C751C4C9772008FC9AB /* ImageBrowerViewController.xib */,
@@ -3007,6 +3015,7 @@
 				685B15DF1CF444FC0076996A /* ProductAuthImageActionView.xib in Resources */,
 				685F2D651CAA8DDE00DC4D43 /* SectionActionView.xib in Resources */,
 				685B15EA1CF535010076996A /* SelectionMenuView.xib in Resources */,
+				6865A3571D2E4DFA00B3CB26 /* AlbumBrowerViewController.xib in Resources */,
 				680F66571CF8317E000E1EEF /* InputTextTableViewCell.xib in Resources */,
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
 				685B151B1CEC60950076996A /* TextEditCell.xib in Resources */,
@@ -3351,6 +3360,7 @@
 				685B152C1CEC71010076996A /* ProductAuthViewController.m in Sources */,
 				685B14831CEB11CF0076996A /* SelectDecorationTypeViewController.m in Sources */,
 				684B043E1C990E910053FFDF /* WorksiteNotificationCell.m in Sources */,
+				6865A3561D2E4DFA00B3CB26 /* AlbumBrowerViewController.m in Sources */,
 				689ECE541CFC10DD0046DDC8 /* JYZSocialSnsPlatformWechat.m in Sources */,
 				685B15D11CF3006B0076996A /* ProductAuthImpressionImageCell.m in Sources */,
 				681240121C4CDA06008FC9AB /* NSArray+Ex.m in Sources */,

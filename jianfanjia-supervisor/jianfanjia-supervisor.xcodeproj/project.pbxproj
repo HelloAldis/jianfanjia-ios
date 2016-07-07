@@ -242,6 +242,8 @@
 		685B14C91CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14C71CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m */; };
 		6865A33E1D2BA13200B3CB26 /* PhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A33D1D2BA13200B3CB26 /* PhotoGroupView.m */; };
 		6865A3461D2BA17900B3CB26 /* ReuseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3451D2BA17900B3CB26 /* ReuseScrollView.m */; };
+		6865A35B1D2E4E1300B3CB26 /* AlbumBrowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3591D2E4E1300B3CB26 /* AlbumBrowerViewController.m */; };
+		6865A35C1D2E4E1300B3CB26 /* AlbumBrowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A35A1D2E4E1300B3CB26 /* AlbumBrowerViewController.xib */; };
 		68711B5D1CD85D54009B585F /* PhotoCropper.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B5C1CD85D54009B585F /* PhotoCropper.m */; };
 		687EEB5B1CE2C6C100A277DC /* DIYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB5A1CE2C6C100A277DC /* DIYRefreshFooter.m */; };
 		689220041CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */; };
@@ -700,6 +702,9 @@
 		6865A33D1D2BA13200B3CB26 /* PhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGroupView.m; sourceTree = "<group>"; };
 		6865A3441D2BA17900B3CB26 /* ReuseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReuseScrollView.h; sourceTree = "<group>"; };
 		6865A3451D2BA17900B3CB26 /* ReuseScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReuseScrollView.m; sourceTree = "<group>"; };
+		6865A3581D2E4E1300B3CB26 /* AlbumBrowerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumBrowerViewController.h; sourceTree = "<group>"; };
+		6865A3591D2E4E1300B3CB26 /* AlbumBrowerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumBrowerViewController.m; sourceTree = "<group>"; };
+		6865A35A1D2E4E1300B3CB26 /* AlbumBrowerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumBrowerViewController.xib; sourceTree = "<group>"; };
 		68711B5B1CD85D54009B585F /* PhotoCropper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCropper.h; sourceTree = "<group>"; };
 		68711B5C1CD85D54009B585F /* PhotoCropper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCropper.m; sourceTree = "<group>"; };
 		687EEB591CE2C6C100A277DC /* DIYRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYRefreshFooter.h; sourceTree = "<group>"; };
@@ -1355,6 +1360,9 @@
 		680C44661CC4D4BD008C4BC0 /* ImageBrower */ = {
 			isa = PBXGroup;
 			children = (
+				6865A3581D2E4E1300B3CB26 /* AlbumBrowerViewController.h */,
+				6865A3591D2E4E1300B3CB26 /* AlbumBrowerViewController.m */,
+				6865A35A1D2E4E1300B3CB26 /* AlbumBrowerViewController.xib */,
 				680C44671CC4D4BD008C4BC0 /* ImageBrowerViewController.h */,
 				680C44681CC4D4BD008C4BC0 /* ImageBrowerViewController.m */,
 				680C44691CC4D4BD008C4BC0 /* ImageBrowerViewController.xib */,
@@ -1685,6 +1693,7 @@
 				680C45631CC4D4BD008C4BC0 /* ImageBrowerViewController.xib in Resources */,
 				685B14B81CEB12110076996A /* SelectDecorationStyleViewController.xib in Resources */,
 				680C465A1CC5DB96008C4BC0 /* UpdateOneLineTextViewController.xib in Resources */,
+				6865A35C1D2E4E1300B3CB26 /* AlbumBrowerViewController.xib in Resources */,
 				680C42551CC4D4AE008C4BC0 /* ItemExpandImageCell.xib in Resources */,
 				680C42B01CC4D4AE008C4BC0 /* PlanPriceDetailViewController.xib in Resources */,
 				680C42A61CC4D4AE008C4BC0 /* LeaveMessageViewController.xib in Resources */,
@@ -1836,6 +1845,7 @@
 				680C40A01CC48F59008C4BC0 /* AppDelegate.m in Sources */,
 				680C44FB1CC4D4BD008C4BC0 /* PlanUnorder.m in Sources */,
 				680C44AF1CC4D4BD008C4BC0 /* DeleteImageFromProcess.m in Sources */,
+				6865A35B1D2E4E1300B3CB26 /* AlbumBrowerViewController.m in Sources */,
 				680C42A51CC4D4AE008C4BC0 /* LeaveMessageViewController.m in Sources */,
 				6865A3461D2BA17900B3CB26 /* ReuseScrollView.m in Sources */,
 				680C45301CC4D4BD008C4BC0 /* Item.m in Sources */,
