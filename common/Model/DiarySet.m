@@ -25,6 +25,7 @@
 @dynamic favorite_count;
 @dynamic comment_count;
 @dynamic latest_section_label;
+@dynamic is_my_favorite;
 @dynamic diaries;
 
 @end

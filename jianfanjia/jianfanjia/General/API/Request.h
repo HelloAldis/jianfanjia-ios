@@ -76,5 +76,7 @@
 #import "SearchDiarySet.h"
 #import "ZanDiary.h"
 #import "AddDiary.h"
+#import "FavoriteDiarySet.h"
+#import "UnfavoriteDiarySet.h"
 
 #endif

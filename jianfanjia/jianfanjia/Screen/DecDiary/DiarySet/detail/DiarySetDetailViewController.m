@@ -21,6 +21,9 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+@property (strong, nonatomic) UIBarButtonItem *favoriteItem;
+@property (strong, nonatomic) UIBarButtonItem *shareItem;
+
 @property (strong, nonatomic) AddDiarySectionView *addDiarySectionView;
 @property (strong, nonatomic) DiarySetAvtarInfoCell *avtarInfoCell;
 @property (assign, nonatomic) BOOL wasFirstLoad;
@@ -63,8 +66,27 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     [self initLeftWhiteBackInNav];
     [self initTransparentNavBar:UIBarStyleBlack];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[self unfavoriateImage]];
+    
+    @weakify(self);
+    [imageView addTapBounceAnimation:^{
+        @strongify(self);
+        [self onClickFavoriteButton];
+    }];
+    self.favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:imageView];
+    self.favoriteItem.customView.tintColor = [UIColor whiteColor];
+  
+    self.shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
+    self.shareItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItems = @[self.shareItem, self.favoriteItem];
+}
+
+- (void)initRightNaviBarItems {
+    if ([self.diarySet.is_my_favorite boolValue]) {
+        [self.favoriteItem.customView setImage:[self favoriateImage]];
+    } else {
+        [self.favoriteItem.customView setImage:[self unfavoriateImage]];
+    }
 }
 
 - (void)initUI {
@@ -145,11 +167,13 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         CGFloat alpha = 1 - ((kNavWithStatusBarHeight - offsetY) / kNavWithStatusBarHeight);
         self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:alpha];
         self.navigationItem.leftBarButtonItem.tintColor = kThemeTextColor;
-        self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
+        self.shareItem.tintColor = kThemeTextColor;
+        self.favoriteItem.customView.tintColor = kThemeTextColor;
     } else {
         self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:0];
         self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-        self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+        self.shareItem.tintColor = [UIColor whiteColor];
+        self.favoriteItem.customView.tintColor = [UIColor whiteColor];
     }
 }
 
@@ -189,6 +213,56 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     NSString *title = [NSString stringWithFormat:@"%@（%@）", self.diarySet.title, [DiaryBusiness diarySetInfo:self.diarySet]];
     NSString *description = [NSString stringWithFormat:@"我在简繁家发现了一个不错的装修日记，分享给大家！"];
     [[ShareManager shared] share:[ViewControllerContainer getCurrentTopController] topic:ShareTopicDiary image:self.avtarInfoCell.diarySetBGImgView.image title:title description:description targetLink:[StringUtil mobileUrl:[NSString stringWithFormat:@"tpl/diary/book/%@", self.diarySet._id]] delegate:nil];
+}
+
+- (void)onClickFavoriteButton {
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            if (![self.diarySet.is_my_favorite boolValue]) {
+                FavoriteDiarySet *request = [[FavoriteDiarySet alloc] init];
+                request._id = self.diarySet._id;
+                
+                [API favoriteDiarySet:request success:^{
+                    self.diarySet.is_my_favorite = @1;
+                    [self.favoriteItem.customView setImage:[self favoriateImage]];
+                    [HUDUtil showSuccessText:@"收藏成功"];
+                } failure:^{
+                    [HUDUtil showErrText:@"收藏失败"];
+                } networkError:^{
+                }];
+            } else {
+                UnfavoriteDiarySet *request = [[UnfavoriteDiarySet alloc] init];
+                request._id = self.diarySet._id;
+                
+                [API unfavoriteDiarySet:request success:^{
+                    self.diarySet.is_my_favorite = @0;
+                    [self.favoriteItem.customView setImage:[self unfavoriateImage]];
+                    [HUDUtil showSuccessText:@"取消收藏成功"];
+                } failure:^{
+                    [HUDUtil showErrText:@"取消收藏失败"];
+                } networkError:^{
+                }];
+            }
+        }
+    }];
+}
+
+- (UIImage *)favoriateImage {
+    static UIImage *img;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        img = [UIImage imageNamed:@"diary_favoriate_yes"];
+    });
+    return img;
+}
+
+- (UIImage *)unfavoriateImage {
+    static UIImage *img;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        img = [UIImage imageNamed:@"diary_favoriate_no"];
+    });
+    return img;
 }
 
 @end

@@ -78,5 +78,7 @@
 + (void)getDiarySetDetail:(GetDiarySetDetail *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 + (void)getDiaryDetail:(GetDiaryDetail *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 + (void)getDiaryUpdation:(GetDiaryUpdation *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
++ (void)favoriteDiarySet:(FavoriteDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
++ (void)unfavoriteDiarySet:(UnfavoriteDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 
 @end

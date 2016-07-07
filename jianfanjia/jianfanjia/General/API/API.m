@@ -278,4 +278,12 @@
     [API POST:@"get_diary_changes" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)favoriteDiarySet:(FavoriteDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"favorite/diary_set/add" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
++ (void)unfavoriteDiarySet:(UnfavoriteDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"favorite/diary_set/delete" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end
