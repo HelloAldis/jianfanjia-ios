@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -38,7 +38,7 @@
                                 </variation>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYo-0n-XTr" userLabel="bar">
-                                <rect key="frame" x="20" y="15" width="78" height="25"/>
+                                <rect key="frame" x="20" y="15" width="145" height="25"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_view" translatesAutoresizingMaskIntoConstraints="NO" id="lIb-ik-Y2j">
                                         <rect key="frame" x="10" y="7" width="15" height="11"/>
@@ -53,16 +53,41 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary_favoriate_no" translatesAutoresizingMaskIntoConstraints="NO" id="58P-WS-Eny" userLabel="icon_star">
+                                        <rect key="frame" x="78" y="6" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="ZID-qX-F7N"/>
+                                            <constraint firstAttribute="width" secondItem="58P-WS-Eny" secondAttribute="height" id="icJ-3k-1VW"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cj-OK-De2">
+                                        <rect key="frame" x="100" y="5" width="33" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="acx-Nz-lzn" firstAttribute="leading" secondItem="lIb-ik-Y2j" secondAttribute="trailing" constant="8" id="2hH-Yy-S87"/>
+                                    <constraint firstItem="58P-WS-Eny" firstAttribute="leading" secondItem="acx-Nz-lzn" secondAttribute="trailing" constant="12" id="Dbn-A7-6Rd"/>
+                                    <constraint firstAttribute="trailing" secondItem="2cj-OK-De2" secondAttribute="trailing" constant="12" id="HAz-S4-rIF"/>
+                                    <constraint firstItem="2cj-OK-De2" firstAttribute="leading" secondItem="58P-WS-Eny" secondAttribute="trailing" constant="8" id="TIn-XN-Bjy"/>
                                     <constraint firstItem="lIb-ik-Y2j" firstAttribute="leading" secondItem="qYo-0n-XTr" secondAttribute="leading" constant="10" id="Wij-Ja-JF8"/>
                                     <constraint firstAttribute="height" constant="25" id="WpL-4k-4hs"/>
+                                    <constraint firstItem="58P-WS-Eny" firstAttribute="centerY" secondItem="qYo-0n-XTr" secondAttribute="centerY" id="Zik-bo-0z3"/>
                                     <constraint firstItem="lIb-ik-Y2j" firstAttribute="centerY" secondItem="qYo-0n-XTr" secondAttribute="centerY" id="aIU-2T-I0x"/>
+                                    <constraint firstItem="58P-WS-Eny" firstAttribute="width" secondItem="58P-WS-Eny" secondAttribute="height" multiplier="32:23" id="bB7-MA-yXC"/>
                                     <constraint firstAttribute="trailing" secondItem="acx-Nz-lzn" secondAttribute="trailing" constant="12" id="fIp-tD-KuF"/>
                                     <constraint firstItem="acx-Nz-lzn" firstAttribute="centerY" secondItem="lIb-ik-Y2j" secondAttribute="centerY" id="sO3-Zu-bUc"/>
+                                    <constraint firstItem="2cj-OK-De2" firstAttribute="centerY" secondItem="qYo-0n-XTr" secondAttribute="centerY" id="wJd-2S-FEA"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fIp-tD-KuF"/>
+                                        <exclude reference="bB7-MA-yXC"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DCK-fL-yHl">
                                 <rect key="frame" x="372" y="15" width="85" height="25"/>
@@ -125,6 +150,7 @@
                 <outlet property="containerView" destination="GqU-Cy-sjG" id="PVm-FD-hBE"/>
                 <outlet property="lblCell" destination="zUI-5N-Hgs" id="Vxg-pY-yha"/>
                 <outlet property="lblDetail" destination="sxp-bE-vFe" id="fDW-ef-P1A"/>
+                <outlet property="lblStarCount" destination="2cj-OK-De2" id="SxO-3B-fd0"/>
                 <outlet property="lblViewCount" destination="acx-Nz-lzn" id="tgq-7N-Hx3"/>
                 <outlet property="productImageView" destination="4TU-tu-Q62" id="p9c-ML-CfP"/>
             </connections>
@@ -132,6 +158,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="diary_favoriate_no" width="25" height="25"/>
         <image name="icon_view" width="16" height="11"/>
     </resources>
 </document>

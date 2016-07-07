@@ -18,6 +18,7 @@ CGFloat kDiarySetCellHeight;
 @property (weak, nonatomic) IBOutlet UIButton *btnPhase;
 @property (weak, nonatomic) IBOutlet UIImageView *productImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblViewCount;
+@property (weak, nonatomic) IBOutlet UILabel *lblStarCount;
 @property (weak, nonatomic) IBOutlet UILabel *lblCell;
 @property (weak, nonatomic) IBOutlet UILabel *lblDetail;
 
@@ -58,6 +59,7 @@ CGFloat kDiarySetCellHeight;
     self.lblCell.text = diarySet.title;
     self.lblDetail.text = [DiaryBusiness diarySetInfo:diarySet];
     self.lblViewCount.text = [diarySet.view_count humCountString];
+    self.lblStarCount.text = diarySet.favorite_count ? [diarySet.favorite_count humCountString] : @"0";
     [self.btnPhase setNormTitle:[NSString stringWithFormat:@"%@阶段", diarySet.latest_section_label ? diarySet.latest_section_label : @"准备"]];
     [self.btnPhase setBgColor:[DiaryBusiness colorForPhase:diarySet]];
 }
