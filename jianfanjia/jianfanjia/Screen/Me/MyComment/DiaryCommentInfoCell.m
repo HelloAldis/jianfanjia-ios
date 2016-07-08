@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDiarySetTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblDiaryContent;
 @property (weak, nonatomic) IBOutlet UILabel *lblToComment;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toCommentTopConst;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *toCommentBottomConst;
+@property (weak, nonatomic) IBOutlet UIView *sperateLine;
 
 @property (strong, nonatomic) UserNotification *notification;
 
@@ -76,9 +79,14 @@
         NSString *toComment = [NSString stringWithFormat:@"%@ ：%@", userName, self.notification.toComment.content];
         
         self.lblToComment.attributedText = [toComment attrSubStr:userName font:nil color:kThemeColor];
-        
+        self.toCommentTopConst.constant = 8;
+        self.toCommentBottomConst.constant = 8;
+        self.sperateLine.hidden = NO;
     } else {
         self.lblToComment.attributedText = nil;
+        self.toCommentTopConst.constant = 0;
+        self.toCommentBottomConst.constant = 0;
+        self.sperateLine.hidden = YES;
     }
 }
 
