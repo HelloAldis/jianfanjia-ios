@@ -8,7 +8,11 @@
 
 #import "BaseViewController.h"
 
+@class DiarySetDetailViewContainerController;
+
 @interface DiarySetDetailViewController : BaseViewController<UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
+
+@property (nonatomic, weak) DiarySetDetailViewContainerController *containerController;
 
 - (instancetype)initWithDiarySet:(DiarySet *)diarySet;
 

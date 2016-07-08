@@ -50,6 +50,7 @@
 #import "DecDiaryTimelineViewController.h"
 #import "DiarySetListViewController.h"
 #import "DiarySetDetailViewController.h"
+#import "DiarySetDetailViewContainerController.h"
 
 @interface ViewControllerContainer ()
 
@@ -434,13 +435,13 @@ static ViewControllerContainer *container;
     }
     
     for (UIViewController *v in nav.viewControllers) {
-        if ([v isKindOfClass:[DiarySetDetailViewController class]]) {
+        if ([v isKindOfClass:[DiarySetDetailViewContainerController class]]) {
             [nav popToViewController:v animated:YES];
             return;
         }
     }
     
-    DiarySetDetailViewController *v = [[DiarySetDetailViewController alloc] initWithDiarySet:diarySet];
+    DiarySetDetailViewContainerController *v = [DiarySetDetailViewContainerController sideMenuWithDiarySet:diarySet];
     [container.navigation pushViewController:v animated:YES];
 }
 

@@ -99,13 +99,15 @@
 - (void)krs_UpdateFakeNavBar {
     if (self.krs_FakeNavigationBar) {
         UINavigationBar *bar = self.krs_FakeNavigationBar;
-        bar.titleTextAttributes = self.navigationController.navigationBar.titleTextAttributes;
-        bar.barStyle = self.navigationController.navigationBar.barStyle;
-        bar.translucent = self.navigationController.navigationBar.translucent;
-        bar.barTintColor = self.navigationController.navigationBar.barTintColor;
-        bar.backgroundColor = self.navigationController.navigationBar.backgroundColor;
-        [bar setBackgroundImage:[self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault] forBarMetrics:UIBarMetricsDefault];
-        bar.shadowImage = self.navigationController.navigationBar.shadowImage;
+        UINavigationController *nav = self.parentViewController ? self.parentViewController.navigationController : self.navigationController;
+        
+        bar.titleTextAttributes = nav.navigationBar.titleTextAttributes;
+        bar.barStyle = nav.navigationBar.barStyle;
+        bar.translucent = nav.navigationBar.translucent;
+        bar.barTintColor = nav.navigationBar.barTintColor;
+        bar.backgroundColor = nav.navigationBar.backgroundColor;
+        [bar setBackgroundImage:[nav.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault] forBarMetrics:UIBarMetricsDefault];
+        bar.shadowImage = nav.navigationBar.shadowImage;
     }
 }
 

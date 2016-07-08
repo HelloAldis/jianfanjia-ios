@@ -254,6 +254,7 @@
 		6865A3521D2E08FE00B3CB26 /* AlbumBrowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A3501D2E08FE00B3CB26 /* AlbumBrowerViewController.xib */; };
 		6865A3611D2E5B0700B3CB26 /* FavoriteDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A35E1D2E5B0700B3CB26 /* FavoriteDiarySet.m */; };
 		6865A3621D2E5B0700B3CB26 /* UnfavoriteDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3601D2E5B0700B3CB26 /* UnfavoriteDiarySet.m */; };
+		6865A3651D2FA43F00B3CB26 /* DiarySetDetailViewContainerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3641D2FA43F00B3CB26 /* DiarySetDetailViewContainerController.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1008,6 +1009,8 @@
 		6865A35E1D2E5B0700B3CB26 /* FavoriteDiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteDiarySet.m; sourceTree = "<group>"; };
 		6865A35F1D2E5B0700B3CB26 /* UnfavoriteDiarySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnfavoriteDiarySet.h; sourceTree = "<group>"; };
 		6865A3601D2E5B0700B3CB26 /* UnfavoriteDiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnfavoriteDiarySet.m; sourceTree = "<group>"; };
+		6865A3631D2FA43F00B3CB26 /* DiarySetDetailViewContainerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetDetailViewContainerController.h; sourceTree = "<group>"; };
+		6865A3641D2FA43F00B3CB26 /* DiarySetDetailViewContainerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetDetailViewContainerController.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -2451,6 +2454,8 @@
 		68EE3DE51D1282AF00F5EF83 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				6865A3631D2FA43F00B3CB26 /* DiarySetDetailViewContainerController.h */,
+				6865A3641D2FA43F00B3CB26 /* DiarySetDetailViewContainerController.m */,
 				68EE3DE91D1282AF00F5EF83 /* DiarySetDetailViewController.h */,
 				68EE3DEA1D1282AF00F5EF83 /* DiarySetDetailViewController.m */,
 				68EE3DEB1D1282AF00F5EF83 /* DiarySetDetailViewController.xib */,
@@ -3966,6 +3971,7 @@
 				68EE3E911D18DB0600F5EF83 /* DiaryMessageCell.m in Sources */,
 				68123C531C4C8B99008FC9AB /* DateAlertViewController.m in Sources */,
 				68342DEF1BFC06CB0000EBBE /* OrderDesignder.m in Sources */,
+				6865A3651D2FA43F00B3CB26 /* DiarySetDetailViewContainerController.m in Sources */,
 				680C40E21CC4BE84008C4BC0 /* APIManager.m in Sources */,
 				6EE34D511C0BE65B00C6957E /* UploadImage.m in Sources */,
 				68123B5C1C47BBBD008FC9AB /* DropdownMenuView.m in Sources */,

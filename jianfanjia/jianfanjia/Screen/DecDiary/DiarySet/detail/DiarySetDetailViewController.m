@@ -13,6 +13,7 @@
 #import "AddDiarySectionView.h"
 #import "ViewControllerContainer.h"
 #import "WebViewController.h"
+#import "DiarySetDetailViewContainerController.h"
 
 static NSString *DiarySetAvtarInfoCellIdentifier = @"DiarySetAvtarInfoCell";
 static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
@@ -59,6 +60,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     [super viewWillAppear:animated];
     if (!self.wasFirstLoad) {
         self.wasFirstLoad = YES;
+        [self initTransparentNavBar:UIBarStyleBlack];
         [self refresh:YES];
     } else {
         [self refresh:NO];
@@ -68,7 +70,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftWhiteBackInNav];
-    [self initTransparentNavBar:UIBarStyleBlack];
     
     self.favoriateView = [[UIView alloc] initWithFrame:CGRectZero];
     self.favoriateImgView = [[UIImageView alloc] initWithImage:[self unfavoriateImage]];
@@ -360,6 +361,15 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
             }];
         }];
     }];
+}
+
+#pragma mark - override
+- (void)initTransparentNavBar:(UIBarStyle)barStyle {
+    self.containerController.navigationController.navigationBar.translucent = YES;
+    [self.containerController.navigationController.navigationBar setBarStyle:barStyle];
+    self.containerController.navigationController.navigationBar.shadowImage = [UIImage new];
+    [self.containerController.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [self krs_UpdateFakeNavBar];
 }
 
 @end

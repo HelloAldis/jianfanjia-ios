@@ -23,5 +23,6 @@
 #import "GeTuiSDK.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "Growing.h"
+#import "LGSideMenuController.h"
 
 #endif
