@@ -19,5 +19,6 @@
 @property (nonatomic, strong) Supervisor *supervisor;
 @property (nonatomic, strong) Plan *plan;
 @property (nonatomic, strong) Diary *diary;
+@property (nonatomic, strong) Comment *toComment;
 
 @end

@@ -33,6 +33,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
 @property (strong, nonatomic) DiaryDetailDataManager *dataManager;
 @property (strong, nonatomic) Diary *diary;
 @property (strong, nonatomic) User *curToUser;
+@property (strong, nonatomic) NSString *curToCommentId;
 @property (assign, nonatomic) BOOL showComment;
 @property (assign, nonatomic) BOOL wasFirstLoad;
 @property (assign, nonatomic) CGSize diarySize;
@@ -249,7 +250,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
             if ([DiaryBusiness isOwnComment:comment]) {
                 [self updateAuthorIdToUserId];
             } else {
-                [self updateToUserId:comment.user._id name:comment.user.username];
+                [self updateToUserId:comment.user._id name:comment.user.username toCommentId:comment._id];
             }
             [self.tvMessage becomeFirstResponder];
         }
@@ -356,6 +357,9 @@ static NSString *kDeafultTVHolder = @"添加评论";
     request.topicid = self.diary._id;
     request.topictype = kTopicTypeDiary;
     request.to_userid = self.curToUser._id;
+    if (self.curToCommentId.length > 0) {
+        request.to_commentid = self.curToCommentId;
+    }
     
     if (![self.tvMessage.placeholder isEqualToString:kDeafultTVHolder]) {
         request.content = [NSString stringWithFormat:@"%@%@", self.tvMessage.placeholder, self.tvMessage.text];
@@ -381,12 +385,13 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
 #pragma mark - other
 - (void)updateAuthorIdToUserId {
-    [self updateToUserId:self.diary.authorid name:@""];
+    [self updateToUserId:self.diary.authorid name:@"" toCommentId:nil];
 }
 
-- (void)updateToUserId:(NSString *)toId name:(NSString *)username {
+- (void)updateToUserId:(NSString *)toId name:(NSString *)username toCommentId:(NSString *)toCommentId {
     self.curToUser._id = toId;
     self.curToUser.username = username;
+    self.curToCommentId = toCommentId;
 }
 
 #pragma mark - cal

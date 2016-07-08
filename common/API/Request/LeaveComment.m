@@ -17,6 +17,7 @@
 @dynamic content;
 @dynamic to_designerid;
 @dynamic to_userid;
+@dynamic to_commentid;
 
 - (void)failure {
     [HUDUtil showErrText:[DataManager shared].errMsg];

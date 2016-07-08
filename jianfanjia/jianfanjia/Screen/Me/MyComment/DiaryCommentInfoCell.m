@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *diaryImgView;
 @property (weak, nonatomic) IBOutlet UILabel *lblDiarySetTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblDiaryContent;
+@property (weak, nonatomic) IBOutlet UILabel *lblToComment;
 
 @property (strong, nonatomic) UserNotification *notification;
 
@@ -61,7 +62,7 @@
     if (self.notification.diary.images.count > 0) {
         LeafImage *img = [[LeafImage alloc] initWith:self.notification.diary.images[0]];
         [self.diaryImgView setImageWithId:img.imageid withWidth:self.diaryImgView.frame.size.width];
-        self.imgLeftCons.constant = 14.0;
+        self.imgLeftCons.constant = 12.0;
     } else {
         self.imgLeftCons.constant = - CGRectGetWidth(self.diaryImgView.frame);
     }
@@ -69,6 +70,16 @@
     self.lblDiarySetTitle.text = self.notification.diary.diarySet.title;
     self.lblDiaryContent.text = [NSString stringWithFormat:@"%@\n%@", [DiaryBusiness diarySetInfo:self.notification.diary.diarySet], self.notification.diary.content];;
     [self.lblDiaryContent setRowSpace:5];
+    
+    if (self.notification.toComment.content.length > 0) {
+        NSString *userName = [GVUserDefaults standardUserDefaults].username;
+        NSString *toComment = [NSString stringWithFormat:@"%@ ：%@", userName, self.notification.toComment.content];
+        
+        self.lblToComment.attributedText = [toComment attrSubStr:userName font:nil color:kThemeColor];
+        
+    } else {
+        self.lblToComment.attributedText = nil;
+    }
 }
 
 #pragma mark - user action

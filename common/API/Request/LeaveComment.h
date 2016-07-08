@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSString *content;
 @property (strong, nonatomic) NSString *to_designerid;
 @property (strong, nonatomic) NSString *to_userid;
+@property (strong, nonatomic) NSString *to_commentid;
 
 @end
