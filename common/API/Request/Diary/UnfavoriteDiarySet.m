@@ -10,6 +10,6 @@
 
 @implementation UnfavoriteDiarySet
 
-@dynamic _id;
+@dynamic diarySetid;
 
 @end

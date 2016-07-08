@@ -10,6 +10,6 @@
 
 @implementation FavoriteDiarySet
 
-@dynamic _id;
+@dynamic diarySetid;
 
 @end

@@ -80,20 +80,20 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     
     self.favoriateImgView.tintColor = [UIColor whiteColor];
     self.lblFavoriateCount.textColor = [UIColor whiteColor];
-    self.lblFavoriateCount.text = [self.diarySet.favorite_count humCountString];
-    if ([self.diarySet.is_my_favorite boolValue]) {
-        [self.favoriteItem.customView setImage:[self favoriateImage]];
-    } else {
-        [self.favoriteItem.customView setImage:[self unfavoriateImage]];
-    }
-
+    [self updateFavoriateCount];
+    
     self.favoriateView.frame = CGRectZero;
     [self layoutFavoriateView];
     [self.favoriateView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickFavoriteButton)]];
     self.favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:self.favoriateView];
     self.shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
     self.shareItem.tintColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItems = @[self.shareItem, self.favoriteItem];
+    
+    if ([DiaryBusiness isOwnDiarySet:self.diarySet]) {
+        self.navigationItem.rightBarButtonItems = @[self.shareItem];
+    } else {
+        self.navigationItem.rightBarButtonItems = @[self.shareItem, self.favoriteItem];
+    }
 }
 
 - (void)initUI {
@@ -200,6 +200,9 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         [self.diarySet merge:self.dataManager.diarySet];
         self.diarySet.author = self.dataManager.diarySet.author;
         self.diarySet.view_count = self.dataManager.diarySet.view_count;
+        self.diarySet.favorite_count = self.dataManager.diarySet.favorite_count;
+        [self updateFavoriateCount];
+        
         [self.tableView reloadData];
     } failure:^{
         
@@ -231,7 +234,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
                 [self setFavoriate:YES withAnimation:YES];
                 
                 FavoriteDiarySet *request = [[FavoriteDiarySet alloc] init];
-                request._id = self.diarySet._id;
+                request.diarySetid = self.diarySet._id;
                 
                 [API favoriteDiarySet:request success:^{
                     self.diarySet.is_my_favorite = @1;
@@ -250,7 +253,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
                 [self setFavoriate:NO withAnimation:YES];
                 
                 UnfavoriteDiarySet *request = [[UnfavoriteDiarySet alloc] init];
-                request._id = self.diarySet._id;
+                request.diarySetid = self.diarySet._id;
                 
                 [API unfavoriteDiarySet:request success:^{
                     self.diarySet.is_my_favorite = @0;
@@ -268,6 +271,15 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
             }
         }
     }];
+}
+
+- (void)updateFavoriateCount {
+    if ([self.diarySet.is_my_favorite boolValue]) {
+        [self.favoriateImgView setImage:[self favoriateImage]];
+    } else {
+        [self.favoriateImgView setImage:[self unfavoriateImage]];
+    }
+    self.lblFavoriateCount.text = [self.diarySet.favorite_count integerValue] > 0 ? [self.diarySet.favorite_count humCountString] : @"";
 }
 
 - (void)layoutFavoriateView {
