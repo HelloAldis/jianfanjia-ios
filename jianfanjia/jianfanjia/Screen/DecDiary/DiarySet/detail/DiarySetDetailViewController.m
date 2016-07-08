@@ -73,11 +73,13 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     self.favoriateView = [[UIView alloc] initWithFrame:CGRectZero];
     self.favoriateImgView = [[UIImageView alloc] initWithImage:[self unfavoriateImage]];
     self.lblFavoriateCount = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.lblFavoriateCount.font = [UIFont systemFontOfSize:14];
+    
     [self.favoriateView addSubview:self.favoriateImgView];
     [self.favoriateView addSubview:self.lblFavoriateCount];
-    self.favoriateImgView.tintColor = [UIColor whiteColor];
-    self.lblFavoriateCount.tintColor = [UIColor whiteColor];
     
+    self.favoriateImgView.tintColor = [UIColor whiteColor];
+    self.lblFavoriateCount.textColor = [UIColor whiteColor];
     self.lblFavoriateCount.text = [self.diarySet.favorite_count humCountString];
     if ([self.diarySet.is_my_favorite boolValue]) {
         [self.favoriteItem.customView setImage:[self favoriateImage]];
@@ -85,14 +87,9 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         [self.favoriteItem.customView setImage:[self unfavoriateImage]];
     }
 
+    self.favoriateView.frame = CGRectZero;
     [self layoutFavoriateView];
-    
-    @weakify(self);
-    [self.favoriateView addTapBounceAnimation:^{
-        @strongify(self);
-        [self onClickFavoriteButton];
-    }];
-    
+    [self.favoriateView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onClickFavoriteButton)]];
     self.favoriteItem = [[UIBarButtonItem alloc] initWithCustomView:self.favoriateView];
     self.shareItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
     self.shareItem.tintColor = [UIColor whiteColor];
@@ -179,13 +176,13 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         self.navigationItem.leftBarButtonItem.tintColor = kThemeTextColor;
         self.shareItem.tintColor = kThemeTextColor;
         self.favoriateImgView.tintColor = kThemeTextColor;
-        self.lblFavoriateCount.tintColor = kThemeTextColor;
+        self.lblFavoriateCount.textColor = kThemeTextColor;
     } else {
         self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:0];
         self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
         self.shareItem.tintColor = [UIColor whiteColor];
         self.favoriateImgView.tintColor = [UIColor whiteColor];
-        self.lblFavoriateCount.tintColor = [UIColor whiteColor];
+        self.lblFavoriateCount.textColor = [UIColor whiteColor];
     }
 }
 
@@ -238,7 +235,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
                 
                 [API favoriteDiarySet:request success:^{
                     self.diarySet.is_my_favorite = @1;
-                    [self.favoriteItem.customView setImage:[self favoriateImage]];
                     [HUDUtil showSuccessText:@"收藏成功"];
                 } failure:^{
                     [HUDUtil showErrText:@"收藏失败"];
@@ -258,7 +254,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
                 
                 [API unfavoriteDiarySet:request success:^{
                     self.diarySet.is_my_favorite = @0;
-                    [self.favoriteItem.customView setImage:[self unfavoriateImage]];
                     [HUDUtil showSuccessText:@"取消收藏成功"];
                 } failure:^{
                     [HUDUtil showErrText:@"取消收藏失败"];
@@ -276,11 +271,19 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 - (void)layoutFavoriateView {
-    CGRect rect = [self.lblFavoriateCount textRectForBounds:CGRectMake(0, 0, NSIntegerMax, 30) limitedToNumberOfLines:1];
+    const CGFloat viewHeight = 30;
+    const CGFloat imgHeight = 21.5;
+    const CGFloat lblHeight = 20;
     
-    self.favoriateImgView.frame = CGRectMake(0, 0, [self favoriateImage].size.width, [self favoriateImage].size.height);
-    self.lblFavoriateCount.frame = CGRectMake(12 + CGRectGetMaxX(self.favoriateImgView.frame), (CGRectGetHeight(self.favoriateImgView.frame) - rect.size.height) / 2, rect.size.width, rect.size.height);
-    self.favoriateView.frame = CGRectMake(0, 0, CGRectGetMaxX(self.lblFavoriateCount.frame), CGRectGetHeight(self.favoriateImgView.frame));
+    CGRect rect = [self.lblFavoriateCount textRectForBounds:CGRectMake(0, 0, NSIntegerMax, lblHeight) limitedToNumberOfLines:1];
+    
+    self.favoriateImgView.frame = CGRectMake(0, (viewHeight - imgHeight) / 2 , imgHeight, imgHeight);
+    self.lblFavoriateCount.frame = CGRectMake((rect.size.width > 0 ? 8 : 0) + CGRectGetMaxX(self.favoriateImgView.frame), (viewHeight - lblHeight) / 2, rect.size.width, lblHeight);
+    
+    CGRect frame = self.favoriateView.frame;
+    frame.size.width = CGRectGetMaxX(self.lblFavoriateCount.frame);
+    frame.size.height = viewHeight;
+    self.favoriateView.frame = frame;
 }
 
 - (UIImage *)favoriateImage {
