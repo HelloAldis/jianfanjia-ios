@@ -26,6 +26,7 @@
                                alwaysVisibleOptions:0];
     
     UIViewController *leftViewController = [UIViewController new];
+    leftViewController.view.backgroundColor = kTextColor;
     [sideMenuController.leftView addSubview:leftViewController.view];
     return sideMenuController;
 }
