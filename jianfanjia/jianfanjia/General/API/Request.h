@@ -78,5 +78,6 @@
 #import "AddDiary.h"
 #import "FavoriteDiarySet.h"
 #import "UnfavoriteDiarySet.h"
+#import "GetTopDiarySet.h"
 
 #endif

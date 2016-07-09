@@ -286,4 +286,8 @@
     [API POST:@"favorite/diaryset/delete" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)getTopDiarySet:(GetTopDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"top_diary_set" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end

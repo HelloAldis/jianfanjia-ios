@@ -259,6 +259,7 @@
 		6865A3711D309D4900B3CB26 /* DiarySetLeftMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A36B1D309D4900B3CB26 /* DiarySetLeftMenuCell.xib */; };
 		6865A3721D309D4900B3CB26 /* DiarySetLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A36D1D309D4900B3CB26 /* DiarySetLeftMenuViewController.m */; };
 		6865A3731D309D4900B3CB26 /* DiarySetLeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A36E1D309D4900B3CB26 /* DiarySetLeftMenuViewController.xib */; };
+		6865A3761D30E61500B3CB26 /* GetTopDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3751D30E61500B3CB26 /* GetTopDiarySet.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1021,6 +1022,8 @@
 		6865A36C1D309D4900B3CB26 /* DiarySetLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiarySetLeftMenuViewController.h; sourceTree = "<group>"; };
 		6865A36D1D309D4900B3CB26 /* DiarySetLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiarySetLeftMenuViewController.m; sourceTree = "<group>"; };
 		6865A36E1D309D4900B3CB26 /* DiarySetLeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiarySetLeftMenuViewController.xib; sourceTree = "<group>"; };
+		6865A3741D30E61500B3CB26 /* GetTopDiarySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTopDiarySet.h; sourceTree = "<group>"; };
+		6865A3751D30E61500B3CB26 /* GetTopDiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTopDiarySet.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -2523,6 +2526,8 @@
 		68EE3E561D13F05200F5EF83 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				6865A3741D30E61500B3CB26 /* GetTopDiarySet.h */,
+				6865A3751D30E61500B3CB26 /* GetTopDiarySet.m */,
 				6865A35D1D2E5B0700B3CB26 /* FavoriteDiarySet.h */,
 				6865A35E1D2E5B0700B3CB26 /* FavoriteDiarySet.m */,
 				6865A35F1D2E5B0700B3CB26 /* UnfavoriteDiarySet.h */,
@@ -3879,6 +3884,7 @@
 				68EE3E8F1D18DB0600F5EF83 /* DiaryDetailViewController.m in Sources */,
 				6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */,
 				68123C581C4C8B99008FC9AB /* ImageBrowerViewController.m in Sources */,
+				6865A3761D30E61500B3CB26 /* GetTopDiarySet.m in Sources */,
 				68EE3E111D12A23C00F5EF83 /* DiarySetAvtarInfoCell.m in Sources */,
 				684462991C0D68680098F3CB /* DeleteImageFromProcess.m in Sources */,
 				683626951C05545E005F2C30 /* StartDecorationProcess.m in Sources */,

@@ -80,5 +80,6 @@
 + (void)getDiaryUpdation:(GetDiaryUpdation *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 + (void)favoriteDiarySet:(FavoriteDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 + (void)unfavoriteDiarySet:(UnfavoriteDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
++ (void)getTopDiarySet:(GetTopDiarySet *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error;
 
 @end
