@@ -83,10 +83,13 @@ static NSString* cellId = @"DiarySetLeftMenuCell";
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *key = self.keys[indexPath.row];
     NSNumber *value = self.values[indexPath.row];
     
     if (value.integerValue > 0) {
-        
+        if (self.didChoose) {
+            self.didChoose(key);
+        }
     }
 }
 

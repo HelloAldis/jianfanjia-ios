@@ -14,4 +14,8 @@
 
 - (instancetype)initWithDiarySet:(DiarySet *)diarySet;
 
+- (NSString *)getMenuCurPhase;
+- (NSArray *)getMenuNumberOfPhases;
+- (void)didChooseMenuPhase:(NSString *)phase;
+
 @end

@@ -372,4 +372,17 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 }
 
+#pragma mark - data provider
+- (NSString *)getMenuCurPhase {
+    return nil;
+}
+
+- (NSArray *)getMenuNumberOfPhases {
+    return nil;
+}
+
+- (void)didChooseMenuPhase:(NSString *)phase {
+    
+}
+
 @end

@@ -14,6 +14,7 @@
 @interface DiarySetDetailViewContainerController ()
 
 @property (nonatomic, strong) DiarySetLeftMenuViewController *leftViewController;
+@property (nonatomic, weak) DiarySetDetailViewController *contentController;
 
 @end
 
@@ -25,6 +26,10 @@
     [sideMenuController setLeftViewEnabledWithWidth:kScreenWidth * (4.8 / 10.0)
                                   presentationStyle:LGSideMenuPresentationStyleSlideBelow
                                alwaysVisibleOptions:0];
+    
+    sideMenuController.leftViewController = [[DiarySetLeftMenuViewController alloc] init];
+    sideMenuController.leftViewController.width = sideMenuController.leftViewWidth;
+    sideMenuController.contentController = viewController;
     
     return sideMenuController;
 }
@@ -41,14 +46,19 @@
 }
 
 - (void)onTapMenu {
-    self.leftViewController = [[DiarySetLeftMenuViewController alloc] init];
-    _leftViewController.width = self.leftViewWidth;
+    _leftViewController.curKey = [_contentController getMenuCurPhase];
+    _leftViewController.values = [_contentController getMenuNumberOfPhases];
     [_leftViewController.collectionView reloadData];
-    [self.leftView addSubview:_leftViewController.view];
     
-    [self showLeftViewAnimated:YES completionHandler:^{
-        
-    }];
+    @weakify(self);
+    _leftViewController.didChoose = ^(NSString *phase) {
+        @strongify(self);
+        [self.contentController didChooseMenuPhase:phase];
+    };
+    
+    [_leftViewController.view removeFromSuperview];
+    [self.leftView addSubview:_leftViewController.view];
+    [self showLeftViewAnimated:YES completionHandler:nil];
 }
 
 @end

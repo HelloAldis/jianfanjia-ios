@@ -9,11 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
+typedef void (^DiarySetLeftMenuDidChoose)(NSString *phase);
+
 @interface DiarySetLeftMenuViewController : BaseViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (assign, nonatomic) CGFloat width;
 @property (strong, nonatomic) NSString *curKey;
 @property (strong, nonatomic) NSArray *values;
+@property (copy, nonatomic) DiarySetLeftMenuDidChoose didChoose;
 
 @end
