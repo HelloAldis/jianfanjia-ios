@@ -19,9 +19,7 @@
 + (DiarySetDetailViewContainerController *)sideMenuWithDiarySet:(DiarySet *)diarySet {
     DiarySetDetailViewController *viewController = [[DiarySetDetailViewController alloc] initWithDiarySet:diarySet];
     DiarySetDetailViewContainerController *sideMenuController = [[DiarySetDetailViewContainerController alloc] initWithRootViewController:viewController];
-    viewController.containerController = sideMenuController;
-    
-    [sideMenuController setLeftViewEnabledWithWidth:kScreenWidth * (4.5 / 10.0)
+    [sideMenuController setLeftViewEnabledWithWidth:kScreenWidth * (4.8 / 10.0)
                                   presentationStyle:LGSideMenuPresentationStyleSlideBelow
                                alwaysVisibleOptions:0];
     
@@ -40,10 +38,6 @@
     [menuIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapMenu)]];
     menuIcon.frame = CGRectMake(20, kScreenHeight - 60, 40, 40);
     [self.rootViewController.view addSubview:menuIcon];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
 }
 
 - (void)onTapMenu {

@@ -365,11 +365,11 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 #pragma mark - override
 - (void)initTransparentNavBar:(UIBarStyle)barStyle {
-    self.containerController.navigationController.navigationBar.translucent = YES;
-    [self.containerController.navigationController.navigationBar setBarStyle:barStyle];
-    self.containerController.navigationController.navigationBar.shadowImage = [UIImage new];
-    [self.containerController.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [self krs_UpdateFakeNavBar];
+    UINavigationBar *navBar = self.krs_FakeNavigationBar;
+    navBar.translucent = YES;
+    [navBar setBarStyle:barStyle];
+    navBar.shadowImage = [UIImage new];
+    [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 }
 
 @end
