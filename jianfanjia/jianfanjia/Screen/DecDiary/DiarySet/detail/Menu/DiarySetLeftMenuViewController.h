@@ -11,7 +11,9 @@
 
 @interface DiarySetLeftMenuViewController : BaseViewController <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
-@property (assign, nonatomic) CGFloat width;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (assign, nonatomic) CGFloat width;
+@property (strong, nonatomic) NSString *curKey;
+@property (strong, nonatomic) NSArray *values;
 
 @end

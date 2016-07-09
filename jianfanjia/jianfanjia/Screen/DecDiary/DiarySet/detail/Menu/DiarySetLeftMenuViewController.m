@@ -18,7 +18,6 @@ static NSString* cellId = @"DiarySetLeftMenuCell";
 @interface DiarySetLeftMenuViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionFlowLayout;
 @property (strong, nonatomic) NSArray *keys;
-@property (strong, nonatomic) NSArray *values;
 
 @end
 
@@ -72,6 +71,7 @@ static NSString* cellId = @"DiarySetLeftMenuCell";
     DiarySetLeftMenuCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     cell.lblPhase.text = [NSString stringWithFormat:@"%@阶段%@", key, valueStr];
     cell.lblPhase.textColor = value.integerValue > 0 ? kThemeTextColor : kUntriggeredColor;
+    cell.lblPhase.textColor = [self.curKey isEqualToString:key] ? kThemeColor : cell.lblPhase.textColor;
     cell.circleImgView.tintColor = value.integerValue > 0 ? kThemeTextColor : kUntriggeredColor;
     cell.lineImgView.hidden = indexPath.row == self.keys.count - 1;
     
