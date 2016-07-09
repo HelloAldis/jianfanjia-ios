@@ -373,15 +373,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 #pragma mark - data provider
-- (NSString *)getMenuCurPhase {
-    if (self.dataManager.diarys.count == 0) {
-        return nil;
-    }
-    
-    Diary *diary = self.dataManager.diarys.firstObject;
-    return diary.section_label;
-}
-
 - (NSArray *)getMenuNumberOfPhases {
     return self.dataManager.menuNumberOfPhases;
 }
