@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" id="gTV-IL-0wX" customClass="DiarySetLeftMenuCell">
+            <rect key="frame" x="0.0" y="0.0" width="339" height="141"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="339" height="141"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_diary_set_phase_circle" translatesAutoresizingMaskIntoConstraints="NO" id="wKC-sW-WfG">
+                        <rect key="frame" x="10" y="1" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="wKC-sW-WfG" secondAttribute="height" multiplier="1:1" id="8NN-sA-SEX"/>
+                            <constraint firstAttribute="width" constant="14" id="jmP-mT-lDl"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_diary_set_phase_line" translatesAutoresizingMaskIntoConstraints="NO" id="u0V-Vh-EBO">
+                        <rect key="frame" x="17" y="17" width="1" height="122"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="u0V-Vh-EBO" secondAttribute="height" multiplier="1:1" id="YuC-39-PXt"/>
+                            <constraint firstAttribute="width" constant="1" id="oIo-6P-pJk"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="YuC-39-PXt"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="入住阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pm-jU-h9W">
+                        <rect key="frame" x="34" y="-1" width="300" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="u0V-Vh-EBO" firstAttribute="top" secondItem="wKC-sW-WfG" secondAttribute="bottom" constant="2" id="1Dv-YY-HEz"/>
+                <constraint firstAttribute="trailing" secondItem="3Pm-jU-h9W" secondAttribute="trailing" constant="5" id="HJV-TK-Ckn"/>
+                <constraint firstItem="3Pm-jU-h9W" firstAttribute="leading" secondItem="wKC-sW-WfG" secondAttribute="trailing" constant="10" id="Jvi-DV-b3r"/>
+                <constraint firstAttribute="bottom" secondItem="u0V-Vh-EBO" secondAttribute="bottom" constant="2" id="JyO-GQ-pOs"/>
+                <constraint firstItem="wKC-sW-WfG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="VIC-9d-XKB"/>
+                <constraint firstItem="u0V-Vh-EBO" firstAttribute="centerX" secondItem="wKC-sW-WfG" secondAttribute="centerX" id="eeY-uG-CZ1"/>
+                <constraint firstItem="3Pm-jU-h9W" firstAttribute="centerY" secondItem="wKC-sW-WfG" secondAttribute="centerY" id="pUo-nR-nGj"/>
+                <constraint firstItem="wKC-sW-WfG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="wMT-Dz-vhI"/>
+            </constraints>
+            <size key="customSize" width="339" height="141"/>
+            <connections>
+                <outlet property="circleImgView" destination="wKC-sW-WfG" id="auR-3b-Sha"/>
+                <outlet property="lblPhase" destination="3Pm-jU-h9W" id="Lk4-N9-qI0"/>
+                <outlet property="lineImgView" destination="u0V-Vh-EBO" id="o42-87-5dA"/>
+            </connections>
+            <point key="canvasLocation" x="413.5" y="385.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="icon_diary_set_phase_circle" width="13" height="13"/>
+        <image name="icon_diary_set_phase_line" width="1" height="1"/>
+    </resources>
+</document>

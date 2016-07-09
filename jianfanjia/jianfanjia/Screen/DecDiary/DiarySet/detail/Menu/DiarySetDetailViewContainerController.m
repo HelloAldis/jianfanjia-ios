@@ -8,9 +8,12 @@
 
 #import "DiarySetDetailViewContainerController.h"
 #import "DiarySetDetailViewController.h"
+#import "DiarySetLeftMenuViewController.h"
 #import "ViewControllerContainer.h"
 
 @interface DiarySetDetailViewContainerController ()
+
+@property (nonatomic, strong) DiarySetLeftMenuViewController *leftViewController;
 
 @end
 
@@ -23,9 +26,6 @@
                                   presentationStyle:LGSideMenuPresentationStyleSlideBelow
                                alwaysVisibleOptions:0];
     
-    UIViewController *leftViewController = [UIViewController new];
-    leftViewController.view.backgroundColor = kTextColor;
-    [sideMenuController.leftView addSubview:leftViewController.view];
     return sideMenuController;
 }
 
@@ -33,14 +33,19 @@
     [super viewDidLoad];
     self.krs_EnableFakeNavigationBar = NO;
 
-    UIImageView *menuIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_publish_requirement"]];
+    UIImageView *menuIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_diary_set_navigation"]];
     menuIcon.userInteractionEnabled = YES;
     [menuIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapMenu)]];
-    menuIcon.frame = CGRectMake(20, kScreenHeight - 60, 40, 40);
+    menuIcon.frame = CGRectMake(20, kScreenHeight - 75, 45, 45);
     [self.rootViewController.view addSubview:menuIcon];
 }
 
 - (void)onTapMenu {
+    self.leftViewController = [[DiarySetLeftMenuViewController alloc] init];
+    _leftViewController.width = self.leftViewWidth;
+    [_leftViewController.collectionView reloadData];
+    [self.leftView addSubview:_leftViewController.view];
+    
     [self showLeftViewAnimated:YES completionHandler:^{
         
     }];

@@ -100,8 +100,8 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 - (void)initUI {
     self.dataManager = [[DiarySetDetailDataManager alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
-    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 120, 0);
+    self.tableView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);;
     self.tableView.estimatedRowHeight = 300;
     [self.tableView registerNib:[UINib nibWithNibName:DiarySetAvtarInfoCellIdentifier bundle:nil] forCellReuseIdentifier:DiarySetAvtarInfoCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:DecDiaryStatusCellIdentifier bundle:nil] forCellReuseIdentifier:DecDiaryStatusCellIdentifier];
