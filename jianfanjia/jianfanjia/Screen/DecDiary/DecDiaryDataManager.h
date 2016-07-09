@@ -15,6 +15,7 @@
 
 - (NSInteger)loadLatest;
 - (NSInteger)loadOld;
+- (void)loadTopDiarySets;
 - (NSNumber *)findLatestCreateTimeDiary;
 - (NSNumber *)findOldestCreateTimeDiary;
 - (NSMutableDictionary<NSString *, Diary *> *)findNeedUpdatedDiarys;

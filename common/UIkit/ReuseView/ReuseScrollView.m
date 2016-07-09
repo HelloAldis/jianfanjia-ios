@@ -131,8 +131,13 @@
 - (void)updateCellsForReuse {
     for (ReuseCell *cell in _cells) {
         if (cell.superview) {
-            if (cell.frame.origin.x > self.contentOffset.x + self.frame.size.width * 2||
-                (cell.frame.origin.x + cell.frame.size.width) < self.contentOffset.x - self.frame.size.width) {
+//            if (cell.frame.origin.x > self.contentOffset.x + self.frame.size.width * 2 ||
+//                (cell.frame.origin.x + cell.frame.size.width) < self.contentOffset.x - self.frame.size.width) {
+//                [cell removeFromSuperview];
+//                cell.page = -1;
+//            }
+            
+            if (cell.frame.origin.x > self.contentOffset.x + self.frame.size.width * 4) {
                 [cell removeFromSuperview];
                 cell.page = -1;
             }

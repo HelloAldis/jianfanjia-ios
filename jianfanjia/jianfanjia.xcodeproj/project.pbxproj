@@ -260,6 +260,10 @@
 		6865A3721D309D4900B3CB26 /* DiarySetLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A36D1D309D4900B3CB26 /* DiarySetLeftMenuViewController.m */; };
 		6865A3731D309D4900B3CB26 /* DiarySetLeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A36E1D309D4900B3CB26 /* DiarySetLeftMenuViewController.xib */; };
 		6865A3761D30E61500B3CB26 /* GetTopDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3751D30E61500B3CB26 /* GetTopDiarySet.m */; };
+		6865A37E1D30F36100B3CB26 /* TopDiarySetsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3791D30F36100B3CB26 /* TopDiarySetsCell.m */; };
+		6865A37F1D30F36100B3CB26 /* TopDiarySetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A37A1D30F36100B3CB26 /* TopDiarySetsCell.xib */; };
+		6865A3801D30F36100B3CB26 /* TopDiarySetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A37C1D30F36100B3CB26 /* TopDiarySetView.m */; };
+		6865A3811D30F36100B3CB26 /* TopDiarySetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A37D1D30F36100B3CB26 /* TopDiarySetView.xib */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1024,6 +1028,12 @@
 		6865A36E1D309D4900B3CB26 /* DiarySetLeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiarySetLeftMenuViewController.xib; sourceTree = "<group>"; };
 		6865A3741D30E61500B3CB26 /* GetTopDiarySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetTopDiarySet.h; sourceTree = "<group>"; };
 		6865A3751D30E61500B3CB26 /* GetTopDiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetTopDiarySet.m; sourceTree = "<group>"; };
+		6865A3781D30F36100B3CB26 /* TopDiarySetsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDiarySetsCell.h; sourceTree = "<group>"; };
+		6865A3791D30F36100B3CB26 /* TopDiarySetsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDiarySetsCell.m; sourceTree = "<group>"; };
+		6865A37A1D30F36100B3CB26 /* TopDiarySetsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopDiarySetsCell.xib; sourceTree = "<group>"; };
+		6865A37B1D30F36100B3CB26 /* TopDiarySetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDiarySetView.h; sourceTree = "<group>"; };
+		6865A37C1D30F36100B3CB26 /* TopDiarySetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDiarySetView.m; sourceTree = "<group>"; };
+		6865A37D1D30F36100B3CB26 /* TopDiarySetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopDiarySetView.xib; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -2173,6 +2183,19 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		6865A3771D30F36100B3CB26 /* TopDiarySet */ = {
+			isa = PBXGroup;
+			children = (
+				6865A3781D30F36100B3CB26 /* TopDiarySetsCell.h */,
+				6865A3791D30F36100B3CB26 /* TopDiarySetsCell.m */,
+				6865A37A1D30F36100B3CB26 /* TopDiarySetsCell.xib */,
+				6865A37B1D30F36100B3CB26 /* TopDiarySetView.h */,
+				6865A37C1D30F36100B3CB26 /* TopDiarySetView.m */,
+				6865A37D1D30F36100B3CB26 /* TopDiarySetView.xib */,
+			);
+			path = TopDiarySet;
+			sourceTree = "<group>";
+		};
 		68679A211C8E730F00B380D0 /* MyNotification */ = {
 			isa = PBXGroup;
 			children = (
@@ -2413,6 +2436,7 @@
 		68EE3D861D0FFAAC00F5EF83 /* DecDiary */ = {
 			isa = PBXGroup;
 			children = (
+				6865A3771D30F36100B3CB26 /* TopDiarySet */,
 				68EE3E851D18DB0600F5EF83 /* DiaryDetail */,
 				68EE3E271D12B6D800F5EF83 /* AddDiary */,
 				68EE3DC51D125D3600F5EF83 /* DiarySet */,
@@ -3457,6 +3481,7 @@
 				68EE3E171D12A6ED00F5EF83 /* AddDiarySectionView.xib in Resources */,
 				68123C561C4C8B99008FC9AB /* MessageAlertViewController.xib in Resources */,
 				68EE3E9F1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib in Resources */,
+				6865A37F1D30F36100B3CB26 /* TopDiarySetsCell.xib in Resources */,
 				683FFB451C296288002A1AFE /* BeautifulImageViewController.xib in Resources */,
 				68BA50F41C9FE56B002E5572 /* WebViewWithoutShareController.xib in Resources */,
 				6E06CC131C29466700A08D15 /* FavoriateProductCell.xib in Resources */,
@@ -3497,6 +3522,7 @@
 				68EE3DB11D12447A00F5EF83 /* FieldEditCell.xib in Resources */,
 				6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */,
 				685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */,
+				6865A3811D30F36100B3CB26 /* TopDiarySetView.xib in Resources */,
 				68EE3E3E1D13B40700F5EF83 /* StaticImageCollectionCell.xib in Resources */,
 				68679A3E1C8E730F00B380D0 /* RequirementNotificationCell.xib in Resources */,
 				68E600681CB74AC900C4A8F7 /* WebViewWithActionController.xib in Resources */,
@@ -3870,6 +3896,7 @@
 				683668FC1BFEECC0006A5053 /* Evaluation.m in Sources */,
 				684A37441BFD73DF00F7388C /* MatchDesignerCell.m in Sources */,
 				68C3C2691C75C41200EEEBD8 /* HomePageProductCell.m in Sources */,
+				6865A37E1D30F36100B3CB26 /* TopDiarySetsCell.m in Sources */,
 				684A37421BFD73DF00F7388C /* IntentDesignerSection.m in Sources */,
 				68EE3DEE1D1282AF00F5EF83 /* DiarySetDetailViewController.m in Sources */,
 				68E600721CB7BDC900C4A8F7 /* ReqtUnorderDesigner.m in Sources */,
@@ -4021,6 +4048,7 @@
 				68E6008E1CB7C89E00C4A8F7 /* ElseStatus.m in Sources */,
 				68B10CA01C7804FA005866C1 /* DesignerListDataManager.m in Sources */,
 				683B2A781C10162400822715 /* Schedule.m in Sources */,
+				6865A3801D30F36100B3CB26 /* TopDiarySetView.m in Sources */,
 				68EE3D961D1131E700F5EF83 /* Diary.m in Sources */,
 				68EE3E6F1D13F05300F5EF83 /* SearchDiary.m in Sources */,
 			);

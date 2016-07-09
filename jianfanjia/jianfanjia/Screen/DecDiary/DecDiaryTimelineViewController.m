@@ -8,11 +8,13 @@
 
 #import "DecDiaryTimelineViewController.h"
 #import "DecDiaryStatusCell.h"
+#import "TopDiarySetsCell.h"
 #import "DecDiaryDataManager.h"
 #import "ViewControllerContainer.h"
 #import "AlbumBrowerViewController.h"
 
 static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
+static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
 
 @interface DecDiaryTimelineViewController ()
 
@@ -54,6 +56,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 300;
     [self.tableView registerNib:[UINib nibWithNibName:DecDiaryStatusCellIdentifier bundle:nil] forCellReuseIdentifier:DecDiaryStatusCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:TopDiarySetsCellIdentifier bundle:nil] forCellReuseIdentifier:TopDiarySetsCellIdentifier];
     
     @weakify(self);
     self.tableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
@@ -64,6 +67,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
             [self loadLatestData];
             [self updateDiarysChange];
         }
+        [self loadTopDiarySets];
     }];
     
     self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
@@ -81,9 +85,26 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Diary *diary = self.dataManager.diarys[indexPath.row];
-    DecDiaryStatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
-    [cell initWithDiary:diary diarys:self.dataManager.diarys tableView:self.tableView];
-    return cell;
+    
+    if (diary.topDiarySets) {
+        TopDiarySetsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:TopDiarySetsCellIdentifier forIndexPath:indexPath];
+        [cell initWithDiarySets:diary.topDiarySets];
+        return cell;
+    } else {
+        DecDiaryStatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier forIndexPath:indexPath];
+        [cell initWithDiary:diary diarys:self.dataManager.diarys tableView:self.tableView];
+        return cell;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    Diary *diary = self.dataManager.diarys[indexPath.row];
+    
+    if (diary.topDiarySets) {
+        return kTopDiarySetsCellHeight;
+    } else {
+        return UITableViewAutomaticDimension;
+    }
 }
 
 #pragma mark - api request
@@ -158,6 +179,20 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiaryStatusCell";
     } networkError:^{
         [self.tableView.header endRefreshing];
         [self.tableView.footer endRefreshing];
+    }];
+}
+
+- (void)loadTopDiarySets {
+    GetTopDiarySet *request = [[GetTopDiarySet alloc] init];
+    request.limit = @10;
+    
+    [API getTopDiarySet:request success:^{
+        [self.dataManager loadTopDiarySets];
+        [self.tableView reloadData];
+    } failure:^{
+        
+    } networkError:^{
+        
     }];
 }
 

@@ -11,6 +11,12 @@
 //刷新5分钟之外的数据
 #define kMinRefreshTimeInteval 5 * 60 * 1000
 
+@interface DecDiaryDataManager ()
+
+@property (nonatomic, strong) Diary *topDiary;
+
+@end
+
 @implementation DecDiaryDataManager
 
 - (instancetype)init {
@@ -57,6 +63,26 @@
     return diarys.count;
 }
 
+- (void)loadTopDiarySets {
+    NSArray* arr = [DataManager shared].data;
+    NSMutableArray *diarySets = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    
+    for (NSMutableDictionary *dict in arr) {
+        DiarySet *diarySet = [[DiarySet alloc] initWith:dict];
+        [diarySets addObject:diarySet];
+    }
+    
+    if (!self.topDiary) {
+        self.topDiary = [[Diary alloc] init];
+    }
+    
+    self.topDiary.topDiarySets = diarySets;
+    if (![self.diarys containsObject:self.topDiary]) {
+        self.topDiary.create_at = @([[NSDate date] getLongMilSecond]);
+        [self.diarys addObject:self.topDiary];
+    }
+}
+
 - (NSNumber *)findLatestCreateTimeDiary {
     if (self.diarys.count == 0) {
         return @([[NSDate date] getLongMilSecond]);
@@ -78,7 +104,7 @@
     NSNumber *now = @([[NSDate date] getLongMilSecond]);
     
     [self.diarys enumerateObjectsUsingBlock:^(Diary*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if (now.longLongValue - obj.last_refresh_time.longLongValue > kMinRefreshTimeInteval) {
+        if (!obj.topDiarySets && now.longLongValue - obj.last_refresh_time.longLongValue > kMinRefreshTimeInteval) {
             [dict setObject:obj forKey:obj._id];
         }
     }];
