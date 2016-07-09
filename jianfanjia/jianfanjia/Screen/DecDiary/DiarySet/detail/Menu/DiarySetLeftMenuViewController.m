@@ -10,7 +10,7 @@
 #import "DiarySetLeftMenuCell.h"
 
 static const NSInteger CELL_SPACE = 0;
-static const NSInteger SECTION_LEFT = 10;
+static const NSInteger SECTION_LEFT = 0;
 static const NSInteger COUNT_IN_ROW = 1;
 
 static NSString* cellId = @"DiarySetLeftMenuCell";
@@ -49,7 +49,7 @@ static NSString* cellId = @"DiarySetLeftMenuCell";
     self.collectionFlowLayout.itemSize = CGSizeMake(cellWidth, cellHeight);
     self.collectionFlowLayout.minimumInteritemSpacing = CELL_SPACE;
     self.collectionFlowLayout.minimumLineSpacing = CELL_SPACE;
-    self.collectionFlowLayout.sectionInset = UIEdgeInsetsMake(cellHeight - 6, 0, 0, 0);
+    self.collectionFlowLayout.sectionInset = UIEdgeInsetsMake(cellHeight - 6, SECTION_LEFT, 0, SECTION_LEFT);
 }
 
 #pragma mark - init data 

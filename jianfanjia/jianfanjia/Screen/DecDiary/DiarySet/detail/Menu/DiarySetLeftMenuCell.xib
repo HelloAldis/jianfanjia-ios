@@ -15,14 +15,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="339" height="141"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_diary_set_phase_circle" translatesAutoresizingMaskIntoConstraints="NO" id="wKC-sW-WfG">
-                        <rect key="frame" x="10" y="1" width="14" height="14"/>
+                        <rect key="frame" x="15" y="1" width="14" height="14"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="wKC-sW-WfG" secondAttribute="height" multiplier="1:1" id="8NN-sA-SEX"/>
                             <constraint firstAttribute="width" constant="14" id="jmP-mT-lDl"/>
                         </constraints>
                     </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_diary_set_phase_line" translatesAutoresizingMaskIntoConstraints="NO" id="u0V-Vh-EBO">
-                        <rect key="frame" x="17" y="17" width="1" height="122"/>
+                        <rect key="frame" x="22" y="17" width="1" height="122"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="u0V-Vh-EBO" secondAttribute="height" multiplier="1:1" id="YuC-39-PXt"/>
                             <constraint firstAttribute="width" constant="1" id="oIo-6P-pJk"/>
@@ -34,7 +34,7 @@
                         </variation>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="入住阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pm-jU-h9W">
-                        <rect key="frame" x="34" y="-1" width="300" height="17"/>
+                        <rect key="frame" x="44" y="-1" width="285" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -44,10 +44,10 @@
             </view>
             <constraints>
                 <constraint firstItem="u0V-Vh-EBO" firstAttribute="top" secondItem="wKC-sW-WfG" secondAttribute="bottom" constant="2" id="1Dv-YY-HEz"/>
-                <constraint firstAttribute="trailing" secondItem="3Pm-jU-h9W" secondAttribute="trailing" constant="5" id="HJV-TK-Ckn"/>
-                <constraint firstItem="3Pm-jU-h9W" firstAttribute="leading" secondItem="wKC-sW-WfG" secondAttribute="trailing" constant="10" id="Jvi-DV-b3r"/>
+                <constraint firstAttribute="trailing" secondItem="3Pm-jU-h9W" secondAttribute="trailing" constant="10" id="HJV-TK-Ckn"/>
+                <constraint firstItem="3Pm-jU-h9W" firstAttribute="leading" secondItem="wKC-sW-WfG" secondAttribute="trailing" constant="15" id="Jvi-DV-b3r"/>
                 <constraint firstAttribute="bottom" secondItem="u0V-Vh-EBO" secondAttribute="bottom" constant="2" id="JyO-GQ-pOs"/>
-                <constraint firstItem="wKC-sW-WfG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="VIC-9d-XKB"/>
+                <constraint firstItem="wKC-sW-WfG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="VIC-9d-XKB"/>
                 <constraint firstItem="u0V-Vh-EBO" firstAttribute="centerX" secondItem="wKC-sW-WfG" secondAttribute="centerX" id="eeY-uG-CZ1"/>
                 <constraint firstItem="3Pm-jU-h9W" firstAttribute="centerY" secondItem="wKC-sW-WfG" secondAttribute="centerY" id="pUo-nR-nGj"/>
                 <constraint firstItem="wKC-sW-WfG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="1" id="wMT-Dz-vhI"/>
