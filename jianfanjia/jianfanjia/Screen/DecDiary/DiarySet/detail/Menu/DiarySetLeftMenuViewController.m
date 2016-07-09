@@ -55,7 +55,11 @@ static NSString* cellId = @"DiarySetLeftMenuCell";
 #pragma mark - init data 
 - (void)initData {
     self.keys = [[[NameDict getAllDecorationPhase] reverseObjectEnumerator] allObjects];
-    self.values = @[@0, @0, @0, @0, @0, @0, @0, @5, @2, @1];
+    NSMutableArray *arr = [NSMutableArray array];
+    [self.keys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [arr addObject:@0];
+    }];
+    self.values = arr;
 }
 
 #pragma mark - collection view delegate
