@@ -17,6 +17,7 @@
     self.diarySet.author = author;
     
     NSArray* arr = [self.diarySet.data objectForKey:@"diaries"];
+    NSMutableArray *orderedDiarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
     NSMutableArray *diarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
@@ -24,8 +25,26 @@
         [diarys addObject:diary];
     }
     
-    self.diarys = diarys;
-    return diarys.count;
+    
+    NSMutableArray *menuNumberOfPhases = [[NSMutableArray alloc] initWithCapacity:arr.count];
+    NSArray *allKeys = [[[NameDict getAllDecorationPhase] reverseObjectEnumerator] allObjects];
+    [allKeys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [menuNumberOfPhases addObject:@0];
+    }];
+    
+    [allKeys enumerateObjectsUsingBlock:^(NSString *key, NSUInteger idx, BOOL * _Nonnull stop) {
+        [diarys enumerateObjectsUsingBlock:^(Diary *diary, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([key isEqualToString:diary.section_label]) {
+                [orderedDiarys addObject:diary];
+                NSInteger index = [allKeys indexOfObject:key];
+                menuNumberOfPhases[index] = @([menuNumberOfPhases[index] integerValue] + 1);
+            }
+        }];
+    }];
+    
+    self.menuNumberOfPhases = menuNumberOfPhases;
+    self.diarys = orderedDiarys;
+    return orderedDiarys.count;
 }
 
 @end

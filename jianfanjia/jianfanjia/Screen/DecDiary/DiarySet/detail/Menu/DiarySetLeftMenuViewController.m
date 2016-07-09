@@ -55,11 +55,22 @@ static NSString* cellId = @"DiarySetLeftMenuCell";
 #pragma mark - init data 
 - (void)initData {
     self.keys = [[[NameDict getAllDecorationPhase] reverseObjectEnumerator] allObjects];
-    NSMutableArray *arr = [NSMutableArray array];
-    [self.keys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [arr addObject:@0];
-    }];
-    self.values = arr;
+    if (!self.values) {
+        NSMutableArray *arr = [NSMutableArray array];
+        [self.keys enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            [arr addObject:@0];
+        }];
+        self.values = arr;
+    }
+    
+    if (!self.curKey) {
+        [self.values enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            if ([obj integerValue] > 0) {
+                self.curKey = self.keys[idx];
+                *stop = YES;
+            }
+        }];
+    }
 }
 
 #pragma mark - collection view delegate
@@ -87,6 +98,7 @@ static NSString* cellId = @"DiarySetLeftMenuCell";
     NSNumber *value = self.values[indexPath.row];
     
     if (value.integerValue > 0) {
+        self.curKey = key;
         if (self.didChoose) {
             self.didChoose(key);
         }

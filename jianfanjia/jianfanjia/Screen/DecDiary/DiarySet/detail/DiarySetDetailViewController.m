@@ -374,15 +374,28 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 #pragma mark - data provider
 - (NSString *)getMenuCurPhase {
-    return nil;
+    if (self.dataManager.diarys.count == 0) {
+        return nil;
+    }
+    
+    Diary *diary = self.dataManager.diarys.firstObject;
+    return diary.section_label;
 }
 
 - (NSArray *)getMenuNumberOfPhases {
-    return nil;
+    return self.dataManager.menuNumberOfPhases;
 }
 
 - (void)didChooseMenuPhase:(NSString *)phase {
+    NSArray *allKeys = [[[NameDict getAllDecorationPhase] reverseObjectEnumerator] allObjects];
+    NSInteger index = [allKeys indexOfObject:phase];
+    NSInteger toIndex = 0;
     
+    for (NSInteger i = 0; i < index; i++) {
+        toIndex += [self.dataManager.menuNumberOfPhases[i] integerValue];
+    }
+    
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:toIndex inSection:1] atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 
 @end

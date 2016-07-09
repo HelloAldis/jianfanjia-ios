@@ -46,14 +46,15 @@
 }
 
 - (void)onTapMenu {
-    _leftViewController.curKey = [_contentController getMenuCurPhase];
     _leftViewController.values = [_contentController getMenuNumberOfPhases];
     [_leftViewController.collectionView reloadData];
     
     @weakify(self);
     _leftViewController.didChoose = ^(NSString *phase) {
         @strongify(self);
-        [self.contentController didChooseMenuPhase:phase];
+        [self hideLeftViewAnimated:YES completionHandler:^{
+            [self.contentController didChooseMenuPhase:phase];
+        }];
     };
     
     [_leftViewController.view removeFromSuperview];

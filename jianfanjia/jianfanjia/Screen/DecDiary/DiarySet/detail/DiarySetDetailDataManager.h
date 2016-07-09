@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) DiarySet *diarySet;
 @property (nonatomic, strong) NSMutableArray *diarys;
+@property (nonatomic, strong) NSMutableArray *menuNumberOfPhases;
 
 - (NSInteger)refresh;
 
