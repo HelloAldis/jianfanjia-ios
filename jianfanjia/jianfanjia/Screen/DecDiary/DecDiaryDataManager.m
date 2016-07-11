@@ -81,6 +81,10 @@
 }
 
 - (void)applyTopDiarySet {
+    if (self.topDiary == nil) {
+        return;
+    }
+    
     if (![self.diarys containsObject:self.topDiary]) {
         [self.diarys addObject:self.topDiary];
     }

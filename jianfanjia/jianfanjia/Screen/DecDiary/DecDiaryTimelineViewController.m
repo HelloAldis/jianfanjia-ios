@@ -68,7 +68,7 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
             [self updateDiarysChange];
         }
         
-        [self loadTopDiarySets];
+        [self asyncLoadTopDiarySets];
     }];
     
     self.tableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
@@ -135,6 +135,8 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
         if (count > 0) {
             [self.tableView reloadData];
         }
+        
+        [self syncLoadTopDiarySets];
     } failure:^{
         [self.tableView.header endRefreshing];
     } networkError:^{
@@ -174,6 +176,7 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
         }
         
         [self.tableView reloadData];
+        [self syncLoadTopDiarySets];
     } failure:^{
         [self.tableView.header endRefreshing];
         [self.tableView.footer endRefreshing];
@@ -181,6 +184,20 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
         [self.tableView.header endRefreshing];
         [self.tableView.footer endRefreshing];
     }];
+}
+
+- (void)syncLoadTopDiarySets {
+    BOOL needSyncGetTopDiarySets = self.dataManager.topDiary == nil;
+    if (needSyncGetTopDiarySets) {
+        [self loadTopDiarySets];
+    }
+}
+
+- (void)asyncLoadTopDiarySets {
+    BOOL needAsyncGetTopDiarySets = self.dataManager.topDiary != nil;
+    if (needAsyncGetTopDiarySets) {
+        [self loadTopDiarySets];
+    }
 }
 
 - (void)loadTopDiarySets {
