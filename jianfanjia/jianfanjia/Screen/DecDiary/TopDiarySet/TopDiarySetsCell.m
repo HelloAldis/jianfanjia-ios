@@ -52,6 +52,8 @@ CGFloat kTopDiarySetsCellHeight;
     self.scrollView.reuseDelegate = self;
     self.scrollView.padding = kScrollCellPadding;
     self.scrollView.clipsToBounds = NO;
+    self.scrollView.bounces = NO;
+    self.scrollView.alwaysBounceHorizontal = NO;
     self.containerView.touchDelegateView = self.scrollView;
 }
 

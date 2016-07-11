@@ -62,6 +62,10 @@
     return self;
 }
 
+- (BOOL)touchesShouldCancelInContentView:(UIView *)view {
+    return YES;
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     if (!self.wasFirstDisplay) {
@@ -81,7 +85,7 @@
     
     NSInteger page = self.contentOffset.x / self.frame.size.width + 0.5;
     
-    for (NSInteger i = page - 1; i <= page + 1; i++) { // preload left and right cell
+    for (NSInteger i = page - 2; i <= page + 2; i++) { // preload left and right cell
         if (i >= 0 && i < _items.count) {
             ReuseCell *cell = [self cellForPage:i];
             if (!cell) {
@@ -103,6 +107,7 @@
             }
         }
     }
+
     
     self.currentPage = intPage;
     
@@ -131,13 +136,8 @@
 - (void)updateCellsForReuse {
     for (ReuseCell *cell in _cells) {
         if (cell.superview) {
-//            if (cell.frame.origin.x > self.contentOffset.x + self.frame.size.width * 2 ||
-//                (cell.frame.origin.x + cell.frame.size.width) < self.contentOffset.x - self.frame.size.width) {
-//                [cell removeFromSuperview];
-//                cell.page = -1;
-//            }
-            
-            if (cell.frame.origin.x > self.contentOffset.x + self.frame.size.width * 4) {
+            if (cell.frame.origin.x > self.contentOffset.x + self.frame.size.width * 2 ||
+                (cell.frame.origin.x + cell.frame.size.width) < self.contentOffset.x - self.frame.size.width) {
                 [cell removeFromSuperview];
                 cell.page = -1;
             }
