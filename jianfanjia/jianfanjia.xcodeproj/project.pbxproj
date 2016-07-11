@@ -264,6 +264,10 @@
 		6865A37F1D30F36100B3CB26 /* TopDiarySetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A37A1D30F36100B3CB26 /* TopDiarySetsCell.xib */; };
 		6865A3801D30F36100B3CB26 /* TopDiarySetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A37C1D30F36100B3CB26 /* TopDiarySetView.m */; };
 		6865A3811D30F36100B3CB26 /* TopDiarySetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A37D1D30F36100B3CB26 /* TopDiarySetView.xib */; };
+		6865A3871D335B6900B3CB26 /* FavoriateDiarySetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3831D335B6900B3CB26 /* FavoriateDiarySetCell.m */; };
+		6865A3881D335B6900B3CB26 /* FavoriateDiarySetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A3841D335B6900B3CB26 /* FavoriateDiarySetCell.xib */; };
+		6865A3891D335B6900B3CB26 /* FavoriateDiarySetData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3861D335B6900B3CB26 /* FavoriateDiarySetData.m */; };
+		6865A38C1D33600100B3CB26 /* ListFavoriateDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A38B1D33600100B3CB26 /* ListFavoriateDiarySet.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1034,6 +1038,13 @@
 		6865A37B1D30F36100B3CB26 /* TopDiarySetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDiarySetView.h; sourceTree = "<group>"; };
 		6865A37C1D30F36100B3CB26 /* TopDiarySetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDiarySetView.m; sourceTree = "<group>"; };
 		6865A37D1D30F36100B3CB26 /* TopDiarySetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopDiarySetView.xib; sourceTree = "<group>"; };
+		6865A3821D335B6900B3CB26 /* FavoriateDiarySetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriateDiarySetCell.h; sourceTree = "<group>"; };
+		6865A3831D335B6900B3CB26 /* FavoriateDiarySetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriateDiarySetCell.m; sourceTree = "<group>"; };
+		6865A3841D335B6900B3CB26 /* FavoriateDiarySetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriateDiarySetCell.xib; sourceTree = "<group>"; };
+		6865A3851D335B6900B3CB26 /* FavoriateDiarySetData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriateDiarySetData.h; sourceTree = "<group>"; };
+		6865A3861D335B6900B3CB26 /* FavoriateDiarySetData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriateDiarySetData.m; sourceTree = "<group>"; };
+		6865A38A1D33600100B3CB26 /* ListFavoriateDiarySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFavoriateDiarySet.h; sourceTree = "<group>"; };
+		6865A38B1D33600100B3CB26 /* ListFavoriateDiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFavoriateDiarySet.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -2550,6 +2561,8 @@
 		68EE3E561D13F05200F5EF83 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				6865A38A1D33600100B3CB26 /* ListFavoriateDiarySet.h */,
+				6865A38B1D33600100B3CB26 /* ListFavoriateDiarySet.m */,
 				6865A3741D30E61500B3CB26 /* GetTopDiarySet.h */,
 				6865A3751D30E61500B3CB26 /* GetTopDiarySet.m */,
 				6865A35D1D2E5B0700B3CB26 /* FavoriteDiarySet.h */,
@@ -2602,6 +2615,11 @@
 				6E06CC041C29235500A08D15 /* MyFavoriateViewController.h */,
 				6E06CC051C29235500A08D15 /* MyFavoriateViewController.m */,
 				6E06CC061C29235500A08D15 /* MyFavoriateViewController.xib */,
+				6865A3821D335B6900B3CB26 /* FavoriateDiarySetCell.h */,
+				6865A3831D335B6900B3CB26 /* FavoriateDiarySetCell.m */,
+				6865A3841D335B6900B3CB26 /* FavoriateDiarySetCell.xib */,
+				6865A3851D335B6900B3CB26 /* FavoriateDiarySetData.h */,
+				6865A3861D335B6900B3CB26 /* FavoriateDiarySetData.m */,
 				6E06CC0F1C29466700A08D15 /* FavoriateProductCell.h */,
 				6E06CC101C29466700A08D15 /* FavoriateProductCell.m */,
 				6E06CC111C29466700A08D15 /* FavoriateProductCell.xib */,
@@ -3462,6 +3480,7 @@
 				689ECEB41CFC19240046DDC8 /* read_me.txt in Resources */,
 				6E6D98E71BE343E400D45F77 /* DesignerViewController.xib in Resources */,
 				6836690A1BFF0C05006A5053 /* PlanCell.xib in Resources */,
+				6865A3881D335B6900B3CB26 /* FavoriateDiarySetCell.xib in Resources */,
 				68B10CAB1C7819E3005866C1 /* ProductCaseListViewController.xib in Resources */,
 				68711B711CD8A60B009B585F /* TaggedDesignerInfoView.xib in Resources */,
 				684A370F1BFD733500F7388C /* OrderedDesignerViewController.xib in Resources */,
@@ -3698,6 +3717,7 @@
 				68EE3E6B1D13F05300F5EF83 /* DeleteDiary.m in Sources */,
 				68123BA41C47D15C008FC9AB /* JYZSocialSnsSendMessageResp.m in Sources */,
 				68EE3E511D13E19E00F5EF83 /* SelectStringViewController.m in Sources */,
+				6865A3891D335B6900B3CB26 /* FavoriateDiarySetData.m in Sources */,
 				684A37481BFD73DF00F7388C /* OrderDesignerViewController.m in Sources */,
 				68342DF91BFC45EE0000EBBE /* RequirementBusiness.m in Sources */,
 				689ECE0E1CFC0B6B0046DDC8 /* Team.m in Sources */,
@@ -3791,7 +3811,9 @@
 				6E6D98F41BE35DD000D45F77 /* ProductHomePage.m in Sources */,
 				AB4CAF941C0F3703003680BA /* RejectReschedule.m in Sources */,
 				68679A451C8EB48100B380D0 /* NotificationDetailViewController.m in Sources */,
+				6865A38C1D33600100B3CB26 /* ListFavoriateDiarySet.m in Sources */,
 				68123BB41C47D1CC008FC9AB /* JYZSocialSnsHelper.m in Sources */,
+				6865A3871D335B6900B3CB26 /* FavoriateDiarySetCell.m in Sources */,
 				68EE3E741D1784BC00F5EF83 /* DiaryBusiness.m in Sources */,
 				68B10CBD1C78686E005866C1 /* ProductCaseListDataManager.m in Sources */,
 				684A37461BFD73DF00F7388C /* MatchDesignerSection.m in Sources */,

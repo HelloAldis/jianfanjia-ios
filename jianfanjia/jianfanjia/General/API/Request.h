@@ -79,5 +79,6 @@
 #import "FavoriteDiarySet.h"
 #import "UnfavoriteDiarySet.h"
 #import "GetTopDiarySet.h"
+#import "ListFavoriateDiarySet.h"
 
 #endif

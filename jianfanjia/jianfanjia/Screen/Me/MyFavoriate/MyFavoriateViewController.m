@@ -11,6 +11,8 @@
 #import "FavoriteDesignerCell.h"
 #import "FavoriateProductData.h"
 #import "FavoriateProductCell.h"
+#import "FavoriateDiarySetData.h"
+#import "FavoriateDiarySetCell.h"
 #import "FavoriateBeautifulImageData.h"
 #import "FavoriateBeautifulImageCell.h"
 #import "BeautifulImageHomePageViewController.h"
@@ -20,16 +22,19 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     FavoriateTypeDesigner,
     FavoriateTypeProduct,
     FavoriateTypeBeautifulImage,
+    FavoriateTypeDiarySet,
 };
 
 @interface MyFavoriateViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *designerTableView;
 @property (weak, nonatomic) IBOutlet UITableView *productTableView;
+@property (weak, nonatomic) IBOutlet UITableView *diarySetTableView;
 @property (weak, nonatomic) IBOutlet UICollectionView *beautifulImageCollectionView;
 @property (weak, nonatomic) IBOutlet UIButton *btnDesigner;
 @property (weak, nonatomic) IBOutlet UIButton *btnProduct;
 @property (weak, nonatomic) IBOutlet UIButton *btnBeautifulImage;
+@property (weak, nonatomic) IBOutlet UIButton *btnDiarySet;
 @property (weak, nonatomic) IBOutlet CollectionFallsFlowLayout *flowLayout;
 @property (weak, nonatomic) IBOutlet UILabel *lblNoData;
 @property (weak, nonatomic) IBOutlet UIImageView *noDataImageView;
@@ -37,6 +42,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 @property (strong, nonatomic) FavoriteDesignerData *favoriateDesignerPageData;
 @property (strong, nonatomic) FavoriateProductData *favoriateProductPageData;
 @property (strong, nonatomic) FavoriateBeautifulImageData *favoriateBeautifulImageData;
+@property (strong, nonatomic) FavoriateDiarySetData *favoriateDiarySetData;
 @property (assign, nonatomic) FavoriateType favoriateType;
 @property (copy, nonatomic) DeleteFavoriateProductBlock deleteFavoriateProductBlock;
 @property (copy, nonatomic) DeleteFavoriateBeautifulImageBlock deleteFavoriateBeautifulImageBlock;
@@ -51,9 +57,11 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     [self.designerTableView registerNib:[UINib nibWithNibName:@"FavoriteDesignerCell" bundle:nil] forCellReuseIdentifier:@"FavoriteDesignerCell"];
     [self.productTableView registerNib:[UINib nibWithNibName:@"FavoriateProductCell" bundle:nil] forCellReuseIdentifier:@"FavoriateProductCell"];
     [self.beautifulImageCollectionView registerNib:[UINib nibWithNibName:@"FavoriateBeautifulImageCell"bundle:nil] forCellWithReuseIdentifier:@"FavoriateBeautifulImageCell"];
+    [self.beautifulImageCollectionView registerNib:[UINib nibWithNibName:@"FavoriateDiarySetCell"bundle:nil] forCellWithReuseIdentifier:@"FavoriateDiarySetCell"];
     self.designerTableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 51, 0, 0, 0);
     self.productTableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
     self.beautifulImageCollectionView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
+    self.diarySetTableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
     self.designerTableView.tableFooterView = [[UIView alloc] init];
     
     @weakify(self);
@@ -81,6 +89,15 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
             [self.btnBeautifulImage setNormTitleColor:kUntriggeredColor];
         } else {
             [self.btnBeautifulImage setNormTitleColor:kThemeTextColor];
+        }
+    }];
+    
+    [RACObserve(self.diarySetTableView, hidden) subscribeNext:^(NSNumber *newValue) {
+        @strongify(self);
+        if (newValue.boolValue) {
+            [self.btnDiarySet setNormTitleColor:kUntriggeredColor];
+        } else {
+            [self.btnDiarySet setNormTitleColor:kThemeTextColor];
         }
     }];
     
@@ -118,6 +135,14 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         @strongify(self);
         [self loadMoreFavoriateBeautifulImage];
     }];
+    self.diarySetTableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
+        @strongify(self);
+        [self refreshFavoriateDiarySet];
+    }];
+    self.diarySetTableView.footer = [DIYRefreshFooter footerWithRefreshingBlock:^{
+        @strongify(self);
+        [self loadMoreFavoriateDiarySet];
+    }];
     
     self.designerTableView.hidden = NO;
     self.productTableView.hidden = YES;
@@ -128,6 +153,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     self.favoriateDesignerPageData = [[FavoriteDesignerData alloc] init];
     self.favoriateProductPageData = [[FavoriateProductData alloc] init];
     self.favoriateBeautifulImageData = [[FavoriateBeautifulImageData alloc] init];
+    self.favoriateDiarySetData = [[FavoriateDiarySetData alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [DataManager shared].isNeedRefreshTotal = YES;
 }
@@ -154,6 +180,9 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         case FavoriateTypeBeautifulImage:
             [self refreshFavoriateBeautifulImage];
             break;
+        case FavoriateTypeDiarySet:
+            [self refreshFavoriateDiarySet];
+            break;
         default:
             break;
     }
@@ -166,6 +195,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         self.designerTableView.hidden = NO;
         self.productTableView.hidden = YES;
         self.beautifulImageCollectionView.hidden = YES;
+        self.diarySetTableView.hidden = YES;
         
         //刷新数据
         if ([self.favoriateDesignerPageData.designers count] == 0) {
@@ -182,6 +212,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         self.designerTableView.hidden = YES;
         self.productTableView.hidden = NO;
         self.beautifulImageCollectionView.hidden = YES;
+        self.diarySetTableView.hidden = YES;
         
         //刷新数据
         if ([self.favoriateProductPageData.products count] == 0) {
@@ -191,12 +222,14 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         }
     }
 }
+
 - (IBAction)onClickBeautifulImage:(id)sender {
     if (self.favoriateType != FavoriateTypeBeautifulImage) {
         self.favoriateType = FavoriateTypeBeautifulImage;
         self.designerTableView.hidden = YES;
         self.productTableView.hidden = YES;
         self.beautifulImageCollectionView.hidden = NO;
+        self.diarySetTableView.hidden = YES;
         
         //刷新数据
         if ([self.favoriateBeautifulImageData.beautifulImages count] == 0) {
@@ -207,12 +240,31 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     }
 }
 
+- (IBAction)onClickDiarySet:(id)sender {
+    if (self.favoriateType != FavoriateTypeDiarySet) {
+        self.favoriateType = FavoriateTypeDiarySet;
+        self.designerTableView.hidden = YES;
+        self.productTableView.hidden = YES;
+        self.beautifulImageCollectionView.hidden = YES;
+        self.diarySetTableView.hidden = NO;
+        
+        //刷新数据
+        if ([self.favoriateDiarySetData.diarySets count] == 0) {
+            [self.diarySetTableView.header beginRefreshing];
+        } else {
+            [self refreshFavoriateDiarySet];
+        }
+    }
+}
+
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.designerTableView) {
         return [self.favoriateDesignerPageData.designers count];
     } else if (tableView == self.productTableView) {
         return [self.favoriateProductPageData.products count];
+    } else if (tableView == self.diarySetTableView) {
+        return [self.favoriateDiarySetData.diarySets count];
     } else {
         return 0;
     }
@@ -228,6 +280,10 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         [cell initWithProduct:[self.favoriateProductPageData.products objectAtIndex:indexPath.row]
       andDeleteFavoriateBlock:self.deleteFavoriateProductBlock];
         return cell;
+    } else if (tableView == self.diarySetTableView) {
+        FavoriateDiarySetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriateDiarySetCell"];
+        [cell initWithDiarySet:self.favoriateDiarySetData.diarySets[indexPath.row] edit:NO deleteBlock:nil];
+        return cell;
     } else {
         return nil;
     }
@@ -238,6 +294,8 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         return 80;
     } else if (tableView == self.productTableView) {
         return 300;
+    } else if (tableView == self.diarySetTableView) {
+        return kFavoriateDiarySetCellHeight;
     } else {
         return 0;
     }
@@ -498,6 +556,60 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     self.noDataImageView.hidden = NO;
 }
 
+#pragma mark - diary set
+- (void)refreshFavoriateDiarySet {
+    [self.diarySetTableView.footer resetNoMoreData];
+    [self resetNoDataTip];
+    
+    ListFavoriateDiarySet *request = [[ListFavoriateDiarySet alloc] init];
+    request.from = @0;
+    request.limit = @20;
+    
+    [API listFavoriateDiarySet:request success:^{
+        [self.diarySetTableView.header endRefreshing];
+        NSInteger count = [self.favoriateDiarySetData refreshDiarySets];
+        if (self.favoriateDiarySetData.diarySets.count == 0) {
+            [self handleNoFavoriateDiarySet];
+        } else {
+            if (request.limit.integerValue > count) {
+                [self.diarySetTableView.footer endRefreshingWithNoMoreData];
+            }
+        }
+        
+        [self.diarySetTableView reloadData];
+    } failure:^{
+        [self.diarySetTableView.header endRefreshing];
+    } networkError:^{
+        [self.diarySetTableView.header endRefreshing];
+    }];
+}
+
+- (void)loadMoreFavoriateDiarySet {
+    ListFavoriateDiarySet *request = [[ListFavoriateDiarySet alloc] init];
+    request.from = @(self.favoriateDiarySetData.diarySets.count);
+    request.limit = @20;
+    
+    [API listFavoriateDiarySet:request success:^{
+        [self.diarySetTableView.footer endRefreshing];
+        NSInteger count = [self.favoriateDiarySetData loadMoreDiarySets];
+        if (request.limit.integerValue > count) {
+            [self.diarySetTableView.footer endRefreshingWithNoMoreData];
+        }
+        
+        [self.diarySetTableView reloadData];
+    } failure:^{
+        [self.diarySetTableView.footer endRefreshing];
+    } networkError:^{
+        [self.diarySetTableView.footer endRefreshing];
+    }];
+}
+
+- (void)handleNoFavoriateDiarySet {
+    self.lblNoData.text = @"您还没有收藏任何日记本";
+    self.noDataImageView.image = [UIImage imageNamed:@"icon_diary_set"];
+    self.lblNoData.hidden = NO;
+    self.noDataImageView.hidden = NO;
+}
 
 - (void)dealloc {
     DDLogDebug(@"dealloc");
