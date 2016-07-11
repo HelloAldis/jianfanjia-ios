@@ -46,6 +46,8 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
 @property (assign, nonatomic) FavoriateType favoriateType;
 @property (copy, nonatomic) DeleteFavoriateProductBlock deleteFavoriateProductBlock;
 @property (copy, nonatomic) DeleteFavoriateBeautifulImageBlock deleteFavoriateBeautifulImageBlock;
+@property (copy, nonatomic) FavoriateDiarySetCellDeleteBlock deleteFavoriateDiarySetBlock;
+
 @end
 
 @implementation MyFavoriateViewController
@@ -57,7 +59,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     [self.designerTableView registerNib:[UINib nibWithNibName:@"FavoriteDesignerCell" bundle:nil] forCellReuseIdentifier:@"FavoriteDesignerCell"];
     [self.productTableView registerNib:[UINib nibWithNibName:@"FavoriateProductCell" bundle:nil] forCellReuseIdentifier:@"FavoriateProductCell"];
     [self.beautifulImageCollectionView registerNib:[UINib nibWithNibName:@"FavoriateBeautifulImageCell"bundle:nil] forCellWithReuseIdentifier:@"FavoriateBeautifulImageCell"];
-    [self.beautifulImageCollectionView registerNib:[UINib nibWithNibName:@"FavoriateDiarySetCell"bundle:nil] forCellWithReuseIdentifier:@"FavoriateDiarySetCell"];
+    [self.diarySetTableView registerNib:[UINib nibWithNibName:@"FavoriateDiarySetCell" bundle:nil] forCellReuseIdentifier:@"FavoriateDiarySetCell"];
     self.designerTableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 51, 0, 0, 0);
     self.productTableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
     self.beautifulImageCollectionView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + 45, 0, 0, 0);
@@ -109,7 +111,10 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         @strongify(self);
         [self handleAfterDeleteFavoriateBeautifulImage:cell];
     };
-    
+    self.deleteFavoriateDiarySetBlock = ^(FavoriateDiarySetCell *cell) {
+        @strongify(self);
+        [self handleAfterDeleteFavoriateDiarySet:cell];
+    };
     
     self.designerTableView.header = [BrushGifHeader headerWithRefreshingBlock:^{
          @strongify(self);
@@ -282,7 +287,7 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
         return cell;
     } else if (tableView == self.diarySetTableView) {
         FavoriateDiarySetCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FavoriateDiarySetCell"];
-        [cell initWithDiarySet:self.favoriateDiarySetData.diarySets[indexPath.row] edit:NO deleteBlock:nil];
+        [cell initWithDiarySet:self.favoriateDiarySetData.diarySets[indexPath.row] edit:NO deleteBlock:self.deleteFavoriateDiarySetBlock];
         return cell;
     } else {
         return nil;
@@ -604,9 +609,15 @@ typedef NS_ENUM(NSInteger, FavoriateType) {
     }];
 }
 
+- (void)handleAfterDeleteFavoriateDiarySet:(FavoriateDiarySetCell *)cell {
+    NSIndexPath *indexPath = [self.diarySetTableView indexPathForCell:cell];
+    [self.favoriateDiarySetData.diarySets removeObjectAtIndex:indexPath.row];
+    [self.diarySetTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
 - (void)handleNoFavoriateDiarySet {
     self.lblNoData.text = @"您还没有收藏任何日记本";
-    self.noDataImageView.image = [UIImage imageNamed:@"icon_diary_set"];
+    self.noDataImageView.image = [UIImage imageNamed:@"no_favoriate_diary_set"];
     self.lblNoData.hidden = NO;
     self.noDataImageView.hidden = NO;
 }

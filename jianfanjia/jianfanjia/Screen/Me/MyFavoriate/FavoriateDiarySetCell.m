@@ -21,9 +21,12 @@ CGFloat kFavoriateDiarySetCellHeight;
 @property (weak, nonatomic) IBOutlet UILabel *lblStarCount;
 @property (weak, nonatomic) IBOutlet UILabel *lblCell;
 @property (weak, nonatomic) IBOutlet UILabel *lblDetail;
+@property (weak, nonatomic) IBOutlet UIView *coverView;
+@property (weak, nonatomic) IBOutlet UIImageView *trashImageView;
+@property (weak, nonatomic) IBOutlet UILabel *lblDeleteMessage;
 
 @property (strong, nonatomic) DiarySet *diarySet;
-@property (nonatomic, copy) DiarySetCellDeleteBlock deleteBlock;
+@property (nonatomic, copy) FavoriateDiarySetCellDeleteBlock deleteBlock;
 
 @end
 
@@ -41,6 +44,8 @@ CGFloat kFavoriateDiarySetCellHeight;
     [self.barView setCornerRadius:self.barView.frame.size.height / 2];
     [self.btnPhase setCornerRadius:self.btnPhase.frame.size.height / 2];
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)]];
+    [self.coverView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapDelete)]];
+    self.lblDeleteMessage.text = @"原内容已被作者删除\n点击取消收藏";
     
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = CGRectMake(0, 0, kScreenWidth, kFavoriateDiarySetCellHeight);
@@ -51,17 +56,49 @@ CGFloat kFavoriateDiarySetCellHeight;
     [self.productImageView.layer addSublayer:gradient];
 }
 
-- (void)initWithDiarySet:(DiarySet *)diarySet edit:(BOOL)edit deleteBlock:(DiarySetCellDeleteBlock)deleteBlock {
+- (void)initWithDiarySet:(DiarySet *)diarySet edit:(BOOL)edit deleteBlock:(FavoriateDiarySetCellDeleteBlock)deleteBlock {
     self.diarySet = diarySet;
     self.deleteBlock = deleteBlock;
     
     [self.productImageView setImageWithId:diarySet.cover_imageid withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_diary_set_cover"]];
-    self.lblCell.text = diarySet.title;
-    self.lblDetail.text = [DiaryBusiness diarySetInfo:diarySet];
-    self.lblViewCount.text = [diarySet.view_count humCountString];
-    self.lblStarCount.text = diarySet.favorite_count ? [diarySet.favorite_count humCountString] : @"0";
-    [self.btnPhase setNormTitle:[NSString stringWithFormat:@"%@阶段", diarySet.latest_section_label ? diarySet.latest_section_label : @"准备"]];
-    [self.btnPhase setBgColor:[DiaryBusiness colorForPhase:diarySet]];
+    if ([self.diarySet.is_deleted boolValue]) {
+        [self hideCover:NO];
+    } else {
+        [self hideCover:YES];
+        
+        self.lblCell.text = diarySet.title;
+        self.lblDetail.text = [DiaryBusiness diarySetInfo:diarySet];
+        self.lblViewCount.text = [diarySet.view_count humCountString];
+        self.lblStarCount.text = diarySet.favorite_count ? [diarySet.favorite_count humCountString] : @"0";
+        [self.btnPhase setNormTitle:[NSString stringWithFormat:@"%@阶段", diarySet.latest_section_label ? diarySet.latest_section_label : @"准备"]];
+        [self.btnPhase setBgColor:[DiaryBusiness colorForPhase:diarySet]];
+    }
+}
+
+- (void)hideCover:(BOOL)hide {
+    self.coverView.hidden = hide;
+    self.trashImageView.hidden = hide;
+    self.lblDeleteMessage.hidden = hide;
+    
+    self.lblCell.hidden = !hide;
+    self.lblDetail.hidden = !hide;
+    self.barView.hidden = !hide;
+    self.btnPhase.hidden = !hide;
+}
+
+- (void)onTapDelete {
+    UnfavoriteDiarySet *request = [[UnfavoriteDiarySet alloc] init];
+    request.diarySetid = self.diarySet._id;
+    
+    [API unfavoriteDiarySet:request success:^{
+        [HUDUtil showSuccessText:@"取消收藏成功"];
+        if (self.deleteBlock) {
+            self.deleteBlock(self);
+        }
+    } failure:^{
+        [HUDUtil showErrText:@"取消收藏失败"];
+    } networkError:^{
+    }];
 }
 
 - (void)onTap {

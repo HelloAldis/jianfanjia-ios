@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class FavoriateDiarySetCell;
+
 extern CGFloat kFavoriateDiarySetCellHeight;
 
-typedef void (^DiarySetCellDeleteBlock)(void);
+typedef void (^FavoriateDiarySetCellDeleteBlock)(FavoriateDiarySetCell *cell);
 
 @interface FavoriateDiarySetCell : UITableViewCell
 
-- (void)initWithDiarySet:(DiarySet *)diarySet edit:(BOOL)edit deleteBlock:(DiarySetCellDeleteBlock)deleteBlock;
+- (void)initWithDiarySet:(DiarySet *)diarySet edit:(BOOL)edit deleteBlock:(FavoriateDiarySetCellDeleteBlock)deleteBlock;
 
 @end

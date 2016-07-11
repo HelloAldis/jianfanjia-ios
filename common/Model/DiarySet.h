@@ -26,6 +26,7 @@
 @property (nonatomic, strong) NSNumber *comment_count;
 @property (nonatomic, strong) NSString *latest_section_label;
 @property (nonatomic, strong) NSNumber *is_my_favorite;
+@property (nonatomic, strong) NSNumber *is_deleted;
 @property (nonatomic, strong) NSArray *diaries;
 
 @property (nonatomic, strong) Author *author;
