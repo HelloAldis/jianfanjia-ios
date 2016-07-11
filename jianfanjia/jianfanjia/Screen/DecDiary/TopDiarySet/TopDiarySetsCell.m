@@ -43,7 +43,6 @@ static CGFloat cellHeight;
     [self.collectionView registerNib:[UINib nibWithNibName:cellId bundle:nil] forCellWithReuseIdentifier:cellId];
     self.collectionFlowLayout.itemSize = CGSizeMake(cellWidth, cellHeight);
     self.collectionFlowLayout.minimumInteritemSpacing = CELL_SPACE;
-    self.collectionFlowLayout.minimumLineSpacing = CELL_SPACE;
     self.collectionFlowLayout.sectionInset = UIEdgeInsetsMake(0, SECTION_LEFT, 0, SECTION_LEFT);
 }
 
