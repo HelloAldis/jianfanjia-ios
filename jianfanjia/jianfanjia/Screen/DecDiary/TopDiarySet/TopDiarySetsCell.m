@@ -10,7 +10,7 @@
 #import "TopDiarySetCell.h"
 #import "ViewControllerContainer.h"
 
-static const NSInteger CELL_SPACE = 10;
+static const NSInteger CELL_SPACE = 8;
 static const NSInteger SECTION_LEFT = 20;
 
 CGFloat kTopDiarySetsCellHeight;
@@ -31,7 +31,7 @@ static CGFloat cellHeight;
 
 + (void)initialize {
     if ([self class] == [TopDiarySetsCell class]) {
-        cellWidth = (kScreenWidth - SECTION_LEFT - 2 * CELL_SPACE) / 2.0 - 20;
+        cellWidth = (kScreenWidth - SECTION_LEFT - 2 * CELL_SPACE) / 2.0 - 10;
         cellHeight = round(cellWidth / 540.0 * 707.0);
         kTopDiarySetsCellHeight = cellHeight + 67.0;
     }

@@ -88,13 +88,13 @@
                                 <rect key="frame" x="0.0" y="155" width="339" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="将军华府" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ml-ZW-pdD">
-                                        <rect key="frame" x="15" y="13" width="314" height="17"/>
+                                        <rect key="frame" x="8" y="13" width="323" height="17"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="110m，家装，三室，地中海风格" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KgC-SK-Cd0">
-                                        <rect key="frame" x="15" y="39" width="314" height="16"/>
+                                        <rect key="frame" x="8" y="39" width="323" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -104,9 +104,9 @@
                                 <constraints>
                                     <constraint firstItem="KgC-SK-Cd0" firstAttribute="top" secondItem="8ml-ZW-pdD" secondAttribute="bottom" constant="9" id="0Vi-gW-ILg"/>
                                     <constraint firstItem="KgC-SK-Cd0" firstAttribute="trailing" secondItem="8ml-ZW-pdD" secondAttribute="trailing" id="4WW-KF-gNI"/>
-                                    <constraint firstAttribute="trailing" secondItem="8ml-ZW-pdD" secondAttribute="trailing" constant="10" id="Exc-Vs-FaE"/>
+                                    <constraint firstAttribute="trailing" secondItem="8ml-ZW-pdD" secondAttribute="trailing" constant="8" id="Exc-Vs-FaE"/>
                                     <constraint firstAttribute="height" constant="80" id="MjS-kx-9O7"/>
-                                    <constraint firstItem="8ml-ZW-pdD" firstAttribute="leading" secondItem="6lo-Yb-FPp" secondAttribute="leading" constant="15" id="TNM-6E-4Qa"/>
+                                    <constraint firstItem="8ml-ZW-pdD" firstAttribute="leading" secondItem="6lo-Yb-FPp" secondAttribute="leading" constant="8" id="TNM-6E-4Qa"/>
                                     <constraint firstItem="8ml-ZW-pdD" firstAttribute="top" secondItem="6lo-Yb-FPp" secondAttribute="top" constant="13" id="i1C-SV-bCj"/>
                                     <constraint firstItem="KgC-SK-Cd0" firstAttribute="leading" secondItem="8ml-ZW-pdD" secondAttribute="leading" id="u9w-CG-fJ5"/>
                                 </constraints>
