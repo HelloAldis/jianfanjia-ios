@@ -370,6 +370,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     [navBar setBarStyle:barStyle];
     navBar.shadowImage = [UIImage new];
     [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    [navBar setNeedsDisplay];
 }
 
 #pragma mark - data provider
