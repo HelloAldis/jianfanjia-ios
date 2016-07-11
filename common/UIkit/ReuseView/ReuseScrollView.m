@@ -85,7 +85,7 @@
     
     NSInteger page = self.contentOffset.x / self.frame.size.width + 0.5;
     
-    for (NSInteger i = page - 2; i <= page + 2; i++) { // preload left and right cell
+    for (NSInteger i = page - 1; i <= page + 1; i++) { // preload left and right cell
         if (i >= 0 && i < _items.count) {
             ReuseCell *cell = [self cellForPage:i];
             if (!cell) {

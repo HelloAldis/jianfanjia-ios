@@ -7,18 +7,21 @@
 //
 
 #import "TopDiarySetsCell.h"
-#import "ReuseScrollView.h"
-#import "TopDiarySetView.h"
-#import "TouchDelegateView.h"
+#import "TopDiarySetCell.h"
+#import "ViewControllerContainer.h"
 
-#define kScrollViewLeft 20
-#define kScrollCellPadding 5
+static const NSInteger CELL_SPACE = 10;
+static const NSInteger SECTION_LEFT = 20;
 
 CGFloat kTopDiarySetsCellHeight;
 
-@interface TopDiarySetsCell () <ReuseScrollViewProtocol>
-@property (weak, nonatomic) IBOutlet TouchDelegateView *containerView;
-@property (strong, nonatomic) ReuseScrollView *scrollView;
+static NSString* cellId = @"TopDiarySetCell";
+static CGFloat cellWidth;
+static CGFloat cellHeight;
+
+@interface TopDiarySetsCell () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionFlowLayout;
 
 @property (nonatomic, strong) NSArray *topDiarySets;
 
@@ -28,40 +31,41 @@ CGFloat kTopDiarySetsCellHeight;
 
 + (void)initialize {
     if ([self class] == [TopDiarySetsCell class]) {
-        CGFloat aspect =  1240 / kScreenWidth;
-        kTopDiarySetsCellHeight = round(900 / aspect);
+        cellWidth = (kScreenWidth - SECTION_LEFT - 2 * CELL_SPACE) / 2.0 - 20;
+        cellHeight = round(cellWidth / 540.0 * 707.0);
+        kTopDiarySetsCellHeight = cellHeight + 67.0;
     }
 }
 
 - (void)awakeFromNib {
-    [self setupReuseCells];
+    self.collectionView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.collectionView.scrollIndicatorInsets = self.collectionView.contentInset;
+    [self.collectionView registerNib:[UINib nibWithNibName:cellId bundle:nil] forCellWithReuseIdentifier:cellId];
+    self.collectionFlowLayout.itemSize = CGSizeMake(cellWidth, cellHeight);
+    self.collectionFlowLayout.minimumInteritemSpacing = CELL_SPACE;
+    self.collectionFlowLayout.minimumLineSpacing = CELL_SPACE;
+    self.collectionFlowLayout.sectionInset = UIEdgeInsetsMake(0, SECTION_LEFT, 0, SECTION_LEFT);
 }
 
 - (void)initWithDiarySets:(NSArray *)topDiarySets {
     self.topDiarySets = topDiarySets;
-    self.scrollView.items = self.topDiarySets;
-    [self.scrollView removeFromSuperview];
-    [self.containerView addSubview:self.scrollView];
-    [self.scrollView scrollViewDidScroll:self.scrollView];
+    [self.collectionView reloadData];
 }
 
-- (void)setupReuseCells {
-    CGFloat height = kTopDiarySetsCellHeight - 67;
-    CGFloat width = height / 707.0 * 540.0;
+#pragma mark - collection view delegate
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return self.topDiarySets.count;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    TopDiarySetCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    [cell initWithDiarySet:self.topDiarySets[indexPath.row]];
     
-    self.scrollView = [[ReuseScrollView alloc] initWithFrame:CGRectMake(kScrollViewLeft, 0, width, height)];
-    self.scrollView.reuseDelegate = self;
-    self.scrollView.padding = kScrollCellPadding;
-    self.scrollView.clipsToBounds = NO;
-    self.scrollView.bounces = NO;
-    self.scrollView.alwaysBounceHorizontal = NO;
-    self.containerView.touchDelegateView = self.scrollView;
+    return cell;
 }
 
-#pragma mark - reuse delegate
-- (ReuseCell *)reuseCellFactory {
-    TopDiarySetView *topDiarySetView = [TopDiarySetView topDiarySetView];
-    return topDiarySetView;
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [ViewControllerContainer showDiarySetDetail:self.topDiarySets[indexPath.row] fromNewDiarySet:NO];
 }
 
 @end

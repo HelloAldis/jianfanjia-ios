@@ -262,12 +262,12 @@
 		6865A3761D30E61500B3CB26 /* GetTopDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3751D30E61500B3CB26 /* GetTopDiarySet.m */; };
 		6865A37E1D30F36100B3CB26 /* TopDiarySetsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3791D30F36100B3CB26 /* TopDiarySetsCell.m */; };
 		6865A37F1D30F36100B3CB26 /* TopDiarySetsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A37A1D30F36100B3CB26 /* TopDiarySetsCell.xib */; };
-		6865A3801D30F36100B3CB26 /* TopDiarySetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A37C1D30F36100B3CB26 /* TopDiarySetView.m */; };
-		6865A3811D30F36100B3CB26 /* TopDiarySetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A37D1D30F36100B3CB26 /* TopDiarySetView.xib */; };
 		6865A3871D335B6900B3CB26 /* FavoriateDiarySetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3831D335B6900B3CB26 /* FavoriateDiarySetCell.m */; };
 		6865A3881D335B6900B3CB26 /* FavoriateDiarySetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A3841D335B6900B3CB26 /* FavoriateDiarySetCell.xib */; };
 		6865A3891D335B6900B3CB26 /* FavoriateDiarySetData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3861D335B6900B3CB26 /* FavoriateDiarySetData.m */; };
 		6865A38C1D33600100B3CB26 /* ListFavoriateDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A38B1D33600100B3CB26 /* ListFavoriateDiarySet.m */; };
+		6865A3901D33B4AD00B3CB26 /* TopDiarySetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A38E1D33B4AD00B3CB26 /* TopDiarySetCell.m */; };
+		6865A3911D33B4AD00B3CB26 /* TopDiarySetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A38F1D33B4AD00B3CB26 /* TopDiarySetCell.xib */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1035,9 +1035,6 @@
 		6865A3781D30F36100B3CB26 /* TopDiarySetsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDiarySetsCell.h; sourceTree = "<group>"; };
 		6865A3791D30F36100B3CB26 /* TopDiarySetsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDiarySetsCell.m; sourceTree = "<group>"; };
 		6865A37A1D30F36100B3CB26 /* TopDiarySetsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopDiarySetsCell.xib; sourceTree = "<group>"; };
-		6865A37B1D30F36100B3CB26 /* TopDiarySetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDiarySetView.h; sourceTree = "<group>"; };
-		6865A37C1D30F36100B3CB26 /* TopDiarySetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDiarySetView.m; sourceTree = "<group>"; };
-		6865A37D1D30F36100B3CB26 /* TopDiarySetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopDiarySetView.xib; sourceTree = "<group>"; };
 		6865A3821D335B6900B3CB26 /* FavoriateDiarySetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoriateDiarySetCell.h; sourceTree = "<group>"; };
 		6865A3831D335B6900B3CB26 /* FavoriateDiarySetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriateDiarySetCell.m; sourceTree = "<group>"; };
 		6865A3841D335B6900B3CB26 /* FavoriateDiarySetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriateDiarySetCell.xib; sourceTree = "<group>"; };
@@ -1045,6 +1042,9 @@
 		6865A3861D335B6900B3CB26 /* FavoriateDiarySetData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriateDiarySetData.m; sourceTree = "<group>"; };
 		6865A38A1D33600100B3CB26 /* ListFavoriateDiarySet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListFavoriateDiarySet.h; sourceTree = "<group>"; };
 		6865A38B1D33600100B3CB26 /* ListFavoriateDiarySet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListFavoriateDiarySet.m; sourceTree = "<group>"; };
+		6865A38D1D33B4AD00B3CB26 /* TopDiarySetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDiarySetCell.h; sourceTree = "<group>"; };
+		6865A38E1D33B4AD00B3CB26 /* TopDiarySetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDiarySetCell.m; sourceTree = "<group>"; };
+		6865A38F1D33B4AD00B3CB26 /* TopDiarySetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopDiarySetCell.xib; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -2200,9 +2200,9 @@
 				6865A3781D30F36100B3CB26 /* TopDiarySetsCell.h */,
 				6865A3791D30F36100B3CB26 /* TopDiarySetsCell.m */,
 				6865A37A1D30F36100B3CB26 /* TopDiarySetsCell.xib */,
-				6865A37B1D30F36100B3CB26 /* TopDiarySetView.h */,
-				6865A37C1D30F36100B3CB26 /* TopDiarySetView.m */,
-				6865A37D1D30F36100B3CB26 /* TopDiarySetView.xib */,
+				6865A38D1D33B4AD00B3CB26 /* TopDiarySetCell.h */,
+				6865A38E1D33B4AD00B3CB26 /* TopDiarySetCell.m */,
+				6865A38F1D33B4AD00B3CB26 /* TopDiarySetCell.xib */,
 			);
 			path = TopDiarySet;
 			sourceTree = "<group>";
@@ -3503,6 +3503,7 @@
 				6865A37F1D30F36100B3CB26 /* TopDiarySetsCell.xib in Resources */,
 				683FFB451C296288002A1AFE /* BeautifulImageViewController.xib in Resources */,
 				68BA50F41C9FE56B002E5572 /* WebViewWithoutShareController.xib in Resources */,
+				6865A3911D33B4AD00B3CB26 /* TopDiarySetCell.xib in Resources */,
 				6E06CC131C29466700A08D15 /* FavoriateProductCell.xib in Resources */,
 				684A37031BFD733500F7388C /* DesignerMeasureHouseWithoutPlanCell.xib in Resources */,
 				685DD4551C89761E00A76B9C /* CommentListViewController.xib in Resources */,
@@ -3541,7 +3542,6 @@
 				68EE3DB11D12447A00F5EF83 /* FieldEditCell.xib in Resources */,
 				6855E6331BFAC78A00E789D4 /* RequirementCell.xib in Resources */,
 				685CD5E91C03178C00EC1991 /* MessageCell.xib in Resources */,
-				6865A3811D30F36100B3CB26 /* TopDiarySetView.xib in Resources */,
 				68EE3E3E1D13B40700F5EF83 /* StaticImageCollectionCell.xib in Resources */,
 				68679A3E1C8E730F00B380D0 /* RequirementNotificationCell.xib in Resources */,
 				68E600681CB74AC900C4A8F7 /* WebViewWithActionController.xib in Resources */,
@@ -3894,6 +3894,7 @@
 				68EE3E161D12A6ED00F5EF83 /* AddDiarySectionView.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
+				6865A3901D33B4AD00B3CB26 /* TopDiarySetCell.m in Sources */,
 				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
 				68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */,
 				68F73CED1CBB3AB900E97710 /* PlanDesignerResponded.m in Sources */,
@@ -4070,7 +4071,6 @@
 				68E6008E1CB7C89E00C4A8F7 /* ElseStatus.m in Sources */,
 				68B10CA01C7804FA005866C1 /* DesignerListDataManager.m in Sources */,
 				683B2A781C10162400822715 /* Schedule.m in Sources */,
-				6865A3801D30F36100B3CB26 /* TopDiarySetView.m in Sources */,
 				68EE3D961D1131E700F5EF83 /* Diary.m in Sources */,
 				68EE3E6F1D13F05300F5EF83 /* SearchDiary.m in Sources */,
 			);

@@ -89,10 +89,12 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     
     if (diary.topDiarySets) {
         TopDiarySetsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:TopDiarySetsCellIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell initWithDiarySets:diary.topDiarySets];
         return cell;
     } else {
         DecDiaryStatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         [cell initWithDiary:diary diarys:self.dataManager.diarys tableView:self.tableView];
         return cell;
     }
