@@ -67,6 +67,7 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
             [self loadLatestData];
             [self updateDiarysChange];
         }
+        
         [self loadTopDiarySets];
     }];
     

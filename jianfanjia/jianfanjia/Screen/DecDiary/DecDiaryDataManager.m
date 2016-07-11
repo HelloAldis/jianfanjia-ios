@@ -13,8 +13,6 @@
 
 @interface DecDiaryDataManager ()
 
-@property (nonatomic, strong) Diary *topDiary;
-
 @end
 
 @implementation DecDiaryDataManager
@@ -42,6 +40,7 @@
     }
     
     [self.diarys insertObjects:diarys atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, diarys.count)]];
+    [self applyTopDiarySet];
     return diarys.count;
 }
 
@@ -60,6 +59,7 @@
     }
     
     [self.diarys addObjectsFromArray:diarys];
+    [self applyTopDiarySet];
     return diarys.count;
 }
 
@@ -77,9 +77,20 @@
     }
     
     self.topDiary.topDiarySets = diarySets;
+    [self applyTopDiarySet];
+}
+
+- (void)applyTopDiarySet {
     if (![self.diarys containsObject:self.topDiary]) {
-        self.topDiary.create_at = @([[NSDate date] getLongMilSecond]);
         [self.diarys addObject:self.topDiary];
+    }
+    
+    self.topDiary.create_at = @([[NSDate date] getLongMilSecond]);
+    NSInteger topDiaryIndex = [self.diarys indexOfObject:self.topDiary];
+    if (self.diarys.count > 2) {
+        Diary *diary = self.diarys[2];
+        self.topDiary.create_at = diary.create_at;
+        [self.diarys exchangeObjectAtIndex:topDiaryIndex withObjectAtIndex:2];
     }
 }
 

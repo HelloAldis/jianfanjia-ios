@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSMutableArray *diarySets;
 @property (nonatomic, strong) NSMutableArray *diarys;
+@property (nonatomic, strong) Diary *topDiary;
 
 - (NSInteger)loadLatest;
 - (NSInteger)loadOld;
