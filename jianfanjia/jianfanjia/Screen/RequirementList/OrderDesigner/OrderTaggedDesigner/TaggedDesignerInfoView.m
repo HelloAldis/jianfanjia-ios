@@ -112,7 +112,7 @@
 
 - (void)playAnimation:(ReuseScrollView *)scrollView {
     const CGFloat deltaH = 55;
-    
+
     CGFloat pageSize = scrollView.cellSize.width;
     CGFloat offset = scrollView.contentOffset.x;
     CGFloat origin = self.frame.origin.x;
@@ -124,7 +124,7 @@
     
     [UIView animateWithDuration:0.1
                           delay:0
-                        options:UIViewAnimationOptionCurveLinear | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
+                        options:UIViewAnimationOptionCurveEaseInOut | UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
         self.frame = frame;
     } completion:^(BOOL finished) {
