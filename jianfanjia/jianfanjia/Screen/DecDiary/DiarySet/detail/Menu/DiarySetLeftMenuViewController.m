@@ -35,6 +35,7 @@ static NSString* cellId = @"DiarySetLeftMenuCell";
     [super viewWillLayoutSubviews];
     CGRect frame = self.view.frame;
     frame.size.width = self.width;
+    frame.size.height = kScreenHeight;
     self.view.frame = frame;
 }
 

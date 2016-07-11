@@ -43,9 +43,11 @@
     [menuIcon addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapMenu)]];
     menuIcon.frame = CGRectMake(20, kScreenHeight - 75, 45, 45);
     [self.rootViewController.view addSubview:menuIcon];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadData) name:kLGSideMenuControllerWillShowLeftViewNotification object:self];
 }
 
-- (void)onTapMenu {
+- (void)reloadData {
     _leftViewController.values = [_contentController getMenuNumberOfPhases];
     [_leftViewController.collectionView reloadData];
     
@@ -59,6 +61,9 @@
     
     [_leftViewController.view removeFromSuperview];
     [self.leftView addSubview:_leftViewController.view];
+}
+
+- (void)onTapMenu {
     [self showLeftViewAnimated:YES completionHandler:nil];
 }
 
