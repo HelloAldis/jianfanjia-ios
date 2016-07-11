@@ -42,6 +42,7 @@ CGFloat kTopDiarySetsCellHeight;
     self.scrollView.items = self.topDiarySets;
     [self.scrollView removeFromSuperview];
     [self.containerView addSubview:self.scrollView];
+    [self.scrollView scrollViewDidScroll:self.scrollView];
 }
 
 - (void)setupReuseCells {
