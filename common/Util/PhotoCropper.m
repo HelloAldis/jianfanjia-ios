@@ -29,6 +29,7 @@
     cropViewController.rotateButtonsHidden = YES;
     cropViewController.aspectRatioLockEnabled = YES;
     cropViewController.resetAspectRatioEnabled = NO;
+    [cropViewController resetCropViewLayout];
     
     UIViewController *contrl = controller.presentedViewController ? controller.presentedViewController : controller;
     [contrl presentViewController:cropViewController animated:YES completion:nil];
