@@ -173,21 +173,34 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 #pragma mark - scroll view
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    UIColor *color = [UIColor colorWithR:0xF0 g:0xF5 b:0xF6];
+//    UIColor *color = [UIColor colorWithR:0xF0 g:0xF5 b:0xF6];
     CGFloat offsetY = scrollView.contentOffset.y;
-    if (offsetY > 0) {
-        CGFloat alpha = 1 - ((kNavWithStatusBarHeight - offsetY) / kNavWithStatusBarHeight);
-        self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:alpha];
-        self.navigationItem.leftBarButtonItem.tintColor = kThemeTextColor;
-        self.shareItem.tintColor = kThemeTextColor;
-        self.favoriateImgView.tintColor = kThemeTextColor;
-        self.lblFavoriateCount.textColor = kThemeTextColor;
+//    if (offsetY > 0) {
+//        CGFloat alpha = 1 - ((kNavWithStatusBarHeight - offsetY) / kNavWithStatusBarHeight);
+//        self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:alpha];
+//        self.navigationItem.leftBarButtonItem.tintColor = kThemeTextColor;
+//        self.shareItem.tintColor = kThemeTextColor;
+//        self.favoriateImgView.tintColor = kThemeTextColor;
+//        self.lblFavoriateCount.textColor = kThemeTextColor;
+//    } else {
+//        self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:0];
+//        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+//        self.shareItem.tintColor = [UIColor whiteColor];
+//        self.favoriateImgView.tintColor = [UIColor whiteColor];
+//        self.lblFavoriateCount.textColor = [UIColor whiteColor];
+//    }
+    
+    if (offsetY >= (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight)) {
+        if (self.krs_FakeNavigationBar.translucent) {
+            [self.krs_FakeNavigationBar setBackgroundImage:[[self avtarInfoCell] getBlurImage] forBarMetrics:UIBarMetricsDefault];
+            self.krs_FakeNavigationBar.translucent = NO;
+        }
     } else {
-        self.krs_FakeNavigationBar.backgroundColor = [color colorWithAlphaComponent:0];
-        self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
-        self.shareItem.tintColor = [UIColor whiteColor];
-        self.favoriateImgView.tintColor = [UIColor whiteColor];
-        self.lblFavoriateCount.textColor = [UIColor whiteColor];
+        if (!self.krs_FakeNavigationBar.translucent) {
+            [self.krs_FakeNavigationBar setBackgroundImage:[[self avtarInfoCell] getBlurImage] forBarMetrics:UIBarMetricsDefault];
+            [self.krs_FakeNavigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+            self.krs_FakeNavigationBar.translucent = YES;
+        }
     }
     
     CGFloat alpha = (kNavWithStatusBarHeight - offsetY) / (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight);

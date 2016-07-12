@@ -15,6 +15,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
 @property (weak, nonatomic) IBOutlet UIImageView *editDiarySetInfoImgView;
+
 @property (weak, nonatomic) IBOutlet UILabel *lblDiarySetTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblBasicInfo;
 @property (weak, nonatomic) IBOutlet UIButton *btnModifyCover;
@@ -85,6 +86,10 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     self.lblDiarySetTitle.alpha = alpha;
     self.editDiarySetInfoImgView.alpha = alpha;
     self.btnModifyCover.alpha = alpha;
+}
+
+- (UIImage *)getBlurImage {
+    return [self.diarySetBGImgView.image imageByBlurLight];
 }
 
 - (void)setCover {
