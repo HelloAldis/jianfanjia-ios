@@ -24,10 +24,16 @@
     
     TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
     cropViewController.delegate = [PhotoCropper shared];
-    cropViewController.aspectRatioPreset = style == PhotoCropperStyleOriginal ? TOCropViewControllerAspectRatioPresetOriginal : TOCropViewControllerAspectRatioPresetSquare;
+    if (style == PhotoCropperStyleSquare) {
+        cropViewController.aspectRatioPreset = TOCropViewControllerAspectRatioPresetSquare;
+        cropViewController.aspectRatioLockEnabled = YES;
+    } else {
+        cropViewController.aspectRatioPreset = TOCropViewControllerAspectRatioPresetOriginal;
+        cropViewController.aspectRatioLockEnabled = NO;
+    }
+
     cropViewController.aspectRatioPickerButtonHidden = YES;
     cropViewController.rotateButtonsHidden = YES;
-    cropViewController.aspectRatioLockEnabled = YES;
     cropViewController.resetAspectRatioEnabled = NO;
     [cropViewController resetCropViewLayout];
     

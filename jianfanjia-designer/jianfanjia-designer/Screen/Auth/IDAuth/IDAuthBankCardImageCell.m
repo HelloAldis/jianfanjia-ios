@@ -79,7 +79,7 @@ CGFloat kIDAuthBankCardImageCellHeight;
         [ViewControllerContainer showOnlineImages:@[[obj bank_card_image1]] fromImageView:self.idCardLeftImgView index:0];
     } else {
         if (self.isEdit) {
-            [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
+            [PhotoUtil showIDCardSelector:[ViewControllerContainer getCurrentTopController] inView:self withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
                 [obj setBank_card_image1:imageIds[0]];
                 [self initUI];
                 if (self.actionBlock) {

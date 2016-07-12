@@ -19,6 +19,10 @@ typedef NS_ENUM(NSInteger, PhotoUtilCropperStyle) {
     [self showPhotoSelector:controller inView:sourceView allowsEditing:YES isMultiSelection:NO withMaxSelection:1 style:PhotoUtilCropperStyleSquare withBlock:block];
 }
 
++ (void)showIDCardSelector:(nonnull UIViewController *)controller inView:(UIView *)sourceView withBlock:(FinishUploadBlock)block {
+    [self showPhotoSelector:controller inView:sourceView allowsEditing:YES isMultiSelection:NO withMaxSelection:1 style:PhotoUtilCropperStyleOriginal withBlock:block];
+}
+
 + (void)showDecorationNodeImageSelector:(nonnull UIViewController *)controller inView:(UIView *)sourceView max:(NSInteger)count withBlock:(FinishUploadBlock)block {
     [self showPhotoSelector:controller inView:sourceView allowsEditing:NO isMultiSelection:YES withMaxSelection:count style:PhotoUtilCropperStyleOriginal withBlock:block];
 }

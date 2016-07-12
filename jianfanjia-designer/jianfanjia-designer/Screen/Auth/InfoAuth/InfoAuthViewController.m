@@ -411,7 +411,7 @@ static NSString *InfoAuthAwardImageCellIdentifier = @"InfoAuthAwardImageCell";
 }
 
 - (void)onTapAddDiplomaImg {
-    [PhotoUtil showUserAvatarSelector:[ViewControllerContainer getCurrentTopController] inView:self.addDiplomaView withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
+    [PhotoUtil showIDCardSelector:[ViewControllerContainer getCurrentTopController] inView:self.addDiplomaView withBlock:^(NSArray *imageIds, NSArray *imageSizes) {
         self.designer.diploma_imageid = imageIds[0];
         [self.tableView reloadData];
     }];
