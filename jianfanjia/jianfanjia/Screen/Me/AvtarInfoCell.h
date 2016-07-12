@@ -12,7 +12,7 @@ extern CGFloat kAvtarInfoCellHeight;
 
 @interface AvtarInfoCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIView *avtarView;
+@property (weak, nonatomic) IBOutlet UIImageView *bgImgView;
 
 - (void)initUI;
 

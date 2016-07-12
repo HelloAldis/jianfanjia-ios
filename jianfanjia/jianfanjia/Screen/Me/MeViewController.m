@@ -186,17 +186,17 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
     }];
 }
 
-//#pragma mark - scroll view  delegate 
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    CGFloat offsetY = scrollView.contentOffset.y;
-//    offsetY = offsetY + kNavWithStatusBarHeight;
-//    CGRect f = CGRectZero;
-//    f.origin.y = offsetY;
-//    f.size.width = MAX(kScreenWidth, kScreenWidth - offsetY);
-//    f.size.height =  kAvtarInfoCellHeight - offsetY;
-//    f.origin.x = MIN(0, -(f.size.width - kScreenWidth) / 2.0);
-//    [self avtarInfoCell].avtarView.frame = f;
-//}
+#pragma mark - scroll view  delegate 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    CGFloat offsetY = scrollView.contentOffset.y;
+    offsetY = offsetY + scrollView.contentInset.top;
+    CGRect f = CGRectZero;
+    f.origin.y = offsetY;
+    f.size.width = MAX(kScreenWidth, kScreenWidth - offsetY);
+    f.size.height =  kAvtarInfoCellHeight - offsetY;
+    f.origin.x = MIN(0, -(f.size.width - kScreenWidth) / 2.0);
+    [self avtarInfoCell].bgImgView.frame = f;
+}
 
 #pragma mark - other
 - (void)onClickClearCache:(EditCellItem *)curItem {

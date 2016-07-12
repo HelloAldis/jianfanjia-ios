@@ -40,13 +40,12 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     self.editDiarySetInfoImgView.tintColor = [UIColor whiteColor];
     [self.avatarImgView setCornerRadius:self.avatarImgView.frame.size.width / 2];
     [self.avatarImgView setBorder:1 andColor:[UIColor whiteColor].CGColor];
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = CGRectMake(0, -kNavWithStatusBarHeight, kScreenWidth, kDiarySetAvtarInfoCellHeight + kNavWithStatusBarHeight * 2);
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithR:0x00 g:0x00 b:0x00 a:0.3] CGColor], (id)[[UIColor clearColor] CGColor], nil];
-    gradient.startPoint = CGPointMake(0.5, 1.0);
-    gradient.endPoint = CGPointMake(0.5, 0.0);
-    gradient.locations = @[@0.15, @1.0];
-    [self.diarySetBGImgView.layer addSublayer:gradient];
+    self.gradient = [CAGradientLayer layer];
+    _gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithR:0x00 g:0x00 b:0x00 a:0.3] CGColor], (id)[[UIColor clearColor] CGColor], nil];
+    _gradient.startPoint = CGPointMake(0.5, 1.0);
+    _gradient.endPoint = CGPointMake(0.5, 0.0);
+    _gradient.locations = @[@0.15, @1.0];
+    [self.diarySetBGImgView.layer addSublayer:_gradient];
     
     [self.editDiarySetInfoImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapEdit)]];
     [self.diarySetBGImgView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapModifyCover)]];
@@ -56,6 +55,12 @@ CGFloat kDiarySetAvtarInfoCellHeight;
         @strongify(self);
         [self onTapModifyCover];
     }];
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    CGRect f = self.diarySetBGImgView.frame;
+    self.gradient.frame = CGRectMake(0, -kNavWithStatusBarHeight, f.size.width + kScreenWidth, f.size.height + kDiarySetAvtarInfoCellHeight + kNavWithStatusBarHeight * 2);
 }
 
 - (void)initWithDiarySet:(DiarySet *)diarySet tableView:(UITableView *)tableView {

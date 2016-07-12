@@ -141,13 +141,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        if (!self.avtarInfoCell) {
-            DiarySetAvtarInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiarySetAvtarInfoCellIdentifier];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            self.avtarInfoCell = cell;
-        }
-        
-        [self.avtarInfoCell initWithDiarySet:self.diarySet tableView:self.tableView];
+        [[self avtarInfoCell] initWithDiarySet:self.diarySet tableView:self.tableView];
         return self.avtarInfoCell;
     }
     
@@ -165,6 +159,16 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     }
     
     return UITableViewAutomaticDimension;
+}
+
+- (DiarySetAvtarInfoCell *)avtarInfoCell {
+    if (!_avtarInfoCell) {
+        DiarySetAvtarInfoCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiarySetAvtarInfoCellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.avtarInfoCell = cell;
+    }
+    
+    return _avtarInfoCell;
 }
 
 #pragma mark - scroll view
@@ -185,6 +189,15 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         self.favoriateImgView.tintColor = [UIColor whiteColor];
         self.lblFavoriateCount.textColor = [UIColor whiteColor];
     }
+    
+    offsetY = offsetY;
+    CGRect f = CGRectZero;
+    f.origin.y = offsetY;
+    f.size.width = MAX(kScreenWidth, kScreenWidth - offsetY - kNavWithStatusBarHeight);
+    f.size.height =  kDiarySetAvtarInfoCellHeight - offsetY;
+    f.origin.x = MIN(0, -(f.size.width - kScreenWidth) / 2.0);
+    [self avtarInfoCell].diarySetBGImgView.frame = f;
+    [[self avtarInfoCell] setNeedsLayout];
 }
 
 #pragma mark - api request

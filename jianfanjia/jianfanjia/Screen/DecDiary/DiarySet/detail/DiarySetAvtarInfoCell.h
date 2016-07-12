@@ -14,6 +14,7 @@ extern CGFloat kDiarySetAvtarInfoCellHeight;
 
 @property (weak, nonatomic) IBOutlet UIView *avtarView;
 @property (weak, nonatomic) IBOutlet UIImageView *diarySetBGImgView;
+@property (strong, nonatomic) CAGradientLayer *gradient;
 
 - (void)initWithDiarySet:(DiarySet *)diarySet tableView:(UITableView *)tableView;
 

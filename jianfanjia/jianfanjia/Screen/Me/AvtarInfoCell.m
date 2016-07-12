@@ -15,6 +15,7 @@ CGFloat kAvtarInfoCellHeight;
 @interface AvtarInfoCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
+@property (weak, nonatomic) IBOutlet UIView *avtarView;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserName;
 @property (weak, nonatomic) IBOutlet UILabel *lblPhone;
 
