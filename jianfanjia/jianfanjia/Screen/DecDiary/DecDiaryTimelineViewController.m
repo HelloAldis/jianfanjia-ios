@@ -54,7 +54,7 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 500;
+    self.tableView.estimatedRowHeight = 300;
     [self.tableView registerNib:[UINib nibWithNibName:DecDiaryStatusCellIdentifier bundle:nil] forCellReuseIdentifier:DecDiaryStatusCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:TopDiarySetsCellIdentifier bundle:nil] forCellReuseIdentifier:TopDiarySetsCellIdentifier];
     
