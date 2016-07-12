@@ -8,6 +8,7 @@
 
 #import "TopDiarySetsCell.h"
 #import "TopDiarySetCell.h"
+#import "UIItemImageCollectionView.h"
 #import "ViewControllerContainer.h"
 
 static const NSInteger CELL_SPACE = 8;
@@ -20,9 +21,10 @@ static CGFloat cellWidth;
 static CGFloat cellHeight;
 
 @interface TopDiarySetsCell () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet UIItemImageCollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *collectionFlowLayout;
 
+@property (assign, nonatomic) NSInteger numberOfItemsInsection;
 @property (nonatomic, strong) NSArray *topDiarySets;
 
 @end
@@ -48,6 +50,7 @@ static CGFloat cellHeight;
 
 - (void)initWithDiarySets:(NSArray *)topDiarySets {
     self.topDiarySets = topDiarySets;
+    [self refreshViewContentSize];
     [self.collectionView reloadData];
 }
 
@@ -65,6 +68,12 @@ static CGFloat cellHeight;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     [ViewControllerContainer showDiarySetDetail:self.topDiarySets[indexPath.row] fromNewDiarySet:NO];
+}
+
+#pragma mark - other
+- (void)refreshViewContentSize {
+    self.collectionView.viewContentSize = CGSizeMake(2 * SECTION_LEFT + (cellWidth + CELL_SPACE) * self.topDiarySets.count - CELL_SPACE, cellHeight);
+    [self.collectionView invalidateIntrinsicContentSize];
 }
 
 @end
