@@ -268,6 +268,7 @@
 		6865A38C1D33600100B3CB26 /* ListFavoriateDiarySet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A38B1D33600100B3CB26 /* ListFavoriateDiarySet.m */; };
 		6865A3901D33B4AD00B3CB26 /* TopDiarySetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A38E1D33B4AD00B3CB26 /* TopDiarySetCell.m */; };
 		6865A3911D33B4AD00B3CB26 /* TopDiarySetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A38F1D33B4AD00B3CB26 /* TopDiarySetCell.xib */; };
+		6865A3931D348B2E00B3CB26 /* DecDiaryStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A3921D348B2E00B3CB26 /* DecDiaryStatusCell.xib */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -374,7 +375,6 @@
 		68E6008E1CB7C89E00C4A8F7 /* ElseStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E6008D1CB7C89E00C4A8F7 /* ElseStatus.m */; };
 		68EE3D8F1D0FFAAC00F5EF83 /* DecDiaryDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3D881D0FFAAC00F5EF83 /* DecDiaryDataManager.m */; };
 		68EE3D901D0FFAAC00F5EF83 /* DecDiaryStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3D8A1D0FFAAC00F5EF83 /* DecDiaryStatusCell.m */; };
-		68EE3D911D0FFAAC00F5EF83 /* DecDiaryStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3D8B1D0FFAAC00F5EF83 /* DecDiaryStatusCell.xib */; };
 		68EE3D921D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3D8D1D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.m */; };
 		68EE3D931D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EE3D8E1D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.xib */; };
 		68EE3D961D1131E700F5EF83 /* Diary.m in Sources */ = {isa = PBXBuildFile; fileRef = 68EE3D951D1131E700F5EF83 /* Diary.m */; };
@@ -1045,6 +1045,7 @@
 		6865A38D1D33B4AD00B3CB26 /* TopDiarySetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopDiarySetCell.h; sourceTree = "<group>"; };
 		6865A38E1D33B4AD00B3CB26 /* TopDiarySetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDiarySetCell.m; sourceTree = "<group>"; };
 		6865A38F1D33B4AD00B3CB26 /* TopDiarySetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopDiarySetCell.xib; sourceTree = "<group>"; };
+		6865A3921D348B2E00B3CB26 /* DecDiaryStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecDiaryStatusCell.xib; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -1234,7 +1235,6 @@
 		68EE3D881D0FFAAC00F5EF83 /* DecDiaryDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecDiaryDataManager.m; sourceTree = "<group>"; };
 		68EE3D891D0FFAAC00F5EF83 /* DecDiaryStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecDiaryStatusCell.h; sourceTree = "<group>"; };
 		68EE3D8A1D0FFAAC00F5EF83 /* DecDiaryStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecDiaryStatusCell.m; sourceTree = "<group>"; };
-		68EE3D8B1D0FFAAC00F5EF83 /* DecDiaryStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecDiaryStatusCell.xib; sourceTree = "<group>"; };
 		68EE3D8C1D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecDiaryTimelineViewController.h; sourceTree = "<group>"; };
 		68EE3D8D1D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecDiaryTimelineViewController.m; sourceTree = "<group>"; };
 		68EE3D8E1D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecDiaryTimelineViewController.xib; sourceTree = "<group>"; };
@@ -2456,7 +2456,7 @@
 				68EE3D8E1D0FFAAC00F5EF83 /* DecDiaryTimelineViewController.xib */,
 				68EE3D891D0FFAAC00F5EF83 /* DecDiaryStatusCell.h */,
 				68EE3D8A1D0FFAAC00F5EF83 /* DecDiaryStatusCell.m */,
-				68EE3D8B1D0FFAAC00F5EF83 /* DecDiaryStatusCell.xib */,
+				6865A3921D348B2E00B3CB26 /* DecDiaryStatusCell.xib */,
 				68EE3E9B1D192ED000F5EF83 /* DecDiaryStatusAllCell.h */,
 				68EE3E9C1D192ED000F5EF83 /* DecDiaryStatusAllCell.m */,
 				68EE3E9D1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib */,
@@ -3479,6 +3479,7 @@
 				683669051BFF0B44006A5053 /* PlanListViewController.xib in Resources */,
 				689ECEB41CFC19240046DDC8 /* read_me.txt in Resources */,
 				6E6D98E71BE343E400D45F77 /* DesignerViewController.xib in Resources */,
+				6865A3931D348B2E00B3CB26 /* DecDiaryStatusCell.xib in Resources */,
 				6836690A1BFF0C05006A5053 /* PlanCell.xib in Resources */,
 				6865A3881D335B6900B3CB26 /* FavoriateDiarySetCell.xib in Resources */,
 				68B10CAB1C7819E3005866C1 /* ProductCaseListViewController.xib in Resources */,
@@ -3594,7 +3595,6 @@
 				68EE3E4D1D13D08E00F5EF83 /* DecorationPhaseCell.xib in Resources */,
 				6E4496331BFAD68B00C90851 /* ResetPassViewController.xib in Resources */,
 				68123C541C4C8B99008FC9AB /* DateAlertViewController.xib in Resources */,
-				68EE3D911D0FFAAC00F5EF83 /* DecDiaryStatusCell.xib in Resources */,
 				6E838DA31BEB37BD000BF5CD /* DesignerInfoCell.xib in Resources */,
 				689ECDFC1CFC09590046DDC8 /* SelectionMenuView.xib in Resources */,
 				685272C31C2CF3EC002E62EC /* BusinessRequirementCreateViewController.xib in Resources */,
