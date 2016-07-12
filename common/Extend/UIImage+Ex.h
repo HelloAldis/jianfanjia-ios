@@ -31,4 +31,9 @@
 - (UIImage *)imageByBlurLight;
 - (UIImage *)imageByBlurExtraLight;
 - (UIImage *)imageByBlurDark;
+- (UIImage *)imageByBlurRadius:(CGFloat)blurRadius
+                     tintColor:(UIColor *)tintColor
+                      tintMode:(CGBlendMode)tintBlendMode
+                    saturation:(CGFloat)saturation
+                     maskImage:(UIImage *)maskImage;
 @end
