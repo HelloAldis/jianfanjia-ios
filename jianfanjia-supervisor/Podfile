@@ -12,5 +12,5 @@ pod 'GVUserDefaults'
 pod 'FLEX', '~> 2.1', :configurations => ['Debug']
 pod 'UMengAnalytics'
 pod 'GTSDK'
-pod 'RSKImageCropper'
 pod 'YYText'
+pod 'TOCropViewController'

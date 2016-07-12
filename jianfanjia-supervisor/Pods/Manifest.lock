@@ -43,7 +43,7 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - RSKImageCropper (1.5.1)
+  - TOCropViewController (2.0.7)
   - UMengAnalytics (3.6.6)
   - YYText (1.0.5)
   - YYWebImage (0.9.13)
@@ -58,7 +58,7 @@ DEPENDENCIES:
   - MBProgressHUD (~> 0.9.1)
   - MJRefresh (~> 2.4.7)
   - ReactiveCocoa (~> 2.5)
-  - RSKImageCropper
+  - TOCropViewController
   - UMengAnalytics
   - YYText
   - YYWebImage (~> 0.9.12)
@@ -73,7 +73,7 @@ SPEC CHECKSUMS:
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
   MJRefresh: ca8e9589895977df32d379d46e6b8a5450b3ff44
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  RSKImageCropper: edd65fedb3734332818deb139906d6b7f54b8a44
+  TOCropViewController: cec24e4385929683b217d08bfdc8791975cddc04
   UMengAnalytics: 4bf831415146b9c57cb10be65fbd43462ef8cf65
   YYText: ac09660c9ccd9b817f409a20caa6f5587444d2ae
   YYWebImage: c0825e5595bac2e972cdce0f305a7cd04f3185f7
