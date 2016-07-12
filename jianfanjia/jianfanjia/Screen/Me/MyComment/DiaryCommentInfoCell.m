@@ -75,10 +75,26 @@
     [self.lblDiaryContent setRowSpace:5];
     
     if (self.notification.toComment.content.length > 0) {
+        NSRange prefixRange = [self.notification.toComment.content rangeOfString:kDiaryMessagePrefix];
+        NSRange subfixRange = [self.notification.toComment.content rangeOfString:kDiaryMessageSubfix];
         NSString *userName = [GVUserDefaults standardUserDefaults].username;
-        NSString *toComment = [NSString stringWithFormat:@"%@ ：%@", userName, self.notification.toComment.content];
-        
-        self.lblToComment.attributedText = [toComment attrSubStr:userName font:nil color:kThemeColor];
+
+        if (prefixRange.location != NSNotFound && subfixRange.location != NSNotFound) {
+            NSString *userNameStr = [NSString stringWithFormat:@"%@ ", userName];
+            NSAttributedString *userNameAttr = [userNameStr attrSubStr:userName font:nil color:kThemeColor];
+            
+            NSRange hilightRange = NSMakeRange(prefixRange.location + prefixRange.length, subfixRange.location - prefixRange.location - prefixRange.length);
+            NSString *hilightString = [self.notification.toComment.content substringWithRange:hilightRange];
+            
+            NSMutableAttributedString *toCommentAttr = [self.notification.toComment.content attrSubStr:hilightString font:self.lblToComment.font color:kThemeColor];
+            [toCommentAttr insertAttributedString:userNameAttr atIndex:0];
+            
+            self.lblToComment.attributedText = toCommentAttr;
+        } else {
+            NSString *toComment = [NSString stringWithFormat:@"%@ ：%@", userName, self.notification.toComment.content];
+            self.lblToComment.attributedText = [toComment attrSubStr:userName font:nil color:kThemeColor];
+        }
+
         self.toCommentTopConst.constant = 8;
         self.toCommentBottomConst.constant = 8;
         self.sperateLine.hidden = NO;
