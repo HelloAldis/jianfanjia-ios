@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -24,22 +24,22 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xmF-HI-0oK" userLabel="headerView">
-                        <rect key="frame" x="0.0" y="6" width="381" height="40"/>
+                        <rect key="frame" x="0.0" y="6" width="381" height="42"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="开工阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdC-6O-Gkh">
-                                <rect key="frame" x="20" y="15" width="56" height="15"/>
+                                <rect key="frame" x="20" y="15" width="56" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="2016年6月14日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ftc-w3-XgP">
-                                <rect key="frame" x="91" y="14" width="232" height="17"/>
+                                <rect key="frame" x="91" y="15" width="232" height="17"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nRu-Hg-CyV">
-                                <rect key="frame" x="331" y="9" width="40" height="28"/>
+                                <rect key="frame" x="331" y="10" width="40" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Cd0-6m-3Go"/>
                                 </constraints>
@@ -62,21 +62,21 @@
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJT-1F-yIv" userLabel="msgView" customClass="YYLabel">
-                        <rect key="frame" x="0.0" y="46" width="381" height="0.0"/>
+                        <rect key="frame" x="0.0" y="48" width="381" height="0.0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="750" id="rDw-Hh-Et4"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="749" id="rDw-Hh-Et4"/>
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpK-Hc-Tmk" userLabel="imgsView">
-                        <rect key="frame" x="0.0" y="46" width="381" height="0.0"/>
+                        <rect key="frame" x="0.0" y="48" width="381" height="0.0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="750" id="vGm-cB-WXQ"/>
+                            <constraint firstAttribute="height" id="vGm-cB-WXQ"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nEh-x0-U2B" userLabel="ToolBar">
-                        <rect key="frame" x="0.0" y="46" width="381" height="45"/>
+                        <rect key="frame" x="0.0" y="48" width="381" height="45"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0bW-yz-vcN" userLabel="zan">
                                 <rect key="frame" x="0.0" y="1" width="190" height="44"/>
@@ -124,8 +124,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="YNs-nt-9Fd"/>
                                         <exclude reference="Rm6-76-Gyf"/>
+                                        <exclude reference="YNs-nt-9Fd"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -175,8 +175,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="8Mk-hE-ubB"/>
                                         <exclude reference="4hB-lb-OEI"/>
+                                        <exclude reference="8Mk-hE-ubB"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -224,7 +224,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="nEh-x0-U2B" secondAttribute="trailing" constant="-8" id="9S8-5L-hvS"/>
                     <constraint firstItem="X7m-5F-HdZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="9Vi-YU-HFL"/>
                     <constraint firstAttribute="trailingMargin" secondItem="NJT-1F-yIv" secondAttribute="trailing" constant="-8" id="Aai-a2-X1P"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="nEh-x0-U2B" secondAttribute="bottom" constant="-8" id="Aqe-KC-Z9u"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="nEh-x0-U2B" secondAttribute="bottom" priority="750" constant="-8" id="Aqe-KC-Z9u"/>
                     <constraint firstItem="nEh-x0-U2B" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="BAt-bX-bP6"/>
                     <constraint firstAttribute="trailingMargin" secondItem="PpK-Hc-Tmk" secondAttribute="trailing" constant="-8" id="BRz-s0-fVI"/>
                     <constraint firstItem="PpK-Hc-Tmk" firstAttribute="top" secondItem="NJT-1F-yIv" secondAttribute="bottom" id="I87-ZZ-fIa"/>

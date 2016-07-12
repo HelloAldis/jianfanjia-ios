@@ -92,14 +92,14 @@
                         <rect key="frame" x="0.0" y="91" width="381" height="0.0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="750" id="IjF-p9-L4B"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="749" id="IjF-p9-L4B"/>
                         </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ndZ-j3-JSi" userLabel="imgsView">
                         <rect key="frame" x="0.0" y="91" width="381" height="0.0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" priority="750" id="CDq-qD-gUt"/>
+                            <constraint firstAttribute="height" id="CDq-qD-gUt"/>
                         </constraints>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SqA-Zq-CdP" userLabel="ToolBar">
@@ -251,7 +251,7 @@
                     <constraint firstItem="j41-nd-YUE" firstAttribute="top" secondItem="OE8-N2-gcb" secondAttribute="topMargin" constant="-8" id="Oe1-li-DGj"/>
                     <constraint firstAttribute="trailingMargin" secondItem="SqA-Zq-CdP" secondAttribute="trailing" constant="-8" id="QBQ-ky-h23"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ndZ-j3-JSi" secondAttribute="trailing" constant="-8" id="QXr-Ss-Uqs"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="SqA-Zq-CdP" secondAttribute="bottom" constant="-10" id="Usa-rV-XgH"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="SqA-Zq-CdP" secondAttribute="bottom" priority="750" constant="-8" id="Usa-rV-XgH"/>
                     <constraint firstAttribute="trailingMargin" secondItem="sna-12-WFp" secondAttribute="trailing" constant="-8" id="YDh-kr-aLZ"/>
                     <constraint firstItem="j41-nd-YUE" firstAttribute="leading" secondItem="OE8-N2-gcb" secondAttribute="leadingMargin" constant="-8" id="acG-Pt-x21"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Iig-mq-asi" secondAttribute="trailing" constant="-8" id="loy-U0-Oi7"/>
