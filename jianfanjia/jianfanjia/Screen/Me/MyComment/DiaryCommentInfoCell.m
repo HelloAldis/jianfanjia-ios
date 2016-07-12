@@ -108,6 +108,7 @@
 
 #pragma mark - user action
 - (IBAction)onClickReply:(id)sender {
+    self.notification.user.toCommentId = self.notification.commentid;
     [ViewControllerContainer showDiaryDetail:self.notification.diary showComment:YES toUser:self.notification.user deleteDone:nil];
 }
 

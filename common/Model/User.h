@@ -26,4 +26,7 @@
 @property(nonatomic, strong) NSString *wechat_openid;
 @property(nonatomic, strong) NSString *wechat_unionid;
 
+// 不动态属性
+@property(nonatomic, strong) NSString *toCommentId;
+
 @end
