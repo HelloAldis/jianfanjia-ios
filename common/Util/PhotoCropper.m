@@ -7,9 +7,9 @@
 //
 
 #import "PhotoCropper.h"
-#import "RSKImageCropper.h"
+#import "TOCropViewController.h"
 
-@interface PhotoCropper () <RSKImageCropViewControllerDelegate>
+@interface PhotoCropper () <TOCropViewControllerDelegate>
 
 @property (nonatomic, copy) PhotoCropperCancelBlock cancelBlock;
 @property (nonatomic, copy) PhotoCropperChooseBlock chooseBlock;
@@ -18,43 +18,53 @@
 
 @implementation PhotoCropper
 
-+ (void)showPhotoCropper:(UIViewController *)controller image:(UIImage *)image cancel:(PhotoCropperCancelBlock)cancelBlock choose:(PhotoCropperChooseBlock)chooseBlock {
-    RSKImageCropViewController *imageCropVC = [[RSKImageCropViewController alloc] initWithImage:image cropMode:RSKImageCropModeSquare];
-    imageCropVC.delegate = [PhotoCropper shared];
-    imageCropVC.avoidEmptySpaceAroundImage = YES;
++ (void)showPhotoCropper:(UIViewController *)controller image:(UIImage *)image style:(PhotoCropperStyle)style cancel:(PhotoCropperCancelBlock)cancelBlock choose:(PhotoCropperChooseBlock)chooseBlock {
     [PhotoCropper shared].cancelBlock = cancelBlock;
-    [PhotoCropper shared].chooseBlock = chooseBlock;;
+    [PhotoCropper shared].chooseBlock = chooseBlock;
     
-    [controller.navigationController pushViewController:imageCropVC animated:YES];
+    TOCropViewController *cropViewController = [[TOCropViewController alloc] initWithImage:image];
+    cropViewController.delegate = [PhotoCropper shared];
+    cropViewController.aspectRatioPreset = style == PhotoCropperStyleOriginal ? TOCropViewControllerAspectRatioPresetOriginal : TOCropViewControllerAspectRatioPresetSquare;
+    cropViewController.aspectRatioPickerButtonHidden = YES;
+    cropViewController.rotateButtonsHidden = YES;
+    cropViewController.aspectRatioLockEnabled = YES;
+    cropViewController.resetAspectRatioEnabled = NO;
+    
+    UIViewController *contrl = controller.presentedViewController ? controller.presentedViewController : controller;
+    [contrl presentViewController:cropViewController animated:YES completion:nil];
 }
 
-+ (void)showPhotoCropper:(UIViewController *)controller asset:(PHAsset *)asset cancel:(PhotoCropperCancelBlock)cancelBlock choose:(PhotoCropperChooseBlock)chooseBlock {
++ (void)showPhotoCropper:(UIViewController *)controller asset:(PHAsset *)asset style:(PhotoCropperStyle)style cancel:(PhotoCropperCancelBlock)cancelBlock choose:(PhotoCropperChooseBlock)chooseBlock {
     PHImageManager *imageManager = [PHImageManager defaultManager];
     PHImageRequestOptions *options = [PHImageRequestOptions new];
     options.networkAccessAllowed = YES;
     options.resizeMode = PHImageRequestOptionsResizeModeFast;
     options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
     options.synchronous = false;
-    
+
     [imageManager requestImageForAsset:asset
                             targetSize:CGSizeMake(kScreenWidth * kScreenScale, kScreenHeight * kScreenScale)
                            contentMode:PHImageContentModeAspectFit
                                options:options
                          resultHandler:^(UIImage *result, NSDictionary *info) {
-                             [self showPhotoCropper:controller image:result cancel:cancelBlock choose:chooseBlock];
+                             [self showPhotoCropper:controller image:result style:style cancel:cancelBlock choose:chooseBlock];
                          }];
 }
 
-- (void)imageCropViewControllerDidCancelCrop:(RSKImageCropViewController *)controller {
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle {
+    if ([PhotoCropper shared].chooseBlock) {
+        [PhotoCropper shared].chooseBlock(image);
+    }
+    
+    [cropViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)cropViewController:(TOCropViewController *)cropViewController didFinishCancelled:(BOOL)cancelled {
     if ([PhotoCropper shared].cancelBlock) {
         [PhotoCropper shared].cancelBlock();
     }
-}
-
-- (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect {
-    if ([PhotoCropper shared].chooseBlock) {
-        [PhotoCropper shared].chooseBlock(croppedImage);
-    }
+    
+    [cropViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 + (instancetype)shared {

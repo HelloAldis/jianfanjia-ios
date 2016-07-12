@@ -24,6 +24,8 @@ typedef void (^FinishUploadBlock)(NSArray *imageIds, NSArray *imageSizes);
 
 @property (assign, nonatomic) BOOL allowsEdit;
 
+@property (assign, nonatomic) NSInteger style;
+
 @property (copy, nonatomic) FinishUploadBlock finishUploadBlock;
 
 @end

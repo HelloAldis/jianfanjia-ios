@@ -158,8 +158,8 @@
 
 - (void)onClickDoneSingle:(PHAsset *)asset imageView:(UIImageView *)imageView {
     if (self.allowsEdit && !self.allowsMultipleSelection) {
-        [PhotoCropper showPhotoCropper:self asset:asset cancel:^{
-            [self.navigationController popViewControllerAnimated:YES];
+        [PhotoCropper showPhotoCropper:self asset:asset style:self.style cancel:^{
+//            [self.navigationController popViewControllerAnimated:YES];
         } choose:^(UIImage *croppedImage) {
             UploadImage *request = [[UploadImage alloc] init];
             request.image = [croppedImage aspectToScale:kScreenWidth];
