@@ -64,7 +64,7 @@ static NSString *DiaryCommentInfoCellIdentifier = @"DiaryCommentInfoCell";
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 300;
+    self.tableView.estimatedRowHeight = 220;
     [self.tableView registerNib:[UINib nibWithNibName:PlanCommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:PlanCommentInfoCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:DecCommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:DecCommentInfoCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:DiaryCommentInfoCellIdentifier bundle:nil] forCellReuseIdentifier:DiaryCommentInfoCellIdentifier];
