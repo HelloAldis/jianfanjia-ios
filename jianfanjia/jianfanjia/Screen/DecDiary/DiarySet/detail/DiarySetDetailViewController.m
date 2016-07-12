@@ -190,7 +190,9 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         self.lblFavoriateCount.textColor = [UIColor whiteColor];
     }
     
-    offsetY = offsetY;
+    CGFloat alpha = (kNavWithStatusBarHeight - offsetY) / (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight);
+    [[self avtarInfoCell] updateSubViewsAlpha:alpha];
+
     CGRect f = CGRectZero;
     f.origin.y = offsetY;
     f.size.width = MAX(kScreenWidth, kScreenWidth - offsetY - kNavWithStatusBarHeight);

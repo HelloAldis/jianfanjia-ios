@@ -17,5 +17,6 @@ extern CGFloat kDiarySetAvtarInfoCellHeight;
 @property (strong, nonatomic) CAGradientLayer *gradient;
 
 - (void)initWithDiarySet:(DiarySet *)diarySet tableView:(UITableView *)tableView;
+- (void)updateSubViewsAlpha:(CGFloat)alpha;
 
 @end

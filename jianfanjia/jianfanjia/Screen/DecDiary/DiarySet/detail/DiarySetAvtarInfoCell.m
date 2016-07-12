@@ -79,6 +79,14 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     }
 }
 
+- (void)updateSubViewsAlpha:(CGFloat)alpha {
+    self.avatarImgView.alpha = alpha;
+    self.lblBasicInfo.alpha = alpha;
+    self.lblDiarySetTitle.alpha = alpha;
+    self.editDiarySetInfoImgView.alpha = alpha;
+    self.btnModifyCover.alpha = alpha;
+}
+
 - (void)setCover {
     [self.diarySetBGImgView setImageWithId:self.diarySet.cover_imageid withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_diary_set_cover"]];
 }
