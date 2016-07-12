@@ -23,7 +23,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="滑动更多精选日记本" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sKI-WB-ZKA">
-                        <rect key="frame" x="20" y="6" width="126" height="40"/>
+                        <rect key="frame" x="20" y="8" width="126" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="tAt-af-5kR"/>
                         </constraints>
@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="ztk-xc-2f0">
-                        <rect key="frame" x="0.0" y="46" width="381" height="75"/>
+                        <rect key="frame" x="0.0" y="48" width="381" height="73"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="98B-jl-erw">
                             <size key="itemSize" width="50" height="50"/>
@@ -55,7 +55,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="ztk-xc-2f0" secondAttribute="trailing" constant="-8" id="itT-00-mIn"/>
                     <constraint firstItem="ztk-xc-2f0" firstAttribute="top" secondItem="sKI-WB-ZKA" secondAttribute="bottom" id="sMe-ZS-sYN"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ztk-xc-2f0" secondAttribute="bottom" constant="5" id="tZS-pZ-bQm"/>
-                    <constraint firstItem="sKI-WB-ZKA" firstAttribute="top" secondItem="X7m-5F-HdZ" secondAttribute="bottom" id="tjH-Vl-yPM"/>
+                    <constraint firstItem="sKI-WB-ZKA" firstAttribute="top" secondItem="X7m-5F-HdZ" secondAttribute="bottom" constant="2" id="tjH-Vl-yPM"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

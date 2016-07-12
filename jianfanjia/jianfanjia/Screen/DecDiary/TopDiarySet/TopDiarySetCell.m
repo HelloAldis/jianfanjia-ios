@@ -26,7 +26,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     [self setCornerRadius:3];
-    [self setBorder:0.5 andColor:[UIColor colorWithR:0xE6 g:0xE7 b:0xE8].CGColor];
+    [self setBorder:1.0 andColor:[UIColor colorWithR:0xE6 g:0xE7 b:0xE8].CGColor];
     [self.barView setCornerRadius:self.barView.frame.size.height / 2];
 }
 
