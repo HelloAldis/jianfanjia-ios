@@ -24,7 +24,8 @@ typedef void(^TapBlock)(void);
 + (void)playBounceAnimationFor:(UIView *)view block:(void(^)(void))block;
 - (void)playRotationZAnimation:(CGFloat)duration angle:(CGFloat)angle completion:(void(^)(void))completion;
 - (UIImage *)snapshotImage;
+- (UIImage *)snapshotImage:(BOOL)afterUpdates;
 - (UIImage *)snapshotImageAtFrame:(CGRect)r;
-- (UIImage *)snapshotImageAfterScreenUpdates:(BOOL)afterUpdates;
+- (UIImage *)snapshotImageAtFrame:(CGRect)r afterUpdates:(BOOL)afterUpdates;
 
 @end

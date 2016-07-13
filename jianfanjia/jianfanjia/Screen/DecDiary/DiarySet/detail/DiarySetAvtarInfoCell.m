@@ -93,9 +93,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 
 - (UIImage *)getTopBlurImage:(UINavigationBar *)navBar {
     CGRect frame = [navBar convertRect:navBar.bounds toView:self.blurImgView];
-    frame.origin.y += (kDiarySetAvtarInfoCellHeight - self.blurImgView.frame.size.height) +  (kNavWithStatusBarHeight - self.blurImgView.frame.origin.y);
-    
-    return [self.blurImgView.image getSubImage:frame];
+    return [self.blurImgView snapshotImageAtFrame:frame];
 }
 
 - (UIImage *)getBlurImage {

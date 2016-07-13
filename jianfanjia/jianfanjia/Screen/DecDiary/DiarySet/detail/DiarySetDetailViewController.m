@@ -174,9 +174,27 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 #pragma mark - scroll view
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat offsetY = scrollView.contentOffset.y;
+    DiarySetAvtarInfoCell *avtarCell = [self avtarInfoCell];
+
+    CGFloat alpha = (kNavWithStatusBarHeight - offsetY) / (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight);
+    [avtarCell updateSubViewsAlpha:alpha];
+
+    if (offsetY >= -kNavWithStatusBarHeight) {
+        avtarCell.diarySetBGImgView.frame = CGRectMake(0, -kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight + kDiarySetAvtarInfoCellHeight);
+        [avtarCell setNeedsLayout];
+    } else {
+        CGRect f = CGRectZero;
+        f.origin.y = offsetY;
+        f.size.width = MAX(kScreenWidth, kScreenWidth - offsetY - kNavWithStatusBarHeight);
+        f.size.height =  kDiarySetAvtarInfoCellHeight - offsetY;
+        f.origin.x = MIN(0, -(f.size.width - kScreenWidth) / 2.0);
+        avtarCell.diarySetBGImgView.frame = f;
+        [avtarCell setNeedsLayout];
+    }
+    
     if (offsetY >= (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight)) {
         if (self.krs_FakeNavigationBar.translucent) {
-            [self.krs_FakeNavigationBar setBackgroundImage:[[self avtarInfoCell] getTopBlurImage:self.krs_FakeNavigationBar] forBarMetrics:UIBarMetricsDefault];
+            [self.krs_FakeNavigationBar setBackgroundImage:[avtarCell getTopBlurImage:self.krs_FakeNavigationBar] forBarMetrics:UIBarMetricsDefault];
             self.krs_FakeNavigationBar.translucent = NO;
         }
     } else {
@@ -185,17 +203,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
             self.krs_FakeNavigationBar.translucent = YES;
         }
     }
-    
-    CGFloat alpha = (kNavWithStatusBarHeight - offsetY) / (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight);
-    [[self avtarInfoCell] updateSubViewsAlpha:alpha];
-
-    CGRect f = CGRectZero;
-    f.origin.y = offsetY;
-    f.size.width = MAX(kScreenWidth, kScreenWidth - offsetY - kNavWithStatusBarHeight);
-    f.size.height =  kDiarySetAvtarInfoCellHeight - offsetY;
-    f.origin.x = MIN(0, -(f.size.width - kScreenWidth) / 2.0);
-    [self avtarInfoCell].diarySetBGImgView.frame = f;
-    [[self avtarInfoCell] setNeedsLayout];
 }
 
 #pragma mark - api request
