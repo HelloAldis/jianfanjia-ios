@@ -48,6 +48,10 @@
     [self setImageWithId:imageid withWidth:width height:0 placeholder:placeholder options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:nil];
 }
 
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder completed:(JYZWebImageCompletionBlock)completeBlock {
+    [self setImageWithId:imageid withWidth:width height:0 placeholder:placeholder options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:(JYZWebImageCompletionBlock)completeBlock];
+}
+
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width height:(NSInteger)height {
     [self setImageWithId:imageid withWidth:width height:height placeholder:[UIImage imageNamed:@"image_place_holder"] options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:nil];
 }

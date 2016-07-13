@@ -19,7 +19,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gM7-ta-tqS" userLabel="AvtarView">
                         <rect key="frame" x="0.0" y="0.0" width="590" height="304"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_my" translatesAutoresizingMaskIntoConstraints="NO" id="jAM-cy-3Aj">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_diary_set_cover" translatesAutoresizingMaskIntoConstraints="NO" id="jAM-cy-3Aj">
+                                <rect key="frame" x="0.0" y="-64" width="590" height="368"/>
+                                <gestureRecognizers/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" alpha="0.0" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_diary_set_cover" translatesAutoresizingMaskIntoConstraints="NO" id="auJ-Zp-IE3" userLabel="BlurImgView">
                                 <rect key="frame" x="0.0" y="-64" width="590" height="368"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -76,6 +80,7 @@
                             <constraint firstItem="8Pi-IW-uXU" firstAttribute="leading" secondItem="GXl-mZ-nPe" secondAttribute="trailing" constant="5" id="7aj-Sq-c3e"/>
                             <constraint firstItem="GXl-mZ-nPe" firstAttribute="top" secondItem="cE9-Pk-9qa" secondAttribute="top" constant="5" id="9iA-BG-DPv"/>
                             <constraint firstAttribute="trailing" secondItem="jAM-cy-3Aj" secondAttribute="trailing" id="CJQ-CT-5u4"/>
+                            <constraint firstItem="auJ-Zp-IE3" firstAttribute="leading" secondItem="jAM-cy-3Aj" secondAttribute="leading" id="Cyv-tY-b44"/>
                             <constraint firstItem="4oV-fh-d5Q" firstAttribute="leading" secondItem="GXl-mZ-nPe" secondAttribute="leading" id="Eqn-Tm-HGj"/>
                             <constraint firstItem="jLT-CR-o1d" firstAttribute="centerY" secondItem="jAM-cy-3Aj" secondAttribute="centerY" id="JGA-cj-evL"/>
                             <constraint firstAttribute="bottom" secondItem="jAM-cy-3Aj" secondAttribute="bottom" id="JeI-qD-AKR"/>
@@ -85,7 +90,10 @@
                             <constraint firstItem="8Pi-IW-uXU" firstAttribute="centerY" secondItem="cE9-Pk-9qa" secondAttribute="centerY" id="SBy-36-TFJ"/>
                             <constraint firstItem="cE9-Pk-9qa" firstAttribute="leading" secondItem="gM7-ta-tqS" secondAttribute="leading" constant="15" id="Tk0-bC-jBk"/>
                             <constraint firstAttribute="bottom" secondItem="cE9-Pk-9qa" secondAttribute="bottom" constant="20" id="W8L-Oy-pHM"/>
+                            <constraint firstItem="auJ-Zp-IE3" firstAttribute="top" secondItem="jAM-cy-3Aj" secondAttribute="top" id="ani-lR-4dn"/>
                             <constraint firstAttribute="trailing" secondItem="8Pi-IW-uXU" secondAttribute="trailing" constant="5" id="dgu-j7-uA6"/>
+                            <constraint firstItem="auJ-Zp-IE3" firstAttribute="bottom" secondItem="jAM-cy-3Aj" secondAttribute="bottom" id="joW-QZ-mdx"/>
+                            <constraint firstItem="auJ-Zp-IE3" firstAttribute="trailing" secondItem="jAM-cy-3Aj" secondAttribute="trailing" id="s13-cp-j50"/>
                             <constraint firstItem="GXl-mZ-nPe" firstAttribute="leading" secondItem="cE9-Pk-9qa" secondAttribute="trailing" constant="15" id="vA7-nV-xM9"/>
                             <constraint firstItem="jAM-cy-3Aj" firstAttribute="top" secondItem="gM7-ta-tqS" secondAttribute="top" constant="-64" id="vKK-TU-P2d"/>
                             <constraint firstItem="jLT-CR-o1d" firstAttribute="centerX" secondItem="jAM-cy-3Aj" secondAttribute="centerX" id="xd3-v5-uKB"/>
@@ -104,6 +112,7 @@
             <connections>
                 <outlet property="avatarImgView" destination="cE9-Pk-9qa" id="W6X-tB-sgb"/>
                 <outlet property="avtarView" destination="gM7-ta-tqS" id="yuV-4i-bo1"/>
+                <outlet property="blurImgView" destination="auJ-Zp-IE3" id="TbB-Iw-btz"/>
                 <outlet property="btnModifyCover" destination="jLT-CR-o1d" id="8VE-4e-QZU"/>
                 <outlet property="diarySetBGImgView" destination="jAM-cy-3Aj" id="VC2-jJ-fM0"/>
                 <outlet property="editDiarySetInfoImgView" destination="8Pi-IW-uXU" id="NZE-l6-j2B"/>
@@ -114,8 +123,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bg_my" width="1242" height="880"/>
         <image name="icon_write_diary" width="20" height="21"/>
         <image name="image_place_holder_2" width="60" height="60"/>
+        <image name="img_diary_set_cover" width="1242" height="646"/>
     </resources>
 </document>

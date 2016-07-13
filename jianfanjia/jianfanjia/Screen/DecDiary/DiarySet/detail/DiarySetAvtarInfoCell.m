@@ -15,6 +15,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImgView;
 @property (weak, nonatomic) IBOutlet UIImageView *editDiarySetInfoImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *blurImgView;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblDiarySetTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblBasicInfo;
@@ -62,6 +63,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     [super layoutSubviews];
     CGRect f = self.diarySetBGImgView.frame;
     self.gradient.frame = CGRectMake(0, -kNavWithStatusBarHeight, f.size.width + kScreenWidth, f.size.height + kDiarySetAvtarInfoCellHeight + kNavWithStatusBarHeight * 2);
+    self.blurImgView.frame = f;
 }
 
 - (void)initWithDiarySet:(DiarySet *)diarySet tableView:(UITableView *)tableView {
@@ -86,14 +88,30 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     self.lblDiarySetTitle.alpha = alpha;
     self.editDiarySetInfoImgView.alpha = alpha;
     self.btnModifyCover.alpha = alpha;
+    self.blurImgView.alpha = 1 - alpha;
 }
 
-- (UIImage *)getBlurImage {
+- (UIImage *)getTopBlurImage {
     return [[self.diarySetBGImgView.image getSubImage:CGRectMake(0, self.diarySetBGImgView.image.size.height - kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight)] imageByBlurRadius:60 tintColor:[UIColor colorWithWhite:0.6 alpha:0.36] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
 }
 
+- (UIImage *)getBlurImage {
+    return [self.diarySetBGImgView.image imageByBlurRadius:60 tintColor:[UIColor colorWithWhite:0.6 alpha:0.36] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
+}
+
+- (void)setupBlurImageView {
+    self.blurImgView.image = [self getBlurImage];
+}
+
 - (void)setCover {
-    [self.diarySetBGImgView setImageWithId:self.diarySet.cover_imageid withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_diary_set_cover"]];
+    [self setupBlurImageView];
+    @weakify(self);
+    [self.diarySetBGImgView setImageWithId:self.diarySet.cover_imageid withWidth:kScreenWidth placeholder:[UIImage imageNamed:@"img_diary_set_cover"] completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
+        @strongify(self);
+        if (stage == JYZWebImageStageFinished) {
+            [self setupBlurImageView];
+        }
+    }];
 }
 
 - (void)onTapEdit {

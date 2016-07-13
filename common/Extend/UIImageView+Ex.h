@@ -94,6 +94,7 @@ typedef UIImage * (^JYZWebImageTransformBlock)(UIImage *image, NSURL *url);
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width completed:(JYZWebImageCompletionBlock)completeBlock;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder;
+- (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder completed:(JYZWebImageCompletionBlock)completeBlock;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width height:(NSInteger)height;
 - (void)setUserImageWithId:(NSString *)imageid;
 - (void)setUserImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder;
