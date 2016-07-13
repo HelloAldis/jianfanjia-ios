@@ -71,7 +71,7 @@
     }
     
     self.lblDiarySetTitle.text = self.notification.diary.diarySet.title;
-    self.lblDiaryContent.text = [NSString stringWithFormat:@"%@\n%@", [DiaryBusiness diarySetInfo:self.notification.diary.diarySet], self.notification.diary.content];;
+    self.lblDiaryContent.text = [NSString stringWithFormat:@"%@\n%@", [DiaryBusiness diarySetInfo:self.notification.diary.diarySet], self.notification.diary.content];
     [self.lblDiaryContent setRowSpace:5];
     
     if (self.notification.toComment.content.length > 0) {
@@ -91,7 +91,7 @@
             
             self.lblToComment.attributedText = toCommentAttr;
         } else {
-            NSString *toComment = [NSString stringWithFormat:@"%@ ：%@", userName, self.notification.toComment.content];
+            NSString *toComment = [NSString stringWithFormat:@"%@：%@", userName, self.notification.toComment.content];
             self.lblToComment.attributedText = [toComment attrSubStr:userName font:nil color:kThemeColor];
         }
 

@@ -145,7 +145,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         if (username.length == 0) {
             self.tvMessage.placeholder = kDeafultTVHolder;
         } else {
-            self.tvMessage.placeholder = [NSString stringWithFormat:@"%@ %@ %@", kDiaryMessagePrefix, username, kDiaryMessageSubfix];
+            self.tvMessage.placeholder = [NSString stringWithFormat:@"%@ %@%@", kDiaryMessagePrefix, username, kDiaryMessageSubfix];
         }
         
     }];
