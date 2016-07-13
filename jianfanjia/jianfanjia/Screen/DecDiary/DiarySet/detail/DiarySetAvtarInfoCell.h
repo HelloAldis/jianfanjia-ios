@@ -18,6 +18,6 @@ extern CGFloat kDiarySetAvtarInfoCellHeight;
 
 - (void)initWithDiarySet:(DiarySet *)diarySet tableView:(UITableView *)tableView;
 - (void)updateSubViewsAlpha:(CGFloat)alpha;
-- (UIImage *)getTopBlurImage:(UINavigationBar *)navBar;
+- (UIImage *)getTopBlurImage;
 
 @end
