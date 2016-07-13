@@ -106,7 +106,9 @@ static CGFloat imgCellWidth;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView itemAtIndexPath:(NSIndexPath *)fromIndexPath didMoveToIndexPath:(NSIndexPath *)toIndexPath {
-    [self.diary.images exchangeObjectAtIndex:fromIndexPath.row withObjectAtIndex:toIndexPath.row];
+    UIImage *image = self.diary.images[fromIndexPath.row];
+    [self.diary.images removeObjectAtIndex:fromIndexPath.row];
+    [self.diary.images insertObject:image atIndex:toIndexPath.row];
 }
 
 #pragma mark - user action
