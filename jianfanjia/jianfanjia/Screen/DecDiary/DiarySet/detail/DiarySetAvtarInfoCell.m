@@ -92,8 +92,16 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 }
 
 - (UIImage *)getTopBlurImage:(UINavigationBar *)navBar {
-    CGRect frame = [navBar convertRect:navBar.bounds toView:self.blurImgView];
-    return [self.blurImgView snapshotImageAtFrame:frame];
+    CGRect frame;
+    CGFloat width = self.blurImgView.image.size.width;
+    CGFloat height = self.blurImgView.image.size.height;
+    CGFloat scale = (height / width) / (self.blurImgView.frame.size.height / self.blurImgView.frame.size.width);
+    if (scale < 0.99 || isnan(scale)) { // 宽图
+        frame = CGRectMake((width - kScreenWidth) / 2.0, kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight);
+    } else { // 高图
+        frame = CGRectMake(0, (height - kDiarySetAvtarInfoCellHeight) / 2.0 + kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight);
+    }
+    return [self.blurImgView.image getSubImage:frame];
 }
 
 - (UIImage *)getBlurImage {

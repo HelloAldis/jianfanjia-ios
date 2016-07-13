@@ -36,4 +36,21 @@
                       tintMode:(CGBlendMode)tintBlendMode
                     saturation:(CGFloat)saturation
                      maskImage:(UIImage *)maskImage;
+/**
+ Draws the entire image in the specified rectangle, content changed with
+ the contentMode.
+ 
+ @discussion This method draws the entire image in the current graphics context,
+ respecting the image's orientation setting. In the default coordinate system,
+ images are situated down and to the right of the origin of the specified
+ rectangle. This method respects any transforms applied to the current graphics
+ context, however.
+ 
+ @param rect        The rectangle in which to draw the image.
+ 
+ @param contentMode Draw content mode
+ 
+ @param clips       A Boolean value that determines whether content are confined to the rect.
+ */
+- (void)drawInRect:(CGRect)rect withContentMode:(UIViewContentMode)contentMode clipsToBounds:(BOOL)clips;
 @end

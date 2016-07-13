@@ -149,7 +149,7 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
         UIGraphicsEndImageContext();
         return snap;
     } else {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
+        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [UIScreen mainScreen].scale);
         [self.layer renderInContext:UIGraphicsGetCurrentContext()];
         UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
