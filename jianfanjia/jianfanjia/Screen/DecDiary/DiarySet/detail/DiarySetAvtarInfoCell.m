@@ -89,7 +89,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 }
 
 - (UIImage *)getBlurImage {
-    return [[self.diarySetBGImgView.image getSubImage:CGRectMake(0, self.diarySetBGImgView.frame.size.height - kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight)] imageByBlurRadius:60 tintColor:[UIColor colorWithWhite:0.6 alpha:0.36] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
+    return [[self.diarySetBGImgView.image getSubImage:CGRectMake(0, self.diarySetBGImgView.image.size.height - kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight)] imageByBlurRadius:60 tintColor:[UIColor colorWithWhite:0.6 alpha:0.36] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
 }
 
 - (void)setCover {
