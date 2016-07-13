@@ -9,8 +9,25 @@
 #import <UIKit/UIKit.h>
 #import "BaseViewController.h"
 
-@interface BaseWebViewController : BaseViewController
+static NSString *DefaultTitle = @"简繁家，让装修变简单";
+
+@interface BaseWebViewController : BaseViewController <WKNavigationDelegate, WKScriptMessageHandler>
+
+@property (strong, nonatomic) ProgressWebView *webView;
+
+@property (strong, nonatomic) NSString *articleImgUrl;
+@property (strong, nonatomic) NSString *articleDescription;
+
+@property (strong, nonatomic) NSString *url;
+@property (strong, nonatomic) NSString *topic;
+
+- (void)initNav;
+
+- (void)addConstraints;
+- (void)onClickShare;
 
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler;
+
+- (void)showError:(NSError *)error;
 
 @end
