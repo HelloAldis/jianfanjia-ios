@@ -91,8 +91,11 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     self.blurImgView.alpha = 1 - alpha;
 }
 
-- (UIImage *)getTopBlurImage {
-    return [[self.diarySetBGImgView.image getSubImage:CGRectMake(0, self.diarySetBGImgView.image.size.height - kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight)] imageByBlurRadius:60 tintColor:[UIColor colorWithWhite:0.6 alpha:0.36] tintMode:kCGBlendModeNormal saturation:1.8 maskImage:nil];
+- (UIImage *)getTopBlurImage:(UINavigationBar *)navBar {
+    CGRect frame = [navBar convertRect:navBar.bounds toView:self.blurImgView];
+    frame.origin.y += (kDiarySetAvtarInfoCellHeight - self.blurImgView.frame.size.height) +  (kNavWithStatusBarHeight - self.blurImgView.frame.origin.y);
+    
+    return [self.blurImgView.image getSubImage:frame];
 }
 
 - (UIImage *)getBlurImage {

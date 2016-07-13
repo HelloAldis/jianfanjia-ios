@@ -176,7 +176,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     CGFloat offsetY = scrollView.contentOffset.y;
     if (offsetY >= (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight)) {
         if (self.krs_FakeNavigationBar.translucent) {
-            [self.krs_FakeNavigationBar setBackgroundImage:[[self avtarInfoCell] getTopBlurImage] forBarMetrics:UIBarMetricsDefault];
+            [self.krs_FakeNavigationBar setBackgroundImage:[[self avtarInfoCell] getTopBlurImage:self.krs_FakeNavigationBar] forBarMetrics:UIBarMetricsDefault];
             self.krs_FakeNavigationBar.translucent = NO;
         }
     } else {
