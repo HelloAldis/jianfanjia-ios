@@ -15,9 +15,6 @@
 @property (weak, nonatomic) IBOutlet UIView *actionView;
 @property (weak, nonatomic) IBOutlet UIButton *btnAction;
 
-@property (assign, nonatomic) BOOL needShare;
-@property (assign, nonatomic) BOOL canBack;
-
 @property (strong, nonatomic) NSString *actionTitle;
 @property (copy, nonatomic) WebViewActioBlock actionBlock;
 
@@ -38,8 +35,8 @@
     if (self = [super init]) {
         self.url = url;
         self.topic = topic;
-        _needShare = topic.length > 0;
-        _canBack = canBack;
+        self.needShare = topic.length > 0;
+        self.canBack = canBack;
         _actionTitle = actionTitle;
         _actionBlock = actionBlock;
     }
@@ -54,19 +51,6 @@
 }
 
 #pragma mark - UI
-- (void)initNav {
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    if (self.canBack) {
-        [self initLeftBackInNav];
-    }
-    
-    if (self.needShare) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
-        self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
-        self.navigationItem.rightBarButtonItem.enabled = NO;
-    }
-}
-
 - (void)initUI {
     [self.btnAction setTitle:self.actionTitle forState:UIControlStateNormal];
     [self.btnAction setCornerRadius:self.btnAction.frame.size.height / 2];

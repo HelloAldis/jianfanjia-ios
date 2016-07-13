@@ -19,6 +19,8 @@
 - (id)initWithUrl:(NSString *)url {
     if (self = [super init]) {
         self.url = url;
+        self.needShare = NO;
+        self.canBack = YES;
     }
     
     return self;

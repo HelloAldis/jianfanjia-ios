@@ -15,6 +15,9 @@ static NSString *DefaultTitle = @"简繁家，让装修变简单";
 
 @property (strong, nonatomic) ProgressWebView *webView;
 
+@property (assign, nonatomic) BOOL needShare;
+@property (assign, nonatomic) BOOL canBack;
+
 @property (strong, nonatomic) NSString *articleImgUrl;
 @property (strong, nonatomic) NSString *articleDescription;
 

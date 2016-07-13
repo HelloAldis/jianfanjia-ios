@@ -30,11 +30,16 @@ static NSString *MessageModel = @"jianfanjia";
 
 #pragma mark - UI
 - (void)initNav {
-    [self initLeftBackInNav];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
-    self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
-    self.navigationItem.rightBarButtonItem.enabled = NO;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    if (self.canBack) {
+        [self initLeftBackInNav];
+    }
+    
+    if (self.needShare) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_share_1"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickShare)];
+        self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
+        self.navigationItem.rightBarButtonItem.enabled = NO;
+    }
 }
 
 #pragma mark - load page

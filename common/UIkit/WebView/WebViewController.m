@@ -21,6 +21,8 @@
     if (self = [super init]) {
         self.url = url;
         self.topic = topic;
+        self.needShare = YES;
+        self.canBack = YES;
     }
     
     return self;
