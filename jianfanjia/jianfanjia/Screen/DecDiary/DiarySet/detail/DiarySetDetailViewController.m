@@ -192,15 +192,18 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         [avtarCell setNeedsLayout];
     }
     
+    UINavigationBar *navBar = self.krs_FakeNavigationBar;
     if (offsetY >= (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight)) {
-        if (self.krs_FakeNavigationBar.translucent) {
-            [self.krs_FakeNavigationBar setBackgroundImage:[avtarCell getTopBlurImage] forBarMetrics:UIBarMetricsDefault];
-            self.krs_FakeNavigationBar.translucent = NO;
+        if (navBar.translucent) {
+            [navBar setBackgroundImage:[avtarCell getTopBlurImage] forBarMetrics:UIBarMetricsDefault];
+            navBar.translucent = NO;
+            [navBar setNeedsDisplay];
         }
     } else {
-        if (!self.krs_FakeNavigationBar.translucent) {
-            [self.krs_FakeNavigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-            self.krs_FakeNavigationBar.translucent = YES;
+        if (!navBar.translucent) {
+            [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+            navBar.translucent = YES;
+            [navBar setNeedsDisplay];
         }
     }
 }
