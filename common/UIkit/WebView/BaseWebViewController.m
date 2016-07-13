@@ -171,15 +171,9 @@ static NSString *MessageModel = @"jianfanjia";
 
 #pragma mark - other
 - (void)showError:(NSError *)error {
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                   message:error.localizedDescription
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    
-    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                          handler:^(UIAlertAction * action) {}];
-    
-    [alert addAction:defaultAction];
-    [self presentViewController:alert animated:YES completion:nil];
+    [AlertUtil show:self title:@"错误" doneBlock:^{
+        
+    }];
 }
 
 @end

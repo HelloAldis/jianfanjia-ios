@@ -200,24 +200,16 @@ static NSString *ConsultPhoneCellIdentifier = @"ConsultPhoneCell";
 
 #pragma mark - other
 - (void)onClickClearCache:(EditCellItem *)curItem {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清空缓存？" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //Do nothing
-    }];
-    
-    UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [AlertUtil show:[ViewControllerContainer getCurrentTopController] title:@"确定清空缓存？" cancelBlock:^{
+        
+    } doneBlock:^{
         YYImageCache *cache = [YYWebImageManager sharedManager].cache;
         [cache.memoryCache removeAllObjects];
         [cache.diskCache removeAllObjects];
         curItem.attrValue = [self getCacheValue];
-
+        
         [self.tableView reloadData];
     }];
-    
-    [alert addAction:cancel];
-    [alert addAction:done];
-    
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (NSMutableAttributedString *)getCacheValue {

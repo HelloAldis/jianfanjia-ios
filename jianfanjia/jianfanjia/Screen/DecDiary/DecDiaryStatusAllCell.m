@@ -117,12 +117,9 @@
 }
 
 - (void)onTapDel {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定要删除日记？" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //Do nothing
-    }];
-    
-    UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [AlertUtil show:[ViewControllerContainer getCurrentTopController] title:@"确定要删除日记？" cancelBlock:^{
+        
+    } doneBlock:^{
         DeleteDiary *request = [[DeleteDiary alloc] init];
         request.diaryid = self.diary._id;
         
@@ -139,11 +136,6 @@
             
         }];
     }];
-    
-    [alert addAction:cancel];
-    [alert addAction:done];
-    
-    [[ViewControllerContainer getCurrentTopController] presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)onClickAvatar {

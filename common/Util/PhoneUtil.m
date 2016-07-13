@@ -11,23 +11,18 @@
 @implementation PhoneUtil
 
 + (void)call:(NSString *)phone {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:phone message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //Do nothing
-    }];
-    
-    UIAlertAction *done = [UIAlertAction actionWithTitle:@"呼叫" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phone]]];
-    }];
-    
-    [alert addAction:cancel];
-    [alert addAction:done];
-    
+    UIViewController *controller;
     if ([UIApplication sharedApplication].keyWindow.rootViewController.presentedViewController) {
-        [[UIApplication sharedApplication].keyWindow.rootViewController.presentedViewController presentViewController:alert animated:YES completion:nil];
+        controller = [UIApplication sharedApplication].keyWindow.rootViewController.presentedViewController;
     } else {
-        [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+        controller = [UIApplication sharedApplication].keyWindow.rootViewController;
     }
+
+    [AlertUtil show:controller title:phone message:nil cancelText:@"取消" cancelBlock:^{
+        
+    } doneText:@"呼叫" doneBlock:^{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@", phone]]];
+    } completion:nil];
 }
 
 @end

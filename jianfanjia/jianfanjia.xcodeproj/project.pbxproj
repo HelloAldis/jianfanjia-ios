@@ -270,6 +270,7 @@
 		6865A3911D33B4AD00B3CB26 /* TopDiarySetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A38F1D33B4AD00B3CB26 /* TopDiarySetCell.xib */; };
 		6865A3931D348B2E00B3CB26 /* DecDiaryStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A3921D348B2E00B3CB26 /* DecDiaryStatusCell.xib */; };
 		6865A3961D3631F300B3CB26 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3951D3631F300B3CB26 /* BaseWebViewController.m */; };
+		6865A3991D36509A00B3CB26 /* AlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3981D36509A00B3CB26 /* AlertUtil.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1049,6 +1050,8 @@
 		6865A3921D348B2E00B3CB26 /* DecDiaryStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecDiaryStatusCell.xib; sourceTree = "<group>"; };
 		6865A3941D3631F300B3CB26 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		6865A3951D3631F300B3CB26 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
+		6865A3971D36509A00B3CB26 /* AlertUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertUtil.h; sourceTree = "<group>"; };
+		6865A3981D36509A00B3CB26 /* AlertUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertUtil.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -2984,6 +2987,8 @@
 				68EE3EB71D221BAB00F5EF83 /* TextViewDelegate.m */,
 				68EE3EB91D221DAB00F5EF83 /* TextFieldDelegate.h */,
 				68EE3EBA1D221DAB00F5EF83 /* TextFieldDelegate.m */,
+				6865A3971D36509A00B3CB26 /* AlertUtil.h */,
+				6865A3981D36509A00B3CB26 /* AlertUtil.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -3900,6 +3905,7 @@
 				68EE3E161D12A6ED00F5EF83 /* AddDiarySectionView.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,
+				6865A3991D36509A00B3CB26 /* AlertUtil.m in Sources */,
 				6865A3901D33B4AD00B3CB26 /* TopDiarySetCell.m in Sources */,
 				6E6D98EB1BE345BC00D45F77 /* ProductInfoCell.m in Sources */,
 				68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */,
