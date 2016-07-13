@@ -269,6 +269,7 @@
 		6865A3901D33B4AD00B3CB26 /* TopDiarySetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A38E1D33B4AD00B3CB26 /* TopDiarySetCell.m */; };
 		6865A3911D33B4AD00B3CB26 /* TopDiarySetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A38F1D33B4AD00B3CB26 /* TopDiarySetCell.xib */; };
 		6865A3931D348B2E00B3CB26 /* DecDiaryStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A3921D348B2E00B3CB26 /* DecDiaryStatusCell.xib */; };
+		6865A3961D3631F300B3CB26 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3951D3631F300B3CB26 /* BaseWebViewController.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1046,6 +1047,8 @@
 		6865A38E1D33B4AD00B3CB26 /* TopDiarySetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopDiarySetCell.m; sourceTree = "<group>"; };
 		6865A38F1D33B4AD00B3CB26 /* TopDiarySetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopDiarySetCell.xib; sourceTree = "<group>"; };
 		6865A3921D348B2E00B3CB26 /* DecDiaryStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecDiaryStatusCell.xib; sourceTree = "<group>"; };
+		6865A3941D3631F300B3CB26 /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
+		6865A3951D3631F300B3CB26 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -2366,6 +2369,8 @@
 		68BA507F1C9FD8BB002E5572 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				6865A3941D3631F300B3CB26 /* BaseWebViewController.h */,
+				6865A3951D3631F300B3CB26 /* BaseWebViewController.m */,
 				68E600641CB74AC900C4A8F7 /* WebViewWithActionController.h */,
 				68E600651CB74AC900C4A8F7 /* WebViewWithActionController.m */,
 				68E600661CB74AC900C4A8F7 /* WebViewWithActionController.xib */,
@@ -3839,6 +3844,7 @@
 				6E6D98E61BE343E400D45F77 /* DesignerViewController.m in Sources */,
 				684B03B61C968A450053FFDF /* BaseNotificationCell.m in Sources */,
 				685DD4511C89761E00A76B9C /* PlanCommentInfoCell.m in Sources */,
+				6865A3961D3631F300B3CB26 /* BaseWebViewController.m in Sources */,
 				680C465F1CC61356008C4BC0 /* Supervisor.m in Sources */,
 				68679A411C8E730F00B380D0 /* SystemAnnouncementCell.m in Sources */,
 				68EE3DAC1D12447A00F5EF83 /* BaseEditCell.m in Sources */,

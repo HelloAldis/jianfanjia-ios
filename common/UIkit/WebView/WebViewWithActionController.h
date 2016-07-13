@@ -6,11 +6,11 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseWebViewController.h"
 
 typedef void (^WebViewActioBlock)(void);
 
-@interface WebViewWithActionController : BaseViewController
+@interface WebViewWithActionController : BaseWebViewController
 
 + (void)show:(UIViewController *)controller withUrl:(NSString *)url shareTopic:(NSString *)topic actionTitle:(NSString *)actionTitle actionBlock:(WebViewActioBlock)actionBlock;
 + (void)show:(UIViewController *)controller withUrl:(NSString *)url shareTopic:(NSString *)topic actionTitle:(NSString *)actionTitle canBack:(BOOL)canBack actionBlock:(WebViewActioBlock)actionBlock;

@@ -6,9 +6,9 @@
 //  Copyright © 2015年 JYZ. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseWebViewController.h"
 
-@interface WebViewWithoutShareController : BaseViewController
+@interface WebViewWithoutShareController : BaseWebViewController
 
 + (void)show:(UIViewController *)controller withUrl:(NSString *)url;
 
