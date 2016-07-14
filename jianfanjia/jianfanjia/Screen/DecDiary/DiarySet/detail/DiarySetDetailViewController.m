@@ -70,9 +70,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftWhiteBackInNav];
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
-    self.navigationController.navigationBar.titleTextAttributes = dict;
-    
+
     self.favoriateView = [[UIView alloc] initWithFrame:CGRectZero];
     self.favoriateImgView = [[UIImageView alloc] initWithImage:[self unfavoriateImage]];
     self.lblFavoriateCount = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -395,7 +393,9 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 #pragma mark - override
 - (void)initTransparentNavBar:(UIBarStyle)barStyle {
+    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
     UINavigationBar *navBar = self.krs_FakeNavigationBar;
+    navBar.titleTextAttributes = dict;
     navBar.translucent = YES;
     [navBar setBarStyle:barStyle];
     navBar.shadowImage = [UIImage new];
