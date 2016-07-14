@@ -89,7 +89,7 @@
  
  @return      The new image with the given size.
  */
-- (nullable UIImage *)imageByResizeToSize:(CGSize)size;
+- (UIImage *)imageByResizeToSize:(CGSize)size;
 
 /**
  Returns a new image which is scaled from this image.
@@ -101,6 +101,6 @@
  
  @return The new image with the given size.
  */
-- (nullable UIImage *)imageByResizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode;
+- (UIImage *)imageByResizeToSize:(CGSize)size contentMode:(UIViewContentMode)contentMode;
 
 @end
