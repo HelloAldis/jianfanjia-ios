@@ -35,6 +35,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
 @property (strong, nonatomic) User *curToUser;
 @property (assign, nonatomic) BOOL showComment;
 @property (assign, nonatomic) BOOL wasFirstLoad;
+@property (assign, nonatomic) BOOL wasScrolledToComment;
 @property (assign, nonatomic) CGSize diarySize;
 
 @end
@@ -82,7 +83,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
     if (self.showComment && !self.wasFirstLoad) {
         self.wasFirstLoad = YES;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:YES];
             [self.tvMessage becomeFirstResponder];
         });
     }
@@ -156,7 +156,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         @strongify(self);
         [self loadMoreMessages];
     }];
-    
+
     [self initDiarySize];
     [self refreshDiary:NO];
     [self refreshMessageList:YES];
@@ -411,6 +411,11 @@ static NSString *kDeafultTVHolder = @"添加评论";
         } else {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, self.footerView.frame.size.height, 0);
         }
+    }
+    
+    if (self.showComment && !self.wasScrolledToComment) {
+        self.wasScrolledToComment = YES;
+        [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:NO];
     }
 }
 
