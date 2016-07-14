@@ -155,19 +155,13 @@
 }
 
 - (IBAction)onClickLogout:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定退出？" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //Do nothing
-    }];
-    UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [AlertUtil show:self title:@"确定退出？" cancelBlock:^{
+        
+    } doneBlock:^{
         [ViewControllerContainer logout];
         [self clickBack];
         [HUDUtil showText:@"您已退出登录" delayShow:0];
     }];
-    
-    [alert addAction:cancel];
-    [alert addAction:done];
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

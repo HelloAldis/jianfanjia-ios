@@ -80,24 +80,14 @@
 }
 
 - (IBAction)onClickClearCache:(id)sender {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定清空缓存？" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //Do nothing
-    }];
-    
-    @weakify(self)
-    UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        @strongify(self);
+    [AlertUtil show:self title:@"确定清空缓存？" cancelBlock:^{
+        
+    } doneBlock:^{
         YYImageCache *cache = [YYWebImageManager sharedManager].cache;
         [cache.memoryCache removeAllObjects];
         [cache.diskCache removeAllObjects];
         [self updateCache];
     }];
-    
-    [alert addAction:cancel];
-    [alert addAction:done];
-    
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)onClickMore:(id)sender {

@@ -21,17 +21,11 @@
 }
 
 - (void)onTap {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"确定退出？" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        //Do nothing
-    }];
-    UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [AlertUtil show:[ViewControllerContainer navigation] title:@"确定退出？"  cancelBlock:^{
+        
+    } doneBlock:^{
         [ViewControllerContainer logout];
     }];
-    
-    [alert addAction:cancel];
-    [alert addAction:done];
-    [[ViewControllerContainer navigation] presentViewController:alert animated:YES completion:nil];
 }
 
 @end

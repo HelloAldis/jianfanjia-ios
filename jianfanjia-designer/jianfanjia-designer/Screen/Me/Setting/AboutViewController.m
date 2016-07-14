@@ -39,12 +39,9 @@
 #pragma mark - action
 - (IBAction)onClickOfficialWechat:(id)sender {
     [UIPasteboard generalPasteboard].string = @"jianfanjia";
+    [AlertUtil show:self title:@"微信号已复制成功，请在微信搜索并关注简繁家。" doneBlock:^{
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"微信号已复制成功，请在微信搜索并关注简繁家。" message:nil preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *done = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:done];
-    
-    [self presentViewController:alert animated:YES completion:nil];
+    }];
 }
 
 - (IBAction)onClickOfficialWeibo:(id)sender {
