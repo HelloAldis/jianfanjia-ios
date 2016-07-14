@@ -401,15 +401,8 @@ static NSString *kDeafultTVHolder = @"添加评论";
         self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, minCommentsHeight, 0);
     } else {
         CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
-        __block CGFloat actualCommentsHeight = 0;
+        __block CGFloat actualCommentsHeight = self.tableView.contentSize.height - self.diarySize.height;
         
-        [self.dataManager.comments enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            DiaryMessageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiaryMessageCellIdentifier];
-            [cell initWithComment:obj];
-            CGSize size = [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
-            actualCommentsHeight += size.height;
-        }];
-
         CGFloat extra = minCommentsHeight - actualCommentsHeight;
         if (extra > 0) {
             self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, extra, 0);
