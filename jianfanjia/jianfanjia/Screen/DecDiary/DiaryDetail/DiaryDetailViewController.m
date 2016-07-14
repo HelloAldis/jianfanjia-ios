@@ -81,8 +81,10 @@ static NSString *kDeafultTVHolder = @"添加评论";
     [super viewDidAppear:animated];
     if (self.showComment && !self.wasFirstLoad) {
         self.wasFirstLoad = YES;
-        [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:YES];
-        [self.tvMessage becomeFirstResponder];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:YES];
+            [self.tvMessage becomeFirstResponder];
+        });
     }
 }
 
