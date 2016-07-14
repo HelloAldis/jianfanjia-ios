@@ -159,7 +159,6 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
     [self initDiarySize];
     [self refreshDiary:NO];
-    [self refreshMessageList:YES];
 }
 
 - (void)initDiarySize {
@@ -279,7 +278,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
                 [self onClickBack];
             });
         } else {
-            [self.tableView reloadData];
+            [self refreshMessageList:YES];
         }
     } failure:^{
         
@@ -312,7 +311,10 @@ static NSString *kDeafultTVHolder = @"添加评论";
         }
         
         [self.tableView reloadData];
-        [self calculateInset];
+        [self.tableView layoutIfNeeded];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self calculateInset];
+        });
     } failure:^{
         [self.tableView.header endRefreshing];
     } networkError:^{
