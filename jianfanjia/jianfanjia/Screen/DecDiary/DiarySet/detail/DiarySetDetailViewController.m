@@ -177,7 +177,14 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     DiarySetAvtarInfoCell *avtarCell = [self avtarInfoCell];
 
     CGFloat alpha = (kNavWithStatusBarHeight - offsetY) / (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight);
+    alpha = MIN(1, MAX(alpha, 0));
     [avtarCell updateSubViewsAlpha:alpha];
+    
+    if (alpha < 0.1) {
+        self.title = self.diarySet.title;
+    } else {
+        self.title = nil;
+    }
 
     if (offsetY >= -kNavWithStatusBarHeight) {
         avtarCell.diarySetBGImgView.frame = CGRectMake(0, -kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight + kDiarySetAvtarInfoCellHeight);
