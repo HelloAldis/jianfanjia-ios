@@ -70,6 +70,8 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftWhiteBackInNav];
+    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
+    self.navigationController.navigationBar.titleTextAttributes = dict;
     
     self.favoriateView = [[UIView alloc] initWithFrame:CGRectZero];
     self.favoriateImgView = [[UIImageView alloc] initWithImage:[self unfavoriateImage]];
@@ -180,7 +182,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     alpha = MIN(1, MAX(alpha, 0));
     [avtarCell updateSubViewsAlpha:alpha];
     
-    if (alpha < 0.1) {
+    if (alpha < 0.1 && kDiarySetAvtarInfoCellHeight > 0) {
         self.title = self.diarySet.title;
     } else {
         self.title = nil;
