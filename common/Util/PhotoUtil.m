@@ -51,12 +51,9 @@ typedef NS_ENUM(NSInteger, PhotoUtilCropperStyle) {
                 [controller dismissViewControllerAnimated:YES completion:^{
                     if (allowsEditing) {
                         [PhotoCropper showPhotoCropper:controller image:originalImage style:(PhotoCropperStyle)style cancel:^{
-                            //                        [controller.navigationController popViewControllerAnimated:YES];
                         } choose:^(UIImage *croppedImage) {
                             UploadImage *request = [[UploadImage alloc] init];
-                            request.image = [croppedImage aspectToScale:kScreenWidth];
-                            
-                            //                        [controller.navigationController popViewControllerAnimated:YES];
+                            request.image = croppedImage;
                             [API uploadImage:request success:^{
                                 if (block) {
                                     block(@[[DataManager shared].lastUploadImageid], @[[NSValue valueWithCGSize:request.image.size]]);
@@ -68,7 +65,7 @@ typedef NS_ENUM(NSInteger, PhotoUtilCropperStyle) {
                         
                     } else {
                         UploadImage *request = [[UploadImage alloc] init];
-                        request.image = [originalImage aspectToScale:kScreenWidth];
+                        request.image = originalImage;
                         [API uploadImage:request success:^{
                             if (block) {
                                 block(@[[DataManager shared].lastUploadImageid], @[[NSValue valueWithCGSize:request.image.size]]);
