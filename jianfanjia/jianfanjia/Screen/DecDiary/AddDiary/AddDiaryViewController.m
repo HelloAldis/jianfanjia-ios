@@ -183,7 +183,7 @@ static NSString *AddDiaryImgsCellIdentifier = @"AddDiaryImgsCell";
         [AlertUtil show:[ViewControllerContainer getCurrentTopController]  title:@"确定要退出日记编辑？" cancelBlock:^{
             
         } doneBlock:^{
-            
+            [super onClickBack];
         }];
     } else {
         [super onClickBack];

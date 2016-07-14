@@ -198,7 +198,7 @@ static CGFloat imgCellWidth;
     
     if (self.isShaking ) {
         if (indexPath.row < self.item.images.count) {
-            [AlertUtil show:[ViewControllerContainer getCurrentTopController] title:@"确定删除图片？"  cancelBlock:^{
+            [AlertUtil show:[ViewControllerContainer getCurrentTopController] title:@"确定删除图片？" cancelBlock:^{
                 
             } doneBlock:^{
                 [self deleteImage:indexPath];
