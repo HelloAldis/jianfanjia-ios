@@ -405,25 +405,32 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
 #pragma mark - cal
 - (void)calculateInset {
-    if (self.dataManager.comments.count == 0) {
-        CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
-        self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, minCommentsHeight, 0);
-    } else {
-        CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
-        __block CGFloat actualCommentsHeight = self.tableView.contentSize.height - self.diarySize.height;
-        
-        CGFloat extra = minCommentsHeight - actualCommentsHeight;
-        if (extra > 0) {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, extra, 0);
-        } else {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, self.footerView.frame.size.height, 0);
-        }
+    if (!self.showComment || self.wasScrolledToComment) {
+        return;
     }
     
     if (self.showComment && !self.wasScrolledToComment) {
         self.wasScrolledToComment = YES;
-        [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:NO];
     }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.dataManager.comments.count == 0) {
+            CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, minCommentsHeight, 0);
+        } else {
+            CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
+            __block CGFloat actualCommentsHeight = self.tableView.contentSize.height - self.diarySize.height;
+            
+            CGFloat extra = minCommentsHeight - actualCommentsHeight;
+            if (extra > 0) {
+                self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, extra, 0);
+            } else {
+                self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, self.footerView.frame.size.height, 0);
+            }
+        }
+        
+        [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:NO];
+    });
 }
 
 @end
