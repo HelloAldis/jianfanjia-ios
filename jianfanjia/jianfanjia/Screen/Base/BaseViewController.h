@@ -10,6 +10,8 @@
 
 @interface BaseViewController : UIViewController<UIGestureRecognizerDelegate>
 
+- (void)setupFPS;
+
 - (void)initLeftBackInNav;
 - (void)initLeftWhiteBackInNav;
 - (void)initStatusBarStyle:(UIStatusBarStyle)barStyle;

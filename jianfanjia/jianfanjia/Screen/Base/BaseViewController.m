@@ -8,8 +8,11 @@
 
 #import "BaseViewController.h"
 #import "ViewControllerContainer.h"
+#import "FPSLabel.h"
 
 @interface BaseViewController ()
+
+@property (nonatomic, strong) FPSLabel *fpsLabel;
 
 @end
 
@@ -107,6 +110,17 @@
 
 - (void)clickBack {
     [self onClickBack];
+}
+
+#pragma mark - FPS
+- (void)setupFPS {
+    self.fpsLabel = [FPSLabel new];
+    [_fpsLabel sizeToFit];
+    CGRect frame = _fpsLabel.frame;
+    frame.origin.x = 20;
+    frame.origin.y = 300;
+    _fpsLabel.frame = frame;
+    [self.view addSubview:_fpsLabel];
 }
 
 @end
