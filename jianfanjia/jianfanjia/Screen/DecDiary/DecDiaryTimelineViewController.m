@@ -32,7 +32,6 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     
     [self initNav];
     [self initUI];
-    [self setupFPS];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

@@ -7,6 +7,7 @@
 //
 
 #import "ViewControllerContainer.h"
+#import "FPSLabel.h"
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
 #import "WelcomeViewController.h"
@@ -51,6 +52,7 @@
 #import "DiarySetListViewController.h"
 #import "DiarySetDetailViewController.h"
 #import "DiarySetDetailViewContainerController.h"
+
 
 @interface ViewControllerContainer ()
 
@@ -129,6 +131,7 @@ static ViewControllerContainer *container;
     container.tab.viewControllers = @[container.tab.tapHome, container.tab.tapBeautifulImg, container.tab.tapDecDiary, container.tab.tapRequirement, container.tab.tapMy];
     container.navigation = [[UINavigationController alloc] initWithRootViewController:container.tab];
     container.window.rootViewController = container.navigation;
+    [container.navigation setupFPS];
 }
 
 + (void)showWelcome {
