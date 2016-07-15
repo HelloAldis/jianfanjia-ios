@@ -35,6 +35,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
 @property (strong, nonatomic) User *curToUser;
 @property (assign, nonatomic) BOOL showComment;
 @property (assign, nonatomic) BOOL wasFirstLoad;
+@property (assign, nonatomic) BOOL wasAddInset;
 @property (assign, nonatomic) BOOL wasScrolledToComment;
 @property (assign, nonatomic) CGSize diarySize;
 
@@ -237,7 +238,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         return cell;
     }
     
-    DiaryMessageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiaryMessageCellIdentifier];
+    DiaryMessageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiaryMessageCellIdentifier forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     [cell initWithComment:self.dataManager.comments[indexPath.row]];
     return cell;
@@ -401,25 +402,39 @@ static NSString *kDeafultTVHolder = @"添加评论";
 
 #pragma mark - cal
 - (void)calculateInset {
-    if (self.dataManager.comments.count == 0) {
-        CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
-        self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, minCommentsHeight, 0);
-    } else {
-        CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
-        CGFloat actualCommentsHeight = self.tableView.contentSize.height - self.diarySize.height;
-        
-        CGFloat extra = minCommentsHeight - actualCommentsHeight;
-        if (extra > 0) {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, extra, 0);
+    if (!self.wasAddInset) {
+        self.wasAddInset = YES;
+        if (self.dataManager.comments.count == 0) {
+            CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
+            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, minCommentsHeight, 0);
         } else {
-            self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, self.footerView.frame.size.height, 0);
+            CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
+            __block CGFloat actualCommentsHeight = 0;
+            
+            DiaryMessageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DiaryMessageCellIdentifier];
+            [self.dataManager.comments enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if (idx < 20) {
+                    [cell initWithComment:obj];
+                    CGSize size = [cell systemLayoutSizeFittingSize:UILayoutFittingCompressedSize];
+                    actualCommentsHeight += size.height + 1.0;
+                } else {
+                    *stop = YES;
+                }
+            }];
+            
+            CGFloat extra = minCommentsHeight - actualCommentsHeight;
+            if (extra > 0) {
+                self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, extra, 0);
+            } else {
+                self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, self.footerView.frame.size.height, 0);
+            }
         }
     }
     
     [self.tableView reloadData];
-    [self.tableView layoutIfNeeded];
     if (self.showComment && !self.wasScrolledToComment) {
         self.wasScrolledToComment = YES;
+        [self.tableView layoutIfNeeded];
         [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:NO];
     }
 }
