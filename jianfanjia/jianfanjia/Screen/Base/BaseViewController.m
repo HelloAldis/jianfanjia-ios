@@ -8,6 +8,7 @@
 
 #import "BaseViewController.h"
 #import "ViewControllerContainer.h"
+#import "FPSLabel.h"
 
 @interface BaseViewController ()
 
@@ -50,6 +51,10 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
 }
 
 - (void)didReceiveMemoryWarning {

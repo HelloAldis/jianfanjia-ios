@@ -271,6 +271,7 @@
 		6865A3931D348B2E00B3CB26 /* DecDiaryStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A3921D348B2E00B3CB26 /* DecDiaryStatusCell.xib */; };
 		6865A3961D3631F300B3CB26 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3951D3631F300B3CB26 /* BaseWebViewController.m */; };
 		6865A3991D36509A00B3CB26 /* AlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3981D36509A00B3CB26 /* AlertUtil.m */; };
+		6865A3A71D38E9A000B3CB26 /* UINavigationController+FPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3A61D38E9A000B3CB26 /* UINavigationController+FPS.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1052,6 +1053,8 @@
 		6865A3951D3631F300B3CB26 /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		6865A3971D36509A00B3CB26 /* AlertUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertUtil.h; sourceTree = "<group>"; };
 		6865A3981D36509A00B3CB26 /* AlertUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertUtil.m; sourceTree = "<group>"; };
+		6865A3A51D38E9A000B3CB26 /* UINavigationController+FPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FPS.h"; sourceTree = "<group>"; };
+		6865A3A61D38E9A000B3CB26 /* UINavigationController+FPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FPS.m"; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -2882,6 +2885,8 @@
 				6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */,
 				68921FFF1CD1F66F00BC80C7 /* UIViewController+KeyboardAnimation.h */,
 				689220001CD1F66F00BC80C7 /* UIViewController+KeyboardAnimation.m */,
+				6865A3A51D38E9A000B3CB26 /* UINavigationController+FPS.h */,
+				6865A3A61D38E9A000B3CB26 /* UINavigationController+FPS.m */,
 			);
 			path = Extend;
 			sourceTree = "<group>";
@@ -3758,6 +3763,7 @@
 				6E07DACB1BD88DBE001461DD /* HUDUtil.m in Sources */,
 				685B143E1CEB0FB60076996A /* MultipleLineTextTableViewCell.m in Sources */,
 				685BF2FE1C0BE3D700ECA4C9 /* PhotoUtil.m in Sources */,
+				6865A3A71D38E9A000B3CB26 /* UINavigationController+FPS.m in Sources */,
 				68EE3E9E1D192ED000F5EF83 /* DecDiaryStatusAllCell.m in Sources */,
 				6E6D98F01BE34E2700D45F77 /* ProductImageCell.m in Sources */,
 				6E4496451BFC562900C90851 /* AboutViewController.m in Sources */,
