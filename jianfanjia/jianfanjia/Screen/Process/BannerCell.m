@@ -107,7 +107,7 @@ CGFloat kBannerCellHeight;
 }
 
 - (void)startTimer {
-    self.timer = [NSTimer timerWithTimeInterval:2.5 target:self selector:@selector(fireTimer) userInfo:nil repeats:NO];
+    self.timer = [NSTimer timerWithTimeInterval:3.5 target:self selector:@selector(fireTimer) userInfo:nil repeats:NO];
     [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
