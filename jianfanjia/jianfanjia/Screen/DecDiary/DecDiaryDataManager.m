@@ -94,7 +94,8 @@
     if (self.diarys.count > 2) {
         Diary *diary = self.diarys[2];
         self.topDiary.create_at = diary.create_at;
-        [self.diarys exchangeObjectAtIndex:topDiaryIndex withObjectAtIndex:2];
+        [self.diarys removeObjectAtIndex:topDiaryIndex];
+        [self.diarys insertObject:self.topDiary atIndex:2];
     }
 }
 
