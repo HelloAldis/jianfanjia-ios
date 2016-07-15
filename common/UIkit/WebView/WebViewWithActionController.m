@@ -60,8 +60,8 @@
 - (void)addConstraints {
     ProgressWebView *webV = self.webView;
     NSDictionary *views = NSDictionaryOfVariableBindings(webV);
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[webV]|" options:0 metrics:nil views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-64-[webV]-50-|" options:0 metrics:nil views:views]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[webV]|" options:0 metrics:nil views:views]];
 }
 
 - (IBAction)onClickActionButton:(id)sender {
