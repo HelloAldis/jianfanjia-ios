@@ -158,7 +158,9 @@ static NSString *kDeafultTVHolder = @"添加评论";
     }];
 
     [self initDiarySize];
-    [self refreshDiary:NO];
+    [self refreshDiary:NO completion:^{
+        [self refreshMessageList:YES];
+    }];
 }
 
 - (void)initDiarySize {
@@ -259,7 +261,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
 }
 
 #pragma mark - api request
-- (void)refreshDiary:(BOOL)showPlsWait {
+- (void)refreshDiary:(BOOL)showPlsWait completion:(void (^)(void))completion {
     if (showPlsWait) {
         [HUDUtil showWait];
     }
@@ -278,7 +280,9 @@ static NSString *kDeafultTVHolder = @"添加评论";
                 [self onClickBack];
             });
         } else {
-            [self refreshMessageList:YES];
+            if (completion) {
+                completion();
+            }
         }
     } failure:^{
         
@@ -376,8 +380,9 @@ static NSString *kDeafultTVHolder = @"添加评论";
         CGSize size = [self.tvMessage sizeThatFits:CGSizeMake(self.tvMessage.bounds.size.width, CGFLOAT_MAX)];
         self.messageHeight.constant = MIN(kMaxMessageHeight, MAX(kMinMessageHeight, size.height));
         [self updateAuthorIdToUserId];
-        [self refreshDiary:NO];
-        [self refreshMessageList:NO];
+        [self refreshDiary:NO completion:^{
+            [self refreshMessageList:NO];
+        }];
     } failure:^{
     } networkError:^{
     }];
