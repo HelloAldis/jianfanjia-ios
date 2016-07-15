@@ -310,11 +310,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
             }
         }
         
-        [self.tableView reloadData];
-        [self.tableView layoutIfNeeded];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self calculateInset];
-        });
+        [self calculateInset];
     } failure:^{
         [self.tableView.header endRefreshing];
     } networkError:^{
@@ -405,7 +401,7 @@ static NSString *kDeafultTVHolder = @"添加评论";
         self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, minCommentsHeight, 0);
     } else {
         CGFloat minCommentsHeight = kScreenHeight - kNavWithStatusBarHeight - self.footerView.frame.size.height;
-        __block CGFloat actualCommentsHeight = self.tableView.contentSize.height - self.diarySize.height;
+        CGFloat actualCommentsHeight = self.tableView.contentSize.height - self.diarySize.height;
         
         CGFloat extra = minCommentsHeight - actualCommentsHeight;
         if (extra > 0) {
@@ -415,6 +411,8 @@ static NSString *kDeafultTVHolder = @"添加评论";
         }
     }
     
+    [self.tableView reloadData];
+    [self.tableView layoutIfNeeded];
     if (self.showComment && !self.wasScrolledToComment) {
         self.wasScrolledToComment = YES;
         [self.tableView setContentOffset:CGPointMake(0, self.diarySize.height - kNavWithStatusBarHeight + 1.0) animated:NO];
