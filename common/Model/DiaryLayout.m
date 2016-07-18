@@ -8,9 +8,6 @@
 
 #import "DiaryLayout.h"
 
-static YYTextLinePositionSimpleModifier *textLineSimpleModifier;
-static YYTextContainer *textContainer;
-
 @interface DiaryLayout ()
 
 @property (nonatomic, strong) YYTextHighlight *moreTextHighlight;
@@ -18,24 +15,6 @@ static YYTextContainer *textContainer;
 @end
 
 @implementation DiaryLayout
-
-- (YYTextLinePositionSimpleModifier *)lineModifier {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        textLineSimpleModifier = [YYTextLinePositionSimpleModifier new];
-    });
-    
-    return textLineSimpleModifier;
-}
-
-- (YYTextContainer *)txtContainer {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        textContainer = [YYTextContainer new];
-    });
-    
-    return textContainer;
-}
 
 - (void)layout {
     [self calcContengLayout];
@@ -67,10 +46,10 @@ static YYTextContainer *textContainer;
     [text yy_setColor:[UIColor colorWithR:0x7C g:0x84 b:0x89] range:NSMakeRange(0, text.length)];
     [text yy_setFont:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, text.length)];
     
-    YYTextLinePositionSimpleModifier *modifier = [self lineModifier];
+    YYTextLinePositionSimpleModifier *modifier = [YYTextLinePositionSimpleModifier new];
     modifier.fixedLineHeight = 24;
     
-    YYTextContainer *container = [self txtContainer];
+    YYTextContainer *container = [YYTextContainer new];
     container.insets = UIEdgeInsetsMake(5, 20, 15, 10);
     container.size = CGSizeMake(kScreenWidth, CGFLOAT_MAX);
     container.linePositionModifier = modifier;
