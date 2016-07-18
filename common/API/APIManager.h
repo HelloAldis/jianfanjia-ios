@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "BaseRequest.h"
-#define TEST
+
 #if defined PRO
 // Product 中的配置
 #define kApiUrl @"http://www.jianfanjia.com/api/v2/app/"
