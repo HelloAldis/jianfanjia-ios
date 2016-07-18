@@ -272,6 +272,7 @@
 		6865A3961D3631F300B3CB26 /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3951D3631F300B3CB26 /* BaseWebViewController.m */; };
 		6865A3991D36509A00B3CB26 /* AlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3981D36509A00B3CB26 /* AlertUtil.m */; };
 		6865A3A71D38E9A000B3CB26 /* UINavigationController+FPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3A61D38E9A000B3CB26 /* UINavigationController+FPS.m */; };
+		6865A3AE1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3AD1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1055,6 +1056,8 @@
 		6865A3981D36509A00B3CB26 /* AlertUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertUtil.m; sourceTree = "<group>"; };
 		6865A3A51D38E9A000B3CB26 /* UINavigationController+FPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FPS.h"; sourceTree = "<group>"; };
 		6865A3A61D38E9A000B3CB26 /* UINavigationController+FPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FPS.m"; sourceTree = "<group>"; };
+		6865A3AC1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+TemplateLayoutCell.h"; sourceTree = "<group>"; };
+		6865A3AD1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+TemplateLayoutCell.m"; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -2216,6 +2219,15 @@
 			path = TopDiarySet;
 			sourceTree = "<group>";
 		};
+		6865A3A81D3CB3E700B3CB26 /* TemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				6865A3AC1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.h */,
+				6865A3AD1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m */,
+			);
+			path = TemplateLayoutCell;
+			sourceTree = "<group>";
+		};
 		68679A211C8E730F00B380D0 /* MyNotification */ = {
 			isa = PBXGroup;
 			children = (
@@ -2838,6 +2850,7 @@
 		6E07DA751BD88DBE001461DD /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				6865A3A81D3CB3E700B3CB26 /* TemplateLayoutCell */,
 				68EE3E981D1921C800F5EF83 /* UITextView+Placeholder.h */,
 				68EE3E991D1921C800F5EF83 /* UITextView+Placeholder.m */,
 				6885176D1C9258D1000B01DB /* UIView+Badge.h */,
@@ -3783,6 +3796,7 @@
 				685DD4541C89761E00A76B9C /* CommentListViewController.m in Sources */,
 				68123BA21C47D15C008FC9AB /* JYZSocialSnsPlatformWechat.m in Sources */,
 				68134A3E1C3CFE44003C1C10 /* AccountBindViewController.m in Sources */,
+				6865A3AE1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m in Sources */,
 				680C466E1CC62885008C4BC0 /* PlanExpired.m in Sources */,
 				68B10CBA1C785659005866C1 /* SearchProductCaseDataManager.m in Sources */,
 				68EE3DEC1D1282AF00F5EF83 /* DecDiary1StatusCell.m in Sources */,

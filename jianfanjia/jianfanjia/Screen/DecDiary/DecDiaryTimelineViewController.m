@@ -53,8 +53,6 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 300;
     [self.tableView registerNib:[UINib nibWithNibName:DecDiaryStatusCellIdentifier bundle:nil] forCellReuseIdentifier:DecDiaryStatusCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:TopDiarySetsCellIdentifier bundle:nil] forCellReuseIdentifier:TopDiarySetsCellIdentifier];
     
@@ -101,7 +99,18 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
+    Diary *diary = self.dataManager.diarys[indexPath.row];
+    if (diary.topDiarySets) {
+        return kTopDiarySetsCellHeight;
+    } else {
+        if (diary.layout.truncateCellHeight > 0) {
+            return diary.layout.truncateCellHeight;
+        }
+        
+        DecDiaryStatusCell *cell = [tableView templateCellForReuseIdentifier:DecDiaryStatusCellIdentifier];
+        [cell initLayoutWithDiary:diary truncate:YES];
+        return diary.layout.truncateCellHeight;
+    }
 }
 
 #pragma mark - api request

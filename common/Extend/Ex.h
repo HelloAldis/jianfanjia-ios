@@ -31,5 +31,6 @@
 #import "UIViewController+KeyboardAnimation.h"
 #import "UITextView+Placeholder.h"
 #import "UINavigationController+FPS.h"
+#import "UITableView+TemplateLayoutCell.h"
 
 #endif
