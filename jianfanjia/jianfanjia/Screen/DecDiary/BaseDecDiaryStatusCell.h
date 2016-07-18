@@ -25,8 +25,6 @@
 @property (strong, nonatomic) NSMutableArray *diarys;
 @property (strong, nonatomic) Diary *diary;
 
-- (void)initLayoutWithDiary:(Diary *)diary truncate:(BOOL)truncate;
-
 - (void)initImageView;
 - (void)layoutMsg;
 - (void)layoutImageView;

@@ -158,7 +158,8 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         return kDiarySetAvtarInfoCellHeight;
     }
     
-    return UITableViewAutomaticDimension;
+    Diary *diary = self.dataManager.diarys[indexPath.row];
+    return diary.layout.cellHeight;;
 }
 
 - (DiarySetAvtarInfoCell *)avtarInfoCell {

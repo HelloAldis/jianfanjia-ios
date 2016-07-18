@@ -19,6 +19,18 @@
 - (void)layout {
     [self calcContengLayout];
     [self calcImagesLayout];
+    [self calcCellHeight];
+}
+
+- (void)calcCellHeight {
+    CGFloat msgHeight = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
+    CGFloat imgsHeight = self.diary.layout.picHeight;
+    CGFloat cellHeight = self.fixHeight + msgHeight + imgsHeight;
+    if (self.needTruncate) {
+        self.diary.layout.truncateCellHeight = cellHeight;
+    } else {
+        self.diary.layout.cellHeight = cellHeight;
+    }
 }
 
 - (void)calcContengLayout {

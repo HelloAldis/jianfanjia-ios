@@ -17,6 +17,7 @@
 @interface DiaryLayout : NSObject
 
 @property (nonatomic, weak) Diary *diary;
+@property (nonatomic, assign) CGFloat fixHeight;
 @property (nonatomic, assign) CGFloat truncateCellHeight;
 @property (nonatomic, assign) CGFloat cellHeight;
 @property (nonatomic, assign) CGSize picSize;

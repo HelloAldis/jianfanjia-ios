@@ -7,6 +7,7 @@
 //
 
 #import "DecDiaryDataManager.h"
+#import "DecDiaryStatusCell.h"
 
 //刷新5分钟之外的数据
 #define kMinRefreshTimeInteval 5 * 60 * 1000
@@ -31,6 +32,9 @@
     
     for (NSMutableDictionary *dict in arr) {
         Diary *diary = [[Diary alloc] initWith:dict];
+        diary.layout.fixHeight = DecDiaryStatusCellFixHeight;
+        diary.layout.needTruncate = YES;
+        [diary.layout layout];
         DiarySet *diarySet = [[DiarySet alloc] initWith:[diary.data objectForKey:@"diarySet"]];
         Author *author = [[Author alloc] initWith:[diary.data objectForKey:@"author"]];
         diary.diarySet = diarySet;
@@ -50,6 +54,9 @@
     
     for (NSMutableDictionary *dict in arr) {
         Diary *diary = [[Diary alloc] initWith:dict];
+        diary.layout.fixHeight = DecDiaryStatusCellFixHeight;
+        diary.layout.needTruncate = YES;
+        [diary.layout layout];
         DiarySet *diarySet = [[DiarySet alloc] initWith:[diary.data objectForKey:@"diarySet"]];
         Author *author = [[Author alloc] initWith:[diary.data objectForKey:@"author"]];
         diary.diarySet = diarySet;

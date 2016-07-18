@@ -50,8 +50,8 @@ static CGFloat cellHeight;
 
 - (void)initWithDiarySets:(NSArray *)topDiarySets {
     self.topDiarySets = topDiarySets;
-    [self refreshViewContentSize];
     [self.collectionView reloadData];
+//    [self refreshViewContentSize];
 }
 
 #pragma mark - collection view delegate

@@ -30,7 +30,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblComment;
 
 @property (strong, nonatomic) NSMutableArray *picViews;
-@property (nonatomic, copy) YYTextAction tapMoreAction;
 @property (weak, nonatomic) UITableView *tableView;
 
 @end
@@ -85,9 +84,6 @@
     self.tableView = tableView;
     self.diarys = diarys;
     self.diary = diary;
-    self.diary.layout.needTruncate = NO;
-    self.diary.layout.tapMoreAction = self.tapMoreAction;
-    [self.diary.layout layout];
     
     [self initHeader];
     [self layoutImageView];

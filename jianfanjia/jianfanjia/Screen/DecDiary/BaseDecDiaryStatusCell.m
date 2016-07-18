@@ -15,22 +15,6 @@
 
 @implementation BaseDecDiaryStatusCell
 
-- (void)initLayoutWithDiary:(Diary *)diary truncate:(BOOL)truncate {
-    self.diary = diary;
-    self.diary.layout.needTruncate = truncate;
-    [self.diary.layout layout];
-    CGFloat msgHeight = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
-    CGFloat imgsHeight = self.diary.layout.picHeight;
-    
-    // top line(6.0) header(85.0) toolbar(45.0)
-    CGFloat cellHeight = 6.0 + 85.0 + msgHeight + imgsHeight + 45.0;
-    if (truncate) {
-        self.diary.layout.truncateCellHeight = cellHeight;
-    } else {
-        self.diary.layout.cellHeight = cellHeight;
-    }
-}
-
 #pragma mark - ui
 - (void)initImageView {
     NSMutableArray *picViews = [NSMutableArray new];

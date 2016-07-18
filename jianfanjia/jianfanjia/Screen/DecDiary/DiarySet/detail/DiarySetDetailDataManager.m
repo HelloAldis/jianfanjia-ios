@@ -7,6 +7,7 @@
 //
 
 #import "DiarySetDetailDataManager.h"
+#import "DecDiary1StatusCell.h"
 
 @implementation DiarySetDetailDataManager
 
@@ -22,6 +23,9 @@
     
     for (NSMutableDictionary *dict in arr) {
         Diary *diary = [[Diary alloc] initWith:dict];
+        diary.layout.fixHeight = DecDiary1StatusCellFixHeight;
+        diary.layout.needTruncate = NO;
+        [diary.layout layout];
         [diarys addObject:diary];
     }
     

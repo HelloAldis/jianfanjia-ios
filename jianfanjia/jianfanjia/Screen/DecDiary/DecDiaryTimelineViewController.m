@@ -19,6 +19,7 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
 @interface DecDiaryTimelineViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) TopDiarySetsCell *topDiarySetCell;
 
 @property (strong, nonatomic) DecDiaryDataManager *dataManager;
 
@@ -86,12 +87,11 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     Diary *diary = self.dataManager.diarys[indexPath.row];
     
     if (diary.topDiarySets) {
-        TopDiarySetsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:TopDiarySetsCellIdentifier forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        TopDiarySetsCell *cell = [self topSetsCell];
         [cell initWithDiarySets:diary.topDiarySets];
         return cell;
     } else {
-        DecDiaryStatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier forIndexPath:indexPath];
+        DecDiaryStatusCell *cell = [self.tableView dequeueReusableCellWithIdentifier:DecDiaryStatusCellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleDefault;
         [cell initWithDiary:diary diarys:self.dataManager.diarys tableView:self.tableView];
         return cell;
@@ -103,14 +103,18 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     if (diary.topDiarySets) {
         return kTopDiarySetsCellHeight;
     } else {
-        if (diary.layout.truncateCellHeight > 0) {
-            return diary.layout.truncateCellHeight;
-        }
-        
-        DecDiaryStatusCell *cell = [tableView templateCellForReuseIdentifier:DecDiaryStatusCellIdentifier];
-        [cell initLayoutWithDiary:diary truncate:YES];
         return diary.layout.truncateCellHeight;
     }
+}
+
+- (TopDiarySetsCell *)topSetsCell {
+    if (!_topDiarySetCell) {
+        TopDiarySetsCell *cell = [self.tableView dequeueReusableCellWithIdentifier:TopDiarySetsCellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.topDiarySetCell = cell;
+    }
+    
+    return _topDiarySetCell;
 }
 
 #pragma mark - api request
