@@ -82,6 +82,11 @@
     self.base_picViews = self.picViews;
 }
 
+- (void)updateConstraints {
+    self.base_imgsHeightConst.constant = self.diary.layout.picHeight;
+    [super updateConstraints];
+}
+
 - (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView {
     self.tableView = tableView;
     self.diarys = diarys;
@@ -93,6 +98,7 @@
     [self layoutImageView];
     [self layoutMsg];
     [self initToolbar];
+    [self setNeedsUpdateConstraints];
 }
 
 #pragma mark - ui

@@ -177,7 +177,6 @@
 
 #pragma mark - layout
 - (void)layoutImageView {
-    self.base_imgsHeightConst.constant = self.diary.layout.picHeight;
     NSArray *pics = self.diary.images;
     
     CGFloat imageTop = kPicTopMarging;

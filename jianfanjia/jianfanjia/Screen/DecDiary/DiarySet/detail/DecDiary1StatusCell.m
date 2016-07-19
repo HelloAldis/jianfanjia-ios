@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnComment;
 @property (weak, nonatomic) IBOutlet UIImageView *commentImgView;
 @property (weak, nonatomic) IBOutlet UILabel *lblComment;
+@property (assign, nonatomic) BOOL hideTopLine;
 
 @property (strong, nonatomic) NSMutableArray *picViews;
 @property (weak, nonatomic) UITableView *tableView;
@@ -80,16 +81,23 @@
     self.base_picViews = self.picViews;
 }
 
+- (void)updateConstraints {
+    self.base_imgsHeightConst.constant = self.diary.layout.picHeight;
+    self.topLineConst.constant = self.hideTopLine ? 0 : 6;
+    [super updateConstraints];
+}
+
 - (void)initWithDiary:(Diary *)diary diarys:(NSMutableArray *)diarys tableView:(UITableView *)tableView hideTopLine:(BOOL)hideTopLine {
     self.tableView = tableView;
     self.diarys = diarys;
     self.diary = diary;
+    self.hideTopLine = hideTopLine;
     
     [self initHeader];
     [self layoutImageView];
     [self layoutMsg];
     [self initToolbar];
-    self.topLineConst.constant = hideTopLine ? 0 : 6;
+    [self setNeedsUpdateConstraints];
 }
 
 #pragma mark - ui
