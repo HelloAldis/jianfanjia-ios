@@ -33,6 +33,7 @@
 @property (nonatomic, strong) DiarySet *diarySet;
 @property (nonatomic, strong) DiaryLayout *layout;
 @property (nonatomic, strong) NSNumber *last_refresh_time;
+@property (nonatomic, assign) BOOL isTopDiarySets;
 @property (nonatomic, strong) NSArray *topDiarySets;
 
 - (void)updateRefreshTime;

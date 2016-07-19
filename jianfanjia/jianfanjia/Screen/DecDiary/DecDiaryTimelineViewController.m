@@ -86,7 +86,7 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Diary *diary = self.dataManager.diarys[indexPath.row];
     
-    if (diary.topDiarySets) {
+    if (diary.isTopDiarySets) {
         TopDiarySetsCell *cell = [self topSetsCell];
         [cell initWithDiarySets:diary.topDiarySets];
         return cell;

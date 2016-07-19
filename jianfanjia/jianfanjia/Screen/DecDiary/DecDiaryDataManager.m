@@ -81,6 +81,7 @@
     
     if (!self.topDiary) {
         self.topDiary = [[Diary alloc] init];
+        self.topDiary.isTopDiarySets = YES;
     }
     
     self.topDiary.topDiarySets = diarySets;
