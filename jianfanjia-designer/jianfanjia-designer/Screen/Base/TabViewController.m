@@ -14,10 +14,8 @@
 
 @implementation TabViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     self.tabBar.tintColor = kThemeColor;
     UITabBarItem *home = [self.tabBar.items objectAtIndex:0];
     home = [home initWithTitle:@"我的业主" image:[UIImage imageNamed:@"tab_my_user_default"] selectedImage:[UIImage imageNamed:@"tab_my_user_selected"]];
@@ -30,7 +28,13 @@
     UITabBarItem *my = [self.tabBar.items objectAtIndex:2];
     my = [my initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_my_default"] selectedImage:[UIImage imageNamed:@"tab_my_selected"]];
     my.titlePositionAdjustment = UIOffsetMake(0, -2);
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
+
+    UITabBarItem *my = [self.tabBar.items objectAtIndex:2];
     [[NotificationDataManager shared] subscribeAppBadgeNumber:^(NSInteger count) {
         my.badgeNumber = count > 0 ? kBadgeStyleDot : @"";
     }];

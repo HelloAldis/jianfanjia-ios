@@ -14,10 +14,8 @@
 
 @implementation TabViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
-    
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
     self.tabBar.tintColor = kThemeColor;
     UITabBarItem *my_process = [self.tabBar.items objectAtIndex:0];
     my_process = [my_process initWithTitle:@"工地管理" image:[UIImage imageNamed:@"tab_process_default"] selectedImage:[UIImage imageNamed:@"tab_process_selected"]];
@@ -26,6 +24,11 @@
     UITabBarItem *my = [self.tabBar.items objectAtIndex:1];
     my = [my initWithTitle:@"我的" image:[UIImage imageNamed:@"tab_my_default"] selectedImage:[UIImage imageNamed:@"tab_my_selected"]];
     my.titlePositionAdjustment = UIOffsetMake(0, -2);
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 @end
