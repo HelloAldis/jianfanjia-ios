@@ -26,7 +26,7 @@
 @property (strong, nonatomic) Diary *diary;
 
 - (void)initImageView;
-- (void)layoutMsg;
+- (void)layoutMsg:(BOOL)truncate;
 - (void)layoutImageView;
 - (void)initToolbar;
 

@@ -34,8 +34,8 @@
     self.base_picViews = picViews;
 }
 
-- (void)layoutMsg {
-    self.base_msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
+- (void)layoutMsg:(BOOL)truncate {
+    self.base_msgView.textLayout = truncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
 }
 
 - (void)initToolbar {

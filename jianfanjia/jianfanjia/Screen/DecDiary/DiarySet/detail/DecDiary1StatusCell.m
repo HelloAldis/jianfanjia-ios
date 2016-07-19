@@ -95,7 +95,7 @@
     
     [self initHeader];
     [self layoutImageView];
-    [self layoutMsg];
+    [self layoutMsg:NO];
     [self initToolbar];
     [self setNeedsUpdateConstraints];
 }

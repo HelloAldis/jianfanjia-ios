@@ -93,7 +93,7 @@
     
     [self initHeader];
     [self layoutImageView];
-    [self layoutMsg];
+    [self layoutMsg:YES];
     [self initToolbar];
     [self setNeedsUpdateConstraints];
 }
