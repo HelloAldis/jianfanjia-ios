@@ -49,10 +49,8 @@ static CGFloat cellHeight;
 }
 
 - (void)initWithDiarySets:(NSArray *)topDiarySets {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.topDiarySets = topDiarySets;
-        [self.collectionView reloadData];
-    });
+    self.topDiarySets = topDiarySets;
+    [self.collectionView reloadData];
 }
 
 #pragma mark - collection view delegate
