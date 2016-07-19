@@ -39,12 +39,13 @@
 
 - (void)awakeFromNib {
     [self initSuperView];
-    [self.avatarImageView setCornerRadius:30];
+//    [self.avatarImageView setCornerRadius:30];
     self.msgView.textVerticalAlignment = YYTextVerticalAlignmentTop;
     self.msgView.ignoreCommonProperties = YES;
     self.msgView.displaysAsynchronously = YES;
     self.msgView.fadeOnAsynchronouslyDisplay = NO;
     self.msgView.fadeOnHighlight = NO;
+    self.msgView.layer.drawsAsynchronously = YES;
     
     @weakify(self);
     [[self.btnDel rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {

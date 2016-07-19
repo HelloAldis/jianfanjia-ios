@@ -57,11 +57,13 @@
 }
 
 - (void)setUserImageWithId:(NSString *)imageid {
-    [self setImageWithId:imageid withWidth:60 height:0 placeholder:[UIImage imageNamed:@"image_place_holder_2"] options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:nil];
+    [self setUserImageWithId:imageid placeholder:[UIImage imageNamed:@"image_place_holder_2"]];
 }
 
 - (void)setUserImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder {
-    [self setImageWithId:imageid withWidth:60 height:0 placeholder:placeholder options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:nil completed:nil];
+    [self setImageWithId:imageid withWidth:60 height:0 placeholder:placeholder options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:^UIImage *(UIImage *image, NSURL *url) {
+        return [image imageByRoundCornerRadius:image.size.height / 2.0 backgroundColor:[UIColor whiteColor]];
+    } completed:nil];
 }
 
 - (void)setImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder {
