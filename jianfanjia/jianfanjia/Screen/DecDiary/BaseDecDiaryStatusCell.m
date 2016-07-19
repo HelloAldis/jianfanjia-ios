@@ -35,9 +35,7 @@
 }
 
 - (void)layoutMsg {
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        self.base_msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
-    });
+    self.base_msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
 }
 
 - (void)initToolbar {
