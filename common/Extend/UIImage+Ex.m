@@ -30,6 +30,21 @@
     return data;
 }
 
+- (UIImage *)getOpaqueImage {
+    return [self getOpaqueImage:[UIColor whiteColor]];
+}
+
+- (UIImage *)getOpaqueImage:(UIColor *)backgroundColor {
+    CGSize imageSize = self.size;
+    UIGraphicsBeginImageContextWithOptions(imageSize, YES, self.scale);
+    [backgroundColor set];
+    UIRectFill(CGRectMake(0.0, 0.0, imageSize.width, imageSize.height));
+    [self drawInRect: CGRectMake( 0, 0, imageSize.width, imageSize.height)];
+    UIImage *optimizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return optimizedImage;
+}
+
 - (UIImage *)getSubImage:(CGRect)rect {
     return [self croppedImageWithFrame:rect angle:0 circularClip:NO];
 }

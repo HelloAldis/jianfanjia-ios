@@ -19,6 +19,7 @@
 @interface UIImage (Ex)
 
 - (NSData *)data;
+- (UIImage *)getOpaqueImage;
 - (UIImage *)getCenterSquareImage;
 - (UIImage *)getSubImage:(CGRect)rect;
 - (UIImage *)aspectToScale:(float)scaleWidth;

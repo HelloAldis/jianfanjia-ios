@@ -41,6 +41,7 @@
 
 - (void)initToolbar {
     self.base_zanImgView.image = [self.diary.is_my_favorite boolValue] ? [self likeImage] : [self unlikeImage];
+    self.base_commentImgView.image = [self commentImage];
     if ([self.diary.favorite_count integerValue] > 0) {
         self.base_lblZan.text = [self.diary.favorite_count humCountString];
     } else {
@@ -52,6 +53,16 @@
     } else {
         self.base_lblComment.text = @"评论";
     }
+}
+
+- (UIImage *)commentImage {
+    static UIImage *img;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        img = [UIImage imageNamed:@"icon_add_comment"];
+        img = [img getOpaqueImage];
+    });
+    return img;
 }
 
 #pragma mark - user action
@@ -104,6 +115,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         img = [UIImage imageNamed:@"icon_zan_guo"];
+        img = [img getOpaqueImage];
     });
     return img;
 }
@@ -113,6 +125,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         img = [UIImage imageNamed:@"icon_zan"];
+        img = [img getOpaqueImage];
     });
     return img;
 }

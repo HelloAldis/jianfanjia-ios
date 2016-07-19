@@ -43,6 +43,7 @@
     [self.avatarImageView setCornerRadius:30];
     self.msgView.textVerticalAlignment = YYTextVerticalAlignmentTop;
     self.msgView.ignoreCommonProperties = YES;
+    self.msgView.displaysAsynchronously = YES;
     self.msgView.fadeOnAsynchronouslyDisplay = NO;
     self.msgView.fadeOnHighlight = NO;
     
