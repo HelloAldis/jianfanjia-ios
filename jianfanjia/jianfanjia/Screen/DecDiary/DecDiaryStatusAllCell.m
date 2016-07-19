@@ -40,7 +40,6 @@
 
 - (void)awakeFromNib {
     [self initSuperView];
-    [self.avatarImageView setCornerRadius:30];
     self.msgView.textVerticalAlignment = YYTextVerticalAlignmentTop;
     self.msgView.displaysAsynchronously = YES;
     self.msgView.ignoreCommonProperties = YES;
