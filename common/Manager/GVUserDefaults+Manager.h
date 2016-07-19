@@ -11,6 +11,7 @@
 @interface GVUserDefaults (Manager)
 
 @property (nonatomic, assign) NSInteger welcomeVersion;
+@property (nonatomic, assign) NSInteger cacheVersion;
 @property (nonatomic, weak) NSString *usertype;
 @property (nonatomic, weak) NSString *userid;
 @property (nonatomic, weak) NSString *imageid;

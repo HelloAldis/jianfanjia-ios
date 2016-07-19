@@ -15,6 +15,7 @@ NSString * const kKeychainService = @"com.jianfanjia.jianfanjia";
 NSString * const kPkg365Url = @"view/zt/365package/";
 
 int const kWelcomeVersion = 2;
+int const kCacheVersion = 1;
 int const kPhoneLength = 11;
 int const kPasswordLength = 30;
 int const kMinAuthedProductCount = 3;
