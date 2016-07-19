@@ -96,9 +96,6 @@
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJT-1F-yIv" userLabel="msgView" customClass="YYLabel">
                         <rect key="frame" x="0.0" y="91" width="381" height="0.0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="749" id="rDw-Hh-Et4"/>
-                        </constraints>
                     </view>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpK-Hc-Tmk" userLabel="imgsView">
                         <rect key="frame" x="0.0" y="91" width="381" height="0.0"/>
@@ -286,7 +283,6 @@
                 <outlet property="lblPublishTime" destination="cTr-7h-DgP" id="CpK-aD-QLR"/>
                 <outlet property="lblTitle" destination="ftc-w3-XgP" id="psa-rh-yIZ"/>
                 <outlet property="lblZan" destination="9lC-sS-0ZA" id="qCz-5v-HeJ"/>
-                <outlet property="msgHeightConst" destination="rDw-Hh-Et4" id="Cd4-2R-0nO"/>
                 <outlet property="msgView" destination="NJT-1F-yIv" id="RGf-Vt-FQa"/>
                 <outlet property="toolbarView" destination="b5K-xh-6Xq" id="jP8-uh-wgI"/>
                 <outlet property="zanImgView" destination="v6P-t5-F3n" id="5Wb-BA-XDR"/>

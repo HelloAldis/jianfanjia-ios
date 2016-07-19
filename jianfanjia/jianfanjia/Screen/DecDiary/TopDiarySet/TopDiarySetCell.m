@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblStarCount;
 @property (weak, nonatomic) IBOutlet UILabel *lblCell;
 @property (weak, nonatomic) IBOutlet UILabel *lblDetail;
+@property (weak, nonatomic) IBOutlet UIImageView *viewImgView;
+@property (weak, nonatomic) IBOutlet UIImageView *starImgView;
 
 @property (strong, nonatomic) DiarySet *diarySet;
 

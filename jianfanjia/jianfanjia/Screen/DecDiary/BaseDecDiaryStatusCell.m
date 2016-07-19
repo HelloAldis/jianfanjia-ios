@@ -35,7 +35,6 @@
 }
 
 - (void)layoutMsg {
-    self.base_msgHeightConst.constant = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
     self.base_msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
 }
 

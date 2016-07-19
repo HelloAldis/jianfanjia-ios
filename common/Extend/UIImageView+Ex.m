@@ -12,7 +12,7 @@
 @implementation UIImageView (Ex)
 
 - (void)setImageWithImgURL:(NSURL *)imageidUrl placeholder:(UIImage *)placeholder options:(JYZWebImageOptions)options progress:(JYZWebImageProgressBlock)progress transform:(JYZWebImageTransformBlock)transform completed:(JYZWebImageCompletionBlock)completeBlock {
-    [self yy_setImageWithURL:imageidUrl placeholder:[placeholder getOpaqueImage] options:(YYWebImageOptions)options progress:(YYWebImageProgressBlock)progress transform:transform completion:(YYWebImageCompletionBlock)completeBlock];
+    [self yy_setImageWithURL:imageidUrl placeholder:placeholder options:(YYWebImageOptions)options progress:(YYWebImageProgressBlock)progress transform:transform completion:(YYWebImageCompletionBlock)completeBlock];
 }
 
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width height:(NSInteger)height placeholder:(UIImage *)placeholder options:(JYZWebImageOptions)options progress:(JYZWebImageProgressBlock)progress transform:(JYZWebImageTransformBlock)transform completed:(JYZWebImageCompletionBlock)completeBlock {

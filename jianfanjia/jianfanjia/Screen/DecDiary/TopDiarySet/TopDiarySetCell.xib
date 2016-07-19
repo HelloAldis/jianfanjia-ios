@@ -35,7 +35,6 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_view" translatesAutoresizingMaskIntoConstraints="NO" id="Qvc-Tl-6QY">
                                         <rect key="frame" x="10" y="7" width="15" height="11"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="15" id="P3o-TO-YRQ"/>
@@ -50,7 +49,6 @@
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="diary_favoriate_no" translatesAutoresizingMaskIntoConstraints="NO" id="Yfx-Dr-k4m" userLabel="icon_star">
                                         <rect key="frame" x="78" y="6" width="14" height="14"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="14" id="TEY-vp-31C"/>
@@ -69,22 +67,14 @@
                                     <constraint firstAttribute="trailing" secondItem="r3i-gT-caw" secondAttribute="trailing" constant="12" id="6mw-6A-q7g"/>
                                     <constraint firstItem="kj7-xb-uWc" firstAttribute="leading" secondItem="Qvc-Tl-6QY" secondAttribute="trailing" constant="8" id="8Q4-SC-kZI"/>
                                     <constraint firstItem="Yfx-Dr-k4m" firstAttribute="leading" secondItem="kj7-xb-uWc" secondAttribute="trailing" constant="12" id="AaS-vp-LPl"/>
-                                    <constraint firstAttribute="trailing" secondItem="kj7-xb-uWc" secondAttribute="trailing" constant="12" id="EYZ-bU-qBs"/>
                                     <constraint firstItem="Qvc-Tl-6QY" firstAttribute="leading" secondItem="2wI-QD-jjd" secondAttribute="leading" constant="10" id="G8U-Hn-EMh"/>
                                     <constraint firstItem="Yfx-Dr-k4m" firstAttribute="centerY" secondItem="2wI-QD-jjd" secondAttribute="centerY" id="T0l-z6-1AF"/>
                                     <constraint firstItem="r3i-gT-caw" firstAttribute="centerY" secondItem="2wI-QD-jjd" secondAttribute="centerY" id="TYZ-BA-hmt"/>
                                     <constraint firstItem="r3i-gT-caw" firstAttribute="leading" secondItem="Yfx-Dr-k4m" secondAttribute="trailing" constant="8" id="VRD-gk-CWB"/>
                                     <constraint firstItem="Qvc-Tl-6QY" firstAttribute="centerY" secondItem="2wI-QD-jjd" secondAttribute="centerY" id="WUr-4b-irc"/>
                                     <constraint firstAttribute="height" constant="25" id="eOZ-Ti-XiO"/>
-                                    <constraint firstItem="Yfx-Dr-k4m" firstAttribute="width" secondItem="Yfx-Dr-k4m" secondAttribute="height" multiplier="32:23" id="ffg-K8-DZj"/>
                                     <constraint firstItem="kj7-xb-uWc" firstAttribute="centerY" secondItem="Qvc-Tl-6QY" secondAttribute="centerY" id="qR9-Ki-Q9H"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="EYZ-bU-qBs"/>
-                                        <exclude reference="ffg-K8-DZj"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6lo-Yb-FPp">
                                 <rect key="frame" x="0.0" y="155" width="339" height="80"/>
@@ -154,6 +144,8 @@
                 <outlet property="lblDetail" destination="KgC-SK-Cd0" id="WYq-e5-Eph"/>
                 <outlet property="lblStarCount" destination="r3i-gT-caw" id="84I-Iz-fie"/>
                 <outlet property="lblViewCount" destination="kj7-xb-uWc" id="9Iu-XB-XMF"/>
+                <outlet property="starImgView" destination="Yfx-Dr-k4m" id="GoN-3e-dgz"/>
+                <outlet property="viewImgView" destination="Qvc-Tl-6QY" id="mDK-nY-AoQ"/>
             </connections>
             <point key="canvasLocation" x="413.5" y="432.5"/>
         </collectionViewCell>

@@ -111,11 +111,6 @@
     self.btnDel.hidden = ![DiaryBusiness isOwnDiary:self.diary];
 }
 
-- (void)initMsg {
-    self.msgHeightConst.constant = self.diary.layout.needTruncate ? self.diary.layout.truncateContentHeight : self.diary.layout.contentHeight;
-    self.msgView.textLayout = self.diary.layout.needTruncate ? self.diary.layout.truncateContentLayout : self.diary.layout.contentLayout;
-}
-
 - (void)onTapDel {
     [AlertUtil show:[ViewControllerContainer getCurrentTopController] title:@"确定要删除日记？" cancelBlock:^{
         

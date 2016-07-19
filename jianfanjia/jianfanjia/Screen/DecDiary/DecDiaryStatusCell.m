@@ -19,7 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnDel;
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *msgHeightConst;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imgsHeightConst;
 @property (weak, nonatomic) IBOutlet YYLabel *msgView;
 @property (weak, nonatomic) IBOutlet UIView *imgsView;
@@ -72,7 +71,6 @@
 }
 
 - (void)initSuperView {
-    self.base_msgHeightConst = self.msgHeightConst;
     self.base_imgsHeightConst = self.imgsHeightConst;
     self.base_msgView = self.msgView;
     self.base_imgsView = self.imgsView;
