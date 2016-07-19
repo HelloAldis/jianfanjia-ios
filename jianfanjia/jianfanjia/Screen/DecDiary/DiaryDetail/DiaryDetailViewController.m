@@ -261,6 +261,18 @@ static NSString *kDeafultTVHolder = @"添加评论";
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        self.diary.layout.fixHeight = DecDiaryStatusAllCellFixHeight;
+        self.diary.layout.needTruncate = NO;
+        [self.diary.layout layout];
+        
+        return self.diary.layout.cellHeight;
+    } else {
+        return UITableViewAutomaticDimension;
+    }
+}
+
 #pragma mark - api request
 - (void)refreshDiary:(BOOL)showPlsWait completion:(void (^)(void))completion {
     if (showPlsWait) {

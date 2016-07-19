@@ -91,8 +91,6 @@
     self.tableView = tableView;
     self.diarys = diarys;
     self.diary = diary;
-    self.diary.layout.needTruncate = NO;
-    [self.diary.layout layout];
     
     [self initHeader];
     [self layoutImageView];
