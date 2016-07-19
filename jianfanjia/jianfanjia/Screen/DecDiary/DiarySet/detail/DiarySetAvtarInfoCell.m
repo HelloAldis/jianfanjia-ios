@@ -91,17 +91,25 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     self.blurImgView.alpha = 1 - alpha;
 }
 
-- (UIImage *)getTopBlurImage {
-    CGRect frame;
-    CGFloat width = self.blurImgView.image.size.width;
-    CGFloat height = self.blurImgView.image.size.height;
-    CGFloat scale = (height / width) / (self.blurImgView.frame.size.height / self.blurImgView.frame.size.width);
-    if (scale < 0.99 || isnan(scale)) { // 宽图
-        frame = CGRectMake((width - kScreenWidth) / 2.0, kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight);
-    } else { // 高图
-        frame = CGRectMake(0, (height - kDiarySetAvtarInfoCellHeight) / 2.0 + kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight);
-    }
-    return [self.blurImgView.image getSubImage:frame];
+- (void)getTopBlurImage:(void(^)(UIImage *image))completion {
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        CGRect frame;
+        CGFloat width = self.blurImgView.image.size.width;
+        CGFloat height = self.blurImgView.image.size.height;
+        CGFloat scale = (height / width) / (self.blurImgView.frame.size.height / self.blurImgView.frame.size.width);
+        if (scale < 0.99 || isnan(scale)) { // 宽图
+            frame = CGRectMake((width - kScreenWidth) / 2.0, kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight);
+        } else { // 高图
+            frame = CGRectMake(0, (height - kDiarySetAvtarInfoCellHeight) / 2.0 + kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight);
+        }
+        
+        UIImage *blurImage = [self.blurImgView.image getSubImage:frame];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (completion) {
+                completion(blurImage);
+            }
+        });
+    });
 }
 
 - (UIImage *)getBlurImage {
@@ -109,7 +117,12 @@ CGFloat kDiarySetAvtarInfoCellHeight;
 }
 
 - (void)setupBlurImageView {
-    self.blurImgView.image = [self getBlurImage];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        UIImage *blurImage = [self getBlurImage];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.blurImgView.image = blurImage;
+        });
+    });
 }
 
 - (void)setCover {

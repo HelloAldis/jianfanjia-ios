@@ -202,9 +202,11 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     UINavigationBar *navBar = self.krs_FakeNavigationBar;
     if (offsetY >= (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight)) {
         if (navBar.translucent) {
-            [navBar setBackgroundImage:[avtarCell getTopBlurImage] forBarMetrics:UIBarMetricsDefault];
-            navBar.translucent = NO;
-            [navBar setNeedsDisplay];
+            [avtarCell getTopBlurImage:^(UIImage *image) {
+                [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+                navBar.translucent = NO;
+                [navBar setNeedsDisplay];
+            }];
         }
     } else {
         if (!navBar.translucent) {
