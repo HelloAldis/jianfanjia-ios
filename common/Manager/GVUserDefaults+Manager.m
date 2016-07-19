@@ -11,6 +11,7 @@
 @implementation GVUserDefaults (Manager)
 
 @dynamic welcomeVersion;
+@dynamic cacheVersion;
 @dynamic usertype;
 @dynamic userid;
 @dynamic isLogin;
