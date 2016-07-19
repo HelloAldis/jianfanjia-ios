@@ -122,12 +122,12 @@
     }
 }
 
-- (UIImage *)aspectToScale:(float)scaleWidth {
-    float oldWidth = self.size.width;
-    float scaleFactor = scaleWidth / oldWidth;
+- (UIImage *)aspectToScale:(CGFloat)scaleWidth {
+    CGFloat oldWidth = self.size.width;
+    CGFloat scaleFactor = scaleWidth / oldWidth;
     
-    float newWidth = oldWidth * scaleFactor;
-    float newHeight = self.size.height * scaleFactor;
+    CGFloat newWidth = oldWidth * scaleFactor;
+    CGFloat newHeight = self.size.height * scaleFactor;
     
     UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
     [self drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
