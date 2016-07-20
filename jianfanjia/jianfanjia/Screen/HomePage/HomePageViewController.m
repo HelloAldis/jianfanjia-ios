@@ -156,7 +156,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 }
 
 - (void)onClickCall {
-    [PhoneUtil call:kConsultPhone];
+    [PhoneUtil call:@"咨询热线" phone:kConsultPhone];
 }
 
 @end

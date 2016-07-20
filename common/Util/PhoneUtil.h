@@ -10,6 +10,7 @@
 
 @interface PhoneUtil : NSObject
 
++ (void)call:(NSString *)title phone:(NSString *)phone;
 + (void)call:(NSString *)phone;
 
 @end
