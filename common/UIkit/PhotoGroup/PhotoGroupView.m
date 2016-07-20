@@ -432,10 +432,10 @@
     
     [self.scrollView setIndex:fromItemIndex];
     
-    _snapshotImage = [_toContainerView snapshotImage];
+    _snapshotImage = [_toContainerView snapshotImage:NO];
     BOOL fromViewHidden = fromView.hidden;
     fromView.hidden = YES;
-    _snapshorImageHideFromView = [_toContainerView snapshotImage:YES];
+    _snapshorImageHideFromView = [_toContainerView snapshotImage];
     fromView.hidden = fromViewHidden;
     
     _background.image = _snapshorImageHideFromView;

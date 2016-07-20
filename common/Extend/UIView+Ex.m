@@ -129,38 +129,44 @@ NSString const *UIView_TapBlock = @"UIView_TapBlock";
 
 #pragma mark - snapshot
 - (UIImage *)snapshotImage {
-    return [self snapshotImageAtFrame:self.bounds afterUpdates:NO];
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;
 }
 
 - (UIImage *)snapshotImage:(BOOL)afterUpdates {
-    return [self snapshotImageAtFrame:self.bounds afterUpdates:afterUpdates];
+    if (![self respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+        return [self snapshotImage];
+    }
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, 0);
+    [self drawViewHierarchyInRect:self.bounds afterScreenUpdates:afterUpdates];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;;
 }
 
 - (UIImage *)snapshotImageAtFrame:(CGRect)r {
-    return [self snapshotImageAtFrame:r afterUpdates:NO];
+    UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [UIScreen mainScreen].scale);
+    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    //now we will position the image, X/Y away from top left corner to get the portion we want
+    UIGraphicsBeginImageContext(r.size);
+    [snap drawAtPoint:CGPointMake(-r.origin.x, -r.origin.y)];
+    snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;
 }
 
-//获得某个范围内的屏幕图像
 - (UIImage *)snapshotImageAtFrame:(CGRect)r afterUpdates:(BOOL)afterUpdates {
-    if (afterUpdates) {
-        UIGraphicsBeginImageContextWithOptions(r.size, self.opaque, [UIScreen mainScreen].scale);
-        [self drawViewHierarchyInRect:CGRectMake(-r.origin.x, -r.origin.y, self.bounds.size.width, self.bounds.size.height) afterScreenUpdates:YES];
-        UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return snap;
-    } else {
-        UIGraphicsBeginImageContextWithOptions(self.bounds.size, self.opaque, [UIScreen mainScreen].scale);
-        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
-        UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        //now we will position the image, X/Y away from top left corner to get the portion we want
-        UIGraphicsBeginImageContext(r.size);
-        [snap drawAtPoint:CGPointMake(-r.origin.x, -r.origin.y)];
-        snap = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        return snap;
-    }
+    UIGraphicsBeginImageContextWithOptions(r.size, self.opaque, [UIScreen mainScreen].scale);
+    [self drawViewHierarchyInRect:CGRectMake(-r.origin.x, -r.origin.y, self.bounds.size.width, self.bounds.size.height) afterScreenUpdates:afterUpdates];
+    UIImage *snap = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return snap;
 }
 
 @end
