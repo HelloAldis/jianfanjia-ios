@@ -253,6 +253,12 @@
 		689ECE081CFC097C0046DDC8 /* SelectionMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECE031CFC097C0046DDC8 /* SelectionMenuView.xib */; };
 		689ECE131CFC0B850046DDC8 /* AwardDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECE101CFC0B850046DDC8 /* AwardDetail.m */; };
 		689ECE141CFC0B850046DDC8 /* Team.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECE121CFC0B850046DDC8 /* Team.m */; };
+		68A412FD1D3F14E7003CFC2C /* AlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A412FC1D3F14E7003CFC2C /* AlertUtil.m */; };
+		68A413011D3F14FF003CFC2C /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413001D3F14FF003CFC2C /* FPSLabel.m */; };
+		68A413041D3F1518003CFC2C /* UINavigationController+FPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413031D3F1518003CFC2C /* UINavigationController+FPS.m */; };
+		68A413081D3F152D003CFC2C /* UITableView+TemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413071D3F152D003CFC2C /* UITableView+TemplateLayoutCell.m */; };
+		68A4130B1D3F157B003CFC2C /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4130A1D3F157B003CFC2C /* BaseWebViewController.m */; };
+		68A4130E1D3F1784003CFC2C /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4130D1D3F1784003CFC2C /* WeakProxy.m */; };
 		D248AF3A7C7F296D8418ADE8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D408E462BE9708192EBFFD7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -722,6 +728,18 @@
 		689ECE101CFC0B850046DDC8 /* AwardDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AwardDetail.m; sourceTree = "<group>"; };
 		689ECE111CFC0B850046DDC8 /* Team.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Team.h; sourceTree = "<group>"; };
 		689ECE121CFC0B850046DDC8 /* Team.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Team.m; sourceTree = "<group>"; };
+		68A412FB1D3F14E7003CFC2C /* AlertUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertUtil.h; sourceTree = "<group>"; };
+		68A412FC1D3F14E7003CFC2C /* AlertUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertUtil.m; sourceTree = "<group>"; };
+		68A412FF1D3F14FF003CFC2C /* FPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSLabel.h; sourceTree = "<group>"; };
+		68A413001D3F14FF003CFC2C /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
+		68A413021D3F1518003CFC2C /* UINavigationController+FPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FPS.h"; sourceTree = "<group>"; };
+		68A413031D3F1518003CFC2C /* UINavigationController+FPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FPS.m"; sourceTree = "<group>"; };
+		68A413061D3F152D003CFC2C /* UITableView+TemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+TemplateLayoutCell.h"; sourceTree = "<group>"; };
+		68A413071D3F152D003CFC2C /* UITableView+TemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+TemplateLayoutCell.m"; sourceTree = "<group>"; };
+		68A413091D3F157B003CFC2C /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
+		68A4130A1D3F157B003CFC2C /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
+		68A4130C1D3F1784003CFC2C /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
+		68A4130D1D3F1784003CFC2C /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
 		6DCF3E98975F7E90EE858303 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E62310690E1273E5E41514C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1204,6 +1222,9 @@
 		680C43BF1CC4D4BD008C4BC0 /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				68A413051D3F152D003CFC2C /* TemplateLayoutCell */,
+				68A413021D3F1518003CFC2C /* UINavigationController+FPS.h */,
+				68A413031D3F1518003CFC2C /* UINavigationController+FPS.m */,
 				689220021CD2103800BC80C7 /* UIViewController+KeyboardAnimation.h */,
 				689220031CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m */,
 				680C43C01CC4D4BD008C4BC0 /* AutoScrollUIScrollView.h */,
@@ -1316,6 +1337,7 @@
 		680C44591CC4D4BD008C4BC0 /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				68A412FE1D3F14FF003CFC2C /* FPS */,
 				6865A3431D2BA17900B3CB26 /* ReuseView */,
 				6865A33B1D2BA13200B3CB26 /* PhotoGroup */,
 				685B14C31CEB126E0076996A /* KRSFakeNavigationBar */,
@@ -1408,6 +1430,8 @@
 		680C44861CC4D4BD008C4BC0 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				68A413091D3F157B003CFC2C /* BaseWebViewController.h */,
+				68A4130A1D3F157B003CFC2C /* BaseWebViewController.m */,
 				680C448D1CC4D4BD008C4BC0 /* WebViewWithoutShareController.h */,
 				680C448E1CC4D4BD008C4BC0 /* WebViewWithoutShareController.m */,
 				680C448F1CC4D4BD008C4BC0 /* WebViewWithoutShareController.xib */,
@@ -1418,6 +1442,10 @@
 		680C44901CC4D4BD008C4BC0 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				68A4130C1D3F1784003CFC2C /* WeakProxy.h */,
+				68A4130D1D3F1784003CFC2C /* WeakProxy.m */,
+				68A412FB1D3F14E7003CFC2C /* AlertUtil.h */,
+				68A412FC1D3F14E7003CFC2C /* AlertUtil.m */,
 				68711B5B1CD85D54009B585F /* PhotoCropper.h */,
 				68711B5C1CD85D54009B585F /* PhotoCropper.m */,
 				680C44911CC4D4BD008C4BC0 /* Aspects.h */,
@@ -1558,6 +1586,24 @@
 				689ECE031CFC097C0046DDC8 /* SelectionMenuView.xib */,
 			);
 			path = SelectionMenu;
+			sourceTree = "<group>";
+		};
+		68A412FE1D3F14FF003CFC2C /* FPS */ = {
+			isa = PBXGroup;
+			children = (
+				68A412FF1D3F14FF003CFC2C /* FPSLabel.h */,
+				68A413001D3F14FF003CFC2C /* FPSLabel.m */,
+			);
+			path = FPS;
+			sourceTree = "<group>";
+		};
+		68A413051D3F152D003CFC2C /* TemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				68A413061D3F152D003CFC2C /* UITableView+TemplateLayoutCell.h */,
+				68A413071D3F152D003CFC2C /* UITableView+TemplateLayoutCell.m */,
+			);
+			path = TemplateLayoutCell;
 			sourceTree = "<group>";
 		};
 		D6B825A02D971D6B5FD48F5F /* Pods */ = {
@@ -1848,6 +1894,7 @@
 				6865A35B1D2E4E1300B3CB26 /* AlbumBrowerViewController.m in Sources */,
 				680C42A51CC4D4AE008C4BC0 /* LeaveMessageViewController.m in Sources */,
 				6865A3461D2BA17900B3CB26 /* ReuseScrollView.m in Sources */,
+				68A413081D3F152D003CFC2C /* UITableView+TemplateLayoutCell.m in Sources */,
 				680C45301CC4D4BD008C4BC0 /* Item.m in Sources */,
 				680C44F11CC4D4BD008C4BC0 /* AccountBusiness.m in Sources */,
 				680C451C1CC4D4BD008C4BC0 /* UIImagePickerController+Ex.m in Sources */,
@@ -1912,6 +1959,7 @@
 				680C42611CC4D4AE008C4BC0 /* UIItemImageCollectionView.m in Sources */,
 				680C45171CC4D4BD008C4BC0 /* RACStream+Ex.m in Sources */,
 				685B14C91CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m in Sources */,
+				68A413011D3F14FF003CFC2C /* FPSLabel.m in Sources */,
 				680C423A1CC4D4AE008C4BC0 /* AboutViewController.m in Sources */,
 				680C45721CC4D4BD008C4BC0 /* TouchDelegateView.m in Sources */,
 				680C46371CC5CFFF008C4BC0 /* SupervisorGetInfo.m in Sources */,
@@ -1932,6 +1980,7 @@
 				680C42B31CC4D4AE008C4BC0 /* PlanPriceItemExpandCell.m in Sources */,
 				680C453B1CC4D4BD008C4BC0 /* SnsAccountInfo.m in Sources */,
 				680C44A31CC4D4BD008C4BC0 /* APIManager.m in Sources */,
+				68A413041D3F1518003CFC2C /* UINavigationController+FPS.m in Sources */,
 				680C45281CC4D4BD008C4BC0 /* BeautifulImage.m in Sources */,
 				680C425B1CC4D4AE008C4BC0 /* ProcessViewController.m in Sources */,
 				680C44FE1CC4D4BD008C4BC0 /* ReqtConfiguredAgreement.m in Sources */,
@@ -1951,6 +2000,7 @@
 				680C44A41CC4D4BD008C4BC0 /* BaseAPI.m in Sources */,
 				685B14B91CEB12110076996A /* SelectDecorationTypeViewController.m in Sources */,
 				680C46191CC5CB9D008C4BC0 /* Supervisor.m in Sources */,
+				68A4130E1D3F1784003CFC2C /* WeakProxy.m in Sources */,
 				681031C11CDCAF6300FD26D6 /* DecPackageJiangXinView.m in Sources */,
 				680C44FA1CC4D4BD008C4BC0 /* PlanHomeOwnerOrdered.m in Sources */,
 				680C42261CC4D4AE008C4BC0 /* ViewControllerContainer.m in Sources */,
@@ -1987,8 +2037,10 @@
 				680C46411CC5D40E008C4BC0 /* DBYSViewController.m in Sources */,
 				680C45611CC4D4BD008C4BC0 /* InfiniteScrollView.m in Sources */,
 				685B14B71CEB12110076996A /* SelectDecorationStyleViewController.m in Sources */,
+				68A412FD1D3F14E7003CFC2C /* AlertUtil.m in Sources */,
 				680C44EA1CC4D4BD008C4BC0 /* UploadImageToProcess.m in Sources */,
 				680C45161CC4D4BD008C4BC0 /* ProgressWebView.m in Sources */,
+				68A4130B1D3F157B003CFC2C /* BaseWebViewController.m in Sources */,
 				680C45001CC4D4BD008C4BC0 /* ReqtDesignerMeasuredHouse.m in Sources */,
 				680C44F21CC4D4BD008C4BC0 /* Bc.m in Sources */,
 				680C452D1CC4D4BD008C4BC0 /* Designer.m in Sources */,
