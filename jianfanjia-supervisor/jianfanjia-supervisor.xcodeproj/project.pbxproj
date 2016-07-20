@@ -259,6 +259,8 @@
 		68A413081D3F152D003CFC2C /* UITableView+TemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413071D3F152D003CFC2C /* UITableView+TemplateLayoutCell.m */; };
 		68A4130B1D3F157B003CFC2C /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4130A1D3F157B003CFC2C /* BaseWebViewController.m */; };
 		68A4130E1D3F1784003CFC2C /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4130D1D3F1784003CFC2C /* WeakProxy.m */; };
+		68A413221D3F2A59003CFC2C /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413211D3F2A59003CFC2C /* AlbumCell.m */; };
+		68A413241D3F2A7A003CFC2C /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A413231D3F2A7A003CFC2C /* AlbumCell.xib */; };
 		D248AF3A7C7F296D8418ADE8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D408E462BE9708192EBFFD7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -740,6 +742,9 @@
 		68A4130A1D3F157B003CFC2C /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		68A4130C1D3F1784003CFC2C /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
 		68A4130D1D3F1784003CFC2C /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
+		68A413201D3F2A59003CFC2C /* AlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCell.h; sourceTree = "<group>"; };
+		68A413211D3F2A59003CFC2C /* AlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCell.m; sourceTree = "<group>"; };
+		68A413231D3F2A7A003CFC2C /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		6DCF3E98975F7E90EE858303 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		E62310690E1273E5E41514C2 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1391,6 +1396,9 @@
 				680C446A1CC4D4BD008C4BC0 /* ThumbnailCell.h */,
 				680C446B1CC4D4BD008C4BC0 /* ThumbnailCell.m */,
 				680C446C1CC4D4BD008C4BC0 /* ThumbnailCell.xib */,
+				68A413201D3F2A59003CFC2C /* AlbumCell.h */,
+				68A413211D3F2A59003CFC2C /* AlbumCell.m */,
+				68A413231D3F2A7A003CFC2C /* AlbumCell.xib */,
 			);
 			path = ImageBrower;
 			sourceTree = "<group>";
@@ -1735,6 +1743,7 @@
 				685B14B21CEB12110076996A /* MultipleLineTextTableViewCell.xib in Resources */,
 				680C42BD1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.xib in Resources */,
 				680C46161CC4F58F008C4BC0 /* LaunchScreen.xib in Resources */,
+				68A413241D3F2A7A003CFC2C /* AlbumCell.xib in Resources */,
 				681031C21CDCAF6300FD26D6 /* DecPackageJiangXinView.xib in Resources */,
 				680C45631CC4D4BD008C4BC0 /* ImageBrowerViewController.xib in Resources */,
 				685B14B81CEB12110076996A /* SelectDecorationStyleViewController.xib in Resources */,
@@ -2011,6 +2020,7 @@
 				680C45121CC4D4BD008C4BC0 /* NSDictionary+Ex.m in Sources */,
 				680C45021CC4D4BD008C4BC0 /* ReqtDesignerSubmittedPlan.m in Sources */,
 				680C44E71CC4D4BD008C4BC0 /* UpdatePass.m in Sources */,
+				68A413221D3F2A59003CFC2C /* AlbumCell.m in Sources */,
 				680C453F1CC4D4BD008C4BC0 /* YsImage.m in Sources */,
 				680C422B1CC4D4AE008C4BC0 /* SignupSuccessViewController.m in Sources */,
 				680C451F1CC4D4BD008C4BC0 /* UIScrollView+Ex.m in Sources */,

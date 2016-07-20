@@ -44,7 +44,7 @@
     options.networkAccessAllowed = YES;
     options.resizeMode = PHImageRequestOptionsResizeModeFast;
     options.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
-    options.synchronous = false;
+    options.synchronous = NO;
     
     [imageManager requestImageForAsset:asset targetSize:CGSizeMake(self.imageView.frame.size.width * kScreenScale, self.imageView.frame.size.height * kScreenScale)
                            contentMode:PHImageContentModeAspectFit

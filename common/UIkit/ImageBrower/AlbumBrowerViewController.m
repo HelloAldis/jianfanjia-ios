@@ -7,7 +7,7 @@
 //
 
 #import "AlbumBrowerViewController.h"
-#import "ThumbnailCell.h"
+#import "AlbumCell.h"
 #import <Photos/Photos.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 
@@ -45,7 +45,7 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"AlbumCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     self.imageManager = [PHImageManager defaultManager];
     self.options = [PHImageRequestOptions new];
@@ -110,10 +110,9 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    AlbumCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text = self.titles[indexPath.row];
-    cell.imageView.frame = CGRectMake(0, 0, 100, 100);
+    cell.albumTitle.text = self.titles[indexPath.row];
     [self setImage:cell indexPath:indexPath];
 
     return cell;
@@ -135,7 +134,7 @@
 }
 
 #pragma mark - other
-- (void)setImage:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath {
+- (void)setImage:(AlbumCell *)cell indexPath:(NSIndexPath *)indexPath {
     PHAsset *asset = self.collections[indexPath.row].firstObject;
     
     PHImageManager *imageManager = [PHImageManager defaultManager];
@@ -151,8 +150,7 @@
                                options:options
                          resultHandler:^(UIImage *result, NSDictionary *info) {
                              dispatch_async(dispatch_get_main_queue(), ^{
-                                 cell.imageView.image = result;
-                                 [cell setNeedsLayout];
+                                 cell.albumImg.image = result;
                              });
                          }];
 }
