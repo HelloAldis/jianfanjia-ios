@@ -434,6 +434,8 @@
 		68A413171D3F185F003CFC2C /* UINavigationController+FPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413161D3F185F003CFC2C /* UINavigationController+FPS.m */; };
 		68A4131C1D3F186D003CFC2C /* UITableView+TemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4131B1D3F186D003CFC2C /* UITableView+TemplateLayoutCell.m */; };
 		68A4131F1D3F18E6003CFC2C /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4131E1D3F18E6003CFC2C /* BaseWebViewController.m */; };
+		68A4132D1D3F3B63003CFC2C /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4132B1D3F3B63003CFC2C /* AlbumCell.m */; };
+		68A4132E1D3F3B63003CFC2C /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A4132C1D3F3B63003CFC2C /* AlbumCell.xib */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -1239,6 +1241,9 @@
 		68A4131B1D3F186D003CFC2C /* UITableView+TemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+TemplateLayoutCell.m"; sourceTree = "<group>"; };
 		68A4131D1D3F18E6003CFC2C /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
 		68A4131E1D3F18E6003CFC2C /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
+		68A4132A1D3F3B63003CFC2C /* AlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCell.h; sourceTree = "<group>"; };
+		68A4132B1D3F3B63003CFC2C /* AlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCell.m; sourceTree = "<group>"; };
+		68A4132C1D3F3B63003CFC2C /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -1534,6 +1539,9 @@
 		68123C721C4C9772008FC9AB /* ImageBrower */ = {
 			isa = PBXGroup;
 			children = (
+				68A4132A1D3F3B63003CFC2C /* AlbumCell.h */,
+				68A4132B1D3F3B63003CFC2C /* AlbumCell.m */,
+				68A4132C1D3F3B63003CFC2C /* AlbumCell.xib */,
 				6865A3531D2E4DFA00B3CB26 /* AlbumBrowerViewController.h */,
 				6865A3541D2E4DFA00B3CB26 /* AlbumBrowerViewController.m */,
 				6865A3551D2E4DFA00B3CB26 /* AlbumBrowerViewController.xib */,
@@ -2956,6 +2964,7 @@
 				685B147A1CEB11CF0076996A /* DecorationStyleCell.xib in Resources */,
 				685B157C1CEDC13F0076996A /* DesignerAuthCell.xib in Resources */,
 				684B043B1C990E910053FFDF /* RequirementNotificationCell.xib in Resources */,
+				68A4132E1D3F3B63003CFC2C /* AlbumCell.xib in Resources */,
 				6812411C1C4CF2D5008FC9AB /* ItemCell.xib in Resources */,
 				685B14DF1CEB266E0076996A /* ConsultPhoneCell.xib in Resources */,
 				685B14881CEB11CF0076996A /* SelectPopulationViewController.xib in Resources */,
@@ -3309,6 +3318,7 @@
 				685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */,
 				68123EE81C4CBE79008FC9AB /* LeaveMessageViewController.m in Sources */,
 				6850A61C1CCA2DEA0085940A /* CityCell.m in Sources */,
+				68A4132D1D3F3B63003CFC2C /* AlbumCell.m in Sources */,
 				685B14F41CEC52B00076996A /* InfoAuthViewController.m in Sources */,
 				68F73D2B1CBB597E00E97710 /* PlanWasNotChoosed.m in Sources */,
 				681240151C4CDA06008FC9AB /* NSNumber+Ex.m in Sources */,

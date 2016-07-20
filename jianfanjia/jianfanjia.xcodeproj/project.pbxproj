@@ -323,6 +323,8 @@
 		689ECED21CFD78BC0046DDC8 /* HorizontalImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECED01CFD78BC0046DDC8 /* HorizontalImageCell.m */; };
 		689ECED31CFD78BC0046DDC8 /* HorizontalImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECED11CFD78BC0046DDC8 /* HorizontalImageCell.xib */; };
 		689ECEDC1D00384B0046DDC8 /* ProductBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECEDB1D00384B0046DDC8 /* ProductBusiness.m */; };
+		68A413281D3F3B4B003CFC2C /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413261D3F3B4B003CFC2C /* AlbumCell.m */; };
+		68A413291D3F3B4B003CFC2C /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A413271D3F3B4B003CFC2C /* AlbumCell.xib */; };
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
 		68B10C8C1C76F345005866C1 /* GetTopProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C8B1C76F345005866C1 /* GetTopProducts.m */; };
@@ -1148,6 +1150,9 @@
 		689ECED11CFD78BC0046DDC8 /* HorizontalImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HorizontalImageCell.xib; sourceTree = "<group>"; };
 		689ECEDA1D00384B0046DDC8 /* ProductBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductBusiness.h; sourceTree = "<group>"; };
 		689ECEDB1D00384B0046DDC8 /* ProductBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductBusiness.m; sourceTree = "<group>"; };
+		68A413251D3F3B4B003CFC2C /* AlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumCell.h; sourceTree = "<group>"; };
+		68A413261D3F3B4B003CFC2C /* AlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumCell.m; sourceTree = "<group>"; };
+		68A413271D3F3B4B003CFC2C /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
 		68B10C841C76D489005866C1 /* DesignerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerListViewController.xib; sourceTree = "<group>"; };
 		68B10C871C76F13F005866C1 /* HomePageDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDataManager.h; sourceTree = "<group>"; };
@@ -1825,6 +1830,9 @@
 		68123C3B1C4C8B99008FC9AB /* ImageBrower */ = {
 			isa = PBXGroup;
 			children = (
+				68A413251D3F3B4B003CFC2C /* AlbumCell.h */,
+				68A413261D3F3B4B003CFC2C /* AlbumCell.m */,
+				68A413271D3F3B4B003CFC2C /* AlbumCell.xib */,
 				6865A34E1D2E08FE00B3CB26 /* AlbumBrowerViewController.h */,
 				6865A34F1D2E08FE00B3CB26 /* AlbumBrowerViewController.m */,
 				6865A3501D2E08FE00B3CB26 /* AlbumBrowerViewController.xib */,
@@ -3598,6 +3606,7 @@
 				68EE3EAA1D1A50C200F5EF83 /* DiaryCommentInfoCell.xib in Resources */,
 				68BA50841C9FD8BB002E5572 /* WebViewController.xib in Resources */,
 				68EE3DED1D1282AF00F5EF83 /* DecDiary1StatusCell.xib in Resources */,
+				68A413291D3F3B4B003CFC2C /* AlbumCell.xib in Resources */,
 				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
 				68123BA81C47D15C008FC9AB /* JYZ_sina_icon@2x.png in Resources */,
 				689ECDFA1CFC09590046DDC8 /* SelectionMenuCollectionCell.xib in Resources */,
@@ -3718,6 +3727,7 @@
 				6E07DAAC1BD88DBE001461DD /* AccountBusiness.m in Sources */,
 				685B144A1CEB0FB60076996A /* SelectHouseTypeViewController.m in Sources */,
 				683840071C157E21004F456E /* UpdateOneLineTextViewController.m in Sources */,
+				68A413281D3F3B4B003CFC2C /* AlbumCell.m in Sources */,
 				684A374C1BFD73DF00F7388C /* RequirementCreateViewController.m in Sources */,
 				6865A34A1D2BBA6600B3CB26 /* FPSLabel.m in Sources */,
 				685B14501CEB0FB60076996A /* SelectWorkTypeViewController.m in Sources */,
