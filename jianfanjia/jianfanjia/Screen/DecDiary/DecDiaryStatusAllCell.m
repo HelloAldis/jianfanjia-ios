@@ -43,6 +43,7 @@
     self.msgView.textVerticalAlignment = YYTextVerticalAlignmentTop;
     self.msgView.displaysAsynchronously = YES;
     self.msgView.ignoreCommonProperties = YES;
+    self.msgView.clearContentsBeforeAsynchronouslyDisplay = NO;
     self.msgView.fadeOnAsynchronouslyDisplay = NO;
     self.msgView.fadeOnHighlight = NO;
     
