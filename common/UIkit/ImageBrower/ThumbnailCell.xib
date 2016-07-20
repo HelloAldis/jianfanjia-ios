@@ -43,6 +43,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="unchecked_1" width="16" height="16"/>
+        <image name="unchecked_1" width="28" height="28"/>
     </resources>
 </document>
