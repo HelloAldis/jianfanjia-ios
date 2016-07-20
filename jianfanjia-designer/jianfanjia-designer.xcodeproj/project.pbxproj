@@ -429,6 +429,11 @@
 		689ECEE11D012A9C0046DDC8 /* AuthInfoAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECEDF1D012A9C0046DDC8 /* AuthInfoAlertViewController.xib */; };
 		689ECEE51D0135620046DDC8 /* ProductCountTipSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 689ECEE31D0135620046DDC8 /* ProductCountTipSection.m */; };
 		689ECEE61D0135620046DDC8 /* ProductCountTipSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = 689ECEE41D0135620046DDC8 /* ProductCountTipSection.xib */; };
+		68A413111D3F1845003CFC2C /* WeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413101D3F1845003CFC2C /* WeakProxy.m */; };
+		68A413151D3F184D003CFC2C /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413141D3F184D003CFC2C /* FPSLabel.m */; };
+		68A413171D3F185F003CFC2C /* UINavigationController+FPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413161D3F185F003CFC2C /* UINavigationController+FPS.m */; };
+		68A4131C1D3F186D003CFC2C /* UITableView+TemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4131B1D3F186D003CFC2C /* UITableView+TemplateLayoutCell.m */; };
+		68A4131F1D3F18E6003CFC2C /* BaseWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4131E1D3F18E6003CFC2C /* BaseWebViewController.m */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
 		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
 		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
@@ -1224,6 +1229,16 @@
 		689ECEE21D0135620046DDC8 /* ProductCountTipSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductCountTipSection.h; sourceTree = "<group>"; };
 		689ECEE31D0135620046DDC8 /* ProductCountTipSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductCountTipSection.m; sourceTree = "<group>"; };
 		689ECEE41D0135620046DDC8 /* ProductCountTipSection.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductCountTipSection.xib; sourceTree = "<group>"; };
+		68A4130F1D3F1845003CFC2C /* WeakProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakProxy.h; sourceTree = "<group>"; };
+		68A413101D3F1845003CFC2C /* WeakProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakProxy.m; sourceTree = "<group>"; };
+		68A413131D3F184D003CFC2C /* FPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSLabel.h; sourceTree = "<group>"; };
+		68A413141D3F184D003CFC2C /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
+		68A413161D3F185F003CFC2C /* UINavigationController+FPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FPS.m"; sourceTree = "<group>"; };
+		68A413181D3F1867003CFC2C /* UINavigationController+FPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FPS.h"; sourceTree = "<group>"; };
+		68A4131A1D3F186D003CFC2C /* UITableView+TemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+TemplateLayoutCell.h"; sourceTree = "<group>"; };
+		68A4131B1D3F186D003CFC2C /* UITableView+TemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+TemplateLayoutCell.m"; sourceTree = "<group>"; };
+		68A4131D1D3F18E6003CFC2C /* BaseWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWebViewController.h; sourceTree = "<group>"; };
+		68A4131E1D3F18E6003CFC2C /* BaseWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWebViewController.m; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
 		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
@@ -1469,6 +1484,7 @@
 		68123C671C4C9772008FC9AB /* UIkit */ = {
 			isa = PBXGroup;
 			children = (
+				68A413121D3F184D003CFC2C /* FPS */,
 				680F65961CF6EF9D000E1EEF /* PhotoGroup */,
 				680F65921CF6EF7E000E1EEF /* ReuseView */,
 				685B15D71CF3E79D0076996A /* ReorderView */,
@@ -2288,9 +2304,29 @@
 			path = wechat;
 			sourceTree = "<group>";
 		};
+		68A413121D3F184D003CFC2C /* FPS */ = {
+			isa = PBXGroup;
+			children = (
+				68A413131D3F184D003CFC2C /* FPSLabel.h */,
+				68A413141D3F184D003CFC2C /* FPSLabel.m */,
+			);
+			path = FPS;
+			sourceTree = "<group>";
+		};
+		68A413191D3F186D003CFC2C /* TemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				68A4131A1D3F186D003CFC2C /* UITableView+TemplateLayoutCell.h */,
+				68A4131B1D3F186D003CFC2C /* UITableView+TemplateLayoutCell.m */,
+			);
+			path = TemplateLayoutCell;
+			sourceTree = "<group>";
+		};
 		68BA50F51C9FE815002E5572 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				68A4131D1D3F18E6003CFC2C /* BaseWebViewController.h */,
+				68A4131E1D3F18E6003CFC2C /* BaseWebViewController.m */,
 				689ECE151CFC0F880046DDC8 /* WebViewWithActionController.h */,
 				689ECE161CFC0F880046DDC8 /* WebViewWithActionController.m */,
 				689ECE171CFC0F880046DDC8 /* WebViewWithActionController.xib */,
@@ -2596,6 +2632,9 @@
 		6E378CFE1BDA2D2E00908B77 /* Extend */ = {
 			isa = PBXGroup;
 			children = (
+				68A413191D3F186D003CFC2C /* TemplateLayoutCell */,
+				68A413181D3F1867003CFC2C /* UINavigationController+FPS.h */,
+				68A413161D3F185F003CFC2C /* UINavigationController+FPS.m */,
 				689ECED71D001DD80046DDC8 /* UITextView+Placeholder.h */,
 				689ECED81D001DD80046DDC8 /* UITextView+Placeholder.m */,
 				689220051CD2104900BC80C7 /* UIViewController+KeyboardAnimation.h */,
@@ -2706,6 +2745,8 @@
 		6E378D261BDA2D2E00908B77 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				68A4130F1D3F1845003CFC2C /* WeakProxy.h */,
+				68A413101D3F1845003CFC2C /* WeakProxy.m */,
 				6865A39A1D3721F900B3CB26 /* AlertUtil.h */,
 				6865A39B1D3721F900B3CB26 /* AlertUtil.m */,
 				68711B581CD85D3E009B585F /* PhotoCropper.h */,
@@ -3132,6 +3173,7 @@
 				681240C91C4CE471008FC9AB /* RejectReschedule.m in Sources */,
 				680F66511CF82EF2000E1EEF /* SelectWorkFeeViewController.m in Sources */,
 				689ECE4F1CFC10DD0046DDC8 /* JYZSocialSnsConstant.m in Sources */,
+				68A4131F1D3F18E6003CFC2C /* BaseWebViewController.m in Sources */,
 				6E378D361BDA2D2E00908B77 /* AccountBusiness.m in Sources */,
 				685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */,
 				68123FE01C4CCF4A008FC9AB /* PriceItem.m in Sources */,
@@ -3273,6 +3315,7 @@
 				682E04F31C571A6E00F1ACAA /* ChoosedPlanForDesignActionCell.m in Sources */,
 				680F65711CF6A348000E1EEF /* DesignerUpdateInfo.m in Sources */,
 				68921FFE1CD0D7C300BC80C7 /* ToastUtil.m in Sources */,
+				68A4131C1D3F186D003CFC2C /* UITableView+TemplateLayoutCell.m in Sources */,
 				684B04361C990E910053FFDF /* MyNotificationViewController.m in Sources */,
 				681240B21C4CE471008FC9AB /* DesignerLogin.m in Sources */,
 				681241281C4CF2D5008FC9AB /* ProcessViewController.m in Sources */,
@@ -3299,6 +3342,7 @@
 				6E378D371BDA2D2E00908B77 /* Bc.m in Sources */,
 				68123E6F1C4CBE79008FC9AB /* ViewControllerContainer.m in Sources */,
 				681240D51C4CE471008FC9AB /* UploadImage.m in Sources */,
+				68A413151D3F184D003CFC2C /* FPSLabel.m in Sources */,
 				68123EEE1C4CBE79008FC9AB /* PlanListViewController.m in Sources */,
 				68123CE51C4C99C9008FC9AB /* LeakMoniter.m in Sources */,
 				68123E6D1C4CBE79008FC9AB /* BaseViewController.m in Sources */,
@@ -3383,6 +3427,7 @@
 				685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */,
 				6E04266E1BC757C500F984B8 /* main.m in Sources */,
 				681240BE1C4CE471008FC9AB /* GetUserRequirement.m in Sources */,
+				68A413171D3F185F003CFC2C /* UINavigationController+FPS.m in Sources */,
 				6E378D521BDA2D2E00908B77 /* Section.m in Sources */,
 				681241C51C5073FE008FC9AB /* DesignerRespondUser.m in Sources */,
 				68123E781C4CBE79008FC9AB /* CustomerServiceViewController.m in Sources */,
@@ -3406,6 +3451,7 @@
 				680F65751CF6B064000E1EEF /* IDAuthIDCardImageCell.m in Sources */,
 				681240131C4CDA06008FC9AB /* NSDate+Ex.m in Sources */,
 				681241C91C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m in Sources */,
+				68A413111D3F1845003CFC2C /* WeakProxy.m in Sources */,
 				681240B31C4CE471008FC9AB /* DesignerSignup.m in Sources */,
 				680C466B1CC61F5F008C4BC0 /* Supervisor.m in Sources */,
 				68123EFB1C4CBE79008FC9AB /* BusinessRequirementCreateViewController.m in Sources */,
