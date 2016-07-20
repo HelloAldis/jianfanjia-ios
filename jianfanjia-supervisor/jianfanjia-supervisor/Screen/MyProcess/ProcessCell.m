@@ -144,6 +144,16 @@
             rightLine.hidden = YES;
         }
         
+        UIColor *color = [UIColor whiteColor];
+        imgView.backgroundColor = color;
+        textLabel.backgroundColor = color;
+        
+        leftLine.opaque = YES;
+        rightLine.opaque = YES;
+        imgView.opaque = YES;
+        textLabel.opaque = YES;
+        textLabel.clipsToBounds = YES;
+        
         [self.sectionScrollView addSubview:leftLine];
         [self.sectionScrollView addSubview:rightLine];
         [self.sectionScrollView addSubview:imgView];
