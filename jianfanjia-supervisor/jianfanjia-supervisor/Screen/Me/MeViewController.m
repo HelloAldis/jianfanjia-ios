@@ -34,6 +34,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initTransparentNavBar:UIBarStyleBlack];
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 60, 0);
     self.scrollView.scrollIndicatorInsets = self.scrollView.contentInset;
     [self.userThumnail setCornerRadius:self.userThumnail.frame.size.width / 2];
