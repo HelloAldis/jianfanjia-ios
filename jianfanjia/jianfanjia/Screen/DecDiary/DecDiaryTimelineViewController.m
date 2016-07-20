@@ -136,16 +136,20 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     
     [API searchDiary:request success:^{
         [self.tableView.header endRefreshing];
-        NSInteger count = [self.dataManager loadLatest];
-        if (request.limit.integerValue > count) {
-            [self.tableView.footer endRefreshingWithNoMoreData];
-        }
-        
-        if (count > 0) {
-            [self.tableView reloadData];
-        }
-        
-        [self syncLoadTopDiarySets];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSInteger count = [self.dataManager loadLatest];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (request.limit.integerValue > count) {
+                    [self.tableView.footer endRefreshingWithNoMoreData];
+                }
+                
+                if (count > 0) {
+                    [self.tableView reloadData];
+                }
+                
+                [self syncLoadTopDiarySets];
+            });
+        });
     } failure:^{
         [self.tableView.header endRefreshing];
     } networkError:^{
@@ -164,8 +168,12 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     request.diaryids = allKeys;
     
     [API getDiaryUpdation:request success:^{
-        [self.dataManager updateChangedDiarys:dict];
-        [self.tableView reloadData];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [self.dataManager updateChangedDiarys:dict];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        });
     } failure:^{
     } networkError:^{
     }];
@@ -179,13 +187,16 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     [API searchDiary:request success:^{
         [self.tableView.header endRefreshing];
         [self.tableView.footer endRefreshing];
-        NSInteger count = [self.dataManager loadOld];
-        if (request.limit.integerValue > count) {
-            [self.tableView.footer endRefreshingWithNoMoreData];
-        }
-        
-        [self.tableView reloadData];
-        [self syncLoadTopDiarySets];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSInteger count = [self.dataManager loadOld];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (request.limit.integerValue > count) {
+                    [self.tableView.footer endRefreshingWithNoMoreData];
+                }
+                [self.tableView reloadData];
+                [self syncLoadTopDiarySets];
+            });
+        });
     } failure:^{
         [self.tableView.header endRefreshing];
         [self.tableView.footer endRefreshing];

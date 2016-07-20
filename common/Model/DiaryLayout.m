@@ -93,12 +93,7 @@
     [text yy_setTextHighlight:hi range:[text.string rangeOfString:@"全文"]];
     [text yy_setFont:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, text.length)];
     
-    YYLabel *seeMore = [YYLabel new];
-    seeMore.attributedText = text;
-    [seeMore sizeToFit];
-    
-    NSAttributedString *truncationToken = [NSAttributedString yy_attachmentStringWithContent:seeMore contentMode:UIViewContentModeCenter attachmentSize:seeMore.frame.size alignToFont:text.yy_font alignment:YYTextVerticalAlignmentCenter];
-    return truncationToken;
+    return text;
 }
 
 - (void)calcImagesLayout {
