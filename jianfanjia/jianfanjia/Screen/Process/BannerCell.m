@@ -38,8 +38,8 @@ CGFloat kBannerCellHeight;
 
 - (void)awakeFromNib {
     CGFloat height = kBannerCellHeight;
-    self.imgs = @[@"banner_4", @"banner_3", @"banner_1", @"banner_2"];
-    self.urls = @[@"weixin/jian/", kPkg365Url, @"view/zt/supervision/", @"view/zt/safeguard/"];
+    self.imgs = @[@"banner_2", @"banner_1"];
+    self.urls = @[@"view/zt/safeguard/", @"view/zt/supervision/"];
     
     self.imgViews = [NSMutableArray array];
     for (NSInteger i = 0; i < 3; i++) {
@@ -134,7 +134,7 @@ CGFloat kBannerCellHeight;
 #pragma mark - gesture
 - (void)onTapImage:(UIGestureRecognizer *)g {
     NSString *curUrl = self.urls[self.index];
-    
+
     if ([curUrl isEqualToString:kPkg365Url]) {
         [WebViewWithActionController show:[ViewControllerContainer getCurrentTapController] withUrl:curUrl shareTopic:ShareTopicActivity actionTitle:@"我要装修" actionBlock:^{
             [[LoginEngine shared] showLogin:^(BOOL logined) {

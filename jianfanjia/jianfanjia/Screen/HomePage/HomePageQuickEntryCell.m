@@ -15,7 +15,7 @@ CGFloat kHomePageQuickEntryCellHeight;
 
 static const NSInteger COUNT_IN_ONE_ROW = 4;
 static const NSInteger HEADER_HEIGHT = 0;
-static const NSInteger FOOTER_HEIGHT = 8;
+static const NSInteger FOOTER_HEIGHT = 0;
 static const NSInteger SECTION_TOP = 20;
 static const NSInteger ITEM_HEIGHT = 84;
 static const NSInteger IMG_WIDTH = 60;

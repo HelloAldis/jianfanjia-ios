@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="HomePagePackageItemCell">
+            <rect key="frame" x="0.0" y="0.0" width="119" height="84"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="119" height="84"/>
+                <subviews>
+                    <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SZa-7M-YIU">
+                        <rect key="frame" x="0.0" y="0.0" width="119" height="84"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="SZa-7M-YIU" secondAttribute="height" constant="1" id="68I-GD-ZOJ"/>
+                            <constraint firstAttribute="width" constant="60" id="j1y-fO-Xpy"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="68I-GD-ZOJ"/>
+                                <exclude reference="j1y-fO-Xpy"/>
+                            </mask>
+                        </variation>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="SZa-7M-YIU" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JEl-d5-NFm"/>
+                <constraint firstAttribute="bottom" secondItem="SZa-7M-YIU" secondAttribute="bottom" id="bVW-sM-RJ7"/>
+                <constraint firstItem="SZa-7M-YIU" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="udw-od-FTC"/>
+                <constraint firstAttribute="trailing" secondItem="SZa-7M-YIU" secondAttribute="trailing" id="xmn-SW-ne2"/>
+            </constraints>
+            <size key="customSize" width="119" height="84"/>
+            <connections>
+                <outlet property="image" destination="SZa-7M-YIU" id="i7X-AD-5f9"/>
+            </connections>
+            <point key="canvasLocation" x="455.5" y="524"/>
+        </collectionViewCell>
+    </objects>
+</document>

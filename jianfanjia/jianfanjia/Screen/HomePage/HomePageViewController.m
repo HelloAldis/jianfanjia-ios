@@ -9,12 +9,14 @@
 #import "HomePageViewController.h"
 #import "BannerCell.h"
 #import "HomePageQuickEntryCell.h"
+#import "HomePagePackageCell.h"
 #import "HomePageProductCell.h"
 #import "HomePageDataManager.h"
 #import "ViewControllerContainer.h"
 
 static NSString *BannerCellIdentifier = @"BannerCell";
 static NSString *HomePageQuickEntryCellIdentifier = @"HomePageQuickEntryCell";
+static NSString *HomePagePackageCellIdentifier = @"HomePagePackageCell";
 static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 
 @interface HomePageViewController ()
@@ -52,6 +54,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
     self.tableView.decelerationRate = UIScrollViewDecelerationRateFast;
     [self.tableView registerNib:[UINib nibWithNibName:BannerCellIdentifier bundle:nil] forCellReuseIdentifier:BannerCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:HomePageQuickEntryCellIdentifier bundle:nil] forCellReuseIdentifier:HomePageQuickEntryCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:HomePagePackageCellIdentifier bundle:nil] forCellReuseIdentifier:HomePagePackageCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:HomePageProductCellIdentifier bundle:nil] forCellReuseIdentifier:HomePageProductCellIdentifier];
     
     @weakify(self);
@@ -66,7 +69,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 
 #pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,6 +78,9 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
         return cell;
     } else if (indexPath.row == 1) {
         HomePageQuickEntryCell *cell = [self.tableView dequeueReusableCellWithIdentifier:HomePageQuickEntryCellIdentifier];
+        return cell;
+    } else if (indexPath.row == 2) {
+        HomePagePackageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:HomePagePackageCellIdentifier];
         return cell;
     } else {
         HomePageProductCell *cell = [self.tableView dequeueReusableCellWithIdentifier:HomePageProductCellIdentifier];
@@ -88,6 +94,8 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
         return kBannerCellHeight;
     } else if (indexPath.row == 1) {
         return kHomePageQuickEntryCellHeight;
+    }  else if (indexPath.row == 2) {
+        return kHomePagePackageCellHeight;
     } else {
         return kHomePageProductCellHeight;
     }
