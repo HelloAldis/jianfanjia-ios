@@ -92,6 +92,13 @@ static ViewControllerContainer *container;
 }
 
 + (void)showAfterLanching {
+    if ([GVUserDefaults standardUserDefaults].cacheVersion < kCacheVersion) {
+        YYImageCache *cache = [YYWebImageManager sharedManager].cache;
+        [cache.memoryCache removeAllObjects];
+        [cache.diskCache removeAllObjects];
+        [GVUserDefaults standardUserDefaults].cacheVersion = kCacheVersion;
+    }
+    
     if ([GVUserDefaults standardUserDefaults].welcomeVersion < kWelcomeVersion) {
         //显示welcome
         WelcomeViewController *pages =[[WelcomeViewController alloc] initWithNibName:nil bundle:nil];

@@ -55,6 +55,13 @@ static ViewControllerContainer *container;
 }
 
 + (void)showAfterLanching {
+    if ([GVUserDefaults standardUserDefaults].cacheVersion < kCacheVersion) {
+        YYImageCache *cache = [YYWebImageManager sharedManager].cache;
+        [cache.memoryCache removeAllObjects];
+        [cache.diskCache removeAllObjects];
+        [GVUserDefaults standardUserDefaults].cacheVersion = kCacheVersion;
+    }
+    
     if ([GVUserDefaults standardUserDefaults].isLogin) {
         //显示首页
         [self showTab];
