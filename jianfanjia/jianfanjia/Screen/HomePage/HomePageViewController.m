@@ -41,6 +41,10 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 #pragma mark - UI
 - (void)initNav {
     self.title = @"简繁家";
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_phone"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickCall)];
+    self.navigationItem.leftBarButtonItem.tintColor = kThemeTextColor;
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickSearch)];
     self.navigationItem.rightBarButtonItem.tintColor = kThemeTextColor;
 }
@@ -149,6 +153,10 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 
 - (void)onClickSearch {
     [ViewControllerContainer showSearch];
+}
+
+- (void)onClickCall {
+    [PhoneUtil call:kConsultPhone];
 }
 
 @end
