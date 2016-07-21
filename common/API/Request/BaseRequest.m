@@ -29,42 +29,42 @@
 }
 
 - (void)handle:(id)response success:(void (^)(void))success failure:(void (^)(void))failure {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        id escapedResponse = [self escapeResponse:response];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [DataManager shared].errMsg = [escapedResponse objectForKey:@"err_msg"];
-            [DataManager shared].data = [escapedResponse objectForKey:@"data"];
-            
-            [self all];
-            if ([DataManager shared].errMsg) {
-                [self failure];
-                if (failure) {
-                    failure();
-                }
-            } else {
-                [self success];
-                if (success) {
-                    success();
-                }
+    id escapedResponse = [self escapeResponse:response];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [DataManager shared].errMsg = [escapedResponse objectForKey:@"err_msg"];
+        [DataManager shared].data = [escapedResponse objectForKey:@"data"];
+        
+        [self all];
+        if ([DataManager shared].errMsg) {
+            [self failure];
+            if (failure) {
+                failure();
             }
-        });
+        } else {
+            [self success];
+            if (success) {
+                success();
+            }
+        }
     });
 //    [DataManager shared].errMsg = nil;
 //    [DataManager shared].data = nil;
 }
 
 - (void)handleHttpError:(NSError *)err networkError:(void (^)(void))error {
-    [HUDUtil hideWait];
-    [HUDUtil showErrText:@"网络不给力"];
-    
-    if (error) {
-        error();
-    }
-    
-    if ([err.localizedDescription containsString:@"403"]) {
-        [ViewControllerContainer logout];
-        [HUDUtil showErrText:@"登录过期, 请重新登录"];
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [HUDUtil hideWait];
+        [HUDUtil showErrText:@"网络不给力"];
+        
+        if (error) {
+            error();
+        }
+        
+        if ([err.localizedDescription containsString:@"403"]) {
+            [ViewControllerContainer logout];
+            [HUDUtil showErrText:@"登录过期, 请重新登录"];
+        }
+    });
 }
 
 - (id)escapeResponse:(id)response {
