@@ -88,7 +88,7 @@ typedef void(^JYZWebImageProgressBlock)(NSInteger receivedSize, NSInteger expect
 typedef UIImage * (^JYZWebImageTransformBlock)(UIImage *image, NSURL *url);
 
 
-@interface UIImageView (Ex)
+@interface UIImageView (Image)
 
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width placeholder:(UIImage *)placeholder options:(JYZWebImageOptions)options progress:(JYZWebImageProgressBlock)progress completed:(JYZWebImageCompletionBlock)completeBlock;
 - (void)setImageWithId:(NSString *)imageid withWidth:(NSInteger)width completed:(JYZWebImageCompletionBlock)completeBlock;

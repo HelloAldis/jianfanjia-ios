@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 JYZ. All rights reserved.
 //
 
-#import "UIImageView+Ex.h"
+#import "UIImageView+Image.h"
 #import "API.h"
 
-@implementation UIImageView (Ex)
+@implementation UIImageView (Image)
 
 - (void)setImageWithImgURL:(NSURL *)imageidUrl placeholder:(UIImage *)placeholder options:(JYZWebImageOptions)options progress:(JYZWebImageProgressBlock)progress transform:(JYZWebImageTransformBlock)transform completed:(JYZWebImageCompletionBlock)completeBlock {
     [self yy_setImageWithURL:imageidUrl placeholder:placeholder options:(YYWebImageOptions)options progress:(YYWebImageProgressBlock)progress transform:transform completion:(YYWebImageCompletionBlock)completeBlock];

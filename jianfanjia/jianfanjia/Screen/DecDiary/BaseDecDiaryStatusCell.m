@@ -19,7 +19,7 @@
 - (void)initImageView {
     NSMutableArray *picViews = [NSMutableArray new];
     for (int i = 0; i < 9; i++) {
-        UIImageView *imageView = [UIImageView new];
+        UIView *imageView = [UIView new];
         imageView.frame = CGRectMake(0, 0, 100, 100);
         imageView.hidden = YES;
         imageView.clipsToBounds = YES;
@@ -184,7 +184,7 @@
     int picsCount = (int)pics.count;
     
     for (int i = 0; i < 9; i++) {
-        UIImageView *imageView = self.base_picViews[i];
+        UIView *imageView = self.base_picViews[i];
         if (i >= picsCount) {
             imageView.hidden = YES;
         } else {
@@ -209,7 +209,7 @@
             LeafImage *pic = [[LeafImage alloc] initWith:pics[i]];
             
             @weakify(imageView);
-            [imageView setImageWithId:pic.imageid withWidth:imageView.frame.size.width completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
+            [imageView.layer setImageWithId:pic.imageid withWidth:imageView.frame.size.width completed:^(UIImage *image, NSURL *url, JYZWebImageFromType from, JYZWebImageStage stage, NSError *error) {
                 @strongify(imageView);
                 if (!imageView) return;
                 if (image && stage == YYWebImageStageFinished) {

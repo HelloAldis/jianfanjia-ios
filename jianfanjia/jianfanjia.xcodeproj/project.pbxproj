@@ -330,6 +330,7 @@
 		68A413371D3F7ABB003CFC2C /* HomePagePackageItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413331D3F7ABB003CFC2C /* HomePagePackageItemCell.m */; };
 		68A413381D3F7ABB003CFC2C /* HomePagePackageItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A413341D3F7ABB003CFC2C /* HomePagePackageItemCell.xib */; };
 		68A4133E1D407F15003CFC2C /* YYDispatchQueuePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4133D1D407F15003CFC2C /* YYDispatchQueuePool.m */; };
+		68A413441D408340003CFC2C /* CALayer+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413431D408340003CFC2C /* CALayer+Image.m */; };
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
 		68B10C8C1C76F345005866C1 /* GetTopProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C8B1C76F345005866C1 /* GetTopProducts.m */; };
@@ -503,7 +504,7 @@
 		6E07DABB1BD88DBE001461DD /* NSObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA7C1BD88DBE001461DD /* NSObject+Ex.m */; };
 		6E07DABC1BD88DBE001461DD /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA7E1BD88DBE001461DD /* NSString+Ex.m */; };
 		6E07DABD1BD88DBE001461DD /* UIButton+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA801BD88DBE001461DD /* UIButton+Ex.m */; };
-		6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA821BD88DBE001461DD /* UIImageView+Ex.m */; };
+		6E07DABE1BD88DBE001461DD /* UIImageView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA821BD88DBE001461DD /* UIImageView+Image.m */; };
 		6E07DABF1BD88DBE001461DD /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA841BD88DBE001461DD /* UIView+Ex.m */; };
 		6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA8D1BD88DBE001461DD /* BaseModel.m */; };
 		6E07DAC31BD88DBE001461DD /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E07DA8F1BD88DBE001461DD /* Comment.m */; };
@@ -1166,6 +1167,8 @@
 		68A413341D3F7ABB003CFC2C /* HomePagePackageItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePagePackageItemCell.xib; sourceTree = "<group>"; };
 		68A4133C1D407F15003CFC2C /* YYDispatchQueuePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDispatchQueuePool.h; sourceTree = "<group>"; };
 		68A4133D1D407F15003CFC2C /* YYDispatchQueuePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDispatchQueuePool.m; sourceTree = "<group>"; };
+		68A413421D408340003CFC2C /* CALayer+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Image.h"; sourceTree = "<group>"; };
+		68A413431D408340003CFC2C /* CALayer+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Image.m"; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
 		68B10C841C76D489005866C1 /* DesignerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerListViewController.xib; sourceTree = "<group>"; };
 		68B10C871C76F13F005866C1 /* HomePageDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDataManager.h; sourceTree = "<group>"; };
@@ -1470,8 +1473,8 @@
 		6E07DA7E1BD88DBE001461DD /* NSString+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ex.m"; sourceTree = "<group>"; };
 		6E07DA7F1BD88DBE001461DD /* UIButton+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Ex.h"; sourceTree = "<group>"; };
 		6E07DA801BD88DBE001461DD /* UIButton+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Ex.m"; sourceTree = "<group>"; };
-		6E07DA811BD88DBE001461DD /* UIImageView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Ex.h"; sourceTree = "<group>"; };
-		6E07DA821BD88DBE001461DD /* UIImageView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Ex.m"; sourceTree = "<group>"; };
+		6E07DA811BD88DBE001461DD /* UIImageView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Image.h"; sourceTree = "<group>"; };
+		6E07DA821BD88DBE001461DD /* UIImageView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Image.m"; sourceTree = "<group>"; };
 		6E07DA831BD88DBE001461DD /* UIView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ex.h"; sourceTree = "<group>"; };
 		6E07DA841BD88DBE001461DD /* UIView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ex.m"; sourceTree = "<group>"; };
 		6E07DA8C1BD88DBE001461DD /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -2889,8 +2892,10 @@
 				6E07DA7E1BD88DBE001461DD /* NSString+Ex.m */,
 				6E07DA7F1BD88DBE001461DD /* UIButton+Ex.h */,
 				6E07DA801BD88DBE001461DD /* UIButton+Ex.m */,
-				6E07DA811BD88DBE001461DD /* UIImageView+Ex.h */,
-				6E07DA821BD88DBE001461DD /* UIImageView+Ex.m */,
+				6E07DA811BD88DBE001461DD /* UIImageView+Image.h */,
+				6E07DA821BD88DBE001461DD /* UIImageView+Image.m */,
+				68A413421D408340003CFC2C /* CALayer+Image.h */,
+				68A413431D408340003CFC2C /* CALayer+Image.m */,
 				6E07DA831BD88DBE001461DD /* UIView+Ex.h */,
 				6E07DA841BD88DBE001461DD /* UIView+Ex.m */,
 				685B51041BE76D45001C8B34 /* UIColor+Ex.h */,
@@ -3893,7 +3898,7 @@
 				685B14131CE9D4E20076996A /* PhotoGroupView.m in Sources */,
 				68B10CA81C7819E3005866C1 /* ProductCaseCell.m in Sources */,
 				6E6D98D81BE1BD3500D45F77 /* ProductImage.m in Sources */,
-				6E07DABE1BD88DBE001461DD /* UIImageView+Ex.m in Sources */,
+				6E07DABE1BD88DBE001461DD /* UIImageView+Image.m in Sources */,
 				683FFB5E1C2A4144002A1AFE /* CollectDecStyleViewController.m in Sources */,
 				68123BB51C47D1CC008FC9AB /* JYZSocialSnsManager.m in Sources */,
 				684A37081BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.m in Sources */,
@@ -4092,6 +4097,7 @@
 				6E44961E1BF7368900C90851 /* DesignerPageData.m in Sources */,
 				6E2DCAAD1BB5207400591A16 /* LeftViewController.m in Sources */,
 				6E20B2281B87223600E3A8DA /* main.m in Sources */,
+				68A413441D408340003CFC2C /* CALayer+Image.m in Sources */,
 				685C214E1BF9C7E100D5D320 /* UIScrollView+Ex.m in Sources */,
 				680C40DF1CC4BB38008C4BC0 /* API.m in Sources */,
 				6E06CC191C294DBF00A08D15 /* DeleteFavoriateProduct.m in Sources */,
