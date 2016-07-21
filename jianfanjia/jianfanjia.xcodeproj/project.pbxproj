@@ -329,7 +329,7 @@
 		68A413361D3F7ABB003CFC2C /* HomePagePackageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A413311D3F7ABB003CFC2C /* HomePagePackageCell.xib */; };
 		68A413371D3F7ABB003CFC2C /* HomePagePackageItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A413331D3F7ABB003CFC2C /* HomePagePackageItemCell.m */; };
 		68A413381D3F7ABB003CFC2C /* HomePagePackageItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A413341D3F7ABB003CFC2C /* HomePagePackageItemCell.xib */; };
-		68A4133B1D405DD6003CFC2C /* DispatchQueuePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4133A1D405DD6003CFC2C /* DispatchQueuePool.m */; };
+		68A4133E1D407F15003CFC2C /* YYDispatchQueuePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4133D1D407F15003CFC2C /* YYDispatchQueuePool.m */; };
 		68B10C861C76D489005866C1 /* DesignerListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68B10C841C76D489005866C1 /* DesignerListViewController.xib */; };
 		68B10C891C76F13F005866C1 /* HomePageDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C881C76F13F005866C1 /* HomePageDataManager.m */; };
 		68B10C8C1C76F345005866C1 /* GetTopProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10C8B1C76F345005866C1 /* GetTopProducts.m */; };
@@ -1164,8 +1164,8 @@
 		68A413321D3F7ABB003CFC2C /* HomePagePackageItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePagePackageItemCell.h; sourceTree = "<group>"; };
 		68A413331D3F7ABB003CFC2C /* HomePagePackageItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomePagePackageItemCell.m; sourceTree = "<group>"; };
 		68A413341D3F7ABB003CFC2C /* HomePagePackageItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomePagePackageItemCell.xib; sourceTree = "<group>"; };
-		68A413391D405DD6003CFC2C /* DispatchQueuePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueuePool.h; sourceTree = "<group>"; };
-		68A4133A1D405DD6003CFC2C /* DispatchQueuePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueuePool.m; sourceTree = "<group>"; };
+		68A4133C1D407F15003CFC2C /* YYDispatchQueuePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDispatchQueuePool.h; sourceTree = "<group>"; };
+		68A4133D1D407F15003CFC2C /* YYDispatchQueuePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDispatchQueuePool.m; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
 		68B10C841C76D489005866C1 /* DesignerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerListViewController.xib; sourceTree = "<group>"; };
 		68B10C871C76F13F005866C1 /* HomePageDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDataManager.h; sourceTree = "<group>"; };
@@ -3000,8 +3000,8 @@
 		6E07DA9D1BD88DBE001461DD /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				68A413391D405DD6003CFC2C /* DispatchQueuePool.h */,
-				68A4133A1D405DD6003CFC2C /* DispatchQueuePool.m */,
+				68A4133C1D407F15003CFC2C /* YYDispatchQueuePool.h */,
+				68A4133D1D407F15003CFC2C /* YYDispatchQueuePool.m */,
 				6865A34B1D2BBB2400B3CB26 /* WeakProxy.h */,
 				6865A34C1D2BBB2400B3CB26 /* WeakProxy.m */,
 				68EE3EB01D1CE03D00F5EF83 /* MethodSwizzle.h */,
@@ -4118,6 +4118,7 @@
 				68BA51021CA0ED75002E5572 /* TouchDelegateView.m in Sources */,
 				68679A3F1C8E730F00B380D0 /* WorksiteNotificationCell.m in Sources */,
 				6865A3701D309D4900B3CB26 /* DiarySetLeftMenuCell.m in Sources */,
+				68A4133E1D407F15003CFC2C /* YYDispatchQueuePool.m in Sources */,
 				688517731C926FDC000B01DB /* DecCommentInfoCell.m in Sources */,
 				68EE3E911D18DB0600F5EF83 /* DiaryMessageCell.m in Sources */,
 				68123C531C4C8B99008FC9AB /* DateAlertViewController.m in Sources */,
@@ -4136,7 +4137,6 @@
 				68123C551C4C8B99008FC9AB /* MessageAlertViewController.m in Sources */,
 				68EE3DD51D125D3700F5EF83 /* DiarySetDataManager.m in Sources */,
 				68E6008E1CB7C89E00C4A8F7 /* ElseStatus.m in Sources */,
-				68A4133B1D405DD6003CFC2C /* DispatchQueuePool.m in Sources */,
 				68B10CA01C7804FA005866C1 /* DesignerListDataManager.m in Sources */,
 				683B2A781C10162400822715 /* Schedule.m in Sources */,
 				68EE3D961D1131E700F5EF83 /* Diary.m in Sources */,
