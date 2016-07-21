@@ -19,7 +19,6 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
 @property (weak, nonatomic) IBOutlet UIImageView *iconRightArrow;
 
 @property (nonatomic, strong) NSArray *products;
-@property (nonatomic, assign) BOOL isShowProduct;
 
 @property (nonatomic, strong) UIView *guideView;
 

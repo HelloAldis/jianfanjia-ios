@@ -22,7 +22,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 @interface HomePageViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (assign, nonatomic) BOOL isTabbarhide;
+@property (strong, nonatomic) HomePageProductCell *homePageProductCell;
 @property (assign, nonatomic) BOOL isShowProduct;
 
 @property (strong, nonatomic) HomePageDataManager *dataManager;
@@ -52,7 +52,6 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 - (void)initUI {
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.dataManager = [[HomePageDataManager alloc] init];
-    self.isTabbarhide = NO;
     self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     self.tableView.decelerationRate = UIScrollViewDecelerationRateFast;
@@ -87,7 +86,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
         HomePagePackageCell *cell = [self.tableView dequeueReusableCellWithIdentifier:HomePagePackageCellIdentifier];
         return cell;
     } else {
-        HomePageProductCell *cell = [self.tableView dequeueReusableCellWithIdentifier:HomePageProductCellIdentifier];
+        HomePageProductCell *cell = [self productCell];
         [cell initWithProducts:self.dataManager.homeProducts isShowProduct:self.isShowProduct];
         return cell;
     }
@@ -105,26 +104,29 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
     }
 }
 
+- (HomePageProductCell *)productCell {
+    if (!_homePageProductCell) {
+        self.homePageProductCell = [self.tableView dequeueReusableCellWithIdentifier:HomePageProductCellIdentifier];
+    }
+    
+    return _homePageProductCell;
+}
+
 #pragma mark - scroll view delegate
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    CGPoint targetOffset;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat contentHeight = scrollView.contentSize.height;
     CGFloat productOffsetY = contentHeight - kScreenHeight + kTabBarHeight;
     CGPoint curOffset = scrollView.contentOffset;
     
-    if (!self.isShowProduct && curOffset.y > -kNavWithStatusBarHeight) {
-        self.isShowProduct = YES;
-        [self.tableView reloadData];
-        targetOffset = CGPointMake(curOffset.x, productOffsetY);
-        targetContentOffset->x = targetOffset.x;
-        targetContentOffset->y = targetOffset.y;
-    } else if (self.isShowProduct) {
-        if (curOffset.y < productOffsetY) {
-            self.isShowProduct = NO;
+    if (contentHeight > 0) {
+        if (!self.isShowProduct && curOffset.y > productOffsetY) {
+            self.isShowProduct = YES;
             [self.tableView reloadData];
-            targetOffset = CGPointMake(curOffset.x, -kNavWithStatusBarHeight);
-            targetContentOffset->x = targetOffset.x;
-            targetContentOffset->y = targetOffset.y;
+        } else if (self.isShowProduct) {
+            if (curOffset.y < productOffsetY) {
+                self.isShowProduct = NO;
+                [self.tableView reloadData];
+            }
         }
     }
 }

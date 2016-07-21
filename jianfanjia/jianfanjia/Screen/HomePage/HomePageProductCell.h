@@ -13,6 +13,8 @@
 
 @interface HomePageProductCell : UITableViewCell
 
+@property (nonatomic, assign) BOOL isShowProduct;
+
 - (void)initWithProducts:(NSArray *)products isShowProduct:(BOOL)isShowProduct;
 
 @end
