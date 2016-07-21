@@ -24,5 +24,6 @@
 #import "TextFieldDelegate.h"
 #import "WeakProxy.h"
 #import "AlertUtil.h"
+#import "DispatchQueuePool.h"
 
 #endif
