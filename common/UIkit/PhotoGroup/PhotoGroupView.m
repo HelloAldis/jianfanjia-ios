@@ -23,6 +23,11 @@
     if ([_thumbView respondsToSelector:@selector(image)]) {
         return ((UIImageView *)_thumbView).image;
     }
+    
+    if (_thumbView.layer.contents) {
+        return [UIImage imageWithCGImage:(CGImageRef)_thumbView.layer.contents];
+    }
+    
     return _thumbImage ? _thumbImage : [UIImage imageNamed:@"image_place_holder"];
 }
 
