@@ -98,6 +98,11 @@
     return  [JYZSocialSnsManager handleOpenURL:url];
 }
 
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray *restorableObjects))restorationHandler {
+    
+    return YES;
+}
+
 + (AppDelegate *)sharedInstance {
     return (AppDelegate *)[UIApplication sharedApplication].delegate;
 }

@@ -1169,6 +1169,7 @@
 		68A4133D1D407F15003CFC2C /* YYDispatchQueuePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDispatchQueuePool.m; sourceTree = "<group>"; };
 		68A413421D408340003CFC2C /* CALayer+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Image.h"; sourceTree = "<group>"; };
 		68A413431D408340003CFC2C /* CALayer+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Image.m"; sourceTree = "<group>"; };
+		68A597DA1D41F7B100ADF715 /* jianfanjia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = jianfanjia.entitlements; sourceTree = "<group>"; };
 		68B10C821C76D489005866C1 /* DesignerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerListViewController.h; sourceTree = "<group>"; };
 		68B10C841C76D489005866C1 /* DesignerListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerListViewController.xib; sourceTree = "<group>"; };
 		68B10C871C76F13F005866C1 /* HomePageDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomePageDataManager.h; sourceTree = "<group>"; };
@@ -3063,6 +3064,7 @@
 		6E20B2241B87223600E3A8DA /* jianfanjia */ = {
 			isa = PBXGroup;
 			children = (
+				68A597DA1D41F7B100ADF715 /* jianfanjia.entitlements */,
 				689ECEA71CFC19240046DDC8 /* ThirdParty */,
 				6E07DA441BD88DBE001461DD /* common */,
 				680C40DB1CC4BB38008C4BC0 /* General */,
@@ -3454,6 +3456,9 @@
 						DevelopmentTeam = 339GELC5GG;
 						SystemCapabilities = {
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.SafariKeychain = {
 								enabled = 1;
 							};
 						};
@@ -4269,6 +4274,7 @@
 			baseConfigurationReference = BFE23DDA1E815FFFBCFFB23F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = jianfanjia/jianfanjia.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -4297,6 +4303,7 @@
 			baseConfigurationReference = 87C4B416CB420D56EFD3432A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = jianfanjia/jianfanjia.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
