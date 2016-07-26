@@ -32,6 +32,7 @@ PODS:
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
   - CRToast (0.0.9)
+  - DeepLinkKit (1.2.1)
   - FLEX (2.3.0)
   - GrowingIO (0.9.24)
   - GTSDK (1.4.2)
@@ -63,6 +64,7 @@ DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - CocoaLumberjack
   - CRToast (~> 0.0.7)
+  - DeepLinkKit
   - FLEX (~> 2.1)
   - GrowingIO
   - GTSDK
@@ -82,6 +84,7 @@ SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
+  DeepLinkKit: 4c3a713b7ecc6c6e25ba56c87d0c728f6035a9ef
   FLEX: ba80ea13d2c784e85e616137fd4eff164781e364
   GrowingIO: 11688891404a257c9ac0dbf58235a6606fdafd60
   GTSDK: 51a12836895312a872f75a2fe0f2e788dee75b19

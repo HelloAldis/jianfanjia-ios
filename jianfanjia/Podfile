@@ -18,3 +18,4 @@ pod 'YYText'
 pod 'GrowingIO'
 pod 'LGSideMenuController', '~> 1.0.0'
 pod 'TOCropViewController'
+pod "DeepLinkKit"
