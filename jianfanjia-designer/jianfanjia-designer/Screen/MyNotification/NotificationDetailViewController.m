@@ -12,6 +12,7 @@
 #import "ViewControllerContainer.h"
 #import "RejectUserAlertViewController.h"
 #import "SetMeasureHouseTimeViewController.h"
+#import "WebViewDelegateHandler.h"
 
 @import WebKit;
 
@@ -131,6 +132,7 @@ static NSDictionary *NotificationTitles = nil;
     self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
     _webView.translatesAutoresizingMaskIntoConstraints = NO;
     _webView.allowsBackForwardNavigationGestures = YES;
+    _webView.navigationDelegate = self;
     [self.view insertSubview:_webView belowSubview:self.actionView];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
@@ -144,6 +146,14 @@ static NSDictionary *NotificationTitles = nil;
     _webView.scrollView.backgroundColor = self.headerView.backgroundColor;
     self.headerView.hidden = YES;
 }
+
+#pragma mark - WKNavigationDelegate
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    [WebViewDelegateHandler shared].controller = self;
+    [WebViewDelegateHandler webView:webView decidePolicyForNavigationAction:navigationAction decisionHandler:decisionHandler];
+}
+
+#pragma mark - Data
 
 - (void)initData {
     self.lblNotificationTitle.text = NotificationTitles[self.notification.message_type];
