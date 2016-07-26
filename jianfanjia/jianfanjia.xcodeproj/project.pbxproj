@@ -245,6 +245,8 @@
 		685F2D761CACD21400DC4D43 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D751CACD21400DC4D43 /* DIYGifHeader.m */; };
 		685F2D801CAE671A00DC4D43 /* LoginEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D7F1CAE671A00DC4D43 /* LoginEngine.m */; };
 		68627A641C085C99008DF9A1 /* UIItemImageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */; };
+		6865156A1D474D0700B79C1A /* MyDeepLinkRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 686515691D474D0700B79C1A /* MyDeepLinkRouter.m */; };
+		6865156E1D4750C700B79C1A /* RouteMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865156D1D4750C700B79C1A /* RouteMgr.m */; };
 		6865A3351D261D3800B3CB26 /* ReorderTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3341D261D3800B3CB26 /* ReorderTableView.m */; };
 		6865A3381D26420A00B3CB26 /* CollectionViewReordeLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3371D26420A00B3CB26 /* CollectionViewReordeLayout.m */; };
 		6865A33A1D2A036700B3CB26 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6865A3391D2A036700B3CB26 /* Accelerate.framework */; };
@@ -1017,6 +1019,10 @@
 		685F2D7F1CAE671A00DC4D43 /* LoginEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginEngine.m; sourceTree = "<group>"; };
 		68627A621C085C99008DF9A1 /* UIItemImageCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIItemImageCollectionView.h; sourceTree = "<group>"; };
 		68627A631C085C99008DF9A1 /* UIItemImageCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIItemImageCollectionView.m; sourceTree = "<group>"; };
+		686515681D474D0700B79C1A /* MyDeepLinkRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDeepLinkRouter.h; sourceTree = "<group>"; };
+		686515691D474D0700B79C1A /* MyDeepLinkRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDeepLinkRouter.m; sourceTree = "<group>"; };
+		6865156C1D4750C700B79C1A /* RouteMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteMgr.h; sourceTree = "<group>"; };
+		6865156D1D4750C700B79C1A /* RouteMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteMgr.m; sourceTree = "<group>"; };
 		6865A3331D261D3800B3CB26 /* ReorderTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReorderTableView.h; sourceTree = "<group>"; };
 		6865A3341D261D3800B3CB26 /* ReorderTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReorderTableView.m; sourceTree = "<group>"; };
 		6865A3361D26420A00B3CB26 /* CollectionViewReordeLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionViewReordeLayout.h; sourceTree = "<group>"; };
@@ -1712,6 +1718,7 @@
 		680C45F81CC4EA36008C4BC0 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				686515641D47484200B79C1A /* Router */,
 				680C45FD1CC4EA36008C4BC0 /* Manager.h */,
 				680C45FE1CC4EA36008C4BC0 /* NotificationDataManager.h */,
 				680C45FF1CC4EA36008C4BC0 /* NotificationDataManager.m */,
@@ -1722,6 +1729,7 @@
 		680C461A1CC5CCC3008C4BC0 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				6865156B1D4750C700B79C1A /* Router */,
 				689ECE7A1CFC16C00046DDC8 /* ShareManager.h */,
 				689ECE7B1CFC16C00046DDC8 /* ShareManager.m */,
 				680C461B1CC5CCC3008C4BC0 /* DataManager.h */,
@@ -2192,6 +2200,24 @@
 				687EEB541CE2C55B00A277DC /* DIYRefreshFooter.m */,
 			);
 			path = RefreshComponent;
+			sourceTree = "<group>";
+		};
+		686515641D47484200B79C1A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				686515681D474D0700B79C1A /* MyDeepLinkRouter.h */,
+				686515691D474D0700B79C1A /* MyDeepLinkRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		6865156B1D4750C700B79C1A /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				6865156C1D4750C700B79C1A /* RouteMgr.h */,
+				6865156D1D4750C700B79C1A /* RouteMgr.m */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		6865A3321D261D3800B3CB26 /* ReorderView */ = {
@@ -3849,6 +3875,7 @@
 				6E44961B1BF72F3600C90851 /* ProductPageData.m in Sources */,
 				6865A3351D261D3800B3CB26 /* ReorderTableView.m in Sources */,
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
+				6865156E1D4750C700B79C1A /* RouteMgr.m in Sources */,
 				684B04491C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m in Sources */,
 				687EEBE01CE71B5000A277DC /* UIViewController+KRSFakeNavigationBar.m in Sources */,
 				6865A34D1D2BBB2400B3CB26 /* WeakProxy.m in Sources */,
@@ -4125,6 +4152,7 @@
 				68BA51021CA0ED75002E5572 /* TouchDelegateView.m in Sources */,
 				68679A3F1C8E730F00B380D0 /* WorksiteNotificationCell.m in Sources */,
 				6865A3701D309D4900B3CB26 /* DiarySetLeftMenuCell.m in Sources */,
+				6865156A1D474D0700B79C1A /* MyDeepLinkRouter.m in Sources */,
 				68A4133E1D407F15003CFC2C /* YYDispatchQueuePool.m in Sources */,
 				688517731C926FDC000B01DB /* DecCommentInfoCell.m in Sources */,
 				68EE3E911D18DB0600F5EF83 /* DiaryMessageCell.m in Sources */,

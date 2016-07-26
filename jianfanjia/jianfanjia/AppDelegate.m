@@ -10,6 +10,7 @@
 #import "ViewControllerContainer.h"
 #import "API.h"
 //#import "LeakMoniter.h"
+#import "MyDeepLinkRouter.h"
 
 @interface AppDelegate ()
 
@@ -20,6 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // 推送注册
     [self initNotification:launchOptions];
+    // 初始化router
+    [self initRouter];
     // 初始化第三方统计
     [self initThirdPartyStatistics];
     // 初始化第三方分享
@@ -60,6 +63,10 @@
     
 }
 
+- (void)initRouter {
+    [RouteMgr shared].router = [[MyDeepLinkRouter alloc] init];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
 }
 
@@ -83,6 +90,10 @@
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    if ([[RouteMgr shared] handleURL:url]) {
+        return YES;
+    }
+    
     if ([Growing handleUrl:url]) {
         return YES;
     }
@@ -91,6 +102,10 @@
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    if ([[RouteMgr shared] handleURL:url]) {
+        return YES;
+    }
+    
     if ([Growing handleUrl:url]) {
         return YES;
     }
@@ -99,8 +114,7 @@
 }
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void(^)(NSArray *restorableObjects))restorationHandler {
-    
-    return YES;
+    return [[RouteMgr shared] handleUserActivity:userActivity];
 }
 
 + (AppDelegate *)sharedInstance {

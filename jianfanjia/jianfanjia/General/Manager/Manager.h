@@ -13,5 +13,6 @@
 #import "GVUserDefaults+Manager.h"
 #import "NotificationDataManager.h"
 #import "ShareManager.h"
+#import "RouteMgr.h"
 
 #endif /* Manager_h */
