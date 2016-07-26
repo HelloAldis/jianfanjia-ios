@@ -11,7 +11,7 @@
 
 static NSString *DefaultTitle = @"简繁家，让装修变简单";
 
-@interface BaseWebViewController : BaseViewController <WKNavigationDelegate, WKScriptMessageHandler>
+@interface BaseWebViewController : BaseViewController
 
 @property (strong, nonatomic) ProgressWebView *webView;
 

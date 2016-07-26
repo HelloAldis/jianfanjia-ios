@@ -10,12 +10,13 @@
 #import <SafariServices/SafariServices.h>
 #import <Foundation/Foundation.h>
 #import "ViewControllerContainer.h"
+#import "WebViewDelegateHandler.h"
 
 @import WebKit;
 
 static NSDictionary *NotificationTitles = nil;
 
-@interface NotificationDetailViewController ()
+@interface NotificationDetailViewController () <WKNavigationDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *notificationTitleBG;
 @property (weak, nonatomic) IBOutlet UILabel *lblNotificationTitle;
@@ -121,6 +122,7 @@ static NSDictionary *NotificationTitles = nil;
     self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:configuration];
     _webView.translatesAutoresizingMaskIntoConstraints = NO;
     _webView.allowsBackForwardNavigationGestures = YES;
+    _webView.navigationDelegate = self;
     [self.view insertSubview:_webView belowSubview:self.actionView];
     
     NSDictionary *views = NSDictionaryOfVariableBindings(_webView);
@@ -135,6 +137,13 @@ static NSDictionary *NotificationTitles = nil;
     self.headerView.hidden = YES;
 }
 
+#pragma mark - WKNavigationDelegate
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    [WebViewDelegateHandler shared].controller = self;
+    [WebViewDelegateHandler webView:webView decidePolicyForNavigationAction:navigationAction decisionHandler:decisionHandler];
+}
+
+#pragma mark - Data
 - (void)initData {
     self.lblNotificationTitle.text = NotificationTitles[self.notification.message_type];
     if ([NotificationBusiness contains:self.notification.message_type inFilter:[NotificationBusiness userRequirmentNotificationFilter]]) {

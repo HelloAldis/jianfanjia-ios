@@ -307,6 +307,7 @@
 		688517731C926FDC000B01DB /* DecCommentInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517711C926FDC000B01DB /* DecCommentInfoCell.m */; };
 		688517741C926FDC000B01DB /* DecCommentInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 688517721C926FDC000B01DB /* DecCommentInfoCell.xib */; };
 		6885177A1C927A30000B01DB /* SearchUserComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517791C927A30000B01DB /* SearchUserComment.m */; };
+		688FE6C11D45C5AA0005B058 /* WebViewDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 688FE6C01D45C5AA0005B058 /* WebViewDelegateHandler.m */; };
 		68921FFB1CCF55AE00BC80C7 /* ToastUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 68921FFA1CCF55AE00BC80C7 /* ToastUtil.m */; };
 		689220011CD1F66F00BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 689220001CD1F66F00BC80C7 /* UIViewController+KeyboardAnimation.m */; };
 		689485D31C1A70A7002310FC /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 689485D21C1A70A7002310FC /* Notification.m */; };
@@ -1125,6 +1126,8 @@
 		688517721C926FDC000B01DB /* DecCommentInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecCommentInfoCell.xib; sourceTree = "<group>"; };
 		688517781C927A30000B01DB /* SearchUserComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserComment.h; sourceTree = "<group>"; };
 		688517791C927A30000B01DB /* SearchUserComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchUserComment.m; sourceTree = "<group>"; };
+		688FE6BF1D45C5AA0005B058 /* WebViewDelegateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewDelegateHandler.h; sourceTree = "<group>"; };
+		688FE6C01D45C5AA0005B058 /* WebViewDelegateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewDelegateHandler.m; sourceTree = "<group>"; };
 		68921FF91CCF55AE00BC80C7 /* ToastUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToastUtil.h; sourceTree = "<group>"; };
 		68921FFA1CCF55AE00BC80C7 /* ToastUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToastUtil.m; sourceTree = "<group>"; };
 		68921FFF1CD1F66F00BC80C7 /* UIViewController+KeyboardAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyboardAnimation.h"; sourceTree = "<group>"; };
@@ -2423,6 +2426,8 @@
 				68BA50801C9FD8BB002E5572 /* WebViewController.h */,
 				68BA50811C9FD8BB002E5572 /* WebViewController.m */,
 				68BA50821C9FD8BB002E5572 /* WebViewController.xib */,
+				688FE6BF1D45C5AA0005B058 /* WebViewDelegateHandler.h */,
+				688FE6C01D45C5AA0005B058 /* WebViewDelegateHandler.m */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -3833,6 +3838,7 @@
 				6E7E4A651B9A902500503B35 /* BaseViewController.m in Sources */,
 				68EE3EA91D1A50C200F5EF83 /* DiaryCommentInfoCell.m in Sources */,
 				683FFB1F1C280FD1002A1AFE /* UnfavoriteBeautifulImage.m in Sources */,
+				688FE6C11D45C5AA0005B058 /* WebViewDelegateHandler.m in Sources */,
 				68EE3DAD1D12447A00F5EF83 /* CompareImageEditCell.m in Sources */,
 				6E7E4A7D1B9D325400503B35 /* ViewControllerContainer.m in Sources */,
 				6E4496401BFC53CE00C90851 /* FeedbackViewController.m in Sources */,

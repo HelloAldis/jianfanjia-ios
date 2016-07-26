@@ -9,12 +9,13 @@
 #import "BaseWebViewController.h"
 #import <SafariServices/SafariServices.h>
 #import <Foundation/Foundation.h>
+#import "WebViewDelegateHandler.h"
 
 @import WebKit;
 
 static NSString *MessageModel = @"jianfanjia";
 
-@interface BaseWebViewController ()
+@interface BaseWebViewController () <WKNavigationDelegate, WKScriptMessageHandler>
 
 @end
 
@@ -76,27 +77,11 @@ static NSString *MessageModel = @"jianfanjia";
 
 #pragma mark - WKNavigationDelegate
 - (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    
-    NSString *url = navigationAction.request.URL.absoluteString;
-    NSArray *urlElements = [url componentsSeparatedByString:@":"];
-    NSString *urlSchemal = urlElements[0];
-    NSString *urlParameter = urlElements[1];
-    
-    if ([urlSchemal isEqualToString:@"tel"]) {
-        [self openNativeApp:@"telprompt://" parameter:urlParameter];
-        decisionHandler(WKNavigationActionPolicyCancel);
-    } else if ([urlSchemal isEqualToString:@"sms"]) {
-        [self openNativeApp:@"sms://" parameter:urlParameter];
-        decisionHandler(WKNavigationActionPolicyCancel);
-    } else if ([urlSchemal isEqualToString:@"mailto"]) {
-        [self openNativeApp:@"mailto://" parameter:urlParameter];
-        decisionHandler(WKNavigationActionPolicyCancel);
-    }
-    
-    decisionHandler(WKNavigationActionPolicyAllow);
+    [WebViewDelegateHandler shared].controller = self;
+    [WebViewDelegateHandler webView:webView decidePolicyForNavigationAction:navigationAction decisionHandler:decisionHandler];
 }
 
-- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     self.navigationItem.rightBarButtonItem.enabled = NO;
 }
 
@@ -156,15 +141,6 @@ static NSString *MessageModel = @"jianfanjia";
         [self.webView goBack];
     } else {
         [super onClickBack];
-    }
-}
-
-#pragma mark - native call
-- (void)openNativeApp:(NSString *)urlScheme parameter:(NSString *)parameter {
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@", urlScheme, parameter];
-    NSURL *url = [NSURL URLWithString:urlStr];
-    if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
     }
 }
 
