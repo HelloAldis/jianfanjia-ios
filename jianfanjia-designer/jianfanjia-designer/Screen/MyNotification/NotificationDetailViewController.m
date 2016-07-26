@@ -18,7 +18,7 @@
 
 static NSDictionary *NotificationTitles = nil;
 
-@interface NotificationDetailViewController ()
+@interface NotificationDetailViewController () <WKNavigationDelegate>
 @property (weak, nonatomic) IBOutlet UIView *headerView;
 @property (weak, nonatomic) IBOutlet UIView *notificationTitleBG;
 @property (weak, nonatomic) IBOutlet UILabel *lblNotificationTitle;

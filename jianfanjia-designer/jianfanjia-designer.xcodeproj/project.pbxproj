@@ -368,6 +368,13 @@
 		685F2D6F1CABC0A900DC4D43 /* UnexpandSectionActionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685F2D6D1CABC0A900DC4D43 /* UnexpandSectionActionView.xib */; };
 		685F2D7C1CAD0DD400DC4D43 /* BrushGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */; };
 		685F2D7D1CAD0DD400DC4D43 /* DIYGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */; };
+		686515301D46F9C500B79C1A /* WebViewDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865152F1D46F9C500B79C1A /* WebViewDelegateHandler.m */; };
+		686515341D46FA0300B79C1A /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 686515321D46FA0300B79C1A /* WebViewController.m */; };
+		686515351D46FA0300B79C1A /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 686515331D46FA0300B79C1A /* WebViewController.xib */; };
+		686515381D46FA8100B79C1A /* UIImageView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 686515371D46FA8100B79C1A /* UIImageView+Image.m */; };
+		6865153B1D46FA9800B79C1A /* CALayer+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865153A1D46FA9800B79C1A /* CALayer+Image.m */; };
+		686515401D46FADF00B79C1A /* MethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865153D1D46FADF00B79C1A /* MethodSwizzle.m */; };
+		686515411D46FADF00B79C1A /* YYDispatchQueuePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865153F1D46FADF00B79C1A /* YYDispatchQueuePool.m */; };
 		6865A3561D2E4DFA00B3CB26 /* AlbumBrowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3541D2E4DFA00B3CB26 /* AlbumBrowerViewController.m */; };
 		6865A3571D2E4DFA00B3CB26 /* AlbumBrowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6865A3551D2E4DFA00B3CB26 /* AlbumBrowerViewController.xib */; };
 		6865A39C1D3721F900B3CB26 /* AlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A39B1D3721F900B3CB26 /* AlertUtil.m */; };
@@ -481,7 +488,6 @@
 		6E378D461BDA2D2E00908B77 /* NSObject+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D051BDA2D2E00908B77 /* NSObject+Ex.m */; };
 		6E378D471BDA2D2E00908B77 /* NSString+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D071BDA2D2E00908B77 /* NSString+Ex.m */; };
 		6E378D481BDA2D2E00908B77 /* UIButton+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D091BDA2D2E00908B77 /* UIButton+Ex.m */; };
-		6E378D491BDA2D2E00908B77 /* UIImageView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D0B1BDA2D2E00908B77 /* UIImageView+Ex.m */; };
 		6E378D4A1BDA2D2E00908B77 /* UIView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D0D1BDA2D2E00908B77 /* UIView+Ex.m */; };
 		6E378D4D1BDA2D2E00908B77 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D161BDA2D2E00908B77 /* BaseModel.m */; };
 		6E378D4E1BDA2D2E00908B77 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E378D181BDA2D2E00908B77 /* Comment.m */; };
@@ -1129,6 +1135,19 @@
 		685F2D791CAD0DD400DC4D43 /* BrushGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrushGifHeader.m; sourceTree = "<group>"; };
 		685F2D7A1CAD0DD400DC4D43 /* DIYGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYGifHeader.h; sourceTree = "<group>"; };
 		685F2D7B1CAD0DD400DC4D43 /* DIYGifHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYGifHeader.m; sourceTree = "<group>"; };
+		6865152E1D46F9C500B79C1A /* WebViewDelegateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewDelegateHandler.h; sourceTree = "<group>"; };
+		6865152F1D46F9C500B79C1A /* WebViewDelegateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewDelegateHandler.m; sourceTree = "<group>"; };
+		686515311D46FA0300B79C1A /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		686515321D46FA0300B79C1A /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		686515331D46FA0300B79C1A /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		686515361D46FA8100B79C1A /* UIImageView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Image.h"; sourceTree = "<group>"; };
+		686515371D46FA8100B79C1A /* UIImageView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Image.m"; sourceTree = "<group>"; };
+		686515391D46FA9800B79C1A /* CALayer+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Image.h"; sourceTree = "<group>"; };
+		6865153A1D46FA9800B79C1A /* CALayer+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Image.m"; sourceTree = "<group>"; };
+		6865153C1D46FADF00B79C1A /* MethodSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodSwizzle.h; sourceTree = "<group>"; };
+		6865153D1D46FADF00B79C1A /* MethodSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodSwizzle.m; sourceTree = "<group>"; };
+		6865153E1D46FADF00B79C1A /* YYDispatchQueuePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDispatchQueuePool.h; sourceTree = "<group>"; };
+		6865153F1D46FADF00B79C1A /* YYDispatchQueuePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDispatchQueuePool.m; sourceTree = "<group>"; };
 		6865A3531D2E4DFA00B3CB26 /* AlbumBrowerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumBrowerViewController.h; sourceTree = "<group>"; };
 		6865A3541D2E4DFA00B3CB26 /* AlbumBrowerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumBrowerViewController.m; sourceTree = "<group>"; };
 		6865A3551D2E4DFA00B3CB26 /* AlbumBrowerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumBrowerViewController.xib; sourceTree = "<group>"; };
@@ -1337,8 +1356,6 @@
 		6E378D071BDA2D2E00908B77 /* NSString+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ex.m"; sourceTree = "<group>"; };
 		6E378D081BDA2D2E00908B77 /* UIButton+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Ex.h"; sourceTree = "<group>"; };
 		6E378D091BDA2D2E00908B77 /* UIButton+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Ex.m"; sourceTree = "<group>"; };
-		6E378D0A1BDA2D2E00908B77 /* UIImageView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Ex.h"; sourceTree = "<group>"; };
-		6E378D0B1BDA2D2E00908B77 /* UIImageView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Ex.m"; sourceTree = "<group>"; };
 		6E378D0C1BDA2D2E00908B77 /* UIView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Ex.h"; sourceTree = "<group>"; };
 		6E378D0D1BDA2D2E00908B77 /* UIView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Ex.m"; sourceTree = "<group>"; };
 		6E378D151BDA2D2E00908B77 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
@@ -2333,6 +2350,8 @@
 		68BA50F51C9FE815002E5572 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
+				6865152E1D46F9C500B79C1A /* WebViewDelegateHandler.h */,
+				6865152F1D46F9C500B79C1A /* WebViewDelegateHandler.m */,
 				68A4131D1D3F18E6003CFC2C /* BaseWebViewController.h */,
 				68A4131E1D3F18E6003CFC2C /* BaseWebViewController.m */,
 				689ECE151CFC0F880046DDC8 /* WebViewWithActionController.h */,
@@ -2341,6 +2360,9 @@
 				68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */,
 				68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */,
 				68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */,
+				686515311D46FA0300B79C1A /* WebViewController.h */,
+				686515321D46FA0300B79C1A /* WebViewController.m */,
+				686515331D46FA0300B79C1A /* WebViewController.xib */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -2641,6 +2663,10 @@
 			isa = PBXGroup;
 			children = (
 				68A413191D3F186D003CFC2C /* TemplateLayoutCell */,
+				686515361D46FA8100B79C1A /* UIImageView+Image.h */,
+				686515371D46FA8100B79C1A /* UIImageView+Image.m */,
+				686515391D46FA9800B79C1A /* CALayer+Image.h */,
+				6865153A1D46FA9800B79C1A /* CALayer+Image.m */,
 				68A413181D3F1867003CFC2C /* UINavigationController+FPS.h */,
 				68A413161D3F185F003CFC2C /* UINavigationController+FPS.m */,
 				689ECED71D001DD80046DDC8 /* UITextView+Placeholder.h */,
@@ -2682,8 +2708,6 @@
 				6E378D071BDA2D2E00908B77 /* NSString+Ex.m */,
 				6E378D081BDA2D2E00908B77 /* UIButton+Ex.h */,
 				6E378D091BDA2D2E00908B77 /* UIButton+Ex.m */,
-				6E378D0A1BDA2D2E00908B77 /* UIImageView+Ex.h */,
-				6E378D0B1BDA2D2E00908B77 /* UIImageView+Ex.m */,
 				6E378D0C1BDA2D2E00908B77 /* UIView+Ex.h */,
 				6E378D0D1BDA2D2E00908B77 /* UIView+Ex.m */,
 				68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */,
@@ -2753,6 +2777,10 @@
 		6E378D261BDA2D2E00908B77 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				6865153C1D46FADF00B79C1A /* MethodSwizzle.h */,
+				6865153D1D46FADF00B79C1A /* MethodSwizzle.m */,
+				6865153E1D46FADF00B79C1A /* YYDispatchQueuePool.h */,
+				6865153F1D46FADF00B79C1A /* YYDispatchQueuePool.m */,
 				68A4130F1D3F1845003CFC2C /* WeakProxy.h */,
 				68A413101D3F1845003CFC2C /* WeakProxy.m */,
 				6865A39A1D3721F900B3CB26 /* AlertUtil.h */,
@@ -2935,6 +2963,7 @@
 				680F65891CF6D545000E1EEF /* TeamAuthUpdateViewController.xib in Resources */,
 				68123F001C4CBE79008FC9AB /* HouseRequirementCreateViewController.xib in Resources */,
 				68E600551CB62C5600C4A8F7 /* DecPackage365View.xib in Resources */,
+				686515351D46FA0300B79C1A /* WebViewController.xib in Resources */,
 				685B14F51CEC52B00076996A /* InfoAuthViewController.xib in Resources */,
 				685B15201CEC67450076996A /* DesignerAuthViewController.xib in Resources */,
 				680F664E1CF82EF2000E1EEF /* SelectDesignFeeViewController.xib in Resources */,
@@ -3226,6 +3255,7 @@
 				685B15DE1CF444FC0076996A /* ProductAuthImageActionView.m in Sources */,
 				684B043C1C990E910053FFDF /* SystemAnnouncementCell.m in Sources */,
 				68E600541CB62C5600C4A8F7 /* DecPackage365View.m in Sources */,
+				686515401D46FADF00B79C1A /* MethodSwizzle.m in Sources */,
 				6812417F1C4F22B0008FC9AB /* DesignerGetUserRequirements.m in Sources */,
 				6850A61E1CCA2DEA0085940A /* CitySection.m in Sources */,
 				68E6005D1CB62DDC00C4A8F7 /* RequirementBusiness.m in Sources */,
@@ -3263,6 +3293,7 @@
 				68123E911C4CBE79008FC9AB /* AboutViewController.m in Sources */,
 				684B04471C9A76480053FFDF /* UIBarButtonItem+Badge.m in Sources */,
 				682E04ED1C55FA9100F1ACAA /* DeleteYsImageFromProcess.m in Sources */,
+				686515381D46FA8100B79C1A /* UIImageView+Image.m in Sources */,
 				68F73D2C1CBB597E00E97710 /* ReqtConfiguredAgreement.m in Sources */,
 				680F65881CF6D545000E1EEF /* TeamAuthUpdateViewController.m in Sources */,
 				68123C8F1C4C9772008FC9AB /* InfiniteScrollView.m in Sources */,
@@ -3298,6 +3329,7 @@
 				685B15801CEEB1510076996A /* LogoutCell.m in Sources */,
 				685B154F1CED70620076996A /* ProductPageData.m in Sources */,
 				685B15DA1CF3E79D0076996A /* ReorderTableView.m in Sources */,
+				6865153B1D46FA9800B79C1A /* CALayer+Image.m in Sources */,
 				689ECE571CFC10DD0046DDC8 /* JYZSocialSnsUtil.m in Sources */,
 				685B15C51CF2E5180076996A /* ProductAuthPlanImageCell.m in Sources */,
 				685B15A41CF2CED80076996A /* ProductAuthUploadPart2ViewController.m in Sources */,
@@ -3318,6 +3350,7 @@
 				685F2D581CA9404100DC4D43 /* TouchDelegateView.m in Sources */,
 				68123EE81C4CBE79008FC9AB /* LeaveMessageViewController.m in Sources */,
 				6850A61C1CCA2DEA0085940A /* CityCell.m in Sources */,
+				686515341D46FA0300B79C1A /* WebViewController.m in Sources */,
 				68A4132D1D3F3B63003CFC2C /* AlbumCell.m in Sources */,
 				685B14F41CEC52B00076996A /* InfoAuthViewController.m in Sources */,
 				68F73D2B1CBB597E00E97710 /* PlanWasNotChoosed.m in Sources */,
@@ -3420,6 +3453,7 @@
 				685B152C1CEC71010076996A /* ProductAuthViewController.m in Sources */,
 				685B14831CEB11CF0076996A /* SelectDecorationTypeViewController.m in Sources */,
 				684B043E1C990E910053FFDF /* WorksiteNotificationCell.m in Sources */,
+				686515301D46F9C500B79C1A /* WebViewDelegateHandler.m in Sources */,
 				6865A3561D2E4DFA00B3CB26 /* AlbumBrowerViewController.m in Sources */,
 				689ECE541CFC10DD0046DDC8 /* JYZSocialSnsPlatformWechat.m in Sources */,
 				685B15D11CF3006B0076996A /* ProductAuthImpressionImageCell.m in Sources */,
@@ -3457,7 +3491,6 @@
 				681240A71C4CE471008FC9AB /* AgreeReschedule.m in Sources */,
 				684B04381C990E910053FFDF /* NotificationDetailViewController.m in Sources */,
 				681241C21C5073DB008FC9AB /* DesignerRejectUser.m in Sources */,
-				6E378D491BDA2D2E00908B77 /* UIImageView+Ex.m in Sources */,
 				680F65751CF6B064000E1EEF /* IDAuthIDCardImageCell.m in Sources */,
 				681240131C4CDA06008FC9AB /* NSDate+Ex.m in Sources */,
 				681241C91C5085B2008FC9AB /* SetMeasureHouseTimeViewController.m in Sources */,
@@ -3475,6 +3508,7 @@
 				680F664D1CF82EF2000E1EEF /* SelectDesignFeeViewController.m in Sources */,
 				68425C301C55B0CC004D33F4 /* DesignerDoneSectionItem.m in Sources */,
 				685B14D41CEB1CD20076996A /* AvtarInfoCell.m in Sources */,
+				686515411D46FADF00B79C1A /* YYDispatchQueuePool.m in Sources */,
 				68F73D341CBB597E00E97710 /* ReqtUnorderDesigner.m in Sources */,
 				685B158A1CEEEC010076996A /* IDAuthViewController.m in Sources */,
 				685B147B1CEB11CF0076996A /* MultipleLineTextTableViewCell.m in Sources */,
