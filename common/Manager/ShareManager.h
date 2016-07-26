@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+#ifndef ShareManager_h
+#define ShareManager_h
+
 extern NSString * const ShareTopicBeautifulImage;
 extern NSString * const ShareTopicApp;
 extern NSString * const ShareTopicDecStrategy;
@@ -29,3 +32,5 @@ typedef void(^LoginCompeletion)(SnsAccountInfo *snsAccount, NSString *error);
 kSynthesizeSingletonForHeader(ShareManager)
 
 @end
+
+#endif

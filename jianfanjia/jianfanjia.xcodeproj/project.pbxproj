@@ -354,8 +354,6 @@
 		68B10CCD1C7DAD34005866C1 /* CALayer+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CCC1C7DAD34005866C1 /* CALayer+Ex.m */; };
 		68BA50831C9FD8BB002E5572 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50811C9FD8BB002E5572 /* WebViewController.m */; };
 		68BA50841C9FD8BB002E5572 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50821C9FD8BB002E5572 /* WebViewController.xib */; };
-		68BA50F31C9FE56B002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50F11C9FE56B002E5572 /* WebViewWithoutShareController.m */; };
-		68BA50F41C9FE56B002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50F21C9FE56B002E5572 /* WebViewWithoutShareController.xib */; };
 		68BA51021CA0ED75002E5572 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA51011CA0ED75002E5572 /* TouchDelegateView.m */; };
 		68C3C2521C72BFD100EEEBD8 /* BeautifulImagePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C2511C72BFD100EEEBD8 /* BeautifulImagePosition.m */; };
 		68C3C25C1C75891F00EEEBD8 /* HomePageQuickEntryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68C3C25A1C75891F00EEEBD8 /* HomePageQuickEntryCell.m */; };
@@ -1213,9 +1211,6 @@
 		68BA50801C9FD8BB002E5572 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		68BA50811C9FD8BB002E5572 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		68BA50821C9FD8BB002E5572 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
-		68BA50F01C9FE56B002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
-		68BA50F11C9FE56B002E5572 /* WebViewWithoutShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewWithoutShareController.m; sourceTree = "<group>"; };
-		68BA50F21C9FE56B002E5572 /* WebViewWithoutShareController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewWithoutShareController.xib; sourceTree = "<group>"; };
 		68BA51001CA0ED75002E5572 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		68BA51011CA0ED75002E5572 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
 		68C3C2501C72BFD100EEEBD8 /* BeautifulImagePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeautifulImagePosition.h; sourceTree = "<group>"; };
@@ -2420,9 +2415,6 @@
 				68E600641CB74AC900C4A8F7 /* WebViewWithActionController.h */,
 				68E600651CB74AC900C4A8F7 /* WebViewWithActionController.m */,
 				68E600661CB74AC900C4A8F7 /* WebViewWithActionController.xib */,
-				68BA50F01C9FE56B002E5572 /* WebViewWithoutShareController.h */,
-				68BA50F11C9FE56B002E5572 /* WebViewWithoutShareController.m */,
-				68BA50F21C9FE56B002E5572 /* WebViewWithoutShareController.xib */,
 				68BA50801C9FD8BB002E5572 /* WebViewController.h */,
 				68BA50811C9FD8BB002E5572 /* WebViewController.m */,
 				68BA50821C9FD8BB002E5572 /* WebViewController.xib */,
@@ -3576,7 +3568,6 @@
 				68EE3E9F1D192ED000F5EF83 /* DecDiaryStatusAllCell.xib in Resources */,
 				6865A37F1D30F36100B3CB26 /* TopDiarySetsCell.xib in Resources */,
 				683FFB451C296288002A1AFE /* BeautifulImageViewController.xib in Resources */,
-				68BA50F41C9FE56B002E5572 /* WebViewWithoutShareController.xib in Resources */,
 				6865A3911D33B4AD00B3CB26 /* TopDiarySetCell.xib in Resources */,
 				68A413381D3F7ABB003CFC2C /* HomePagePackageItemCell.xib in Resources */,
 				6E06CC131C29466700A08D15 /* FavoriateProductCell.xib in Resources */,
@@ -3874,7 +3865,6 @@
 				68134A2F1C3CA7CA003C1C10 /* WeChatLogin.m in Sources */,
 				6E06CC2F1C2BF97800A08D15 /* FavoriteDesignerData.m in Sources */,
 				68711B6E1CD8A542009B585F /* TaggedDesignerInfoView.m in Sources */,
-				68BA50F31C9FE56B002E5572 /* WebViewWithoutShareController.m in Sources */,
 				68EE3E6E1D13F05300F5EF83 /* GetDiaryUpdation.m in Sources */,
 				68BA50831C9FD8BB002E5572 /* WebViewController.m in Sources */,
 				685C21481BF9729E00D5D320 /* SendAddRequirement.m in Sources */,

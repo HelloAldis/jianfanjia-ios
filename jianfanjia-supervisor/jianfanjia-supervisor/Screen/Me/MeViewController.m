@@ -71,7 +71,7 @@
 #pragma mark - user action
 - (IBAction)onTapUserImageView:(id)sender {
     UserInfoViewController *v = [[UserInfoViewController alloc] initWithNibName:nil bundle:nil];
-    [self.navigationController pushViewController:v animated:YES];
+    [[ViewControllerContainer navigation] pushViewController:v animated:YES];
 }
 
 - (IBAction)onClickNotification:(id)sender {
@@ -93,7 +93,7 @@
 
 - (IBAction)onClickMore:(id)sender {
     AboutViewController *v = [[AboutViewController alloc] init];
-    [self.navigationController pushViewController:v animated:YES];
+    [[ViewControllerContainer navigation] pushViewController:v animated:YES];
 }
 
 - (IBAction)onClickPhoneConsult:(id)sender {

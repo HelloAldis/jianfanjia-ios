@@ -444,8 +444,6 @@
 		68A4132D1D3F3B63003CFC2C /* AlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68A4132B1D3F3B63003CFC2C /* AlbumCell.m */; };
 		68A4132E1D3F3B63003CFC2C /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68A4132C1D3F3B63003CFC2C /* AlbumCell.xib */; };
 		68B10CCA1C7B1CC5005866C1 /* ProgressWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */; };
-		68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */; };
-		68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */; };
 		68E600541CB62C5600C4A8F7 /* DecPackage365View.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600521CB62C5600C4A8F7 /* DecPackage365View.m */; };
 		68E600551CB62C5600C4A8F7 /* DecPackage365View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68E600531CB62C5600C4A8F7 /* DecPackage365View.xib */; };
 		68E600591CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 68E600571CB62CBA00C4A8F7 /* PlanPriceTotalPkg365Cell.m */; };
@@ -1265,9 +1263,6 @@
 		68A4132C1D3F3B63003CFC2C /* AlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		68B10CC81C7B1CC5005866C1 /* ProgressWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgressWebView.h; sourceTree = "<group>"; };
 		68B10CC91C7B1CC5005866C1 /* ProgressWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressWebView.m; sourceTree = "<group>"; };
-		68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
-		68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewWithoutShareController.m; sourceTree = "<group>"; };
-		68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewWithoutShareController.xib; sourceTree = "<group>"; };
 		68E600511CB62C5600C4A8F7 /* DecPackage365View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecPackage365View.h; sourceTree = "<group>"; };
 		68E600521CB62C5600C4A8F7 /* DecPackage365View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecPackage365View.m; sourceTree = "<group>"; };
 		68E600531CB62C5600C4A8F7 /* DecPackage365View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackage365View.xib; sourceTree = "<group>"; };
@@ -2357,9 +2352,6 @@
 				689ECE151CFC0F880046DDC8 /* WebViewWithActionController.h */,
 				689ECE161CFC0F880046DDC8 /* WebViewWithActionController.m */,
 				689ECE171CFC0F880046DDC8 /* WebViewWithActionController.xib */,
-				68BA50F91C9FE815002E5572 /* WebViewWithoutShareController.h */,
-				68BA50FA1C9FE815002E5572 /* WebViewWithoutShareController.m */,
-				68BA50FB1C9FE815002E5572 /* WebViewWithoutShareController.xib */,
 				686515311D46FA0300B79C1A /* WebViewController.h */,
 				686515321D46FA0300B79C1A /* WebViewController.m */,
 				686515331D46FA0300B79C1A /* WebViewController.xib */,
@@ -3104,7 +3096,6 @@
 				681241AA1C4F3B1C008FC9AB /* RespondedActionCell.xib in Resources */,
 				685B151B1CEC60950076996A /* TextEditCell.xib in Resources */,
 				685B159F1CF29FD00076996A /* ProductAuthUploadPart1ViewController.xib in Resources */,
-				68BA50FF1C9FE815002E5572 /* WebViewWithoutShareController.xib in Resources */,
 				689ECE5A1CFC10DD0046DDC8 /* JYZ_qzone_icon@2x.png in Resources */,
 				685B15E81CF535010076996A /* SelectionMenuCollectionCell.xib in Resources */,
 				684B04391C990E910053FFDF /* NotificationDetailViewController.xib in Resources */,
@@ -3443,7 +3434,6 @@
 				6865A39C1D3721F900B3CB26 /* AlertUtil.m in Sources */,
 				685B14D91CEB20EC0076996A /* QuickLinkCell.m in Sources */,
 				689ECE551CFC10DD0046DDC8 /* JYZSocialSnsPlatformWeibo.m in Sources */,
-				68BA50FE1C9FE815002E5572 /* WebViewWithoutShareController.m in Sources */,
 				681241A51C4F3B1C008FC9AB /* SubmitPlanExpiredActionCell.m in Sources */,
 				689ECE531CFC10DD0046DDC8 /* JYZSocialSnsPlatformQQ.m in Sources */,
 				685B147F1CEB11CF0076996A /* SelectCommunicationTypeViewController.m in Sources */,

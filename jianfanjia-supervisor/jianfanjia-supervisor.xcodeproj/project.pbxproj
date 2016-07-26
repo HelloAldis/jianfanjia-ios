@@ -135,7 +135,6 @@
 		680C451A1CC4D4BD008C4BC0 /* UIColor+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C43DA1CC4D4BD008C4BC0 /* UIColor+Ex.m */; };
 		680C451B1CC4D4BD008C4BC0 /* UIImage+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C43DC1CC4D4BD008C4BC0 /* UIImage+Ex.m */; };
 		680C451C1CC4D4BD008C4BC0 /* UIImagePickerController+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C43DE1CC4D4BD008C4BC0 /* UIImagePickerController+Ex.m */; };
-		680C451D1CC4D4BD008C4BC0 /* UIImageView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C43E01CC4D4BD008C4BC0 /* UIImageView+Ex.m */; };
 		680C451E1CC4D4BD008C4BC0 /* UILabel+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C43E21CC4D4BD008C4BC0 /* UILabel+Ex.m */; };
 		680C451F1CC4D4BD008C4BC0 /* UIScrollView+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C43E41CC4D4BD008C4BC0 /* UIScrollView+Ex.m */; };
 		680C45201CC4D4BD008C4BC0 /* UITabBarItem+Badge.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C43E61CC4D4BD008C4BC0 /* UITabBarItem+Badge.m */; };
@@ -182,8 +181,6 @@
 		680C45701CC4D4BD008C4BC0 /* SelectCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44821CC4D4BD008C4BC0 /* SelectCityViewController.m */; };
 		680C45711CC4D4BD008C4BC0 /* SelectCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C44831CC4D4BD008C4BC0 /* SelectCityViewController.xib */; };
 		680C45721CC4D4BD008C4BC0 /* TouchDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44851CC4D4BD008C4BC0 /* TouchDelegateView.m */; };
-		680C45771CC4D4BD008C4BC0 /* WebViewWithoutShareController.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C448E1CC4D4BD008C4BC0 /* WebViewWithoutShareController.m */; };
-		680C45781CC4D4BD008C4BC0 /* WebViewWithoutShareController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 680C448F1CC4D4BD008C4BC0 /* WebViewWithoutShareController.xib */; };
 		680C45791CC4D4BD008C4BC0 /* Aspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44921CC4D4BD008C4BC0 /* Aspects.m */; };
 		680C457A1CC4D4BD008C4BC0 /* BaseDynamicObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44941CC4D4BD008C4BC0 /* BaseDynamicObject.m */; };
 		680C457B1CC4D4BD008C4BC0 /* HUDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C44961CC4D4BD008C4BC0 /* HUDUtil.m */; };
@@ -240,6 +237,13 @@
 		685B14C21CEB12110076996A /* SelectWorkTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14AD1CEB12110076996A /* SelectWorkTypeViewController.xib */; };
 		685B14C81CEB126E0076996A /* KRSSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14C51CEB126E0076996A /* KRSSwizzle.m */; };
 		685B14C91CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14C71CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m */; };
+		686515461D46FB7A00B79C1A /* CALayer+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 686515431D46FB7A00B79C1A /* CALayer+Image.m */; };
+		686515471D46FB7A00B79C1A /* UIImageView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 686515451D46FB7A00B79C1A /* UIImageView+Image.m */; };
+		6865154C1D46FB9900B79C1A /* MethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 686515491D46FB9900B79C1A /* MethodSwizzle.m */; };
+		6865154D1D46FB9900B79C1A /* YYDispatchQueuePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865154B1D46FB9900B79C1A /* YYDispatchQueuePool.m */; };
+		686515531D46FBE700B79C1A /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865154F1D46FBE700B79C1A /* WebViewController.m */; };
+		686515541D46FBE700B79C1A /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 686515501D46FBE700B79C1A /* WebViewController.xib */; };
+		686515551D46FBE700B79C1A /* WebViewDelegateHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 686515521D46FBE700B79C1A /* WebViewDelegateHandler.m */; };
 		6865A33E1D2BA13200B3CB26 /* PhotoGroupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A33D1D2BA13200B3CB26 /* PhotoGroupView.m */; };
 		6865A3461D2BA17900B3CB26 /* ReuseScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3451D2BA17900B3CB26 /* ReuseScrollView.m */; };
 		6865A35B1D2E4E1300B3CB26 /* AlbumBrowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3591D2E4E1300B3CB26 /* AlbumBrowerViewController.m */; };
@@ -519,8 +523,6 @@
 		680C43DC1CC4D4BD008C4BC0 /* UIImage+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Ex.m"; sourceTree = "<group>"; };
 		680C43DD1CC4D4BD008C4BC0 /* UIImagePickerController+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImagePickerController+Ex.h"; sourceTree = "<group>"; };
 		680C43DE1CC4D4BD008C4BC0 /* UIImagePickerController+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImagePickerController+Ex.m"; sourceTree = "<group>"; };
-		680C43DF1CC4D4BD008C4BC0 /* UIImageView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Ex.h"; sourceTree = "<group>"; };
-		680C43E01CC4D4BD008C4BC0 /* UIImageView+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Ex.m"; sourceTree = "<group>"; };
 		680C43E11CC4D4BD008C4BC0 /* UILabel+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Ex.h"; sourceTree = "<group>"; };
 		680C43E21CC4D4BD008C4BC0 /* UILabel+Ex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Ex.m"; sourceTree = "<group>"; };
 		680C43E31CC4D4BD008C4BC0 /* UIScrollView+Ex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Ex.h"; sourceTree = "<group>"; };
@@ -607,9 +609,6 @@
 		680C44831CC4D4BD008C4BC0 /* SelectCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectCityViewController.xib; sourceTree = "<group>"; };
 		680C44841CC4D4BD008C4BC0 /* TouchDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TouchDelegateView.h; sourceTree = "<group>"; };
 		680C44851CC4D4BD008C4BC0 /* TouchDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TouchDelegateView.m; sourceTree = "<group>"; };
-		680C448D1CC4D4BD008C4BC0 /* WebViewWithoutShareController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewWithoutShareController.h; sourceTree = "<group>"; };
-		680C448E1CC4D4BD008C4BC0 /* WebViewWithoutShareController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewWithoutShareController.m; sourceTree = "<group>"; };
-		680C448F1CC4D4BD008C4BC0 /* WebViewWithoutShareController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewWithoutShareController.xib; sourceTree = "<group>"; };
 		680C44911CC4D4BD008C4BC0 /* Aspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aspects.h; sourceTree = "<group>"; };
 		680C44921CC4D4BD008C4BC0 /* Aspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aspects.m; sourceTree = "<group>"; };
 		680C44931CC4D4BD008C4BC0 /* BaseDynamicObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDynamicObject.h; sourceTree = "<group>"; };
@@ -706,6 +705,19 @@
 		685B14C51CEB126E0076996A /* KRSSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSSwizzle.m; sourceTree = "<group>"; };
 		685B14C61CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KRSFakeNavigationBar.h"; sourceTree = "<group>"; };
 		685B14C71CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KRSFakeNavigationBar.m"; sourceTree = "<group>"; };
+		686515421D46FB7A00B79C1A /* CALayer+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Image.h"; sourceTree = "<group>"; };
+		686515431D46FB7A00B79C1A /* CALayer+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Image.m"; sourceTree = "<group>"; };
+		686515441D46FB7A00B79C1A /* UIImageView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Image.h"; sourceTree = "<group>"; };
+		686515451D46FB7A00B79C1A /* UIImageView+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Image.m"; sourceTree = "<group>"; };
+		686515481D46FB9900B79C1A /* MethodSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MethodSwizzle.h; sourceTree = "<group>"; };
+		686515491D46FB9900B79C1A /* MethodSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MethodSwizzle.m; sourceTree = "<group>"; };
+		6865154A1D46FB9900B79C1A /* YYDispatchQueuePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDispatchQueuePool.h; sourceTree = "<group>"; };
+		6865154B1D46FB9900B79C1A /* YYDispatchQueuePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDispatchQueuePool.m; sourceTree = "<group>"; };
+		6865154E1D46FBE700B79C1A /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		6865154F1D46FBE700B79C1A /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		686515501D46FBE700B79C1A /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		686515511D46FBE700B79C1A /* WebViewDelegateHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewDelegateHandler.h; sourceTree = "<group>"; };
+		686515521D46FBE700B79C1A /* WebViewDelegateHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewDelegateHandler.m; sourceTree = "<group>"; };
 		6865A33C1D2BA13200B3CB26 /* PhotoGroupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoGroupView.h; sourceTree = "<group>"; };
 		6865A33D1D2BA13200B3CB26 /* PhotoGroupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoGroupView.m; sourceTree = "<group>"; };
 		6865A3441D2BA17900B3CB26 /* ReuseScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReuseScrollView.h; sourceTree = "<group>"; };
@@ -1228,6 +1240,10 @@
 			isa = PBXGroup;
 			children = (
 				68A413051D3F152D003CFC2C /* TemplateLayoutCell */,
+				686515421D46FB7A00B79C1A /* CALayer+Image.h */,
+				686515431D46FB7A00B79C1A /* CALayer+Image.m */,
+				686515441D46FB7A00B79C1A /* UIImageView+Image.h */,
+				686515451D46FB7A00B79C1A /* UIImageView+Image.m */,
 				68A413021D3F1518003CFC2C /* UINavigationController+FPS.h */,
 				68A413031D3F1518003CFC2C /* UINavigationController+FPS.m */,
 				689220021CD2103800BC80C7 /* UIViewController+KeyboardAnimation.h */,
@@ -1263,8 +1279,6 @@
 				680C43DC1CC4D4BD008C4BC0 /* UIImage+Ex.m */,
 				680C43DD1CC4D4BD008C4BC0 /* UIImagePickerController+Ex.h */,
 				680C43DE1CC4D4BD008C4BC0 /* UIImagePickerController+Ex.m */,
-				680C43DF1CC4D4BD008C4BC0 /* UIImageView+Ex.h */,
-				680C43E01CC4D4BD008C4BC0 /* UIImageView+Ex.m */,
 				680C43E11CC4D4BD008C4BC0 /* UILabel+Ex.h */,
 				680C43E21CC4D4BD008C4BC0 /* UILabel+Ex.m */,
 				680C43E31CC4D4BD008C4BC0 /* UIScrollView+Ex.h */,
@@ -1440,9 +1454,11 @@
 			children = (
 				68A413091D3F157B003CFC2C /* BaseWebViewController.h */,
 				68A4130A1D3F157B003CFC2C /* BaseWebViewController.m */,
-				680C448D1CC4D4BD008C4BC0 /* WebViewWithoutShareController.h */,
-				680C448E1CC4D4BD008C4BC0 /* WebViewWithoutShareController.m */,
-				680C448F1CC4D4BD008C4BC0 /* WebViewWithoutShareController.xib */,
+				6865154E1D46FBE700B79C1A /* WebViewController.h */,
+				6865154F1D46FBE700B79C1A /* WebViewController.m */,
+				686515501D46FBE700B79C1A /* WebViewController.xib */,
+				686515511D46FBE700B79C1A /* WebViewDelegateHandler.h */,
+				686515521D46FBE700B79C1A /* WebViewDelegateHandler.m */,
 			);
 			path = WebView;
 			sourceTree = "<group>";
@@ -1450,6 +1466,10 @@
 		680C44901CC4D4BD008C4BC0 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				686515481D46FB9900B79C1A /* MethodSwizzle.h */,
+				686515491D46FB9900B79C1A /* MethodSwizzle.m */,
+				6865154A1D46FB9900B79C1A /* YYDispatchQueuePool.h */,
+				6865154B1D46FB9900B79C1A /* YYDispatchQueuePool.m */,
 				68A4130C1D3F1784003CFC2C /* WeakProxy.h */,
 				68A4130D1D3F1784003CFC2C /* WeakProxy.m */,
 				68A412FB1D3F14E7003CFC2C /* AlertUtil.h */,
@@ -1765,6 +1785,7 @@
 				680C456E1CC4D4BD008C4BC0 /* city2area.js in Resources */,
 				680C45601CC4D4BD008C4BC0 /* MessageAlertViewController.xib in Resources */,
 				6850A6151CCA2DDB0085940A /* CitySection.xib in Resources */,
+				686515541D46FBE700B79C1A /* WebViewController.xib in Resources */,
 				680C42601CC4D4AE008C4BC0 /* SectionView.xib in Resources */,
 				680C42571CC4D4AE008C4BC0 /* ItemImageCollectionCell.xib in Resources */,
 				680C455E1CC4D4BD008C4BC0 /* DateAlertViewController.xib in Resources */,
@@ -1772,7 +1793,6 @@
 				680C42A41CC4D4AE008C4BC0 /* RefreshViewController.xib in Resources */,
 				680C42511CC4D4AE008C4BC0 /* ItemCell.xib in Resources */,
 				680C42BA1CC4D4AE008C4BC0 /* PlanPriceTotalPkg365Cell.xib in Resources */,
-				680C45781CC4D4BD008C4BC0 /* WebViewWithoutShareController.xib in Resources */,
 				680C45651CC4D4BD008C4BC0 /* ThumbnailCell.xib in Resources */,
 				680C46581CC5DB96008C4BC0 /* UpdateMultipleLineTextViewController.xib in Resources */,
 				689ECE081CFC097C0046DDC8 /* SelectionMenuView.xib in Resources */,
@@ -1885,6 +1905,7 @@
 				687EEB5B1CE2C6C100A277DC /* DIYRefreshFooter.m in Sources */,
 				680C44F91CC4D4BD008C4BC0 /* PlanDesignerSubmittedPlan.m in Sources */,
 				680C456B1CC4D4BD008C4BC0 /* BrushGifHeader.m in Sources */,
+				6865154C1D46FB9900B79C1A /* MethodSwizzle.m in Sources */,
 				6850A6121CCA2DDB0085940A /* CityCell.m in Sources */,
 				680C46591CC5DB96008C4BC0 /* UpdateOneLineTextViewController.m in Sources */,
 				680C42A71CC4D4AE008C4BC0 /* MessageCell.m in Sources */,
@@ -1913,6 +1934,7 @@
 				680C44A81CC4D4BD008C4BC0 /* BaseRequest.m in Sources */,
 				680C45351CC4D4BD008C4BC0 /* Process.m in Sources */,
 				680C409D1CC48F59008C4BC0 /* main.m in Sources */,
+				6865154D1D46FB9900B79C1A /* YYDispatchQueuePool.m in Sources */,
 				685B14B51CEB12110076996A /* SelectCommunicationTypeViewController.m in Sources */,
 				680C45081CC4D4BD008C4BC0 /* DesignerBusiness.m in Sources */,
 				680C46571CC5DB96008C4BC0 /* UpdateMultipleLineTextViewController.m in Sources */,
@@ -1945,7 +1967,6 @@
 				680C452A1CC4D4BD008C4BC0 /* Comment.m in Sources */,
 				680C45331CC4D4BD008C4BC0 /* Plan.m in Sources */,
 				689220041CD2103800BC80C7 /* UIViewController+KeyboardAnimation.m in Sources */,
-				680C451D1CC4D4BD008C4BC0 /* UIImageView+Ex.m in Sources */,
 				680C457A1CC4D4BD008C4BC0 /* BaseDynamicObject.m in Sources */,
 				680C42561CC4D4AE008C4BC0 /* ItemImageCollectionCell.m in Sources */,
 				680C42271CC4D4AE008C4BC0 /* LoginViewController.m in Sources */,
@@ -1971,6 +1992,7 @@
 				68A413011D3F14FF003CFC2C /* FPSLabel.m in Sources */,
 				680C423A1CC4D4AE008C4BC0 /* AboutViewController.m in Sources */,
 				680C45721CC4D4BD008C4BC0 /* TouchDelegateView.m in Sources */,
+				686515551D46FBE700B79C1A /* WebViewDelegateHandler.m in Sources */,
 				680C46371CC5CFFF008C4BC0 /* SupervisorGetInfo.m in Sources */,
 				680C450B1CC4D4BD008C4BC0 /* ProcessBusiness.m in Sources */,
 				680C42311CC4D4AE008C4BC0 /* MeViewController.m in Sources */,
@@ -1996,6 +2018,7 @@
 				680C451E1CC4D4BD008C4BC0 /* UILabel+Ex.m in Sources */,
 				680C450C1CC4D4BD008C4BC0 /* RequirementBusiness.m in Sources */,
 				680C463A1CC5CFFF008C4BC0 /* SupervisorLogin.m in Sources */,
+				686515471D46FB7A00B79C1A /* UIImageView+Image.m in Sources */,
 				680C45031CC4D4BD008C4BC0 /* ReqtFinishedWorkSite.m in Sources */,
 				680C42291CC4D4AE008C4BC0 /* ResetPassViewController.m in Sources */,
 				680C455F1CC4D4BD008C4BC0 /* MessageAlertViewController.m in Sources */,
@@ -2010,6 +2033,7 @@
 				685B14B91CEB12110076996A /* SelectDecorationTypeViewController.m in Sources */,
 				680C46191CC5CB9D008C4BC0 /* Supervisor.m in Sources */,
 				68A4130E1D3F1784003CFC2C /* WeakProxy.m in Sources */,
+				686515531D46FBE700B79C1A /* WebViewController.m in Sources */,
 				681031C11CDCAF6300FD26D6 /* DecPackageJiangXinView.m in Sources */,
 				680C44FA1CC4D4BD008C4BC0 /* PlanHomeOwnerOrdered.m in Sources */,
 				680C42261CC4D4AE008C4BC0 /* ViewControllerContainer.m in Sources */,
@@ -2020,6 +2044,7 @@
 				680C45121CC4D4BD008C4BC0 /* NSDictionary+Ex.m in Sources */,
 				680C45021CC4D4BD008C4BC0 /* ReqtDesignerSubmittedPlan.m in Sources */,
 				680C44E71CC4D4BD008C4BC0 /* UpdatePass.m in Sources */,
+				686515461D46FB7A00B79C1A /* CALayer+Image.m in Sources */,
 				68A413221D3F2A59003CFC2C /* AlbumCell.m in Sources */,
 				680C453F1CC4D4BD008C4BC0 /* YsImage.m in Sources */,
 				680C422B1CC4D4AE008C4BC0 /* SignupSuccessViewController.m in Sources */,
@@ -2029,7 +2054,6 @@
 				680C42251CC4D4AE008C4BC0 /* TabViewController.m in Sources */,
 				680C452C1CC4D4BD008C4BC0 /* DecLiveSection.m in Sources */,
 				680C45041CC4D4BD008C4BC0 /* ReqtOrderedDesigner.m in Sources */,
-				680C45771CC4D4BD008C4BC0 /* WebViewWithoutShareController.m in Sources */,
 				680C45101CC4D4BD008C4BC0 /* NSArray+Ex.m in Sources */,
 				680C453E1CC4D4BD008C4BC0 /* Ys.m in Sources */,
 				680C42BC1CC4D4AE008C4BC0 /* BusinessRequirementCreateViewController.m in Sources */,
