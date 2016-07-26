@@ -429,6 +429,11 @@ static ViewControllerContainer *container;
     [container.navigation pushViewController:v animated:YES];
 }
 
++ (void)showDiarySetDetail:(DiarySet *)diarySet {
+    DiarySetDetailViewContainerController *v = [DiarySetDetailViewContainerController sideMenuWithDiarySet:diarySet];
+    [container.navigation pushViewController:v animated:YES];
+}
+
 + (void)showDiarySetDetail:(DiarySet *)diarySet fromNewDiarySet:(BOOL)fromNewDiarySet {
     UINavigationController* nav =  container.navigation;
     NSMutableArray *arr = [nav.viewControllers mutableCopy];

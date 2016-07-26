@@ -29,7 +29,7 @@
         [API getDiarySetDetail:request success:^{
             NSMutableDictionary *dic = [DataManager shared].data;
             DiarySet *diarySet = [[DiarySet alloc] initWith:dic];
-            [ViewControllerContainer showDiarySetDetail:diarySet fromNewDiarySet:NO];
+            [ViewControllerContainer showDiarySetDetail:diarySet];
         } failure:^{
             
         } networkError:^{

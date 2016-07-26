@@ -55,6 +55,7 @@ static NSString * const kLogoutNotification = @"LogoutNotification";
 + (void)showNotificationDetail:(NSString *)notificationid readBlock:(NotificationReadBlock)readBlock;
 + (void)showMyDiarySet;
 + (void)showDiarySetUpload:(DiarySet *)diarySet done:(DiarySetUploadDoneBlock)done;
++ (void)showDiarySetDetail:(DiarySet *)diarySet;
 + (void)showDiarySetDetail:(DiarySet *)diarySet fromNewDiarySet:(BOOL)fromNewDiarySet;
 + (void)showDiaryDetail:(Diary *)diary showComment:(BOOL)showComment toUser:(User *)toUser deleteDone:(DiaryDetailDeleteDoneBlock)deleteDone;
 + (void)showDiaryAdd:(NSArray<DiarySet *> *)diarySets;
