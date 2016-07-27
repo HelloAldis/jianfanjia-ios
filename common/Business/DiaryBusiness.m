@@ -11,7 +11,7 @@
 @implementation DiaryBusiness
 
 + (NSString *)diarySetInfo:(DiarySet *)diarySet {
-    return [NSString stringWithFormat:@"%@m²  %@  %@  %@", diarySet.house_area, [NameDict nameForHouseType:diarySet.house_type], [NameDict nameForDecStyle:diarySet.dec_style], [NameDict nameForWorkType:diarySet.work_type]];
+    return diarySet.house_area != nil ?[NSString stringWithFormat:@"%@m²  %@  %@  %@", diarySet.house_area, [NameDict nameForHouseType:diarySet.house_type], [NameDict nameForDecStyle:diarySet.dec_style], [NameDict nameForWorkType:diarySet.work_type]] : @"";
 }
 
 + (BOOL)isOwnDiarySet:(DiarySet *)diarySet {

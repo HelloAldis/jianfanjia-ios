@@ -24,17 +24,9 @@
     //jianfanjia://m.jianfanjia.com/jianfanjiaapp/diaryset?diarySetid=577104e90d135f8d2d493eba
     self[@".*\\.jianfanjia\\.com/jianfanjiaapp/diaryset"] = ^(DPLDeepLink *link) {
         NSString *diarySetId = link[@"diarySetid"];
-        GetDiarySetDetail *request = [[GetDiarySetDetail alloc] init];
-        request.diarySetid = diarySetId;
-        [API getDiarySetDetail:request success:^{
-            NSMutableDictionary *dic = [DataManager shared].data;
-            DiarySet *diarySet = [[DiarySet alloc] initWith:dic];
-            [ViewControllerContainer showDiarySetDetail:diarySet];
-        } failure:^{
-            
-        } networkError:^{
-            
-        }];
+        DiarySet *diarySet = [[DiarySet alloc] init];
+        diarySet._id = diarySetId;
+        [ViewControllerContainer showDiarySetDetail:diarySet];
     };
     
     //jianfanjia://m.jianfanjia.com/jianfanjiaapp/webview?url=http://devm.jianfanjia.com/weixin/jian/

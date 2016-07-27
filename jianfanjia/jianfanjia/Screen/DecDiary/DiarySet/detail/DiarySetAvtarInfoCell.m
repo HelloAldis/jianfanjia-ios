@@ -72,7 +72,7 @@ CGFloat kDiarySetAvtarInfoCellHeight;
     [self.avatarImgView setUserImageWithId:diarySet.author.imageid];
     [self setCover];
 
-    self.lblDiarySetTitle.text = diarySet.title;
+    self.lblDiarySetTitle.text = diarySet.title ? diarySet.title : @"";
     self.lblBasicInfo.text = [DiaryBusiness diarySetInfo:diarySet];
     self.editDiarySetInfoImgView.hidden = ![DiaryBusiness isOwnDiarySet:diarySet];
     if ([DiaryBusiness isOwnDiarySet:diarySet]) {
