@@ -36,15 +36,16 @@ static NSString *HomePageProductItemIdentifier = @"HomePageProductItem";
     swipe.delegate = self;
     [self.imgCollection addGestureRecognizer:swipe];
     RAC(self.iconRightArrow, hidden) = RACObserve([GVUserDefaults standardUserDefaults], wasShowProductCaseRightArrow);
+    [RACObserve(self, isShowProduct) subscribeNext:^(id x) {
+        if ([x boolValue]) {
+            [self addUserHelper];
+        }
+    }];
 }
 
-- (void)initWithProducts:(NSArray *)products isShowProduct:(BOOL)isShowProduct {
+- (void)initWithProducts:(NSArray *)products{
     self.products = products;
-    self.isShowProduct = isShowProduct;
     [self.imgCollection reloadData];
-    if (self.isShowProduct) {
-        [self addUserHelper];
-    }
 }
 
 #pragma mark - collection delegate

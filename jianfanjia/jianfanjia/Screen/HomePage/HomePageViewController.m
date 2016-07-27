@@ -23,7 +23,6 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) HomePageProductCell *homePageProductCell;
-@property (assign, nonatomic) BOOL isShowProduct;
 
 @property (strong, nonatomic) HomePageDataManager *dataManager;
 
@@ -87,7 +86,7 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
         return cell;
     } else {
         HomePageProductCell *cell = [self productCell];
-        [cell initWithProducts:self.dataManager.homeProducts isShowProduct:self.isShowProduct];
+        [cell initWithProducts:self.dataManager.homeProducts];
         return cell;
     }
 }
@@ -119,13 +118,11 @@ static NSString *HomePageProductCellIdentifier = @"HomePageProductCell";
     CGPoint curOffset = scrollView.contentOffset;
     
     if (contentHeight > 0) {
-        if (!self.isShowProduct && curOffset.y > productOffsetY) {
-            self.isShowProduct = YES;
-            [self.tableView reloadData];
-        } else if (self.isShowProduct) {
+        if (![self productCell].isShowProduct && curOffset.y > productOffsetY) {
+            [self productCell].isShowProduct = YES;
+        } else if ([self productCell].isShowProduct) {
             if (curOffset.y < productOffsetY) {
-                self.isShowProduct = NO;
-                [self.tableView reloadData];
+                [self productCell].isShowProduct = NO;
             }
         }
     }

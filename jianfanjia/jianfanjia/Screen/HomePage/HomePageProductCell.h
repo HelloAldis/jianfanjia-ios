@@ -15,6 +15,6 @@
 
 @property (nonatomic, assign) BOOL isShowProduct;
 
-- (void)initWithProducts:(NSArray *)products isShowProduct:(BOOL)isShowProduct;
+- (void)initWithProducts:(NSArray *)products;
 
 @end
