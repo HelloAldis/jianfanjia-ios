@@ -62,16 +62,20 @@
 }
 
 - (IBAction)onClickDelete:(id)sender {
-    DesignerDeleteProduct *request = [[DesignerDeleteProduct alloc] init];
-    request._id = self.product._id;
-    
-    [API designerDeleteProduct:request success:^{
-        if (self.deleteBlock) {
-            self.deleteBlock();
-        }
-    } failure:^{
-    } networkError:^{
+    [AlertUtil show:[ViewControllerContainer getCurrentTopController] title:@"确认删除？" cancelBlock:^{
         
+    } doneBlock:^{
+        DesignerDeleteProduct *request = [[DesignerDeleteProduct alloc] init];
+        request._id = self.product._id;
+        
+        [API designerDeleteProduct:request success:^{
+            if (self.deleteBlock) {
+                self.deleteBlock();
+            }
+        } failure:^{
+        } networkError:^{
+            
+        }];
     }];
 }
 
