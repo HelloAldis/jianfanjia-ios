@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="改期提醒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yhi-wf-7mB" userLabel="Lbl Cell">
-                        <rect key="frame" x="13" y="13" width="60" height="18"/>
+                        <rect key="frame" x="13" y="13" width="323" height="18"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -25,12 +25,6 @@
                         <rect key="frame" x="13" y="39" width="364" height="26"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfU-Aq-FR3">
-                        <rect key="frame" x="351" y="14" width="109" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="安装阶段" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fr-wI-Y9m">
@@ -59,6 +53,12 @@
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfU-Aq-FR3">
+                        <rect key="frame" x="351" y="14" width="109" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="8Fr-wI-Y9m" firstAttribute="centerY" secondItem="FIG-47-94f" secondAttribute="centerY" id="0cE-gO-9My"/>
@@ -72,6 +72,7 @@
                     <constraint firstItem="GbF-ql-siX" firstAttribute="top" secondItem="FIG-47-94f" secondAttribute="bottom" constant="8" id="SeE-by-gpe"/>
                     <constraint firstItem="FIG-47-94f" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="leading" id="Wte-9W-7SZ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="MfU-Aq-FR3" secondAttribute="trailing" constant="8" id="evn-Ky-9Tt"/>
+                    <constraint firstItem="MfU-Aq-FR3" firstAttribute="leading" secondItem="yhi-wf-7mB" secondAttribute="trailing" constant="15" id="f3e-M4-3eg"/>
                     <constraint firstItem="Ki8-OL-uXf" firstAttribute="leading" secondItem="GbF-ql-siX" secondAttribute="trailing" id="g0W-8M-QNf"/>
                     <constraint firstItem="yhi-wf-7mB" firstAttribute="leading" secondItem="RLt-cd-dRp" secondAttribute="leadingMargin" constant="5" id="kFJ-Ey-REQ"/>
                     <constraint firstItem="FIG-47-94f" firstAttribute="top" secondItem="yhi-wf-7mB" secondAttribute="bottom" constant="8" id="vME-0L-WUo"/>

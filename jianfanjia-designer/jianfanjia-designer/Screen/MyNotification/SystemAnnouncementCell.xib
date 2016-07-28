@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -16,7 +16,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="系统公告" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uxx-fc-JWs" userLabel="Lbl Cell">
-                        <rect key="frame" x="13" y="13" width="60" height="18"/>
+                        <rect key="frame" x="13" y="13" width="326" height="18"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -27,7 +27,7 @@
                         <color key="textColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOh-mE-dKO">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="2015-8-18 17:48  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOh-mE-dKO">
                         <rect key="frame" x="354" y="14" width="109" height="16"/>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.48627450979999998" green="0.51372549020000002" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,6 +57,7 @@
                     <constraint firstItem="BhJ-Xm-ogY" firstAttribute="centerY" secondItem="DYY-Gd-w1l" secondAttribute="centerY" id="PgI-iZ-S9W"/>
                     <constraint firstItem="uxx-fc-JWs" firstAttribute="top" secondItem="acq-6O-lqE" secondAttribute="topMargin" constant="5" id="S8F-2f-0Iq"/>
                     <constraint firstItem="uOh-mE-dKO" firstAttribute="centerY" secondItem="uxx-fc-JWs" secondAttribute="centerY" id="bRY-2j-Dkh"/>
+                    <constraint firstItem="uOh-mE-dKO" firstAttribute="leading" secondItem="uxx-fc-JWs" secondAttribute="trailing" constant="15" id="i8i-c8-RGb"/>
                     <constraint firstItem="DYY-Gd-w1l" firstAttribute="leading" secondItem="uxx-fc-JWs" secondAttribute="leading" id="t1c-xw-cU4"/>
                     <constraint firstItem="DYY-Gd-w1l" firstAttribute="top" secondItem="uxx-fc-JWs" secondAttribute="bottom" constant="8" id="z1Q-Ul-uSK"/>
                 </constraints>
