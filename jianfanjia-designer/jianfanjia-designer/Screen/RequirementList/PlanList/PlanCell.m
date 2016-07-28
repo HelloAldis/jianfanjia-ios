@@ -64,7 +64,7 @@ static const NSInteger imgSpace = 2;
        ]];
     
     if (plan.comment_count.intValue > 0) {
-        [self.btnComment setNormTitle:[NSString stringWithFormat:@"留言(%@)", plan.comment_count]];
+        [self.btnComment setNormTitle:[NSString stringWithFormat:@"评论(%@)", plan.comment_count]];
     }
     
     [self.imgScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];

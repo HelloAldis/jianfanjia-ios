@@ -53,7 +53,7 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
 
 #pragma mark - UI
 - (void)initNav {
-    self.title = @"我的留言";
+    self.title = @"我的评论";
     [self initLeftBackInNav];
 }
 
@@ -157,7 +157,7 @@ static NSString *DecCommentInfoCellIdentifier = @"DecCommentInfoCell";
 }
 
 - (void)handleNoDesigner {
-    self.lblNoData.text = @"您还没有收到留言";
+    self.lblNoData.text = @"您还没有收到评论";
     self.noDataImageView.image = [UIImage imageNamed:@"img_no_leave_msg"];
     self.lblNoData.hidden = NO;
     self.noDataImageView.hidden = NO;
