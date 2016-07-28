@@ -388,11 +388,11 @@ static ViewControllerContainer *container;
         [HUDUtil showWait];
         [API designerAgreeLicense:request success:^{
             [GVUserDefaults standardUserDefaults].isLogin = YES;
-            if (fromRegister) {
+//            if (fromRegister) {
                 [self showInfoAuth:designer canEdit:YES fromRegister:fromRegister];
-            } else {
-                [self showTab];
-            }
+//            } else {
+//                [self showTab];
+//            }
         } failure:^{
         } networkError:^{
         }];
