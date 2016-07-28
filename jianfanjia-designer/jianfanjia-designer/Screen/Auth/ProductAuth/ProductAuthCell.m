@@ -62,7 +62,7 @@
 }
 
 - (IBAction)onClickDelete:(id)sender {
-    [AlertUtil show:[ViewControllerContainer getCurrentTopController] title:@"确认删除？" cancelBlock:^{
+    [AlertUtil show:[ViewControllerContainer getCurrentTopController] title:@"确定删除作品？" cancelBlock:^{
         
     } doneBlock:^{
         DesignerDeleteProduct *request = [[DesignerDeleteProduct alloc] init];
