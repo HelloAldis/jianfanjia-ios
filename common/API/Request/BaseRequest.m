@@ -71,6 +71,7 @@
     NSError *serializationError = nil;
     NSData *data = [NSJSONSerialization dataWithJSONObject:response options:kNilOptions error:&serializationError];
     if (serializationError) {
+        DDLogDebug(@"escapeResponse %@", serializationError);
         return nil;
     }
     
@@ -80,6 +81,7 @@
 
     id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&serializationError];
     if (serializationError) {
+        DDLogDebug(@"escapeResponse %@", serializationError);
         return nil;
     }
     
