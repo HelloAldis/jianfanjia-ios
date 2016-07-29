@@ -57,8 +57,8 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     [self initUI];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     if (!self.wasFirstLoad) {
         self.wasFirstLoad = YES;
         [self refresh:YES];
