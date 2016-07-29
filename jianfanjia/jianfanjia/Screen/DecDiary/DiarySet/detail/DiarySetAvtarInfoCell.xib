@@ -125,6 +125,6 @@
     <resources>
         <image name="icon_write_diary" width="20" height="21"/>
         <image name="image_place_holder_2" width="60" height="60"/>
-        <image name="img_diary_set_cover" width="1242" height="646"/>
+        <image name="img_diary_set_cover" width="621" height="323"/>
     </resources>
 </document>

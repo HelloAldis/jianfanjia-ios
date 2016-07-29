@@ -36,7 +36,6 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.krs_EnableFakeNavigationBar = YES;
     
     [self initNav];
     [self initUI];

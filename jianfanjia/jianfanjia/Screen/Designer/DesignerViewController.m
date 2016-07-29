@@ -87,13 +87,13 @@
 - (void)configTransparentNavStyle {
     [self initTransparentNavBar:UIBarStyleBlack];
     [self initLeftWhiteBackInNav];
-    [self krs_UpdateFakeNavBar];
+    [self.navigationController.navigationBar setNeedsDisplay];
 }
 
 - (void)configDefaultNavStyle {
     [self initThemeNavBar];
     [self initLeftBackInNav];
-    [self krs_UpdateFakeNavBar];
+    [self.navigationController.navigationBar setNeedsDisplay];
 }
 
 - (void)moveDesignerInfoToTop {

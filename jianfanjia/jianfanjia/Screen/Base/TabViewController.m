@@ -15,6 +15,11 @@
 
 @implementation TabViewController
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.fd_prefersNavigationBarHidden = YES;
+}
+
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     self.tabBar.tintColor = kThemeColor;
@@ -41,7 +46,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
+//    [self.navigationController setNavigationBarHidden:YES animated:NO];
+    self.navigationController.view.backgroundColor = [UIColor whiteColor];
     
     UITabBarItem *my = [self.tabBar.items objectAtIndex:4];
     [[NotificationDataManager shared] subscribeAppBadgeNumber:^(NSInteger count) {
