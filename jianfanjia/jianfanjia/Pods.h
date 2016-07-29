@@ -24,5 +24,6 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import "Growing.h"
 #import "LGSideMenuController.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 #endif

@@ -60,7 +60,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     [super viewWillAppear:animated];
     if (!self.wasFirstLoad) {
         self.wasFirstLoad = YES;
-        [self initTransparentNavBar:UIBarStyleBlack];
         [self refresh:YES];
     } else {
         [self refresh:NO];
@@ -70,6 +69,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 #pragma mark - UI
 - (void)initNav {
     [self initLeftWhiteBackInNav];
+    [self initTransparentNavBar:UIBarStyleBlack];
 
     self.favoriateView = [[UIView alloc] initWithFrame:CGRectZero];
     self.favoriateImgView = [[UIImageView alloc] initWithImage:[self unfavoriateImage]];
@@ -188,7 +188,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
     if (offsetY >= -kNavWithStatusBarHeight) {
         avtarCell.diarySetBGImgView.frame = CGRectMake(0, -kNavWithStatusBarHeight, kScreenWidth, kNavWithStatusBarHeight + kDiarySetAvtarInfoCellHeight);
-        [avtarCell setNeedsLayout];
     } else {
         CGRect f = CGRectZero;
         f.origin.y = offsetY;
@@ -196,25 +195,22 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         f.size.height =  kDiarySetAvtarInfoCellHeight - offsetY;
         f.origin.x = MIN(0, -(f.size.width - kScreenWidth) / 2.0);
         avtarCell.diarySetBGImgView.frame = f;
-        [avtarCell setNeedsLayout];
     }
     
-//    UINavigationBar *navBar = self.krs_FakeNavigationBar;
-//    if (offsetY >= (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight)) {
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    if (offsetY >= (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight)) {
 //        if (navBar.translucent) {
-//            [avtarCell getTopBlurImage:^(UIImage *image) {
-//                [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-//                navBar.translucent = NO;
-//                [navBar setNeedsDisplay];
-//            }];
+            [avtarCell getTopBlurImage:^(UIImage *image) {
+                [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+                navBar.translucent = NO;
+            }];
 //        }
-//    } else {
+    } else {
 //        if (!navBar.translucent) {
-//            [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-//            navBar.translucent = YES;
-//            [navBar setNeedsDisplay];
+            [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+            navBar.translucent = YES;
 //        }
-//    }
+    }
 }
 
 #pragma mark - api request
@@ -243,6 +239,10 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 }
 
 #pragma mark - user action
+- (void)onClickBack {
+    [self.parentViewController.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)onTapAddDiary {
     [ViewControllerContainer showDiaryAdd:@[self.diarySet]];
 }
@@ -395,14 +395,13 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 #pragma mark - override
 - (void)initTransparentNavBar:(UIBarStyle)barStyle {
-//    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
-//    UINavigationBar *navBar = self.krs_FakeNavigationBar;
-//    navBar.titleTextAttributes = dict;
-//    navBar.translucent = YES;
-//    [navBar setBarStyle:barStyle];
-//    navBar.shadowImage = [UIImage new];
-//    [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-//    [navBar setNeedsDisplay];
+    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    navBar.titleTextAttributes = dict;
+    navBar.translucent = YES;
+    [navBar setBarStyle:barStyle];
+    navBar.shadowImage = [UIImage new];
+    [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
 }
 
 #pragma mark - data provider

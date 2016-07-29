@@ -296,8 +296,6 @@
 		68711B751CDC7D99009B585F /* DecPackageJiangXinView.m in Sources */ = {isa = PBXBuildFile; fileRef = 68711B731CDC7D99009B585F /* DecPackageJiangXinView.m */; };
 		68711B761CDC7D99009B585F /* DecPackageJiangXinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68711B741CDC7D99009B585F /* DecPackageJiangXinView.xib */; };
 		687EEB551CE2C55B00A277DC /* DIYRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEB541CE2C55B00A277DC /* DIYRefreshFooter.m */; };
-		687EEBDF1CE71B5000A277DC /* KRSSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEBDC1CE71B5000A277DC /* KRSSwizzle.m */; };
-		687EEBE01CE71B5000A277DC /* UIViewController+KRSFakeNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 687EEBDE1CE71B5000A277DC /* UIViewController+KRSFakeNavigationBar.m */; };
 		6885175A1C8FF5E1000B01DB /* UserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 688517591C8FF5E1000B01DB /* UserNotification.m */; };
 		6885175D1C8FFB8A000B01DB /* SearchUserNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885175C1C8FFB8A000B01DB /* SearchUserNotification.m */; };
 		688517601C91246D000B01DB /* UILabel+Ex.m in Sources */ = {isa = PBXBuildFile; fileRef = 6885175F1C91246D000B01DB /* UILabel+Ex.m */; };
@@ -1105,10 +1103,6 @@
 		68711B741CDC7D99009B585F /* DecPackageJiangXinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecPackageJiangXinView.xib; sourceTree = "<group>"; };
 		687EEB531CE2C55B00A277DC /* DIYRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIYRefreshFooter.h; sourceTree = "<group>"; };
 		687EEB541CE2C55B00A277DC /* DIYRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIYRefreshFooter.m; sourceTree = "<group>"; };
-		687EEBDB1CE71B5000A277DC /* KRSSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSSwizzle.h; sourceTree = "<group>"; };
-		687EEBDC1CE71B5000A277DC /* KRSSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSSwizzle.m; sourceTree = "<group>"; };
-		687EEBDD1CE71B5000A277DC /* UIViewController+KRSFakeNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KRSFakeNavigationBar.h"; sourceTree = "<group>"; };
-		687EEBDE1CE71B5000A277DC /* UIViewController+KRSFakeNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KRSFakeNavigationBar.m"; sourceTree = "<group>"; };
 		688517581C8FF5E1000B01DB /* UserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserNotification.h; sourceTree = "<group>"; };
 		688517591C8FF5E1000B01DB /* UserNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserNotification.m; sourceTree = "<group>"; };
 		6885175B1C8FFB8A000B01DB /* SearchUserNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserNotification.h; sourceTree = "<group>"; };
@@ -1811,7 +1805,6 @@
 				68EE3D9A1D12447A00F5EF83 /* EditCellComponent */,
 				685B141B1CEB0FB60076996A /* Selection */,
 				685B14101CE9D4BA0076996A /* PhotoGroup */,
-				687EEBDA1CE71B5000A277DC /* KRSFakeNavigationBar */,
 				68711B5E1CD88D59009B585F /* ReuseView */,
 				685F2D701CABDC0D00DC4D43 /* RefreshComponent */,
 				68BA507F1C9FD8BB002E5572 /* WebView */,
@@ -2323,17 +2316,6 @@
 				68711B701CD8A60B009B585F /* TaggedDesignerInfoView.xib */,
 			);
 			path = OrderTaggedDesigner;
-			sourceTree = "<group>";
-		};
-		687EEBDA1CE71B5000A277DC /* KRSFakeNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				687EEBDB1CE71B5000A277DC /* KRSSwizzle.h */,
-				687EEBDC1CE71B5000A277DC /* KRSSwizzle.m */,
-				687EEBDD1CE71B5000A277DC /* UIViewController+KRSFakeNavigationBar.h */,
-				687EEBDE1CE71B5000A277DC /* UIViewController+KRSFakeNavigationBar.m */,
-			);
-			path = KRSFakeNavigationBar;
 			sourceTree = "<group>";
 		};
 		689ECDF21CFC09590046DDC8 /* SelectionMenu */ = {
@@ -3877,7 +3859,6 @@
 				6E07DAAD1BD88DBE001461DD /* ProcessBusiness.m in Sources */,
 				6865156E1D4750C700B79C1A /* RouteMgr.m in Sources */,
 				684B04491C9A7AAD0053FFDF /* UIBarButtonItem+Badge.m in Sources */,
-				687EEBE01CE71B5000A277DC /* UIViewController+KRSFakeNavigationBar.m in Sources */,
 				6865A34D1D2BBB2400B3CB26 /* WeakProxy.m in Sources */,
 				68EE3E4C1D13D08E00F5EF83 /* DecorationPhaseCell.m in Sources */,
 				684B03CD1C979EAA0053FFDF /* DecLiveSection.m in Sources */,
@@ -3989,7 +3970,6 @@
 				6836269D1C05B1E9005F2C30 /* ProcessDataManager.m in Sources */,
 				682E05131C58BDA700F1ACAA /* PlanPriceItemExpandCell.m in Sources */,
 				68123B9B1C47D15C008FC9AB /* JYZSocialSnsAuthResp.m in Sources */,
-				687EEBDF1CE71B5000A277DC /* KRSSwizzle.m in Sources */,
 				68EE3E161D12A6ED00F5EF83 /* AddDiarySectionView.m in Sources */,
 				6E07DAC21BD88DBE001461DD /* BaseModel.m in Sources */,
 				6E838DB81BECA39B000BF5CD /* QueryProduct.m in Sources */,

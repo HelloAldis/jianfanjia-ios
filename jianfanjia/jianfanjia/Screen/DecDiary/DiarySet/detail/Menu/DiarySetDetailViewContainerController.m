@@ -22,7 +22,7 @@
 
 + (DiarySetDetailViewContainerController *)sideMenuWithDiarySet:(DiarySet *)diarySet {
     DiarySetDetailViewController *viewController = [[DiarySetDetailViewController alloc] initWithDiarySet:diarySet];
-    DiarySetDetailViewContainerController *sideMenuController = [[DiarySetDetailViewContainerController alloc] initWithRootViewController:viewController];
+    DiarySetDetailViewContainerController *sideMenuController = [[DiarySetDetailViewContainerController alloc] initWithRootViewController:[[UINavigationController alloc] initWithRootViewController:viewController]];
     [sideMenuController setLeftViewEnabledWithWidth:kScreenWidth * (4.8 / 10.0)
                                   presentationStyle:LGSideMenuPresentationStyleSlideBelow
                                alwaysVisibleOptions:0];
@@ -36,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.krs_EnableFakeNavigationBar = NO;
+    self.fd_prefersNavigationBarHidden = YES;
 
     UIImageView *menuIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_diary_set_navigation"]];
     menuIcon.userInteractionEnabled = YES;

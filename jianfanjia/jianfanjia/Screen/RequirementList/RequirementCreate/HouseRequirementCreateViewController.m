@@ -106,7 +106,6 @@ typedef NS_ENUM(NSInteger, PkgShowingType) {
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.krs_EnableFakeNavigationBar = NO;
     [self initUI];
 }
 
