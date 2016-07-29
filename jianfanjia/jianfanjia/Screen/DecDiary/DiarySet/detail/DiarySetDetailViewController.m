@@ -202,13 +202,16 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 //        if (navBar.translucent) {
             [avtarCell getTopBlurImage:^(UIImage *image) {
                 [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-                navBar.translucent = NO;
+                
             }];
+            navBar.translucent = NO;
+//            [self.navigationController.navigationBar setNeedsDisplay];
 //        }
     } else {
 //        if (!navBar.translucent) {
             [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
             navBar.translucent = YES;
+//            [self.navigationController.navigationBar setNeedsDisplay];
 //        }
     }
 }
