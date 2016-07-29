@@ -36,7 +36,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.krs_EnableFakeNavigationBar = NO;
+//    self.krs_EnableFakeNavigationBar = NO;
 
     UIImageView *menuIcon = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_diary_set_navigation"]];
     menuIcon.userInteractionEnabled = YES;

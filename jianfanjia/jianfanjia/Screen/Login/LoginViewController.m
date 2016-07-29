@@ -60,7 +60,7 @@
     [super viewWillAppear:animated];
     
     self.viewThirdParty.hidden = ![JYZSocialSnsConfigCenter isWXAppInstalled];
-    [self setKrs_NavigationBarHidden:YES animated:NO];
+//    [self setKrs_NavigationBarHidden:YES animated:NO];
 }
 
 #pragma mark - UI

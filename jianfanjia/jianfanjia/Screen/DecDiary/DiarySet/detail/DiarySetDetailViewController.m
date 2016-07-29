@@ -199,22 +199,22 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         [avtarCell setNeedsLayout];
     }
     
-    UINavigationBar *navBar = self.krs_FakeNavigationBar;
-    if (offsetY >= (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight)) {
-        if (navBar.translucent) {
-            [avtarCell getTopBlurImage:^(UIImage *image) {
-                [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-                navBar.translucent = NO;
-                [navBar setNeedsDisplay];
-            }];
-        }
-    } else {
-        if (!navBar.translucent) {
-            [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-            navBar.translucent = YES;
-            [navBar setNeedsDisplay];
-        }
-    }
+//    UINavigationBar *navBar = self.krs_FakeNavigationBar;
+//    if (offsetY >= (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight)) {
+//        if (navBar.translucent) {
+//            [avtarCell getTopBlurImage:^(UIImage *image) {
+//                [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+//                navBar.translucent = NO;
+//                [navBar setNeedsDisplay];
+//            }];
+//        }
+//    } else {
+//        if (!navBar.translucent) {
+//            [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//            navBar.translucent = YES;
+//            [navBar setNeedsDisplay];
+//        }
+//    }
 }
 
 #pragma mark - api request
@@ -395,14 +395,14 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 #pragma mark - override
 - (void)initTransparentNavBar:(UIBarStyle)barStyle {
-    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
-    UINavigationBar *navBar = self.krs_FakeNavigationBar;
-    navBar.titleTextAttributes = dict;
-    navBar.translucent = YES;
-    [navBar setBarStyle:barStyle];
-    navBar.shadowImage = [UIImage new];
-    [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    [navBar setNeedsDisplay];
+//    NSDictionary * dict = [NSDictionary dictionaryWithObject:[UIColor whiteColor] forKey: NSForegroundColorAttributeName];
+//    UINavigationBar *navBar = self.krs_FakeNavigationBar;
+//    navBar.titleTextAttributes = dict;
+//    navBar.translucent = YES;
+//    [navBar setBarStyle:barStyle];
+//    navBar.shadowImage = [UIImage new];
+//    [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+//    [navBar setNeedsDisplay];
 }
 
 #pragma mark - data provider

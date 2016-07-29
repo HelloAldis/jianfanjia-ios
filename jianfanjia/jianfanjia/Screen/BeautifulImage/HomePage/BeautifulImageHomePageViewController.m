@@ -152,7 +152,7 @@
         [self.view layoutIfNeeded];
     } completion:nil];
     
-    [self setKrs_NavigationBarHidden:self.isHidden animated:YES];
+//    [self setKrs_NavigationBarHidden:self.isHidden animated:YES];
 }
 
 - (void)photoGrouopViewWillLoadMore:(PhotoGroupView *)photoGroupView {
