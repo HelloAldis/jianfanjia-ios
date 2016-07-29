@@ -219,7 +219,6 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 #pragma mark - api request
 - (void)refresh:(BOOL)showPlsWait {
-    [self.tableView reloadData];
     if (showPlsWait) {
         [HUDUtil showWait];
     }
