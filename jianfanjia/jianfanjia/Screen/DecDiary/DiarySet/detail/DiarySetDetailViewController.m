@@ -31,6 +31,7 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
 
 @property (strong, nonatomic) AddDiarySectionView *addDiarySectionView;
 @property (strong, nonatomic) DiarySetAvtarInfoCell *avtarInfoCell;
+@property (strong, nonatomic) UIImageView *topImageView;
 @property (assign, nonatomic) BOOL wasFirstLoad;
 
 @property (strong, nonatomic) DiarySetDetailDataManager *dataManager;
@@ -107,6 +108,9 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
     
     self.addDiarySectionView = [AddDiarySectionView addDiarySectionView];
     [self.addDiarySectionView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapAddDiary)]];
+    self.topImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kNavWithStatusBarHeight)];
+    self.topImageView.hidden = YES;
+    [self.view addSubview:self.topImageView];
 }
 
 #pragma mark - table view delegate
@@ -197,22 +201,19 @@ static NSString *DecDiaryStatusCellIdentifier = @"DecDiary1StatusCell";
         avtarCell.diarySetBGImgView.frame = f;
     }
     
-    UINavigationBar *navBar = self.navigationController.navigationBar;
     if (offsetY >= (kDiarySetAvtarInfoCellHeight - kNavWithStatusBarHeight)) {
-//        if (navBar.translucent) {
-            [avtarCell getTopBlurImage:^(UIImage *image) {
-                [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
-                
+        if (self.topImageView.hidden) {
+            self.topImageView.hidden = NO;
+            @weakify(self);
+            [[self avtarInfoCell] getTopBlurImage:^(UIImage *image) {
+                @strongify(self);
+                self.topImageView.image = image;
             }];
-            navBar.translucent = NO;
-//            [self.navigationController.navigationBar setNeedsDisplay];
-//        }
+        }
     } else {
-//        if (!navBar.translucent) {
-            [navBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-            navBar.translucent = YES;
-//            [self.navigationController.navigationBar setNeedsDisplay];
-//        }
+        if (!self.topImageView.hidden) {
+            self.topImageView.hidden = YES;
+        }
     }
 }
 
