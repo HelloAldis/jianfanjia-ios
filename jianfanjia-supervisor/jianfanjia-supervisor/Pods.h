@@ -19,5 +19,6 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import "YYWebImage.h"
 #import "YYText.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 #endif
