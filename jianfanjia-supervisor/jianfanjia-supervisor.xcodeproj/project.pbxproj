@@ -235,8 +235,6 @@
 		685B14C01CEB12110076996A /* SelectSexTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14AA1CEB12110076996A /* SelectSexTypeViewController.xib */; };
 		685B14C11CEB12110076996A /* SelectWorkTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14AC1CEB12110076996A /* SelectWorkTypeViewController.m */; };
 		685B14C21CEB12110076996A /* SelectWorkTypeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 685B14AD1CEB12110076996A /* SelectWorkTypeViewController.xib */; };
-		685B14C81CEB126E0076996A /* KRSSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14C51CEB126E0076996A /* KRSSwizzle.m */; };
-		685B14C91CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 685B14C71CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m */; };
 		686515461D46FB7A00B79C1A /* CALayer+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 686515431D46FB7A00B79C1A /* CALayer+Image.m */; };
 		686515471D46FB7A00B79C1A /* UIImageView+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 686515451D46FB7A00B79C1A /* UIImageView+Image.m */; };
 		6865154C1D46FB9900B79C1A /* MethodSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 686515491D46FB9900B79C1A /* MethodSwizzle.m */; };
@@ -701,10 +699,6 @@
 		685B14AB1CEB12110076996A /* SelectWorkTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectWorkTypeViewController.h; sourceTree = "<group>"; };
 		685B14AC1CEB12110076996A /* SelectWorkTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectWorkTypeViewController.m; sourceTree = "<group>"; };
 		685B14AD1CEB12110076996A /* SelectWorkTypeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectWorkTypeViewController.xib; sourceTree = "<group>"; };
-		685B14C41CEB126E0076996A /* KRSSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRSSwizzle.h; sourceTree = "<group>"; };
-		685B14C51CEB126E0076996A /* KRSSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRSSwizzle.m; sourceTree = "<group>"; };
-		685B14C61CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KRSFakeNavigationBar.h"; sourceTree = "<group>"; };
-		685B14C71CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KRSFakeNavigationBar.m"; sourceTree = "<group>"; };
 		686515421D46FB7A00B79C1A /* CALayer+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Image.h"; sourceTree = "<group>"; };
 		686515431D46FB7A00B79C1A /* CALayer+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Image.m"; sourceTree = "<group>"; };
 		686515441D46FB7A00B79C1A /* UIImageView+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Image.h"; sourceTree = "<group>"; };
@@ -1359,7 +1353,6 @@
 				68A412FE1D3F14FF003CFC2C /* FPS */,
 				6865A3431D2BA17900B3CB26 /* ReuseView */,
 				6865A33B1D2BA13200B3CB26 /* PhotoGroup */,
-				685B14C31CEB126E0076996A /* KRSFakeNavigationBar */,
 				685B148D1CEB12110076996A /* Selection */,
 				680C44861CC4D4BD008C4BC0 /* WebView */,
 				680C445C1CC4D4BD008C4BC0 /* CustomAlert */,
@@ -1572,17 +1565,6 @@
 				685B14AD1CEB12110076996A /* SelectWorkTypeViewController.xib */,
 			);
 			path = Selection;
-			sourceTree = "<group>";
-		};
-		685B14C31CEB126E0076996A /* KRSFakeNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				685B14C41CEB126E0076996A /* KRSSwizzle.h */,
-				685B14C51CEB126E0076996A /* KRSSwizzle.m */,
-				685B14C61CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.h */,
-				685B14C71CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m */,
-			);
-			path = KRSFakeNavigationBar;
 			sourceTree = "<group>";
 		};
 		6865A33B1D2BA13200B3CB26 /* PhotoGroup */ = {
@@ -1940,7 +1922,6 @@
 				680C46571CC5DB96008C4BC0 /* UpdateMultipleLineTextViewController.m in Sources */,
 				680C42C61CC4D4AE008C4BC0 /* RequirementCreateViewController.m in Sources */,
 				680C42C01CC4D4AE008C4BC0 /* DecPackage365View.m in Sources */,
-				685B14C81CEB126E0076996A /* KRSSwizzle.m in Sources */,
 				680C424C1CC4D4AE008C4BC0 /* MyProcessViewController.m in Sources */,
 				689ECE051CFC097C0046DDC8 /* SelectionMenuCollectionCell.m in Sources */,
 				680C462D1CC5CD69008C4BC0 /* DataManager.m in Sources */,
@@ -1988,7 +1969,6 @@
 				680C45341CC4D4BD008C4BC0 /* PriceItem.m in Sources */,
 				680C42611CC4D4AE008C4BC0 /* UIItemImageCollectionView.m in Sources */,
 				680C45171CC4D4BD008C4BC0 /* RACStream+Ex.m in Sources */,
-				685B14C91CEB126E0076996A /* UIViewController+KRSFakeNavigationBar.m in Sources */,
 				68A413011D3F14FF003CFC2C /* FPSLabel.m in Sources */,
 				680C423A1CC4D4AE008C4BC0 /* AboutViewController.m in Sources */,
 				680C45721CC4D4BD008C4BC0 /* TouchDelegateView.m in Sources */,

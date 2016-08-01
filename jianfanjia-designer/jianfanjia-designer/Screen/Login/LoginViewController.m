@@ -50,7 +50,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.fd_prefersNavigationBarHidden = YES;
+    self.fd_prefersNavigationBarHidden = YES;
     [self initNav];
     [self initUI];
 }
