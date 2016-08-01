@@ -50,7 +50,7 @@
 #pragma mark - life cycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+//    self.fd_prefersNavigationBarHidden = YES;
     [self initNav];
     [self initUI];
 }
@@ -59,7 +59,6 @@
     [super viewWillAppear:animated];
     
 //    self.viewThirdParty.hidden = ![JYZSocialSnsConfigCenter isWXAppInstalled];
-    [self setKrs_NavigationBarHidden:YES animated:NO];
 }
 
 #pragma mark - UI
