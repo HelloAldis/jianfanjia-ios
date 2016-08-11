@@ -10,16 +10,8 @@
 #import "BaseViewController.h"
 #import "RequirementCreateProtocol.h"
 
-@interface HouseRequirementCreateViewController : BaseViewController <RequirementCreateProtocol>
+@interface HouseRequirementCreateViewController : BaseViewController
 
-- (id)initToCreateRequirement;
 - (id)initToViewRequirement:(Requirement *)requirement;
-
-- (void)triggerEditEvent;
-- (void)triggerDoneEvent;
-- (BOOL)hasDataChanged;
-
-- (void)keyboardShow:(CGFloat)keyboardHeight;
-- (void)keyboardHide:(CGFloat)keyboardHeight;
 
 @end

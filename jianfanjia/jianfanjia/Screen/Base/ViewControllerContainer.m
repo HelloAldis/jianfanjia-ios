@@ -333,8 +333,8 @@ static ViewControllerContainer *container;
         RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToViewRequirement:requirement];
         [container.navigation pushViewController:v animated:YES];
     } else {
-        RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToCreateRequirement];
-        [container.navigation pushViewController:v animated:YES];
+//        RequirementCreateViewController *v = [[RequirementCreateViewController alloc] initToCreateRequirement];
+//        [container.navigation pushViewController:v animated:YES];
     }
 }
 

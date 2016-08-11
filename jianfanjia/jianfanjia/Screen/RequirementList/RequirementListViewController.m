@@ -41,9 +41,6 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 #pragma mark - init ui
 - (void)initNav {
     self.title = @"我要装修";
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"创建" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCreate:)];
-    self.navigationItem.rightBarButtonItem.tintColor = kThemeColor;
-    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
 
 - (void)initUI {
@@ -87,26 +84,11 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
     [self.tableView reloadData];
 }
 
-#pragma mark - actions
-- (IBAction)onClickCreate:(id)sender {
-    [[LoginEngine shared] showLogin:^(BOOL logined) {
-        if (logined) {
-            if (![GVUserDefaults standardUserDefaults].phone) {
-                [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
-                    [ViewControllerContainer showRequirementCreate:nil];
-                }];
-            } else {
-                [ViewControllerContainer showRequirementCreate:nil];
-            }
-        }
-    }];
-}
-
+#pragma mark - table view delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.dataManager.requirements count];
 }
 
-#pragma mark - table view delegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RequirementCell *cell = [tableView dequeueReusableCellWithIdentifier:RequirementCellIdentifier forIndexPath:indexPath];
     [cell initWithRequirement:self.dataManager.requirements[indexPath.row]];

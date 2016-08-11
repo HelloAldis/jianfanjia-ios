@@ -11,7 +11,6 @@
 
 @interface RequirementCreateViewController : BaseViewController
 
-- (id)initToCreateRequirement;
 - (id)initToViewRequirement:(Requirement *)requirement;
 
 @end
