@@ -128,8 +128,9 @@
             [self.btnChoosePlan setNormTitle:@"该方案未中标"];
         }],
        [ElseStatus action:^{
-            self.btnChoosePlan.enabled = YES;
-            [self.btnChoosePlan setBgColor:kFinishedColor];
+            self.btnChoosePlan.enabled = NO;
+            [self.btnChoosePlan setBgColor:kUntriggeredColor];
+            [self.btnChoosePlan setNormTitle:@"方案讨论中"];
         }],
        ]];
 }
