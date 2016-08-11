@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -205,16 +205,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="urH-7g-fOz" userLabel="ActionView">
                         <rect key="frame" x="0.0" y="96" width="320" height="50"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYC-nJ-pOJ">
-                                <rect key="frame" x="161" y="1" width="159" height="49"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <state key="normal" title="替换">
-                                    <color key="titleColor" red="0.20392156859999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MrO-VH-KEm">
-                                <rect key="frame" x="0.0" y="1" width="160" height="49"/>
+                                <rect key="frame" x="0.0" y="1" width="320" height="49"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <state key="normal" title="查看评价">
@@ -224,15 +216,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92941176469999998" green="0.93725490199999995" blue="0.94509803920000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="MrO-VH-KEm" firstAttribute="width" secondItem="WYC-nJ-pOJ" secondAttribute="width" id="4vI-5C-Rvm"/>
-                            <constraint firstItem="WYC-nJ-pOJ" firstAttribute="leading" secondItem="MrO-VH-KEm" secondAttribute="trailing" constant="1" id="7l9-xP-Lxd"/>
                             <constraint firstItem="MrO-VH-KEm" firstAttribute="top" secondItem="urH-7g-fOz" secondAttribute="top" constant="1" id="83K-aG-UVC"/>
-                            <constraint firstAttribute="bottom" secondItem="WYC-nJ-pOJ" secondAttribute="bottom" id="QA4-R7-6Uh"/>
-                            <constraint firstAttribute="trailing" secondItem="WYC-nJ-pOJ" secondAttribute="trailing" id="Zez-n7-apr"/>
                             <constraint firstAttribute="bottom" secondItem="MrO-VH-KEm" secondAttribute="bottom" id="h8i-0D-ceo"/>
+                            <constraint firstAttribute="trailing" secondItem="MrO-VH-KEm" secondAttribute="trailing" id="lhD-A2-03q"/>
                             <constraint firstItem="MrO-VH-KEm" firstAttribute="leading" secondItem="urH-7g-fOz" secondAttribute="leading" id="nPt-kJ-UHl"/>
                             <constraint firstAttribute="height" constant="50" id="o0g-aj-pXY"/>
-                            <constraint firstItem="WYC-nJ-pOJ" firstAttribute="top" secondItem="MrO-VH-KEm" secondAttribute="top" id="oN2-Rg-daV"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -250,7 +238,6 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="btnEvaluate" destination="MrO-VH-KEm" id="ap3-4V-Onb"/>
-                <outlet property="btnReplace" destination="WYC-nJ-pOJ" id="INe-PJ-ycL"/>
                 <outlet property="imgAvatar" destination="m7G-Wb-7M4" id="tS2-N6-zn8"/>
                 <outlet property="lblTag" destination="6kU-vd-a1i" id="ykL-W8-9F6"/>
                 <outlet property="lblUserNameVal" destination="lVS-Fl-7mA" id="a8V-fg-hed"/>

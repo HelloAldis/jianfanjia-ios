@@ -113,6 +113,9 @@ static NSString *PlanExpiredIdentifier = @"PlanExpiredCell";
        [PlanExpired action:^{
             height = 96;
         }],
+       [PlanDesignerDeclined action:^{
+            height = 96;
+        }],
       ]];
     
     return height;
