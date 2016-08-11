@@ -107,11 +107,6 @@
         [self onChoosePriceDetail];
     }];
     
-    [[self.btnChoosePlan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        [self onChoosePlan];
-    }];
-    
     [self initButtons];
 }
 
@@ -152,34 +147,6 @@
 
 - (void)onChoosePriceDetail {
     [ViewControllerContainer showPlanPriceDetail:self.plan requirement:self.requirement];
-}
-
-- (void)onChoosePlan {
-    @weakify(self);
-    [MessageAlertViewController presentAlert:@"选定方案" msg:@"您确定要选定此方案吗？" second:nil rejectTitle:@"取消" reject:nil agreeTitle:@"确定" agree:^{
-        @strongify(self);
-        ChoosePlan *request = [[ChoosePlan alloc] init];
-        request.planid = self.plan._id;
-        request.designerid = self.plan.designerid;
-        request.requirementid = self.plan.requirementid;
-        
-        [API choosePlan:request success:^{
-            self.plan.status = kPlanStatusPlanWasChoosed;
-            [self initButtons];
-            
-            if (self.refreshBlock) {
-                self.refreshBlock();
-            }
-            
-            if (self.popTo) {
-                [self.navigationController popToViewController:self.popTo animated:YES];
-            }
-        } failure:^{
-            
-        } networkError:^{
-            
-        }];
-    }];
 }
 
 @end
