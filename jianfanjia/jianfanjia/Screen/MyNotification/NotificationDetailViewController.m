@@ -177,8 +177,6 @@ static NSDictionary *NotificationTitles = nil;
         [self handlePlanSubmit];
     } else if ([self.notification.message_type isEqualToString:kUserPNFromDBYSRequest]) {
         [self handleDBYSRequest];
-    } else if ([self.notification.message_type isEqualToString:kUserPNFromMeasureHouseConfirm]) {
-        [self handleMeasureHouseConfirm];
     } else if ([self.notification.message_type isEqualToString:kUserPNFromAgreementConfigure]) {
         [self handleAgreementConfigure];
     } else {
@@ -235,30 +233,6 @@ static NSDictionary *NotificationTitles = nil;
         @strongify(self);
         [ViewControllerContainer showDBYS:section process:self.notification.processid popTo:nil refresh:nil];
     }];
-}
-
-- (void)handleMeasureHouseConfirm {
-    Plan *plan = self.notification.plan;
-    [StatusBlock matchPlan:plan.status actions:
-     @[[PlanDesignerResponded action:^{
-            [self.okDisposable dispose];
-            self.btnOk.hidden = NO;
-            [self.btnOk setNormTitle:@"确认量房"];
-            
-            @weakify(self);
-            self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-                @strongify(self);
-                [self confirmMeasureHouse];
-            }];
-        }],
-       [PlanDesignerMeasuredHouse action:^{
-            self.btnOk.hidden = NO;
-            [self.btnOk disable:@"已量房"];
-        }],
-       [ElseStatus action:^{
-            [self displayDefaultOk];
-        }],
-       ]];
 }
 
 - (void)handleAgreementConfigure {
@@ -332,19 +306,6 @@ static NSDictionary *NotificationTitles = nil;
         [HUDUtil hideWait];
     } networkError:^{
         [HUDUtil hideWait];
-    }];
-}
-
-- (void)confirmMeasureHouse {
-    ConfirmMeasuringHouse *request = [[ConfirmMeasuringHouse alloc] init];
-    request.designerid = self.notification.designerid;
-    request.requirementid = self.notification.requirement._id;
-    
-    [API confirmMeasuringHouse:request success:^{
-        self.notification.plan.status = kPlanStatusDesignerMeasuredHouseWithoutPlan;
-        [self initButtons];
-    } failure:^{
-    } networkError:^{
     }];
 }
 
