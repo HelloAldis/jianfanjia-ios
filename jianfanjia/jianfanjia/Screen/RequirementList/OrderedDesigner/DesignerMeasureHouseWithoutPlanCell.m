@@ -12,7 +12,6 @@
 @interface DesignerMeasureHouseWithoutPlanCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *imgAvatar;
 @property (weak, nonatomic) IBOutlet UILabel *lblUserNameVal;
-@property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
 @property (weak, nonatomic) IBOutlet UIButton *btnEvaluate;
 
 @property (weak, nonatomic) IBOutlet UIView *tagView;
