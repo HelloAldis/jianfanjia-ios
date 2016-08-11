@@ -114,28 +114,4 @@
     [_webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
 
-#pragma mark - user action
-- (IBAction)onClickConfirm:(id)sender {
-    self.btnConfirm.enabled = NO;
-    StartDecorationProcess *request = [[StartDecorationProcess alloc] init];
-    request.requirementid = self.requirement._id;
-    
-    [API startDecoration:request success:^{
-        self.requirement.status = kRequirementStatusConfiguredWorkSite;
-        [self initButtons];
-        
-        if (self.refreshBlock) {
-            self.refreshBlock();
-        }
-        
-        if (self.popTo) {
-            [self.navigationController popToViewController:self.popTo animated:YES];
-        }
-    } failure:^{
-        self.btnConfirm.enabled = YES;
-    } networkError:^{
-        self.btnConfirm.enabled = YES;
-    }];
-}
-
 @end
