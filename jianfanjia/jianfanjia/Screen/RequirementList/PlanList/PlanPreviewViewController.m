@@ -130,7 +130,7 @@
        [ElseStatus action:^{
             self.btnChoosePlan.enabled = NO;
             [self.btnChoosePlan setBgColor:kUntriggeredColor];
-            [self.btnChoosePlan setNormTitle:@"方案讨论中"];
+            [self.btnChoosePlan setNormTitle:@"方案沟通中"];
         }],
        ]];
 }
