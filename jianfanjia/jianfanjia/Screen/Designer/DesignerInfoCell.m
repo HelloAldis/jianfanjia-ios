@@ -59,12 +59,12 @@
 
 - (void)refreshAdd {
     if ([self.designer.is_my_favorite boolValue]) {
-        [self.btnAdd setNormTitle:@"取消意向"];
+        [self.btnAdd setNormTitle:@"取消关注"];
         [self.btnAdd setBgColor:[UIColor clearColor]];
         [self.btnAdd setNormTitleColor:kThemeColor];
         self.imgAdd.hidden = YES;
     } else {
-        [self.btnAdd setNormTitle:@"添加意向"];
+        [self.btnAdd setNormTitle:@"添加关注"];
         [self.btnAdd setBgColor:kThemeColor];
         [self.btnAdd setNormTitleColor:[UIColor whiteColor]];
         self.imgAdd.hidden = NO;
