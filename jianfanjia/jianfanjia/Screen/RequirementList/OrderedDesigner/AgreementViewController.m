@@ -55,9 +55,9 @@
         NSString *status = self.requirement.status;
         [StatusBlock matchReqt:status actions:
          @[[ReqtConfiguredAgreement action:^{
-                self.btnConfirm.enabled = YES;
-                [self.btnConfirm setNormTitle:@"确认开工"];
-                [self.btnConfirm setBgColor:kFinishedColor];
+                self.btnConfirm.enabled = NO;
+                [self.btnConfirm setNormTitle:@"等待开工"];
+                [self.btnConfirm setBgColor:kUntriggeredColor];
             }],
            [ReqtPlanWasChoosed action:^{
                 self.btnConfirm.enabled = NO;
