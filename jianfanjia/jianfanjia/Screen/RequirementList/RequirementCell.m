@@ -208,9 +208,11 @@
     [StatusBlock matchReqt:status actions:
      @[[ReqtUnorderDesigner action:^{
             self.lblRequirementStatusVal.textColor = kUntriggeredColor;
-            NSString *text = self.isJiangXin ? @"请点击前往预约1名匠心定制设计师" : @"已为您匹配3名设计师请点击前往预约";
-            [self updateGoToWorksite:text titleColor:kFinishedColor];
-            [self gotoShowOrderDesigner];
+//            NSString *text = self.isJiangXin ? @"请点击前往预约1名匠心定制设计师" : @"已为您匹配3名设计师请点击前往预约";
+//            [self updateGoToWorksite:text titleColor:kFinishedColor];
+//            [self gotoShowOrderDesigner];
+            [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
+            [self gotoShowPreviewWorksite];
         }],
        [ReqtConfiguredAgreement action:^{
             self.lblRequirementStatusVal.textColor = kFinishedColor;
