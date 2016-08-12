@@ -208,9 +208,6 @@
     [StatusBlock matchReqt:status actions:
      @[[ReqtUnorderDesigner action:^{
             self.lblRequirementStatusVal.textColor = kUntriggeredColor;
-//            NSString *text = self.isJiangXin ? @"请点击前往预约1名匠心定制设计师" : @"已为您匹配3名设计师请点击前往预约";
-//            [self updateGoToWorksite:text titleColor:kFinishedColor];
-//            [self gotoShowOrderDesigner];
             [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
             [self gotoShowPreviewWorksite];
         }],
@@ -235,7 +232,9 @@
             [self gotoShowWorksite];
         }],
        [ElseStatus action:^{
-            [self configGotoByPlanStatus];
+            self.lblRequirementStatusVal.textColor = kUntriggeredColor;
+            [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
+            [self gotoShowPreviewWorksite];
         }],
       ]];
 }
@@ -345,30 +344,6 @@
         @strongify(self);
         [ViewControllerContainer showAgreement:self.requirement popTo:[ViewControllerContainer getCurrentTapController] refresh:nil];
     }];
-}
-
-- (void)configGotoByPlanStatus {
-    static NSArray *actionStatus;
-    actionStatus = @[kPlanStatusDesignerRespondedWithoutMeasureHouse, kPlanStatusDesignerSubmittedPlan];
-    
-    __block NSInteger actionIndex = -1;
-    [self.dataManager.orderedDesigners enumerateObjectsUsingBlock:^(Designer *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString *status = obj.plan.status;
-        if ([actionStatus containsObject:status]) {
-            actionIndex = idx;
-            *stop = YES;
-        }
-    }];
-    
-    if (actionIndex != -1) {
-        self.lblRequirementStatusVal.textColor = kFinishedColor;
-        [self updateGoToWorksite:@"设计师有新动态，请点击查看" titleColor:kFinishedColor];
-        [self gotoShowOrderedDesigner];
-    } else {
-        self.lblRequirementStatusVal.textColor = kPassStatusColor;
-        [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
-        [self gotoShowPreviewWorksite];
-    }
 }
 
 @end
