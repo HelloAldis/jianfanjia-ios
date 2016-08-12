@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		56CBE3D3BC92C84B87485D71 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E880679EA1BA62E519E5B05 /* libPods.a */; };
 		6804A7011CA5312400E7A9AF /* AutoScrollUIScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */; };
+		6808FBC51D5DC1A500221143 /* DesignerStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6808FBC31D5DC1A500221143 /* DesignerStatusCell.m */; };
+		6808FBC61D5DC1A500221143 /* DesignerStatusCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6808FBC41D5DC1A500221143 /* DesignerStatusCell.xib */; };
 		680C40DA1CC4BB31008C4BC0 /* BaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40D91CC4BB30008C4BC0 /* BaseAPI.m */; };
 		680C40DF1CC4BB38008C4BC0 /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40DE1CC4BB38008C4BC0 /* API.m */; };
 		680C40E21CC4BE84008C4BC0 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 680C40E11CC4BE84008C4BC0 /* APIManager.m */; };
@@ -621,6 +623,9 @@
 /* Begin PBXFileReference section */
 		6804A6FF1CA5312400E7A9AF /* AutoScrollUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoScrollUIScrollView.h; sourceTree = "<group>"; };
 		6804A7001CA5312400E7A9AF /* AutoScrollUIScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoScrollUIScrollView.m; sourceTree = "<group>"; };
+		6808FBC21D5DC1A500221143 /* DesignerStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesignerStatusCell.h; sourceTree = "<group>"; };
+		6808FBC31D5DC1A500221143 /* DesignerStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesignerStatusCell.m; sourceTree = "<group>"; };
+		6808FBC41D5DC1A500221143 /* DesignerStatusCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DesignerStatusCell.xib; sourceTree = "<group>"; };
 		680C40D81CC4BB30008C4BC0 /* BaseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseAPI.h; sourceTree = "<group>"; };
 		680C40D91CC4BB30008C4BC0 /* BaseAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseAPI.m; sourceTree = "<group>"; };
 		680C40DD1CC4BB38008C4BC0 /* API.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
@@ -3202,6 +3207,9 @@
 				6855E62F1BFAC78A00E789D4 /* RequirementCell.h */,
 				6855E6301BFAC78A00E789D4 /* RequirementCell.m */,
 				6855E6311BFAC78A00E789D4 /* RequirementCell.xib */,
+				6808FBC21D5DC1A500221143 /* DesignerStatusCell.h */,
+				6808FBC31D5DC1A500221143 /* DesignerStatusCell.m */,
+				6808FBC41D5DC1A500221143 /* DesignerStatusCell.xib */,
 			);
 			path = RequirementList;
 			sourceTree = "<group>";
@@ -3559,6 +3567,7 @@
 				684A370F1BFD733500F7388C /* OrderedDesignerViewController.xib in Resources */,
 				68EE3E341D12B6D800F5EF83 /* AddDiaryImgsCell.xib in Resources */,
 				6850A6061CCA21F50085940A /* CityCell.xib in Resources */,
+				6808FBC61D5DC1A500221143 /* DesignerStatusCell.xib in Resources */,
 				68123C651C4C8B99008FC9AB /* SelectCityViewController.xib in Resources */,
 				685B14561CEB0FEB0076996A /* DecorationStyleCell.xib in Resources */,
 				68E600481CB3B39600C4A8F7 /* DecPackage365View.xib in Resources */,
@@ -3937,6 +3946,7 @@
 				685DD4531C89761E00A76B9C /* CommentListDataManager.m in Sources */,
 				689ECEDC1D00384B0046DDC8 /* ProductBusiness.m in Sources */,
 				68F73CF21CBB3AB900E97710 /* PlanUnorder.m in Sources */,
+				6808FBC51D5DC1A500221143 /* DesignerStatusCell.m in Sources */,
 				689ECE7C1CFC16C00046DDC8 /* ShareManager.m in Sources */,
 				684B04421C9943AC0053FFDF /* GetDesignerUnreadCount.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
