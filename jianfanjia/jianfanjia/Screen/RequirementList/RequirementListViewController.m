@@ -15,9 +15,10 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 
 @interface RequirementListViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UIButton *btnCreate;
-@property (weak, nonatomic) IBOutlet UILabel *lblNoRequirement;
+@property (weak, nonatomic) IBOutlet UIScrollView *reqScrollView;
+@property (weak, nonatomic) IBOutlet UITextField *fldNickName;
+@property (weak, nonatomic) IBOutlet UITextField *fldPhone;
+@property (weak, nonatomic) IBOutlet UIButton *btnReq;
 
 @property (strong, nonatomic) RequirementDataManager *dataManager;
 
@@ -33,9 +34,30 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
     [self initNav];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    @weakify(self);
+    [self jfj_subscribeKeyboardWithAnimations:^(CGRect keyboardRect, BOOL isShowing) {
+        @strongify(self);
+        if (isShowing) {
+            CGFloat keyboardHeight = keyboardRect.size.height;
+            self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, keyboardHeight+kTabBarHeight, 0);
+            self.reqScrollView.contentOffset = CGPointMake(0, keyboardHeight-kNavWithStatusBarHeight-40);
+        } else {
+            self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
+        }
+    } completion:nil];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self refreshRequirements:NO];
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [self jfj_unsubscribeKeyboard];
 }
 
 #pragma mark - init ui
@@ -55,22 +77,44 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         [self refreshRequirements:NO];
     }];
     
+    self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
+    self.reqScrollView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
+    [self.btnReq setCornerRadius:5];
+    [self.fldNickName setCornerRadius:5];
+    [self.fldPhone setCornerRadius:5];
+    
+    [self setLeftPadding:self.fldNickName withImage:[UIImage imageNamed:@"icon_account_phone"]];
+    [self setLeftPadding:self.fldPhone withImage:[UIImage imageNamed:@"icon_account_phone"]];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRequirementCreate) name:kRequirementCreateNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLogout) name:kLogoutNotification object:nil];
 }
 
+- (void)setLeftPadding:(UITextField *)textField withImage:(UIImage *)image {
+    CGRect frame = textField.frame;
+    frame.origin.x = 0;
+    frame.origin.y = 0;
+    frame.size.width = 60;
+    UIView *leftview = [[UIView alloc] init];
+    leftview.frame = frame;
+    
+    frame.size.width = frame.size.height;
+    UIImageView *leftImg = [[UIImageView alloc] initWithFrame:frame];
+    leftImg.backgroundColor = [UIColor colorWithR:0xE7 g:0xEC b:0xEF];
+    leftImg.image = image;
+    leftImg.contentMode = UIViewContentModeCenter;
+
+    [leftview addSubview:leftImg];
+    textField.leftViewMode = UITextFieldViewModeAlways;
+    textField.leftView = leftview;
+}
+
 - (void)showRequirementList:(BOOL)show {
     if (show) {
-        self.btnCreate.hidden = YES;
-        self.lblNoRequirement.hidden = YES;
-        self.imageView.hidden = YES;
-        
+        self.reqScrollView.hidden = YES;
         self.tableView.hidden = NO;
     } else {
-        self.btnCreate.hidden = NO;
-        self.lblNoRequirement.hidden = NO;
-        self.imageView.hidden = NO;
-
+        self.reqScrollView.hidden = NO;
         self.tableView.hidden = YES;
     }
 }
