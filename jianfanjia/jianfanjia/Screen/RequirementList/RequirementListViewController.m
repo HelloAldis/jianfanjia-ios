@@ -63,6 +63,9 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 #pragma mark - init ui
 - (void)initNav {
     self.title = @"我要装修";
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"联系客服" style:UIBarButtonItemStylePlain target:self action:@selector(onClickCustomerService)];
+    self.navigationItem.rightBarButtonItem.tintColor = kTextColor;
+    [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:kRightNavItemFontSize]} forState:UIControlStateNormal];
 }
 
 - (void)initUI {
@@ -217,6 +220,15 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
     } else {
         [self showRequirementList:NO];
     }
+}
+
+#pragma mark - user action
+- (void)onClickCustomerService {
+    [PhoneUtil call:@"咨询热线" phone:kConsultPhone];
+}
+
+- (IBAction)onClickRequest:(id)sender {
+    
 }
 
 @end

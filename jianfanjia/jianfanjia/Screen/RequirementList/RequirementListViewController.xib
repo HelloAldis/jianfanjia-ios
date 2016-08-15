@@ -81,6 +81,9 @@
                             <state key="normal" title="立即申请">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="onClickRequest:" destination="-1" eventType="touchUpInside" id="AUc-01-nlD"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：目前仅支持武汉地区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS7-EN-yPO">
                             <rect key="frame" x="136" y="510" width="143" height="16"/>
