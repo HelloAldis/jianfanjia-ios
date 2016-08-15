@@ -94,7 +94,7 @@
         return kPhoneLength;
     }] subscribeNext:^(id x) {
         self.fldSignupPhone.text = x;
-    }];;
+    }];
     
     [[[self.fldPassword.rac_textSignal filterNonSpace:^BOOL{
         return YES;

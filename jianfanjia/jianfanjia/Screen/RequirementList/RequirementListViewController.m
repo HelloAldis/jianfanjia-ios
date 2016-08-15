@@ -80,6 +80,15 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         [self refreshRequirements:NO];
     }];
     
+    [[[self.fldPhone.rac_textSignal filterNonDigit:^BOOL{
+        return YES;
+    }] length:^NSInteger{
+        return kPhoneLength;
+    }] subscribeNext:^(id x) {
+        @strongify(self);
+        self.fldPhone.text = x;
+    }];
+    
     self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
     self.reqScrollView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
     [self.btnReq setCornerRadius:5];
