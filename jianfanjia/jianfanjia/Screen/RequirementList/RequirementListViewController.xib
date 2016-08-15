@@ -58,7 +58,7 @@
                                 <constraint firstAttribute="height" constant="45" id="1My-ap-xGf"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            <textInputTraits key="textInputTraits"/>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obh-yo-CBl">
                             <rect key="frame" x="50" y="385" width="314" height="45"/>
@@ -67,7 +67,7 @@
                                 <constraint firstAttribute="height" constant="30" id="L75-4h-tTl"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="L75-4h-tTl"/>
