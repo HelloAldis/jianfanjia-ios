@@ -12,7 +12,6 @@
 #import "DesignerDetailCell.h"
 #import "DesignerProductCell.h"
 #import "DesignerPageData.h"
-#import "ViewControllerContainer.h"
 
 @interface DesignerViewController ()
 
@@ -35,6 +34,11 @@
     [super viewDidLoad];
     [self initNav];
     [self initUI];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self configDefaultNavStyle];
 }
 
 - (void)initNav {
@@ -250,37 +254,6 @@
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
         }
     }
-}
-
-- (void)onClickOrder:(id)sender {
-    [[LoginEngine shared] showLogin:^(BOOL logined) {
-        if (logined) {
-            if (![GVUserDefaults standardUserDefaults].phone) {
-                [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
-                    [self sendOrderRequest];
-                }];
-            } else {
-                [self sendOrderRequest];
-            }
-        }
-    }];
-}
-
-- (void)sendOrderRequest {
-    AddAngelUser *request = [[AddAngelUser alloc] init];
-    request.name = [GVUserDefaults standardUserDefaults].username;
-    request.phone = [GVUserDefaults standardUserDefaults].phone;
-    request.district = kAngelUserDistrictRequirement;
-    request.designerid = self.designerid;
-    
-    [HUDUtil showWait];
-    [API addAngelUser:request success:^{
-        [HUDUtil showSuccessText:@"申请成功"];
-    } failure:^{
-        
-    } networkError:^{
-        
-    }];
 }
 
 #pragma mark - Util

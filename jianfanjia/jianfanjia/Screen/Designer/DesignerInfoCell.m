@@ -7,6 +7,7 @@
 //
 
 #import "DesignerInfoCell.h"
+#import "ViewControllerContainer.h"
 
 @interface DesignerInfoCell ()
 
@@ -17,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *vImageView;
 @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *starts;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;
-@property (weak, nonatomic) IBOutlet UIImageView *imgAdd;
+@property (weak, nonatomic) IBOutlet UIButton *btnOrder;
 
 @property (strong, nonatomic) Designer *designer;
 
@@ -27,7 +28,8 @@
 
 - (void)awakeFromNib {
     [self.btnAdd setCornerRadius:self.btnAdd.frame.size.height / 2.0];
-    [self.btnAdd setBorder:2 andColor:[kThemeColor CGColor]];
+    [self.btnAdd setBorder:1 andColor:[kThemeColor CGColor]];
+    [self.btnOrder setCornerRadius:self.btnOrder.frame.size.height / 2.0];
     [self.designerImageView setCornerRadius:self.designerImageView.frame.size.width / 2.0];
     [self.designerImageView setBorder:1 andColor:[UIColor whiteColor].CGColor];
     [self.tagView setCornerRadius:self.tagView.frame.size.height / 2.0];
@@ -59,16 +61,45 @@
 
 - (void)refreshAdd {
     if ([self.designer.is_my_favorite boolValue]) {
-        [self.btnAdd setNormTitle:@"取消关注"];
-        [self.btnAdd setBgColor:[UIColor clearColor]];
-        [self.btnAdd setNormTitleColor:kThemeColor];
-        self.imgAdd.hidden = YES;
-    } else {
-        [self.btnAdd setNormTitle:@"添加关注"];
+        [self.btnAdd setNormTitle:@"已关注"];
         [self.btnAdd setBgColor:kThemeColor];
         [self.btnAdd setNormTitleColor:[UIColor whiteColor]];
-        self.imgAdd.hidden = NO;
+    } else {
+        [self.btnAdd setNormTitle:@"关注"];
+        [self.btnAdd setBgColor:[UIColor clearColor]];
+        [self.btnAdd setNormTitleColor:kThemeColor];
     }
+}
+
+- (IBAction)onClickOrder:(id)sender {
+    [[LoginEngine shared] showLogin:^(BOOL logined) {
+        if (logined) {
+            if (![GVUserDefaults standardUserDefaults].phone) {
+                [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
+                    [self sendOrderRequest];
+                }];
+            } else {
+                [self sendOrderRequest];
+            }
+        }
+    }];
+}
+
+- (void)sendOrderRequest {
+    AddAngelUser *request = [[AddAngelUser alloc] init];
+    request.name = [GVUserDefaults standardUserDefaults].username;
+    request.phone = [GVUserDefaults standardUserDefaults].phone;
+    request.district = kAngelUserDistrictRequirement;
+    request.designerid = self.designer._id;
+    
+    [HUDUtil showWait];
+    [API addAngelUser:request success:^{
+        [HUDUtil showSuccessText:@"申请成功"];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
 }
 
 - (IBAction)onClickAdd:(id)sender {

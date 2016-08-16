@@ -84,7 +84,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王大雷" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CmF-aq-MHT">
-                        <rect key="frame" x="53" y="92" width="214" height="17"/>
+                        <rect key="frame" x="27" y="92" width="266" height="17"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="U3f-SQ-zYY"/>
                         </constraints>
@@ -159,26 +159,33 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2j2-Zi-RyX">
-                        <rect key="frame" x="53" y="219" width="214" height="40"/>
+                        <rect key="frame" x="142" y="219" width="151" height="40"/>
                         <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="jYH-Zx-bc5"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                        <state key="normal" title="添加关注">
+                        <state key="normal" title="立即预约">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="onClickAdd:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="yoo-cM-q5H"/>
+                            <action selector="onClickOrder:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="hdW-4a-cqx"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_favoriate_designer" translatesAutoresizingMaskIntoConstraints="NO" id="cg7-Hj-dVB">
-                        <rect key="frame" x="239" y="233" width="13" height="13"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phA-ea-J1f">
+                        <rect key="frame" x="27" y="219" width="100" height="40"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="13" id="NV6-bB-xkU"/>
-                            <constraint firstAttribute="width" secondItem="cg7-Hj-dVB" secondAttribute="height" id="wlf-lp-LWc"/>
+                            <constraint firstAttribute="height" constant="40" id="atG-gc-XzQ"/>
                         </constraints>
-                    </imageView>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <state key="normal" title="关注">
+                            <color key="titleColor" red="1" green="0.43921568630000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="onClickAdd:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="afC-V7-X51"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="CmF-aq-MHT" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="00a-Y3-Wyo"/>
@@ -186,15 +193,16 @@
                     <constraint firstItem="KVE-ww-Gyt" firstAttribute="leading" secondItem="NSd-gx-JPd" secondAttribute="trailing" constant="-15" id="3zF-eO-K9e"/>
                     <constraint firstItem="APo-Do-Qtc" firstAttribute="leading" secondItem="klb-Hh-jFa" secondAttribute="trailing" constant="2" id="4aH-ln-x3f"/>
                     <constraint firstItem="APo-Do-Qtc" firstAttribute="centerX" secondItem="CmF-aq-MHT" secondAttribute="centerX" id="6YD-n0-aYi"/>
+                    <constraint firstItem="2j2-Zi-RyX" firstAttribute="width" secondItem="phA-ea-J1f" secondAttribute="width" multiplier="3:2" id="6l6-J9-ct3"/>
                     <constraint firstItem="2j2-Zi-RyX" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="2/3" id="8tk-g7-Rzv"/>
-                    <constraint firstItem="cg7-Hj-dVB" firstAttribute="centerY" secondItem="2j2-Zi-RyX" secondAttribute="centerY" id="9IR-ev-adl"/>
                     <constraint firstItem="hl6-9h-8CQ" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="1/3" id="BGD-s8-GCk"/>
                     <constraint firstItem="hl6-9h-8CQ" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="bottom" constant="20" id="CUq-fT-5p8"/>
-                    <constraint firstItem="cg7-Hj-dVB" firstAttribute="trailing" secondItem="2j2-Zi-RyX" secondAttribute="trailing" constant="-15" id="Dmb-lf-y0t"/>
                     <constraint firstItem="YVX-LH-45b" firstAttribute="leading" secondItem="hl6-9h-8CQ" secondAttribute="leading" id="DqI-Wj-zje"/>
                     <constraint firstItem="CmF-aq-MHT" firstAttribute="width" secondItem="2j2-Zi-RyX" secondAttribute="width" id="EWs-Ye-1SN"/>
                     <constraint firstItem="NSd-gx-JPd" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="12" id="FF2-Xn-xgK"/>
+                    <constraint firstItem="2j2-Zi-RyX" firstAttribute="trailing" secondItem="CmF-aq-MHT" secondAttribute="trailing" id="Fgr-4z-hUs"/>
                     <constraint firstItem="ckb-R1-5OW" firstAttribute="leading" secondItem="CYy-TQ-OFB" secondAttribute="leading" id="FpG-rU-L1a"/>
+                    <constraint firstItem="phA-ea-J1f" firstAttribute="leading" secondItem="CmF-aq-MHT" secondAttribute="leading" id="G4w-hi-6zC"/>
                     <constraint firstItem="lcs-IN-5uf" firstAttribute="leading" secondItem="APo-Do-Qtc" secondAttribute="trailing" constant="2" id="HNW-51-E4k"/>
                     <constraint firstItem="CYy-TQ-OFB" firstAttribute="leading" secondItem="hl6-9h-8CQ" secondAttribute="trailing" id="I0F-6R-LDV"/>
                     <constraint firstItem="lcs-IN-5uf" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="top" id="JXZ-ZA-G6d"/>
@@ -218,6 +226,9 @@
                     <constraint firstAttribute="bottomMargin" secondItem="2j2-Zi-RyX" secondAttribute="bottom" constant="26" id="hEc-Ro-CC4"/>
                     <constraint firstItem="klb-Hh-jFa" firstAttribute="top" secondItem="APo-Do-Qtc" secondAttribute="top" id="hNV-Kw-evt"/>
                     <constraint firstItem="APo-Do-Qtc" firstAttribute="top" secondItem="CmF-aq-MHT" secondAttribute="bottom" constant="12" id="kNC-Np-hOY"/>
+                    <constraint firstItem="phA-ea-J1f" firstAttribute="centerY" secondItem="2j2-Zi-RyX" secondAttribute="centerY" id="kca-i4-aer"/>
+                    <constraint firstItem="2j2-Zi-RyX" firstAttribute="leading" secondItem="phA-ea-J1f" secondAttribute="trailing" constant="15" id="lDI-hb-q7D"/>
+                    <constraint firstItem="CmF-aq-MHT" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="5/6" id="m8j-YD-Eba"/>
                     <constraint firstItem="lfI-S9-rNX" firstAttribute="leading" secondItem="CYy-TQ-OFB" secondAttribute="trailing" constant="-1" id="mjL-Wg-PYE"/>
                     <constraint firstItem="ckb-R1-5OW" firstAttribute="width" secondItem="CYy-TQ-OFB" secondAttribute="width" id="nkD-2Z-VlT"/>
                     <constraint firstItem="CmF-aq-MHT" firstAttribute="top" secondItem="NSd-gx-JPd" secondAttribute="bottom" constant="12" id="tEi-4d-rME"/>
@@ -227,11 +238,18 @@
                     <constraint firstItem="klb-Hh-jFa" firstAttribute="leading" secondItem="cFW-DK-YKk" secondAttribute="trailing" constant="2" id="zIT-qD-foZ"/>
                     <constraint firstItem="66y-dg-tGe" firstAttribute="centerY" secondItem="YVX-LH-45b" secondAttribute="centerY" id="zyM-2l-kJO"/>
                 </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="EWs-Ye-1SN"/>
+                        <exclude reference="8tk-g7-Rzv"/>
+                        <exclude reference="yvA-Co-w8t"/>
+                    </mask>
+                </variation>
             </tableViewCellContentView>
             <connections>
-                <outlet property="btnAdd" destination="2j2-Zi-RyX" id="UjR-v7-i8N"/>
+                <outlet property="btnAdd" destination="phA-ea-J1f" id="6x5-WD-gMg"/>
+                <outlet property="btnOrder" destination="2j2-Zi-RyX" id="bxn-MU-r5s"/>
                 <outlet property="designerImageView" destination="NSd-gx-JPd" id="mcF-oi-tZT"/>
-                <outlet property="imgAdd" destination="cg7-Hj-dVB" id="nR5-nb-Yd6"/>
                 <outlet property="imgHandings" destination="vlC-ce-Bxm" id="iTx-rT-kQE"/>
                 <outlet property="lblDesignerName" destination="CmF-aq-MHT" id="sq5-aS-FH0"/>
                 <outlet property="lblOrderCount" destination="lfI-S9-rNX" id="1Dq-eR-mG0"/>
@@ -254,7 +272,6 @@
     </objects>
     <resources>
         <image name="icon_crown" width="22" height="21"/>
-        <image name="icon_favoriate_designer" width="13" height="13"/>
         <image name="image_place_holder_2" width="60" height="60"/>
         <image name="star_middle_empty" width="17" height="15"/>
         <image name="v" width="16" height="16"/>
