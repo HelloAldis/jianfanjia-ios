@@ -42,10 +42,11 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         @strongify(self);
         if (isShowing) {
             CGFloat keyboardHeight = keyboardRect.size.height;
-            self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, keyboardHeight+kTabBarHeight, 0);
-            self.reqScrollView.contentOffset = CGPointMake(0, keyboardHeight-kNavWithStatusBarHeight-40);
+            self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, keyboardHeight + kTabBarHeight, 0);
+            self.reqScrollView.contentOffset = CGPointMake(0, keyboardHeight - kNavWithStatusBarHeight);
         } else {
             self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
+            self.reqScrollView.contentOffset = CGPointMake(0, -kNavWithStatusBarHeight);
         }
     } completion:nil];
 }
