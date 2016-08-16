@@ -294,4 +294,8 @@
     [API POST:@"favorite/diaryset/list" data:request.data handler:request success:success failure:failure networkError:error];
 }
 
++ (void)addAngelUser:(AddAngelUser *)request success:(void (^)(void))success failure:(void (^)(void))failure networkError:(void (^)(void))error {
+    [API POST:@"add_angel_user" data:request.data handler:request success:success failure:failure networkError:error];
+}
+
 @end

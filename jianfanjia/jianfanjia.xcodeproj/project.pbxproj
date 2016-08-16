@@ -277,6 +277,7 @@
 		6865A3991D36509A00B3CB26 /* AlertUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3981D36509A00B3CB26 /* AlertUtil.m */; };
 		6865A3A71D38E9A000B3CB26 /* UINavigationController+FPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3A61D38E9A000B3CB26 /* UINavigationController+FPS.m */; };
 		6865A3AE1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3AD1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m */; };
+		68673CC41D62A2AC001ACC4D /* AddAngelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 68673CC31D62A2AC001ACC4D /* AddAngelUser.m */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1074,6 +1075,8 @@
 		6865A3A61D38E9A000B3CB26 /* UINavigationController+FPS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FPS.m"; sourceTree = "<group>"; };
 		6865A3AC1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+TemplateLayoutCell.h"; sourceTree = "<group>"; };
 		6865A3AD1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+TemplateLayoutCell.m"; sourceTree = "<group>"; };
+		68673CC21D62A2AC001ACC4D /* AddAngelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAngelUser.h; sourceTree = "<group>"; };
+		68673CC31D62A2AC001ACC4D /* AddAngelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAngelUser.m; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -2848,6 +2851,8 @@
 				688517791C927A30000B01DB /* SearchUserComment.m */,
 				684B03C51C96CB2B0053FFDF /* SearchDecLive.h */,
 				684B03C61C96CB2B0053FFDF /* SearchDecLive.m */,
+				68673CC21D62A2AC001ACC4D /* AddAngelUser.h */,
+				68673CC31D62A2AC001ACC4D /* AddAngelUser.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -3948,6 +3953,7 @@
 				68F73CF21CBB3AB900E97710 /* PlanUnorder.m in Sources */,
 				6808FBC51D5DC1A500221143 /* DesignerStatusCell.m in Sources */,
 				689ECE7C1CFC16C00046DDC8 /* ShareManager.m in Sources */,
+				68673CC41D62A2AC001ACC4D /* AddAngelUser.m in Sources */,
 				684B04421C9943AC0053FFDF /* GetDesignerUnreadCount.m in Sources */,
 				6E07DAD51BD8BACD001461DD /* Constant.m in Sources */,
 				6865A3721D309D4900B3CB26 /* DiarySetLeftMenuViewController.m in Sources */,

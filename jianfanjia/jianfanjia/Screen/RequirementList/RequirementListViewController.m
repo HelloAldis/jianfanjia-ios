@@ -89,6 +89,14 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         self.fldPhone.text = x;
     }];
     
+    [[RACSignal
+      combineLatest:@[self.fldPhone.rac_textSignal, self.fldNickName.rac_textSignal]
+      reduce:^(NSString *phone, NSString *nickName) {
+          return @([AccountBusiness validatePhone:phone] && ![nickName isEmpty]);
+      }] subscribeNext:^(id x) {
+          [self.btnReq enableBgColor:[x boolValue]];
+      }];
+    
     self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
     self.reqScrollView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
     [self.btnReq setCornerRadius:5];
@@ -98,7 +106,6 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
     [self setLeftPadding:self.fldNickName withImage:[UIImage imageNamed:@"icon_requirement_nickname"]];
     [self setLeftPadding:self.fldPhone withImage:[UIImage imageNamed:@"icon_requirement_phone"]];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleRequirementCreate) name:kRequirementCreateNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleLogout) name:kLogoutNotification object:nil];
 }
 
@@ -137,10 +144,6 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         self.reqScrollView.hidden = NO;
         self.tableView.hidden = YES;
     }
-}
-
-- (void)handleRequirementCreate {
-    [self.tableView setContentOffset:CGPointMake(0, -self.tableView.contentInset.top) animated:YES];
 }
 
 - (void)handleLogout {
@@ -237,7 +240,22 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
 }
 
 - (IBAction)onClickRequest:(id)sender {
+    AddAngelUser *request = [[AddAngelUser alloc] init];
+    request.name = self.fldNickName.text;
+    request.phone = self.fldPhone.text;
+    request.district = kAngelUserDistrictRequirement;
     
+    [HUDUtil showWait];
+    [API addAngelUser:request success:^{
+        [self.view endEditing:YES];
+        self.fldPhone.text = nil;
+        self.fldNickName.text = nil;
+        [HUDUtil showSuccessText:@"申请成功, 我们客服会在24小时之内与您联系。"];
+    } failure:^{
+        
+    } networkError:^{
+        
+    }];
 }
 
 @end

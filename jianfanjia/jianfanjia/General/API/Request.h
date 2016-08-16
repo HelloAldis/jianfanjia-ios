@@ -80,5 +80,6 @@
 #import "UnfavoriteDiarySet.h"
 #import "GetTopDiarySet.h"
 #import "ListFavoriateDiarySet.h"
+#import "AddAngelUser.h"
 
 #endif
