@@ -8,6 +8,7 @@
 
 #import "DesignerInfoCell.h"
 #import "ViewControllerContainer.h"
+#import "SuccessAlertViewController.h"
 
 @interface DesignerInfoCell ()
 
@@ -89,12 +90,12 @@
     AddAngelUser *request = [[AddAngelUser alloc] init];
     request.name = [GVUserDefaults standardUserDefaults].username;
     request.phone = [GVUserDefaults standardUserDefaults].phone;
-    request.district = kAngelUserDistrictRequirement;
+    request.district = kAngelUserDistrictDesigner;
     request.designerid = self.designer._id;
     
     [HUDUtil showWait];
     [API addAngelUser:request success:^{
-        [HUDUtil showSuccessText:@"申请成功"];
+        [SuccessAlertViewController presentAlert:@"预约成功" msg:@"我们的工作人员将在24小时之内与您联系，请保持电话畅通" ok:nil];
     } failure:^{
         
     } networkError:^{

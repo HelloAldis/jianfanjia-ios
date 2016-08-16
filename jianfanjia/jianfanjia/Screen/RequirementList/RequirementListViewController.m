@@ -10,6 +10,7 @@
 #import "RequirementDataManager.h"
 #import "RequirementCell.h"
 #import "ViewControllerContainer.h"
+#import "SuccessAlertViewController.h"
 
 static NSString *RequirementCellIdentifier = @"RequirementCell";
 
@@ -251,7 +252,8 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         [self.view endEditing:YES];
         self.fldPhone.text = nil;
         self.fldNickName.text = nil;
-        [HUDUtil showSuccessText:@"申请成功, 我们客服会在24小时之内与您联系。"];
+        [self.btnReq enableBgColor:NO];
+        [SuccessAlertViewController presentAlert:@"申请成功" msg:@"我们的工作人员将在24小时之内与您联系，请保持电话畅通" ok:nil];
     } failure:^{
         
     } networkError:^{

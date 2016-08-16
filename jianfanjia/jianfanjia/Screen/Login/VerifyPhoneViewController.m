@@ -100,7 +100,7 @@
                 [HUDUtil showWait];
                 [API bindPhone:request success:^{
                     [GVUserDefaults standardUserDefaults].phone = request.phone;
-                    [HUDUtil showSuccessText:@"绑定成功"];
+//                    [HUDUtil showSuccessText:@"绑定成功"];
                     [self.presentingViewController dismissViewControllerAnimated:YES completion:^{
                         if (self.callback) {
                             self.callback();

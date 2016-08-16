@@ -278,6 +278,8 @@
 		6865A3A71D38E9A000B3CB26 /* UINavigationController+FPS.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3A61D38E9A000B3CB26 /* UINavigationController+FPS.m */; };
 		6865A3AE1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6865A3AD1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m */; };
 		68673CC41D62A2AC001ACC4D /* AddAngelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 68673CC31D62A2AC001ACC4D /* AddAngelUser.m */; };
+		68673CC81D62BE18001ACC4D /* SuccessAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68673CC61D62BE18001ACC4D /* SuccessAlertViewController.m */; };
+		68673CC91D62BE18001ACC4D /* SuccessAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68673CC71D62BE18001ACC4D /* SuccessAlertViewController.xib */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1077,6 +1079,9 @@
 		6865A3AD1D3CB53600B3CB26 /* UITableView+TemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+TemplateLayoutCell.m"; sourceTree = "<group>"; };
 		68673CC21D62A2AC001ACC4D /* AddAngelUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddAngelUser.h; sourceTree = "<group>"; };
 		68673CC31D62A2AC001ACC4D /* AddAngelUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddAngelUser.m; sourceTree = "<group>"; };
+		68673CC51D62BE18001ACC4D /* SuccessAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuccessAlertViewController.h; sourceTree = "<group>"; };
+		68673CC61D62BE18001ACC4D /* SuccessAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuccessAlertViewController.m; sourceTree = "<group>"; };
+		68673CC71D62BE18001ACC4D /* SuccessAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessAlertViewController.xib; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -1832,6 +1837,9 @@
 		68123C311C4C8B99008FC9AB /* CustomAlert */ = {
 			isa = PBXGroup;
 			children = (
+				68673CC51D62BE18001ACC4D /* SuccessAlertViewController.h */,
+				68673CC61D62BE18001ACC4D /* SuccessAlertViewController.m */,
+				68673CC71D62BE18001ACC4D /* SuccessAlertViewController.xib */,
 				68123C321C4C8B99008FC9AB /* DateAlertViewController.h */,
 				68123C331C4C8B99008FC9AB /* DateAlertViewController.m */,
 				68123C341C4C8B99008FC9AB /* DateAlertViewController.xib */,
@@ -3558,6 +3566,7 @@
 				68711B6A1CD89D3B009B585F /* OrderTaggedDesignerViewController.xib in Resources */,
 				685B144D1CEB0FB60076996A /* SelectPopulationViewController.xib in Resources */,
 				68EE3E321D12B6D800F5EF83 /* AddDiaryDescCell.xib in Resources */,
+				68673CC91D62BE18001ACC4D /* SuccessAlertViewController.xib in Resources */,
 				6E4496261BF9BA2600C90851 /* VerifyPhoneViewController.xib in Resources */,
 				685CD5E41C0310CA00EC1991 /* LeaveMessageViewController.xib in Resources */,
 				684A370B1BFD733500F7388C /* ExpiredAsDesignerDidNotProvidePlanInSpecifiedTimeCell.xib in Resources */,
@@ -4162,6 +4171,7 @@
 				68921FFB1CCF55AE00BC80C7 /* ToastUtil.m in Sources */,
 				68F73CF41CBB3AB900E97710 /* PlanWasNotChoosed.m in Sources */,
 				683FFB1C1C280E9D002A1AFE /* FavoriteBeautifulImage.m in Sources */,
+				68673CC81D62BE18001ACC4D /* SuccessAlertViewController.m in Sources */,
 				685CD5E81C03178C00EC1991 /* MessageCell.m in Sources */,
 				6E07DAA81BD88DBE001461DD /* GetUserRequirement.m in Sources */,
 				6EE1E41A1C05929E00883184 /* AddFavoriateDesigner.m in Sources */,
