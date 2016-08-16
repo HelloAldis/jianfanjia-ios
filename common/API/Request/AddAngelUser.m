@@ -8,8 +8,8 @@
 
 #import "AddAngelUser.h"
 
-NSString * const kAngelUserDistrictRequirement = @"iOSApp需求";
-NSString * const kAngelUserDistrictDesigner = @"iOSApp设计师";
+NSString * const kAngelUserDistrictRequirement = @"iOSApp提交需求";
+NSString * const kAngelUserDistrictDesigner = @"iOSApp预约设计师";
 
 @implementation AddAngelUser
 

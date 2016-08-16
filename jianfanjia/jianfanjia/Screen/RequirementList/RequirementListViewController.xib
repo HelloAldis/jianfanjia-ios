@@ -36,14 +36,8 @@
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="requirement_bg" translatesAutoresizingMaskIntoConstraints="NO" id="9ig-fY-uhR">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="283"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="268" id="Ldn-Uh-QmO"/>
                                 <constraint firstAttribute="width" secondItem="9ig-fY-uhR" secondAttribute="height" multiplier="640:438" id="SiR-mQ-Fle"/>
                             </constraints>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="Ldn-Uh-QmO"/>
-                                </mask>
-                            </variation>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="——    免费获取三套方案    ——" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3X-zm-k3L">
                             <rect key="frame" x="109" y="283" width="196" height="17"/>
@@ -63,16 +57,8 @@
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obh-yo-CBl">
                             <rect key="frame" x="50" y="385" width="314" height="45"/>
                             <color key="backgroundColor" red="0.96078431372549022" green="0.96470588235294119" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="L75-4h-tTl"/>
-                            </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="L75-4h-tTl"/>
-                                </mask>
-                            </variation>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9L-rx-2pN">
                             <rect key="frame" x="50" y="455" width="314" height="45"/>
@@ -88,17 +74,11 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="注：目前仅支持武汉地区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS7-EN-yPO">
                             <rect key="frame" x="136" y="510" width="143" height="16"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="236" id="Ohj-wb-RoY"/>
                                 <constraint firstAttribute="height" constant="16" id="RNH-cu-6sC"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" red="0.48627450980392156" green="0.51764705882352935" blue="0.53725490196078429" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
-                            <variation key="default">
-                                <mask key="constraints">
-                                    <exclude reference="Ohj-wb-RoY"/>
-                                </mask>
-                            </variation>
                         </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
