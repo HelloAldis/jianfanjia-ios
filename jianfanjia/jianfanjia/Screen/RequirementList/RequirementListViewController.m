@@ -43,11 +43,11 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
         @strongify(self);
         if (isShowing) {
             CGFloat keyboardHeight = keyboardRect.size.height;
-            self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, keyboardHeight + kTabBarHeight, 0);
-            self.reqScrollView.contentOffset = CGPointMake(0, keyboardHeight - kNavWithStatusBarHeight);
+            self.reqScrollView.contentInset = UIEdgeInsetsMake(0, 0, keyboardHeight + kTabBarHeight, 0);
+            self.reqScrollView.contentOffset = CGPointMake(0, keyboardHeight - kTabBarHeight - 55);
         } else {
-            self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
-            self.reqScrollView.contentOffset = CGPointMake(0, -kNavWithStatusBarHeight);
+            self.reqScrollView.contentInset = UIEdgeInsetsMake(0, 0, kTabBarHeight, 0);
+            self.reqScrollView.contentOffset = CGPointMake(0, 0);
         }
     } completion:nil];
 }
@@ -99,7 +99,7 @@ static NSString *RequirementCellIdentifier = @"RequirementCell";
           [self.btnReq enableBgColor:[x boolValue]];
       }];
     
-    self.reqScrollView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
+    self.reqScrollView.contentInset = UIEdgeInsetsMake(0, 0, kTabBarHeight, 0);
     self.reqScrollView.scrollIndicatorInsets = UIEdgeInsetsMake(kNavWithStatusBarHeight, 0, kTabBarHeight, 0);
     [self.btnReq setCornerRadius:5];
     [self.fldNickName setCornerRadius:5];
