@@ -22,12 +22,13 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
 @property (weak, nonatomic) IBOutlet UILabel *lblPubulishTimeVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblUpdateTimeVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnEditRequirement;
-@property (weak, nonatomic) IBOutlet UILabel *lblRequirementStatusVal;
-@property (weak, nonatomic) IBOutlet UIButton *btnGoToWorkspace;
+@property (weak, nonatomic) IBOutlet UIButton *btnGoProcessPreview;
+@property (weak, nonatomic) IBOutlet UIButton *btnViewPlan;
+@property (weak, nonatomic) IBOutlet UIButton *btnGoProcess;
 @property (weak, nonatomic) IBOutlet UICollectionView *imgCollection;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
 
-@property (weak, nonatomic) RACDisposable *btnGoToDisposable;
+@property (weak, nonatomic) RACDisposable *btnGoProcessPreDisposable;
 
 @property (strong, nonatomic) NSMutableArray *currentPlanStatus;
 @property (strong, nonatomic) RequirementDataManager *dataManager;
@@ -48,6 +49,19 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
     
     self.flowLayout.minimumLineSpacing = CELL_SPACE;
     self.flowLayout.minimumInteritemSpacing = CELL_SPACE;
+    
+    [self updateGoProcessPre:@"预览工地" titleColor:kThemeTextColor];
+    [self gotoShowPreviewWorksite];
+    
+    @weakify(self);
+    [[self.btnViewPlan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickGotoViewPlan];
+    }];
+    [[self.btnGoProcess rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+        @strongify(self);
+        [self onClickGotoWorksite];
+    }];
 }
 
 - (void)initWithRequirement:(Requirement *)requirement {
@@ -95,75 +109,36 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
     
     NSString *status = requirement.status;
     [StatusBlock matchReqt:status actions:
-     @[[ReqtUnorderDesigner action:^{
-            self.lblRequirementStatusVal.textColor = kUntriggeredColor;
-            [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
-            [self gotoShowPreviewWorksite];
-        }],
-       [ReqtConfiguredAgreement action:^{
-            self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"查看合同" titleColor:kFinishedColor];
-            [self gotoShowAgreement];
-        }],
-       [ReqtPlanWasChoosed action:^{
-            self.lblRequirementStatusVal.textColor = kPassStatusColor;
-            [self updateGoToWorksite:@"查看合同" titleColor:kFinishedColor];
-            [self gotoShowAgreement];
-        }],
-       [ReqtConfiguredWorkSite action:^{
-            self.lblRequirementStatusVal.textColor = kFinishedColor;
-            [self updateGoToWorksite:@"前往工地" titleColor:kFinishedColor];
-            [self gotoShowWorksite];
+     @[[ReqtConfiguredWorkSite action:^{
+            [self showGotoWorksite:YES];
         }],
        [ReqtFinishedWorkSite action:^{
-            self.lblRequirementStatusVal.textColor = kPassStatusColor;
-            [self updateGoToWorksite:@"前往工地" titleColor:kFinishedColor];
-            [self gotoShowWorksite];
+            [self showGotoWorksite:YES];
         }],
        [ElseStatus action:^{
-            self.lblRequirementStatusVal.textColor = kUntriggeredColor;
-            [self updateGoToWorksite:@"预览工地" titleColor:kThemeTextColor];
-            [self gotoShowPreviewWorksite];
+            [self showGotoWorksite:NO];
         }],
       ]];
 }
 
 #pragma mark - Go to workspace function
-- (void)updateGoToWorksite:(NSString *)title titleColor:(UIColor *)titleColor {
-    [self.btnGoToWorkspace setNormTitleColor:titleColor];
-    [self.btnGoToWorkspace setNormTitle:title];
+- (void)showGotoWorksite:(BOOL)show {
+    self.btnGoProcessPreview.hidden = show;
+    self.btnViewPlan.hidden = !show;
+    self.btnGoProcess.hidden = !show;
+}
+
+- (void)updateGoProcessPre:(NSString *)title titleColor:(UIColor *)titleColor {
+    [self.btnGoProcessPreview setNormTitleColor:titleColor];
+    [self.btnGoProcessPreview setNormTitle:title];
 }
 
 - (void)updateGotoBlock:(void (^)(void))gotoBlock {
-    [self.btnGoToDisposable dispose];
-    self.btnGoToDisposable = [[self.btnGoToWorkspace rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
+    [self.btnGoProcessPreDisposable dispose];
+    self.btnGoProcessPreDisposable = [[self.btnGoProcessPreview rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         if (gotoBlock) {
             gotoBlock();
         }
-    }];
-}
-
-- (void)gotoShowWorksite {
-    @weakify(self);
-    [self updateGotoBlock:^{
-        @strongify(self);
-        [ViewControllerContainer showProcess:self.requirement.process._id];
-    }];
-}
-
-- (void)gotoShowOrderDesigner {
-    @weakify(self);
-    [self updateGotoBlock:^{
-        @strongify(self);
-        [ViewControllerContainer showOrderDesigner:self.requirement];
-    }];
-}
-
-- (void)gotoShowOrderedDesigner {
-    @weakify(self);
-    [self updateGotoBlock:^{
-        @strongify(self);
-        [ViewControllerContainer showOrderedDesigner:self.requirement];
     }];
 }
 
@@ -173,12 +148,21 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
     }];
 }
 
-- (void)gotoShowAgreement {
-    @weakify(self);
-    [self updateGotoBlock:^{
-        @strongify(self);
-        [ViewControllerContainer showAgreement:self.requirement popTo:[ViewControllerContainer getCurrentTapController] refresh:nil];
+- (void)onClickGotoViewPlan {
+    NSString *finalPlanId = self.requirement.final_planid;
+    __block Plan *finalPlan = nil;
+    [self.dataManager.orderedDesigners enumerateObjectsUsingBlock:^(Designer  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj.plan._id isEqualToString:finalPlanId]) {
+            finalPlan = obj.plan;
+            *stop = YES;
+        }
     }];
+    
+    [ViewControllerContainer showPlanPerview:finalPlan forRequirement:self.requirement popTo:nil refresh:nil];
+}
+
+- (void)onClickGotoWorksite {
+    [ViewControllerContainer showProcess:self.requirement.process._id];
 }
 
 @end
