@@ -63,6 +63,7 @@
     self.title = @"免费获取方案";
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_delete"] style:UIBarButtonItemStylePlain target:self action:@selector(onClickBack)];
     self.navigationItem.leftBarButtonItem = item;
+    self.navigationItem.leftBarButtonItem.tintColor = kTextColor;
 }
 
 - (void)initUI {

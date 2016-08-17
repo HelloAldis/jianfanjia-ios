@@ -10,6 +10,7 @@
 #import "HomePageQuickEntryItem.h"
 #import "ViewControllerContainer.h"
 #import "WebViewController.h"
+#import "RequestPlanViewController.h"
 
 CGFloat kHomePageQuickEntryCellHeight;
 
@@ -101,17 +102,7 @@ static NSArray const *quickEntryTexts;
     } else if ([entry isEqualToString:HomePageQuickEntryDecLive]) {
         [ViewControllerContainer showDecLiveList];
     } else if ([entry isEqualToString:HomePageQuickEntryFreePlan]) {
-        [[LoginEngine shared] showLogin:^(BOOL logined) {
-            if (logined) {
-                if (![GVUserDefaults standardUserDefaults].phone) {
-                    [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
-                        [ViewControllerContainer showRequirementCreate:nil];
-                    }];
-                } else {
-                    [ViewControllerContainer showRequirementCreate:nil];
-                }
-            }
-        }];
+        [RequestPlanViewController show];
     } else if ([entry isEqualToString:HomePageQuickEntryDecStrategy]) {
         [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:@"view/article/" shareTopic:ShareTopicDecStrategy];
     }
