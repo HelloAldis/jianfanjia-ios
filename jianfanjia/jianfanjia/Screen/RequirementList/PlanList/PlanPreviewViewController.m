@@ -20,11 +20,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDecAreaVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblDecTypeVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblWorkTypeVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblStartTimeVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblDurationVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblProjectPriceVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnPriceDetail;
 @property (weak, nonatomic) IBOutlet UILabel *lblDesignDescriptionVal;
-@property (weak, nonatomic) IBOutlet UIButton *btnChoosePlan;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (strong, nonatomic) Plan *plan;
@@ -98,6 +98,7 @@
     self.lblDecAreaVal.text = [NSString stringWithFormat:@"%@m²", self.requirement.house_area];
     self.lblDecTypeVal.text = [NameDict nameForDecStyle:self.requirement.dec_type];
     self.lblWorkTypeVal.text = [NameDict nameForWorkType:self.requirement.work_type];
+    self.lblStartTimeVal.text = [NSDate yyyy_Nian_MM_Yue_dd_Ri_HH_mm:self.requirement.start_at];
     self.lblDurationVal.text = [NSString stringWithFormat:@"%@天", self.plan.duration];
     self.lblProjectPriceVal.text = [NSString stringWithFormat:@"%@元", self.plan.total_price];
     self.lblDesignDescriptionVal.text = self.plan.plan_description;
@@ -106,28 +107,6 @@
         @strongify(self);
         [self onChoosePriceDetail];
     }];
-    
-    [self initButtons];
-}
-
-- (void)initButtons {
-    [StatusBlock matchPlan:self.plan.status actions:
-     @[[PlanWasChoosed action:^{
-            self.btnChoosePlan.enabled = NO;
-            [self.btnChoosePlan setBgColor:kUntriggeredColor];
-            [self.btnChoosePlan setNormTitle:@"已选定该方案"];
-        }],
-       [PlanWasNotChoosed action:^{
-            self.btnChoosePlan.enabled = NO;
-            [self.btnChoosePlan setBgColor:kUntriggeredColor];
-            [self.btnChoosePlan setNormTitle:@"该方案未中标"];
-        }],
-       [ElseStatus action:^{
-            self.btnChoosePlan.enabled = NO;
-            [self.btnChoosePlan setBgColor:kUntriggeredColor];
-            [self.btnChoosePlan setNormTitle:@"方案沟通中"];
-        }],
-       ]];
 }
 
 #pragma mark - scroll view deleaget
