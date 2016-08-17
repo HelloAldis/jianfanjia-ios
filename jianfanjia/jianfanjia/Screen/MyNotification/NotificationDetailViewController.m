@@ -177,8 +177,6 @@ static NSDictionary *NotificationTitles = nil;
         [self handlePlanSubmit];
     } else if ([self.notification.message_type isEqualToString:kUserPNFromDBYSRequest]) {
         [self handleDBYSRequest];
-    } else if ([self.notification.message_type isEqualToString:kUserPNFromAgreementConfigure]) {
-        [self handleAgreementConfigure];
     } else {
         [self displayDefaultOk];
     }
@@ -232,17 +230,6 @@ static NSDictionary *NotificationTitles = nil;
     self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
         [ViewControllerContainer showDBYS:section process:self.notification.processid popTo:nil refresh:nil];
-    }];
-}
-
-- (void)handleAgreementConfigure {
-    [self.okDisposable dispose];
-    self.btnOk.hidden = NO;
-    [self.btnOk setNormTitle:@"查看合同"];
-    @weakify(self);
-    self.okDisposable = [[self.btnOk rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
-        @strongify(self);
-        [ViewControllerContainer showAgreement:self.notification.requirement popTo:nil refresh:nil];
     }];
 }
 
