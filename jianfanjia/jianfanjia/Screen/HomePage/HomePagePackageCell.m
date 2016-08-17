@@ -11,6 +11,7 @@
 #import "ViewControllerContainer.h"
 #import "WebViewController.h"
 #import "WebViewWithActionController.h"
+#import "RequestPlanViewController.h"
 
 CGFloat kHomePagePackageCellHeight;
 
@@ -95,17 +96,7 @@ static CGFloat itemHeight;
     NSString *curUrl = urls[indexPath.row];
     if ([curUrl isEqualToString:kPkg365Url]) {
         [WebViewWithActionController show:[ViewControllerContainer getCurrentTapController] withUrl:curUrl shareTopic:ShareTopicActivity actionTitle:@"我要装修" actionBlock:^{
-            [[LoginEngine shared] showLogin:^(BOOL logined) {
-                if (logined) {
-                    if (![GVUserDefaults standardUserDefaults].phone) {
-                        [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
-                            [ViewControllerContainer showRequirementCreate:nil];
-                        }];
-                    } else {
-                        [ViewControllerContainer showRequirementCreate:nil];
-                    }
-                }
-            }];
+            [RequestPlanViewController show];
         }];
     } else {
         [WebViewController show:[ViewControllerContainer getCurrentTapController] withUrl:curUrl shareTopic:ShareTopicActivity];
