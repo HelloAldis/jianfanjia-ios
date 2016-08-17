@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,8 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DecLiveListViewController">
             <connections>
-                <outlet property="actionView" destination="3po-Xe-O99" id="g39-Tq-M6a"/>
-                <outlet property="btnCreateMyWorksite" destination="sJh-x1-Kr9" id="CoC-6L-1Q3"/>
                 <outlet property="headerView" destination="9yY-BV-qmw" id="EgT-5z-VC5"/>
                 <outlet property="lblNoData" destination="1vT-Di-fuU" id="fvY-vE-OIO"/>
                 <outlet property="noDataImageView" destination="stb-oL-q2J" id="arL-nw-qfz"/>
@@ -117,46 +115,9 @@
                     <color key="textColor" red="0.48627450979999998" green="0.51764705879999995" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3po-Xe-O99" userLabel="ActionView">
-                    <rect key="frame" x="0.0" y="686" width="414" height="50"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rzj-hh-FGg" userLabel="Line">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
-                            <color key="backgroundColor" red="0.83137254900000002" green="0.83529411760000005" blue="0.83921568629999999" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1" id="9Hn-Ay-fYs"/>
-                            </constraints>
-                        </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJh-x1-Kr9">
-                            <rect key="frame" x="20" y="5" width="374" height="40"/>
-                            <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.015686274510000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="40" id="wu6-1R-gF7"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <state key="normal" title="创建我的工地">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="onClickCreateMyWorksite:" destination="-1" eventType="touchUpInside" id="JhU-e7-3Uj"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="Rzj-hh-FGg" firstAttribute="top" secondItem="3po-Xe-O99" secondAttribute="top" id="0wr-X4-JEX"/>
-                        <constraint firstItem="sJh-x1-Kr9" firstAttribute="centerX" secondItem="3po-Xe-O99" secondAttribute="centerX" id="3Ol-Cp-5fL"/>
-                        <constraint firstAttribute="trailing" secondItem="Rzj-hh-FGg" secondAttribute="trailing" id="6t1-Bf-4Fn"/>
-                        <constraint firstItem="sJh-x1-Kr9" firstAttribute="centerY" secondItem="3po-Xe-O99" secondAttribute="centerY" id="JKh-5w-EVU"/>
-                        <constraint firstAttribute="height" constant="50" id="KGr-2Q-KoC"/>
-                        <constraint firstItem="Rzj-hh-FGg" firstAttribute="leading" secondItem="3po-Xe-O99" secondAttribute="leading" id="cly-XL-kVt"/>
-                        <constraint firstItem="sJh-x1-Kr9" firstAttribute="leading" secondItem="3po-Xe-O99" secondAttribute="leading" constant="20" id="hJv-Ga-KOC"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.95294117649999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="3po-Xe-O99" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="03X-9A-08x"/>
                 <constraint firstItem="D6K-Az-IpN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="0zn-yi-oPl"/>
                 <constraint firstItem="stb-oL-q2J" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="3yn-38-Vge"/>
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="7iY-bI-1ad"/>
@@ -165,8 +126,6 @@
                 <constraint firstItem="D6K-Az-IpN" firstAttribute="top" secondItem="9yY-BV-qmw" secondAttribute="bottom" id="IIf-3o-4dC"/>
                 <constraint firstItem="1vT-Di-fuU" firstAttribute="centerX" secondItem="stb-oL-q2J" secondAttribute="centerX" id="Zez-kC-Yh2"/>
                 <constraint firstAttribute="bottom" secondItem="D6K-Az-IpN" secondAttribute="bottom" id="f6g-0c-TdY"/>
-                <constraint firstAttribute="trailing" secondItem="3po-Xe-O99" secondAttribute="trailing" id="fiE-PZ-EZ1"/>
-                <constraint firstAttribute="bottom" secondItem="3po-Xe-O99" secondAttribute="bottom" id="kbk-oL-6PX"/>
                 <constraint firstItem="1vT-Di-fuU" firstAttribute="top" secondItem="stb-oL-q2J" secondAttribute="bottom" constant="10" id="r1c-pP-6BI"/>
                 <constraint firstItem="9yY-BV-qmw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="srg-wW-EsY"/>
                 <constraint firstItem="stb-oL-q2J" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="xqq-s4-3DA"/>

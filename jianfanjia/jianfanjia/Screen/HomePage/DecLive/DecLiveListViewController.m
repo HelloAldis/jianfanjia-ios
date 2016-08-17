@@ -26,8 +26,6 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *lblChooseTypes;
 @property (weak, nonatomic) IBOutlet UIImageView *noDataImageView;
 @property (weak, nonatomic) IBOutlet UILabel *lblNoData;
-@property (weak, nonatomic) IBOutlet UIView *actionView;
-@property (weak, nonatomic) IBOutlet UIButton *btnCreateMyWorksite;
 
 @property (assign, nonatomic) DecLiveFilterType devLiveFilterType;
 @property (strong, nonatomic) DecLiveListDataManager *dataManager;
@@ -53,8 +51,7 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
 - (void)initUI {
     self.dataManager = [[DecLiveListDataManager alloc] init];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self.btnCreateMyWorksite setCornerRadius:self.btnCreateMyWorksite.frame.size.height / 2];
-    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + CGRectGetHeight(self.headerView.frame), 0, CGRectGetHeight(self.actionView.frame), 0);
+    self.tableView.contentInset = UIEdgeInsetsMake(kNavWithStatusBarHeight + CGRectGetHeight(self.headerView.frame), 0, 0, 0);
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     [self.tableView registerNib:[UINib nibWithNibName:DecLiveCellIdentifier bundle:nil] forCellReuseIdentifier:DecLiveCellIdentifier];
     
@@ -139,20 +136,6 @@ static NSString *DecLiveCellIdentifier = @"DecLiveCell";
     }
     
     [label setTextColor:highlight ? kThemeTextColor : kUntriggeredColor];
-}
-
-- (IBAction)onClickCreateMyWorksite:(id)sender {    
-    [[LoginEngine shared] showLogin:^(BOOL logined) {
-        if (logined) {
-            if (![GVUserDefaults standardUserDefaults].phone) {
-                [ViewControllerContainer showBindPhone:BindPhoneEventPublishRequirement callback:^{
-                    [ViewControllerContainer showRequirementCreate:nil];
-                }];
-            } else {
-                [ViewControllerContainer showRequirementCreate:nil];
-            }
-        }
-    }];
 }
 
 #pragma mark - api request
