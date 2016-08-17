@@ -280,6 +280,8 @@
 		68673CC41D62A2AC001ACC4D /* AddAngelUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 68673CC31D62A2AC001ACC4D /* AddAngelUser.m */; };
 		68673CC81D62BE18001ACC4D /* SuccessAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68673CC61D62BE18001ACC4D /* SuccessAlertViewController.m */; };
 		68673CC91D62BE18001ACC4D /* SuccessAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68673CC71D62BE18001ACC4D /* SuccessAlertViewController.xib */; };
+		68673CCD1D640D19001ACC4D /* RequestPlanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68673CCB1D640D19001ACC4D /* RequestPlanViewController.m */; };
+		68673CCE1D640D19001ACC4D /* RequestPlanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68673CCC1D640D19001ACC4D /* RequestPlanViewController.xib */; };
 		686799EF1C8D54D900B380D0 /* PhoneUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 686799EE1C8D54D900B380D0 /* PhoneUtil.m */; };
 		68679A361C8E730F00B380D0 /* MyNotificationDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A231C8E730F00B380D0 /* MyNotificationDataManager.m */; };
 		68679A371C8E730F00B380D0 /* MyNotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68679A251C8E730F00B380D0 /* MyNotificationViewController.m */; };
@@ -1082,6 +1084,9 @@
 		68673CC51D62BE18001ACC4D /* SuccessAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuccessAlertViewController.h; sourceTree = "<group>"; };
 		68673CC61D62BE18001ACC4D /* SuccessAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuccessAlertViewController.m; sourceTree = "<group>"; };
 		68673CC71D62BE18001ACC4D /* SuccessAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuccessAlertViewController.xib; sourceTree = "<group>"; };
+		68673CCA1D640D19001ACC4D /* RequestPlanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestPlanViewController.h; sourceTree = "<group>"; };
+		68673CCB1D640D19001ACC4D /* RequestPlanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestPlanViewController.m; sourceTree = "<group>"; };
+		68673CCC1D640D19001ACC4D /* RequestPlanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestPlanViewController.xib; sourceTree = "<group>"; };
 		686799ED1C8D54D900B380D0 /* PhoneUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhoneUtil.h; sourceTree = "<group>"; };
 		686799EE1C8D54D900B380D0 /* PhoneUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhoneUtil.m; sourceTree = "<group>"; };
 		68679A221C8E730F00B380D0 /* MyNotificationDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNotificationDataManager.h; sourceTree = "<group>"; };
@@ -3215,6 +3220,9 @@
 				6E6D98AD1BDF736A00D45F77 /* RequirementListViewController.h */,
 				6E6D98AE1BDF736A00D45F77 /* RequirementListViewController.m */,
 				6E6D98AF1BDF736A00D45F77 /* RequirementListViewController.xib */,
+				68673CCA1D640D19001ACC4D /* RequestPlanViewController.h */,
+				68673CCB1D640D19001ACC4D /* RequestPlanViewController.m */,
+				68673CCC1D640D19001ACC4D /* RequestPlanViewController.xib */,
 				6855E62C1BFAB87A00E789D4 /* RequirementDataManager.h */,
 				6855E62D1BFAB87A00E789D4 /* RequirementDataManager.m */,
 				6855E62F1BFAC78A00E789D4 /* RequirementCell.h */,
@@ -3669,6 +3677,7 @@
 				68A413291D3F3B4B003CFC2C /* AlbumCell.xib in Resources */,
 				684A37091BFD733500F7388C /* ExpiredAsDesignerDidNotRespondCell.xib in Resources */,
 				68123BA81C47D15C008FC9AB /* JYZ_sina_icon@2x.png in Resources */,
+				68673CCE1D640D19001ACC4D /* RequestPlanViewController.xib in Resources */,
 				689ECDFA1CFC09590046DDC8 /* SelectionMenuCollectionCell.xib in Resources */,
 				68EE3E521D13E19E00F5EF83 /* SelectStringViewController.xib in Resources */,
 				6E6D98DE1BE203B300D45F77 /* ProductViewController.xib in Resources */,
@@ -4071,6 +4080,7 @@
 				6E6D98A21BDF5EBE00D45F77 /* TabViewController.m in Sources */,
 				6E07DAAB1BD88DBE001461DD /* SendVerifyCode.m in Sources */,
 				6865A3621D2E5B0700B3CB26 /* UnfavoriteDiarySet.m in Sources */,
+				68673CCD1D640D19001ACC4D /* RequestPlanViewController.m in Sources */,
 				AB5852531C074252004B054E /* ItemImageCollectionCell.m in Sources */,
 				689485D31C1A70A7002310FC /* Notification.m in Sources */,
 				683A5D6C1C0EFBAE0071DF88 /* YsImage.m in Sources */,
