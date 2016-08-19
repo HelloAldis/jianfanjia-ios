@@ -107,7 +107,7 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
     NSString *status = requirement.status;
     [StatusBlock matchReqt:status actions:
      @[[ReqtPlanWasChoosed action:^{
-            if ([RequirementBusiness isDesignRequirement:self.requirement.dec_type]) {
+            if ([RequirementBusiness isDesignRequirement:self.requirement.work_type]) {
                 [self updateGoProcessPre:@"查看方案" titleColor:kThemeColor];
                 [self gotoShowViewPlan];
                 [self showGotoWorksite:NO];
