@@ -56,6 +56,10 @@
     return [formatter stringFromDate:self];
 }
 
++ (NSString *)yyyy_Nian_MM_Yue_dd_Ri:(NSNumber *)timeInterval {
+    return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longLongValue / 1000] yyyy_Nian_MM_Yue_dd_Ri];
+}
+
 + (NSString *)yyyy_Nian_MM_Yue_dd_Ri_HH_mm:(NSNumber *)timeInterval {
     return [[NSDate dateWithTimeIntervalSince1970:timeInterval.longLongValue / 1000] yyyy_Nian_MM_Yue_dd_Ri_HH_mm];
 }
