@@ -53,8 +53,7 @@
     } completion:nil];
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
+- (void)dealloc {
     [self jfj_unsubscribeKeyboard];
 }
 

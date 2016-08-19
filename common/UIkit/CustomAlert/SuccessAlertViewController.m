@@ -31,7 +31,12 @@
     alert.modalPresentationStyle = UIModalPresentationOverFullScreen;
     alert.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:alert animated:YES completion:nil];
+    UIViewController *vc = [UIApplication sharedApplication].keyWindow.rootViewController;
+    if (vc.presentedViewController) {
+        [vc.presentedViewController presentViewController:alert animated:YES completion:nil];
+    } else {
+        [vc presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message allowIgnore:(BOOL)allowIgnore ok:(SuccessAlertButtonBlock)okBlock {
