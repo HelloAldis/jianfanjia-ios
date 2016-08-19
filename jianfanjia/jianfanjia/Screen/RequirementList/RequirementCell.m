@@ -50,9 +50,6 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
     self.flowLayout.minimumLineSpacing = CELL_SPACE;
     self.flowLayout.minimumInteritemSpacing = CELL_SPACE;
     
-    [self updateGoProcessPre:@"预览工地" titleColor:kThemeTextColor];
-    [self gotoShowPreviewWorksite];
-    
     @weakify(self);
     [[self.btnViewPlan rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
@@ -110,7 +107,13 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
     NSString *status = requirement.status;
     [StatusBlock matchReqt:status actions:
      @[[ReqtPlanWasChoosed action:^{
-        [self showGotoWorksite:YES];
+            if ([RequirementBusiness isDesignRequirement:self.requirement.dec_type]) {
+                [self updateGoProcessPre:@"查看方案" titleColor:kThemeColor];
+                [self gotoShowViewPlan];
+                [self showGotoWorksite:NO];
+            } else {
+                [self showGotoWorksite:YES];
+            }
         }],
        [ReqtConfiguredAgreement action:^{
             [self showGotoWorksite:YES];
@@ -123,6 +126,8 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
         }],
        [ElseStatus action:^{
             [self showGotoWorksite:NO];
+            [self updateGoProcessPre:@"预览工地" titleColor:kThemeTextColor];
+            [self gotoShowPreviewWorksite];
         }],
       ]];
 }
@@ -151,6 +156,12 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
 - (void)gotoShowPreviewWorksite {
     [self updateGotoBlock:^{
         [ViewControllerContainer showProcessPreview];
+    }];
+}
+
+- (void)gotoShowViewPlan {
+    [self updateGotoBlock:^{
+        [self onClickGotoViewPlan];
     }];
 }
 
