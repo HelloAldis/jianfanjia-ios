@@ -109,7 +109,13 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
     
     NSString *status = requirement.status;
     [StatusBlock matchReqt:status actions:
-     @[[ReqtConfiguredWorkSite action:^{
+     @[[ReqtPlanWasChoosed action:^{
+        [self showGotoWorksite:YES];
+        }],
+       [ReqtConfiguredAgreement action:^{
+            [self showGotoWorksite:YES];
+        }],
+       [ReqtConfiguredWorkSite action:^{
             [self showGotoWorksite:YES];
         }],
        [ReqtFinishedWorkSite action:^{
