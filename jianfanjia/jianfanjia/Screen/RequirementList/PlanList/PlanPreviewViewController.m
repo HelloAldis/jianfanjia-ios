@@ -98,7 +98,7 @@
     }
     
     self.lblDecAreaVal.text = [NSString stringWithFormat:@"%@m²", self.requirement.house_area];
-    self.lblDecTypeVal.text = [NameDict nameForDecStyle:self.requirement.dec_type];
+    self.lblDecTypeVal.text = [NameDict nameForDecType:self.requirement.dec_type];
     self.lblWorkTypeVal.text = [NameDict nameForWorkType:self.requirement.work_type];
     self.lblStartTimeVal.text = self.requirement.start_at ? [NSDate yyyy_Nian_MM_Yue_dd_Ri:self.requirement.start_at] : @"等待开工";
     self.lblDurationVal.text = [NSString stringWithFormat:@"%@天", self.plan.duration];
