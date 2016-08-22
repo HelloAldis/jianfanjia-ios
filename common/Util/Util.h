@@ -25,5 +25,6 @@
 #import "WeakProxy.h"
 #import "AlertUtil.h"
 #import "YYDispatchQueuePool.h"
+#import "AppConfig.h"
 
 #endif

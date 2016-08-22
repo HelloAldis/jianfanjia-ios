@@ -19,6 +19,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // 初始化Application配置
+    [AppConfig configUserAgent];
     // 推送注册
     [self initNotification:launchOptions];
     // 初始化router

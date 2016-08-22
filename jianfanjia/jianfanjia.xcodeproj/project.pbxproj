@@ -77,6 +77,7 @@
 		68134A451C3D0BD9003C1C10 /* BindWechat.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A441C3D0BD9003C1C10 /* BindWechat.m */; };
 		68134A4E1C3F503E003C1C10 /* CustomerServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68134A4C1C3F503E003C1C10 /* CustomerServiceViewController.m */; };
 		68134A4F1C3F503E003C1C10 /* CustomerServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68134A4D1C3F503E003C1C10 /* CustomerServiceViewController.xib */; };
+		68215B411D6AB09600ECDAC6 /* AppConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 68215B401D6AB09600ECDAC6 /* AppConfig.m */; };
 		682E050F1C58BDA700F1ACAA /* PlanPriceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E05011C58BDA700F1ACAA /* PlanPriceDetailViewController.m */; };
 		682E05101C58BDA700F1ACAA /* PlanPriceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 682E05021C58BDA700F1ACAA /* PlanPriceDetailViewController.xib */; };
 		682E05111C58BDA700F1ACAA /* PlanPriceItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 682E05041C58BDA700F1ACAA /* PlanPriceItemCell.m */; };
@@ -748,6 +749,8 @@
 		68134A4B1C3F503E003C1C10 /* CustomerServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerServiceViewController.h; sourceTree = "<group>"; };
 		68134A4C1C3F503E003C1C10 /* CustomerServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerServiceViewController.m; sourceTree = "<group>"; };
 		68134A4D1C3F503E003C1C10 /* CustomerServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomerServiceViewController.xib; sourceTree = "<group>"; };
+		68215B3F1D6AB09600ECDAC6 /* AppConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConfig.h; sourceTree = "<group>"; };
+		68215B401D6AB09600ECDAC6 /* AppConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConfig.m; sourceTree = "<group>"; };
 		682E05001C58BDA700F1ACAA /* PlanPriceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlanPriceDetailViewController.h; sourceTree = "<group>"; };
 		682E05011C58BDA700F1ACAA /* PlanPriceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlanPriceDetailViewController.m; sourceTree = "<group>"; };
 		682E05021C58BDA700F1ACAA /* PlanPriceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlanPriceDetailViewController.xib; sourceTree = "<group>"; };
@@ -3064,6 +3067,8 @@
 				68EE3EBA1D221DAB00F5EF83 /* TextFieldDelegate.m */,
 				6865A3971D36509A00B3CB26 /* AlertUtil.h */,
 				6865A3981D36509A00B3CB26 /* AlertUtil.m */,
+				68215B3F1D6AB09600ECDAC6 /* AppConfig.h */,
+				68215B401D6AB09600ECDAC6 /* AppConfig.m */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -3959,6 +3964,7 @@
 				685CD5E31C0310CA00EC1991 /* LeaveMessageViewController.m in Sources */,
 				68F73CEB1CBB3AB900E97710 /* PlanDesignerDeclined.m in Sources */,
 				68F73CEC1CBB3AB900E97710 /* PlanDesignerMeasuredHouse.m in Sources */,
+				68215B411D6AB09600ECDAC6 /* AppConfig.m in Sources */,
 				6E4496211BF9B58800C90851 /* VerifyPhone.m in Sources */,
 				6E06CC1C1C294EE800A08D15 /* AddFavoriateProduct.m in Sources */,
 				68123B9A1C47D15C008FC9AB /* JYZSocialSnsAccountInfo.m in Sources */,
