@@ -18,10 +18,12 @@
                 <outlet property="lblDurationVal" destination="JHS-XL-EQO" id="jJf-Yl-Ims"/>
                 <outlet property="lblPlanTitle" destination="eI2-NE-Bbz" id="Qw7-bV-ddu"/>
                 <outlet property="lblProjectPriceVal" destination="crZ-7k-wUw" id="90k-28-56e"/>
+                <outlet property="lblStartTime" destination="5Lh-hO-WvF" id="ivq-cc-g0t"/>
                 <outlet property="lblStartTimeVal" destination="r2d-Yn-G7O" id="SRW-eW-apz"/>
                 <outlet property="lblWorkTypeVal" destination="BRk-ki-tUj" id="Ztq-wc-vD8"/>
                 <outlet property="pageControl" destination="Gxd-fh-7jA" id="6ih-0p-EdD"/>
                 <outlet property="scrollView" destination="sso-u0-dQO" id="dQv-qG-DnX"/>
+                <outlet property="startTimeTopConst" destination="eD4-1A-2jP" id="qLW-QB-egh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

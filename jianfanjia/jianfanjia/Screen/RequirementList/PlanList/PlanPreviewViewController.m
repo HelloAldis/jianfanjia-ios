@@ -20,8 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblDecAreaVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblDecTypeVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblWorkTypeVal;
+@property (weak, nonatomic) IBOutlet UILabel *lblStartTime;
 @property (weak, nonatomic) IBOutlet UILabel *lblStartTimeVal;
 @property (weak, nonatomic) IBOutlet UILabel *lblDurationVal;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *startTimeTopConst;
 @property (weak, nonatomic) IBOutlet UILabel *lblProjectPriceVal;
 @property (weak, nonatomic) IBOutlet UIButton *btnPriceDetail;
 @property (weak, nonatomic) IBOutlet UILabel *lblDesignDescriptionVal;
@@ -102,6 +104,12 @@
     self.lblDurationVal.text = [NSString stringWithFormat:@"%@天", self.plan.duration];
     self.lblProjectPriceVal.text = [NSString stringWithFormat:@"%@元", self.plan.total_price];
     self.lblDesignDescriptionVal.text = self.plan.plan_description;
+    
+    if ([RequirementBusiness isDesignRequirement:self.requirement.work_type]) {
+        self.lblStartTime.text = @"";
+        self.lblStartTimeVal.text = @"";
+        self.startTimeTopConst.constant = 0;
+    }
     
     [[self.btnPriceDetail rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id x) {
         @strongify(self);
