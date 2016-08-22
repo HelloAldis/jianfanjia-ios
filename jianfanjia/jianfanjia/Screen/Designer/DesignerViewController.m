@@ -38,7 +38,11 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self configDefaultNavStyle];
+    if (self.isJiangXinDingZhi) {
+        [self configTransparentNavStyle];
+    } else {
+        [self configDefaultNavStyle];
+    }
 }
 
 - (void)initNav {
