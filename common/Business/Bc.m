@@ -21,6 +21,12 @@ int const kPasswordLength = 30;
 int const kMinAuthedProductCount = 3;
 
 /**
+ 天使用户渠道名字
+ */
+NSString * const kAngelUserDistrictRequirement = @"提交需求";
+NSString * const kAngelUserDistrictDesigner = @"预约设计师";
+
+/**
  角色 role:
  * 0. 管理员
  * 1. 业主

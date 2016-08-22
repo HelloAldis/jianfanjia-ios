@@ -17,6 +17,9 @@ extern int const kPhoneLength;
 extern int const kPasswordLength;
 extern int const kMinAuthedProductCount;
 
+extern NSString * const kAngelUserDistrictRequirement;
+extern NSString * const kAngelUserDistrictDesigner;
+
 extern NSString * const kUserTypeUser;
 extern NSString * const kUserTypeDesigner;
 extern NSString * const kUserTypeSupervisor;

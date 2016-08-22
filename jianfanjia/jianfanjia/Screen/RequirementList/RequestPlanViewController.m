@@ -131,6 +131,8 @@
 - (void)dismissModal:(void (^)(void))completion {
     if (self.presentingViewController) {
         [self.presentingViewController dismissViewControllerAnimated:YES completion:completion];
+    } else {
+        completion();
     }
 }
 
