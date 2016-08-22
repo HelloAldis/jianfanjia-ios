@@ -109,20 +109,21 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
     [StatusBlock matchReqt:status actions:
      @[[ReqtUnorderDesigner action:^{
             self.lblTips.hidden = NO;
+            [self updateGoProcessPre:@"预览工地" titleColor:kThemeTextColor];
+            [self gotoShowPreviewWorksite];
+            [self showGotoWorksite:NO];
         }],
        [ReqtPlanWasChoosed action:^{
             self.lblTips.hidden = YES;
-            if ([RequirementBusiness isDesignRequirement:self.requirement.work_type]) {
-                [self updateGoProcessPre:@"查看方案" titleColor:kThemeColor];
-                [self gotoShowViewPlan];
-                [self showGotoWorksite:NO];
-            } else {
-                [self showGotoWorksite:YES];
-            }
+            [self updateGoProcessPre:@"查看方案" titleColor:kThemeColor];
+            [self gotoShowViewPlan];
+            [self showGotoWorksite:NO];
         }],
        [ReqtConfiguredAgreement action:^{
             self.lblTips.hidden = YES;
-            [self showGotoWorksite:YES];
+            [self updateGoProcessPre:@"查看方案" titleColor:kThemeColor];
+            [self gotoShowViewPlan];
+            [self showGotoWorksite:NO];
         }],
        [ReqtConfiguredWorkSite action:^{
             self.lblTips.hidden = YES;
@@ -134,9 +135,9 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
         }],
        [ElseStatus action:^{
             self.lblTips.hidden = YES;
-            [self showGotoWorksite:NO];
             [self updateGoProcessPre:@"预览工地" titleColor:kThemeTextColor];
             [self gotoShowPreviewWorksite];
+            [self showGotoWorksite:NO];
         }],
       ]];
 }
