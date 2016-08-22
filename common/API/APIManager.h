@@ -11,25 +11,25 @@
 
 #if defined PRO
 // Product 中的配置
-#define kApiUrl @"http://www.jianfanjia.com/api/v2/app/"
-#define kMApiUrl @"http://m.jianfanjia.com/api/v2/app/"
+#define kApiUrl @"http://m.jianfanjia.com/api/v2/app/"
+#define kMApiUrl kApiUrl
 
 #elif defined TEST
 // Test 中的配置
-#define kApiUrl @"http://dev.jianfanjia.com:8888/api/v2/app/"
-#define kMApiUrl @"http://devm.jianfanjia.com:8888/api/v2/app/"
+#define kApiUrl @"http://devm.jianfanjia.com:8888/api/v2/app/"
+#define kMApiUrl kApiUrl
 
 #elif defined DEBUG
 // Dev 中的配置
-#define kApiUrl @"http://dev.jianfanjia.com/api/v2/app/"
-#define kMApiUrl @"http://devm.jianfanjia.com/api/v2/app/"
+#define kApiUrl @"http://devm.jianfanjia.com/api/v2/app/"
+#define kMApiUrl kApiUrl
 
 #endif
 
 #ifndef kApiUrl
 // 默认的使用 product 中的配置
-#define kApiUrl @"http://www.jianfanjia.com/api/v2/app/"
-#define kMApiUrl @"http://m.jianfanjia.com/api/v2/app/"
+#define kApiUrl @"http://m.jianfanjia.com/api/v2/app/"
+#define kMApiUrl kApiUrl
 
 #endif
 
