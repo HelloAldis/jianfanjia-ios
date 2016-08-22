@@ -125,9 +125,12 @@
 #pragma mark - user action
 - (void)onClickBack {
     [self.view endEditing:YES];
-    
+    [self dismissModal:nil];
+}
+
+- (void)dismissModal:(void (^)(void))completion {
     if (self.presentingViewController) {
-        [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+        [self.presentingViewController dismissViewControllerAnimated:YES completion:completion];
     }
 }
 
@@ -139,11 +142,12 @@
     
     [HUDUtil showWait];
     [API addAngelUser:request success:^{
-        [self onClickBack];
         self.fldPhone.text = nil;
         self.fldNickName.text = nil;
         [self.btnReq enableBgColor:NO];
-        [SuccessAlertViewController presentAlert:@"申请成功" msg:@"我们的工作人员将在24小时之内与您联系，请保持电话畅通" ok:nil];
+        [self dismissModal:^{
+            [SuccessAlertViewController presentAlert:@"申请成功" msg:@"我们的工作人员将在24小时之内与您联系，请保持电话畅通" ok:nil];
+        }];
     } failure:^{
         
     } networkError:^{
