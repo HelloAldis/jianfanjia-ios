@@ -124,11 +124,11 @@
 
 #pragma mark - user action
 - (void)onClickBack {
-    [self.view endEditing:YES];
     [self dismissModal:nil];
 }
 
 - (void)dismissModal:(void (^)(void))completion {
+    [self.view endEditing:YES];
     if (self.presentingViewController) {
         [self.presentingViewController dismissViewControllerAnimated:YES completion:completion];
     } else {
