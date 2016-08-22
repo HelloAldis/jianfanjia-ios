@@ -127,6 +127,12 @@
                             <outlet property="delegate" destination="KGk-i7-Jjw" id="vuW-LH-9wf"/>
                         </connections>
                     </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="等待系统分配设计师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsn-18-X5j">
+                        <rect key="frame" x="170" y="157" width="153" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="0.43921568630000002" blue="0.1529411765" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZhH-ec-Ovc" userLabel="ActionView">
                         <rect key="frame" x="0.0" y="238" width="492" height="50"/>
                         <subviews>
@@ -177,10 +183,12 @@
                 <constraints>
                     <constraint firstItem="qSF-mw-V75" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="8Hi-gM-aOM"/>
                     <constraint firstItem="YJP-Im-ZCl" firstAttribute="top" secondItem="ZhH-ec-Ovc" secondAttribute="bottom" constant="-70" id="9ef-j9-BIV"/>
+                    <constraint firstItem="dsn-18-X5j" firstAttribute="centerX" secondItem="YJP-Im-ZCl" secondAttribute="centerX" id="Bh1-ah-Mxx"/>
                     <constraint firstAttribute="trailingMargin" secondItem="YJP-Im-ZCl" secondAttribute="trailing" constant="-8" id="LrH-d9-KY3"/>
                     <constraint firstItem="YJP-Im-ZCl" firstAttribute="top" secondItem="VHe-P5-2In" secondAttribute="bottom" id="OEZ-B1-s0s"/>
                     <constraint firstItem="YJP-Im-ZCl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="OfJ-No-5BR"/>
                     <constraint firstItem="ZhH-ec-Ovc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="PIw-zg-eJc"/>
+                    <constraint firstItem="dsn-18-X5j" firstAttribute="centerY" secondItem="YJP-Im-ZCl" secondAttribute="centerY" id="VSS-iv-hIF"/>
                     <constraint firstItem="ZhH-ec-Ovc" firstAttribute="top" secondItem="YJP-Im-ZCl" secondAttribute="bottom" id="bKn-a7-Enq"/>
                     <constraint firstItem="qSF-mw-V75" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="bYQ-8U-OGu"/>
                     <constraint firstItem="qSF-mw-V75" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="cFB-4e-dSA"/>
@@ -208,6 +216,7 @@
                 <outlet property="imgHomeOwner" destination="2DL-zK-Kuw" id="dyV-eg-n8y"/>
                 <outlet property="lblCellNameVal" destination="MK4-PR-aJY" id="pgM-A5-66L"/>
                 <outlet property="lblPubulishTimeVal" destination="rzO-DD-WYu" id="l9g-3J-ama"/>
+                <outlet property="lblTips" destination="dsn-18-X5j" id="EIH-kH-4Oo"/>
                 <outlet property="lblUpdateTimeVal" destination="IVd-tE-ODS" id="VaS-e3-Wef"/>
             </connections>
             <point key="canvasLocation" x="282" y="373.5"/>

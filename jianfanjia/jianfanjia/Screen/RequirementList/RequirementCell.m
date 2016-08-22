@@ -27,6 +27,7 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
 @property (weak, nonatomic) IBOutlet UIButton *btnGoProcess;
 @property (weak, nonatomic) IBOutlet UICollectionView *imgCollection;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *flowLayout;
+@property (weak, nonatomic) IBOutlet UILabel *lblTips;
 
 @property (weak, nonatomic) RACDisposable *btnGoProcessPreDisposable;
 
@@ -106,7 +107,11 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
     
     NSString *status = requirement.status;
     [StatusBlock matchReqt:status actions:
-     @[[ReqtPlanWasChoosed action:^{
+     @[[ReqtUnorderDesigner action:^{
+            self.lblTips.hidden = NO;
+        }],
+       [ReqtPlanWasChoosed action:^{
+            self.lblTips.hidden = YES;
             if ([RequirementBusiness isDesignRequirement:self.requirement.work_type]) {
                 [self updateGoProcessPre:@"查看方案" titleColor:kThemeColor];
                 [self gotoShowViewPlan];
@@ -116,15 +121,19 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
             }
         }],
        [ReqtConfiguredAgreement action:^{
+            self.lblTips.hidden = YES;
             [self showGotoWorksite:YES];
         }],
        [ReqtConfiguredWorkSite action:^{
+            self.lblTips.hidden = YES;
             [self showGotoWorksite:YES];
         }],
        [ReqtFinishedWorkSite action:^{
+            self.lblTips.hidden = YES;
             [self showGotoWorksite:YES];
         }],
        [ElseStatus action:^{
+            self.lblTips.hidden = YES;
             [self showGotoWorksite:NO];
             [self updateGoProcessPre:@"预览工地" titleColor:kThemeTextColor];
             [self gotoShowPreviewWorksite];
