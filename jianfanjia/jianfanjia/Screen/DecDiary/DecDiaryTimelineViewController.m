@@ -136,8 +136,9 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     
     [API searchDiary:request success:^{
         [self.tableView.header endRefreshing];
+        self.dataManager.data = [DataManager shared].data;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSInteger count = [self.dataManager loadLatest];
+            NSInteger count = [self.dataManager loadLatest:self.dataManager.data];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (request.limit.integerValue > count) {
                     [self.tableView.footer endRefreshingWithNoMoreData];
@@ -168,8 +169,9 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     request.diaryids = allKeys;
     
     [API getDiaryUpdation:request success:^{
+        self.dataManager.data = [DataManager shared].data;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [self.dataManager updateChangedDiarys:dict];
+            [self.dataManager updateChangedDiarys:dict data:self.dataManager.data];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
             });
@@ -187,8 +189,9 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
     [API searchDiary:request success:^{
         [self.tableView.header endRefreshing];
         [self.tableView.footer endRefreshing];
+        self.dataManager.data = [DataManager shared].data;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSInteger count = [self.dataManager loadOld];
+            NSInteger count = [self.dataManager loadOld:self.dataManager.data];
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (request.limit.integerValue > count) {
                     [self.tableView.footer endRefreshingWithNoMoreData];
@@ -261,6 +264,7 @@ static NSString *TopDiarySetsCellIdentifier = @"TopDiarySetsCell";
 }
 
 - (void)handleRestartRefresh {
+    self.dataManager.data = nil;
     [self.dataManager.diarys removeAllObjects];
     [self.tableView reloadData];
     [self.tableView.header beginRefreshing];

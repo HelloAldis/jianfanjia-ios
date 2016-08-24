@@ -26,8 +26,8 @@
     return self;
 }
 
-- (NSInteger)loadLatest {
-    NSArray* arr = [[DataManager shared].data objectForKey:@"diaries"];
+- (NSInteger)loadLatest:(id)data {
+    NSArray* arr = [data objectForKey:@"diaries"];
     NSMutableArray *diarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
@@ -48,8 +48,8 @@
     return diarys.count;
 }
 
-- (NSInteger)loadOld {
-    NSArray* arr = [[DataManager shared].data objectForKey:@"diaries"];
+- (NSInteger)loadOld:(id)data {
+    NSArray* arr = [data objectForKey:@"diaries"];
     NSMutableArray *diarys = [[NSMutableArray alloc] initWithCapacity:arr.count];
     
     for (NSMutableDictionary *dict in arr) {
@@ -136,8 +136,8 @@
     return dict;
 }
 
-- (void)updateChangedDiarys:(NSMutableDictionary<NSString *, Diary *> *)toBeUpdateDict {
-    NSArray* arr = [DataManager shared].data;
+- (void)updateChangedDiarys:(NSMutableDictionary<NSString *, Diary *> *)toBeUpdateDict data:(id)data {
+    NSArray* arr = data;
     for (NSMutableDictionary *dict in arr) {
         Diary *diary = [[Diary alloc] initWith:dict];
         if (dict && diary._id.length > 0) {
