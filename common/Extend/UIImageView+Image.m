@@ -61,8 +61,8 @@
 }
 
 - (void)setUserImageWithId:(NSString *)imageid placeholder:(UIImage *)placeholder {
-    [self setImageWithId:imageid withWidth:60 height:0 placeholder:placeholder options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:^UIImage *(UIImage *image, NSURL *url) {
-        return [image imageByRoundCornerRadius:image.size.height / 2.0 backgroundColor:[UIColor whiteColor]];
+    [self setImageWithId:imageid withWidth:60 height:60 placeholder:placeholder options:(JYZWebImageOptions)JYZWebImageOptionProgressive progress:nil transform:^UIImage *(UIImage *image, NSURL *url) {
+        return [image imageByRoundCornerRadius:30 backgroundColor:[UIColor whiteColor]];
     } completed:nil];
 }
 

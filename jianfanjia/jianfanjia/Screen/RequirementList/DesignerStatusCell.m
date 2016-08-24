@@ -11,8 +11,6 @@
 
 @interface DesignerStatusCell ()
 
-@property (weak, nonatomic) IBOutlet UIView *tagView;
-@property (weak, nonatomic) IBOutlet UILabel *lblTag;
 @property (weak, nonatomic) IBOutlet UIImageView *imgHanging;
 @property (weak, nonatomic) IBOutlet UIImageView *designerAvatar;
 @property (weak, nonatomic) IBOutlet UIImageView *authIcon;
@@ -28,8 +26,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.designerAvatar setCornerRadius:self.designerAvatar.bounds.size.width / 2];
-    [self.tagView setCornerRadius:self.tagView.bounds.size.height / 2];
+    [self.designerAvatar setCornerRadius:self.designerAvatar.bounds.size.height / 2.0];
     
     UIGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapDesignerAvatar:)];
     [self addGestureRecognizer:gesture];
@@ -41,10 +38,9 @@
     
     BOOL isJiangXin = [DesignerBusiness containsJiangXinDingZhiTag:self.designer.tags];
     [self.designerAvatar setBorder:isJiangXin ? 1 : 0 andColor:kThemeColor.CGColor];
-    [self.designerAvatar setImageWithId:self.designer.imageid withWidth:self.designerAvatar.bounds.size.width];
+    [self.designerAvatar setUserImageWithId:self.designer.imageid];
     self.imgHanging.hidden = !isJiangXin;
     self.designerName.text = self.designer ? self.designer.username : (isJiangXin ? @"匠心定制设计师" : @"设计师");
-    self.lblTag.text = [DesignerBusiness designerTagTextByArr:self.designer.tags];
     [DesignerBusiness setV:self.authIcon withAuthType:self.designer.auth_type];
     
     //更新设计师状态

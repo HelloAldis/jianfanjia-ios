@@ -42,7 +42,6 @@ static NSString *DesignerStatusCellIdentifier = @"DesignerStatusCell";
 
 - (void)awakeFromNib {
     self.clipsToBounds = YES;
-    [self.imgHomeOwner setCornerRadius:self.imgHomeOwner.bounds.size.width / 2];
     self.dataManager = [[RequirementDataManager alloc] init];
     [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapHeaderView:)]];
     

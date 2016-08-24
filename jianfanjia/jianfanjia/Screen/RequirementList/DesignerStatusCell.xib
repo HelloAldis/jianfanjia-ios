@@ -25,25 +25,6 @@
                                     <constraint firstAttribute="height" constant="60" id="H23-9V-TfL"/>
                                 </constraints>
                             </imageView>
-                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="753" translatesAutoresizingMaskIntoConstraints="NO" id="K0B-di-GB8" userLabel="TagView">
-                                <rect key="frame" x="71" y="8" width="66" height="20"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="匠心定制" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-uA-4Mz">
-                                        <rect key="frame" x="7" y="2" width="52" height="16"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.99607843139999996" green="0.43921568630000002" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="5ke-uA-4Mz" firstAttribute="centerX" secondItem="K0B-di-GB8" secondAttribute="centerX" id="7h0-qa-j60"/>
-                                    <constraint firstAttribute="height" constant="20" id="LNq-S5-hUp"/>
-                                    <constraint firstItem="5ke-uA-4Mz" firstAttribute="centerY" secondItem="K0B-di-GB8" secondAttribute="centerY" id="at9-yn-wBX"/>
-                                    <constraint firstItem="5ke-uA-4Mz" firstAttribute="leading" secondItem="K0B-di-GB8" secondAttribute="leading" constant="7" id="fd6-IS-RCE"/>
-                                    <constraint firstAttribute="width" constant="66" id="jPe-ge-rR3"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="设计师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3T-TN-uJw">
                                 <rect key="frame" x="1" y="88" width="139" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -71,8 +52,6 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="K0B-di-GB8" firstAttribute="top" secondItem="SPU-Nd-O38" secondAttribute="top" constant="-5" id="9yk-SH-kJo"/>
-                            <constraint firstItem="K0B-di-GB8" firstAttribute="leading" secondItem="SPU-Nd-O38" secondAttribute="trailing" constant="-30" id="Hgf-i9-ZC5"/>
                             <constraint firstItem="C3T-TN-uJw" firstAttribute="leading" secondItem="U1q-mN-r14" secondAttribute="leading" constant="1" id="JZb-Jw-HZ6"/>
                             <constraint firstItem="Dgq-Di-JxX" firstAttribute="top" secondItem="SPU-Nd-O38" secondAttribute="top" constant="-7" id="QRQ-V1-YOR"/>
                             <constraint firstItem="D74-6v-0se" firstAttribute="trailing" secondItem="SPU-Nd-O38" secondAttribute="trailing" id="Uaj-cS-eKY"/>
@@ -102,8 +81,6 @@
                 <outlet property="designerName" destination="C3T-TN-uJw" id="aKQ-In-UbY"/>
                 <outlet property="designerStatus" destination="wUK-cb-KEX" id="bMd-jg-DbL"/>
                 <outlet property="imgHanging" destination="Dgq-Di-JxX" id="dXK-Iq-BsA"/>
-                <outlet property="lblTag" destination="5ke-uA-4Mz" id="xkH-Dt-lnn"/>
-                <outlet property="tagView" destination="K0B-di-GB8" id="8YD-UO-do4"/>
             </connections>
             <point key="canvasLocation" x="185.5" y="478.5"/>
         </collectionViewCell>
