@@ -645,9 +645,4 @@ typedef NS_ENUM(NSInteger, PkgShowingType) {
     self.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
-#pragma mark - notification
-- (void)broadcastRequirementCreateNotification {
-    [[NSNotificationCenter defaultCenter] postNotificationName:kRequirementCreateNotification object:nil];
-}
-
 @end
